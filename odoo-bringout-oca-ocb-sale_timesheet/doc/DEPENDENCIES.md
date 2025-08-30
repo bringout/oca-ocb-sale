@@ -2,5 +2,5 @@
 
 This addon depends on:
 
-- [sale_project](../../../../odoo-bringout-oca-ocb-sale_project)
-- [hr_timesheet](../../../../../oca-ocb-hr/odoo-bringout-oca-ocb-hr_timesheet)
+- [sale_project](https://github.com/bringout/oca-ocb-sale)
+- [hr_timesheet](https://github.com/bringout/oca-ocb-hr)

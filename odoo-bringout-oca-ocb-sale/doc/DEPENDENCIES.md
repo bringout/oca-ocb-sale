@@ -2,6 +2,6 @@
 
 This addon depends on:
 
-- [sales_team](../../../../odoo-bringout-oca-ocb-sales_team)
-- [account_payment](../../../../../oca-ocb-accounting/odoo-bringout-oca-ocb-account_payment)
-- [utm](../../../../../oca-ocb-core/odoo-bringout-oca-ocb-utm)
+- [sales_team](https://github.com/bringout/oca-ocb-sale)
+- [account_payment](https://github.com/bringout/oca-ocb-accounting)
+- [utm](https://github.com/bringout/oca-ocb-core)

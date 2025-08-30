@@ -2,6 +2,6 @@
 
 This addon depends on:
 
-- [website_sale](../../../../odoo-bringout-oca-ocb-website_sale)
-- [delivery](../../../../../oca-ocb-warehouse/odoo-bringout-oca-ocb-delivery)
-- [website_sale_stock](../../../../odoo-bringout-oca-ocb-website_sale_stock)
+- [website_sale](https://github.com/bringout/oca-ocb-sale)
+- [delivery](https://github.com/bringout/oca-ocb-warehouse)
+- [website_sale_stock](https://github.com/bringout/oca-ocb-sale)

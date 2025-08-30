@@ -2,5 +2,5 @@
 
 This addon depends on:
 
-- [sale_management](../../../../odoo-bringout-oca-ocb-sale_management)
-- [project](../../../../../oca-ocb-project/odoo-bringout-oca-ocb-project)
+- [sale_management](https://github.com/bringout/oca-ocb-sale)
+- [project](https://github.com/bringout/oca-ocb-project)

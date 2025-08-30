@@ -2,7 +2,7 @@
 
 This addon depends on:
 
-- [stock_account](../../../../../oca-ocb-accounting/odoo-bringout-oca-ocb-stock_account)
-- [barcodes](../../../../../oca-ocb-technical/odoo-bringout-oca-ocb-barcodes)
-- [web_editor](../../../../../oca-ocb-web/odoo-bringout-oca-ocb-web_editor)
-- [digest](../../../../../oca-ocb-core/odoo-bringout-oca-ocb-digest)
+- [stock_account](https://github.com/bringout/oca-ocb-accounting)
+- [barcodes](https://github.com/bringout/oca-ocb-technical)
+- [web_editor](https://github.com/bringout/oca-ocb-web)
+- [digest](https://github.com/bringout/oca-ocb-core)

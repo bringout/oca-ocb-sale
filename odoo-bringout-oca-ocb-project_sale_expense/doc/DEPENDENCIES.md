@@ -2,6 +2,6 @@
 
 This addon depends on:
 
-- [sale_project](../../../../odoo-bringout-oca-ocb-sale_project)
-- [sale_expense](../../../../odoo-bringout-oca-ocb-sale_expense)
-- [project_hr_expense](../../../../../oca-ocb-project/odoo-bringout-oca-ocb-project_hr_expense)
+- [sale_project](https://github.com/bringout/oca-ocb-sale)
+- [sale_expense](https://github.com/bringout/oca-ocb-sale)
+- [project_hr_expense](https://github.com/bringout/oca-ocb-project)

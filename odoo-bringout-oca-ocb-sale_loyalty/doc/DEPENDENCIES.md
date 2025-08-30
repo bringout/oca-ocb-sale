@@ -2,5 +2,5 @@
 
 This addon depends on:
 
-- [sale](../../../../odoo-bringout-oca-ocb-sale)
-- [loyalty](../../../../../oca-ocb-core/odoo-bringout-oca-ocb-loyalty)
+- [sale](https://github.com/bringout/oca-ocb-sale)
+- [loyalty](https://github.com/bringout/oca-ocb-core)

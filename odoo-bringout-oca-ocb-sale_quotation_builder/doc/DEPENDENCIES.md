@@ -2,6 +2,6 @@
 
 This addon depends on:
 
-- [website](../../../../../oca-ocb-website/odoo-bringout-oca-ocb-website)
-- [sale_management](../../../../odoo-bringout-oca-ocb-sale_management)
-- [website_mail](../../../../../oca-ocb-website/odoo-bringout-oca-ocb-website_mail)
+- [website](https://github.com/bringout/oca-ocb-website)
+- [sale_management](https://github.com/bringout/oca-ocb-sale)
+- [website_mail](https://github.com/bringout/oca-ocb-website)

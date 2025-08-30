@@ -2,5 +2,5 @@
 
 This addon depends on:
 
-- [pos_sale](../../../../odoo-bringout-oca-ocb-pos_sale)
-- [sale_margin](../../../../odoo-bringout-oca-ocb-sale_margin)
+- [pos_sale](https://github.com/bringout/oca-ocb-sale)
+- [sale_margin](https://github.com/bringout/oca-ocb-sale)

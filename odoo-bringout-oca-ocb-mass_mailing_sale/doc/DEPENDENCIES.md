@@ -2,5 +2,5 @@
 
 This addon depends on:
 
-- [sale](../../../../odoo-bringout-oca-ocb-sale)
-- [mass_mailing](../../../../../oca-ocb-mail/odoo-bringout-oca-ocb-mass_mailing)
+- [sale](https://github.com/bringout/oca-ocb-sale)
+- [mass_mailing](https://github.com/bringout/oca-ocb-mail)

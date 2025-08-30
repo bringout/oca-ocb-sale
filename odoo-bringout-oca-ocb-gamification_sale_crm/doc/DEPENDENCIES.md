@@ -2,5 +2,5 @@
 
 This addon depends on:
 
-- [gamification](../../../../../oca-ocb-vertical-industry/odoo-bringout-oca-ocb-gamification)
-- [sale_crm](../../../../odoo-bringout-oca-ocb-sale_crm)
+- [gamification](https://github.com/bringout/oca-ocb-vertical-industry)
+- [sale_crm](https://github.com/bringout/oca-ocb-sale)

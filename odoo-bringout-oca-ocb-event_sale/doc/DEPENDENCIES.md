@@ -2,5 +2,5 @@
 
 This addon depends on:
 
-- [event](../../../../../oca-ocb-core/odoo-bringout-oca-ocb-event)
-- [sale_management](../../../../odoo-bringout-oca-ocb-sale_management)
+- [event](https://github.com/bringout/oca-ocb-core)
+- [sale_management](https://github.com/bringout/oca-ocb-sale)

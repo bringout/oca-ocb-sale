@@ -2,5 +2,5 @@
 
 This addon depends on:
 
-- [pos_sale](../../../../odoo-bringout-oca-ocb-pos_sale)
-- [pos_loyalty](../../../../../oca-ocb-pos/odoo-bringout-oca-ocb-pos_loyalty)
+- [pos_sale](https://github.com/bringout/oca-ocb-sale)
+- [pos_loyalty](https://github.com/bringout/oca-ocb-pos)
