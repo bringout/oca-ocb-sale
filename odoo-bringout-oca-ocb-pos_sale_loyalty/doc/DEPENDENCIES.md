@@ -2,5 +2,5 @@
 
 This addon depends on:
 
-- [pos_sale](https://github.com/bringout/oca-ocb-sale/tree/5d9b47ce90463a1c61e6fb80db86d42fb811e501/odoo-bringout-oca-ocb-pos_sale)
-- [pos_loyalty](https://github.com/bringout/oca-ocb-pos/tree/2b77197682cf9de4bb1e5d713ad5a0e56cd6db2a/odoo-bringout-oca-ocb-pos_loyalty)
+- [pos_sale](https://github.com/bringout/oca-ocb-sale/tree/180760d29eed276994d9dc061dc7089d5bfe0014/odoo-bringout-oca-ocb-pos_sale)
+- [pos_loyalty](https://github.com/bringout/oca-ocb-pos/tree/06f69b118dfe20df553c8041175f04b9d2c54c71/odoo-bringout-oca-ocb-pos_loyalty)
