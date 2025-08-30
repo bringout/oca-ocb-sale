@@ -2,5 +2,5 @@
 
 This addon depends on:
 
-- [sale](https://github.com/bringout/oca-ocb-sale/tree/9c47621e05c4317db98aaea61473df9add3d66b6/odoo-bringout-oca-ocb-sale)
-- [mass_mailing](https://github.com/bringout/oca-ocb-mail/tree/4ece4b53301be495feccc3ec0a5f37b61ab120db/odoo-bringout-oca-ocb-mass_mailing)
+- [sale](https://github.com/bringout/oca-ocb-sale/tree/3e269fa48ad4d81d3305977a3a962b1dc0f75ef3/odoo-bringout-oca-ocb-sale)
+- [mass_mailing](https://github.com/bringout/oca-ocb-mail/tree/23498205c67330c50a91031576e33fdf36f2beac/odoo-bringout-oca-ocb-mass_mailing)
