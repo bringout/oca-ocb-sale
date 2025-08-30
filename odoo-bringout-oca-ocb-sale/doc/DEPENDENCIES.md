@@ -2,6 +2,6 @@
 
 This addon depends on:
 
-- [sales_team](https://github.com/bringout/oca-ocb-sale/tree/3531a720906f8e17d5fa4dafe32471b2aada3721/odoo-bringout-oca-ocb-sales_team)
-- [account_payment](https://github.com/bringout/oca-ocb-accounting/tree/b1c998669b4208f15f21ea1c06eda9ff97b5e834/odoo-bringout-oca-ocb-account_payment)
-- [utm](https://github.com/bringout/oca-ocb-core/tree/11a704b400b8bf0763643e267bf123858a85c9e6/odoo-bringout-oca-ocb-utm)
+- [sales_team](https://github.com/bringout/oca-ocb-sale/tree/c17ba68cff0610f4dfb2f6dd7d61af76671084cf/odoo-bringout-oca-ocb-sales_team)
+- [account_payment](https://github.com/bringout/oca-ocb-accounting/tree/eb3c9b9e76fbb706c132f3bf6a9538d6d5a0b1a7/odoo-bringout-oca-ocb-account_payment)
+- [utm](https://github.com/bringout/oca-ocb-core/tree/b8a76bf74d4ef2767aa510ddf3515d4c8c9b941d/odoo-bringout-oca-ocb-utm)
