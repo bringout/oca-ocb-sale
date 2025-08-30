@@ -2,5 +2,5 @@
 
 This addon depends on:
 
-- [sale_expense](https://github.com/bringout/oca-ocb-sale/tree/d85ae419535f3bb204d666806d83849c7cf0b3b0/odoo-bringout-oca-ocb-sale_expense)
-- [spreadsheet_dashboard_hr_expense](https://github.com/bringout/oca-ocb-report/tree/52bdaf491fe5ff2231e54561e06408613ef849ac/odoo-bringout-oca-ocb-spreadsheet_dashboard_hr_expense)
+- [sale_expense](https://github.com/bringout/oca-ocb-sale/tree/de00eb97dbc73b96112477e8671cd8ab774267d5/odoo-bringout-oca-ocb-sale_expense)
+- [spreadsheet_dashboard_hr_expense](https://github.com/bringout/oca-ocb-report/tree/825440323b65bbc0a17802f139b1293269a8e0af/odoo-bringout-oca-ocb-spreadsheet_dashboard_hr_expense)
