@@ -3,5 +3,5 @@
 This addon depends on:
 
 - base
-- [mail](../../odoo-bringout-oca-ocb-mail)
-- [uom](../../odoo-bringout-oca-ocb-uom)
+- [mail](../../../../../oca-ocb-core/odoo-bringout-oca-ocb-mail)
+- [uom](../../../../../oca-ocb-core/odoo-bringout-oca-ocb-uom)

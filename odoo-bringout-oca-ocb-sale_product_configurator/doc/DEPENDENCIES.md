@@ -2,4 +2,4 @@
 
 This addon depends on:
 
-- [sale](../../odoo-bringout-oca-ocb-sale)
+- [sale](../../../../odoo-bringout-oca-ocb-sale)
