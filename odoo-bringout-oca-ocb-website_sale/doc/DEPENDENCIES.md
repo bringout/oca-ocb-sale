@@ -2,9 +2,9 @@
 
 This addon depends on:
 
-- [website](https://github.com/bringout/oca-ocb-website)
-- [sale](https://github.com/bringout/oca-ocb-sale)
-- [website_payment](https://github.com/bringout/oca-ocb-website)
-- [website_mail](https://github.com/bringout/oca-ocb-website)
-- [portal_rating](https://github.com/bringout/oca-ocb-website)
-- [digest](https://github.com/bringout/oca-ocb-core)
+- [website](https://github.com/bringout/oca-ocb-website/tree/0c65a6ede633c07618d188acfeda4f91a033e24f/odoo-bringout-oca-ocb-website)
+- [sale](https://github.com/bringout/oca-ocb-sale/tree/681dc8d5fff638cb0862a34e48091a2098d091f8/odoo-bringout-oca-ocb-sale)
+- [website_payment](https://github.com/bringout/oca-ocb-website/tree/0c65a6ede633c07618d188acfeda4f91a033e24f/odoo-bringout-oca-ocb-website_payment)
+- [website_mail](https://github.com/bringout/oca-ocb-website/tree/0c65a6ede633c07618d188acfeda4f91a033e24f/odoo-bringout-oca-ocb-website_mail)
+- [portal_rating](https://github.com/bringout/oca-ocb-website/tree/0c65a6ede633c07618d188acfeda4f91a033e24f/odoo-bringout-oca-ocb-portal_rating)
+- [digest](https://github.com/bringout/oca-ocb-core/tree/b3e6fb998e53b9eb1bc9669d992017616c2bd7b3/odoo-bringout-oca-ocb-digest)
