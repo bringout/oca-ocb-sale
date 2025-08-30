@@ -2,7 +2,7 @@
 
 This addon depends on:
 
-- [stock_account](https://github.com/bringout/oca-ocb-accounting/tree/73715ff0fc7df4a3277aebac4dbb68118fc80fe4/odoo-bringout-oca-ocb-stock_account)
-- [barcodes](https://github.com/bringout/oca-ocb-technical/tree/823c95bfc5f4d48617544ec3cb80ffb889f07f55/odoo-bringout-oca-ocb-barcodes)
-- [web_editor](https://github.com/bringout/oca-ocb-web/tree/00b33fd1c7f7e1b4e9a1b64f63b15a8e29c442ab/odoo-bringout-oca-ocb-web_editor)
-- [digest](https://github.com/bringout/oca-ocb-core/tree/e9ca19c0c154b94934ea86258814c560c4e016f4/odoo-bringout-oca-ocb-digest)
+- [stock_account](https://github.com/bringout/oca-ocb-accounting/tree/b1c998669b4208f15f21ea1c06eda9ff97b5e834/odoo-bringout-oca-ocb-stock_account)
+- [barcodes](https://github.com/bringout/oca-ocb-technical/tree/f67f0f1f77e860a61a0c3d3eccbc049dbedb9347/odoo-bringout-oca-ocb-barcodes)
+- [web_editor](https://github.com/bringout/oca-ocb-web/tree/967ae7fd382b1d15fdc43078fe9bb82bd057b3e4/odoo-bringout-oca-ocb-web_editor)
+- [digest](https://github.com/bringout/oca-ocb-core/tree/11a704b400b8bf0763643e267bf123858a85c9e6/odoo-bringout-oca-ocb-digest)

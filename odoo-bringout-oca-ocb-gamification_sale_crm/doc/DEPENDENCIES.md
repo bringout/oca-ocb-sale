@@ -2,5 +2,5 @@
 
 This addon depends on:
 
-- [gamification](https://github.com/bringout/oca-ocb-vertical-industry/tree/ceb28cbd494cf78988dff69778c4e3c938a40f59/odoo-bringout-oca-ocb-gamification)
-- [sale_crm](https://github.com/bringout/oca-ocb-sale/tree/b79cef0fc454482466e93989011360a14a738822/odoo-bringout-oca-ocb-sale_crm)
+- [gamification](https://github.com/bringout/oca-ocb-vertical-industry/tree/b20a71aa887f097f835c1d9682be635a67653ad9/odoo-bringout-oca-ocb-gamification)
+- [sale_crm](https://github.com/bringout/oca-ocb-sale/tree/3531a720906f8e17d5fa4dafe32471b2aada3721/odoo-bringout-oca-ocb-sale_crm)
