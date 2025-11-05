@@ -15,30 +15,35 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+# taken from hr.po
 #. module: mass_mailing_sale
 #. odoo-python
-#: code:addons/mass_mailing_sale/models/mailing_mailing.py:0
+#: code:addons/mass_mailing_sale/models/mailing_mailing.py
 #, python-format
 msgid "INVOICED"
 msgstr "Mail track govornici"
 
+# taken from hr.po
 #. module: mass_mailing_sale
 #: model_terms:ir.ui.view,arch_db:mass_mailing_sale.mailing_mailing_view_form
 msgid "Invoiced"
 msgstr "Fakturisano"
 
+# taken from hr.po
 #. module: mass_mailing_sale
 #: model:ir.model.fields,field_description:mass_mailing_sale.field_mailing_mailing__sale_invoiced_amount
 msgid "Invoiced Amount"
 msgstr "Fakturirani iznos"
 
+# taken from hr.po
 #. module: mass_mailing_sale
 #. odoo-python
-#: code:addons/mass_mailing_sale/models/mailing_mailing.py:0
+#: code:addons/mass_mailing_sale/models/mailing_mailing.py
 #, python-format
 msgid "Invoices Analysis"
 msgstr "Analiza računa"
 
+# taken from hr.po
 #. module: mass_mailing_sale
 #: model:ir.model,name:mass_mailing_sale.model_mailing_mailing
 msgid "Mass Mailing"
@@ -46,45 +51,50 @@ msgstr "Masovno slanje pošte"
 
 #. module: mass_mailing_sale
 #. odoo-python
-#: code:addons/mass_mailing_sale/models/mailing_mailing.py:0
+#: code:addons/mass_mailing_sale/models/mailing_mailing.py
 #, python-format
 msgid "No Quotations yet!"
 msgstr "Još nema ponuda!"
 
 #. module: mass_mailing_sale
 #. odoo-python
-#: code:addons/mass_mailing_sale/models/mailing_mailing.py:0
+#: code:addons/mass_mailing_sale/models/mailing_mailing.py
 #, python-format
 msgid "No Revenues yet!"
 msgstr "Još nema prihoda!"
 
+# taken from hr.po
 #. module: mass_mailing_sale
 #. odoo-python
-#: code:addons/mass_mailing_sale/models/mailing_mailing.py:0
+#: code:addons/mass_mailing_sale/models/mailing_mailing.py
 #, python-format
 msgid "QUOTATIONS"
 msgstr "PONUDE"
 
+# taken from hr.po
 #. module: mass_mailing_sale
 #: model:ir.model.fields,field_description:mass_mailing_sale.field_mailing_mailing__sale_quotation_count
 msgid "Quotation Count"
 msgstr "Broj ponuda"
 
+# taken from hr.po
 #. module: mass_mailing_sale
 #: model:ir.model.fields.selection,name:mass_mailing_sale.selection__utm_campaign__ab_testing_winner_selection__sale_quotation_count
-#: model_terms:ir.ui.view,arch_db:mass_mailing_sale.mailing_mailing_view_form
 msgid "Quotations"
 msgstr "Predračuni"
 
 #. module: mass_mailing_sale
 #. odoo-python
-#: code:addons/mass_mailing_sale/models/mailing_mailing.py:0
+#: code:addons/mass_mailing_sale/models/mailing_mailing.py
 #, python-format
 msgid ""
 "Quotations will appear here once your customers add products to their Carts "
 "or when your sales reps assign this mailing."
 msgstr ""
+"Ponude će se pojaviti ovdje nakon što vaši kupci dodaju proizvode u svoje "
+"košarice ili kada vaši prodajni predstavnici dodijele ovu pošiljku."
 
+# taken from hr.po
 #. module: mass_mailing_sale
 #: model:ir.model.fields.selection,name:mass_mailing_sale.selection__utm_campaign__ab_testing_winner_selection__sale_invoiced_amount
 msgid "Revenues"
@@ -92,18 +102,21 @@ msgstr "Prihodi"
 
 #. module: mass_mailing_sale
 #. odoo-python
-#: code:addons/mass_mailing_sale/models/mailing_mailing.py:0
+#: code:addons/mass_mailing_sale/models/mailing_mailing.py
 #, python-format
 msgid "Revenues will appear here once orders are turned into invoices."
-msgstr "Prihodi će se pojaviti ovdje nakon što se narudžbe pretvore u fakture."
+msgstr ""
+"Prihodi će se pojaviti ovdje nakon što se narudžbe pretvore u fakture."
 
+# taken from hr.po
 #. module: mass_mailing_sale
 #. odoo-python
-#: code:addons/mass_mailing_sale/models/mailing_mailing.py:0
+#: code:addons/mass_mailing_sale/models/mailing_mailing.py
 #, python-format
 msgid "Sales Analysis"
 msgstr "Analiza prodaje"
 
+# taken from hr.po
 #. module: mass_mailing_sale
 #: model:ir.model,name:mass_mailing_sale.model_sale_order
 msgid "Sales Order"
@@ -114,6 +127,7 @@ msgstr "Prodajni nalog"
 msgid "Selection to determine the winner mailing that will be sent."
 msgstr "Odabir za određivanje pobjedničke pošiljke koja će biti poslana."
 
+# taken from hr.po
 #. module: mass_mailing_sale
 #: model:ir.model,name:mass_mailing_sale.model_utm_campaign
 msgid "UTM Campaign"

@@ -22,6 +22,9 @@ msgid ""
 "                                        this content will appear on the quotation only if this\n"
 "                                        product is put on the quote."
 msgstr ""
+":\n"
+"                                        ovaj sadržaj će se pojaviti na ponudi samo ako je ovaj\n"
+"                                        proizvod stavljen na ponudu."
 
 #. module: sale_quotation_builder
 #: model_terms:ir.ui.view,arch_db:sale_quotation_builder.so_template
@@ -30,6 +33,9 @@ msgid ""
 "                                        this content will appear on the quotation only if this\n"
 "                                        product is used in the quote."
 msgstr ""
+":\n"
+"                                        ovaj sadržaj će se pojaviti na ponudi samo ako je ovaj\n"
+"                                        proizvod korišten u ponudi."
 
 #. module: sale_quotation_builder
 #: model_terms:ir.ui.view,arch_db:sale_quotation_builder.sale_order_portal_content_inherit_sale_quotation_builder
@@ -38,6 +44,9 @@ msgid ""
 "                        the content below will disappear if this\n"
 "                        product is removed from the quote."
 msgstr ""
+":\n"
+"                        sadržaj dolje će nestati ako se ovaj\n"
+"                        proizvod ukloni s ponude."
 
 #. module: sale_quotation_builder
 #: model_terms:ir.ui.view,arch_db:sale_quotation_builder.so_template
@@ -46,7 +55,11 @@ msgid ""
 "                                    will appear on all quotations using this\n"
 "                                    template."
 msgstr ""
+"<strong>Zaglavlje predloška:</strong> ovaj sadržaj\n"
+"                                    će se pojaviti na svim ponudama koje koriste ovaj\n"
+"                                    predložak."
 
+# taken from hr.po
 #. module: sale_quotation_builder
 #: model_terms:sale.order.template,website_description:sale_quotation_builder.sale_order_template_default
 msgid "About us"
@@ -64,12 +77,17 @@ msgid ""
 "                                we know that success is all about the\n"
 "                                commitment we put on strong services."
 msgstr ""
+"Kao vodeća firma za profesionalne usluge,\n"
+"                                znamo da je uspjeh sve o\n"
+"                                predanosti koju stavljamo na snažne usluge."
 
+# taken from hr.po
 #. module: sale_quotation_builder
 #: model_terms:ir.ui.view,arch_db:sale_quotation_builder.sale_order_portal_content_inherit_sale_quotation_builder
 msgid "Close"
 msgstr "Zatvori"
 
+# taken from hr.po
 #. module: sale_quotation_builder
 #: model:ir.model,name:sale_quotation_builder.model_res_company
 msgid "Companies"
@@ -89,6 +107,11 @@ msgid ""
 "                                your references, your methodology or\n"
 "                                guarantees, your team, SLA, terms and conditions, etc."
 msgstr ""
+"Veliki predlošci ponuda značajno će\n"
+"                                <strong>poboljšati vašu stopu uspjeha</strong>. Prvi\n"
+"                                odjeljak obično govori o vašoj kompaniji,\n"
+"                                vašim referencama, metodologiji ili\n"
+"                                garancijama, vašem timu, SLA, uvjetima i uvjetima itd."
 
 #. module: sale_quotation_builder
 #: model_terms:sale.order.template,website_description:sale_quotation_builder.sale_order_template_default
@@ -98,37 +121,47 @@ msgid ""
 "                        template (from the Configuration menu), all future quotations will\n"
 "                        use this modified template."
 msgstr ""
+"Ako uredite ponudu iz 'Pregleda' ponude, ažurirat ćete\n"
+"                        samo tu ponudu. Ako uredite predložak ponude\n"
+"                        (iz menija konfiguracije), sve buduće ponude će\n"
+"                        koristiti ovaj modificirani predložak."
 
 #. module: sale_quotation_builder
 #: model_terms:ir.ui.view,arch_db:sale_quotation_builder.brand_promotion
 msgid "Open Source CRM"
 msgstr "Open Source CRM"
 
+# taken from hr.po
 #. module: sale_quotation_builder
 #: model_terms:ir.ui.view,arch_db:sale_quotation_builder.so_template
 msgid "Optional Product:"
 msgstr "Mogući proizvod"
 
+# taken from hr.po
 #. module: sale_quotation_builder
 #: model_terms:sale.order.template,website_description:sale_quotation_builder.sale_order_template_default
 msgid "Our Offer"
 msgstr "Naša ponuda"
 
+# taken from hr.po
 #. module: sale_quotation_builder
 #: model_terms:sale.order.template,website_description:sale_quotation_builder.sale_order_template_default
 msgid "Our Quality"
 msgstr "Uredi template"
 
+# taken from hr.po
 #. module: sale_quotation_builder
 #: model_terms:sale.order.template,website_description:sale_quotation_builder.sale_order_template_default
 msgid "Our Service"
 msgstr "Naša usluga"
 
+# taken from hr.po
 #. module: sale_quotation_builder
 #: model_terms:sale.order.template,website_description:sale_quotation_builder.sale_order_template_default
 msgid "Price"
 msgstr "Cijena"
 
+# taken from hr.po
 #. module: sale_quotation_builder
 #: model:ir.model,name:sale_quotation_builder.model_product_template
 msgid "Product"
@@ -141,16 +174,19 @@ msgid ""
 "                                stand on; we build it with a relentless\n"
 "                                focus on fabric, performance and craftsmanship."
 msgstr ""
+"Kvaliteta proizvoda je temelj na\n"
+"                                kojem stojimo; gradimo je s nemilosrdnim\n"
+"                                fokusom na tkaninu, performanse i obrt."
 
+# taken from hr.po
 #. module: sale_quotation_builder
 #: model_terms:ir.ui.view,arch_db:sale_quotation_builder.sale_order_portal_content_inherit_sale_quotation_builder
-#: model_terms:ir.ui.view,arch_db:sale_quotation_builder.so_template
 msgid "Product:"
 msgstr "Proizvod:"
 
+# taken from hr.po
 #. module: sale_quotation_builder
 #: model:ir.model.fields,field_description:sale_quotation_builder.field_product_product__quotation_description
-#: model:ir.model.fields,field_description:sale_quotation_builder.field_product_template__quotation_description
 msgid "Quotation Description"
 msgstr "Opis ponude"
 
@@ -160,36 +196,43 @@ msgstr "Opis ponude"
 msgid "Quotation Only Description"
 msgstr "Quotation Only Description"
 
+# taken from hr.po
 #. module: sale_quotation_builder
 #: model:ir.model,name:sale_quotation_builder.model_sale_order_template
 msgid "Quotation Template"
 msgstr "Predložak ponude"
 
+# taken from hr.po
 #. module: sale_quotation_builder
 #: model:ir.model,name:sale_quotation_builder.model_sale_order_template_line
 msgid "Quotation Template Line"
 msgstr "Stavke predloška ponude"
 
+# taken from hr.po
 #. module: sale_quotation_builder
 #: model:ir.model,name:sale_quotation_builder.model_sale_order_template_option
 msgid "Quotation Template Option"
 msgstr "Opcije predloška ponude"
 
+# taken from hr.po
 #. module: sale_quotation_builder
 #: model:ir.model,name:sale_quotation_builder.model_sale_order_option
 msgid "Sale Options"
 msgstr "Opcija prodaje"
 
+# taken from hr.po
 #. module: sale_quotation_builder
 #: model:ir.model,name:sale_quotation_builder.model_sale_order
 msgid "Sales Order"
 msgstr "Prodajni nalog"
 
+# taken from hr.po
 #. module: sale_quotation_builder
 #: model:ir.model,name:sale_quotation_builder.model_sale_order_line
 msgid "Sales Order Line"
 msgstr "Stavka prodajne narudžbe"
 
+# taken from hr.po
 #. module: sale_quotation_builder
 #: model_terms:ir.ui.view,arch_db:sale_quotation_builder.so_template
 msgid "Terms &amp; Conditions"
@@ -203,11 +246,12 @@ msgstr "The quotation description (not used on eCommerce)"
 
 #. module: sale_quotation_builder
 #: model:ir.model.fields,help:sale_quotation_builder.field_product_product__quotation_description
-#: model:ir.model.fields,help:sale_quotation_builder.field_product_template__quotation_description
 msgid ""
 "This field uses the Quotation Only Description if it is defined, otherwise "
 "it will try to read the eCommerce Description."
 msgstr ""
+"Ovo polje koristi opis samo za ponudu ako je definisan, u suprotnom će "
+"pokušati pročitati opis za e-trgovinu."
 
 #. module: sale_quotation_builder
 #: model_terms:sale.order.template,website_description:sale_quotation_builder.sale_order_template_default
@@ -217,6 +261,10 @@ msgid ""
 "                                application, using the menu: Configuration /\n"
 "                                Quotation Templates."
 msgstr ""
+"Ovo je <strong>uzorak predloška ponude</strong>. Trebali biste\n"
+"                                ga prilagoditi prema vašim potrebama iz aplikacije <i>Prodaja</i>,\n"
+"                                koristeći meni: Konfiguracija /\n"
+"                                Predlošci ponuda."
 
 #. module: sale_quotation_builder
 #: model_terms:ir.ui.view,arch_db:sale_quotation_builder.so_template
@@ -230,6 +278,9 @@ msgid ""
 "                                    <i>Heading 3</i> will be used to generate the\n"
 "                                    table of content automatically."
 msgstr ""
+"Titles with style <i>Naslov 2</i> and\n"
+"                                    <i>Heading 3</i> will be used to generate the\n"
+"                                    table of content automatically."
 
 #. module: sale_quotation_builder
 #: model_terms:sale.order.template,website_description:sale_quotation_builder.sale_order_template_default
@@ -238,15 +289,13 @@ msgid ""
 "                                set at a fair price so that you will be\n"
 "                                happy to buy them."
 msgstr ""
+"Uvijek osiguravamo da su naši proizvodi\n"
+"                                postavljeni po fer cijeni tako da ćete\n"
+"                                rado ih kupovati."
 
+# taken from hr.po
 #. module: sale_quotation_builder
 #: model:ir.model.fields,field_description:sale_quotation_builder.field_sale_order__website_description
-#: model:ir.model.fields,field_description:sale_quotation_builder.field_sale_order_line__website_description
-#: model:ir.model.fields,field_description:sale_quotation_builder.field_sale_order_option__website_description
-#: model:ir.model.fields,field_description:sale_quotation_builder.field_sale_order_template__website_description
-#: model:ir.model.fields,field_description:sale_quotation_builder.field_sale_order_template_line__website_description
-#: model:ir.model.fields,field_description:sale_quotation_builder.field_sale_order_template_option__website_description
-#: model_terms:ir.ui.view,arch_db:sale_quotation_builder.sale_order_template_view_form_inherit_sale_quotation_builder
 msgid "Website Description"
 msgstr "Opis web stranice"
 
@@ -259,3 +308,8 @@ msgid ""
 "                        on the left is generated automatically using the styles you\n"
 "                        used in your description (heading 1, heading 2, ...)"
 msgstr ""
+"Možete <strong>postaviti opis po proizvodu</strong>. Odoo će\n"
+"                        automatski kreirati ponudu koristeći opise\n"
+"                        svih proizvoda u prijedlogu. Sadržaj\n"
+"                        s lijeve strane se generiše automatski koristeći stilove koje\n"
+"                        ste koristili u vašem opisu (naslov 1, naslov 2, ...)"

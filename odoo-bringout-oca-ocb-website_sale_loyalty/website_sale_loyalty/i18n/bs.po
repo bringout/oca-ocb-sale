@@ -15,20 +15,23 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #. odoo-python
-#: code:addons/website_sale_loyalty/wizard/sale_coupon_share.py:0
+#: code:addons/website_sale_loyalty/wizard/sale_coupon_share.py
 #, python-format
 msgid "A coupon is needed for coupon programs."
 msgstr "Kupon je potreban za kuponske programe."
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #. odoo-python
-#: code:addons/website_sale_loyalty/models/loyalty_rule.py:0
+#: code:addons/website_sale_loyalty/models/loyalty_rule.py
 #, python-format
 msgid "A coupon with the same code was found."
 msgstr "Pronađen je kupon s istim kodom."
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.loyalty_program_view_form_inherit_website_sale_loyalty
 msgid "All websites"
@@ -41,26 +44,32 @@ msgstr "Dostupno na web stranici"
 
 #. module: website_sale_loyalty
 #. odoo-python
-#: code:addons/website_sale_loyalty/controllers/main.py:0
+#: code:addons/website_sale_loyalty/controllers/main.py
 #, python-format
 msgid "Cannot process payment: applied reward was changed or has expired."
-msgstr "Ne mogu obraditi plaćanje: primijenjena nagrada je promijenjena ili je istekla."
+msgstr ""
+"Ne mogu obraditi plaćanje: primijenjena nagrada je promijenjena ili je "
+"istekla."
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.modify_code_form
 msgid "Claim"
 msgstr "Zahtjev"
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.modify_code_form
 msgid "Costs"
 msgstr "Troškovi"
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.layout
 msgid "Could not apply the promo code:"
 msgstr "Nije moguće primijeniti promotivni kôd:"
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model:ir.model.fields,field_description:website_sale_loyalty.field_coupon_share__coupon_id
 msgid "Coupon"
@@ -69,13 +78,17 @@ msgstr "Kupon"
 #. module: website_sale_loyalty
 #: model:ir.model,name:website_sale_loyalty.model_coupon_share
 msgid "Create links that apply a coupon and redirect to a specific page"
-msgstr "Kreirajte linkove koji primjenjuju kupon i preusmjeravaju na specifičnu stranicu"
+msgstr ""
+"Kreirajte linkove koji primjenjuju kupon i preusmjeravaju na specifičnu "
+"stranicu"
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model:ir.model.fields,field_description:website_sale_loyalty.field_coupon_share__create_uid
 msgid "Created by"
 msgstr "Kreirao"
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model:ir.model.fields,field_description:website_sale_loyalty.field_coupon_share__create_date
 msgid "Created on"
@@ -86,31 +99,37 @@ msgstr "Kreirano"
 msgid "Disabled Auto Rewards"
 msgstr "Onemogućene automatske nagrade"
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model:ir.ui.menu,name:website_sale_loyalty.menu_discount_loyalty_type_config
 msgid "Discount & Loyalty"
 msgstr "Kuponi i Vjernost"
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.reduction_coupon_code
 msgid "Discount code or gift card"
 msgstr "Kod za popust ili darovna kartica."
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.cart_discount
 msgid "Discount:"
 msgstr "Popust:"
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.cart_discount
 msgid "Discounted amount"
 msgstr "Iznos s popustom"
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model:ir.model.fields,field_description:website_sale_loyalty.field_coupon_share__display_name
 msgid "Display Name"
 msgstr "Naziv"
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.coupon_share_view_form
 msgid "Done"
@@ -121,11 +140,13 @@ msgstr "Riješeno"
 msgid "Generate Short Link"
 msgstr "Generiraj kratki link"
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.sale_coupon_result
 msgid "Gift card or discount code..."
 msgstr "Darovna kartica ili kod za popust"
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model:ir.ui.menu,name:website_sale_loyalty.menu_gift_ewallet_type_config
 msgid "Gift cards & eWallet"
@@ -136,21 +157,25 @@ msgstr "Poklon bon & eNovčanik"
 msgid "ID"
 msgstr "ID"
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.modify_code_form
 msgid "Invalid or expired promo code."
 msgstr "Nevažeći ili istekao promotivni kôd."
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model:ir.model.fields,field_description:website_sale_loyalty.field_coupon_share____last_update
 msgid "Last Modified on"
 msgstr "Zadnja promjena"
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model:ir.model.fields,field_description:website_sale_loyalty.field_coupon_share__write_uid
 msgid "Last Updated by"
 msgstr "Promijenio"
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model:ir.model.fields,field_description:website_sale_loyalty.field_coupon_share__write_date
 msgid "Last Updated on"
@@ -166,16 +191,19 @@ msgstr "Lojalnost"
 msgid "Loyalty Coupon"
 msgstr "Kupon lojalnosti"
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model:ir.model,name:website_sale_loyalty.model_loyalty_program
 msgid "Loyalty Program"
 msgstr "Program lojalnosti"
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.res_config_settings_view_form_inherit_website_sale_loyalty
 msgid "Loyalty Programs"
 msgstr "Programi odanosti"
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model:ir.model,name:website_sale_loyalty.model_loyalty_rule
 msgid "Loyalty Rule"
@@ -196,98 +224,105 @@ msgstr "Program"
 msgid "Program Website"
 msgstr "Web stranica programa"
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model:ir.model.fields,field_description:website_sale_loyalty.field_coupon_share__promo_code
 msgid "Promo Code"
 msgstr "Promo kod"
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #. odoo-python
-#: code:addons/website_sale_loyalty/wizard/sale_coupon_share.py:0
+#: code:addons/website_sale_loyalty/wizard/sale_coupon_share.py
 #, python-format
 msgid "Provide either a coupon or a program."
 msgstr "Navedite ili kupon ili program."
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model:ir.model.fields,field_description:website_sale_loyalty.field_coupon_share__redirect
 msgid "Redirect"
 msgstr "Preusmjeri"
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model:ir.model.fields,help:website_sale_loyalty.field_coupon_share__program_website_id
-#: model:ir.model.fields,help:website_sale_loyalty.field_loyalty_program__website_id
-#: model:ir.model.fields,help:website_sale_loyalty.field_loyalty_rule__website_id
 msgid "Restrict publishing to this website."
 msgstr "Ograniči objavljivanje na ovu web stranicu."
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model:ir.model,name:website_sale_loyalty.model_sale_order
 msgid "Sales Order"
 msgstr "Prodajni nalog"
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model:ir.model,name:website_sale_loyalty.model_sale_order_line
 msgid "Sales Order Line"
 msgstr "Stavka prodajnog naloga"
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #. odoo-python
-#: code:addons/website_sale_loyalty/wizard/sale_coupon_share.py:0
-#: code:addons/website_sale_loyalty/wizard/sale_coupon_share.py:0
-#: model_terms:ir.ui.view,arch_db:website_sale_loyalty.loyalty_card_view_tree_inherit_website_sale_loyalty
-#: model_terms:ir.ui.view,arch_db:website_sale_loyalty.loyalty_program_view_tree_inherit_website_sale_loyalty
+#: code:addons/website_sale_loyalty/wizard/sale_coupon_share.py
 #, python-format
 msgid "Share"
 msgstr "Podjeli"
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model:ir.model.fields,field_description:website_sale_loyalty.field_coupon_share__share_link
 msgid "Share Link"
 msgstr "Podijeli link"
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.coupon_share_view_form
 msgid "Share Loyalty Card"
 msgstr "Podijelite karticu vjernosti"
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.snippet_options
 msgid "Show Discount in Subtotal"
 msgstr "Prikaži popust u međuzbroju"
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #. odoo-python
-#: code:addons/website_sale_loyalty/controllers/main.py:0
+#: code:addons/website_sale_loyalty/controllers/main.py
 #, python-format
 msgid ""
 "The coupon will be automatically applied when you add something in your "
 "cart."
 msgstr ""
+"Kupon će se automatski primijeniti kada nešto dodate u svoju košaricu."
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.layout
 msgid "The following promo code was applied on your order:"
 msgstr "Sljedeći promotivni kod je primijenjen na vašu narudžbu:"
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #. odoo-python
-#: code:addons/website_sale_loyalty/models/loyalty_rule.py:0
+#: code:addons/website_sale_loyalty/models/loyalty_rule.py
 #, python-format
 msgid "The promo code must be unique."
 msgstr "Promo kod mora biti jedinstven."
 
 #. module: website_sale_loyalty
 #. odoo-python
-#: code:addons/website_sale_loyalty/wizard/sale_coupon_share.py:0
+#: code:addons/website_sale_loyalty/wizard/sale_coupon_share.py
 #, python-format
 msgid "The shared website should correspond to the website of the program."
 msgstr "Dijeljanja web stranica treba da odgovara web stranici programa."
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model:ir.model.fields,field_description:website_sale_loyalty.field_coupon_share__website_id
-#: model:ir.model.fields,field_description:website_sale_loyalty.field_loyalty_program__website_id
-#: model:ir.model.fields,field_description:website_sale_loyalty.field_loyalty_rule__website_id
-#: model_terms:ir.ui.view,arch_db:website_sale_loyalty.loyalty_program_view_form_inherit_website_sale_loyalty
 msgid "Website"
 msgstr "Web stranica"
 
@@ -297,12 +332,16 @@ msgid ""
 "You can share this promotion with your customers.\n"
 "                            It will be applied at checkout when the customer uses this link."
 msgstr ""
+"Možete podijeliti ovu promociju sa vašim kupcima.\n"
+"                            Bit će primijenjena pri završetku kupovine kada kupac koristi ovaj link."
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.modify_code_form
 msgid "You have"
 msgstr "Imaš"
 
+# taken from hr.po
 #. module: website_sale_loyalty
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.modify_code_form
 msgid "You have successfully applied the following code:"

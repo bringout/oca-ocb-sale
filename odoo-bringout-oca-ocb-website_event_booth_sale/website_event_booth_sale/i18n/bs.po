@@ -20,26 +20,31 @@ msgstr ""
 msgid "<span class=\"fw-bold\">Total</span>"
 msgstr "<span class=\"fw-bold\">Ukupno</span>"
 
+# taken from hr.po
 #. module: website_event_booth_sale
 #: model_terms:ir.ui.view,arch_db:website_event_booth_sale.event_booth_registration
 msgid "Free"
 msgstr "Slobodan"
 
+# taken from hr.po
 #. module: website_event_booth_sale
 #: model:ir.model,name:website_event_booth_sale.model_product_template
 msgid "Product"
 msgstr "Proizvod"
 
+# taken from hr.po
 #. module: website_event_booth_sale
 #: model:ir.model,name:website_event_booth_sale.model_product_product
 msgid "Product Variant"
 msgstr "Varijanta proizvoda"
 
+# taken from hr.po
 #. module: website_event_booth_sale
 #: model:ir.model,name:website_event_booth_sale.model_sale_order
 msgid "Sales Order"
 msgstr "Prodajni nalog"
 
+# taken from hr.po
 #. module: website_event_booth_sale
 #: model:ir.model,name:website_event_booth_sale.model_website
 msgid "Website"
@@ -47,7 +52,7 @@ msgstr "Web stranica"
 
 #. module: website_event_booth_sale
 #. odoo-python
-#: code:addons/website_event_booth_sale/models/sale_order.py:0
+#: code:addons/website_event_booth_sale/models/sale_order.py
 #, python-format
 msgid "You cannot manually change the quantity of an Event Booth product."
 msgstr "You cannot manually change the quantity of an događaj štand product."

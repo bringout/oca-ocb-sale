@@ -15,29 +15,34 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+# taken from hr.po
 #. module: product_matrix
 #: model:product.attribute.value,name:product_matrix.product_attribute_value_color_1
 msgid "Blue"
 msgstr "Plava"
 
+# taken from hr.po
 #. module: product_matrix
 #: model:product.attribute,name:product_matrix.product_attribute_gender
 msgid "Gender"
 msgstr "Spol"
 
+# taken from hr.po
 #. module: product_matrix
 #: model:product.attribute.value,name:product_matrix.product_attribute_value_m
 msgid "Men"
 msgstr "Muški"
 
+# taken from hr.po
 #. module: product_matrix
 #: model:product.template,name:product_matrix.matrix_product_template_shirt
 msgid "My Company Tshirt (GRID)"
 msgstr "Majca moje tvrtke (mreža)"
 
+# taken from hr.po
 #. module: product_matrix
 #. odoo-javascript
-#: code:addons/product_matrix/static/src/xml/product_matrix.xml:0
+#: code:addons/product_matrix/static/src/xml/product_matrix.xml
 #, python-format
 msgid "Not available"
 msgstr "Nije dostupno"
@@ -47,31 +52,37 @@ msgstr "Nije dostupno"
 msgid "Pink"
 msgstr "Pink"
 
+# taken from hr.po
 #. module: product_matrix
 #: model:ir.model,name:product_matrix.model_product_template
 msgid "Product"
 msgstr "Proizvod"
 
+# taken from hr.po
 #. module: product_matrix
 #: model:ir.model,name:product_matrix.model_product_template_attribute_value
 msgid "Product Template Attribute Value"
 msgstr "Vrijednost atributa predloška proizvoda"
 
+# taken from hr.po
 #. module: product_matrix
 #: model:product.attribute.value,name:product_matrix.product_attribute_value_color_4
 msgid "Rainbow"
 msgstr "Duga"
 
+# taken from hr.po
 #. module: product_matrix
 #: model:product.template,description_sale:product_matrix.matrix_product_template_shirt
 msgid "Show your company love around you =)."
 msgstr "Proširite ljubav svoje tvrtke oko sebe :)"
 
+# taken from hr.po
 #. module: product_matrix
 #: model:product.attribute,name:product_matrix.product_attribute_size
 msgid "Size"
 msgstr "Veličina"
 
+# taken from hr.po
 #. module: product_matrix
 #: model:product.attribute.value,name:product_matrix.product_attribute_value_w
 msgid "Women"
@@ -87,6 +98,7 @@ msgstr "XL"
 msgid "XS"
 msgstr "XS"
 
+# taken from hr.po
 #. module: product_matrix
 #: model:product.attribute.value,name:product_matrix.product_attribute_value_color_3
 msgid "Yellow"

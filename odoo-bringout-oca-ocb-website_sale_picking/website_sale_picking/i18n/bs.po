@@ -21,12 +21,15 @@ msgid ""
 "<i>Your order has been saved.</i> Please come to the store to pay for your "
 "products"
 msgstr ""
+"<i>Vaša narudžba je snimljena.</i> Molimo dođite u trgovinu da platite vaše "
+"proizvode"
 
 #. module: website_sale_picking
 #: model_terms:ir.ui.view,arch_db:website_sale_picking.payment_confirmation_status
 msgid "<span class=\"text-muted\"> (On site picking)</span>"
 msgstr "<span class=\"text-muted\"> (Preuzimanje na licu mjesta)</span>"
 
+# taken from hr.po
 #. module: website_sale_picking
 #: model:ir.model,name:website_sale_picking.model_res_config_settings
 msgid "Config Settings"
@@ -44,16 +47,18 @@ msgstr "Prilagodi mjesta preuzimanja"
 
 #. module: website_sale_picking
 #. odoo-javascript
-#: code:addons/website_sale_picking/static/src/js/checkout_form.js:0
+#: code:addons/website_sale_picking/static/src/js/checkout_form.js
 #, python-format
 msgid ""
 "If you believe that it is an error, please contact the website "
 "administrator."
 msgstr ""
+"Ako vjerujete da je to greška, molimo kontaktirajte administratora web "
+"stranice."
 
 #. module: website_sale_picking
 #. odoo-javascript
-#: code:addons/website_sale_picking/static/src/js/checkout_form.js:0
+#: code:addons/website_sale_picking/static/src/js/checkout_form.js
 #, python-format
 msgid "No suitable payment option could be found."
 msgstr "Nijedna pogodna opcija plaćanja nije mogla biti pronađena."
@@ -70,10 +75,10 @@ msgstr "Prilagođeni način"
 
 #. module: website_sale_picking
 #: model:payment.provider,name:website_sale_picking.payment_provider_onsite
-#: model_terms:product.template,description:website_sale_picking.onsite_delivery_product_product_template
 msgid "Pay in store when picking the product"
 msgstr "Prilagođeni način"
 
+# taken from hr.po
 #. module: website_sale_picking
 #: model:ir.model,name:website_sale_picking.model_payment_provider
 msgid "Payment Provider"
@@ -81,8 +86,6 @@ msgstr "Pružatelj usluge naplate"
 
 #. module: website_sale_picking
 #: model:ir.model.fields,field_description:website_sale_picking.field_res_config_settings__picking_site_ids
-#: model:ir.model.fields,field_description:website_sale_picking.field_website__picking_site_ids
-#: model_terms:ir.ui.view,arch_db:website_sale_picking.res_config_settings_view_form
 msgid "Picking sites"
 msgstr "Prilagođeni način"
 
@@ -91,11 +94,13 @@ msgstr "Prilagođeni način"
 msgid "Pickup in store"
 msgstr "Pickup in store"
 
+# taken from hr.po
 #. module: website_sale_picking
 #: model:ir.model.fields,field_description:website_sale_picking.field_delivery_carrier__delivery_type
 msgid "Provider"
 msgstr "Davatelj"
 
+# taken from hr.po
 #. module: website_sale_picking
 #: model:ir.model,name:website_sale_picking.model_delivery_carrier
 msgid "Shipping Methods"
@@ -103,16 +108,18 @@ msgstr "Načini dostave"
 
 #. module: website_sale_picking
 #. odoo-python
-#: code:addons/website_sale_picking/models/delivery_carrier.py:0
+#: code:addons/website_sale_picking/models/delivery_carrier.py
 #, python-format
 msgid "The picking site and warehouse must share the same company"
 msgstr "Mjesto preuzimanja i skladište moraju dijeliti istu kompaniju"
 
+# taken from hr.po
 #. module: website_sale_picking
 #: model:ir.model.fields,field_description:website_sale_picking.field_delivery_carrier__warehouse_id
 msgid "Warehouse"
 msgstr "Skladište"
 
+# taken from hr.po
 #. module: website_sale_picking
 #: model:ir.model,name:website_sale_picking.model_website
 msgid "Website"
@@ -120,21 +127,24 @@ msgstr "Web stranica"
 
 #. module: website_sale_picking
 #. odoo-python
-#: code:addons/website_sale_picking/controllers/main.py:0
+#: code:addons/website_sale_picking/controllers/main.py
 #, python-format
 msgid "You cannot pay onsite if the delivery is not onsite"
 msgstr "Ne možete platiti na licu mjesta ako dostava nije na licu mjesta"
 
+# taken from hr.po
 #. module: website_sale_picking
 #: model_terms:payment.provider,auth_msg:website_sale_picking.payment_provider_onsite
 msgid "Your payment has been authorized."
 msgstr "Vaše plaćanje je odobreno."
 
+# taken from hr.po
 #. module: website_sale_picking
 #: model_terms:payment.provider,cancel_msg:website_sale_picking.payment_provider_onsite
 msgid "Your payment has been cancelled."
 msgstr "Vaše plaćanje je otkazano."
 
+# taken from hr.po
 #. module: website_sale_picking
 #: model_terms:payment.provider,done_msg:website_sale_picking.payment_provider_onsite
 msgid "Your payment has been successfully processed. Thank you!"

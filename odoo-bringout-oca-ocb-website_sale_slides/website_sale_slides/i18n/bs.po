@@ -15,28 +15,33 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+# taken from hr.po
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_option_buy_course_now
 msgid "<i class=\"fa fa-bolt\"/> Buy Now"
 msgstr "<i class=\"fa fa-bolt\"/> Kupi odmah"
 
+# taken from hr.po
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_buy_course_button
 msgid "<i class=\"fa fa-shopping-cart\"/> Add to Cart"
 msgstr "<i class=\"fa fa-shopping-cart\"/>Dodaj u košaricu"
 
+# taken from hr.po
 #. module: website_sale_slides
 #: model:ir.model.fields,help:website_sale_slides.field_product_product__detailed_type
-#: model:ir.model.fields,help:website_sale_slides.field_product_template__detailed_type
 msgid ""
 "A storable product is a product for which you manage stock. The Inventory app has to be installed.\n"
 "A consumable product is a product for which stock is not managed.\n"
 "A service is a non-material product you provide."
 msgstr ""
+"Skladišni proizvod je proizvod za koji vodite evidenciju zaliha. Aplikacija Inventar mora biti instalirana.\n"
+"Potrošni proizvod je proizvod za koji se zalihe ne prate.\n"
+"Usluga je nematerijalni proizvod koji pružate."
 
 #. module: website_sale_slides
 #. odoo-python
-#: code:addons/website_sale_slides/models/product_product.py:0
+#: code:addons/website_sale_slides/models/product_product.py
 #, python-format
 msgid "Access to:%s%s"
 msgstr "Access to:%s%s"
@@ -48,14 +53,14 @@ msgstr "Buy Now Button"
 
 #. module: website_sale_slides
 #. odoo-javascript
-#: code:addons/website_sale_slides/static/src/xml/website_sale_slides_quiz.xml:0
+#: code:addons/website_sale_slides/static/src/xml/website_sale_slides_quiz.xml
 #, python-format
 msgid "Buy the course to validate your answers!"
 msgstr "Buy the course to validate your odgovori!"
 
 #. module: website_sale_slides
 #. odoo-javascript
-#: code:addons/website_sale_slides/static/src/xml/slide_course_join.xml:0
+#: code:addons/website_sale_slides/static/src/xml/slide_course_join.xml
 #, python-format
 msgid "Buy this Course"
 msgstr "Buy this Course"
@@ -63,11 +68,12 @@ msgstr "Buy this Course"
 #. module: website_sale_slides
 #: model_terms:ir.actions.act_window,help:website_sale_slides.sale_report_action_slides
 msgid "Come back once your courses starts selling to report on your revenues."
-msgstr "Come nazad once your courses starts selling to izvještaj on your revenues."
+msgstr ""
+"Come nazad once your courses starts selling to izvještaj on your revenues."
 
+# taken from hr.po
 #. module: website_sale_slides
 #: model:ir.model,name:website_sale_slides.model_slide_channel
-#: model:ir.model.fields.selection,name:website_sale_slides.selection__product_template__detailed_type__course
 msgid "Course"
 msgstr "Tečaj"
 
@@ -86,11 +92,13 @@ msgstr "Course stranica"
 msgid "Course Unavailable"
 msgstr "Course Unavailable"
 
+# taken from hr.po
 #. module: website_sale_slides
 #: model:ir.model.fields,field_description:website_sale_slides.field_product_product__channel_ids
 msgid "Courses"
 msgstr "Tečajevi"
 
+# taken from hr.po
 #. module: website_sale_slides
 #: model:ir.model.fields,field_description:website_sale_slides.field_slide_channel__currency_id
 msgid "Currency"
@@ -108,7 +116,6 @@ msgstr "Definiše način kako se ljudi mogu prijaviti na vaš kurs."
 
 #. module: website_sale_slides
 #: model:ir.model.fields,field_description:website_sale_slides.field_slide_channel__enroll
-#: model_terms:ir.ui.view,arch_db:website_sale_slides.slide_channel_view_form_add_inherit_sale_slides
 msgid "Enroll Policy"
 msgstr "Enroll Policy"
 
@@ -124,12 +131,13 @@ msgstr "Pridružite se ovom tečaju"
 
 #. module: website_sale_slides
 #. odoo-javascript
-#: code:addons/website_sale_slides/static/src/xml/website_slides_unsubscribe.xml:0
+#: code:addons/website_sale_slides/static/src/xml/website_slides_unsubscribe.xml
 #, python-format
 msgid ""
 "Leaving the course and re-enrolling afterwards means that you'll be charged "
 "again."
 msgstr ""
+"Ako napustite kurs i ponovo se upišete kasnije, bićete ponovo naplaćeni."
 
 #. module: website_sale_slides
 #: model_terms:ir.actions.act_window,help:website_sale_slides.sale_report_action_slides
@@ -146,23 +154,25 @@ msgstr "On payment"
 msgid "Once your order is paid &amp; confirmed, you will gain access to:"
 msgstr "Once your order is paid &amp; confirmed, you will gain access to:"
 
+# taken from hr.po
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_slides_list_slide
 msgid "Preview"
 msgstr "Pregled"
 
+# taken from hr.po
 #. module: website_sale_slides
 #: model:ir.model,name:website_sale_slides.model_product_template
-#: model:ir.model.fields,field_description:website_sale_slides.field_slide_channel__product_id
 msgid "Product"
 msgstr "Proizvod"
 
+# taken from hr.po
 #. module: website_sale_slides
 #: model:ir.model.fields,field_description:website_sale_slides.field_product_product__detailed_type
-#: model:ir.model.fields,field_description:website_sale_slides.field_product_template__detailed_type
 msgid "Product Type"
 msgstr "Tip artikla"
 
+# taken from hr.po
 #. module: website_sale_slides
 #: model:ir.model,name:website_sale_slides.model_product_product
 msgid "Product Variant"
@@ -173,32 +183,35 @@ msgstr "Varijanta proizvoda"
 msgid "Product is required for on payment channels."
 msgstr "Product is required for on payment channels."
 
+# taken from hr.po
 #. module: website_sale_slides
 #: model:ir.ui.menu,name:website_sale_slides.website_slides_menu_report_revenues
 msgid "Revenues"
 msgstr "Prihodi"
 
+# taken from hr.po
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.slide_channel_view_form
-#: model_terms:ir.ui.view,arch_db:website_sale_slides.slide_channel_view_kanban
 msgid "Sales"
 msgstr "Prodaja"
 
+# taken from hr.po
 #. module: website_sale_slides
 #: model:ir.model,name:website_sale_slides.model_sale_order
 msgid "Sales Order"
 msgstr "Prodajni nalog"
 
+# taken from hr.po
 #. module: website_sale_slides
 #. odoo-javascript
-#: code:addons/website_sale_slides/static/src/xml/slide_course_join.xml:0
+#: code:addons/website_sale_slides/static/src/xml/slide_course_join.xml
 #, python-format
 msgid "Sign in"
 msgstr "Prijava"
 
 #. module: website_sale_slides
 #. odoo-javascript
-#: code:addons/website_sale_slides/static/src/xml/website_sale_slides_quiz.xml:0
+#: code:addons/website_sale_slides/static/src/xml/website_sale_slides_quiz.xml
 #, python-format
 msgid "Sign in and buy the course to take the quiz"
 msgstr "Sign in and buy the course to take the quiz"
@@ -220,7 +233,7 @@ msgstr "This course cannot be bought because its linked product"
 
 #. module: website_sale_slides
 #. odoo-javascript
-#: code:addons/website_sale_slides/static/src/xml/website_slides_unsubscribe.xml:0
+#: code:addons/website_sale_slides/static/src/xml/website_slides_unsubscribe.xml
 #, python-format
 msgid "This course is paid."
 msgstr "This course is paid."
@@ -235,6 +248,7 @@ msgstr "ukupno Revenues"
 msgid "Total revenues"
 msgstr "ukupno revenues"
 
+# taken from hr.po
 #. module: website_sale_slides
 #: model:ir.model,name:website_sale_slides.model_website
 msgid "Website"
@@ -242,7 +256,7 @@ msgstr "Web stranica"
 
 #. module: website_sale_slides
 #. odoo-python
-#: code:addons/website_sale_slides/models/sale_order.py:0
+#: code:addons/website_sale_slides/models/sale_order.py
 #, python-format
 msgid "You can only add a course once in your cart."
 msgstr "You can only dodaj a course once in your cart."

@@ -17,14 +17,14 @@ msgstr ""
 
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/xml/OrderManagementScreen/SaleOrderRow.xml:0
+#: code:addons/pos_sale/static/src/xml/OrderManagementScreen/SaleOrderRow.xml
 #, python-format
 msgid "(left:"
 msgstr "(lijevo:"
 
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/xml/ProductScreen/Orderline.xml:0
+#: code:addons/pos_sale/static/src/xml/ProductScreen/Orderline.xml
 #, python-format
 msgid "(tax incl.)"
 msgstr "(porez uklj.)"
@@ -46,75 +46,84 @@ msgstr "<span style=\"margin: 0px 5px;\">:</span>"
 
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
+#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js
 #, python-format
 msgid "A new order has been created."
 msgstr "Nova narudžba je kreirana."
 
+# taken from hr.po
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
+#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js
 #, python-format
 msgid "Apply a down payment"
 msgstr "Kreiraj račun za kaparu"
 
+# taken from hr.po
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/xml/OrderManagementScreen/SaleOrderManagementControlPanel.xml:0
+#: code:addons/pos_sale/static/src/xml/OrderManagementScreen/SaleOrderManagementControlPanel.xml
 #, python-format
 msgid "Back"
 msgstr "Natrag"
 
+# taken from hr.po
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/xml/OrderManagementScreen/MobileSaleOrderManagementScreen.xml:0
+#: code:addons/pos_sale/static/src/xml/OrderManagementScreen/MobileSaleOrderManagementScreen.xml
 #, python-format
 msgid "Back to list"
 msgstr "Povratak na popis"
 
+# taken from hr.po
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderRow.js:0
+#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderRow.js
 #, python-format
 msgid "Cancelled"
 msgstr "Otkazan"
 
+# taken from hr.po
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/js/SetSaleOrderButton.js:0
+#: code:addons/pos_sale/static/src/js/SetSaleOrderButton.js
 #, python-format
 msgid "Cannot access order management screen if offline."
-msgstr "Nije moguće pristupiti zaslonu za upravljanje narudžbama ako ste izvan mreže."
+msgstr ""
+"Nije moguće pristupiti zaslonu za upravljanje narudžbama ako ste izvan "
+"mreže."
 
+# taken from hr.po
 #. module: pos_sale
 #: model:ir.model,name:pos_sale.model_res_config_settings
 msgid "Config Settings"
 msgstr "Postavke"
 
+# taken from hr.po
 #. module: pos_sale
 #: model:ir.model.fields,field_description:pos_sale.field_pos_order__currency_rate
 msgid "Currency Rate"
 msgstr "Kursna lista"
 
+# taken from hr.po
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/xml/OrderManagementScreen/SaleOrderList.xml:0
-#: code:addons/pos_sale/static/src/xml/OrderManagementScreen/SaleOrderRow.xml:0
+#: code:addons/pos_sale/static/src/xml/OrderManagementScreen/SaleOrderList.xml
 #, python-format
 msgid "Customer"
 msgstr "Kupac"
 
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
+#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js
 #, python-format
 msgid "Customer loading error"
 msgstr "Greška učitavanja kupca"
 
+# taken from hr.po
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/xml/OrderManagementScreen/SaleOrderList.xml:0
-#: code:addons/pos_sale/static/src/xml/OrderManagementScreen/SaleOrderRow.xml:0
+#: code:addons/pos_sale/static/src/xml/OrderManagementScreen/SaleOrderList.xml
 #, python-format
 msgid "Date"
 msgstr "Datum"
@@ -126,11 +135,12 @@ msgstr "Isporučeno iz"
 
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
+#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js
 #, python-format
 msgid "Do you want to load the SN/Lots linked to the Sales Order?"
 msgstr "Da li želite učitati SN/Lot-ove povezane sa prodajnom narudžbom?"
 
+# taken from hr.po
 #. module: pos_sale
 #: model:product.template,name:pos_sale.default_downpayment_product_product_template
 msgid "Down Payment (POS)"
@@ -141,34 +151,36 @@ msgstr "Predujam (POS)"
 msgid "Down Payment Details"
 msgstr "Detalji predujma"
 
+# taken from hr.po
 #. module: pos_sale
 #: model:ir.model.fields,field_description:pos_sale.field_pos_config__down_payment_product_id
-#: model:ir.model.fields,field_description:pos_sale.field_res_config_settings__pos_down_payment_product_id
 msgid "Down Payment Product"
 msgstr "POS grupiranje"
 
+# taken from hr.po
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/xml/OrderManagementScreen/SaleOrderManagementControlPanel.xml:0
+#: code:addons/pos_sale/static/src/xml/OrderManagementScreen/SaleOrderManagementControlPanel.xml
 #, python-format
 msgid "E.g. customer: Steward, date: 2020-05-09"
 msgstr "Npr. kupac: Steward, datum: 2020-05-09"
 
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
+#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js
 #, python-format
 msgid "Error amount too high"
 msgstr "Greška iznos previsok"
 
+# taken from hr.po
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/xml/ReceiptScreen/OrderReceipt.xml:0
-#: model_terms:ir.ui.view,arch_db:pos_sale.report_invoice_document
+#: code:addons/pos_sale/static/src/xml/ReceiptScreen/OrderReceipt.xml
 #, python-format
 msgid "From"
 msgstr "Od"
 
+# taken from hr.po
 #. module: pos_sale
 #: model:ir.model.fields.selection,name:pos_sale.selection__sale_report__state__invoiced
 msgid "Invoiced"
@@ -176,16 +188,18 @@ msgstr "Tip ovog kanala, definisaće resurse koje ovaj kanal koristi."
 
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
+#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js
 #, python-format
 msgid ""
 "It seems that you didn't configure a down payment product in your point of sale.\n"
 "                        You can go to your point of sale configuration to choose one."
 msgstr ""
+"Čini se da niste konfigurirali proizvod predujma u svojem prodajnom mjestu.\n"
+"                        Možete ići u konfiguraciju prodajnog mjesta da odaberete jedan."
 
 #. module: pos_sale
 #. odoo-python
-#: code:addons/pos_sale/models/sale_order.py:0
+#: code:addons/pos_sale/models/sale_order.py
 #, python-format
 msgid "Linked POS Orders"
 msgstr "Povezane narudžbe prodajnog mjesta"
@@ -197,50 +211,52 @@ msgstr "Povezana prodajna narudžba"
 
 #. module: pos_sale
 #. odoo-python
-#: code:addons/pos_sale/models/pos_order.py:0
+#: code:addons/pos_sale/models/pos_order.py
 #, python-format
 msgid "Linked Sale Orders"
 msgstr "Povezane prodajne narudžbe"
 
+# taken from hr.po
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderRow.js:0
+#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderRow.js
 #, python-format
 msgid "Locked"
 msgstr "Zaključano"
 
+# taken from hr.po
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderFetcher.js:0
-#: code:addons/pos_sale/static/src/js/SetSaleOrderButton.js:0
+#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderFetcher.js
 #, python-format
 msgid "Network Error"
 msgstr "Pogreška mreže"
 
+# taken from hr.po
 #. module: pos_sale
 #: model:ir.model.fields.selection,name:pos_sale.selection__sale_report__state__pos_draft
 msgid "New"
 msgstr "Novi"
 
+# taken from hr.po
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/xml/OrderManagementScreen/SaleOrderManagementControlPanel.xml:0
-#: code:addons/pos_sale/static/src/xml/OrderManagementScreen/SaleOrderManagementControlPanel.xml:0
+#: code:addons/pos_sale/static/src/xml/OrderManagementScreen/SaleOrderManagementControlPanel.xml
 #, python-format
 msgid "Next Order List"
 msgstr "Sljedeći popis narudžbi"
 
+# taken from hr.po
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
-#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
+#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js
 #, python-format
 msgid "No"
 msgstr "Ne"
 
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
+#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js
 #, python-format
 msgid "No down payment product"
 msgstr "Nema proizvoda predujma"
@@ -255,20 +271,20 @@ msgstr "Otvorene sesije prodajnog mjesta"
 msgid "Open Sessions"
 msgstr "Otvorene sesije"
 
+# taken from hr.po
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/xml/OrderManagementScreen/SaleOrderList.xml:0
-#: code:addons/pos_sale/static/src/xml/OrderManagementScreen/SaleOrderRow.xml:0
+#: code:addons/pos_sale/static/src/xml/OrderManagementScreen/SaleOrderList.xml
 #, python-format
 msgid "Order"
 msgstr "Narudžba"
 
 #. module: pos_sale
 #: model:ir.model.fields,field_description:pos_sale.field_sale_order__pos_order_line_ids
-#: model:ir.model.fields,field_description:pos_sale.field_sale_order_line__pos_order_line_ids
 msgid "Order lines Transfered to Point of Sale"
 msgstr "Linije narudžbi prenešene u prodajno mjesto"
 
+# taken from hr.po
 #. module: pos_sale
 #: model:ir.model.fields.selection,name:pos_sale.selection__sale_report__state__paid
 msgid "Paid"
@@ -276,130 +292,141 @@ msgstr "Plaćeno"
 
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
+#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js
 #, python-format
 msgid "Percentage of %s"
 msgstr "Procenat od %s"
 
+# taken from hr.po
 #. module: pos_sale
 #: model:ir.model,name:pos_sale.model_pos_config
 msgid "Point of Sale Configuration"
 msgstr "Postavke prodajnog mjesta"
 
+# taken from hr.po
 #. module: pos_sale
 #: model:ir.model,name:pos_sale.model_pos_order_line
 msgid "Point of Sale Order Lines"
 msgstr "Stavke narudžbe na prodajnom mjestu"
 
+# taken from hr.po
 #. module: pos_sale
 #: model:ir.model,name:pos_sale.model_pos_order
 msgid "Point of Sale Orders"
 msgstr "Narudžbe POS-a"
 
+# taken from hr.po
 #. module: pos_sale
 #: model:ir.model,name:pos_sale.model_pos_session
 msgid "Point of Sale Session"
 msgstr "Sesija POS-a"
 
+# taken from hr.po
 #. module: pos_sale
 #: model:ir.model.fields,field_description:pos_sale.field_crm_team__pos_config_ids
 msgid "Point of Sales"
 msgstr "Prodajna mjesta"
 
+# taken from hr.po
 #. module: pos_sale
 #: model:ir.model.fields,field_description:pos_sale.field_sale_order__pos_order_count
 msgid "Pos Order Count"
 msgstr "Pos broj narudžba"
 
+# taken from hr.po
 #. module: pos_sale
 #: model:ir.model.fields.selection,name:pos_sale.selection__sale_report__state__pos_done
 msgid "Posted"
 msgstr "Proknjižen"
 
+# taken from hr.po
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/xml/OrderManagementScreen/SaleOrderManagementControlPanel.xml:0
-#: code:addons/pos_sale/static/src/xml/OrderManagementScreen/SaleOrderManagementControlPanel.xml:0
+#: code:addons/pos_sale/static/src/xml/OrderManagementScreen/SaleOrderManagementControlPanel.xml
 #, python-format
 msgid "Previous Order List"
 msgstr "Stavke prethodne narudžbe"
 
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
+#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js
 #, python-format
 msgid "Products not available in POS"
 msgstr "Proizvodi nisu dostupni u prodajnom mjestu"
 
+# taken from hr.po
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderRow.js:0
+#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderRow.js
 #, python-format
 msgid "Quotation"
 msgstr "Ponuda"
 
+# taken from hr.po
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderRow.js:0
+#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderRow.js
 #, python-format
 msgid "Quotation Sent"
 msgstr "Ponuda poslana"
 
+# taken from hr.po
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/xml/SetSaleOrderButton.xml:0
+#: code:addons/pos_sale/static/src/xml/SetSaleOrderButton.xml
 #, python-format
 msgid "Quotation/Order"
 msgstr "Ponuda/Nalog"
 
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
+#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js
 #, python-format
 msgid "SN/Lots Loading"
 msgstr "Učitavanje SN/Lot-ova"
 
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/xml/ProductScreen/Orderline.xml:0
-#: code:addons/pos_sale/static/src/xml/ProductScreen/Orderline.xml:0
+#: code:addons/pos_sale/static/src/xml/ProductScreen/Orderline.xml
 #, python-format
 msgid "SO"
 msgstr "SO"
 
+# taken from hr.po
 #. module: pos_sale
 #: model:ir.model.fields,field_description:pos_sale.field_pos_order__sale_order_count
 msgid "Sale Order Count"
 msgstr "Broj ponuda"
 
+# taken from hr.po
 #. module: pos_sale
 #: model_terms:ir.ui.view,arch_db:pos_sale.res_config_settings_view_form
 msgid "Sales"
 msgstr "Prodaja"
 
+# taken from hr.po
 #. module: pos_sale
 #: model:ir.model,name:pos_sale.model_sale_report
 msgid "Sales Analysis Report"
 msgstr "Izvještaj analize prodaje"
 
+# taken from hr.po
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderRow.js:0
-#: model:ir.model,name:pos_sale.model_sale_order
+#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderRow.js
 #, python-format
 msgid "Sales Order"
 msgstr "Prodajna narudžba"
 
+# taken from hr.po
 #. module: pos_sale
 #: model:ir.model,name:pos_sale.model_sale_order_line
 msgid "Sales Order Line"
 msgstr "Stavka prodajnog naloga"
 
+# taken from hr.po
 #. module: pos_sale
 #: model:ir.model,name:pos_sale.model_crm_team
-#: model:ir.model.fields,field_description:pos_sale.field_pos_config__crm_team_id
-#: model:ir.model.fields,field_description:pos_sale.field_pos_order__crm_team_id
-#: model:ir.model.fields,field_description:pos_sale.field_pos_session__crm_team_id
 msgid "Sales Team"
 msgstr "Prodajni tim"
 
@@ -413,16 +440,18 @@ msgstr "Prodajni tim (prodajno mjesto)"
 msgid "Sales are reported to the following sales team"
 msgstr "Prodaje se prijavljivaju sljedećem prodajnom timu"
 
+# taken from hr.po
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/xml/OrderManagementScreen/SaleOrderRow.xml:0
+#: code:addons/pos_sale/static/src/xml/OrderManagementScreen/SaleOrderRow.xml
 #, python-format
 msgid "Salesman"
 msgstr "Prodavač"
 
+# taken from hr.po
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/xml/OrderManagementScreen/SaleOrderList.xml:0
+#: code:addons/pos_sale/static/src/xml/OrderManagementScreen/SaleOrderList.xml
 #, python-format
 msgid "Salesperson"
 msgstr "Prodavac"
@@ -444,37 +473,39 @@ msgstr "Sesije u toku"
 
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/xml/SetSaleOrderButton.xml:0
-#: code:addons/pos_sale/static/src/xml/SetSaleOrderButton.xml:0
+#: code:addons/pos_sale/static/src/xml/SetSaleOrderButton.xml
 #, python-format
 msgid "Set Sale Order"
 msgstr "Prodaja: Iznos bez poreza"
 
+# taken from hr.po
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
+#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js
 #, python-format
 msgid "Settle the order"
 msgstr "Obradi nalog"
 
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
+#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js
 #, python-format
 msgid ""
 "Some of the products in your Sale Order are not available in POS, do you "
 "want to import them?"
 msgstr ""
+"Neki proizvodi u vašoj prodajnoj narudžbi nisu dostupni u prodajnom mjestu, "
+"da li ih želite uvoziti?"
 
 #. module: pos_sale
 #: model:ir.model.fields,field_description:pos_sale.field_pos_order_line__sale_order_line_id
 msgid "Source Sale Order Line"
 msgstr "Tip tima"
 
+# taken from hr.po
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/xml/OrderManagementScreen/SaleOrderList.xml:0
-#: code:addons/pos_sale/static/src/xml/OrderManagementScreen/SaleOrderRow.xml:0
+#: code:addons/pos_sale/static/src/xml/OrderManagementScreen/SaleOrderList.xml
 #, python-format
 msgid "State"
 msgstr "Status"
@@ -489,26 +520,26 @@ msgstr "Status"
 msgid "The amount due from the sale order."
 msgstr "Kako će grafikon kontrolne table ovog kanala grupirati rezultate."
 
+# taken from hr.po
 #. module: pos_sale
 #: model:ir.model.fields,help:pos_sale.field_pos_order__currency_rate
 msgid ""
 "The rate of the currency to the currency of rate applicable at the date of "
 "the order"
-msgstr ""
+msgstr "Stopa valute prema valuti važećoj na datum narudžbe"
 
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
+#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js
 #, python-format
 msgid "There was a problem in loading the %s customer."
 msgstr "Nastao je problem prilikom učitavanja kupca %s."
 
 #. module: pos_sale
 #: model:ir.model.fields,help:pos_sale.field_pos_config__crm_team_id
-#: model:ir.model.fields,help:pos_sale.field_pos_session__crm_team_id
-#: model:ir.model.fields,help:pos_sale.field_res_config_settings__pos_crm_team_id
 msgid "This Point of sale's sales will be related to this Sales Team."
-msgstr "Prodaja ovog prodajnog mjesta će biti povezana sa ovim prodajnim timom."
+msgstr ""
+"Prodaja ovog prodajnog mjesta će biti povezana sa ovim prodajnim timom."
 
 #. module: pos_sale
 #: model_terms:ir.ui.view,arch_db:pos_sale.res_config_settings_view_form
@@ -517,18 +548,18 @@ msgstr "Ovaj proizvod će biti primijenjen kada se vrši predujam"
 
 #. module: pos_sale
 #: model:ir.model.fields,help:pos_sale.field_pos_config__down_payment_product_id
-#: model:ir.model.fields,help:pos_sale.field_res_config_settings__pos_down_payment_product_id
 msgid "This product will be used as down payment on a sale order."
 msgstr "Ovaj proizvod će biti korišćen kao predujam na prodajnoj narudžbi."
 
+# taken from hr.po
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/xml/OrderManagementScreen/SaleOrderList.xml:0
-#: code:addons/pos_sale/static/src/xml/OrderManagementScreen/SaleOrderRow.xml:0
+#: code:addons/pos_sale/static/src/xml/OrderManagementScreen/SaleOrderList.xml
 #, python-format
 msgid "Total"
 msgstr "Ukupno"
 
+# taken from hr.po
 #. module: pos_sale
 #: model:ir.model,name:pos_sale.model_stock_picking
 msgid "Transfer"
@@ -540,6 +571,8 @@ msgid ""
 "Transfered<br/>\n"
 "                                from Sale"
 msgstr ""
+"Prenešeno<br/>\n"
+"                                iz prodaje"
 
 #. module: pos_sale
 #: model_terms:ir.ui.view,arch_db:pos_sale.view_order_form_inherit_pos_sale
@@ -547,10 +580,13 @@ msgid ""
 "Transfered<br/>\n"
 "                                to POS"
 msgstr ""
+"Prenešeno<br/>\n"
+"                                u prodajno mjesto"
 
+# taken from hr.po
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderFetcher.js:0
+#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderFetcher.js
 #, python-format
 msgid "Unable to fetch orders if offline."
 msgstr "Nije moguće dohvatiti narudžbe ako ste izvan mreže."
@@ -560,26 +596,29 @@ msgstr "Nije moguće dohvatiti narudžbe ako ste izvan mreže."
 msgid "Unpaid Amount"
 msgstr "Neplaćeni iznos"
 
+# taken from hr.po
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
+#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js
 #, python-format
 msgid "What do you want to do?"
 msgstr "Što želite učiniti?"
 
+# taken from hr.po
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
-#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
+#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js
 #, python-format
 msgid "Yes"
 msgstr "Da"
 
 #. module: pos_sale
 #. odoo-javascript
-#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
+#: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js
 #, python-format
 msgid ""
 "You have tried to charge a down payment of %s but only %s remains to be "
 "paid, %s will be applied to the purchase order line."
 msgstr ""
+"Pokušali ste naplatiti predujam od %s ali samo %s ostaje za plaćanje, %s će "
+"biti primijenjeno na liniju narudžbe nabavke."

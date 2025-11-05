@@ -15,85 +15,107 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model_terms:ir.ui.view,arch_db:website_sale_wishlist.snippet_options
 msgid ""
 "<i class=\"fa fa-fw fa-heart\"/>\n"
 "            Wishlist"
 msgstr ""
+"<i class=\"fa fa-fw fa-heart\"/>\n"
+"Lista želja"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model_terms:ir.ui.view,arch_db:website_sale_wishlist.product_add_to_wishlist
 msgid ""
 "<i class=\"fa fa-heart-o me-2\" role=\"img\" aria-label=\"Add to "
 "wishlist\"/>Add to wishlist"
 msgstr ""
+"<i class=\"fa fa-heart-o me-2\" role=\"img\" aria-label=\"Dodaj na listu "
+"želja\"/>Dodaj na listu želja"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model_terms:ir.ui.view,arch_db:website_sale_wishlist.product_wishlist
 msgid "<small><i class=\"fa fa-trash-o\"/> Remove</small>"
 msgstr "<small><i class=\"fa fa-trash-o\"/> Ukloni</small>"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model_terms:ir.ui.view,arch_db:website_sale_wishlist.add_to_wishlist
 msgid "<span class=\"fa fa-heart\" role=\"img\" aria-label=\"Add to wishlist\"/>"
 msgstr "<span class=\"fa fa-heart\" role=\"img\" aria-label=\"Dodaj na listu želja\"/>"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model:ir.model.fields,field_description:website_sale_wishlist.field_product_wishlist__active
 msgid "Active"
 msgstr "Aktivan"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model_terms:ir.ui.view,arch_db:website_sale_wishlist.product_wishlist
 msgid "Add <span class=\"d-none d-md-inline\">to Cart</span>"
 msgstr "Dodaj <span class=\"d-none d-md-inline\">u košaricu</span>"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model_terms:ir.ui.view,arch_db:website_sale_wishlist.product_wishlist
 msgid "Add product to my cart but keep it in my wishlist"
 msgstr "Dodaj proizvod u moju košaricu, ali ga zadrži na listi želja"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model_terms:ir.ui.view,arch_db:website_sale_wishlist.add_to_wishlist
 msgid "Add to Wishlist"
 msgstr "Dodaj na listu želja"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model_terms:ir.ui.view,arch_db:website_sale_wishlist.product_add_to_wishlist
 msgid "Add to wishlist"
 msgstr "Dodaj na listu želja"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model:ir.model,name:website_sale_wishlist.model_res_partner
 msgid "Contact"
 msgstr "Kontakt"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model_terms:ir.ui.view,arch_db:website_sale_wishlist.product_wishlist
 msgid "Contact Us"
-msgstr "<i class=\"fa fa-heart\"/>\n                        Lista želja"
+msgstr ""
+"<i class=\"fa fa-heart\"/>\n"
+"                        Lista želja"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model:ir.model.fields,field_description:website_sale_wishlist.field_product_wishlist__create_uid
 msgid "Created by"
 msgstr "Kreirao"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model:ir.model.fields,field_description:website_sale_wishlist.field_product_wishlist__create_date
 msgid "Created on"
 msgstr "Kreirano"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model:ir.model.fields,field_description:website_sale_wishlist.field_product_wishlist__currency_id
 msgid "Currency"
 msgstr "Valuta"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model:ir.model.fields,field_description:website_sale_wishlist.field_product_wishlist__display_name
 msgid "Display Name"
 msgstr "Prikazani naziv"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model:ir.model.constraint,message:website_sale_wishlist.constraint_product_wishlist_product_unique_partner_id
 msgid "Duplicated wishlisted product for this partner."
@@ -104,96 +126,110 @@ msgstr "Duplicirani proizvod na listi želja za ovog partnera."
 msgid "ID"
 msgstr "ID"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model:ir.model.fields,field_description:website_sale_wishlist.field_product_wishlist____last_update
 msgid "Last Modified on"
 msgstr "Zadnje mijenjano"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model:ir.model.fields,field_description:website_sale_wishlist.field_product_wishlist__write_uid
 msgid "Last Updated by"
 msgstr "Zadnji ažurirao"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model:ir.model.fields,field_description:website_sale_wishlist.field_product_wishlist__write_date
 msgid "Last Updated on"
 msgstr "Zadnje ažurirano"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model_terms:ir.ui.view,arch_db:website_sale_wishlist.product_wishlist
 msgid "My Wishlist"
 msgstr "Moja lista želja"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model:ir.model.fields,field_description:website_sale_wishlist.field_product_wishlist__partner_id
 msgid "Owner"
 msgstr "Vlasnik"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model:ir.model.fields,field_description:website_sale_wishlist.field_product_wishlist__price
 msgid "Price"
 msgstr "Cijena"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model:ir.model.fields,help:website_sale_wishlist.field_product_wishlist__price
 msgid "Price of the product when it has been added in the wishlist"
 msgstr "Cijena proizvoda kada je dodan u listu želja"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model:ir.model.fields,field_description:website_sale_wishlist.field_product_wishlist__pricelist_id
 msgid "Pricelist"
 msgstr "Cijenovnik"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model:ir.model.fields,help:website_sale_wishlist.field_product_wishlist__pricelist_id
 msgid "Pricelist when added"
 msgstr "Cjenik kada se doda"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model:ir.model,name:website_sale_wishlist.model_product_template
-#: model:ir.model.fields,field_description:website_sale_wishlist.field_product_wishlist__product_id
 msgid "Product"
 msgstr "Proizvod"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model:ir.model,name:website_sale_wishlist.model_product_product
 msgid "Product Variant"
 msgstr "Varijanta proizvoda"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model:ir.model,name:website_sale_wishlist.model_product_wishlist
 msgid "Product Wishlist"
 msgstr "Lista želja proizvoda"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model_terms:ir.ui.view,arch_db:website_sale_wishlist.product_wishlist
 msgid "Product image"
 msgstr "Slika proizvoda"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model_terms:ir.ui.view,arch_db:website_sale_wishlist.product_wishlist
 msgid "Shop Wishlist"
 msgstr "Lista želja za kupnju"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model_terms:ir.ui.view,arch_db:website_sale_wishlist.snippet_options
 msgid "Show Empty Wishlist"
 msgstr "Prikaži praznu listu želja"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model:ir.model,name:website_sale_wishlist.model_res_users
 msgid "User"
 msgstr "Korisnik"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model:ir.model.fields,field_description:website_sale_wishlist.field_product_wishlist__website_id
 msgid "Website"
 msgstr "Web stranica"
 
+# taken from hr.po
 #. module: website_sale_wishlist
 #: model:ir.model.fields,field_description:website_sale_wishlist.field_res_partner__wishlist_ids
-#: model:ir.model.fields,field_description:website_sale_wishlist.field_res_users__wishlist_ids
-#: model_terms:ir.ui.view,arch_db:website_sale_wishlist.header_wishlist_link
-#: model_terms:ir.ui.view,arch_db:website_sale_wishlist.snippet_options
 msgid "Wishlist"
 msgstr "Lista želja"

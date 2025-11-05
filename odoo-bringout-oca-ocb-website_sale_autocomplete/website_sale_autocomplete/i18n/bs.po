@@ -21,6 +21,8 @@ msgid ""
 "<i class=\"fa fa-arrow-right\"/>\n"
 "                            Create a Google Project and get a key"
 msgstr ""
+"<i class=\"fa fa-arrow-right\"/>\n"
+"                            Kreirajte Google projekt i dobijte ključ"
 
 #. module: website_sale_autocomplete
 #: model_terms:ir.ui.view,arch_db:website_sale_autocomplete.res_config_settings_view_form_inherit_autocomplete_googleplaces
@@ -28,12 +30,16 @@ msgid ""
 "<i class=\"fa fa-arrow-right\"/>\n"
 "                            Enable billing on your Google Project"
 msgstr ""
+"<i class=\"fa fa-arrow-right\"/>\n"
+"                            Omogućite naplatu na vašem Google projektu"
 
+# taken from hr.po
 #. module: website_sale_autocomplete
 #: model_terms:ir.ui.view,arch_db:website_sale_autocomplete.res_config_settings_view_form_inherit_autocomplete_googleplaces
 msgid "API Key"
 msgstr "API ključ"
 
+# taken from hr.po
 #. module: website_sale_autocomplete
 #: model:ir.model,name:website_sale_autocomplete.model_res_config_settings
 msgid "Config Settings"
@@ -41,17 +47,17 @@ msgstr "Postavke"
 
 #. module: website_sale_autocomplete
 #: model:ir.model.fields,field_description:website_sale_autocomplete.field_res_config_settings__google_places_api_key
-#: model:ir.model.fields,field_description:website_sale_autocomplete.field_website__google_places_api_key
 msgid "Google Places API Key"
 msgstr "Google Places API ključ"
 
 #. module: website_sale_autocomplete
 #. odoo-javascript
-#: code:addons/website_sale_autocomplete/static/src/xml/autocomplete.xml:0
+#: code:addons/website_sale_autocomplete/static/src/xml/autocomplete.xml
 #, python-format
 msgid "Powered by Google"
 msgstr "Pokretano od Googlea"
 
+# taken from hr.po
 #. module: website_sale_autocomplete
 #: model:ir.model,name:website_sale_autocomplete.model_website
 msgid "Website"

@@ -17,11 +17,12 @@ msgstr ""
 
 #. module: sale_loyalty_delivery
 #. odoo-python
-#: code:addons/sale_loyalty_delivery/models/sale_order.py:0
+#: code:addons/sale_loyalty_delivery/models/sale_order.py
 #, python-format
 msgid "Free Shipping - %s"
 msgstr "Besplatna dostava - %s"
 
+# taken from hr.po
 #. module: sale_loyalty_delivery
 #: model:ir.model,name:sale_loyalty_delivery.model_sale_order
 msgid "Sales Order"

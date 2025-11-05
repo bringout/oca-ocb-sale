@@ -17,52 +17,58 @@ msgstr ""
 
 #. module: pos_sale_product_configurator
 #. odoo-javascript
-#: code:addons/pos_sale_product_configurator/static/src/js/models.js:0
+#: code:addons/pos_sale_product_configurator/static/src/js/models.js
 #, python-format
 msgid "An unknown error prevents us from loading product information."
 msgstr "Nepoznata greška sprječava učitavanje informacija o proizvodu."
 
 #. module: pos_sale_product_configurator
 #. odoo-javascript
-#: code:addons/pos_sale_product_configurator/static/src/js/models.js:0
+#: code:addons/pos_sale_product_configurator/static/src/js/models.js
 #, python-format
 msgid "Cannot access product information screen if offline."
 msgstr "Nije moguć pristup ekranu informacija o proizvodu u offline režimu."
 
+# taken from hr.po
 #. module: pos_sale_product_configurator
 #. odoo-javascript
-#: code:addons/pos_sale_product_configurator/static/src/js/models.js:0
+#: code:addons/pos_sale_product_configurator/static/src/js/models.js
 #, python-format
 msgid "Network Error"
 msgstr "Pogreška mreže"
 
+# taken from hr.po
 #. module: pos_sale_product_configurator
 #. odoo-javascript
-#: code:addons/pos_sale_product_configurator/static/src/xml/Popups/ProductInfoPopup.xml:0
+#: code:addons/pos_sale_product_configurator/static/src/xml/Popups/ProductInfoPopup.xml
 #, python-format
 msgid "Optional Products"
 msgstr "Mogući proizvodi"
 
+# taken from hr.po
 #. module: pos_sale_product_configurator
 #: model:ir.model,name:pos_sale_product_configurator.model_pos_session
 msgid "Point of Sale Session"
 msgstr "Smjena POS-a"
 
+# taken from hr.po
 #. module: pos_sale_product_configurator
 #: model:ir.model,name:pos_sale_product_configurator.model_product_product
 msgid "Product Variant"
 msgstr "Varijanta proizvoda"
 
+# taken from hr.po
 #. module: pos_sale_product_configurator
 #. odoo-javascript
-#: code:addons/pos_sale_product_configurator/static/src/js/models.js:0
+#: code:addons/pos_sale_product_configurator/static/src/js/models.js
 #, python-format
 msgid "Unknown error"
 msgstr "Nepoznata greška"
 
+# taken from hr.po
 #. module: pos_sale_product_configurator
 #. odoo-javascript
-#: code:addons/pos_sale_product_configurator/static/src/xml/Popups/ProductInfoPopup.xml:0
+#: code:addons/pos_sale_product_configurator/static/src/xml/Popups/ProductInfoPopup.xml
 #, python-format
 msgid "from"
 msgstr "od"

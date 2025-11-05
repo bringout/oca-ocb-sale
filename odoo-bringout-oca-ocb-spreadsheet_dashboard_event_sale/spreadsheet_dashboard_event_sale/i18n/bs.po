@@ -15,219 +15,216 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+# taken from hr.po
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json
 #, python-format
 msgid "Attendees"
 msgstr "Sudionici"
 
+# taken from hr.po
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json
 #, python-format
 msgid "Current"
 msgstr "Trenutno"
 
+# taken from hr.po
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json
 #, python-format
 msgid "Date"
 msgstr "Datum"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json
 #, python-format
 msgid "Event by Organizer"
 msgstr "Događaj po organizatoru"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json
 #, python-format
 msgid "Event by Tags"
 msgstr "Događaj po oznakama"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json
 #, python-format
 msgid "Event by Template"
 msgstr "Događaj po predlošku"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json
 #, python-format
 msgid "Event by Venue"
 msgstr "Događaj po mjestu održavanja"
 
+# taken from hr.po
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json
 #, python-format
 msgid "Events"
 msgstr "Događanja"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json
 #, python-format
 msgid "Events Status"
 msgstr "Statusi događaja"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json
 #, python-format
 msgid "KPI"
 msgstr "KPI"
 
+# taken from hr.po
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json
 #, python-format
 msgid "Organizer"
 msgstr "Organizator"
 
+# taken from hr.po
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json
 #, python-format
 msgid "Previous"
 msgstr "Prethodni"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json
 #, python-format
 msgid "Registration Status"
 msgstr "Status registracije"
 
+# taken from hr.po
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json
 #, python-format
 msgid "Revenue"
 msgstr "Prihod"
 
+# taken from hr.po
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json
 #, python-format
 msgid "Tag"
 msgstr "Oznaka"
 
+# taken from hr.po
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json
 #, python-format
 msgid "Tags"
 msgstr "Oznake"
 
+# taken from hr.po
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json
 #, python-format
 msgid "Template"
 msgstr "Predložak"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json
 #, python-format
 msgid "Top Organizers"
 msgstr "Top organizatori"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json
 #, python-format
 msgid "Top Tags"
 msgstr "Top oznake"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json
 #, python-format
 msgid "Top Templates"
 msgstr "Top predlošci"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json
 #, python-format
 msgid "Top Venues"
 msgstr "Top mjesta održavanja"
 
+# taken from hr.po
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json
 #, python-format
 msgid "Venue"
 msgstr "Mjesto"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json
 #, python-format
 msgid "attendees - current"
 msgstr "učesnici - trenutno"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json
 #, python-format
 msgid "attendees - previous"
 msgstr "učesnici - prethodno"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json
 #, python-format
 msgid "events - current"
 msgstr "događaji - trenutno"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json
 #, python-format
 msgid "events - previous"
 msgstr "događaji - prethodno"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json
 #, python-format
 msgid "since last period"
 msgstr "od poslednjeg perioda"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json
 #, python-format
 msgid "untaxed revenue - current"
 msgstr "prihod bez poreza - trenutno"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json
 #, python-format
 msgid "untaxed revenue - previous"
 msgstr "prihod bez poreza - prethodno"

@@ -17,248 +17,242 @@ msgstr ""
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json
 #, python-format
 msgid "Billable Hours"
 msgstr "Naplaćeni sati"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json
 #, python-format
 msgid "Billable Rate"
 msgstr "Stopa naplate"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json
 #, python-format
 msgid "Billable hours"
 msgstr "Naplaćeni sati"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json
 #, python-format
 msgid "Billable rate"
 msgstr "Stopa naplate"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json
 #, python-format
 msgid "Billed fixed price"
 msgstr "Naplaćena fiksna cijena"
 
+# taken from hr.po
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json
 #, python-format
 msgid "Billed manually"
 msgstr "Naplaćeno ručno"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json
 #, python-format
 msgid "Billed timesheets"
 msgstr "Naplaćeni vremenski izvještaji"
 
+# taken from hr.po
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json
 #, python-format
 msgid "Current"
 msgstr "Trenutno"
 
+# taken from hr.po
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json
 #, python-format
 msgid "Department"
 msgstr "Odjel"
 
+# taken from hr.po
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json
 #, python-format
 msgid "Employee"
 msgstr "Zaposlenik"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json
 #, python-format
 msgid "Grand total"
 msgstr "Ukupan zbir"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json
 #, python-format
 msgid "Hours billed"
 msgstr "Naplaćeni sati"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json
 #, python-format
 msgid "Hours spent"
 msgstr "Utrošeni sati"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json
 #, python-format
 msgid "KPI"
 msgstr "KPI"
 
+# taken from hr.po
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json
 #, python-format
 msgid "Non-billable Hours"
 msgstr "Nenaplatni sati"
 
+# taken from hr.po
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json
 #, python-format
 msgid "Non-billable hours"
 msgstr "Nenaplatni sati"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json
 #, python-format
 msgid "Period"
 msgstr "Period"
 
+# taken from hr.po
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json
 #, python-format
 msgid "Previous"
 msgstr "Prethodni"
 
+# taken from hr.po
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json
 #, python-format
 msgid "Project"
 msgstr "Projekt"
 
+# taken from hr.po
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json
 #, python-format
 msgid "Task"
 msgstr "Zadatak"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json
 #, python-format
 msgid "Time Billed by Week"
 msgstr "Naplaćeno vrijeme po sedmici"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json
 #, python-format
 msgid "Timesheets Analysis by Department"
 msgstr "Analiza vremenskih izvještaja po odjelu"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json
 #, python-format
 msgid "Timesheets Analysis by Employee"
 msgstr "Analiza vremenskih izvještaja po zaposlenom"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json
 #, python-format
 msgid "Timesheets Analysis by Project"
 msgstr "Analiza vremenskih izvještaja po projektu"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json
 #, python-format
 msgid "Timesheets Analysis by Task"
 msgstr "Analiza vremenskih izvještaja po zadatku"
 
+# taken from hr.po
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json
 #, python-format
 msgid "Top Departments"
 msgstr "Top odjeli"
 
+# taken from hr.po
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json
 #, python-format
 msgid "Top Employees"
 msgstr "Top zaposlenici"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json
 #, python-format
 msgid "Top Projects"
 msgstr "Najvažniji projekti"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json
 #, python-format
 msgid "Top Tasks"
 msgstr "Najbolji zadaci"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json
 #, python-format
 msgid "last period"
 msgstr "prošli period"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json
 #, python-format
 msgid "since last period"
 msgstr "od prošlog perioda"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json
 #, python-format
 msgid "stats - current"
 msgstr "statistike - trenutne"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json
 #, python-format
 msgid "stats - previous"
 msgstr "statistike - prethodne"

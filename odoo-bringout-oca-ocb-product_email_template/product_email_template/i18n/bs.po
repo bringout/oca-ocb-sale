@@ -15,48 +15,55 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+# taken from hr.po
 #. module: product_email_template
 #: model_terms:ir.ui.view,arch_db:product_email_template.product_template_form_view
 msgid "Automatic Email at Invoice"
 msgstr "Automatski mail na računu"
 
+# taken from hr.po
 #. module: product_email_template
 #: model_terms:ir.ui.view,arch_db:product_email_template.email_template_form_simplified
 msgid "Body"
 msgstr "Tijelo poruke"
 
+# taken from hr.po
 #. module: product_email_template
 #: model_terms:ir.ui.view,arch_db:product_email_template.email_template_form_simplified
-#: model_terms:ir.ui.view,arch_db:product_email_template.product_template_form_view
 msgid "Email Template"
 msgstr "Predložak email-a"
 
+# taken from hr.po
 #. module: product_email_template
 #: model:ir.model,name:product_email_template.model_account_move
 msgid "Journal Entry"
 msgstr "Temeljnica"
 
+# taken from hr.po
 #. module: product_email_template
 #: model:ir.model,name:product_email_template.model_product_template
 msgid "Product"
 msgstr "Proizvod"
 
+# taken from hr.po
 #. module: product_email_template
 #: model:ir.model.fields,field_description:product_email_template.field_product_product__email_template_id
-#: model:ir.model.fields,field_description:product_email_template.field_product_template__email_template_id
 msgid "Product Email Template"
 msgstr "Email predložak za artikal"
 
+# taken from hr.po
 #. module: product_email_template
 #: model_terms:ir.ui.view,arch_db:product_email_template.product_template_form_view
 msgid "Send a product-specific email once the invoice is validated"
 msgstr "Pošalji mail specifičan za proizvod prilikom potvrđivanja računa"
 
+# taken from hr.po
 #. module: product_email_template
 #: model:ir.model.fields,help:product_email_template.field_product_product__email_template_id
-#: model:ir.model.fields,help:product_email_template.field_product_template__email_template_id
 msgid ""
 "When validating an invoice, an email will be sent to the customer based on "
 "this template. The customer will receive an email for each product linked to"
 " an email template."
 msgstr ""
+"Kod provjere računa, e-mail će biti poslan kupcu na temelju tog predloška. "
+"Kupac će primiti e-poštu za svaki proizvod povezan na predložak e-pošte."

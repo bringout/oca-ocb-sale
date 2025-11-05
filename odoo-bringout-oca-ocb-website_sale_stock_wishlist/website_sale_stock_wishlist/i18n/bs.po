@@ -21,6 +21,8 @@ msgid ""
 "<i class=\"fa fa-bell\"/>\n"
 "                        We'll notify you once the product is back in stock."
 msgstr ""
+"<i class=\"fa fa-bell\"/>\n"
+"                        Obavijestićemo vas kada se proizvod vrati na stanje."
 
 #. module: website_sale_stock_wishlist
 #: model_terms:ir.ui.view,arch_db:website_sale_stock_wishlist.product_wishlist
@@ -28,6 +30,8 @@ msgid ""
 "<i class=\"fa fa-times text-danger\"/>\n"
 "                                Invalid email"
 msgstr ""
+"<i class=\"fa fa-times text-danger\"/>\n"
+"                                Neispravan email"
 
 #. module: website_sale_stock_wishlist
 #: model_terms:ir.ui.view,arch_db:website_sale_stock_wishlist.product_wishlist
@@ -37,33 +41,44 @@ msgid ""
 "                            Get notified when back in stock\n"
 "                        </small>"
 msgstr ""
+"<small>\n"
+"                            <i class=\"fa fa-envelope-o\"/>\n"
+"                            Obavijesti me kada ponovo bude na stanju\n"
+"                        </small>"
 
+# taken from hr.po
 #. module: website_sale_stock_wishlist
 #: model_terms:ir.ui.view,arch_db:website_sale_stock_wishlist.product_wishlist
 msgid ""
 "Add\n"
 "                <span class=\"d-none d-md-inline\">to Cart</span>"
 msgstr ""
+"Dodaj\n"
+"<span class=\"d-none d-md-inline\">u košaricu</span>"
 
+# taken from hr.po
 #. module: website_sale_stock_wishlist
 #. odoo-javascript
-#: code:addons/website_sale_stock_wishlist/static/src/xml/product_availability.xml:0
+#: code:addons/website_sale_stock_wishlist/static/src/xml/product_availability.xml
 #, python-format
 msgid "Add to wishlist"
 msgstr "Dodaj na listu želja"
 
+# taken from hr.po
 #. module: website_sale_stock_wishlist
 #. odoo-javascript
-#: code:addons/website_sale_stock_wishlist/static/src/xml/product_availability.xml:0
+#: code:addons/website_sale_stock_wishlist/static/src/xml/product_availability.xml
 #, python-format
 msgid "Added to your wishlist"
 msgstr "Dodaje status dostupnosti inventara na web stranicu proizvoda."
 
+# taken from hr.po
 #. module: website_sale_stock_wishlist
 #: model:ir.model,name:website_sale_stock_wishlist.model_product_template
 msgid "Product"
 msgstr "Proizvod"
 
+# taken from hr.po
 #. module: website_sale_stock_wishlist
 #: model:ir.model,name:website_sale_stock_wishlist.model_product_wishlist
 msgid "Product Wishlist"
@@ -71,7 +86,7 @@ msgstr "Lista želja proizvoda"
 
 #. module: website_sale_stock_wishlist
 #. odoo-javascript
-#: code:addons/website_sale_stock_wishlist/static/src/xml/product_availability.xml:0
+#: code:addons/website_sale_stock_wishlist/static/src/xml/product_availability.xml
 #, python-format
 msgid "Save for later"
 msgstr "Web stranica kojoj pripada ovaj picking."
@@ -86,6 +101,7 @@ msgstr "Stock obavještenje"
 msgid "Temporarily out of stock"
 msgstr "Temporarily out of stock"
 
+# taken from hr.po
 #. module: website_sale_stock_wishlist
 #: model_terms:ir.ui.view,arch_db:website_sale_stock_wishlist.product_wishlist
 msgid "youremail@gmail.com"

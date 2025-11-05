@@ -15,6 +15,7 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+# taken from hr.po
 #. module: website_sale_delivery
 #: model_terms:ir.ui.view,arch_db:website_sale_delivery.payment_delivery_shipping_method
 msgid "<b>Shipping Method: </b>"
@@ -27,11 +28,12 @@ msgid ""
 " This description will be copied to every Sales Order, Delivery Order and "
 "Customer Invoice/Credit Note"
 msgstr ""
+"Opis proizvoda koji želite prenijeti vašim kupcima. Ovo će se pojaviti na "
+"ponudama i narudžbama."
 
 #. module: website_sale_delivery
 #. odoo-python
-#: code:addons/website_sale_delivery/controllers/main.py:0
-#: code:addons/website_sale_delivery/controllers/main.py:0
+#: code:addons/website_sale_delivery/controllers/main.py
 #, python-format
 msgid "Anonymous express checkout partner for order %s"
 msgstr "Anoniman ekspresni partner za završetak kupovine za narudžbu %s"
@@ -41,107 +43,130 @@ msgstr "Anoniman ekspresni partner za završetak kupovine za narudžbu %s"
 msgid "Can Publish"
 msgstr "Može objaviti"
 
+# taken from hr.po
 #. module: website_sale_delivery
 #: model_terms:ir.ui.view,arch_db:website_sale_delivery.payment_delivery
 msgid "Choose a delivery method"
 msgstr "Odaberite način dostave"
 
+# taken from hr.po
 #. module: website_sale_delivery
 #: model:ir.model,name:website_sale_delivery.model_res_country
 msgid "Country"
 msgstr "Država"
 
+# taken from hr.po
 #. module: website_sale_delivery
 #: model:ir.model.fields,field_description:website_sale_delivery.field_sale_order__amount_delivery
 msgid "Delivery Amount"
 msgstr "Trošak isporuke"
 
+# taken from hr.po
 #. module: website_sale_delivery
 #: model_terms:ir.ui.view,arch_db:website_sale_delivery.cart_delivery
 msgid "Delivery will be updated after choosing a new delivery method"
 msgstr "Dostava će se ažurirati nakon odabira novog načina dostave"
 
+# taken from hr.po
 #. module: website_sale_delivery
 #: model_terms:ir.ui.view,arch_db:website_sale_delivery.cart_delivery
 msgid "Delivery:"
 msgstr "Dostava:"
 
+# taken from hr.po
 #. module: website_sale_delivery
 #: model_terms:ir.ui.view,arch_db:website_sale_delivery.view_delivery_carrier_form_website_delivery
 msgid "Description displayed on the eCommerce and on online quotations."
 msgstr "Opis koji se prikazuje na websajt prodaji i online predračunima."
 
+# taken from hr.po
 #. module: website_sale_delivery
 #: model:ir.model.fields,field_description:website_sale_delivery.field_delivery_carrier__website_description
 msgid "Description for Online Quotations"
 msgstr "Opis za online predračune"
 
+# taken from hr.po
 #. module: website_sale_delivery
 #: model_terms:ir.ui.view,arch_db:website_sale_delivery.res_config_settings_view_form
 msgid "Easypost Shipping Methods"
 msgstr "Easypost metoda dostave"
 
+# taken from hr.po
 #. module: website_sale_delivery
 #. odoo-javascript
-#: code:addons/website_sale_delivery/static/src/js/website_sale_delivery.js:0
+#: code:addons/website_sale_delivery/static/src/js/website_sale_delivery.js
 #, python-format
 msgid "Free"
 msgstr "Slobodno"
 
+# taken from hr.po
 #. module: website_sale_delivery
 #: model:ir.model.fields,field_description:website_sale_delivery.field_delivery_carrier__is_published
 msgid "Is Published"
 msgstr "USPS načini dostave"
 
+# taken from hr.po
 #. module: website_sale_delivery
 #. odoo-python
-#: code:addons/website_sale_delivery/controllers/main.py:0
+#: code:addons/website_sale_delivery/controllers/main.py
 #, python-format
 msgid ""
 "It seems that a delivery method is not compatible with your address. Please "
 "refresh the page and try again."
 msgstr ""
+"Čini se da način dostave nije kompatibilan s vašom adresom. Molimo osvježite"
+" stranicu i pokušajte ponovno."
 
+# taken from hr.po
 #. module: website_sale_delivery
 #. odoo-python
-#: code:addons/website_sale_delivery/controllers/main.py:0
+#: code:addons/website_sale_delivery/controllers/main.py
 #, python-format
 msgid ""
 "It seems that there is already a transaction for your order, you can not "
 "change the delivery method anymore"
 msgstr ""
+"Čini se da već postoji transakcija za vašu narudžbu, više ne možete "
+"promijeniti način isporuke"
 
+# taken from hr.po
 #. module: website_sale_delivery
 #. odoo-python
-#: code:addons/website_sale_delivery/controllers/main.py:0
+#: code:addons/website_sale_delivery/controllers/main.py
 #, python-format
 msgid ""
 "No shipping method is available for your current order and shipping address."
 " Please contact us for more information."
 msgstr ""
+"Nije dostupan način isporuke za vašu trenutnu narudžbu i adresu isporuke. "
+"Molimo Vas da nas kontaktirate za više informacija."
 
 #. module: website_sale_delivery
 #. odoo-python
-#: code:addons/website_sale_delivery/controllers/main.py:0
+#: code:addons/website_sale_delivery/controllers/main.py
 #, python-format
 msgid "No shipping method is selected."
 msgstr "Nijedan način dostave nije izabran."
 
+# taken from hr.po
 #. module: website_sale_delivery
 #: model_terms:ir.ui.view,arch_db:website_sale_delivery.view_delivery_carrier_search_inherit_website_sale_delivery
 msgid "Published"
-msgstr "Easypost načini dostave"
+msgstr "Objavljeno"
 
+# taken from hr.po
 #. module: website_sale_delivery
 #: model:ir.model.fields,help:website_sale_delivery.field_delivery_carrier__website_id
 msgid "Restrict publishing to this website."
 msgstr "Ograniči objavljivanje na ovu web stranicu."
 
+# taken from hr.po
 #. module: website_sale_delivery
 #: model:ir.model,name:website_sale_delivery.model_sale_order
 msgid "Sales Order"
 msgstr "Prodajni nalog"
 
+# taken from hr.po
 #. module: website_sale_delivery
 #: model:ir.model,name:website_sale_delivery.model_sale_order_line
 msgid "Sales Order Line"
@@ -152,45 +177,51 @@ msgstr "Stavka prodajnog naloga"
 msgid "Select to compute delivery rate"
 msgstr "Izaberite da izračunate stopu dostave"
 
+# taken from hr.po
 #. module: website_sale_delivery
 #: model:ir.model,name:website_sale_delivery.model_delivery_carrier
-#: model:ir.ui.menu,name:website_sale_delivery.menu_ecommerce_delivery
-#: model_terms:ir.ui.view,arch_db:website_sale_delivery.res_config_settings_view_form
 msgid "Shipping Methods"
 msgstr "Načini dostave"
 
+# taken from hr.po
 #. module: website_sale_delivery
 #. odoo-python
-#: code:addons/website_sale_delivery/controllers/main.py:0
+#: code:addons/website_sale_delivery/controllers/main.py
 #, python-format
 msgid "Sorry, we are unable to ship your order"
-msgstr "FedEx načini dostave"
+msgstr "Nažalost, nismo u mogućnosti da isporučimo vašu narudžbu"
 
+# taken from hr.po
 #. module: website_sale_delivery
 #: model:ir.model.fields,help:website_sale_delivery.field_sale_order__amount_delivery
 msgid "The amount without tax."
 msgstr "Iznos bez poreza."
 
+# taken from hr.po
 #. module: website_sale_delivery
 #: model:ir.model.fields,help:website_sale_delivery.field_delivery_carrier__website_url
 msgid "The full URL to access the document through the website."
-msgstr "Objavljeno"
+msgstr "Kompletan URL za pristup dokumentu putem website-a."
 
+# taken from hr.po
 #. module: website_sale_delivery
 #: model:ir.model.fields,field_description:website_sale_delivery.field_delivery_carrier__website_published
 msgid "Visible on current website"
 msgstr "Vidljivo na trenutnoj web stranicama"
 
+# taken from hr.po
 #. module: website_sale_delivery
 #: model:ir.model.fields,field_description:website_sale_delivery.field_delivery_carrier__website_id
 msgid "Website"
 msgstr "Web stranica"
 
+# taken from hr.po
 #. module: website_sale_delivery
 #: model:ir.model.fields,field_description:website_sale_delivery.field_delivery_carrier__website_url
 msgid "Website URL"
-msgstr "Website URL"
+msgstr "URL web stranice"
 
+# taken from hr.po
 #. module: website_sale_delivery
 #: model_terms:ir.ui.view,arch_db:website_sale_delivery.res_config_settings_view_form
 msgid "bpost Shipping Methods"

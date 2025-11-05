@@ -40,16 +40,19 @@ msgstr "<strong>Number of discounts</strong>:"
 msgid "<strong>Opening of session note:</strong>"
 msgstr "<strong>Opening of session note:</strong>"
 
+# taken from hr.po
 #. module: pos_daily_sales_reports
 #: model_terms:ir.ui.view,arch_db:pos_daily_sales_reports.pos_daily_report
 msgid "<strong>Total</strong>"
 msgstr "<strong>Ukupno</strong>"
 
+# taken from hr.po
 #. module: pos_daily_sales_reports
 #: model_terms:ir.ui.view,arch_db:pos_daily_sales_reports.pos_daily_report
 msgid "Base Amount"
 msgstr "Iznos osnovice"
 
+# taken from hr.po
 #. module: pos_daily_sales_reports
 #: model_terms:ir.ui.view,arch_db:pos_daily_sales_reports.view_pos_daily_sales_reports_wizard
 msgid "Cancel"
@@ -60,16 +63,19 @@ msgstr "Odustani"
 msgid "Closing Notes"
 msgstr "Closing Notes"
 
+# taken from hr.po
 #. module: pos_daily_sales_reports
 #: model_terms:ir.ui.view,arch_db:pos_daily_sales_reports.pos_daily_report
 msgid "Counted"
 msgstr "Stvarno"
 
+# taken from hr.po
 #. module: pos_daily_sales_reports
 #: model:ir.model.fields,field_description:pos_daily_sales_reports.field_pos_daily_sales_reports_wizard__create_uid
 msgid "Created by"
 msgstr "Kreirao"
 
+# taken from hr.po
 #. module: pos_daily_sales_reports
 #: model:ir.model.fields,field_description:pos_daily_sales_reports.field_pos_daily_sales_reports_wizard__create_date
 msgid "Created on"
@@ -85,20 +91,22 @@ msgstr "Daily Report"
 msgid "Daily Reports"
 msgstr "Daily Reports"
 
+# taken from hr.po
 #. module: pos_daily_sales_reports
 #: model_terms:ir.ui.view,arch_db:pos_daily_sales_reports.pos_daily_report
 msgid "Difference"
 msgstr "Razlika"
 
+# taken from hr.po
 #. module: pos_daily_sales_reports
 #: model_terms:ir.ui.view,arch_db:pos_daily_sales_reports.pos_daily_report
 msgid "Disc:"
 msgstr "Pop:"
 
+# taken from hr.po
 #. module: pos_daily_sales_reports
 #. odoo-javascript
-#: code:addons/pos_daily_sales_reports/static/src/xml/SaleDetailsReport.xml:0
-#: code:addons/pos_daily_sales_reports/static/src/xml/SaleDetailsReport.xml:0
+#: code:addons/pos_daily_sales_reports/static/src/xml/SaleDetailsReport.xml
 #, python-format
 msgid "Discount:"
 msgstr "Popust:"
@@ -108,11 +116,13 @@ msgstr "Popust:"
 msgid "Discounts:"
 msgstr "Discounts:"
 
+# taken from hr.po
 #. module: pos_daily_sales_reports
 #: model:ir.model.fields,field_description:pos_daily_sales_reports.field_pos_daily_sales_reports_wizard__display_name
 msgid "Display Name"
 msgstr "Naziv"
 
+# taken from hr.po
 #. module: pos_daily_sales_reports
 #: model_terms:ir.ui.view,arch_db:pos_daily_sales_reports.pos_daily_report
 msgid "Expected"
@@ -123,21 +133,25 @@ msgstr "Očekivano"
 msgid "ID"
 msgstr "ID"
 
+# taken from hr.po
 #. module: pos_daily_sales_reports
 #: model_terms:ir.ui.view,arch_db:pos_daily_sales_reports.pos_daily_report
 msgid "Invoices"
 msgstr "Računi"
 
+# taken from hr.po
 #. module: pos_daily_sales_reports
 #: model:ir.model.fields,field_description:pos_daily_sales_reports.field_pos_daily_sales_reports_wizard____last_update
 msgid "Last Modified on"
 msgstr "Zadnja promjena"
 
+# taken from hr.po
 #. module: pos_daily_sales_reports
 #: model:ir.model.fields,field_description:pos_daily_sales_reports.field_pos_daily_sales_reports_wizard__write_uid
 msgid "Last Updated by"
 msgstr "Promijenio"
 
+# taken from hr.po
 #. module: pos_daily_sales_reports
 #: model:ir.model.fields,field_description:pos_daily_sales_reports.field_pos_daily_sales_reports_wizard__write_date
 msgid "Last Updated on"
@@ -148,14 +162,16 @@ msgstr "Vrijeme promjene"
 msgid "Multiple Report"
 msgstr "Multiple Report"
 
+# taken from hr.po
 #. module: pos_daily_sales_reports
 #: model_terms:ir.ui.view,arch_db:pos_daily_sales_reports.pos_daily_report
 msgid "Name"
 msgstr "Naziv"
 
+# taken from hr.po
 #. module: pos_daily_sales_reports
 #. odoo-python
-#: code:addons/pos_daily_sales_reports/models/pos_daily_sales_reports.py:0
+#: code:addons/pos_daily_sales_reports/models/pos_daily_sales_reports.py
 #, python-format
 msgid "No Taxes"
 msgstr "Bez poreza"
@@ -170,6 +186,7 @@ msgstr "Number of transactions:"
 msgid "Order reference"
 msgstr "Order reference"
 
+# taken from hr.po
 #. module: pos_daily_sales_reports
 #: model_terms:ir.ui.view,arch_db:pos_daily_sales_reports.pos_daily_report
 msgid "Payments"
@@ -180,16 +197,19 @@ msgstr "Plaćanja"
 msgid "Point of Sale Daily Report"
 msgstr "Point of Sale Daily Report"
 
+# taken from hr.po
 #. module: pos_daily_sales_reports
 #: model:ir.model,name:pos_daily_sales_reports.model_report_point_of_sale_report_saledetails
 msgid "Point of Sale Details"
 msgstr "Pojedinosti prodajnog mjesta"
 
+# taken from hr.po
 #. module: pos_daily_sales_reports
 #: model:ir.model,name:pos_daily_sales_reports.model_pos_session
 msgid "Point of Sale Session"
 msgstr "Smjena POS-a"
 
+# taken from hr.po
 #. module: pos_daily_sales_reports
 #: model:ir.model.fields,field_description:pos_daily_sales_reports.field_pos_daily_sales_reports_wizard__pos_session_id
 msgid "Pos Session"
@@ -200,21 +220,25 @@ msgstr "Pos sesija"
 msgid "Pos session"
 msgstr "Pos session"
 
+# taken from hr.po
 #. module: pos_daily_sales_reports
 #: model_terms:ir.ui.view,arch_db:pos_daily_sales_reports.view_pos_daily_sales_reports_wizard
 msgid "Print"
 msgstr "Ispis"
 
+# taken from hr.po
 #. module: pos_daily_sales_reports
 #: model_terms:ir.ui.view,arch_db:pos_daily_sales_reports.pos_daily_report
 msgid "Product"
 msgstr "Proizvod"
 
+# taken from hr.po
 #. module: pos_daily_sales_reports
 #: model_terms:ir.ui.view,arch_db:pos_daily_sales_reports.pos_daily_report
 msgid "Product Category"
 msgstr "Kategorija proizvoda"
 
+# taken from hr.po
 #. module: pos_daily_sales_reports
 #: model_terms:ir.ui.view,arch_db:pos_daily_sales_reports.pos_daily_report
 msgid "Quantity"
@@ -222,11 +246,12 @@ msgstr "Količina"
 
 #. module: pos_daily_sales_reports
 #. odoo-javascript
-#: code:addons/pos_daily_sales_reports/static/src/xml/SaleDetailsReport.xml:0
+#: code:addons/pos_daily_sales_reports/static/src/xml/SaleDetailsReport.xml
 #, python-format
 msgid "REFUNDED:"
 msgstr "REFUNDED:"
 
+# taken from hr.po
 #. module: pos_daily_sales_reports
 #: model_terms:ir.ui.view,arch_db:pos_daily_sales_reports.pos_daily_report
 msgid "Refunds"
@@ -234,19 +259,20 @@ msgstr "Povrati"
 
 #. module: pos_daily_sales_reports
 #. odoo-javascript
-#: code:addons/pos_daily_sales_reports/static/src/xml/SaleDetailsReport.xml:0
+#: code:addons/pos_daily_sales_reports/static/src/xml/SaleDetailsReport.xml
 #, python-format
 msgid "SOLD:"
 msgstr "SOLD:"
 
+# taken from hr.po
 #. module: pos_daily_sales_reports
 #: model_terms:ir.ui.view,arch_db:pos_daily_sales_reports.pos_daily_report
 msgid "Sales"
 msgstr "Prodaja"
 
+# taken from hr.po
 #. module: pos_daily_sales_reports
 #: model_terms:ir.ui.view,arch_db:pos_daily_sales_reports.pos_daily_report
-#: model_terms:ir.ui.view,arch_db:pos_daily_sales_reports.view_pos_daily_sales_reports_wizard
 msgid "Sales Details"
 msgstr "Detalji prodaje"
 
@@ -265,6 +291,7 @@ msgstr "Session ID:"
 msgid "Session Report"
 msgstr "Session Report"
 
+# taken from hr.po
 #. module: pos_daily_sales_reports
 #: model_terms:ir.ui.view,arch_db:pos_daily_sales_reports.pos_daily_report
 msgid "Tax Amount"
@@ -280,18 +307,21 @@ msgstr "Taxes on refunds"
 msgid "Taxes on sales"
 msgstr "Taxes on sales"
 
+# taken from hr.po
 #. module: pos_daily_sales_reports
 #. odoo-python
-#: code:addons/pos_daily_sales_reports/models/pos_daily_sales_reports.py:0
+#: code:addons/pos_daily_sales_reports/models/pos_daily_sales_reports.py
 #, python-format
 msgid "This session is already closed."
 msgstr "Ova sesija je već zatvorena."
 
+# taken from hr.po
 #. module: pos_daily_sales_reports
 #: model_terms:ir.ui.view,arch_db:pos_daily_sales_reports.pos_daily_report
 msgid "Total"
 msgstr "Ukupno"
 
+# taken from hr.po
 #. module: pos_daily_sales_reports
 #: model_terms:ir.ui.view,arch_db:pos_daily_sales_reports.pos_daily_report
 msgid "Total:"

@@ -15,89 +15,104 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+# taken from hr.po
 #. module: gamification_sale_crm
 #: model:gamification.goal.definition,name:gamification_sale_crm.definition_crm_nbr_customer_refunds
 msgid "Customer Credit Notes"
 msgstr "Knjižna odobrenja kupca"
 
+# taken from hr.po
 #. module: gamification_sale_crm
 #: model:gamification.goal.definition,name:gamification_sale_crm.definition_crm_lead_delay_close
 msgid "Days to Close a Deal"
 msgstr "Dani do zatvaranja posla"
 
+# taken from hr.po
 #. module: gamification_sale_crm
 #: model:gamification.challenge,name:gamification_sale_crm.challenge_crm_marketing
 msgid "Lead Acquisition"
 msgstr "Akvizicija potencijala"
 
+# taken from hr.po
 #. module: gamification_sale_crm
 #: model:gamification.challenge,name:gamification_sale_crm.challenge_crm_sale
 msgid "Monthly Sales Targets"
 msgstr "Novi bedž ${object.badge_id.name} dodeljen"
 
+# taken from hr.po
 #. module: gamification_sale_crm
 #: model:gamification.goal.definition,name:gamification_sale_crm.definition_crm_nbr_new_leads
 msgid "New Leads"
 msgstr "Novi potencijali"
 
+# taken from hr.po
 #. module: gamification_sale_crm
 #: model:gamification.goal.definition,name:gamification_sale_crm.definition_crm_nbr_new_opportunities
 msgid "New Opportunities"
 msgstr "Nove prilike"
 
+# taken from hr.po
 #. module: gamification_sale_crm
 #: model:gamification.goal.definition,name:gamification_sale_crm.definition_crm_nbr_sale_order_created
 msgid "New Sales Orders"
 msgstr "Novi prodajni nalozi"
 
+# taken from hr.po
 #. module: gamification_sale_crm
 #: model:gamification.goal.definition,name:gamification_sale_crm.definition_crm_nbr_paid_sale_order
 msgid "Paid Sales Orders"
 msgstr "Plaćeni prodajni nalozi"
 
+# taken from hr.po
 #. module: gamification_sale_crm
 #: model:gamification.goal.definition,name:gamification_sale_crm.definition_crm_lead_delay_open
 msgid "Time to Qualify a Lead"
 msgstr "Vrijeme za kvalifikaciju potencijala"
 
+# taken from hr.po
 #. module: gamification_sale_crm
 #: model:gamification.goal.definition,name:gamification_sale_crm.definition_crm_tot_customer_refunds
 msgid "Total Customer Credit Notes"
 msgstr "Ukupna knjižna odobrenja kupca"
 
+# taken from hr.po
 #. module: gamification_sale_crm
 #: model:gamification.goal.definition,name:gamification_sale_crm.definition_crm_tot_invoices
 msgid "Total Invoiced"
 msgstr "Ukupno fakturisano"
 
+# taken from hr.po
 #. module: gamification_sale_crm
 #: model:gamification.goal.definition,name:gamification_sale_crm.definition_crm_tot_paid_sale_order
 msgid "Total Paid Sales Orders"
 msgstr "Ukupno plaćeni prodajni nalozi"
 
+# taken from hr.po
 #. module: gamification_sale_crm
 #: model:gamification.goal.definition,suffix:gamification_sale_crm.definition_crm_lead_delay_close
-#: model:gamification.goal.definition,suffix:gamification_sale_crm.definition_crm_lead_delay_open
 msgid "days"
 msgstr "Dani"
 
+# taken from hr.po
 #. module: gamification_sale_crm
 #: model:gamification.goal.definition,suffix:gamification_sale_crm.definition_crm_nbr_customer_refunds
 msgid "invoices"
 msgstr "računi"
 
+# taken from hr.po
 #. module: gamification_sale_crm
 #: model:gamification.goal.definition,suffix:gamification_sale_crm.definition_crm_nbr_new_leads
 msgid "leads"
 msgstr "potencijali"
 
+# taken from hr.po
 #. module: gamification_sale_crm
 #: model:gamification.goal.definition,suffix:gamification_sale_crm.definition_crm_nbr_new_opportunities
 msgid "opportunities"
 msgstr "prilike"
 
+# taken from hr.po
 #. module: gamification_sale_crm
 #: model:gamification.goal.definition,suffix:gamification_sale_crm.definition_crm_nbr_paid_sale_order
-#: model:gamification.goal.definition,suffix:gamification_sale_crm.definition_crm_nbr_sale_order_created
 msgid "orders"
 msgstr "narudžbe"

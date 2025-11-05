@@ -15,42 +15,49 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+# taken from hr.po
 #. module: website_sale_product_configurator
 #: model:ir.model.fields,field_description:website_sale_product_configurator.field_website__add_to_cart_action
 msgid "Add To Cart Action"
 msgstr "Dodaj u košaricu"
 
+# taken from hr.po
 #. module: website_sale_product_configurator
 #. odoo-javascript
-#: code:addons/website_sale_product_configurator/static/src/js/website_sale_options.js:0
+#: code:addons/website_sale_product_configurator/static/src/js/website_sale_options.js
 #, python-format
 msgid "Add to cart"
 msgstr "Dodaj u košaricu"
 
+# taken from hr.po
 #. module: website_sale_product_configurator
 #. odoo-javascript
-#: code:addons/website_sale_product_configurator/static/src/js/website_sale_options.js:0
+#: code:addons/website_sale_product_configurator/static/src/js/website_sale_options.js
 #, python-format
 msgid "Continue Shopping"
 msgstr "Nastavi s kupovinom"
 
+# taken from hr.po
 #. module: website_sale_product_configurator
 #: model:ir.model.fields.selection,name:website_sale_product_configurator.selection__website__add_to_cart_action__force_dialog
 msgid "Let the user decide (dialog)"
 msgstr "Neka korisnik odluči (dijalog)"
 
+# taken from hr.po
 #. module: website_sale_product_configurator
 #. odoo-javascript
-#: code:addons/website_sale_product_configurator/static/src/js/website_sale_options.js:0
+#: code:addons/website_sale_product_configurator/static/src/js/website_sale_options.js
 #, python-format
 msgid "Proceed to Checkout"
 msgstr "Nastavi na naplatu"
 
+# taken from hr.po
 #. module: website_sale_product_configurator
 #: model:ir.model,name:website_sale_product_configurator.model_sale_order
 msgid "Sales Order"
 msgstr "Prodajni nalog"
 
+# taken from hr.po
 #. module: website_sale_product_configurator
 #: model:ir.model,name:website_sale_product_configurator.model_website
 msgid "Website"

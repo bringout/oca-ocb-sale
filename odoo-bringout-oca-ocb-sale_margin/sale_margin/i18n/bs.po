@@ -15,34 +15,37 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+# taken from hr.po
 #. module: sale_margin
 #: model:ir.model.fields,field_description:sale_margin.field_sale_order_line__purchase_price
 msgid "Cost"
 msgstr "Cijena (Koštanje)"
 
+# taken from hr.po
 #. module: sale_margin
 #: model:ir.model.fields,field_description:sale_margin.field_sale_order__margin
-#: model:ir.model.fields,field_description:sale_margin.field_sale_order_line__margin
-#: model:ir.model.fields,field_description:sale_margin.field_sale_report__margin
 msgid "Margin"
 msgstr "Marža"
 
+# taken from hr.po
 #. module: sale_margin
 #: model:ir.model.fields,field_description:sale_margin.field_sale_order__margin_percent
-#: model:ir.model.fields,field_description:sale_margin.field_sale_order_line__margin_percent
 msgid "Margin (%)"
 msgstr "Marža (%)"
 
+# taken from hr.po
 #. module: sale_margin
 #: model:ir.model,name:sale_margin.model_sale_report
 msgid "Sales Analysis Report"
 msgstr "Izvještaj analize prodaje"
 
+# taken from hr.po
 #. module: sale_margin
 #: model:ir.model,name:sale_margin.model_sale_order
 msgid "Sales Order"
 msgstr "Prodajni nalog"
 
+# taken from hr.po
 #. module: sale_margin
 #: model:ir.model,name:sale_margin.model_sale_order_line
 msgid "Sales Order Line"

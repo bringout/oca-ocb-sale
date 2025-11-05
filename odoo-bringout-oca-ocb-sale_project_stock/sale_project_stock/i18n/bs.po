@@ -15,16 +15,19 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+# taken from hr.po
 #. module: sale_project_stock
 #: model_terms:ir.actions.act_window,help:sale_project_stock.stock_move_per_sale_order_line_action
 msgid "No stock move found"
 msgstr "Nije nađeno skladišno kretanje"
 
+# taken from hr.po
 #. module: sale_project_stock
 #: model:ir.model,name:sale_project_stock.model_sale_order_line
 msgid "Sales Order Line"
 msgstr "Stavka prodajnog naloga"
 
+# taken from hr.po
 #. module: sale_project_stock
 #: model_terms:ir.actions.act_window,help:sale_project_stock.stock_move_per_sale_order_line_action
 msgid ""
@@ -32,7 +35,11 @@ msgid ""
 "                operations on a specific product. You can filter on the product\n"
 "                to see all the past or future movements for the product."
 msgstr ""
+" Ovaj meni nudi punu sljedivost skladišnih\n"
+"                operacija određenog proizvoda. Moguće je filtrirati na proizvodu\n"
+"                kako bi vidjeli sve prošle ili buduće skladišne prijenose proizvoda."
 
+# taken from hr.po
 #. module: sale_project_stock
 #: model:ir.actions.act_window,name:sale_project_stock.stock_move_per_sale_order_line_action
 msgid "Transfers"

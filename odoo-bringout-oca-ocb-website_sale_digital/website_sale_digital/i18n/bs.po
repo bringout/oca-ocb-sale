@@ -17,34 +17,33 @@ msgstr ""
 
 #. module: website_sale_digital
 #. odoo-python
-#: code:addons/website_sale_digital/models/product.py:0
-#: code:addons/website_sale_digital/models/product.py:0
+#: code:addons/website_sale_digital/models/product.py
 #, python-format
 msgid "Add attachments for this digital product"
 msgstr "Dodajte priloge za ovaj digitalni proizvod"
 
+# taken from hr.po
 #. module: website_sale_digital
 #: model:ir.model,name:website_sale_digital.model_ir_attachment
 msgid "Attachment"
 msgstr "Zakačka"
 
+# taken from hr.po
 #. module: website_sale_digital
 #. odoo-python
-#: code:addons/website_sale_digital/models/product.py:0
-#: code:addons/website_sale_digital/models/product.py:0
+#: code:addons/website_sale_digital/models/product.py
 #, python-format
 msgid "Digital Attachments"
 msgstr "Digitalni prilozi"
 
 #. module: website_sale_digital
 #: model_terms:ir.ui.view,arch_db:website_sale_digital.product_product_view_form_inherit_digital
-#: model_terms:ir.ui.view,arch_db:website_sale_digital.product_template_view_form_inherit_digital
 msgid "Digital Files"
 msgstr "Digitalne datoteke"
 
+# taken from hr.po
 #. module: website_sale_digital
 #: model:ir.model.fields,field_description:website_sale_digital.field_ir_attachment__product_downloadable
-#: model:ir.model.fields,field_description:website_sale_digital.field_mrp_document__product_downloadable
 msgid "Downloadable from product portal"
 msgstr "Može se preuzeti s portala proizvoda"
 
@@ -53,22 +52,25 @@ msgstr "Može se preuzeti s portala proizvoda"
 msgid "Downloads"
 msgstr "Preuzimanja"
 
+# taken from hr.po
 #. module: website_sale_digital
 #: model:ir.model.fields,field_description:website_sale_digital.field_product_product__attachment_count
-#: model:ir.model.fields,field_description:website_sale_digital.field_product_template__attachment_count
 msgid "File"
 msgstr "Datoteka"
 
+# taken from hr.po
 #. module: website_sale_digital
 #: model:ir.model,name:website_sale_digital.model_account_move_line
 msgid "Journal Item"
 msgstr "Stavka dnevnika"
 
+# taken from hr.po
 #. module: website_sale_digital
 #: model:ir.model,name:website_sale_digital.model_product_template
 msgid "Product"
 msgstr "Proizvod"
 
+# taken from hr.po
 #. module: website_sale_digital
 #: model:ir.model,name:website_sale_digital.model_product_product
 msgid "Product Variant"
@@ -76,13 +78,12 @@ msgstr "Varijanta proizvoda"
 
 #. module: website_sale_digital
 #. odoo-python
-#: code:addons/website_sale_digital/models/product.py:0
-#: code:addons/website_sale_digital/models/product.py:0
+#: code:addons/website_sale_digital/models/product.py
 #, python-format
 msgid ""
 "The attached files are the ones that will be purchased and sent to the "
 "customer."
-msgstr ""
+msgstr "Priložene datoteke su one koje će biti kupljene i poslane kupcu."
 
 #. module: website_sale_digital
 #: model:product.template,name:website_sale_digital.product_1
