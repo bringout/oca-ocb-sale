@@ -81,7 +81,7 @@ msgstr "Povratak na popis"
 #: code:addons/pos_sale/static/src/js/OrderManagementScreen/SaleOrderRow.js
 #, python-format
 msgid "Cancelled"
-msgstr "Otkazan"
+msgstr "Otkazano"
 
 # taken from hr.po
 #. module: pos_sale
@@ -97,7 +97,7 @@ msgstr ""
 #. module: pos_sale
 #: model:ir.model,name:pos_sale.model_res_config_settings
 msgid "Config Settings"
-msgstr "Postavke"
+msgstr "Postavke konfiguracije"
 
 # taken from hr.po
 #. module: pos_sale
