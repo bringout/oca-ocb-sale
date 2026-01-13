@@ -1242,7 +1242,7 @@ msgstr "Kategorije:"
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.product_searchbar_input_snippet_options
 msgid "Category"
-msgstr "Kategorija"
+msgstr "Korpa se smatra napuštenom nakon"
 
 # taken from hr.po
 #. module: website_sale
@@ -1479,7 +1479,7 @@ msgstr "Izračunajte troškove dostave narudžba"
 #. module: website_sale
 #: model:ir.model,name:website_sale.model_res_config_settings
 msgid "Config Settings"
-msgstr "Postavke konfiguracije"
+msgstr "Postavke"
 
 # taken from hr.po
 #. module: website_sale
@@ -1875,7 +1875,7 @@ msgstr "Želite li očistiti vašu košaru prije dodavanja proizvoda u nju?"
 #. module: website_sale
 #: model:ir.model.fields.selection,name:website_sale.selection__res_company__website_sale_onboarding_payment_provider_state__done
 msgid "Done"
-msgstr "Dovršeno"
+msgstr "Gotovo"
 
 #. module: website_sale
 #. odoo-javascript
@@ -2219,7 +2219,7 @@ msgstr "Mreža"
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.sale_report_view_search_website
 msgid "Group By"
-msgstr "Grupiši po..."
+msgstr "Grupiši po"
 
 # taken from hr.po
 #. module: website_sale
@@ -2459,7 +2459,7 @@ msgstr "Pejzaž (4/3)"
 #. module: website_sale
 #: model:ir.model.fields,field_description:website_sale.field_product_image____last_update
 msgid "Last Modified on"
-msgstr "Zadnja izmjena na"
+msgstr "Zadnje mijenjano"
 
 # taken from hr.po
 #. module: website_sale
@@ -2476,13 +2476,13 @@ msgstr "Poslednja online prodajna narudžba"
 #. module: website_sale
 #: model:ir.model.fields,field_description:website_sale.field_product_image__write_uid
 msgid "Last Updated by"
-msgstr "Zadnje ažuriranje izvršio"
+msgstr "Zadnji ažurirao"
 
 # taken from hr.po
 #. module: website_sale
 #: model:ir.model.fields,field_description:website_sale.field_product_image__write_date
 msgid "Last Updated on"
-msgstr "Zadnje ažuriranje na"
+msgstr "Zadnje ažurirano"
 
 # taken from hr.po
 #. module: website_sale
@@ -3388,7 +3388,7 @@ msgstr "Traka proizovda"
 #. module: website_sale
 #: model:ir.actions.act_window,name:website_sale.product_template_action_website
 msgid "Products"
-msgstr "Proizvodi"
+msgstr "Artikli"
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.snippet_options

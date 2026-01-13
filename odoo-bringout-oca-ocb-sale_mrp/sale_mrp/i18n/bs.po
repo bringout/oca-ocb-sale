@@ -138,4 +138,4 @@ msgstr "Izvorni prodajni nalozi od %s"
 #. module: sale_mrp
 #: model:ir.model,name:sale_mrp.model_stock_move
 msgid "Stock Move"
-msgstr "Skladišno kretanje"
+msgstr "Skladišni prijenos"

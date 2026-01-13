@@ -862,7 +862,7 @@ msgstr "Unos obračunatog prihoda"
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order__message_needaction
 msgid "Action Needed"
-msgstr "Potrebna radnja"
+msgstr "Potrebna akcija"
 
 # taken from hr.po
 #. module: sale
@@ -874,7 +874,7 @@ msgstr "Aktivnosti"
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order__activity_exception_decoration
 msgid "Activity Exception Decoration"
-msgstr "Dekoracija izuzetka aktivnosti"
+msgstr "Dekoracija iznimke aktivnosti"
 
 # taken from hr.po
 #. module: sale
@@ -997,7 +997,7 @@ msgstr "Primjenjivost analitičkog plana"
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order_line__analytic_precision
 msgid "Analytic Precision"
-msgstr "Analitička preciznost"
+msgstr "Preciznost analitike"
 
 # taken from hr.po
 #. module: sale
@@ -1044,7 +1044,7 @@ msgstr "Na nabavnu cijenu"
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order__message_attachment_count
 msgid "Attachment Count"
-msgstr "Broj priloga"
+msgstr "Broj zakački"
 
 # taken from hr.po
 #. module: sale
@@ -1135,7 +1135,7 @@ msgstr "Moguće ispraviti artikal"
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_cancel_view_form
 msgid "Cancel"
-msgstr "Otkaži"
+msgstr "Otkaži ponudu"
 
 # taken from hr.po
 #. module: sale
@@ -1149,7 +1149,7 @@ msgstr "Otkaži %s"
 #. module: sale
 #: model:ir.model.fields.selection,name:sale.selection__sale_order__state__cancel
 msgid "Cancelled"
-msgstr "Otkazano"
+msgstr "Otkazan"
 
 # taken from hr.po
 #. module: sale
@@ -1310,7 +1310,7 @@ msgstr "Izračunajte troškove dostave narudžba"
 #. module: sale
 #: model:ir.model,name:sale.model_res_config_settings
 msgid "Config Settings"
-msgstr "Postavke konfiguracije"
+msgstr "Postavke"
 
 # taken from hr.po
 #. module: sale
@@ -1755,7 +1755,7 @@ msgstr "Domena"
 #. module: sale
 #: model:ir.model.fields.selection,name:sale.selection__res_company__sale_onboarding_order_confirmation_state__done
 msgid "Done"
-msgstr "Dovršeno"
+msgstr "Gotovo"
 
 # taken from hr.po
 #. module: sale
@@ -1971,13 +1971,13 @@ msgstr ""
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order__message_follower_ids
 msgid "Followers"
-msgstr "Pratitelji"
+msgstr "Pratioci"
 
 # taken from hr.po
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order__message_partner_ids
 msgid "Followers (Partners)"
-msgstr "Pratitelji (partneri)"
+msgstr "Pratioci (Partneri)"
 
 # taken from hr.po
 #. module: sale
@@ -2070,7 +2070,7 @@ msgstr "Bruto težina"
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.view_order_product_search
 msgid "Group By"
-msgstr "Grupiši po..."
+msgstr "Grupiši po"
 
 # taken from hr.po
 #. module: sale
@@ -2128,7 +2128,7 @@ msgstr "Ikona za prikaz iznimki."
 #. module: sale
 #: model:ir.model.fields,help:sale.field_sale_order__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr "Ako je zakačeno, nove poruke će zahtjevati vašu pažnju"
+msgstr "Ako potvdite, nove poruke će zahtjevati vašu pažnju."
 
 # taken from hr.po
 #. module: sale
@@ -2162,7 +2162,7 @@ msgstr "Ako promijenite cjenik, to će utjecati samo na novo dodane stavke."
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.res_config_settings_view_form
 msgid "Import Amazon orders and sync deliveries"
-msgstr "Učitaj Amazonove narudžbe i sinkroniziraj isporuke"
+msgstr "Učitaj Amazonove narudžbe i sinhroniziraj isporuke"
 
 # taken from hr.po
 #. module: sale
@@ -2405,7 +2405,7 @@ msgstr "Isteklo je"
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order__message_is_follower
 msgid "Is Follower"
-msgstr "Pratilac"
+msgstr "Je pratilac"
 
 # taken from hr.po
 #. module: sale
@@ -2475,19 +2475,19 @@ msgstr "Jezik"
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_advance_payment_inv____last_update
 msgid "Last Modified on"
-msgstr "Zadnja izmjena na"
+msgstr "Zadnje mijenjano"
 
 # taken from hr.po
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_advance_payment_inv__write_uid
 msgid "Last Updated by"
-msgstr "Zadnje ažuriranje izvršio"
+msgstr "Zadnji ažurirao"
 
 # taken from hr.po
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_advance_payment_inv__write_date
 msgid "Last Updated on"
-msgstr "Zadnje ažuriranje na"
+msgstr "Zadnje ažurirano"
 
 # taken from hr.po
 #. module: sale
@@ -2661,7 +2661,7 @@ msgstr "Upozorenje za stavku prodajne narudžbe"
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order__message_ids
 msgid "Messages"
-msgstr "Nepročitane poruke"
+msgstr "Poruke"
 
 # taken from hr.po
 #. module: sale
@@ -2836,13 +2836,15 @@ msgstr "Broj grešaka"
 #. module: sale
 #: model:ir.model.fields,help:sale.field_sale_order__message_needaction_counter
 msgid "Number of messages requiring action"
-msgstr "Broj poruka koje zahtijevaju aktivnost"
+msgstr ""
+"Datum dostave koji možete obećati klijentu, izračunat iz rokova proizvoda i "
+"iz politike dostave narudžbe."
 
 # taken from hr.po
 #. module: sale
 #: model:ir.model.fields,help:sale.field_sale_order__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr "Broj poruka sa greškama pri isporuci"
+msgstr "Stopa valute prema valuti sa stopom 1 primjenjivoj na datum narudžbe"
 
 # taken from hr.po
 #. module: sale
@@ -2988,7 +2990,7 @@ msgstr "Stavke prodajne narudžbe"
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order__name
 msgid "Order Reference"
-msgstr "Referenca zahtjeva"
+msgstr "Ref.prodajne narudžbe"
 
 # taken from hr.po
 #. module: sale
@@ -3335,7 +3337,7 @@ msgstr "Proizvod korištena za avansna plaćanja"
 #. module: sale
 #: model:ir.actions.act_window,name:sale.product_template_action
 msgid "Products"
-msgstr "Proizvodi"
+msgstr "Artikli"
 
 # taken from hr.po
 #. module: sale
@@ -4944,7 +4946,7 @@ msgstr "Upozorenje kod Prodaje ovog Proizvoda"
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order__website_message_ids
 msgid "Website Messages"
-msgstr "Nepročitane poruke"
+msgstr "Poruke sa website-a"
 
 # taken from hr.po
 #. module: sale

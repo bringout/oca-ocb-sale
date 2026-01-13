@@ -294,7 +294,7 @@ msgstr "Acoustic Bloc Screens"
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_product__message_needaction
 msgid "Action Needed"
-msgstr "Potrebna radnja"
+msgstr "Potrebna akcija"
 
 # taken from hr.po
 #. module: product
@@ -318,7 +318,7 @@ msgstr "Aktivnosti"
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_product__activity_exception_decoration
 msgid "Activity Exception Decoration"
-msgstr "Dekoracija izuzetka aktivnosti"
+msgstr "Dekoracija iznimke aktivnosti"
 
 # taken from hr.po
 #. module: product
@@ -697,7 +697,7 @@ msgstr "raid 10, 2048ECC ram"
 #. module: product
 #: model:ir.model,name:product.model_res_config_settings
 msgid "Config Settings"
-msgstr "Postavke konfiguracije"
+msgstr "Postavke"
 
 # taken from hr.po
 #. module: product
@@ -847,7 +847,7 @@ msgstr "Kubični metri"
 #. module: product
 #: model:ir.model,name:product.model_res_currency
 msgid "Currency"
-msgstr "Valuta"
+msgstr "Izvještaj cjenovnika proizvoda"
 
 # taken from hr.po
 #. module: product
@@ -1144,13 +1144,13 @@ msgstr "Flipover"
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_product__message_follower_ids
 msgid "Followers"
-msgstr "Pratitelji"
+msgstr "Pratioci"
 
 # taken from hr.po
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_product__message_partner_ids
 msgid "Followers (Partners)"
-msgstr "Pratitelji (partneri)"
+msgstr "Pratioci (Partneri)"
 
 # taken from hr.po
 #. module: product
@@ -1237,7 +1237,7 @@ msgstr "Google slike"
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.product_pricelist_item_view_search
 msgid "Group By"
-msgstr "Grupiši po..."
+msgstr "Grupiši po"
 
 # taken from hr.po
 #. module: product
@@ -1301,13 +1301,16 @@ msgstr "Ikona za prikaz iznimki."
 #. module: product
 #: model:ir.model.fields,help:product.field_product_product__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr "Ako je zakačeno, nove poruke će zahtjevati vašu pažnju"
+msgstr ""
+"Ovo polje drži sliku korišćenu kao sliku za varijantu proizvoda, ograničenu "
+"na 1024x1024px."
 
 # taken from hr.po
 #. module: product
 #: model:ir.model.fields,help:product.field_product_product__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr "Ako je označeno neke poruke mogu imati grešku u dostavi."
+msgstr ""
+"Slika varijante proizvoda (srednja slika šablona proizvoda ako je false)."
 
 # taken from hr.po
 #. module: product
@@ -1447,7 +1450,7 @@ msgstr "Skladište"
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_product__message_is_follower
 msgid "Is Follower"
-msgstr "Pratilac"
+msgstr "Je pratilac"
 
 # taken from hr.po
 #. module: product
@@ -1501,19 +1504,19 @@ msgstr "Veliki konferencijski sto"
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_attribute____last_update
 msgid "Last Modified on"
-msgstr "Zadnja izmjena na"
+msgstr "Psljednje ažuriranje"
 
 # taken from hr.po
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_attribute__write_uid
 msgid "Last Updated by"
-msgstr "Zadnje ažuriranje izvršio"
+msgstr "Zadnji ažurirao"
 
 # taken from hr.po
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_attribute__write_date
 msgid "Last Updated on"
-msgstr "Zadnje ažuriranje na"
+msgstr "Zadnje ažuriranje"
 
 # taken from hr.po
 #. module: product
@@ -1542,7 +1545,7 @@ msgstr "Noge"
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_attribute__attribute_line_ids
 msgid "Lines"
-msgstr "Stavke"
+msgstr "Linije"
 
 # taken from hr.po
 #. module: product
@@ -1569,7 +1572,7 @@ msgstr ""
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_product__message_main_attachment_id
 msgid "Main Attachment"
-msgstr "Glavna zakačka"
+msgstr "Glavni prilog"
 
 #. module: product
 #: model:ir.model.fields,help:product.field_product_template_attribute_value__exclude_for
@@ -1620,7 +1623,7 @@ msgstr "Greška pri isporuci poruke"
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_product__message_ids
 msgid "Messages"
-msgstr "Nepročitane poruke"
+msgstr "Poruke"
 
 # taken from hr.po
 #. module: product
@@ -1755,7 +1758,8 @@ msgstr "Broj poruka koje zahtijevaju aktivnost"
 #. module: product
 #: model:ir.model.fields,help:product.field_product_product__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr "Broj poruka sa greškama pri isporuci"
+msgstr ""
+"Slika varijante proizvoda (mala slika šablona proizvoda ako je false)."
 
 # taken from hr.po
 #. module: product
@@ -2071,7 +2075,7 @@ msgstr "Kategorije artikala"
 #. module: product
 #: model:ir.model,name:product.model_product_category
 msgid "Product Category"
-msgstr "Kategorija proizvoda"
+msgstr "Kategorija artikla"
 
 # taken from hr.po
 #. module: product
@@ -2222,7 +2226,7 @@ msgstr "Proizvod: %s"
 #. module: product
 #: model:ir.actions.act_window,name:product.product_template_action
 msgid "Products"
-msgstr "Proizvodi"
+msgstr "Artikli"
 
 # taken from hr.po
 #. module: product
@@ -2901,7 +2905,7 @@ msgstr "Jedinice mjere"
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.report_pricelist_page
 msgid "UoM"
-msgstr "JMJ"
+msgstr "Ova napomena će se pojaviti na prodajnim narudžbama i fakturama."
 
 # taken from hr.po
 #. module: product

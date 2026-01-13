@@ -73,7 +73,7 @@ msgstr "Kategorija štandova"
 #. module: event_booth_sale
 #: model_terms:ir.ui.view,arch_db:event_booth_sale.event_booth_configurator_view_form
 msgid "Cancel"
-msgstr "Otkaži"
+msgstr "Odustani"
 
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_sale_order_line__event_booth_ids
@@ -148,7 +148,7 @@ msgstr "Detalji"
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_configurator__display_name
 msgid "Display Name"
-msgstr "Prikazani naziv"
+msgstr "Naziv"
 
 # taken from hr.po
 #. module: event_booth_sale
@@ -223,19 +223,19 @@ msgstr "Temeljnica"
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_configurator____last_update
 msgid "Last Modified on"
-msgstr "Zadnja izmjena na"
+msgstr "Zadnja promjena"
 
 # taken from hr.po
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_configurator__write_uid
 msgid "Last Updated by"
-msgstr "Zadnje ažuriranje izvršio"
+msgstr "Promijenio"
 
 # taken from hr.po
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_configurator__write_date
 msgid "Last Updated on"
-msgstr "Zadnje ažuriranje na"
+msgstr "Vrijeme promjene"
 
 # taken from hr.po
 #. module: event_booth_sale
@@ -247,7 +247,7 @@ msgstr "U redu"
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth__sale_order_id
 msgid "Order Reference"
-msgstr "Referenca zahtjeva"
+msgstr "Referenca narudžbe"
 
 # taken from hr.po
 #. module: event_booth_sale

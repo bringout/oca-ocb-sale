@@ -31,7 +31,7 @@ msgstr "Pridružen potencijal"
 #. module: sale_crm
 #: model_terms:ir.ui.view,arch_db:sale_crm.crm_quotation_partner_view_form
 msgid "Cancel"
-msgstr "Otkaži"
+msgstr "Odustani"
 
 # taken from hr.po
 #. module: sale_crm
@@ -78,7 +78,7 @@ msgstr "Kupac"
 #. module: sale_crm
 #: model:ir.model.fields,field_description:sale_crm.field_crm_quotation_partner__display_name
 msgid "Display Name"
-msgstr "Prikazani naziv"
+msgstr "Naziv"
 
 # taken from hr.po
 #. module: sale_crm
@@ -100,19 +100,19 @@ msgstr "Fakturad in Prodajas Nalogs Target"
 #. module: sale_crm
 #: model:ir.model.fields,field_description:sale_crm.field_crm_quotation_partner____last_update
 msgid "Last Modified on"
-msgstr "Zadnja izmjena na"
+msgstr "Zadnja promjena"
 
 # taken from hr.po
 #. module: sale_crm
 #: model:ir.model.fields,field_description:sale_crm.field_crm_quotation_partner__write_uid
 msgid "Last Updated by"
-msgstr "Zadnje ažuriranje izvršio"
+msgstr "Promijenio"
 
 # taken from hr.po
 #. module: sale_crm
 #: model:ir.model.fields,field_description:sale_crm.field_crm_quotation_partner__write_date
 msgid "Last Updated on"
-msgstr "Zadnje ažuriranje na"
+msgstr "Vrijeme promjene"
 
 # taken from hr.po
 #. module: sale_crm

@@ -69,7 +69,7 @@ msgstr "Najbolje prije"
 #. module: product_expiry
 #: model:ir.model,name:product_expiry.model_res_config_settings
 msgid "Config Settings"
-msgstr "Postavke konfiguracije"
+msgstr "Postavke"
 
 # taken from hr.po
 #. module: product_expiry
@@ -140,7 +140,7 @@ msgstr "Prikaži datum isteka na otpremnicama"
 #. module: product_expiry
 #: model:ir.model.fields,field_description:product_expiry.field_expiry_picking_confirmation__display_name
 msgid "Display Name"
-msgstr "Prikazani naziv"
+msgstr "Naziv"
 
 #. module: product_expiry
 #: model_terms:ir.ui.view,arch_db:product_expiry.report_lot_label_expiry
@@ -192,19 +192,19 @@ msgstr "Uključi datum isteka na otpremnici"
 #. module: product_expiry
 #: model:ir.model.fields,field_description:product_expiry.field_expiry_picking_confirmation____last_update
 msgid "Last Modified on"
-msgstr "Zadnja izmjena na"
+msgstr "Zadnja promjena"
 
 # taken from hr.po
 #. module: product_expiry
 #: model:ir.model.fields,field_description:product_expiry.field_expiry_picking_confirmation__write_uid
 msgid "Last Updated by"
-msgstr "Zadnje ažuriranje izvršio"
+msgstr "Promijenio"
 
 # taken from hr.po
 #. module: product_expiry
 #: model:ir.model.fields,field_description:product_expiry.field_expiry_picking_confirmation__write_date
 msgid "Last Updated on"
-msgstr "Zadnje ažuriranje na"
+msgstr "Vrijeme promjene"
 
 #. module: product_expiry
 #: model:ir.model.fields,field_description:product_expiry.field_expiry_picking_confirmation__lot_ids
@@ -275,7 +275,7 @@ msgstr "Nastavi osim za istekle"
 #. module: product_expiry
 #: model:ir.model,name:product_expiry.model_procurement_group
 msgid "Procurement Group"
-msgstr "Nalog za nabavu"
+msgstr "Grupa naručivanja"
 
 # taken from hr.po
 #. module: product_expiry
@@ -323,7 +323,7 @@ msgstr "Prikaži lotove"
 #. module: product_expiry
 #: model:ir.model,name:product_expiry.model_stock_move
 msgid "Stock Move"
-msgstr "Skladišno kretanje"
+msgstr "Skladišni prijenos"
 
 # taken from hr.po
 #. module: product_expiry

@@ -28,7 +28,7 @@ msgstr "%s nije dozvoljeno za ovog nositelja dostave."
 #: code:addons/website_sale_delivery_mondialrelay/static/src/xml/website_sale_delivery_mondialrelay.xml
 #, python-format
 msgid "Cancel"
-msgstr "Otkaži"
+msgstr "Odustani"
 
 #. module: website_sale_delivery_mondialrelay
 #. odoo-javascript

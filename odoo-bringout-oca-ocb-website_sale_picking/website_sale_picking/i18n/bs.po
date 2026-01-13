@@ -33,7 +33,7 @@ msgstr "<span class=\"text-muted\"> (Preuzimanje na licu mjesta)</span>"
 #. module: website_sale_picking
 #: model:ir.model,name:website_sale_picking.model_res_config_settings
 msgid "Config Settings"
-msgstr "Postavke konfiguracije"
+msgstr "Postavke"
 
 #. module: website_sale_picking
 #: model:ir.model.fields,field_description:website_sale_picking.field_payment_provider__custom_mode

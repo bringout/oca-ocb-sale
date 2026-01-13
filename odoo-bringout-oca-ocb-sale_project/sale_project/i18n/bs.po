@@ -92,7 +92,7 @@ msgstr "Za fakturisanje"
 #. module: sale_project
 #: model:ir.model,name:sale_project.model_res_config_settings
 msgid "Config Settings"
-msgstr "Postavke konfiguracije"
+msgstr "Podešenja"
 
 # taken from hr.po
 #. module: sale_project

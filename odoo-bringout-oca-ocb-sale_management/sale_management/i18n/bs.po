@@ -112,13 +112,13 @@ msgstr "Tvrtke"
 #. module: sale_management
 #: model:ir.model.fields,field_description:sale_management.field_sale_order_template__company_id
 msgid "Company"
-msgstr "Kompanija"
+msgstr "Tvrtka"
 
 # taken from hr.po
 #. module: sale_management
 #: model:ir.model,name:sale_management.model_res_config_settings
 msgid "Config Settings"
-msgstr "Postavke konfiguracije"
+msgstr "Postavke"
 
 # taken from hr.po
 #. module: sale_management
@@ -257,7 +257,7 @@ msgstr "Daje redoslijed kada se prikazuje popis stavaka ponude."
 #. module: sale_management
 #: model_terms:ir.ui.view,arch_db:sale_management.sale_order_template_view_search
 msgid "Group By"
-msgstr "Grupiši po..."
+msgstr "Dizajnirajte vaše template ponuda koristeći blokove<br/>"
 
 #. module: sale_management
 #: model:ir.model.fields,field_description:sale_management.field_sale_order_option__id
@@ -287,19 +287,19 @@ msgstr "KPI Ukupna vrijednost sve prodaje"
 #. module: sale_management
 #: model:ir.model.fields,field_description:sale_management.field_sale_order_option____last_update
 msgid "Last Modified on"
-msgstr "Zadnja izmjena na"
+msgstr "Zadnje mijenjano"
 
 # taken from hr.po
 #. module: sale_management
 #: model:ir.model.fields,field_description:sale_management.field_sale_order_option__write_uid
 msgid "Last Updated by"
-msgstr "Zadnje ažuriranje izvršio"
+msgstr "Zadnji ažurirao"
 
 # taken from hr.po
 #. module: sale_management
 #: model:ir.model.fields,field_description:sale_management.field_sale_order_option__write_date
 msgid "Last Updated on"
-msgstr "Zadnje ažuriranje na"
+msgstr "Zadnje ažurirano"
 
 # taken from hr.po
 #. module: sale_management
@@ -311,7 +311,7 @@ msgstr "Stavka"
 #. module: sale_management
 #: model:ir.model.fields,field_description:sale_management.field_sale_order_template__sale_order_template_line_ids
 msgid "Lines"
-msgstr "Stavke"
+msgstr "Retci"
 
 # taken from hr.po
 #. module: sale_management
@@ -638,7 +638,7 @@ msgstr "Jedinica mjere"
 #. module: sale_management
 #: model_terms:ir.ui.view,arch_db:sale_management.sale_order_form_quote
 msgid "UoM"
-msgstr "JMJ"
+msgstr "JM"
 
 # taken from hr.po
 #. module: sale_management

@@ -176,7 +176,7 @@ msgstr "Datum završetka prvog naloga za isporuku."
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_res_config_settings
 msgid "Config Settings"
-msgstr "Postavke konfiguracije"
+msgstr "Postavke"
 
 # taken from hr.po
 #. module: sale_stock
@@ -534,7 +534,7 @@ msgstr "Picking Policy"
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_procurement_group
 msgid "Procurement Group"
-msgstr "Nalog za nabavu"
+msgstr "Grupa naručivanja"
 
 # taken from hr.po
 #. module: sale_stock
@@ -706,7 +706,7 @@ msgstr "Započeto"
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_stock_move
 msgid "Stock Move"
-msgstr "Skladišno kretanje"
+msgstr "Kretanje zalihe"
 
 # taken from hr.po
 #. module: sale_stock
@@ -724,7 +724,7 @@ msgstr "Izvještaj o nadopuni skladišta"
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_stock_rule
 msgid "Stock Rule"
-msgstr "Skladišno pravilo"
+msgstr "Pravilo zaliha"
 
 # taken from hr.po
 #. module: sale_stock

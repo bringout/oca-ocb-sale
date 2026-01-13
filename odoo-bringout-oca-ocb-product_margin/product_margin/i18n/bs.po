@@ -174,19 +174,19 @@ msgstr "Status fakture"
 #. module: product_margin
 #: model:ir.model.fields,field_description:product_margin.field_product_margin____last_update
 msgid "Last Modified on"
-msgstr "Zadnja izmjena na"
+msgstr "Zadnje mijenjano"
 
 # taken from hr.po
 #. module: product_margin
 #: model:ir.model.fields,field_description:product_margin.field_product_margin__write_uid
 msgid "Last Updated by"
-msgstr "Zadnje ažuriranje izvršio"
+msgstr "Zadnji ažurirao"
 
 # taken from hr.po
 #. module: product_margin
 #: model:ir.model.fields,field_description:product_margin.field_product_margin__write_date
 msgid "Last Updated on"
-msgstr "Zadnje ažuriranje na"
+msgstr "Zadnje ažurirano"
 
 # taken from hr.po
 #. module: product_margin

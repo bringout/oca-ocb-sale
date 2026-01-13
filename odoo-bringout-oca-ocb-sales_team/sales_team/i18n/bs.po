@@ -55,7 +55,7 @@ msgstr "<span>Pogledaj</span>"
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__message_needaction
 msgid "Action Needed"
-msgstr "Potrebna radnja"
+msgstr "Potrebna akcija"
 
 # taken from hr.po
 #. module: sales_team
@@ -135,7 +135,7 @@ msgstr "Arhivirano"
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__message_attachment_count
 msgid "Attachment Count"
-msgstr "Broj priloga"
+msgstr "Broj zakački"
 
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_kanban
@@ -180,7 +180,7 @@ msgstr "Indeks boje"
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__company_id
 msgid "Company"
-msgstr "Kompanija"
+msgstr "Preduzeće"
 
 # taken from hr.po
 #. module: sales_team
@@ -297,19 +297,19 @@ msgstr ""
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__message_follower_ids
 msgid "Followers"
-msgstr "Pratitelji"
+msgstr "Pratioci"
 
 # taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__message_partner_ids
 msgid "Followers (Partners)"
-msgstr "Pratitelji (partneri)"
+msgstr "Pratioci (Partneri)"
 
 # taken from hr.po
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_search
 msgid "Group By"
-msgstr "Grupiši po..."
+msgstr "Grupiraj po"
 
 # taken from hr.po
 #. module: sales_team
@@ -349,7 +349,8 @@ msgstr "Ako je zakačeno, nove poruke će zahtjevati vašu pažnju"
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr "Ako je označeno neke poruke mogu imati grešku u dostavi."
+msgstr ""
+"Vremenski period koji će grafikon kontrolne table ovog kanala razmatrati."
 
 # taken from hr.po
 #. module: sales_team
@@ -391,25 +392,25 @@ msgstr "Informacija"
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__message_is_follower
 msgid "Is Follower"
-msgstr "Pratilac"
+msgstr "Je pratilac"
 
 # taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_tag____last_update
 msgid "Last Modified on"
-msgstr "Zadnja izmjena na"
+msgstr "Zadnje mijenjano"
 
 # taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_tag__write_uid
 msgid "Last Updated by"
-msgstr "Zadnje ažuriranje izvršio"
+msgstr "Zadnji ažurirao"
 
 # taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_tag__write_date
 msgid "Last Updated on"
-msgstr "Zadnje ažuriranje na"
+msgstr "Zadnje ažurirano"
 
 # taken from hr.po
 #. module: sales_team
@@ -459,7 +460,7 @@ msgstr "Greška pri isporuci poruke"
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__message_ids
 msgid "Messages"
-msgstr "Nepročitane poruke"
+msgstr "Poruke"
 
 # taken from hr.po
 #. module: sales_team
@@ -501,7 +502,7 @@ msgstr "Broj poruka koje zahtijevaju aktivnost"
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr "Broj poruka sa greškama pri isporuci"
+msgstr "Tip grafikona koji će ovaj kanal prikazivati na kontrolnoj tabli."
 
 # taken from hr.po
 #. module: sales_team
@@ -530,7 +531,9 @@ msgstr "Pred-prodaja"
 #. module: sales_team
 #: model:crm.tag,name:sales_team.categ_oppor1
 msgid "Product"
-msgstr "Proizvod"
+msgstr ""
+"Koristite prodajne timove za organizovanje vaših prodajnih odjela.\n"
+"                    Svaki kanal će raditi sa zasebnim procesom."
 
 # taken from hr.po
 #. module: sales_team
