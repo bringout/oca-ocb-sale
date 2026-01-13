@@ -540,7 +540,7 @@ msgid ""
 msgstr ""
 "Prodajete isti proizvod u različitim veličinama ili bojama? Isprobajte mrežu"
 " proizvoda i popunite svoje narudžbe s više količina svake varijante. Ova "
-"značajka postoji i u aplikaciji Nabava"
+"značajka postoji i u aplikaciji Nabavka"
 
 # taken from hr.po
 #. module: sale_management
