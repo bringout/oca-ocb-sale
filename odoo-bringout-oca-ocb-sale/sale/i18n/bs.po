@@ -792,7 +792,7 @@ msgstr ""
 #: code:addons/sale/models/sale_order.py
 #, python-format
 msgid "Accept & Pay Quotation"
-msgstr "Dnevnik mora biti specificiran za pružatelja plaćanja %s."
+msgstr "Accept & Pay Quotation"
 
 # taken from hr.po
 #. module: sale
@@ -2311,7 +2311,7 @@ msgstr "Fakturisana količina"
 #: code:addons/sale/models/sale_order_line.py
 #, python-format
 msgid "Invoiced Quantity: %s"
-msgstr "Pronađen neispravna token! Token pružatelj plaćanja %s != %s"
+msgstr "Invoiced Quantity: %s"
 
 # taken from hr.po
 #. module: sale
@@ -2445,7 +2445,7 @@ msgstr ""
 #: code:addons/sale/models/sale_order.py
 #, python-format
 msgid "It is not allowed to confirm an order in the following states: %s"
-msgstr "Fakture: Ukupno bez poreza"
+msgstr "It is not allowed to confirm an order in the following states: %s"
 
 # taken from hr.po
 #. module: sale
@@ -3317,7 +3317,7 @@ msgstr "Varijante artikala"
 #: code:addons/sale/models/sale_order.py
 #, python-format
 msgid "Product prices have been recomputed according to pricelist %s."
-msgstr "Cijena izračunata iz formula (popusti, margine, zaokruživanja)"
+msgstr "Product prices have been recomputed according to pricelist %s."
 
 # taken from hr.po
 #. module: sale
@@ -3325,7 +3325,7 @@ msgstr "Cijena izračunata iz formula (popusti, margine, zaokruživanja)"
 #: code:addons/sale/models/sale_order.py
 #, python-format
 msgid "Product taxes have been recomputed according to fiscal position %s."
-msgstr "Cijene izračunate iz formula (popusti, margine, zaokruživanja)"
+msgstr "Product taxes have been recomputed according to fiscal position %s."
 
 # taken from hr.po
 #. module: sale
@@ -4904,9 +4904,7 @@ msgstr "Pogledajte ponudu"
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.view_order_form
 msgid "Void Transaction"
-msgstr ""
-"Dodatna prodaja <a href='#' data-oe-model='%s' data-oe-id='%d'>%s</a> za "
-"klijenta <a href='#' data-oe-model='%s' data-oe-id='%s'>%s</a>"
+msgstr "Void Transaction"
 
 # taken from hr.po
 #. module: sale

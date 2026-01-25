@@ -875,6 +875,4 @@ msgstr "obrađeno umjesto"
 #: code:addons/sale_stock/static/src/xml/delay_alert.xml
 #, python-format
 msgid "will be late."
-msgstr ""
-"Planirate da prodajete %s %s od %s ali imate samo %s %s dostupno u %s "
-"magacinu."
+msgstr "will be late."

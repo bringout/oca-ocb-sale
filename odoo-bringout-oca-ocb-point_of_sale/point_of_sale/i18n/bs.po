@@ -51,14 +51,14 @@ msgstr "$ 4.40"
 #: code:addons/point_of_sale/models/pos_config.py
 #, python-format
 msgid "%(pos_name)s (not used)"
-msgstr "$ 4.50"
+msgstr "%(pos_name)s (not used)"
 
 #. module: point_of_sale
 #. odoo-python
 #: code:addons/point_of_sale/models/pos_session.py
 #, python-format
 msgid "%s POS payment of %s in %s"
-msgstr "$ 8.50"
+msgstr "%s POS payment of %s in %s"
 
 #. module: point_of_sale
 #. odoo-javascript

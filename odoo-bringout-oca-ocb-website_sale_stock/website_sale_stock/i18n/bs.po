@@ -147,7 +147,7 @@ msgstr "Poruka Nema na zalihi"
 #: code:addons/website_sale_stock/models/product_product.py
 #, python-format
 msgid "Product"
-msgstr "Tražite %s proizvoda ali samo %s je dostupno"
+msgstr "Product"
 
 # taken from hr.po
 #. module: website_sale_stock
@@ -221,7 +221,7 @@ msgstr "Sada je dostupan sljedeći proizvod."
 #: code:addons/website_sale_stock/models/product_product.py
 #, python-format
 msgid "The product '%(product_name)s' is now available"
-msgstr "Prodajte bez obzira na inventar"
+msgstr "The product '%(product_name)s' is now available"
 
 # taken from hr.po
 #. module: website_sale_stock

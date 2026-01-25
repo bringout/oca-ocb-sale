@@ -35,13 +35,13 @@ msgstr ""
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.product
 msgid "%s review"
-msgstr "recenzija"
+msgstr "%s review"
 
 # taken from hr.po
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.product
 msgid "%s reviews"
-msgstr "recenzije"
+msgstr "%s reviews"
 
 # taken from hr.po
 #. module: website_sale
