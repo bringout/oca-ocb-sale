@@ -67,8 +67,6 @@ msgid ""
 "You are going to use some expired components.\n"
 "Do you confirm you want to proceed ?"
 msgstr ""
-"[PREVOD POTREBAN: You are going to use some expired components.\n"
-"Do you confirm...]"
 
 #. module: mrp_product_expiry
 #. odoo-python
