@@ -1,9 +1,9 @@
-# -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo import fields
 from odoo.fields import Command
 from odoo.tests import tagged
+from odoo.tools.float_utils import float_compare
 
 from odoo.addons.sale.tests.common import SaleCommon
 
@@ -40,9 +40,9 @@ class TestSaleReportCurrencyRate(SaleCommon):
 
         # Create corresponding pricelists and rates.
         pricelists = self.env['product.pricelist'].create([
-            {'name': 'Pricelist (USD)', 'currency_id': usd.id},
-            {'name': 'Pricelist (EUR)', 'currency_id': eur.id},
-            {'name': 'Pricelist (ARS)', 'currency_id': ars.id},
+            {'name': 'Pricelist (USD)', 'currency_id': usd.id, 'company_id': False},
+            {'name': 'Pricelist (EUR)', 'currency_id': eur.id, 'company_id': False},
+            {'name': 'Pricelist (ARS)', 'currency_id': ars.id, 'company_id': False},
         ])
         self.env['res.currency.rate'].create([
             {'name': past_day, 'rate': 555, 'currency_id': ars.id, 'company_id': self.eur_cmp.id},
@@ -101,11 +101,8 @@ class TestSaleReportCurrencyRate(SaleCommon):
                     # to the currency of the so company and then from it to the currency of the so
                     # pricelist.
                     price_for_so_company = self.product.list_price / expected_product_currency_rate
-                    expected_rounded_price = pricelist.currency_id.round(
-                        price_for_so_company * expected_so_currency_rate
-                    )
 
-                    expected_amount_total = qty * expected_rounded_price
+                    expected_amount_total = pricelist.currency_id.round(qty * price_for_so_company * expected_so_currency_rate)
                     self.assertAlmostEqual(order.currency_rate, expected_so_currency_rate)
                     self.assertAlmostEqual(order.amount_total, expected_amount_total)
 
@@ -121,7 +118,33 @@ class TestSaleReportCurrencyRate(SaleCommon):
         # The report should show the amount in the current (in this case usd) company currency.
         report_lines = self.env['sale.report'].sudo().with_context(
             allow_company_ids=[self.usd_cmp.id, self.eur_cmp.id]
-        ).search([('order_id', 'in', sale_orders.ids)])
+        ).search([('order_reference', 'in', [f'sale.order,{so_id}' for so_id in sale_orders.ids])])
 
         price_total = sum(report_lines.mapped('price_total'))
-        self.assertEqual(price_total, expected_reported_amount)
+        self.assertAlmostEqual(price_total, expected_reported_amount)
+
+    def test_sale_report_with_downpayment(self):
+        """Checks that downpayment lines are used in the calculation of amounts invoiced and to invoice"""
+        order = self.env['sale.order'].create({
+            'partner_id': self.partner.id,
+            'order_line': [Command.create({
+                'product_id': self.product.id,
+            })]
+        })
+        order.action_confirm()
+
+        downpayment = self.env['sale.advance.payment.inv'].with_context(active_ids=order.ids).create({
+            'advance_payment_method': 'fixed',
+            'fixed_amount': 200
+        })
+        downpayment.create_invoices()
+        order.invoice_ids.action_post()
+        order.order_line.flush_recordset()
+
+        amount_line = self.env['sale.report'].formatted_read_group(
+            [('order_reference', '=', f'sale.order,{order.id}')],
+            aggregates=['untaxed_amount_to_invoice:sum', 'untaxed_amount_invoiced:sum'],
+        )[0]
+
+        self.assertEqual(float_compare(amount_line['untaxed_amount_invoiced:sum'], 200, precision_rounding=order.currency_id.rounding), 0)
+        self.assertEqual(float_compare(amount_line['untaxed_amount_to_invoice:sum'], self.product.lst_price - 200, precision_rounding=order.currency_id.rounding), 0)

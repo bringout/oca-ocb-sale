@@ -8,7 +8,6 @@
     'depends': [
         'event_sale',
         'sale_management',
-        'sale_product_configurator',
         'sale_product_matrix',
     ],
     'assets': {
@@ -16,5 +15,6 @@
             'test_sale_product_configurators/static/tests/tours/**/*',
         ],
     },
+    'author': 'Odoo S.A.',
     'license': 'LGPL-3',
 }

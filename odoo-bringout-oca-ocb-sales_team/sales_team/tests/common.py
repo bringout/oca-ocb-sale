@@ -1,18 +1,16 @@
-# -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo.tests import TransactionCase
 
+from odoo.addons.base.tests.common import BaseCommon
 from odoo.addons.mail.tests.common import mail_new_test_user
-from odoo.addons.base.tests.common import DISABLED_MAIL_CONTEXT
 
-class SalesTeamCommon(TransactionCase):
+
+class SalesTeamCommon(BaseCommon):
 
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-
-        cls.env = cls.env['base'].with_context(**DISABLED_MAIL_CONTEXT).env
 
         cls.group_sale_salesman = cls.env.ref('sales_team.group_sale_salesman')
         cls.group_sale_manager = cls.env.ref('sales_team.group_sale_manager')
@@ -24,7 +22,7 @@ class SalesTeamCommon(TransactionCase):
             'email': 'default_user_salesman@example.com',
             'signature': '--\nMark',
             'notification_type': 'email',
-            'groups_id': [(6, 0, cls.group_sale_salesman.ids)],
+            'group_ids': [(6, 0, cls.group_sale_salesman.ids)],
         })
         cls.sale_manager = cls.env['res.users'].create({
             'name': 'Test Sales Manager',
@@ -33,7 +31,7 @@ class SalesTeamCommon(TransactionCase):
             'email': 'default_user_salesmanager@example.com',
             'signature': '--\nDamien',
             'notification_type': 'email',
-            'groups_id': [(6, 0, cls.group_sale_manager.ids)],
+            'group_ids': [(6, 0, cls.group_sale_manager.ids)],
         })
         cls.sale_team = cls.env['crm.team'].create({
             'name': 'Test Sales Team',
@@ -42,6 +40,11 @@ class SalesTeamCommon(TransactionCase):
         cls.env['crm.team'].search([
             ('id', '!=', cls.sale_team.id),
         ]).action_archive()
+
+    @classmethod
+    def get_default_groups(cls):
+        groups = super().get_default_groups()
+        return groups | cls.quick_ref('sales_team.group_sale_manager')
 
 
 class TestSalesCommon(TransactionCase):

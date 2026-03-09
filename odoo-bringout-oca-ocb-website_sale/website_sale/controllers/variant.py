@@ -1,33 +1,72 @@
-# -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo import http
-from odoo.http import request
+# Part of Odoo. See LICENSE file for full copyright and licensing details
 
-from odoo.addons.sale.controllers.variant import VariantController
+from odoo.http import Controller, request, route
 
 
-class WebsiteSaleVariantController(VariantController):
-    @http.route(['/sale/get_combination_info_website'], type='json', auth="public", methods=['POST'], website=True)
-    def get_combination_info_website(self, product_template_id, product_id, combination, add_qty, **kw):
-        """Special route to use website logic in get_combination_info override.
-        This route is called in JS by appending _website to the base route.
-        """
-        kw.pop('pricelist_id')
-        combination = self.get_combination_info(product_template_id, product_id, combination, add_qty, request.website.get_current_pricelist(), **kw)
+class WebsiteSaleVariantController(Controller):
 
-        if request.website.google_analytics_key:
-            combination['product_tracking_info'] = request.env['product.template'].get_google_analytics_data(combination)
+    @route(
+        '/website_sale/get_combination_info',
+        type='jsonrpc',
+        auth='public',
+        methods=['POST'],
+        website=True,
+        readonly=True,
+    )
+    def get_combination_info_website(
+        self, product_template_id, product_id, combination, add_qty, uom_id=None, **kwargs
+    ):
+        product_template_id = product_template_id and int(product_template_id)
+        product_id = product_id and int(product_id)
+        add_qty = (add_qty and float(add_qty)) or 1.0
+
+        product_template = request.env['product.template'].browse(product_template_id)
+
+        combination_info = product_template._get_combination_info(
+            combination=request.env['product.template.attribute.value'].browse(combination),
+            product_id=product_id,
+            add_qty=add_qty,
+            uom_id=uom_id,
+        )
+        combination_info['currency_precision'] = combination_info['currency'].decimal_places
+
+        for key in (
+            # Only provided to ease server-side computations.
+            'product_taxes', 'taxes', 'currency', 'date', 'combination',
+            # Only used in Google Merchant Center logic, not client-side.
+            'discount_start_date', 'discount_end_date'
+        ):
+            combination_info.pop(key)
+
+        product = request.env['product.product'].browse(combination_info['product_id'])
+        if product and product.id == product_id:
+            combination_info['no_product_change'] = True
+            return combination_info
 
         if request.website.product_page_image_width != 'none' and not request.env.context.get('website_sale_no_images', False):
-            carousel_view = request.env['ir.ui.view']._render_template('website_sale.shop_product_images', values={
-                'product': request.env['product.template'].browse(combination['product_template_id']),
-                'product_variant': request.env['product.product'].browse(combination['product_id']),
-                'website': request.env['website'].get_current_website(),
-            })
-            combination['carousel'] = carousel_view
-        return combination
+            product_or_template = product or product_template
+            combination_info['display_image'] = bool(product_or_template.image_128)
+            combination_info['carousel'] = request.env['ir.ui.view']._render_template(
+                'website_sale.shop_product_images',
+                values={
+                    'product': product_template,
+                    'product_variant': product,
+                    'website': request.website,
+                },
+            )
 
-    @http.route(auth="public")
+        if request.website.is_view_active('website_sale.product_tags'):
+            all_tags = product.all_product_tag_ids if product else product_template.product_tag_ids
+            combination_info['product_tags'] = request.env['ir.ui.view']._render_template(
+                'website_sale.product_tags', values={
+                    'all_product_tags': all_tags.filtered('visible_to_customers'),
+                }
+            )
+        return combination_info
+
+    @route('/sale/create_product_variant', type='jsonrpc', auth='public', methods=['POST'])
     def create_product_variant(self, product_template_id, product_template_attribute_value_ids, **kwargs):
-        """Override because on the website the public user must access it."""
-        return super(WebsiteSaleVariantController, self).create_product_variant(product_template_id, product_template_attribute_value_ids, **kwargs)
+        """Old product configurator logic, only used by frontend configurator, will be deprecated soon"""
+        return request.env['product.template'].browse(
+            int(product_template_id)
+        ).create_product_variant(product_template_attribute_value_ids)

@@ -1,31 +1,32 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* sale_expense
-# 
+# * sale_expense
+#
 # Translators:
 # Martin Trigaux, 2022
-# a75f12d3d37ea5bf159c4b3e85eb30e7_0fa6927, 2023
-# Wil Odoo, 2024
-# Maitê Dietze, 2024
-# 
+#
+# "Dylan Kiss (dyki)" <dyki@odoo.com>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 16.0beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-06 13:32+0000\n"
-"PO-Revision-Date: 2022-09-22 05:54+0000\n"
-"Last-Translator: Maitê Dietze, 2024\n"
-"Language-Team: Portuguese (Brazil) (https://app.transifex.com/odoo/teams/41243/pt_BR/)\n"
+"POT-Creation-Date: 2026-01-25 18:36+0000\n"
+"PO-Revision-Date: 2025-09-16 10:06+0000\n"
+"Last-Translator: \"Dylan Kiss (dyki)\" <dyki@odoo.com>\n"
+"Language-Team: Portuguese (Brazil) <https://translate.odoo.com/projects/"
+"odoo-19/sale_expense/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: pt_BR\n"
-"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : ((n != 0 && n % "
+"1000000 == 0) ? 1 : 2);\n"
+"X-Generator: Weblate 5.12.2\n"
 
 #. module: sale_expense
 #: model:ir.model.fields,field_description:sale_expense.field_sale_order__expense_count
 msgid "# of Expenses"
-msgstr "# de Despesas"
+msgstr "Nº de despesas"
 
 #. module: sale_expense
 #: model:ir.model.fields,field_description:sale_expense.field_hr_expense__can_be_reinvoiced
@@ -40,6 +41,17 @@ msgid "Customer to Reinvoice"
 msgstr "Cliente a refaturar"
 
 #. module: sale_expense
+#: model:ir.model.fields,field_description:sale_expense.field_account_move__display_name
+#: model:ir.model.fields,field_description:sale_expense.field_account_move_line__display_name
+#: model:ir.model.fields,field_description:sale_expense.field_hr_expense__display_name
+#: model:ir.model.fields,field_description:sale_expense.field_hr_expense_split__display_name
+#: model:ir.model.fields,field_description:sale_expense.field_product_template__display_name
+#: model:ir.model.fields,field_description:sale_expense.field_sale_order__display_name
+#: model:ir.model.fields,field_description:sale_expense.field_sale_order_line__display_name
+msgid "Display Name"
+msgstr "Nome exibido"
+
+#. module: sale_expense
 #: model:ir.model,name:sale_expense.model_hr_expense
 msgid "Expense"
 msgstr "Despesa"
@@ -51,18 +63,6 @@ msgid "Expense Policy Tooltip"
 msgstr "Dica de política de despesas"
 
 #. module: sale_expense
-#: model:ir.model,name:sale_expense.model_hr_expense_sheet
-msgid "Expense Report"
-msgstr "Relatório de Despesas"
-
-#. module: sale_expense
-#: model:ir.model.fields,field_description:sale_expense.field_account_bank_statement_line__expense_sheet_id
-#: model:ir.model.fields,field_description:sale_expense.field_account_move__expense_sheet_id
-#: model:ir.model.fields,field_description:sale_expense.field_account_payment__expense_sheet_id
-msgid "Expense Sheet"
-msgstr "Folha de despesas"
-
-#. module: sale_expense
 #: model:ir.model,name:sale_expense.model_hr_expense_split
 msgid "Expense Split"
 msgstr "Despesa dividida"
@@ -70,6 +70,7 @@ msgstr "Despesa dividida"
 #. module: sale_expense
 #: model:ir.actions.act_window,name:sale_expense.hr_expense_action_from_sale_order
 #: model:ir.model.fields,field_description:sale_expense.field_sale_order__expense_ids
+#: model:ir.model.fields,field_description:sale_expense.field_sale_order_line__expense_ids
 #: model_terms:ir.ui.view,arch_db:sale_expense.sale_order_form_view_inherit
 msgid "Expenses"
 msgstr "Despesas"
@@ -77,7 +78,6 @@ msgstr "Despesas"
 #. module: sale_expense
 #. odoo-python
 #: code:addons/sale_expense/models/product_template.py:0
-#, python-format
 msgid "Expenses of this category may not be added to a Sales Order."
 msgstr ""
 "Despesas desta categoria não podem ser adicionadas a um pedido de venda."
@@ -85,23 +85,32 @@ msgstr ""
 #. module: sale_expense
 #. odoo-python
 #: code:addons/sale_expense/models/product_template.py:0
-#, python-format
 msgid ""
 "Expenses will be added to the Sales Order at their actual cost when posted."
 msgstr ""
-"Despesas serão adicionadas ao pedido de venda com o custo real de quando "
-"foram lançadas."
+"Despesas serão adicionadas ao pedido de venda com o custo efetivo de quando "
+"forem lançadas."
 
 #. module: sale_expense
 #. odoo-python
 #: code:addons/sale_expense/models/product_template.py:0
-#, python-format
 msgid ""
 "Expenses will be added to the Sales Order at their sales price (product "
 "price, pricelist, etc.) when posted."
 msgstr ""
-"Despesas serão adicionadas ao pedido de venda com o preço de venda (preço do"
-" produto, lista de preços etc) de quando forem lançadas."
+"Despesas serão adicionadas ao pedido de venda com o preço de venda (preço do "
+"produto, lista de preços etc) de quando forem lançadas."
+
+#. module: sale_expense
+#: model:ir.model.fields,field_description:sale_expense.field_account_move__id
+#: model:ir.model.fields,field_description:sale_expense.field_account_move_line__id
+#: model:ir.model.fields,field_description:sale_expense.field_hr_expense__id
+#: model:ir.model.fields,field_description:sale_expense.field_hr_expense_split__id
+#: model:ir.model.fields,field_description:sale_expense.field_product_template__id
+#: model:ir.model.fields,field_description:sale_expense.field_sale_order__id
+#: model:ir.model.fields,field_description:sale_expense.field_sale_order_line__id
+msgid "ID"
+msgstr "ID"
 
 #. module: sale_expense
 #: model:ir.model.fields,help:sale_expense.field_hr_expense__sale_order_id
@@ -109,8 +118,8 @@ msgid ""
 "If the category has an expense policy, it will be reinvoiced on this sales "
 "order"
 msgstr ""
-"Se essa categoria tem uma política de despesas, será refaturada nesse pedido"
-" de venda"
+"Se essa categoria tem uma política de despesas, será refaturada nesse pedido "
+"de venda"
 
 #. module: sale_expense
 #: model_terms:ir.ui.view,arch_db:sale_expense.product_product_view_form_inherit_sale_expense
@@ -125,7 +134,7 @@ msgstr "Lançamento de diário"
 #. module: sale_expense
 #: model:ir.model,name:sale_expense.model_account_move_line
 msgid "Journal Item"
-msgstr "Item de Diário"
+msgstr "Item do diário"
 
 #. module: sale_expense
 #: model:ir.model,name:sale_expense.model_product_template
@@ -133,23 +142,26 @@ msgid "Product"
 msgstr "Produto"
 
 #. module: sale_expense
-#. odoo-python
-#: code:addons/sale_expense/models/hr_expense_sheet.py:0
-#, python-format
-msgid "Reinvoiced Sales Orders"
-msgstr "Pedidos de venda refaturados"
-
-#. module: sale_expense
-#: model:ir.model.fields,field_description:sale_expense.field_hr_expense_sheet__sale_order_count
-msgid "Sale Order Count"
-msgstr "Contagem do pedido de venda"
+#: model:ir.model.fields,field_description:sale_expense.field_hr_expense__sale_order_line_id
+msgid "Sale Order Line"
+msgstr "Linha do pedido de venda"
 
 #. module: sale_expense
 #: model:ir.model,name:sale_expense.model_sale_order
+#: model_terms:ir.ui.view,arch_db:sale_expense.hr_expense_form_view_inherit_sale_expense
 msgid "Sales Order"
 msgstr "Pedido de venda"
 
 #. module: sale_expense
-#: model_terms:ir.ui.view,arch_db:sale_expense.hr_expense_sheet_view_form
-msgid "Sales Orders"
-msgstr "Pedidos de vendas"
+#: model:ir.model,name:sale_expense.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Linha do pedido de venda"
+
+#~ msgid "Expense Report"
+#~ msgstr "Relatório de Despesas"
+
+#~ msgid "Sale Order Count"
+#~ msgstr "Contagem Pedido de Venda"
+
+#~ msgid "Sales Orders"
+#~ msgstr "Ordens de Vendas"

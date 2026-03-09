@@ -1,27 +1,24 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* website_sale_slides
-# 
-# Translators:
-# Tuomo Aura <tuomo.aura@web-veistamo.fi>, 2022
-# Kari Lindgren <kari.lindgren@emsystems.fi>, 2022
-# Martin Trigaux, 2022
-# Jarmo Kortetjärvi <jarmo.kortetjarvi@gmail.com>, 2022
-# Ossi Mantylahti <ossi.mantylahti@obs-solutions.fi>, 2023
-# 
+# * website_sale_slides
+#
+# "Tiffany Chang (tic)" <tic@odoo.com>, 2025.
+# Saara Hakanen <sahak@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-06 13:32+0000\n"
-"PO-Revision-Date: 2022-09-22 05:57+0000\n"
-"Last-Translator: Ossi Mantylahti <ossi.mantylahti@obs-solutions.fi>, 2023\n"
-"Language-Team: Finnish (https://app.transifex.com/odoo/teams/41243/fi/)\n"
+"POT-Creation-Date: 2026-01-25 18:37+0000\n"
+"PO-Revision-Date: 2026-02-17 12:43+0000\n"
+"Last-Translator: Saara Hakanen <sahak@odoo.com>\n"
+"Language-Team: Finnish <https://translate.odoo.com/projects/odoo-19/"
+"website_sale_slides/fi/>\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: fi\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.14.3\n"
 
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_option_buy_course_now
@@ -34,61 +31,54 @@ msgid "<i class=\"fa fa-shopping-cart\"/> Add to Cart"
 msgstr "<i class=\"fa fa-shopping-cart\"/> Lisää ostoskoriin"
 
 #. module: website_sale_slides
-#: model:ir.model.fields,help:website_sale_slides.field_product_product__detailed_type
-#: model:ir.model.fields,help:website_sale_slides.field_product_template__detailed_type
-msgid ""
-"A storable product is a product for which you manage stock. The Inventory app has to be installed.\n"
-"A consumable product is a product for which stock is not managed.\n"
-"A service is a non-material product you provide."
-msgstr ""
-"Varastoitava tuote on tuote, jonka varastosaldoja hallitset. Tätä varten on asennettava Varasto-sovellus.\n"
-"Kulutustuote on fyysinen tuote, jonka varastoa ei hallita.\n"
-"Palvelu on tarjonnassa oleva aineeton tuote."
-
-#. module: website_sale_slides
 #. odoo-python
 #: code:addons/website_sale_slides/models/product_product.py:0
-#, python-format
-msgid "Access to:%s%s"
-msgstr "Pääsy:%s%s"
+msgid "Access to: %(new_line)s%(channel_list)s"
+msgstr "Pääsy seuraaviin: %(new_line)s%(channel_list)s"
 
 #. module: website_sale_slides
-#: model_terms:ir.ui.view,arch_db:website_sale_slides.snippet_options
+#: model:product.template,name:website_sale_slides.product_course_channel_5_product_template
+msgid "Basics of Furniture Creation"
+msgstr "Huonekalujen rakentamisen perusteet"
+
+#. module: website_sale_slides
+#. odoo-javascript
+#: code:addons/website_sale_slides/static/src/website_builder/course_page_option.xml:0
 msgid "Buy Now Button"
 msgstr "Osta nyt -painike"
 
 #. module: website_sale_slides
 #. odoo-javascript
 #: code:addons/website_sale_slides/static/src/xml/website_sale_slides_quiz.xml:0
-#, python-format
 msgid "Buy the course to validate your answers!"
 msgstr "Osta kurssi vahvistaaksesi vastauksesi!"
 
 #. module: website_sale_slides
 #. odoo-javascript
 #: code:addons/website_sale_slides/static/src/xml/slide_course_join.xml:0
-#, python-format
 msgid "Buy this Course"
 msgstr "Osta tämä kurssi"
 
 #. module: website_sale_slides
 #: model_terms:ir.actions.act_window,help:website_sale_slides.sale_report_action_slides
 msgid "Come back once your courses starts selling to report on your revenues."
-msgstr "Palaa takaisin, kun kurssisi alkaa myydä ja raportoi tuloistasi."
+msgstr ""
+"Palaa takaisin, kun kurssiasi ostetaan, jotta saat raportin tuloistasi."
 
 #. module: website_sale_slides
 #: model:ir.model,name:website_sale_slides.model_slide_channel
-#: model:ir.model.fields.selection,name:website_sale_slides.selection__product_template__detailed_type__course
 msgid "Course"
 msgstr "Kurssi"
 
 #. module: website_sale_slides
+#: model:ir.model.fields.selection,name:website_sale_slides.selection__product_template__service_tracking__course
 #: model:product.template,name:website_sale_slides.default_product_course_product_template
 msgid "Course Access"
 msgstr "Kurssin käyttöoikeus"
 
 #. module: website_sale_slides
-#: model_terms:ir.ui.view,arch_db:website_sale_slides.snippet_options
+#. odoo-javascript
+#: code:addons/website_sale_slides/static/src/website_builder/course_page_option_plugin.js:0
 msgid "Course Page"
 msgstr "Kurssisivu"
 
@@ -103,6 +93,12 @@ msgid "Courses"
 msgstr "Kurssit"
 
 #. module: website_sale_slides
+#: model:ir.model.fields,field_description:website_sale_slides.field_product_product__service_tracking
+#: model:ir.model.fields,field_description:website_sale_slides.field_product_template__service_tracking
+msgid "Create on Order"
+msgstr "Luo tilauksesta"
+
+#. module: website_sale_slides
 #: model:ir.model.fields,field_description:website_sale_slides.field_slide_channel__currency_id
 msgid "Currency"
 msgstr "Valuutta"
@@ -110,12 +106,21 @@ msgstr "Valuutta"
 #. module: website_sale_slides
 #: model:product.template,name:website_sale_slides.product_course_channel_6_product_template
 msgid "DIY Furniture Course"
-msgstr "Tee-se-itse huonekalujen kurssi"
+msgstr "Tee-se-itse huonekalujen rakentamisen kurssi"
 
 #. module: website_sale_slides
 #: model:ir.model.fields,help:website_sale_slides.field_slide_channel__enroll
 msgid "Defines how people can enroll to your Course."
 msgstr "Määrittelee, miten ihmiset voivat ilmoittautua kurssillesi."
+
+#. module: website_sale_slides
+#: model:ir.model.fields,field_description:website_sale_slides.field_product_product__display_name
+#: model:ir.model.fields,field_description:website_sale_slides.field_product_template__display_name
+#: model:ir.model.fields,field_description:website_sale_slides.field_sale_order__display_name
+#: model:ir.model.fields,field_description:website_sale_slides.field_sale_order_line__display_name
+#: model:ir.model.fields,field_description:website_sale_slides.field_slide_channel__display_name
+msgid "Display Name"
+msgstr "Näyttönimi"
 
 #. module: website_sale_slides
 #: model:ir.model.fields,field_description:website_sale_slides.field_slide_channel__enroll
@@ -129,6 +134,21 @@ msgid "Free Preview"
 msgstr "Ilmainen esikatselu"
 
 #. module: website_sale_slides
+#. odoo-python
+#: code:addons/website_sale_slides/models/product_template.py:0
+msgid "Grant access to the eLearning course linked to this product."
+msgstr "Myönnä pääsy tähän tuotteeseen linkitettyyn Verkko-oppimisen kurssiin."
+
+#. module: website_sale_slides
+#: model:ir.model.fields,field_description:website_sale_slides.field_product_product__id
+#: model:ir.model.fields,field_description:website_sale_slides.field_product_template__id
+#: model:ir.model.fields,field_description:website_sale_slides.field_sale_order__id
+#: model:ir.model.fields,field_description:website_sale_slides.field_sale_order_line__id
+#: model:ir.model.fields,field_description:website_sale_slides.field_slide_channel__id
+msgid "ID"
+msgstr "Tunnus"
+
+#. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_buy_course_link
 msgid "Join this Course"
 msgstr "Liity tälle kurssille"
@@ -136,13 +156,17 @@ msgstr "Liity tälle kurssille"
 #. module: website_sale_slides
 #. odoo-javascript
 #: code:addons/website_sale_slides/static/src/xml/website_slides_unsubscribe.xml:0
-#, python-format
 msgid ""
 "Leaving the course and re-enrolling afterwards means that you'll be charged "
 "again."
 msgstr ""
-"Jos jätät kurssin kesken ja ilmoittaudut sen jälkeen uudelleen, sinulta "
-"veloitetaan jälleen."
+"Jos jätät kurssin kesken ja ilmoittaudut sen jälkeen uudelleen, sinua myös "
+"veloitetaan uudelleen."
+
+#. module: website_sale_slides
+#: model_terms:ir.ui.view,arch_db:website_sale_slides.course_buy_course_button
+msgid "Log in"
+msgstr "Kirjaudu sisään"
 
 #. module: website_sale_slides
 #: model_terms:ir.actions.act_window,help:website_sale_slides.sale_report_action_slides
@@ -152,12 +176,17 @@ msgstr "Ei vielä myyntitietoja!"
 #. module: website_sale_slides
 #: model:ir.model.fields.selection,name:website_sale_slides.selection__slide_channel__enroll__payment
 msgid "On payment"
-msgstr "Maksussa"
+msgstr "Maksusta"
 
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_purchased_confirmation_message
 msgid "Once your order is paid &amp; confirmed, you will gain access to:"
 msgstr "Kun tilauksesi on maksettu ja vahvistettu, saat pääsyn:"
+
+#. module: website_sale_slides
+#: model_terms:ir.ui.view,arch_db:website_sale_slides.course_buy_course_button
+msgid "Prerequisite:"
+msgstr "Edellytys:"
 
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_slides_list_slide
@@ -171,12 +200,6 @@ msgid "Product"
 msgstr "Tuote"
 
 #. module: website_sale_slides
-#: model:ir.model.fields,field_description:website_sale_slides.field_product_product__detailed_type
-#: model:ir.model.fields,field_description:website_sale_slides.field_product_template__detailed_type
-msgid "Product Type"
-msgstr "Tuotteen tyyppi"
-
-#. module: website_sale_slides
 #: model:ir.model,name:website_sale_slides.model_product_product
 msgid "Product Variant"
 msgstr "Tuotevariaatio"
@@ -184,7 +207,7 @@ msgstr "Tuotevariaatio"
 #. module: website_sale_slides
 #: model:ir.model.constraint,message:website_sale_slides.constraint_slide_channel_product_id_check
 msgid "Product is required for on payment channels."
-msgstr "Tuote tarvitaan maksukanavissa."
+msgstr "Tuote vaaditaan maksukanavissa."
 
 #. module: website_sale_slides
 #: model:ir.ui.menu,name:website_sale_slides.website_slides_menu_report_revenues
@@ -203,18 +226,26 @@ msgid "Sales Order"
 msgstr "Myyntitilaus"
 
 #. module: website_sale_slides
+#: model:ir.model,name:website_sale_slides.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Myyntitilauksen rivi"
+
+#. module: website_sale_slides
 #. odoo-javascript
 #: code:addons/website_sale_slides/static/src/xml/slide_course_join.xml:0
-#, python-format
 msgid "Sign in"
 msgstr "Kirjaudu sisään"
 
 #. module: website_sale_slides
 #. odoo-javascript
 #: code:addons/website_sale_slides/static/src/xml/website_sale_slides_quiz.xml:0
-#, python-format
 msgid "Sign in and buy the course to take the quiz"
-msgstr "Kirjaudu sisään ja osta kurssi, jotta voit suorittaa kokeen"
+msgstr "Kirjaudu sisään ja osta kurssi, jotta voit suorittaa tietovisan"
+
+#. module: website_sale_slides
+#: model_terms:ir.ui.view,arch_db:website_sale_slides.course_buy_course_button
+msgid "Sign up"
+msgstr "Rekisteröidy"
 
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_purchased_confirmation_message
@@ -224,17 +255,21 @@ msgstr "Aloita opiskelu"
 #. module: website_sale_slides
 #: model:product.template,name:website_sale_slides.product_course_channel_1_product_template
 msgid "Taking care of Trees Course"
-msgstr "Puiden hoitaminen kurssi"
+msgstr "Puidenhoitokurssi"
+
+#. module: website_sale_slides
+#: model_terms:ir.ui.view,arch_db:website_sale_slides.course_buy_course_button
+msgid "There are some"
+msgstr "On joitakin"
 
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_main
 msgid "This course cannot be bought because its linked product"
-msgstr "Tätä kurssia ei voi ostaa, koska siihen liittyvä tuote"
+msgstr "Tätä kurssia ei voi ostaa, koska siihen linkitetty tuote"
 
 #. module: website_sale_slides
 #. odoo-javascript
 #: code:addons/website_sale_slides/static/src/xml/website_slides_unsubscribe.xml:0
-#, python-format
 msgid "This course is paid."
 msgstr "Tämä kurssi on maksullinen."
 
@@ -249,21 +284,15 @@ msgid "Total revenues"
 msgstr "Tulot yhteensä"
 
 #. module: website_sale_slides
-#: model:ir.model,name:website_sale_slides.model_website
-msgid "Website"
-msgstr "Verkkosivu"
-
-#. module: website_sale_slides
 #. odoo-python
 #: code:addons/website_sale_slides/models/sale_order.py:0
-#, python-format
 msgid "You can only add a course once in your cart."
 msgstr "Voit lisätä kurssin vain kerran ostoskoriin."
 
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_purchased_confirmation_message
 msgid "You have gained access to the following course(s):"
-msgstr "Olet saanut pääsyn seuraavalle kurssille (seuraaville kursseille):"
+msgstr "Olet saanut pääsyn seuraaville kursseille:"
 
 #. module: website_sale_slides
 #: model:ir.actions.act_window,name:website_sale_slides.sale_report_action_slides
@@ -278,14 +307,19 @@ msgstr "Verkko-oppimisen myyntianalyysi"
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_main
 msgid "is not published."
-msgstr "ei julkaista."
+msgstr "ei julkaistu."
+
+#. module: website_sale_slides
+#: model_terms:ir.ui.view,arch_db:website_sale_slides.course_buy_course_button
+msgid "prerequisite courses."
+msgstr "edellytetyt kurssit."
 
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_purchased_confirmation_message
 msgid "step(s)"
-msgstr "askel(t)"
+msgstr "vaiheet"
 
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_buy_course_link
 msgid "to access resources"
-msgstr "käyttää resursseja"
+msgstr "päästäksesi resursseihin"

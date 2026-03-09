@@ -1,89 +1,122 @@
-odoo.define('website_event_sale.tour', function (require) {
-'use strict';
+import { registry } from "@web/core/registry";
+import * as wsTourUtils from "@website_sale/js/tours/tour_utils";
 
-var tour = require('web_tour.tour');
-
-tour.register('event_buy_tickets', {
-    test: true,
-    url: '/event',
-},
-    [
+registry.category("web_tour.tours").add("event_buy_tickets", {
+    url: "/event",
+    steps: () => [
         {
             content: "Go to the `Events` page",
             trigger: 'a[href*="/event"]:contains("Conference for Architects TEST"):first',
+            run: "click",
+            expectUnloadPage: true,
         },
         {
-            content: "Select 1 unit of `Standard` ticket type",
-            extra_trigger: '#wrap:not(:has(a[href*="/event"]:contains("Conference for Architects")))',
-            trigger: 'select:eq(0)',
-            run: 'text 1',
+            content: "Open the register modal",
+            trigger: 'button:contains("Register")',
+            run: "click",
         },
         {
-            content: "Select 2 units of `VIP` ticket type",
-            extra_trigger: 'select:eq(0):has(option:contains(1):propSelected)',
-            trigger: 'select:eq(1)',
-            run: 'text 2',
+            trigger: '#wrap:not(:has(a[href*="/event"]:contains("Conference for Architects")))',
+        },
+        {
+            content: "Try reaching maximum `Standard` ticket orderable",
+            trigger: ".modal input:eq(1)",
+            run: "edit 1234",
+        },
+        {
+            // The input number should be changed to EVENT_MAX_TICKETS without particular conditions (EVENT_MAX_TICKETS < 1234)
+            trigger: "div.o_wevent_ticket_selector:contains('Max.') input.form-control",
+        },
+        {
+            content: "Reset to 0",
+            trigger: ".modal input:eq(1)",
+            run: "edit 0"
+        },
+        {
+            content: "Add 1 unit of `Standard` ticket type thanks to the spinner",
+            trigger: "button[data-increment-type*='plus']",
+            run: "click",
+        },
+        {
+            content: "Try reaching maximum `VIP` ticket orderable",
+            trigger: ".modal input:eq(2)",
+            run: "edit 2002",
+        },
+        {
+            // The input number should be changed to min(limit per order, seats available) (11 < 12 < 2002)
+            trigger: "div.o_wevent_ticket_selector:contains('VIP'):contains('11') input.form-control",
+        },
+        {
+            content: "Edit 2 units of `VIP` ticket type",
+            trigger: ".modal input:eq(2)",
+            run: "edit 2",
         },
         {
             content: "Click on `Order Now` button",
-            extra_trigger: 'select:eq(1):has(option:contains(2):propSelected)',
-            trigger: '.btn-primary:contains("Register")',
+            trigger: '.modal .btn-primary:contains("Register")',
+            run: "click",
         },
         {
-            content: "Fill attendees details",
-            trigger: 'form[id="attendee_registration"] .btn:contains("Continue")',
-            run: function () {
-                $("input[name='1-name']").val("Att1");
-                $("input[name='1-phone']").val("111 111");
-                $("input[name='1-email']").val("att1@example.com");
-                $("input[name='2-name']").val("Att2");
-                $("input[name='2-phone']").val("222 222");
-                $("input[name='2-email']").val("att2@example.com");
-                $("input[name='3-name']").val("Att3");
-                $("input[name='3-phone']").val("333 333");
-                $("input[name='3-email']").val("att3@example.com");
-            },
+            content: "Wait the modal is shown before continue",
+            trigger: ".modal.modal_shown.show form[id=attendee_registration]",
+        },
+        {
+            trigger: ".modal#modal_attendees_registration input[name*='1-email']",
+            run: "edit att1@example.com",
+        },
+        {
+            trigger: ".modal#modal_attendees_registration input[name*='1-phone']",
+            run: "edit 111 111",
+        },
+        {
+            trigger: ".modal#modal_attendees_registration input[name*='2-name']",
+            run: "edit Att2",
+        },
+        {
+            trigger: ".modal#modal_attendees_registration input[name*='2-phone']",
+            run: "edit 222 222",
+        },
+        {
+            trigger: ".modal#modal_attendees_registration input[name*='2-email']",
+            run: "edit att2@example.com",
+        },
+        {
+            trigger: ".modal#modal_attendees_registration input[name*='1-name']",
+            run: "edit Att1",
+        },
+        {
+            trigger: ".modal#modal_attendees_registration input[name*='3-name']",
+            run: "edit Att3",
+        },
+        {
+            trigger: ".modal#modal_attendees_registration input[name*='3-phone']",
+            run: "edit 333 333",
+        },
+        {
+            trigger: ".modal#modal_attendees_registration input[name*='3-email']",
+            run: "edit att3@example.com",
+        },
+        {
+            trigger:
+                ".modal#modal_attendees_registration input[name*='1-name'], .modal#modal_attendees_registration input[name*='2-name'], .modal#modal_attendees_registration input[name*='3-name']",
+        },
+        {
+            trigger: "input[name*='1-name'], input[name*='2-name'], input[name*='3-name']",
         },
         {
             content: "Validate attendees details",
-            extra_trigger: "input[name='1-name'], input[name='2-name'], input[name='3-name']",
-            trigger: 'button:contains("Continue")',
+            trigger: ".modal#modal_attendees_registration button[type=submit]",
+            run: "click",
+            expectUnloadPage: true,
         },
         {
-            content: "Check that the cart contains exactly 3 triggers",
-            trigger: 'a:has(.my_cart_quantity:containsExact(3)),.o_extra_menu_items .fa-plus',
-            run: function () {}, // it's a check
+            trigger: ".oe_cart:contains(payment method)",
         },
-        {
-            content: "go to cart",
-            trigger: 'a:contains(Return to Cart)',
-        },
-        {
-            content: "Now click on `Process Checkout`",
-            extra_trigger: 'a:has(.my_cart_quantity):contains(3),#cart_products input.js_quantity[value="3"]',
-            trigger: '.btn-primary:contains("Process Checkout")'
-        },
-        {
-            content: "Check that the subtotal is 4,000.00 USD", // this test will fail if the currency of the main company is not USD
-            trigger: '#order_total_untaxed .oe_currency_value:contains("4,000.00")',
-            run: function () {}, // it's a check
-        },
-        {
-            content: "Select `Wire Transfer` payment method",
-            trigger: '#payment_method label:contains("Wire Transfer")',
-        },
-        {
-            content: "Pay",
-            //Either there are multiple payment methods, and one is checked, either there is only one, and therefore there are no radio inputs
-            // extra_trigger: '#payment_method input:checked,#payment_method:not(:has("input:radio:visible"))',
-            trigger: 'button[name="o_payment_submit_button"]:visible:not(:disabled)',
-        },
-        {
-            content: "Last step",
-            trigger: '.oe_website_sale_tx_status:contains("Please use the following transfer details")',
-            timeout: 30000,
-        }
-    ]
-);
-
+        wsTourUtils.goToCart({ quantity: 3 }),
+        wsTourUtils.goToCheckout(),
+        ...wsTourUtils.assertCartAmounts({
+            untaxed: "4,000.00",
+        }),
+        ...wsTourUtils.payWithTransfer({ expectUnloadPage: true, waitFinalizeYourPayment: true }),
+    ],
 });

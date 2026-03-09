@@ -1,7 +1,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 {
     'name': 'Products Expiration Date',
-    'category': 'Inventory/Inventory',
+    'category': 'Supply Chain/Inventory',
     'depends': ['stock'],
     'description': """
 Track different dates on products and production lots.
@@ -26,9 +26,17 @@ Also implements the removal strategy First Expiry First Out (FEFO) widely used, 
              'wizard/confirm_expiry_view.xml',
              'report/report_deliveryslip.xml',
              'report/report_lot_barcode.xml',
-             'report/report_package_barcode.xml',
              'data/product_expiry_data.xml',
-             'data/mail_activity_type_data.xml',
             ],
+    'post_init_hook': '_enable_tracking_numbers',
+    'assets': {
+        'web.assets_tests': [
+            'product_expiry/static/tests/tours/*.js',
+        ],
+        'web.assets_backend': [
+            'product_expiry/static/src/**/*',
+        ],
+    },
+    'author': 'Odoo S.A.',
     'license': 'LGPL-3',
 }

@@ -1,16 +1,16 @@
-# -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo import api, models
 
 
-class ProductPricelistReport(models.AbstractModel):
+class ReportProductReport_Pricelist(models.AbstractModel):
     _name = 'report.product.report_pricelist'
     _description = 'Pricelist Report'
 
     def _get_report_values(self, docids, data):
         return self._get_report_data(data, 'pdf')
 
+    @api.readonly
     @api.model
     def get_html(self, data):
         render_values = self._get_report_data(data, 'html')
@@ -18,7 +18,6 @@ class ProductPricelistReport(models.AbstractModel):
 
     def _get_report_data(self, data, report_type='html'):
         quantities = data.get('quantities', [1])
-
         data_pricelist_id = data.get('pricelist_id')
         pricelist_id = data_pricelist_id and int(data_pricelist_id)
         pricelist = self.env['product.pricelist'].browse(pricelist_id).exists()
@@ -30,7 +29,7 @@ class ProductPricelistReport(models.AbstractModel):
         is_product_tmpl = active_model == 'product.template'
         ProductClass = self.env[active_model]
 
-        products = ProductClass.browse(active_ids) if active_ids else ProductClass.search([('sale_ok', '=', True)])
+        products = ProductClass.browse(active_ids) if active_ids else []
         products_data = [
             self._get_product_data(is_product_tmpl, product, pricelist, quantities)
             for product in products
@@ -39,10 +38,11 @@ class ProductPricelistReport(models.AbstractModel):
         return {
             'is_html_type': report_type == 'html',
             'is_product_tmpl': is_product_tmpl,
-            'is_visible_title': data.get('is_visible_title', False) and bool(data['is_visible_title']),
+            'display_pricelist_title': data.get('display_pricelist_title', False) and bool(data['display_pricelist_title']),
             'pricelist': pricelist,
             'products': products_data,
             'quantities': quantities,
+            'docs': pricelist,
         }
 
     def _get_product_data(self, is_product_tmpl, product, pricelist, quantities):

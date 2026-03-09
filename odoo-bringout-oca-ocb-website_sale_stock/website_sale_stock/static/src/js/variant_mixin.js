@@ -1,14 +1,10 @@
-odoo.define('website_sale_stock.VariantMixin', function (require) {
-'use strict';
+import VariantMixin from '@website_sale/js/variant_mixin';
+import { renderToFragment } from '@web/core/utils/render';
+import { formatFloat } from '@web/core/utils/numbers';
+import { setElementContent } from '@web/core/utils/html';
 
-const {Markup} = require('web.utils');
-const field_utils = require('web.field_utils');
-var VariantMixin = require('sale.VariantMixin');
-var publicWidget = require('web.public.widget');
-var core = require('web.core');
-var QWeb = core.qweb;
 
-require('website_sale.website_sale');
+import { markup } from "@odoo/owl";
 
 /**
  * Addition to the variant_mixin._onChangeCombination
@@ -22,42 +18,50 @@ require('website_sale.website_sale');
  * and only for the main product.
  *
  * @param {MouseEvent} ev
- * @param {$.Element} $parent
+ * @param {Element} parent
  * @param {Array} combination
  */
-VariantMixin._onChangeCombinationStock = function (ev, $parent, combination) {
-    let product_id = 0;
-    // needed for list view of variants
-    if ($parent.find('input.product_id:checked').length) {
-        product_id = $parent.find('input.product_id:checked').val();
-    } else {
-        product_id = $parent.find('.product_id').val();
-    }
-    const isMainProduct = combination.product_id &&
-        ($parent.is('.js_main_product') || $parent.is('.main_product')) &&
-        combination.product_id === parseInt(product_id);
-
-    if (!this.isWebsite || !isMainProduct) {
+VariantMixin._onChangeCombinationStock = async function (ev, parent, combination) {
+    const has_max_combo_quantity = 'max_combo_quantity' in combination
+    if (!combination.is_storable && !has_max_combo_quantity) {
         return;
     }
 
-    const $addQtyInput = $parent.find('input[name="add_qty"]');
-    let qty = $addQtyInput.val();
-    let ctaWrapper = $parent[0].querySelector('#o_wsale_cta_wrapper');
+    if (!parent.matches('.js_main_product') || !combination.product_id) {
+        // if we're not on product page or the product is dynamic
+        return;
+    }
+
+    const addQtyInput = parent.querySelector('input[name="add_qty"]');
+    const qty = parseFloat(addQtyInput?.value) || 1;
+    const ctaWrapper = parent.querySelector('#o_wsale_cta_wrapper');
     ctaWrapper.classList.replace('d-none', 'd-flex');
     ctaWrapper.classList.remove('out_of_stock');
 
-    if (combination.product_type === 'product' && !combination.allow_out_of_stock_order) {
-        combination.free_qty -= parseInt(combination.cart_qty);
-        $addQtyInput.data('max', combination.free_qty || 1);
+    if (!combination.allow_out_of_stock_order) {
+        const unavailableQty = await this.waitFor(VariantMixin._getUnavailableQty(combination));
+        combination.free_qty -= unavailableQty;
         if (combination.free_qty < 0) {
             combination.free_qty = 0;
         }
-        if (qty > combination.free_qty) {
-            qty = combination.free_qty || 1;
-            $addQtyInput.val(qty);
+        if (addQtyInput) {
+            addQtyInput.dataset.max = combination.free_qty || 1;
+            if (qty > combination.free_qty) {
+                addQtyInput.value = addQtyInput.dataset.max;
+            }
         }
         if (combination.free_qty < 1) {
+            ctaWrapper.classList.replace('d-flex', 'd-none');
+            ctaWrapper.classList.add('out_of_stock');
+        }
+    } else if (has_max_combo_quantity) {
+        if (addQtyInput) {
+            addQtyInput.dataset.max = combination.max_combo_quantity || 1;
+            if (qty > combination.max_combo_quantity) {
+                addQtyInput.value = addQtyInput.dataset.max;
+            }
+        }
+        if (combination.max_combo_quantity < 1) {
             ctaWrapper.classList.replace('d-flex', 'd-none');
             ctaWrapper.classList.add('out_of_stock');
         }
@@ -72,44 +76,26 @@ VariantMixin._onChangeCombinationStock = function (ev, $parent, combination) {
                 0,
                 Math.ceil(-Math.log10(combination.uom_rounding))
             );
-            return field_utils.format.float(qty, {digits: [false, decimals]});
+            return formatFloat(qty, {digits: [false, decimals]});
         }
     }
 
-    $('.oe_website_sale')
-        .find('.availability_message_' + combination.product_template)
-        .remove();
-    combination.has_out_of_stock_message = $(combination.out_of_stock_message).text() !== '';
-    combination.out_of_stock_message = Markup(combination.out_of_stock_message);
-    const $message = $(QWeb.render(
-        'website_sale_stock.product_availability',
-        combination
+    document.querySelector('.oe_website_sale')
+        .querySelectorAll('.availability_message_' + combination.product_template)
+        .forEach(el => el.remove());
+    if (combination.out_of_stock_message) {
+        combination.out_of_stock_message = markup(combination.out_of_stock_message);
+        const outOfStockMessage = document.createElement('div');
+        setElementContent(outOfStockMessage, combination.out_of_stock_message);
+        combination.has_out_of_stock_message = !!outOfStockMessage.textContent.trim();
+    }
+    this.el.querySelector('div.availability_messages').append(renderToFragment(
+        'website_sale_stock.product_availability', combination
     ));
-    $('div.availability_messages').html($message);
 };
 
-publicWidget.registry.WebsiteSale.include({
-    /**
-     * Adds the stock checking to the regular _onChangeCombination method
-     * @override
-     */
-    _onChangeCombination: function () {
-        this._super.apply(this, arguments);
-        VariantMixin._onChangeCombinationStock.apply(this, arguments);
-    },
-    /**
-     * Recomputes the combination after adding a product to the cart
-     * @override
-     */
-    _onClickAdd(ev) {
-        return this._super.apply(this, arguments).then(() => {
-            if ($('div.availability_messages').length) {
-                this._getCombinationInfo(ev);
-            }
-        });
-    }
-});
+VariantMixin._getUnavailableQty = async function (combination) {
+    return parseInt(combination.cart_qty);
+};
 
-return VariantMixin;
-
-});
+export default VariantMixin;

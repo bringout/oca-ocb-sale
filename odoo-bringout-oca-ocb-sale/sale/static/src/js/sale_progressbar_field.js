@@ -1,10 +1,10 @@
-/** @odoo-module **/
-
+import { useEffect } from "@odoo/owl";
 import { registry } from "@web/core/registry";
 import { useService } from "@web/core/utils/hooks";
-import { KanbanProgressBarField } from "@web/views/fields/progress_bar/kanban_progress_bar_field";
-
-const { useEffect } = owl;
+import {
+    KanbanProgressBarField,
+    kanbanProgressBarField,
+} from "@web/views/fields/progress_bar/kanban_progress_bar_field";
 
 /**
  * A custom Component for the view of sales teams on the kanban view in the CRM app.
@@ -13,6 +13,7 @@ const { useEffect } = owl;
  * a link redirecting to the record's form view otherwise.
  */
 export class SaleProgressBarField extends KanbanProgressBarField {
+    static template = "sale.SaleProgressBarField";
     /**
      * Anything used by the component is defined on the setup method.
      */
@@ -33,13 +34,13 @@ export class SaleProgressBarField extends KanbanProgressBarField {
     async defineInvoicingTarget() {
         const { resId, resModel } = this.props.record;
         const action = await this.orm.call(resModel, "get_formview_action", [[resId]]);
-        this.actionService.doAction(action, { props: { mode: "edit" } });
+        this.actionService.doAction(action);
     }
 }
 
-/**
- * Define the template name used on the component.
- */
-SaleProgressBarField.template = "sale.SaleProgressBarField";
+export const saleProgressBarField = {
+    ...kanbanProgressBarField,
+    component: SaleProgressBarField,
+};
 
-registry.category("fields").add("sales_team_progressbar", SaleProgressBarField);
+registry.category("fields").add("sales_team_progressbar", saleProgressBarField);

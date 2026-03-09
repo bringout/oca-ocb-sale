@@ -1,5 +1,6 @@
-# -*- coding: utf-8 -*-
-from odoo import api, fields, models
+# Part of Odoo. See LICENSE file for full copyright and licensing details.
+
+from odoo import fields, models
 
 
 class Website(models.Model):
@@ -7,23 +8,16 @@ class Website(models.Model):
 
     warehouse_id = fields.Many2one('stock.warehouse', string='Warehouse')
 
-    def _prepare_sale_order_values(self, partner_sudo):
-        values = super()._prepare_sale_order_values(partner_sudo)
+    def _get_product_available_qty(self, product, **kwargs):
+        """Give the available quantity of a given product.
 
-        warehouse_id = self._get_warehouse_available()
-        if warehouse_id:
-            values['warehouse_id'] = warehouse_id
-        return values
+        NB: this method is only meant to be used on the shop before the checkout.
+        For checkout steps, please use `cart._get_free_qty` instead to consider
+        the chosen warehouse for delivery (website_sale_collect).
 
-    def _get_warehouse_available(self):
-        return (
-            self.warehouse_id.id or
-            self.env['ir.default'].get('sale.order', 'warehouse_id', company_id=self.company_id.id) or
-            self.env['ir.default'].get('sale.order', 'warehouse_id') or
-            self.env['stock.warehouse'].sudo().search([('company_id', '=', self.company_id.id)], limit=1).id
-        )
-
-    # FIXME VFE check if still needed
-    def sale_get_order(self, *args, **kwargs):
-        so = super().sale_get_order(*args, **kwargs)
-        return so.with_context(warehouse=so.warehouse_id.id) if so else so
+        :param product: product.product record
+        :param dict kwargs: unused parameters, available for overrides
+        :return: available quantity
+        :rtype: float
+        """
+        return product.with_context(warehouse_id=self.warehouse_id.id).free_qty

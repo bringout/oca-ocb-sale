@@ -3,16 +3,15 @@
 {
     'name': "Spreadsheet dashboard for events",
     'version': '1.0',
-    'category': 'Hidden',
+    'category': 'Productivity/Dashboard',
     'summary': 'Spreadsheet',
     'description': 'Spreadsheet',
     'depends': ['spreadsheet_dashboard', 'event_sale'],
     'data': [
         "data/dashboards.xml",
     ],
-    'demo': [],
     'installable': True,
     'auto_install': ['event_sale'],
+    'author': 'Odoo S.A.',
     'license': 'LGPL-3',
-    'assets': {}
 }

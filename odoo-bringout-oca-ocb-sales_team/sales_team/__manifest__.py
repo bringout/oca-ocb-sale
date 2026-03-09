@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 {
@@ -20,7 +19,6 @@ Using this application you can manage Sales Teams with CRM and/or Sales
         'views/crm_team_views.xml',
         'views/crm_team_member_views.xml',
         'views/mail_activity_views.xml',
-        'views/res_partner_views.xml',
         ],
     'demo': [
         'data/crm_team_demo.xml',
@@ -29,8 +27,12 @@ Using this application you can manage Sales Teams with CRM and/or Sales
     'installable': True,
     'assets': {
         'web.assets_backend': [
-            'sales_team/static/**/*',
+            'sales_team/static/src/**/*',
+        ],
+        'web.assets_unit_tests': [
+            'sales_team/static/tests/**/*',
         ],
     },
+    'author': 'Odoo S.A.',
     'license': 'LGPL-3',
 }

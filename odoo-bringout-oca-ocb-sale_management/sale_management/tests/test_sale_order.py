@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from itertools import chain
@@ -19,6 +18,7 @@ class TestSaleOrder(SaleManagementCommon):
         # some variables to ease asserts in tests
         cls.pub_product_price = 100.0
         cls.pl_product_price = 80.0
+        cls._enable_discounts()
         cls.tpl_discount = 10.0
         cls.pl_discount = (cls.pub_product_price - cls.pl_product_price) * 100 / cls.pub_product_price
         cls.merged_discount = 100.0 - (100.0 - cls.pl_discount) * (100.0 - cls.tpl_discount) / 100.0
@@ -34,6 +34,7 @@ class TestSaleOrder(SaleManagementCommon):
             {
                 'name': 'Product 1',
                 'lst_price': cls.pub_product_price,
+                'description_sale': "This is a product description"
             }, {
                 'name': 'Optional product',
                 'lst_price': cls.pub_option_price,
@@ -47,10 +48,15 @@ class TestSaleOrder(SaleManagementCommon):
                 Command.create({
                     'product_id': cls.product_1.id,
                 }),
-            ],
-            'sale_order_template_option_ids': [
+                Command.create({
+                    'name': 'Optional products',
+                    'display_type': 'line_section',
+                    'is_optional': True,
+                    'sequence': 11,  # to be sure optional products are last in the template
+                }),
                 Command.create({
                     'product_id': cls.optional_product.id,
+                    'sequence': 12,
                 }),
             ],
         })
@@ -72,6 +78,22 @@ class TestSaleOrder(SaleManagementCommon):
                 'fixed_price': cls.pl_option_price,
             }),
         ]
+        percentage_pricelist_rule_values = [
+            Command.create({
+                'name': 'Product 1 premium price',
+                'applied_on': '1_product',
+                'product_tmpl_id': cls.product_1.product_tmpl_id.id,
+                'compute_price': 'percentage',
+                'percent_price': cls.pl_discount,
+            }),
+            Command.create({
+                'name': 'Optional product premium price',
+                'applied_on': '1_product',
+                'product_tmpl_id': cls.optional_product.product_tmpl_id.id,
+                'compute_price': 'percentage',
+                'percent_price': cls.pl_option_discount,
+            }),
+        ]
 
         (
             cls.discount_included_price_list,
@@ -79,12 +101,10 @@ class TestSaleOrder(SaleManagementCommon):
         ) = cls.env['product.pricelist'].create([
             {
                 'name': 'Discount included Pricelist',
-                'discount_policy': 'with_discount',
                 'item_ids': pricelist_rule_values,
             }, {
                 'name': 'Discount excluded Pricelist',
-                'discount_policy': 'without_discount',
-                'item_ids': pricelist_rule_values,
+                'item_ids': percentage_pricelist_rule_values,
             }
         ])
 
@@ -105,8 +125,8 @@ class TestSaleOrder(SaleManagementCommon):
 
         self.assertEqual(
             len(self.sale_order.order_line),
-            1,
-            "The sale order shall contains the same number of products as"
+            3,
+            "The sale order shall contains the same number of lines as"
             "the quotation template.")
 
         self.assertEqual(
@@ -121,40 +141,34 @@ class TestSaleOrder(SaleManagementCommon):
             "Without any price list and discount, the public price of"
             "the product shall be used.")
 
+        optional_lines = self._get_optional_product_lines(self.sale_order)
+
         self.assertEqual(
-            len(self.sale_order.sale_order_option_ids),
+            len(optional_lines),
             1,
             "The sale order shall contains the same number of optional products as"
             "the quotation template.")
 
         self.assertEqual(
-            self.sale_order.sale_order_option_ids[0].product_id.id,
+            optional_lines[0].product_id.id,
             self.optional_product.id,
             "The sale order shall contains the same optional products as the"
             "quotation template.")
 
         self.assertEqual(
-            self.sale_order.sale_order_option_ids[0].price_unit,
+            optional_lines[0].price_unit,
             self.pub_option_price,
             "Without any price list and discount, the public price of"
             "the optional product shall be used.")
 
-        # add the option to the order
-        self.sale_order.sale_order_option_ids[0].button_add_to_order()
-
         self.assertEqual(
-            len(self.sale_order.order_line),
-            2,
-            "When an option is added, a new order line is created")
-
-        self.assertEqual(
-            self.sale_order.order_line[1].product_id.id,
+            self.sale_order.order_line[2].product_id.id,
             self.optional_product.id,
             "The sale order shall contains the same products as the"
             "quotation template.")
 
         self.assertEqual(
-            self.sale_order.order_line[1].price_unit,
+            self.sale_order.order_line[2].price_unit,
             self.pub_option_price,
             "Without any price list and discount, the public price of"
             "the optional product shall be used.")
@@ -179,17 +193,16 @@ class TestSaleOrder(SaleManagementCommon):
             "If a pricelist is set, the product price shall be computed"
             "according to it.")
 
+        optional_lines = self._get_optional_product_lines(self.sale_order)
+
         self.assertEqual(
-            self.sale_order.sale_order_option_ids[0].price_unit,
+            optional_lines[0].price_unit,
             self.pl_option_price,
             "If a pricelist is set, the optional product price shall"
             "be computed according to it.")
 
-        # add the option to the order
-        self.sale_order.sale_order_option_ids[0].button_add_to_order()
-
         self.assertEqual(
-            self.sale_order.order_line[1].price_unit,
+            self.sale_order.order_line[2].price_unit,
             self.pl_option_price,
             "If a pricelist is set, the optional product price shall"
             "be computed according to it.")
@@ -225,36 +238,35 @@ class TestSaleOrder(SaleManagementCommon):
             "shall be computed according to the price unit and the subtotal."
             "price")
 
+        optional_lines = self._get_optional_product_lines(self.sale_order)
+
         self.assertEqual(
-            self.sale_order.sale_order_option_ids[0].price_unit,
+            optional_lines[0].price_unit,
             self.pub_option_price,
             "If a pricelist is set without discount included, the unit "
             "price shall be the public optional product price.")
 
         self.assertEqual(
-            self.sale_order.sale_order_option_ids[0].discount,
+            optional_lines[0].discount,
             self.pl_option_discount,
             "If a pricelist is set without discount included, the discount "
             "shall be computed according to the optional price unit and"
             "the subtotal price.")
 
-        # add the option to the order
-        self.sale_order.sale_order_option_ids[0].button_add_to_order()
-
         self.assertEqual(
-            self.sale_order.order_line[1].price_unit,
+            self.sale_order.order_line[2].price_unit,
             self.pub_option_price,
             "If a pricelist is set without discount included, the unit "
             "price shall be the public optional product price.")
 
         self.assertEqual(
-            self.sale_order.order_line[1].price_subtotal,
+            self.sale_order.order_line[2].price_subtotal,
             self.pl_option_price,
             "If a pricelist is set without discount included, the subtotal "
             "price shall be the price computed according to the price list.")
 
         self.assertEqual(
-            self.sale_order.order_line[1].discount,
+            self.sale_order.order_line[2].discount,
             self.pl_option_discount,
             "If a pricelist is set without discount included, the discount "
             "shall be computed according to the price unit and the subtotal."
@@ -270,13 +282,15 @@ class TestSaleOrder(SaleManagementCommon):
         })
         self.sale_order._onchange_sale_order_template_id()
 
+        optional_lines = self._get_optional_product_lines(self.sale_order)
+
         self.assertEqual(
-            self.sale_order.sale_order_option_ids[0].price_unit,
+            optional_lines[0].price_unit,
             self.pub_option_price,
             "If no pricelist is set, the unit price shall be the option's product price.")
 
         self.assertEqual(
-            self.sale_order.sale_order_option_ids[0].discount, 0,
+            optional_lines[0].discount, 0,
             "If no pricelist is set, the discount should be 0.")
 
         self.sale_order.write({
@@ -285,13 +299,13 @@ class TestSaleOrder(SaleManagementCommon):
         self.sale_order._recompute_prices()
 
         self.assertEqual(
-            self.sale_order.sale_order_option_ids[0].price_unit,
+            optional_lines[0].price_unit,
             self.pl_option_price,
             "If a pricelist is set with discount included,"
             " the unit price shall be the option's product discounted price.")
 
         self.assertEqual(
-            self.sale_order.sale_order_option_ids[0].discount, 0,
+            optional_lines[0].discount, 0,
             "If a pricelist is set with discount included,"
             " the discount should be 0.")
 
@@ -301,24 +315,16 @@ class TestSaleOrder(SaleManagementCommon):
         self.sale_order._recompute_prices()
 
         self.assertEqual(
-            self.sale_order.sale_order_option_ids[0].price_unit,
+            optional_lines[0].price_unit,
             self.pub_option_price,
             "If a pricelist is set without discount included,"
             " the unit price shall be the option's product sale price.")
 
         self.assertEqual(
-            self.sale_order.sale_order_option_ids[0].discount,
+            optional_lines[0].discount,
             self.pl_option_discount,
             "If a pricelist is set without discount included,"
             " the discount should be correctly computed.")
-
-    def test_option_creation(self):
-        """Make sure the product uom is automatically added to the option when the product is specified"""
-        order_form = Form(self.sale_order)
-        with order_form.sale_order_option_ids.new() as option:
-            option.product_id = self.product_1
-        order = order_form.save()
-        self.assertTrue(bool(order.sale_order_option_ids.uom_id))
 
     def test_option_price_unit_is_not_recomputed(self):
         """
@@ -328,16 +334,24 @@ class TestSaleOrder(SaleManagementCommon):
 
         sale_order_with_option = self.env['sale.order'].create({
             'partner_id': self.partner.id,
-            'sale_order_option_ids': [Command.create({
-                'product_id': self.optional_product.id,
-                'price_unit': 10,
-            })],
+            'order_line': [
+                Command.create({
+                    'display_type': 'line_section',
+                    'name': "Optional products",
+                    'is_optional': True,
+                }),
+                Command.create({
+                    'product_id': self.optional_product.id,
+                }),
+            ],
         })
-        sale_order_with_option.sale_order_option_ids.add_option_to_order()
 
+        optional_product_line = self._get_optional_product_lines(sale_order_with_option)
+
+        optional_product_line.price_unit = 100
         # after changing the quantity of the product, the price unit should not be recomputed
-        sale_order_with_option.order_line.product_uom_qty = 10
-        self.assertEqual(sale_order_with_option.sale_order_option_ids.price_unit, 10)
+        optional_product_line.product_uom_qty = 10
+        self.assertEqual(optional_product_line.price_unit, 100)
 
     def test_reload_template_translations(self):
         """
@@ -354,17 +368,21 @@ class TestSaleOrder(SaleManagementCommon):
                 'display_type': 'line_note',
             }),
         ]
+        # Remove product description to ease comparing before/after translations
+        self.product_1.description_sale = None
 
         # Commence activation of Dutch vernacular
         self.env['res.lang']._activate_lang('nl_NL')
         partner_NL = self.partner.copy({'lang': 'nl_NL', 'name': "Pieter-Jan Hollandman"})
-        names_EN = ["Product 1", "Section 1", "Note 1", "Optional product"]
-        names_NL = ["Artikel 1", "Sectie 1", "Nota 1", "Optioneel artikel"]
+        names_EN = ["Product 1", "Section 1", "Note 1", "Optional products", "Optional product"]
+        names_NL = ["Artikel 1", "Sectie 1", "Nota 1", "Optionele producten", "Optioneel product"]
         trans_dict = dict(zip(names_EN, names_NL))
         for record in chain(
             self.quotation_template_no_discount.sale_order_template_line_ids,
-            self.quotation_template_no_discount.sale_order_template_option_ids,
+            self.quotation_template_no_discount.sale_order_template_line_ids.product_id,
         ):
+            if not record.name:
+                continue
             record.with_context(lang='nl_NL').name = trans_dict[record.name]
 
         # Create sale order form (and a way to retrieve line names)
@@ -373,7 +391,8 @@ class TestSaleOrder(SaleManagementCommon):
                 form.order_line.edit(0).name,
                 form.order_line.edit(1).name,
                 form.order_line.edit(2).name,
-                form.sale_order_option_ids.edit(0).name,
+                form.order_line.edit(3).name,
+                form.order_line.edit(4).name,
             ]
 
         order_form = Form(self.sale_order.browse())
@@ -412,15 +431,7 @@ class TestSaleOrder(SaleManagementCommon):
             "Lines should change after manual template reload",
         )
 
-        # Add a line & return to Dutch
-        with order_form.sale_order_option_ids.new() as optional_product:
-            optional_product.product_id = self.product
         order_form.partner_id = partner_NL
-        self.assertSequenceEqual(
-            get_form_field_names(order_form),
-            names_EN,
-            "Lines shouldn't change after a new one was added",
-        )
 
         # Reload template, save, and change partner again
         order_form.sale_order_template_id = self.quotation_template_no_discount
@@ -431,3 +442,83 @@ class TestSaleOrder(SaleManagementCommon):
             names_NL,
             "Lines shouldn't change once saved",
         )
+
+    def test_product_description_no_template_description(self):
+        """
+        Test case for when the product has a description, but the quotation template line does not.
+        The final sale order line should use the product's description.
+        """
+        quotation_template_no_description = self.empty_order_template
+        quotation_template_no_description.sale_order_template_line_ids = [
+            Command.create({
+                'product_id': self.product_1.id,
+                'name': False,
+            }),
+        ]
+        sale_order = self.empty_order
+        sale_order.sale_order_template_id = quotation_template_no_description
+        sale_order._onchange_sale_order_template_id()
+        self.assertEqual(
+            sale_order.order_line[0].name,
+            f"{self.product_1.name}\n{self.product_1.description_sale}",
+            "Sale order line should use product's description when no quotation template \
+            description is set."
+        )
+
+    def test_product_description_with_template_description(self):
+        """
+        Test case for when both the product and the quotation template line have descriptions.
+        The final sale order line should use the template's description.
+        """
+        quotation_template_with_description = self.empty_order_template
+        quotation_template_with_description.sale_order_template_line_ids = [
+            Command.create({
+                'product_id': self.product_1.id,
+                'name': "This is a template description",
+            }),
+        ]
+        sale_order = self.empty_order
+        sale_order.sale_order_template_id = quotation_template_with_description
+        sale_order._onchange_sale_order_template_id()
+        self.assertEqual(
+            sale_order.order_line[0].name,
+            quotation_template_with_description.sale_order_template_line_ids[0].name,
+            "The sale order line should use the quotation template's description when both \
+            product and the quotation template descriptions are set."
+        )
+
+    def test_warning_quotation(self):
+        """
+        ensure "warning for the change of your quotation's company" isn't triggered
+        during the creation of a quotation when a quotation template is set as default
+        """
+        quotation_template = self.empty_order_template
+        quotation_template.sale_order_template_line_ids = [
+            Command.create({'product_id': self.product.id})
+        ]
+        self.env['ir.default'].set('sale.order', 'sale_order_template_id', quotation_template.id)
+        try:
+            with self.assertLogs('odoo.tests.form.onchange') as log_catcher:
+                Form(self.env['sale.order'])
+        except AssertionError:
+            pass
+        self.assertEqual(len(log_catcher.output), 0, "Form creation shouldn't trigger a warning")
+
+    def test_show_update_pricelist_false_on_sale_order_open(self):
+        """Ensure the update pricelist button is disabled when opening a sale order
+        with a default quotation template applied.
+        """
+        quotation_template = self.env['sale.order.template'].create({
+            'name': 'Test Quotation Template',
+            'sale_order_template_line_ids': [
+                Command.create({
+                    'product_id': self.product.id,
+                }),
+            ],
+        })
+        self.env['ir.default'].set('sale.order', 'sale_order_template_id', quotation_template.id)
+        with Form(self.env['sale.order']) as sale_order_form:
+            self.assertTrue(sale_order_form.sale_order_template_id)
+            self.assertTrue(sale_order_form.order_line)
+            self.assertFalse(sale_order_form.show_update_pricelist)
+            sale_order_form.partner_id = self.partner

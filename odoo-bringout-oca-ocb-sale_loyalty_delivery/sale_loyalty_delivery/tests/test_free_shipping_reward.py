@@ -1,9 +1,9 @@
-# -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import Command
-from odoo.addons.sale_loyalty.tests.common import TestSaleCouponCommon
+from odoo.fields import Command
 from odoo.tests import Form, tagged
+
+from odoo.addons.sale_loyalty.tests.common import TestSaleCouponCommon
 
 
 @tagged('post_install', '-at_install')
@@ -11,7 +11,8 @@ class TestSaleCouponProgramRules(TestSaleCouponCommon):
 
     @classmethod
     def setUpClass(cls):
-        super(TestSaleCouponProgramRules, cls).setUpClass()
+        super().setUpClass()
+
         cls.iPadMini = cls.env['product.product'].create({'name': 'Large Cabinet', 'list_price': 320.0})
         tax_15pc_excl = cls.env['account.tax'].create({
             'name': "15% Tax excl",
@@ -70,16 +71,13 @@ class TestSaleCouponProgramRules(TestSaleCouponCommon):
             })],
         })
 
-        order = self.env['sale.order'].create({
-            'partner_id': self.steve.id,
-        })
+        order = self.empty_order
 
         # Price of order will be 5*1.15 = 5.75 (tax included)
         order.write({'order_line': [
             (0, False, {
                 'product_id': self.product_B.id,
                 'name': 'Product B',
-                'product_uom': self.uom_unit.id,
                 'product_uom_qty': 1.0,
             })
         ]})
@@ -105,7 +103,6 @@ class TestSaleCouponProgramRules(TestSaleCouponCommon):
             (0, False, {
                 'product_id': self.product_B.id,
                 'name': 'Product 1B',
-                'product_uom': self.uom_unit.id,
                 'product_uom_qty': 1.0,
                 'price_unit': 81.74,
             })
@@ -119,7 +116,6 @@ class TestSaleCouponProgramRules(TestSaleCouponCommon):
             (0, False, {
                 'product_id': self.product_A.id,
                 'name': 'Product 1',
-                'product_uom': self.uom_unit.id,
                 'product_uom_qty': 1.0,
                 'price_unit': 0.30,
             })
@@ -277,7 +273,7 @@ class TestSaleCouponProgramRules(TestSaleCouponCommon):
         })
         self._auto_rewards(order, programs)
         # 872.73 - (20% of 1 iPad) = 872.73 - 58.18 = 814.55
-        self.assertAlmostEqual(order.amount_untaxed, 1105.46, 2, "One large cabinet should be discounted by 20%")
+        self.assertAlmostEqual(order.amount_untaxed, 1105.45, 2, "One large cabinet should be discounted by 20%")
 
     def test_free_shipping_reward_last_line(self):
         """
@@ -302,22 +298,20 @@ class TestSaleCouponProgramRules(TestSaleCouponCommon):
             })],
         })
         # Add points to a partner to trigger the promotion
-        loyalty_card = self.env['loyalty.card'].create({
+        self.env['loyalty.card'].create({
             'program_id': loyalty_program.id,
-            'partner_id': self.steve.id,
+            'partner_id': self.partner.id,
             'points': 250,
         })
-        order = self.env['sale.order'].create({
-            'partner_id': self.steve.id,
-        })
+        order = self.empty_order
         # Check if we can claim the free shipping reward
         order._update_programs_and_rewards()
         claimable_rewards = order._get_claimable_rewards()
         self.assertEqual(len(claimable_rewards), 1)
         # Try to apply the loyalty card to the sale order
-        self._apply_promo_code(order, loyalty_card.code)
+        self.assertTrue(self._claim_reward(order, loyalty_program))
         # Check if there is an error in the sequence
-        # via `_apply_program_reward` in `apply_promo_code` method
+        # via `_apply_program_reward` in `_claim_reward` method
 
     def test_nothing_delivered_nothing_to_invoice(self):
         program = self.env['loyalty.program'].create({
@@ -336,7 +330,7 @@ class TestSaleCouponProgramRules(TestSaleCouponCommon):
         })
         product = self.env['product.product'].create({
             'name': 'Test product',
-            'type': 'product',
+            'type': 'consu',
             'list_price': 200.0,
             'invoice_policy': 'delivery',
         })
@@ -455,11 +449,11 @@ class TestSaleCouponProgramRules(TestSaleCouponCommon):
         Check that a discount reward is still claimable after the shipping reward is claimed.
         """
         program = self.env['loyalty.program'].create({
-            'name': '10% Discount & Shipping',
+            'name': "10% Discount & Shipping",
             'applies_on': 'current',
             'trigger': 'with_code',
             'program_type': 'promotion',
-            'rule_ids': [Command.create({'mode': 'with_code', 'code': '10PERCENT&SHIPPING'})],
+            'rule_ids': [Command.create({'mode': 'with_code', 'code': "10PERCENT&SHIPPING"})],
             'reward_ids': [
                 Command.create({
                     'reward_type': 'shipping',
@@ -479,7 +473,7 @@ class TestSaleCouponProgramRules(TestSaleCouponCommon):
         })
 
         order = self.env['sale.order'].create({
-            'partner_id': self.partner_a.id,
+            'partner_id': self.partner.id,
             'order_line': [Command.create({'product_id': self.product_B.id})]
         })
 

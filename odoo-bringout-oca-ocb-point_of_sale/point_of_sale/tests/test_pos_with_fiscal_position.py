@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import tools
+from odoo import Command
 import odoo
 from odoo.addons.point_of_sale.tests.common import TestPoSCommon
 
@@ -17,6 +17,7 @@ class TestPoSWithFiscalPosition(TestPoSCommon):
         super(TestPoSWithFiscalPosition, cls).setUpClass()
 
         cls.config = cls.basic_config
+        cls.company.tax_calculation_rounding_method = 'round_per_line'
 
         cls.new_tax_17 = cls.env['account.tax'].create({'name': 'New Tax 17%', 'amount': 17})
         cls.new_tax_17.invoice_repartition_line_ids.write({'account_id': cls.tax_received_account.id})
@@ -56,14 +57,12 @@ class TestPoSWithFiscalPosition(TestPoSCommon):
             'account_src_id': cls.sale_account.id,
             'account_dest_id': cls.other_sale_account.id,
         })
-        tax_fpos = cls.env['account.fiscal.position.tax'].create({
-            'position_id': fpos.id,
-            'tax_src_id': cls.taxes['tax7'].id,
-            'tax_dest_id': cls.new_tax_17.id,
-        })
         fpos.write({
             'account_ids': [(6, 0, account_fpos.ids)],
-            'tax_ids': [(6, 0, tax_fpos.ids)],
+        })
+        cls.new_tax_17.write({
+            'fiscal_position_ids': [Command.link(fpos.id)],
+            'original_tax_ids': [Command.link(cls.taxes['tax7'].id)],
         })
         return fpos
 
@@ -75,13 +74,14 @@ class TestPoSWithFiscalPosition(TestPoSCommon):
             'account_src_id': cls.sale_account.id,
             'account_dest_id': cls.other_sale_account.id,
         })
-        tax_fpos = cls.env['account.fiscal.position.tax'].create({
-            'position_id': fpos_no_tax_dest.id,
-            'tax_src_id': cls.taxes['tax7'].id,
-        })
         fpos_no_tax_dest.write({
             'account_ids': [(6, 0, account_fpos.ids)],
-            'tax_ids': [(6, 0, tax_fpos.ids)],
+        })
+        cls.env['account.tax'].create({
+            'name': 'Exempt',
+            'amount': 0,
+            'fiscal_position_ids': [Command.link(fpos_no_tax_dest.id)],
+            'original_tax_ids': [Command.link(cls.taxes['tax7'].id)],
         })
         return fpos_no_tax_dest
 
@@ -134,9 +134,9 @@ class TestPoSWithFiscalPosition(TestPoSCommon):
         self._run_test({
             'payment_methods': self.cash_pm1 | self.bank_pm1,
             'orders': [
-                {'pos_order_lines_ui_args': [(self.product1, 10), (self.product2, 10), (self.product3, 10)], 'customer': self.customer, 'uid': '00100-010-0001'},
-                {'pos_order_lines_ui_args': [(self.product1, 5), (self.product2, 5)], 'customer': self.customer, 'uid': '00100-010-0002'},
-                {'pos_order_lines_ui_args': [(self.product2, 5), (self.product3, 5)], 'payments': [(self.bank_pm1, 265.75)], 'uid': '00100-010-0003'},
+                {'pos_order_lines_ui_args': [(self.product1, 10), (self.product2, 10), (self.product3, 10)], 'customer': self.customer, 'uuid': '00100-010-0001'},
+                {'pos_order_lines_ui_args': [(self.product1, 5), (self.product2, 5)], 'customer': self.customer, 'uuid': '00100-010-0002'},
+                {'pos_order_lines_ui_args': [(self.product2, 5), (self.product3, 5)], 'payments': [(self.bank_pm1, 265.75)], 'uuid': '00100-010-0003'},
             ],
             'before_closing_cb': _before_closing_cb,
             'journal_entries_before_closing': {},
@@ -221,9 +221,9 @@ class TestPoSWithFiscalPosition(TestPoSCommon):
         self._run_test({
             'payment_methods': self.cash_pm1 | self.bank_pm1,
             'orders': [
-                {'pos_order_lines_ui_args': [(self.product1, 10), (self.product2, 10), (self.product3, 10)], 'payments': [(self.bank_pm1, 619.7)], 'customer': self.customer, 'uid': '00100-010-0001'},
-                {'pos_order_lines_ui_args': [(self.product1, 5), (self.product2, 5)], 'customer': self.customer, 'uid': '00100-010-0002'},
-                {'pos_order_lines_ui_args': [(self.product2, 5), (self.product3, 5)], 'payments': [(self.bank_pm1, 265.75)], 'uid': '00100-010-0003'},
+                {'pos_order_lines_ui_args': [(self.product1, 10), (self.product2, 10), (self.product3, 10)], 'payments': [(self.bank_pm1, 619.7)], 'customer': self.customer, 'uuid': '00100-010-0001'},
+                {'pos_order_lines_ui_args': [(self.product1, 5), (self.product2, 5)], 'customer': self.customer, 'uuid': '00100-010-0002'},
+                {'pos_order_lines_ui_args': [(self.product2, 5), (self.product3, 5)], 'payments': [(self.bank_pm1, 265.75)], 'uuid': '00100-010-0003'},
             ],
             'before_closing_cb': _before_closing_cb,
             'journal_entries_before_closing': {},
@@ -304,8 +304,8 @@ class TestPoSWithFiscalPosition(TestPoSCommon):
             orders_total = sum(order.amount_total for order in self.pos_session.order_ids)
             self.assertAlmostEqual(orders_total, self.pos_session.total_payments_amount, msg='Total order amount should be equal to the total payment amount.')
 
-            invoiced_order_1 = self.pos_session.order_ids.filtered(lambda order: '00100-010-0001' in order.pos_reference)
-            invoiced_order_2 = self.pos_session.order_ids.filtered(lambda order: '00100-010-0003' in order.pos_reference)
+            invoiced_order_1 = self.pos_session.order_ids.filtered(lambda order: '00100-010-0001' in order.uuid)
+            invoiced_order_2 = self.pos_session.order_ids.filtered(lambda order: '00100-010-0003' in order.uuid)
 
             self.assertTrue(invoiced_order_1, msg='Invoiced order 1 should exist.')
             self.assertTrue(invoiced_order_2, msg='Invoiced order 2 should exist.')
@@ -315,9 +315,9 @@ class TestPoSWithFiscalPosition(TestPoSCommon):
         self._run_test({
             'payment_methods': self.cash_pm1 | self.bank_pm1,
             'orders': [
-                {'pos_order_lines_ui_args': [(self.product1, 10), (self.product2, 10), (self.product3, 10)], 'payments': [(self.bank_pm1, 691.06)], 'customer': self.customer, 'is_invoiced': True, 'uid': '00100-010-0001'},
-                {'pos_order_lines_ui_args': [(self.product1, 5), (self.product2, 5)], 'customer': self.customer, 'uid': '00100-010-0002'},
-                {'pos_order_lines_ui_args': [(self.product2, 5), (self.product3, 5)], 'customer': self.other_customer, 'is_invoiced': True, 'uid': '00100-010-0003'},
+                {'pos_order_lines_ui_args': [(self.product1, 10), (self.product2, 10), (self.product3, 10)], 'payments': [(self.bank_pm1, 691.06)], 'customer': self.customer, 'is_invoiced': True, 'uuid': '00100-010-0001'},
+                {'pos_order_lines_ui_args': [(self.product1, 5), (self.product2, 5)], 'customer': self.customer, 'uuid': '00100-010-0002'},
+                {'pos_order_lines_ui_args': [(self.product2, 5), (self.product3, 5)], 'customer': self.other_customer, 'is_invoiced': True, 'uuid': '00100-010-0003'},
             ],
             'before_closing_cb': _before_closing_cb,
             'journal_entries_before_closing': {

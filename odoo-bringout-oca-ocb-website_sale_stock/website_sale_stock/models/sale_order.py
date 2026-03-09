@@ -1,34 +1,37 @@
-# -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import models, _
+from odoo import models
+from odoo.exceptions import ValidationError
+from odoo.tools import float_round
 
 
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
-    def _get_warehouse_available(self):
-        self.ensure_one()
-        warehouse = self.website_id._get_warehouse_available()
-        if not warehouse and self.user_id and self.company_id:
-            warehouse = self.user_id.with_company(self.company_id.id)._get_default_warehouse_id()
-        if not warehouse:
-            warehouse = self.env.user._get_default_warehouse_id()
-        return warehouse
-
     def _compute_warehouse_id(self):
         website_orders = self.filtered('website_id')
         super(SaleOrder, self - website_orders)._compute_warehouse_id()
         for order in website_orders:
-            order.warehouse_id = order._get_warehouse_available()
+            if order.website_id.warehouse_id:
+                order.warehouse_id = order.website_id.warehouse_id
+            else:
+                super(SaleOrder, order)._compute_warehouse_id()
+            if not order.warehouse_id:
+                order.warehouse_id = self.env.user._get_default_warehouse_id()
 
-    def _verify_updated_quantity(self, order_line, product_id, new_qty, **kwargs):
+    def _verify_updated_quantity(self, order_line, product_id, new_qty, uom_id, **kwargs):
         self.ensure_one()
         product = self.env['product.product'].browse(product_id)
-        if product.type == 'product' and not product.allow_out_of_stock_order:
-            product_qty_in_cart, available_qty = self._get_cart_and_free_qty(
-                line=order_line, product=product, **kwargs
-            )
+        if product.is_storable and not product.allow_out_of_stock_order:
+            uom = self.env['uom.uom'].browse(uom_id)
+            product_uom = product.uom_id
+
+            product_qty_in_cart, available_qty = self._get_cart_and_free_qty(product)
+
+            # Convert cart and available quantities to the requested uom
+            product_qty_in_cart = product_uom._compute_quantity(product_qty_in_cart, uom)
+            available_qty = product_uom._compute_quantity(available_qty, uom, round=False)
+            available_qty = float_round(available_qty, precision_digits=0, rounding_method='DOWN')
 
             old_qty = order_line.product_uom_qty if order_line else 0
             added_qty = new_qty - old_qty
@@ -36,81 +39,106 @@ class SaleOrder(models.Model):
             if available_qty < total_cart_qty:
                 allowed_line_qty = available_qty - (product_qty_in_cart - old_qty)
                 if allowed_line_qty > 0:
+                    def format_qty(qty):
+                        return int(qty) if float(qty).is_integer() else qty
                     if order_line:
-                        order_line._set_shop_warning_stock(total_cart_qty, available_qty)
+                        warning = order_line._set_shop_warning_stock(
+                            format_qty(total_cart_qty),
+                            format_qty(available_qty),
+                            save=False,
+                        )
                     else:
-                        self._set_shop_warning_stock(total_cart_qty, available_qty)
-                else:  # 0 or negative allowed_qty
-                    # if existing line: it will be deleted
-                    # if no existing line: no line will be created
-                    self.shop_warning = _(
-                        "Some products became unavailable and your cart has been updated. We're sorry for the inconvenience.")
-                return allowed_line_qty, order_line.shop_warning or self.shop_warning
-        return super()._verify_updated_quantity(order_line, product_id, new_qty, **kwargs)
+                        warning = self.env._(
+                            "You ask for %(desired_qty)s products but only %(available_qty)s is"
+                            " available.",
+                            desired_qty=format_qty(total_cart_qty),
+                            available_qty=format_qty(available_qty),
+                        )
+                elif order_line:
+                    # Line will be deleted
+                    warning = self.env._(
+                        "Some products became unavailable and your cart has been updated. We're"
+                        " sorry for the inconvenience."
+                    )
+                else:
+                    warning = self.env._(
+                        "%(product_name)s has not been added to your cart since it is not available.",
+                        product_name=product.name,
+                    )
+                return allowed_line_qty, warning
+        return super()._verify_updated_quantity(order_line, product_id, new_qty, uom_id, **kwargs)
 
-    def _get_cart_and_free_qty(self, line=None, product=None, **kwargs):
-        """ Get cart quantity and free quantity for given product or line's product.
+    def _get_cart_and_free_qty(self, product):
+        """Get cart quantity and free quantity for given product.
 
         Note: self.ensure_one()
 
-        :param SaleOrderLine line: The optional line
-        :param ProductProduct product: The optional product
+        :param product: `product.product` record.
+        :returns: cart quantity and available quantity in the product uom
+        :rtype: tuple
         """
         self.ensure_one()
-        if not line and not product:
-            return 0, 0
-        cart_qty = sum(
-            self._get_common_product_lines(line, product, **kwargs).mapped('product_uom_qty')
-        )
-        free_qty = (product or line.product_id).with_context(warehouse=self.warehouse_id.id).free_qty
-        return cart_qty, free_qty
+        product.ensure_one()
 
-    def _get_common_product_lines(self, line=None, product=None, **kwargs):
-        """ Get the lines with the same product or line's product
+        return self._get_cart_qty(product.id), self._get_free_qty(product)
 
-        :param SaleOrderLine line: The optional line
-        :param ProductProduct product: The optional product
+    def _get_free_qty(self, product):
+        return product.with_context(warehouse_id=self._get_shop_warehouse_id()).free_qty
+
+    def _get_shop_warehouse_id(self):
+        """Return the warehouse to use for shop availability checks.
+
+        If no warehouse is specified on the website, all warehouses are considered,
+        regardless of the warehouse automatically assigned to the order.
+
+        Note: self.ensure_one()
+
+        :returns: `stock.warehouse` id
+        :rtype: int or False
         """
-        if not line and not product:
-            return self.env['sale.order.line']
-        product = product or line.product_id
-        return self.order_line.filtered(lambda l: l.product_id == product)
-
-    def _set_shop_warning_stock(self, desired_qty, new_qty):
         self.ensure_one()
-        self.shop_warning = _(
-            'You ask for %(desired_qty)s products but only %(new_qty)s is available',
-            desired_qty=desired_qty, new_qty=new_qty
+        return self.website_id.warehouse_id.id
+
+    def _get_cart_qty(self, product_id):
+        """Return the quantity of the given product in the current cart, if any.
+
+        :param int product_id: `product.product` id
+        :return: product quantity in the product uom
+        :rtype: float
+        """
+        if not self:
+            return 0.0
+        order_lines = self._get_common_product_lines(product_id)
+        return sum(
+            order_lines.mapped(
+                lambda sol: sol.product_uom_id._compute_quantity(
+                    sol.product_uom_qty, sol.product_id.uom_id,
+                )
+            )
         )
-        return self.shop_warning
 
-    def _get_cache_key_for_line(self, line):
-        return line.product_id
+    def _get_common_product_lines(self, product_id=None):
+        """Get all the lines of the current order with the given product."""
+        return self.order_line.filtered(lambda sol: sol.product_id.id == product_id)
 
-    def _get_context_for_line(self, line):
-        return {
-            'website_sale_stock_get_quantity': True,
-        }
+    def _check_cart_is_ready_to_be_paid(self):
+        values = [
+            line.shop_warning
+            for line in self.order_line
+            if not line._check_availability()
+        ]
+        if values:
+            raise ValidationError(' '.join(values))
+        return super()._check_cart_is_ready_to_be_paid()
 
     def _filter_can_send_abandoned_cart_mail(self):
-        """ Filter sale orders on their product availability. """
-        self = super()._filter_can_send_abandoned_cart_mail()
-        combination_info_cache = {}
+        """Filter sale orders on their product availability."""
+        return super()._filter_can_send_abandoned_cart_mail().filtered(
+            lambda so: so._all_product_available()
+        )
 
-        def _are_all_product_available_for_purchase(sale_order):
-            for line in sale_order.order_line:
-                product = line.product_id
-                if product.type != 'product':
-                    continue
-                cache_key = self._get_cache_key_for_line(line)
-                combination_info = combination_info_cache.get(cache_key)
-                if not combination_info:
-                    combination_info = product.with_context(**self._get_context_for_line(line), website_id=sale_order.website_id.id)._get_combination_info_variant(add_qty=line.product_uom_qty)
-                    combination_info_cache[cache_key] = combination_info
-                if not product.allow_out_of_stock_order and combination_info['free_qty'] == 0:
-                    return False
+    def _all_product_available(self):
+        self.ensure_one()
+        if not (lines := self.order_line):
             return True
-
-        # If none of the products in the checkout are available for purchase (empty inventory, for example),
-        # then the email won't be sent.
-        return self.filtered(_are_all_product_available_for_purchase)
+        return not any(product._is_sold_out() for product in lines.product_id)

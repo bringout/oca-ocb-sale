@@ -1,242 +1,173 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* spreadsheet_dashboard_event_sale
-# 
-# Translators:
-# Yihya Hugirat <hugirat@gmail.com>, 2022
-# Martin Trigaux, 2022
-# Lilach Gilliam <lilach.gilliam@gmail.com>, 2022
-# Roy Sayag, 2022
-# tomerlayline, 2024
-# or balmas, 2025
-# 
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-06 13:32+0000\n"
-"PO-Revision-Date: 2022-09-29 09:44+0000\n"
-"Last-Translator: or balmas, 2025\n"
-"Language-Team: Hebrew (https://app.transifex.com/odoo/teams/41243/he/)\n"
+"POT-Creation-Date: 2026-01-25 18:37+0000\n"
+"PO-Revision-Date: 2024-10-25 07:49+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: he\n"
-"Plural-Forms: nplurals=3; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: 2;\n"
+"Plural-Forms: \n"
+
+#. module: spreadsheet_dashboard_event_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_sample_dashboard.json:0
+msgid "Attended"
+msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#, python-format
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_sample_dashboard.json:0
 msgid "Attendees"
-msgstr "משתתפים"
+msgstr ""
+
+#. module: spreadsheet_dashboard_event_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_sample_dashboard.json:0
+msgid "Booked"
+msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#, python-format
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_sample_dashboard.json:0
 msgid "Current"
-msgstr "נוכחי"
+msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#, python-format
 msgid "Date"
-msgstr "תאריך"
+msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#, python-format
-msgid "Event by Organizer"
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_sample_dashboard.json:0
+msgid "Ended"
 msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#, python-format
-msgid "Event by Tags"
-msgstr ""
-
-#. module: spreadsheet_dashboard_event_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#, python-format
-msgid "Event by Template"
-msgstr ""
-
-#. module: spreadsheet_dashboard_event_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#, python-format
-msgid "Event by Venue"
-msgstr ""
-
-#. module: spreadsheet_dashboard_event_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#, python-format
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_sample_dashboard.json:0
+#: model:spreadsheet.dashboard,name:spreadsheet_dashboard_event_sale.spreadsheet_dashboard_events
 msgid "Events"
-msgstr "אירועים"
+msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#, python-format
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_sample_dashboard.json:0
 msgid "Events Status"
 msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#, python-format
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_sample_dashboard.json:0
 msgid "KPI"
-msgstr "KPI"
+msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#, python-format
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_sample_dashboard.json:0
 msgid "Organizer"
-msgstr "מארגן"
+msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#, python-format
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_sample_dashboard.json:0
 msgid "Previous"
-msgstr "קודם"
+msgstr ""
+
+#. module: spreadsheet_dashboard_event_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_sample_dashboard.json:0
+msgid "Registered"
+msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#, python-format
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_sample_dashboard.json:0
 msgid "Registration Status"
-msgstr "סטטוס הרשמה"
+msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#, python-format
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_sample_dashboard.json:0
 msgid "Revenue"
-msgstr "הכנסה"
+msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#, python-format
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_sample_dashboard.json:0
 msgid "Tag"
-msgstr "תגית"
+msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#, python-format
 msgid "Tags"
-msgstr "תגיות"
+msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#, python-format
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_sample_dashboard.json:0
 msgid "Template"
-msgstr "תבנית"
+msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#, python-format
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_sample_dashboard.json:0
 msgid "Top Organizers"
 msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#, python-format
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_sample_dashboard.json:0
 msgid "Top Tags"
-msgstr "תגים מובילים"
+msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#, python-format
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_sample_dashboard.json:0
 msgid "Top Templates"
 msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#, python-format
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_sample_dashboard.json:0
 msgid "Top Venues"
 msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#, python-format
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_sample_dashboard.json:0
 msgid "Venue"
-msgstr "מָקוֹם מִפגָשׁ"
-
-#. module: spreadsheet_dashboard_event_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#, python-format
-msgid "attendees - current"
 msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#, python-format
-msgid "attendees - previous"
-msgstr ""
-
-#. module: spreadsheet_dashboard_event_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#, python-format
-msgid "events - current"
-msgstr ""
-
-#. module: spreadsheet_dashboard_event_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#, python-format
-msgid "events - previous"
-msgstr ""
-
-#. module: spreadsheet_dashboard_event_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#, python-format
+#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_sample_dashboard.json:0
 msgid "since last period"
-msgstr "מאז התקופה האחרונה"
-
-#. module: spreadsheet_dashboard_event_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#, python-format
-msgid "untaxed revenue - current"
-msgstr ""
-
-#. module: spreadsheet_dashboard_event_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#, python-format
-msgid "untaxed revenue - previous"
 msgstr ""

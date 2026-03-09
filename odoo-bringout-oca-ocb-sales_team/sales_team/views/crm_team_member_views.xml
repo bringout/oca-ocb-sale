@@ -10,7 +10,7 @@
                 <field name="crm_team_id"/>
                 <separator/>
                 <filter name="archived" string="Archived" domain="[('active', '=', False)]"/>
-                <group expand="0" string="Group By">
+                <group>
                     <filter string="Sales Team" name="groupby_crm_team_id" context="{'group_by': 'crm_team_id'}"/>
                 </group>
             </search>
@@ -18,18 +18,18 @@
     </record>
 
     <record id="crm_team_member_view_tree" model="ir.ui.view">
-        <field name="name">crm.team.member.view.tree</field>
+        <field name="name">crm.team.member.view.list</field>
         <field name="model">crm.team.member</field>
         <field name="arch" type="xml">
-            <tree string="Sales Men" sample="1">
+            <list string="Sales Men" sample="1">
                 <field name="crm_team_id"/>
                 <field name="user_id"/>
-            </tree>
+            </list>
         </field>
     </record>
 
     <record id="crm_team_member_view_tree_from_team" model="ir.ui.view">
-        <field name="name">crm.team.member.view.tree.from.team</field>
+        <field name="name">crm.team.member.view.list.from.team</field>
         <field name="model">crm.team.member</field>
         <field name="inherit_id" ref="sales_team.crm_team_member_view_tree"/>
         <field name="mode">primary</field>
@@ -50,27 +50,20 @@
                 sample="1"
                 default_group_by="crm_team_id"
                 class="o_crm_team_member_kanban">
-                <field name="user_id"/>
                 <field name="active"/>
                 <templates>
-                    <t t-name="kanban-box">
-                        <div class="oe_kanban_card oe_kanban_global_click">
-                            <div class="ribbon ribbon-top-right" attrs="{'invisible': [('active', '=', True)]}">
-                                <span class="bg-odoo">Archived</span>
+                    <t t-name="card" class="flex-row mb-3">
+                        <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                        <aside>
+                            <field name="user_id" widget="image" options="{'preview_image': 'avatar_128'}" class="o_image_64_cover" alt="Avatar"/>
+                        </aside>
+                        <main class="ms-3">
+                            <field name="user_id" class="fw-bold fs-5"/>
+                            <a type="open" class="nav-link p-0"><field name="crm_team_id"/></a>
+                            <div class="d-flex align-items-baseline text-break">
+                                <i class="fa fa-envelope me-1" role="img" aria-label="Email" title="Email"/><field name="email"/>
                             </div>
-                            <div class="o_kanban_card_content d-flex">
-                                <div>
-                                    <img t-att-src="kanban_image('res.users', 'avatar_128', record.user_id.raw_value)" class="o_kanban_image o_image_64_cover" alt="Avatar"/>
-                                </div>
-                                <div class="oe_kanban_details d-flex flex-column ms-3">
-                                    <strong class="o_kanban_record_title oe_partner_heading"><field name="user_id"/></strong>
-                                    <a type="open" class="nav-link p-0"><field name="crm_team_id"/></a>
-                                    <div class="d-flex align-items-baseline text-break">
-                                        <i class="fa fa-envelope me-1" role="img" aria-label="Email" title="Email"/><field name="email"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </main>
                     </t>
                 </templates>
             </kanban>
@@ -93,7 +86,7 @@
         <field name="name">crm.team.member.view.form</field>
         <field name="model">crm.team.member</field>
         <field name="arch" type="xml">
-            <form string="Sales Men">
+            <form string="Sales Men" js_class="crm_team_form">
                 <field name="active" invisible="1"/>
                 <field name="company_id" invisible="1"/>
                 <field name="is_membership_multi" invisible="1"/>
@@ -101,38 +94,43 @@
                 <field name="user_in_teams_ids" invisible="1"/>
                 <field name="user_company_ids" invisible="1"/>
                 <sheet>
-                    <div class="alert alert-info text-center" role="alert"
-                        attrs="{'invisible': [('member_warning', '=', False)]}">
-                        <field name="member_warning"/>
+                    <div class="alert alert-info text-center d-flex flex-wrap justify-content-center gap-1" role="alert"
+                        invisible="not member_warning">
+                        <field name="member_warning" class="w-auto"/>
+                        Working in multiple teams?
+                        <button name="crm_team_activate_multi_membership" type="button" class="btn btn-link p-0 lh-1">
+                            Activate "Multi-team"
+                        </button>
                     </div>
-                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
-                    <field name="image_1920" widget='image' class="oe_avatar"
-                        attrs="{'invisible': [('user_id', '=', False)]}"
-                        options='{"preview_image": "image_128"}'/>
-                    <div class="oe_title">
-                        <label for="user_id" class="oe_edit_only"/>
-                        <h1 class="d-flex">
-                            <field name="user_id" class="flex-grow-1"
-                                options="{'no_quick_create': True}"/>
-                        </h1>
-                    </div>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                    <field name="image_1920" widget='image' class="float-start pe-3"
+                        invisible="not user_id" nolabel="1"
+                        options='{"preview_image": "image_128", "size": [130,130], "img_class": "rounded border"}'/>
+                    <h1 class="d-flex">
+                        <field name="user_id" class="flex-grow-1" placeholder="e.g. John Doe"
+                            options="{'no_quick_create': True}"/>
+                    </h1>
+                    <group name="crm_team_id">
+                        <field id="crm_team_id" name="crm_team_id" context="{'kanban_view_ref': 'sales_team.crm_team_view_kanban'}"/>
+                    </group>
                     <group name="member_partner_info">
-                        <group name="group_owner">
-                            <field name="crm_team_id" kanban_view_ref="%(sales_team.crm_team_view_kanban)s"/>
-                        </group>
-                        <group name="group_user">
-                            <field name="company_id" attrs="{'invisible': [('user_id', '=', False)]}"
-                                groups="base.group_multi_company"/>
-                            <field name="email" attrs="{'invisible': [('user_id', '=', False)]}"/>
-                            <field name="mobile" attrs="{'invisible': [('user_id', '=', False)]}"/>
-                            <field name="phone" attrs="{'invisible': [('user_id', '=', False)]}"/>
-                        </group>
+                        <div class="d-flex flex-column flex-grow-1">
+                            <div colspan="2" class="d-flex align-items-baseline" invisible="not user_id">
+                                <i class="fa fa-fw me-1 fa-envelope text-primary" title="Email"/>
+                                <field name="email" nolabel="1"/>
+                            </div>
+                            <div colspan="2" class="d-flex align-items-baseline" invisible="not user_id">
+                                <i class="fa fa-fw me-1 fa-phone text-primary" title="Phone"/>
+                                <field name="phone" nolabel="1"/>
+                            </div>
+                            <div colspan="2" class="d-flex align-items-baseline" invisible="not user_id" groups="base.group_multi_company">
+                                <i class="fa fa-fw me-1 fa-building text-primary" title="Company"/>
+                                <field name="company_id"/>
+                            </div>
+                        </div>
                     </group>
                 </sheet>
-                <div class="oe_chatter">
-                    <field name="message_follower_ids"/>
-                    <field name="message_ids"/>
-                </div>
+                <chatter/>
             </form>
         </field>
     </record>
@@ -144,14 +142,18 @@
         <field name="mode">primary</field>
         <field name="priority">32</field>
         <field name="arch" type="xml">
-            <xpath expr="//group[@name='group_owner']" position="replace"/>
+            <!-- <xpath expr="//div[@name='crm_team_id']" position="replace"/> -->
+            <xpath expr="//group[@name='crm_team_id']" position="replace"/>
+            <xpath expr="//group[@name='member_partner_info']/div" position="attributes">
+                <attribute name="class">px-0</attribute>
+            </xpath>
         </field>
     </record>
 
     <record id="crm_team_member_action" model="ir.actions.act_window">
         <field name="name">Team Members</field>
         <field name="res_model">crm.team.member</field>
-        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_mode">kanban,list,form</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 Create a new salesman

@@ -1,50 +1,35 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* event_booth_sale
-# 
-# Translators:
-# Sandra Franch <sandra.franch@upc.edu>, 2022
-# marcescu, 2022
-# Marc Tormo i Bochaca <mtbochaca@gmail.com>, 2022
-# Martin Trigaux, 2022
-# Quim - eccit <quim@eccit.com>, 2022
-# Manel Fernandez Ramirez <manelfera@outlook.com>, 2022
-# Arnau Ros, 2022
-# jabelchi, 2022
-# Ivan Espinola, 2022
-# Óscar Fonseca <tecnico@extreme-micro.com>, 2023
-# 
+# * event_booth_sale
+#
+# "Dylan Kiss (dyki)" <dyki@odoo.com>, 2025.
+# "Noemi Pla Garcia (nopl)" <nopl@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-14 05:52+0000\n"
-"PO-Revision-Date: 2022-09-22 05:45+0000\n"
-"Last-Translator: Óscar Fonseca <tecnico@extreme-micro.com>, 2023\n"
-"Language-Team: Catalan (https://app.transifex.com/odoo/teams/41243/ca/)\n"
+"POT-Creation-Date: 2026-01-25 18:36+0000\n"
+"PO-Revision-Date: 2026-03-06 17:49+0000\n"
+"Last-Translator: \"Noemi Pla Garcia (nopl)\" <nopl@odoo.com>\n"
+"Language-Team: Catalan <https://translate.odoo.com/projects/odoo-19/"
+"event_booth_sale/ca/>\n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: ca\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.16.1\n"
 
 #. module: event_booth_sale
-#: model:ir.model.fields,help:event_booth_sale.field_product_product__detailed_type
-#: model:ir.model.fields,help:event_booth_sale.field_product_template__detailed_type
-msgid ""
-"A storable product is a product for which you manage stock. The Inventory app has to be installed.\n"
-"A consumable product is a product for which stock is not managed.\n"
-"A service is a non-material product you provide."
-msgstr ""
-"Un producte emmagatzemable és un producte pel qual gestioneu estoc. Cal instal·lar l'aplicació Inventari.\n"
-"Un consumible és un producte pel qual no es gestiona estoc.\n"
-"Un servei és un producte no material que subministreu. "
+#: model_terms:ir.ui.view,arch_db:event_booth_sale.event_booth_view_form_from_event
+msgid "<span class=\"o_stat_text\">Sale Order</span>"
+msgstr "<span class=\"o_stat_text\">Comanda de venda</span>"
 
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_configurator__event_booth_ids
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_registration__event_booth_id
 msgid "Booth"
-msgstr "Booth"
+msgstr "Estand"
 
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_configurator__event_booth_category_id
@@ -55,7 +40,7 @@ msgstr "Categoria d'estand"
 #: model:ir.model.fields,help:event_booth_sale.field_event_booth_configurator__event_booth_category_available_ids
 msgid "Booth Category for which booths are still available. Used in frontend"
 msgstr ""
-"Categoria d'estands per a la qual encara hi ha estands disponibles. Es fa "
+"Categoria d'estand per a la qual encara hi ha estands disponibles. Es fa "
 "servir al frontend"
 
 #. module: event_booth_sale
@@ -72,7 +57,7 @@ msgstr "Detalls d'estand"
 #: model_terms:ir.ui.view,arch_db:event_booth_sale.event_booth_registration_view_form
 #: model_terms:ir.ui.view,arch_db:event_booth_sale.event_booth_registration_view_tree
 msgid "Booth Registration"
-msgstr "Registre d'estand "
+msgstr "Registre d'estand"
 
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_sale_order__event_booth_ids
@@ -88,7 +73,7 @@ msgstr "Categoria d'estands"
 #. module: event_booth_sale
 #: model_terms:ir.ui.view,arch_db:event_booth_sale.event_booth_configurator_view_form
 msgid "Cancel"
-msgstr "Cancel·lar"
+msgstr "Cancel·la"
 
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_sale_order_line__event_booth_ids
@@ -111,11 +96,6 @@ msgid "Contact Email"
 msgstr "Correu electrònic del contacte"
 
 #. module: event_booth_sale
-#: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_registration__contact_mobile
-msgid "Contact Mobile"
-msgstr "Contacte mòbil"
-
-#. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_registration__contact_name
 msgid "Contact Name"
 msgstr "Nom del contacte"
@@ -124,6 +104,12 @@ msgstr "Nom del contacte"
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_registration__contact_phone
 msgid "Contact Phone"
 msgstr "Telèfon del contacte"
+
+#. module: event_booth_sale
+#: model:ir.model.fields,field_description:event_booth_sale.field_product_product__service_tracking
+#: model:ir.model.fields,field_description:event_booth_sale.field_product_template__service_tracking
+msgid "Create on Order"
+msgstr "Crea en fer Comanda"
 
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_configurator__create_uid
@@ -155,10 +141,18 @@ msgid "Details"
 msgstr "Detalls"
 
 #. module: event_booth_sale
+#: model:ir.model.fields,field_description:event_booth_sale.field_account_move__display_name
+#: model:ir.model.fields,field_description:event_booth_sale.field_event_booth__display_name
+#: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_category__display_name
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_configurator__display_name
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_registration__display_name
+#: model:ir.model.fields,field_description:event_booth_sale.field_event_type_booth__display_name
+#: model:ir.model.fields,field_description:event_booth_sale.field_product_product__display_name
+#: model:ir.model.fields,field_description:event_booth_sale.field_product_template__display_name
+#: model:ir.model.fields,field_description:event_booth_sale.field_sale_order__display_name
+#: model:ir.model.fields,field_description:event_booth_sale.field_sale_order_line__display_name
 msgid "Display Name"
-msgstr "Nom a mostrar"
+msgstr "Nom mostrat"
 
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_configurator__event_id
@@ -167,9 +161,9 @@ msgstr "Esdeveniment"
 
 #. module: event_booth_sale
 #: model:ir.model,name:event_booth_sale.model_event_booth
-#: model:ir.model.fields.selection,name:event_booth_sale.selection__product_template__detailed_type__event_booth
+#: model:ir.model.fields.selection,name:event_booth_sale.selection__product_template__service_tracking__event_booth
 msgid "Event Booth"
-msgstr "Cabina d'esdeveniments"
+msgstr "Estand d'esdeveniment"
 
 #. module: event_booth_sale
 #: model:ir.model,name:event_booth_sale.model_event_booth_category
@@ -179,7 +173,7 @@ msgstr "Categoria de l'estand de l'esdeveniment"
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_configurator__event_booth_category_available_ids
 msgid "Event Booth Category Available"
-msgstr "Categoria disponible del contenidor d'esdeveniments"
+msgstr "Categoria d'estand d'esdeveniments disponible"
 
 #. module: event_booth_sale
 #: model:ir.model,name:event_booth_sale.model_event_booth_configurator
@@ -203,8 +197,16 @@ msgid "Final Sale Order Line"
 msgstr "Línia final de venda"
 
 #. module: event_booth_sale
+#: model:ir.model.fields,field_description:event_booth_sale.field_account_move__id
+#: model:ir.model.fields,field_description:event_booth_sale.field_event_booth__id
+#: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_category__id
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_configurator__id
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_registration__id
+#: model:ir.model.fields,field_description:event_booth_sale.field_event_type_booth__id
+#: model:ir.model.fields,field_description:event_booth_sale.field_product_product__id
+#: model:ir.model.fields,field_description:event_booth_sale.field_product_template__id
+#: model:ir.model.fields,field_description:event_booth_sale.field_sale_order__id
+#: model:ir.model.fields,field_description:event_booth_sale.field_sale_order_line__id
 msgid "ID"
 msgstr "ID"
 
@@ -212,11 +214,6 @@ msgstr "ID"
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_category__image_1920
 msgid "Image"
 msgstr "Imatge"
-
-#. module: event_booth_sale
-#: model:ir.model.fields,field_description:event_booth_sale.field_sale_order_line__is_event_booth
-msgid "Is Event Booth"
-msgstr "És un estand d'esdeveniments"
 
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth__is_paid
@@ -229,12 +226,6 @@ msgid "Journal Entry"
 msgstr "Assentament comptable"
 
 #. module: event_booth_sale
-#: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_configurator____last_update
-#: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_registration____last_update
-msgid "Last Modified on"
-msgstr "Última modificació el "
-
-#. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_configurator__write_uid
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_registration__write_uid
 msgid "Last Updated by"
@@ -245,6 +236,12 @@ msgstr "Última actualització per"
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_registration__write_date
 msgid "Last Updated on"
 msgstr "Última actualització el"
+
+#. module: event_booth_sale
+#. odoo-python
+#: code:addons/event_booth_sale/models/product_template.py:0
+msgid "Mark the selected Booth as Unavailable."
+msgstr ""
 
 #. module: event_booth_sale
 #: model_terms:ir.ui.view,arch_db:event_booth_sale.event_booth_configurator_view_form
@@ -267,6 +264,14 @@ msgid "Pending Booths"
 msgstr "Estands pendents"
 
 #. module: event_booth_sale
+#. odoo-python
+#: code:addons/event_booth_sale/models/sale_order.py:0
+msgid ""
+"Please make sure all your event-booth related lines are configured before "
+"confirming this order:%s"
+msgstr ""
+
+#. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth__price
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_category__price
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_type_booth__price
@@ -276,7 +281,7 @@ msgstr "Preu"
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_category__price_reduce
 msgid "Price Reduce"
-msgstr "Preu reduït "
+msgstr "Preu reduït"
 
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_category__price_reduce_taxinc
@@ -284,36 +289,23 @@ msgid "Price Reduce Tax inc"
 msgstr "Preu reduït sense IVA"
 
 #. module: event_booth_sale
+#: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_category__price_incl
+msgid "Price incl"
+msgstr ""
+
+#. module: event_booth_sale
 #: model:ir.model,name:event_booth_sale.model_product_template
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth__product_id
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_category__product_id
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_configurator__product_id
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_type_booth__product_id
-#: model:ir.model.fields,field_description:event_booth_sale.field_sale_order_template_line__product_id
-#: model:ir.model.fields,field_description:event_booth_sale.field_sale_order_template_option__product_id
 msgid "Product"
 msgstr "Producte"
 
 #. module: event_booth_sale
-#: model:ir.model.fields,field_description:event_booth_sale.field_product_product__detailed_type
-#: model:ir.model.fields,field_description:event_booth_sale.field_product_template__detailed_type
-msgid "Product Type"
-msgstr "Tipus de producte"
-
-#. module: event_booth_sale
 #: model:ir.model,name:event_booth_sale.model_product_product
 msgid "Product Variant"
-msgstr "Variants de producte"
-
-#. module: event_booth_sale
-#: model:ir.model,name:event_booth_sale.model_sale_order_template_line
-msgid "Quotation Template Line"
-msgstr "Línia de plantilla de pressupostos"
-
-#. module: event_booth_sale
-#: model:ir.model,name:event_booth_sale.model_sale_order_template_option
-msgid "Quotation Template Option"
-msgstr "Opció de plantilla de pressupost"
+msgstr "Variant de producte"
 
 #. module: event_booth_sale
 #: model_terms:ir.ui.view,arch_db:event_booth_sale.event_booth_view_form_from_event
@@ -323,7 +315,6 @@ msgstr "Registres"
 #. module: event_booth_sale
 #. odoo-python
 #: code:addons/event_booth_sale/models/sale_order_line.py:0
-#, python-format
 msgid "Registrations from the same Order Line must belong to a single event."
 msgstr ""
 "Les inscripcions de la mateixa línia de comandes han de pertànyer a un sol "
@@ -335,11 +326,6 @@ msgid "SO Lines with reservations"
 msgstr "Per tant, línies amb reserves"
 
 #. module: event_booth_sale
-#: model_terms:ir.ui.view,arch_db:event_booth_sale.event_booth_view_form_from_event
-msgid "Sale Order"
-msgstr "Comanda de venda"
-
-#. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_configurator__sale_order_line_id
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_registration__sale_order_line_id
 msgid "Sale Order Line"
@@ -348,7 +334,7 @@ msgstr "Línia comanda de venda"
 #. module: event_booth_sale
 #: model:ir.model,name:event_booth_sale.model_sale_order
 msgid "Sales Order"
-msgstr "Comanda de venda"
+msgstr "Comanda"
 
 #. module: event_booth_sale
 #: model:ir.model,name:event_booth_sale.model_sale_order_line
@@ -362,21 +348,37 @@ msgstr "Seleccioneu un estand d'esdeveniments"
 
 #. module: event_booth_sale
 #. odoo-python
-#: code:addons/event_booth_sale/models/sale_order_line.py:0
-#, python-format
+#: code:addons/event_booth_sale/models/product_template.py:0
 msgid ""
-"The following booths are unavailable, please remove them to continue : "
-"%(booth_names)s"
+"The \"service_tracking\" for the product template, %(product_template_name)s "
+"cannot be changed because one of its variants is assigned to the Event Booth "
+"Category, %(event_booth_category_name)s. The service_tracking must remain "
+"\"Event Booth\"."
+msgstr ""
+
+#. module: event_booth_sale
+#. odoo-python
+#: code:addons/event_booth_sale/models/sale_order_line.py:0
+msgid ""
+"The following booths are unavailable, please remove them to continue : %"
+"(booth_names)s"
 msgstr ""
 "Els estands següents no estan disponibles. Si us plau, treieu-los per a "
 "continuar : %(booth_names)s"
 
 #. module: event_booth_sale
+#. odoo-python
+#: code:addons/event_booth_sale/models/event_booth_category.py:0
+msgid ""
+"The product, %(product_name)s , is used for Event Booth, it must have "
+"service_tracking set to \"Event Booth\"."
+msgstr ""
+
+#. module: event_booth_sale
 #: model:ir.model.constraint,message:event_booth_sale.constraint_event_booth_registration_unique_registration
 msgid "There can be only one registration for a booth by sale order line"
 msgstr ""
-"Només pot haver-hi un registre per a un estand per línia de comandes de "
-"venda"
+"Només pot haver-hi un registre per a un estand per línia de comandes de venda"
 
 #. module: event_booth_sale
 #: model_terms:ir.ui.view,arch_db:event_booth_sale.event_booth_view_tree_from_event
@@ -393,27 +395,35 @@ msgstr ""
 #. module: event_booth_sale
 #. odoo-python
 #: code:addons/event_booth_sale/models/event_booth.py:0
-#, python-format
 msgid ""
-"You can't delete the following booths as they are linked to sales orders: "
-"%(booths)s"
+"You can't delete the following booths as they are linked to sales orders: %"
+"(booths)s"
 msgstr ""
-"No podeu eliminar aquests stands perquè estan enllaçats a comandes de venda:"
-" %(booths)s"
+"No podeu eliminar aquests stands perquè estan enllaçats a comandes de venda: "
+"%(booths)s"
+
+#. module: event_booth_sale
+#. odoo-python
+#: code:addons/event_booth_sale/models/product_product.py:0
+msgid ""
+"You cannot change the service_tracking of the product %(product_name)s "
+"because it is already assigned to %(booth_category_name)s. The "
+"service_tracking must remain 'event_booth'."
+msgstr ""
 
 #. module: event_booth_sale
 #. odoo-python
 #: code:addons/event_booth_sale/wizard/event_booth_configurator.py:0
-#, python-format
 msgid "You have to select at least one booth."
 msgstr "Heu de seleccionar almenys un estand."
 
 #. module: event_booth_sale
 #. odoo-python
 #: code:addons/event_booth_sale/models/event_booth_registration.py:0
-#, python-format
 msgid ""
-"Your order has been cancelled because the following booths have been "
-"reserved"
+"Your order has been cancelled because the following booths have been reserved"
 msgstr ""
 "S'ha cancel·lat la comanda, perquè els següents estands han estat reservats"
+
+#~ msgid "Is Event Booth"
+#~ msgstr "És un estand d'esdeveniments"

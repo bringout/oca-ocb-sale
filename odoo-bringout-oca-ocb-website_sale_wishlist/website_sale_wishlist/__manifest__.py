@@ -1,12 +1,11 @@
-# -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
+
 {
     'name': "Shopper's Wishlist",
     'summary': 'Allow shoppers to enlist products',
     'description': """
 Allow shoppers of your eCommerce store to create personalized collections of products they want to buy and save them for future reference.
     """,
-    'author': 'Odoo SA',
     'category': 'Website/Website',
     'version': '1.0',
     'depends': ['website_sale'],
@@ -14,16 +13,23 @@ Allow shoppers of your eCommerce store to create personalized collections of pro
         'security/website_sale_wishlist_security.xml',
         'security/ir.model.access.csv',
         'views/website_sale_wishlist_template.xml',
-        'views/snippets.xml',
+        'views/website_sale_wishlist_template_svg.xml',
     ],
     'installable': True,
     'assets': {
         'web.assets_frontend': [
-            'website_sale_wishlist/static/src/**/*',
+            'website_sale_wishlist/static/src/interactions/**/*',
+            'website_sale_wishlist/static/src/scss/**/*',
+            'website_sale_wishlist/static/src/js/**/*',
         ],
         'web.assets_tests': [
             'website_sale_wishlist/static/tests/**/*',
         ],
+        'website.website_builder_assets': [
+            'website_sale_wishlist/static/src/website_builder/**/*',
+        ],
     },
+    'auto_install': True,
+    'author': 'Odoo S.A.',
     'license': 'LGPL-3',
 }

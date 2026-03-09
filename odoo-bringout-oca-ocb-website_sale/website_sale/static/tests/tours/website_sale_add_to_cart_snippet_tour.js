@@ -1,85 +1,100 @@
-/** @odoo-module **/
+import {
+    clickOnEditAndWaitEditMode,
+    clickOnElement,
+    clickOnSave,
+    clickOnSnippet,
+    insertSnippet,
+    registerWebsitePreviewTour,
+    changeOptionInPopover,
+} from "@website/js/tours/tour_utils";
+import { assertCartContains } from '@website_sale/js/tours/tour_utils';
 
-import wsTourUtils from 'website_sale.tour_utils';
-import wTourUtils from 'website.tour_utils';
 
 function editAddToCartSnippet() {
     return [
-        ...wTourUtils.clickOnEditAndWaitEditMode(),
-        wTourUtils.clickOnSnippet({id: 's_add_to_cart'})
+        ...clickOnEditAndWaitEditMode(),
+        ...clickOnSnippet({id: 's_add_to_cart'})
     ]
 }
 
-wTourUtils.registerWebsitePreviewTour('add_to_cart_snippet_tour', {
+function checkQuanityInCart(quantity) {
+    return {
+        content: `Check if the cart quantity is ${quantity}`,
+        trigger: `:iframe .my_cart_quantity:contains(${quantity})`,
+    };
+}
+
+registerWebsitePreviewTour('add_to_cart_snippet_tour', {
         url: '/',
         edition: true,
-        test: true,
     },
-    [
-        wTourUtils.dragNDrop({name: 'Add to Cart Button'}),
+    () => [
+        ...insertSnippet({name: 'Add to Cart Button'}),
 
         // Basic product with no variants
-        wTourUtils.clickOnSnippet({id: 's_add_to_cart'}),
-        ...wTourUtils.selectElementInWeSelectWidget('product_template_picker_opt', 'Product No Variant', true),
-        ...wTourUtils.clickOnSave(),
-        wTourUtils.clickOnElement('add to cart button', 'iframe .s_add_to_cart_btn'),
-        {
-            trigger: "iframe nav li.o_wsale_my_cart sup:contains(1)",
-            run: () => null,
-        },
+        ...clickOnSnippet({id: 's_add_to_cart'}),
+        ...changeOptionInPopover("Add to Cart Button", "Product", "Product No Variant"),
+        ...clickOnSave(),
+        clickOnElement("add to cart button", ":iframe .s_add_to_cart_btn"),
+        checkQuanityInCart("1"),
+
         // Product with 2 variants with visitor choice (will open modal)
         ...editAddToCartSnippet(),
-        ...wTourUtils.selectElementInWeSelectWidget('product_template_picker_opt', 'Product Yes Variant 1', true),
-        ...wTourUtils.clickOnSave(),
-        wTourUtils.clickOnElement('add to cart button', 'iframe .s_add_to_cart_btn'),
-        wTourUtils.clickOnElement('continue shopping', 'iframe span:contains(Continue Shopping)'),
-        {
-            trigger: "body:not(:has(.modal))",
-            run: () => null,
-        },
-        {
-            trigger: "iframe nav li.o_wsale_my_cart sup:contains(2)",
-            run: () => null,
-        },
+        ...changeOptionInPopover("Add to Cart Button", "Product", "Product Yes Variant 1"),
+        ...clickOnSave(),
+        clickOnElement("add to cart button", ":iframe .s_add_to_cart_btn"),
+        clickOnElement("add to cart", ":iframe .modal button:contains(Add to Cart)"),
+        checkQuanityInCart("2"),
 
         // Product with 2 variants with a variant selected
         ...editAddToCartSnippet(),
-        ...wTourUtils.selectElementInWeSelectWidget('product_template_picker_opt', 'Product Yes Variant 2', true),
+        ...changeOptionInPopover("Add to Cart Button", "Product", "Product Yes Variant 2"),
         {
-            run: () => null,
-            trigger:
-                `we-select[data-name=product_variant_picker_opt] we-toggler:contains("Visitor's Choice")`,
+            content: "Check if variant option is visible",
+            trigger: "[data-container-title='Add to Cart Button'] [data-label='Variant']"
         },
-        ...wTourUtils.selectElementInWeSelectWidget('product_variant_picker_opt', 'Product Yes Variant 2 (Pink)'),
-        ...wTourUtils.clickOnSave(),
-        wTourUtils.clickOnElement('add to cart button', 'iframe .s_add_to_cart_btn'),
+        ...changeOptionInPopover("Add to Cart Button", "Variant", "Product Yes Variant 2 (Pink)"),
+        ...clickOnSave(),
+        clickOnElement("add to cart button", ":iframe .s_add_to_cart_btn"),
+        // Since 18.2, even if a specific variant is selected, the product configuration modal is displayed
+        // The variant set on the modal used the default variants attributes (so will not correspond to the selected variant)
+        // TODO: fix this misbahvior by setting the variant attributes based on the chosen variant 
+        // https://github.com/odoo/odoo/pull/201217#issuecomment-2721871718
         {
-            trigger: "iframe nav li.o_wsale_my_cart sup:contains(3)",
-            run: () => null,
+            content: "Check if the red variant is selected",
+            trigger: ":iframe .modal li:contains(Red) input:checked",
         },
+        {
+            content: "Click the pink variant",
+            trigger: ":iframe .modal li:contains(Pink) input",
+            run: "click",
+        },
+        {
+            content: "Check if the pink variant is selected",
+            trigger: ":iframe .modal li:contains(Pink) input:checked",
+        },
+        clickOnElement('add to cart', ':iframe .modal button:contains(Add to Cart)'),
+        checkQuanityInCart("3"),
 
         // Basic product with no variants and action=buy now
         ...editAddToCartSnippet(),
-        ...wTourUtils.selectElementInWeSelectWidget('product_template_picker_opt', 'Product No Variant', true),
+        ...changeOptionInPopover("Add to Cart Button", "Product", "Product No Variant"),
         {
-            run: () => null,
-            trigger:
-                `we-select[data-name=action_picker_opt] we-toggler:contains("Add to Cart")`,
+            content: "Check if action option is visible",
+            trigger: "[data-container-title='Add to Cart Button'] [data-label='Action']"
         },
-        ...wTourUtils.selectElementInWeSelectWidget('action_picker_opt', 'Buy Now'),
-        ...wTourUtils.clickOnSave(),
-        wTourUtils.clickOnElement('add to cart button', 'iframe .s_add_to_cart_btn'),
+        ...changeOptionInPopover("Add to Cart Button", "Action", "Buy Now"),
+        // At this point the "Add to cart" button was changed to a "Buy Now" button
+        ...clickOnSave(),
+        clickOnElement('"Buy Now" button', ':iframe .s_add_to_cart_btn'),
+        checkQuanityInCart("4"),
         {
             // wait for the page to load, as the next check was sometimes too fast
-            content: "Wait for the redirection to the payment page",
-            trigger: "div#oe_structure_website_sale_payment_1",
-            run: () => null,
+            content: "Wait for the redirection to the cart page",
+            trigger: ":iframe h4:contains(order summary)",
         },
-        wTourUtils.assertPathName('/shop/payment', 'button[name=o_payment_submit_button]'),
-
-        wsTourUtils.goToCart({quantity: 4, backend: false}),
-        wsTourUtils.assertCartContains({productName: 'Product No Variant'}),
-        wsTourUtils.assertCartContains({productName: 'Product Yes Variant 1 (Red)'}),
-        wsTourUtils.assertCartContains({productName: 'Product Yes Variant 2 (Pink)'}),
+        ...assertCartContains({productName: 'Product No Variant', backend: true}),
+        ...assertCartContains({productName: 'Product Yes Variant 1', combinationName: 'Red', backend: true}),
+        ...assertCartContains({productName: 'Product Yes Variant 2', combinationName: 'Pink', backend: true}),
     ],
 );

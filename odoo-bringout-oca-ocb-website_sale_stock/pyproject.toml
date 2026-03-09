@@ -1,13 +1,16 @@
 [project]
 name = "odoo-bringout-oca-ocb-website_sale_stock"
 version = "16.0.0"
-description = "Product Availability - Manage product inventory & availability"
+description = "Product Availability - 
+        Manage product inventory & availability
+        "
 authors = [
     { name = "Ernad Husremovic", email = "hernad@bring.out.ba" }
 ]
 dependencies = [
-    "odoo-bringout-oca-ocb-website_sale>=16.0.0",
-    "odoo-bringout-oca-ocb-sale_stock>=16.0.0",
+    "odoo-bringout-oca-ocb-website_sale>=19.0.0",
+    "odoo-bringout-oca-ocb-sale_stock>=19.0.0",
+    "TODO_MAP-stock_delivery>=19.0.0",
     "requests>=2.25.1"
 ]
 readme = "README.md"
@@ -17,7 +20,7 @@ classifiers = [
     "Intended Audience :: Developers",
     "License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.11", 
+    "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Topic :: Office/Business",
 ]

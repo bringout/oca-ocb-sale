@@ -144,7 +144,6 @@ class TestProject(TestCommonSaleTimesheet):
             'name': self.product_delivery_timesheet1.name,
             'product_id': self.product_delivery_timesheet1.id,
             'product_uom_qty': 1,
-            'product_uom': self.product_delivery_timesheet1.uom_id.id,
             'price_unit': self.product_delivery_timesheet1.list_price,
             'order_id': sale_order.id,
         })
@@ -165,7 +164,7 @@ class TestProject(TestCommonSaleTimesheet):
         self.env['project.task'].create({
             'name': 'task A',
             'project_id': self.project_global.id,
-            'planned_hours': 10,
+            'allocated_hours': 10,
             'timesheet_ids': [
                 Command.create({
                     'name': '/',
@@ -175,11 +174,38 @@ class TestProject(TestCommonSaleTimesheet):
             ],
         })
 
+        self.project_global.invalidate_recordset()
+        self.project_global.account_id.invalidate_recordset()
         self.assertEqual(self.project_global.analytic_account_balance, expected_analytic_account_balance)
 
     def test_open_product_form_with_default_service_policy(self):
-        form = Form(self.env['product.product'].with_context(default_detailed_type='service', default_service_policy='delivered_timesheet'))
+        form = Form(self.env['product.product'].with_context(
+            default_type='service',
+            default_service_policy='delivered_timesheet',
+        ))
         self.assertEqual('delivered_timesheet', form.service_policy)
+
+    def test_open_product_form_with_default_uom_id(self):
+        """ Test default product uom fallback when product is not service type """
+        uom_dozen = self.env.ref('uom.product_uom_dozen')
+        product_form = Form(self.env['product.product'].with_context(
+            default_uom_id=uom_dozen.id,
+        ))
+        self.assertEqual(uom_dozen, product_form.uom_id, "Default uom should be Dozen")
+        product_form.type = 'service'
+        product_form.service_policy = 'delivered_timesheet'
+        uom_hour = self.env.ref('uom.product_uom_hour')
+        self.assertEqual(
+            uom_hour,
+            product_form.uom_id,
+            "Uom should be updated to Hour for service_type=`timesheet` product"
+        )
+        product_form.type = 'consu'
+        self.assertEqual(
+            uom_dozen,
+            product_form.uom_id,
+            "Uom should be updated to Dozen for `Goods` type product"
+        )
 
     def test_duplicate_project_allocated_hours(self):
         self.project_global.allocated_hours = 10

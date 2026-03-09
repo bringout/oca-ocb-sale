@@ -3,7 +3,9 @@
 
 import logging
 
-from odoo import api, fields, models
+from odoo import _, api, fields, models
+from odoo.addons.product.models.product_template import PRICE_CONTEXT_KEYS
+from odoo.exceptions import ValidationError
 
 _logger = logging.getLogger(__name__)
 
@@ -16,20 +18,34 @@ class EventBoothCategory(models.Model):
 
     product_id = fields.Many2one(
         'product.product', string='Product', required=True,
-        domain=[('detailed_type', '=', 'event_booth')], default=_default_product_id,
+        domain=[('service_tracking', '=', 'event_booth')], default=_default_product_id,
         groups="event.group_event_registration_desk")
     price = fields.Float(
-        string='Price', compute='_compute_price', digits='Product Price', readonly=False,
+        string='Price', compute='_compute_price', min_display_digits='Product Price', readonly=False,
         store=True, groups="event.group_event_registration_desk")
+    price_incl = fields.Float(
+        string='Price incl', compute='_compute_price_incl', min_display_digits='Product Price', readonly=False,
+        groups="event.group_event_registration_desk")
     currency_id = fields.Many2one(related='product_id.currency_id', groups="event.group_event_registration_desk")
     price_reduce = fields.Float(
         string='Price Reduce', compute='_compute_price_reduce',
-        compute_sudo=True, digits='Product Price', groups="event.group_event_registration_desk")
+        compute_sudo=True, min_display_digits='Product Price', groups="event.group_event_registration_desk")
     price_reduce_taxinc = fields.Float(
         string='Price Reduce Tax inc', compute='_compute_price_reduce_taxinc',
         compute_sudo=True
     )
     image_1920 = fields.Image(compute='_compute_image_1920', readonly=False, store=True)
+
+    @api.constrains('product_id')
+    def _check_service_tracking(self):
+        for record in self:
+            if record.product_id and record.product_id.service_tracking != 'event_booth':
+                raise ValidationError(
+                    _(
+                        'The product, %(product_name)s , is used for Event Booth, it must have service_tracking set to "Event Booth".',
+                        product_name=record.product_id.name
+                    )
+                )
 
     @api.depends('product_id')
     def _compute_image_1920(self):
@@ -44,29 +60,30 @@ class EventBoothCategory(models.Model):
             if category.product_id and category.product_id.list_price:
                 category.price = category.product_id.list_price + category.product_id.price_extra
 
-    @api.depends_context('pricelist', 'quantity')
+    @api.depends('product_id', 'product_id.taxes_id', 'price')
+    def _compute_price_incl(self):
+        for category in self:
+            if category.product_id and category.price:
+                tax_ids = category.product_id.taxes_id
+                taxes = tax_ids.compute_all(category.price, category.currency_id, 1.0, product=category.product_id)
+                category.price_incl = taxes['total_included']
+            else:
+                category.price_incl = 0
+
+    @api.depends_context(*PRICE_CONTEXT_KEYS)
     @api.depends('product_id', 'price')
     def _compute_price_reduce(self):
         for category in self:
-            product = category.product_id
-            pricelist = product.product_tmpl_id._get_contextual_pricelist()
-            lst_price = product.currency_id._convert(
-                product.lst_price,
-                pricelist.currency_id,
-                self.env.company,
-                fields.Datetime.now(),
-                round=False,
-            )
-            discount = (lst_price - product._get_contextual_price()) / lst_price if lst_price else 0.0
-            category.price_reduce = (1.0 - discount) * category.price
+            contextual_discount = category.product_id._get_contextual_discount()
+            category.price_reduce = (1.0 - contextual_discount) * category.price
 
-    @api.depends_context('pricelist', 'quantity')
+    @api.depends_context(*PRICE_CONTEXT_KEYS)
     @api.depends('product_id', 'price_reduce')
     def _compute_price_reduce_taxinc(self):
         for category in self:
             tax_ids = category.product_id.taxes_id
             taxes = tax_ids.compute_all(category.price_reduce, category.currency_id, 1.0, product=category.product_id)
-            category.price_reduce_taxinc = taxes['total_included']
+            category.price_reduce_taxinc = taxes['total_included'] or 0
 
     def _init_column(self, column_name):
         """ Initialize product_id for existing columns when installing sale
@@ -89,10 +106,11 @@ class EventBoothCategory(models.Model):
         else:
             product_id = self.env['product.product'].create({
                 'name': 'Generic Event Booth Product',
-                'categ_id': self.env.ref('event_sale.product_category_events').id,
+                'categ_id': self.env.ref('event_product.product_category_events').id,
                 'list_price': 100,
                 'standard_price': 0,
-                'detailed_type': 'event_booth',
+                'type': 'service',
+                'service_tracking': 'event_booth',
                 'invoice_policy': 'order',
             }).id
             self.env['ir.model.data'].create({

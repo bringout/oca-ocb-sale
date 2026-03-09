@@ -1,19 +1,20 @@
-# -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 import logging
-
 from collections import OrderedDict
-from lxml import etree
-from odoo import Command
 
-import odoo.tests
+from lxml import etree
+
+from odoo.fields import Command
+from odoo.tests import HttpCase, TransactionCase, loaded_demo_data, tagged
+
 
 _logger = logging.getLogger(__name__)
 
 
-@odoo.tests.tagged('-at_install', 'post_install')
-class TestWebsiteSaleComparison(odoo.tests.TransactionCase):
+@tagged('-at_install', 'post_install')
+class TestWebsiteSaleComparison(TransactionCase):
+
     def test_01_website_sale_comparison_remove(self):
         """ This tour makes sure the product page still works after the module
         `website_sale_comparison` has been removed.
@@ -64,48 +65,56 @@ class TestWebsiteSaleComparison(odoo.tests.TransactionCase):
         self.assertFalse(Website1.viewref(test_view_key, raise_if_not_found=False))
 
 
-@odoo.tests.tagged('post_install', '-at_install')
-class TestUi(odoo.tests.HttpCase):
+@tagged('post_install', '-at_install')
+class TestWebsiteSaleComparisonUi(HttpCase):
 
-    def setUp(self):
-        super(TestUi, self).setUp()
-        self.template_margaux = self.env['product.template'].create({
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+
+        cls.attribute_varieties = cls.env['product.attribute'].create({
+            'name': 'Grape Varieties',
+            'sequence': 2,
+            'value_ids': [
+                Command.create({
+                    'name': n,
+                    'sequence': i,
+                }) for i, n in enumerate(['Cabernet Sauvignon', 'Merlot', 'Cabernet Franc', 'Petit Verdot'])
+            ],
+        })
+        cls.attribute_vintage = cls.env['product.attribute'].create({
+            'name': 'Vintage',
+            'sequence': 1,
+            'value_ids': [
+                Command.create({
+                    'name': n,
+                    'sequence': i,
+                }) for i, n in enumerate(['2018', '2017', '2016', '2015'])
+            ],
+        })
+        cls.values_varieties = cls.attribute_varieties.value_ids
+        cls.values_vintage = cls.attribute_vintage.value_ids
+        cls.template_margaux = cls.env['product.template'].create({
             'name': "Château Margaux",
             'website_published': True,
             'list_price': 0,
+            'attribute_line_ids': [
+                Command.create({
+                    'attribute_id': cls.attribute_vintage.id,
+                    'value_ids': [Command.set(cls.values_vintage.ids)]
+                })
+            ]
         })
-        self.attribute_varieties = self.env['product.attribute'].create({
-            'name': 'Grape Varieties',
-            'sequence': 2,
-        })
-        self.attribute_vintage = self.env['product.attribute'].create({
-            'name': 'Vintage',
-            'sequence': 1,
-        })
-        self.values_varieties = self.env['product.attribute.value'].create({
-            'name': n,
-            'attribute_id': self.attribute_varieties.id,
-            'sequence': i,
-        } for i, n in enumerate(['Cabernet Sauvignon', 'Merlot', 'Cabernet Franc', 'Petit Verdot']))
-        self.values_vintage = self.env['product.attribute.value'].create({
-            'name': n,
-            'attribute_id': self.attribute_vintage.id,
-            'sequence': i,
-        } for i, n in enumerate(['2018', '2017', '2016', '2015']))
-        self.attribute_line_varieties = self.env['product.template.attribute.line'].create([{
-            'product_tmpl_id': self.template_margaux.id,
-            'attribute_id': self.attribute_varieties.id,
+        cls.attribute_line_vintage = cls.template_margaux.attribute_line_ids
+        cls.attribute_line_varieties = cls.env['product.template.attribute.line'].create([{
+            'product_tmpl_id': cls.template_margaux.id,
+            'attribute_id': cls.attribute_varieties.id,
             'value_ids': [(6, 0, v.ids)],
-        } for v in self.values_varieties])
-        self.attribute_line_vintage = self.env['product.template.attribute.line'].create({
-            'product_tmpl_id': self.template_margaux.id,
-            'attribute_id': self.attribute_vintage.id,
-            'value_ids': [(6, 0, self.values_vintage.ids)],
-        })
-        self.variants_margaux = self.template_margaux._get_possible_variants_sorted()
+        } for v in cls.values_varieties])
+        cls.variants_margaux = cls.template_margaux._get_possible_variants_sorted()
 
-        for variant, price in zip(self.variants_margaux, [487.32, 394.05, 532.44, 1047.84]):
-            variant.product_template_attribute_value_ids.filtered(lambda ptav: ptav.attribute_id == self.attribute_vintage).price_extra = price
+        for variant, price in zip(cls.variants_margaux, [487.32, 394.05, 532.44, 1047.84]):
+            variant.product_template_attribute_value_ids.filtered(lambda ptav: ptav.attribute_id == cls.attribute_vintage).price_extra = price
 
     def test_01_admin_tour_product_comparison(self):
         attribute = self.env['product.attribute'].create({
@@ -185,7 +194,7 @@ class TestUi(odoo.tests.HttpCase):
 
         tr_vintage = root.xpath('//div[@id="product_specifications"]//tr')[0]
         text_vintage = etree.tostring(tr_vintage, encoding='unicode', method='text')
-        self.assertEqual(text_vintage.replace(' ', '').replace('\n', ''), "Vintage2018or2017or2016or2015")
+        self.assertEqual(text_vintage.replace(' ', '').replace('\n', ''), "Vintage2018,2017,2016,2015")
 
         tr_varieties = root.xpath('//div[@id="product_specifications"]//tr')[1]
         text_varieties = etree.tostring(tr_varieties, encoding='unicode', method='text')
@@ -196,21 +205,21 @@ class TestUi(odoo.tests.HttpCase):
         self.assertEqual(res.status_code, 200)
         root = etree.fromstring(res.content, etree.HTMLParser())
 
-        table = root.xpath('//table[@id="o_comparelist_table"]')[0]
+        table = root.xpath('//div[@id="o_comparelist_table"]')[0]
 
-        products = table.xpath('//a[@class="o_product_comparison_table"]')
+        products = table.xpath('//div[@id="o_comparelist_product_name"]/a/h6')
         self.assertEqual(len(products), 4)
         for product, name in zip(products, ['ChâteauMargaux(2018)', 'ChâteauMargaux(2017)', 'ChâteauMargaux(2016)', 'ChâteauMargaux(2015)']):
             text = etree.tostring(product, encoding='unicode', method='text')
             self.assertEqual(text.replace(' ', '').replace('\n', ''), name)
 
-        tr_vintage = table.xpath('tbody/tr')[0]
-        text_vintage = etree.tostring(tr_vintage, encoding='unicode', method='text')
-        self.assertEqual(text_vintage.replace(' ', '').replace('\n', ''), "Vintage2018,2017,2016,20152018,2017,2016,20152018,2017,2016,20152018,2017,2016,2015")
+        attribute_vintage = table.xpath('//div[@id="o_comparelist_attribute"]')[0]
+        text_vintage = etree.tostring(attribute_vintage, encoding='unicode', method='text')
+        self.assertEqual(text_vintage.replace(' ', '').replace('\n', ''), "Vintage2018")
 
-        tr_varieties = table.xpath('tbody/tr')[1]
-        text_varieties = etree.tostring(tr_varieties, encoding='unicode', method='text')
-        self.assertEqual(text_varieties.replace(' ', '').replace('\n', ''), "GrapeVarieties" + 4 * "CabernetSauvignon,Merlot,CabernetFranc,PetitVerdot")
+        attribute_varieties = table.xpath('//div[@id="o_comparelist_attribute"]')[4]
+        text_varieties = etree.tostring(attribute_varieties, encoding='unicode', method='text')
+        self.assertEqual(text_varieties.replace(' ', '').replace('\n', ''), "GrapeVarietiesCabernetSauvignon,Merlot,CabernetFranc,PetitVerdot")
 
     def test_03_category_order(self):
         """Test that categories are shown in the correct order when the
@@ -232,16 +241,70 @@ class TestUi(odoo.tests.HttpCase):
             (category_vintage, self.attribute_line_vintage),
         ]))
 
+        variant_margaux = self.template_margaux.product_variant_id
+        variant_ptavs = variant_margaux.product_template_attribute_value_ids
+
         prep_categories = self.variants_margaux[0]._prepare_categories_for_display()
         self.assertEqual(prep_categories, OrderedDict([
             (category_varieties, OrderedDict([
                 (self.attribute_varieties, OrderedDict([
-                    (self.template_margaux.product_variant_id, self.attribute_line_varieties.value_ids)
+                    (variant_margaux, variant_ptavs.filtered(
+                        lambda ptav: ptav.attribute_id == self.attribute_varieties
+                    ))
                 ]))
             ])),
             (category_vintage, OrderedDict([
                 (self.attribute_vintage, OrderedDict([
-                    (self.template_margaux.product_variant_id, self.attribute_line_vintage.value_ids)
+                    (variant_margaux, variant_ptavs.filtered(
+                        lambda ptav: ptav.attribute_id == self.attribute_vintage
+                    ))
                 ]))
             ])),
         ]))
+
+    def test_single_value_attribute_specifications(self):
+        """Test that attribute with single custom value shouldn't be displayed in specifications
+        or single value attributes.
+        The attribute with 'multi type single value' attribute should be displayed in specs table
+        but not in single value attributes."""
+        custom_attribute = self.env['product.attribute'].create([{
+            'name': 'Write here',
+            'value_ids': [
+                Command.create({
+                    'name': 'Custom',
+                    'is_custom': True,
+                }),
+            ],
+        }])
+        multi_attribute = self.env['product.attribute'].create([{
+            'name': 'multi',
+            'display_type': 'multi',
+            'create_variant': 'no_variant',
+            'value_ids': [
+                Command.create({
+                    'name': 'multi type single value',
+                }),
+            ],
+        }])
+        product = self.env['product.template'].create([{
+            'name': 'T-Shirt',
+            'is_published': True,
+            'attribute_line_ids': [
+                Command.create({
+                    'attribute_id': custom_attribute.id,
+                    'value_ids': custom_attribute.value_ids,
+                }),
+                Command.create({
+                    'attribute_id': multi_attribute.id,
+                    'value_ids': multi_attribute.value_ids,
+                }),
+            ],
+        }])
+
+        self.assertFalse(product.attribute_line_ids._prepare_single_value_for_display())
+        single_value_including_multi_type = product.attribute_line_ids._prepare_single_value_including_multi_type_for_display()
+        self.assertIn(multi_attribute.attribute_line_ids, single_value_including_multi_type.values())
+
+        categories = product.attribute_line_ids._prepare_categories_for_display_in_specs_table()
+        self.assertNotIn(custom_attribute.attribute_line_ids, categories.values())
+        self.assertIn(multi_attribute.attribute_line_ids, categories.values())

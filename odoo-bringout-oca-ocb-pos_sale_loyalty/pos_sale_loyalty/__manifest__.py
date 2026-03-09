@@ -3,9 +3,9 @@
 
 
 {
-    'name': 'pos_sale_loyalty',
+    'name': 'POS - Sales Loyality',
     'version': '1.0',
-    'category': 'Hidden',
+    'category': 'Sales/Point of Sale',
     'sequence': 6,
     'summary': 'Link module between pos_sale and pos_loyalty',
     'description': """
@@ -15,12 +15,13 @@ This module correct some behaviors when both module are installed.
     'installable': True,
     'auto_install': True,
     'assets': {
-        'point_of_sale.assets': [
-            'pos_sale_loyalty/static/src/js/**/*.js',
+        'point_of_sale._assets_pos': [
+            'pos_sale_loyalty/static/src/**/*',
         ],
         'web.assets_tests': [
-            'pos_sale_loyalty/static/src/tours/**/*',
+            'pos_sale_loyalty/static/tests/tours/**/*',
         ],
     },
+    'author': 'Odoo S.A.',
     'license': 'LGPL-3',
 }

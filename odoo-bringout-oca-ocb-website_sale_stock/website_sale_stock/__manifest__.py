@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 {
@@ -14,6 +13,7 @@ Then it can be made specific at the product level.
     'depends': [
         'website_sale',
         'sale_stock',
+        'stock_delivery',
     ],
     'data': [
         'views/product_template_views.xml',
@@ -30,13 +30,20 @@ Then it can be made specific at the product level.
     'auto_install': True,
     'assets': {
         'web.assets_frontend': [
-            'website_sale_stock/static/src/js/**/*',
+            ('before', 'website_sale/static/src/interactions/website_sale.js', 'website_sale_stock/static/src/js/variant_mixin.js'),
+            'website_sale_stock/static/src/interactions/**/*',
+            'website_sale_stock/static/src/js/combo_configurator_dialog/*',
+            'website_sale_stock/static/src/js/models/*',
+            'website_sale_stock/static/src/js/product/*',
+            'website_sale_stock/static/src/js/product_card/*',
+            'website_sale_stock/static/src/js/product_configurator_dialog/*',
             'website_sale_stock/static/src/xml/**/*',
         ],
         'web.assets_tests': [
-            'website_sale_stock/static/tests/tours/website_sale_stock_multilang.js',
-            'website_sale_stock/static/tests/tours/website_sale_stock_stock_notification.js',
+            'website_sale_stock/static/tests/tours/*',
+            'website_sale_stock/static/src/js/tours/*',
         ],
     },
+    'author': 'Odoo S.A.',
     'license': 'LGPL-3',
 }

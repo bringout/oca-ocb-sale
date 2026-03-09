@@ -1,7 +1,8 @@
-# -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
+
 import json
-from odoo import api, fields, models, _
+
+from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -58,6 +59,7 @@ class SaleOrder(models.Model):
                 order_lines = self.order_line.filtered(
                     lambda line: line.product_id.id == product.id
                     and line.product_no_variant_attribute_value_ids.ids == no_variant_attribute_values.ids
+                    and not line.combo_item_id
                 )
 
                 # if product variant already exist in order lines
@@ -121,7 +123,7 @@ class SaleOrder(models.Model):
 
         :param product.template product_template:
         :return: matrix to display
-        :rtype dict:
+        :rtype: dict
         """
         def has_ptavs(line, sorted_attr_ids):
             # TODO instead of sorting on ids, use odoo-defined order for matrix ?
@@ -141,7 +143,7 @@ class SaleOrder(models.Model):
                 for cell in line:
                     if not cell.get('name', False):
                         line = order_lines.filtered(lambda line: has_ptavs(line, cell['ptav_ids']))
-                        if line:
+                        if line and not line.combo_item_id:
                             cell.update({
                                 'qty': sum(line.mapped('product_uom_qty'))
                             })
@@ -158,6 +160,11 @@ class SaleOrder(models.Model):
             grid_configured_templates = self.order_line.filtered('is_configurable_product').product_template_id.filtered(lambda ptmpl: ptmpl.product_add_mode == 'matrix')
             for template in grid_configured_templates:
                 if len(self.order_line.filtered(lambda line: line.product_template_id == template)) > 1:
-                    # TODO do we really want the whole matrix even if there isn't a lot of lines ??
-                    matrixes.append(self._get_matrix(template))
+                    matrix = self._get_matrix(template)
+                    matrix_data = []
+                    for row in matrix['matrix']:
+                        if any(column['qty'] != 0 for column in row[1:]):
+                            matrix_data.append(row)
+                    matrix['matrix'] = matrix_data
+                    matrixes.append(matrix)
         return matrixes

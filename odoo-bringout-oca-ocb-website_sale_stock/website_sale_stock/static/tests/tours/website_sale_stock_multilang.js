@@ -1,48 +1,47 @@
-/** @odoo-module **/
+import { registry } from "@web/core/registry";
 
-import tour from 'web_tour.tour';
-
-tour.register('website_sale_stock_multilang', {
-    test: true,
+registry.category("web_tour.tours").add('website_sale_stock_multilang', {
     url: '/fr/shop?search=unavailable',
-},
-[{
-    content: "Open unavailable product page",
-    trigger: 'a[content="unavailable_product"]',
-}, {
-    content: "Check out of stock message",
-    trigger: '#out_of_stock_message:contains("Hors-stock")',
-    run: () => {}, // This is a check.
-}, {
-    content: "Check price",
-    trigger: 'span:contains("123,45")',
-    run: () => {}, // This is a check.
-}, {
-    content: "Open language selector",
-    trigger: '.js_language_selector button',
-}, {
-    content: "Switch to English",
-    trigger: '.js_change_lang[data-url_code="en"]',
-}, {
-    content: "Check out of stock message",
-    trigger: '#out_of_stock_message:contains("Out of stock")',
-    run: () => {}, // This is a check.
-}, {
-    content: "Check price",
-    trigger: 'span:contains("123.45")',
-    run: () => {}, // This is a check.
-}, {
-    content: "Open language selector",
-    trigger: '.js_language_selector button',
-}, {
-    content: "Switch to French",
-    trigger: '.js_change_lang[data-url_code="fr"]',
-}, {
-    content: "Check out of stock message",
-    trigger: '#out_of_stock_message:contains("Hors-stock")',
-    run: () => {}, // This is a check.
-}, {
-    content: "Check price",
-    trigger: 'span:contains("123,45")',
-    run: () => {}, // This is a check.
-}]);
+    steps: () => [{
+        content: "Open unavailable product page",
+        trigger: 'a:contains("unavailable_product")',
+        run: "click",
+        expectUnloadPage: true,
+    }, {
+        content: "Check out of stock message",
+        trigger: '#out_of_stock_message:contains("Hors-stock")',
+    }, {
+        content: "Check price",
+        trigger: 'span:contains("123,45")',
+    }, {
+        content: "Open language selector",
+        trigger: '.js_language_selector button',
+        run: "click",
+    }, {
+        content: "Switch to English",
+        trigger: '.js_change_lang[data-url_code="en"]',
+        run: "click",
+        expectUnloadPage: true,
+    }, {
+        content: "Check out of stock message",
+        trigger: '#out_of_stock_message:contains("Out of stock")',
+    }, {
+        content: "Check price",
+        trigger: 'span:contains("123.45")',
+    }, {
+        content: "Open language selector",
+        trigger: '.js_language_selector button',
+        run: "click",
+    }, {
+        content: "Switch to French",
+        trigger: '.js_change_lang[data-url_code="fr"]',
+        run: "click",
+        expectUnloadPage: true,
+    }, {
+        content: "Check out of stock message",
+        trigger: '#out_of_stock_message:contains("Hors-stock")',
+    }, {
+        content: "Check price",
+        trigger: 'span:contains("123,45")',
+    }],
+});

@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 from odoo import Command
 from odoo.addons.event_booth_sale.tests.common import TestEventBoothSaleCommon
 from odoo.fields import Datetime as FieldsDatetime
-from odoo.tests.common import users, Form
+from odoo.tests import Form, users
 
 
 class TestEventData(TestEventBoothSaleCommon):
@@ -63,7 +63,7 @@ class TestEventData(TestEventBoothSaleCommon):
         event.event_booth_ids[1].write({'partner_id': self.event_customer.id})
         self.assertEqual(event.event_booth_count, 2)
         self.assertEqual(event.event_booth_count_available, 2)
-        self.assertEqual(event.event_booth_ids[1].message_partner_ids, self.event_customer)
+        self.assertEqual(event.event_booth_ids[1].message_partner_ids, self.env['res.partner'])
 
         # one booth is sold
         event.event_booth_ids[1].write({'state': 'unavailable'})
@@ -77,7 +77,7 @@ class TestEventData(TestEventBoothSaleCommon):
         self.assertEqual(event.event_booth_ids[1].message_partner_ids, self.env['res.partner'])
 
         # add group or the test will fail
-        self.user_eventmanager.write({'groups_id': [
+        self.user_eventmanager.write({'group_ids': [
             (4, self.env.ref('sales_team.group_sale_salesman').id),
         ]})
 

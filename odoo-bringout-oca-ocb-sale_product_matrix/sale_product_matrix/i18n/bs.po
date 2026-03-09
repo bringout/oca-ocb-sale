@@ -1,113 +1,103 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* sale_product_matrix
+# * sale_product_matrix
 #
+# Odoo Translation Bot <c3p@odoo.com>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-06 13:32+0000\n"
-"PO-Revision-Date: 2024-02-06 13:32+0000\n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2026-01-25 18:37+0000\n"
+"PO-Revision-Date: 2025-10-08 18:38+0000\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #. module: sale_product_matrix
 #: model:ir.model.fields,field_description:sale_product_matrix.field_product_product__product_add_mode
+#: model:ir.model.fields,field_description:sale_product_matrix.field_product_template__product_add_mode
+#: model:ir.model.fields,field_description:sale_product_matrix.field_sale_order_line__product_add_mode
 msgid "Add product mode"
-msgstr "Način dodavanja proizvoda"
-
-# taken from hr.po
-#. module: sale_product_matrix
-#. odoo-javascript
-#: code:addons/sale_product_matrix/static/src/js/sale_product_field.js
-#, python-format
-msgid "Choose Product Variants"
-msgstr "Odaberi varijante proizvoda"
-
-# taken from hr.po
-#. module: sale_product_matrix
-#. odoo-javascript
-#: code:addons/sale_product_matrix/static/src/js/sale_product_field.js
-#, python-format
-msgid "Close"
-msgstr "Zatvori"
+msgstr ""
 
 #. module: sale_product_matrix
 #: model:ir.model.fields,help:sale_product_matrix.field_product_product__product_add_mode
+#: model:ir.model.fields,help:sale_product_matrix.field_product_template__product_add_mode
+#: model:ir.model.fields,help:sale_product_matrix.field_sale_order_line__product_add_mode
 msgid ""
-"Configurator: choose attribute values to add the matching product variant to the order.\n"
+"Configurator: choose attribute values to add the matching product variant to "
+"the order.\n"
 "Grid: add several variants at once from the grid of attribute values"
 msgstr ""
-"Konfiguratori: odaberite vrijednosti atributa za dodavanje odgovarajuće varijante proizvoda u narud·bu.\n"
-"Rešetka: dodajte nekoliko varijanti odjednom iz rešetke vrijednosti atributa"
 
-# taken from hr.po
 #. module: sale_product_matrix
-#. odoo-javascript
-#: code:addons/sale_product_matrix/static/src/js/sale_product_field.js
-#, python-format
-msgid "Confirm"
-msgstr "Potvrdi"
+#: model:ir.model.fields,field_description:sale_product_matrix.field_product_template__display_name
+#: model:ir.model.fields,field_description:sale_product_matrix.field_sale_order__display_name
+#: model:ir.model.fields,field_description:sale_product_matrix.field_sale_order_line__display_name
+msgid "Display Name"
+msgstr ""
 
-# taken from hr.po
 #. module: sale_product_matrix
 #: model:ir.model.fields,field_description:sale_product_matrix.field_sale_order__grid_product_tmpl_id
 msgid "Grid Product Tmpl"
-msgstr "Mreža predložaka proizvoda"
+msgstr ""
 
-# taken from hr.po
 #. module: sale_product_matrix
 #: model:ir.model.fields,field_description:sale_product_matrix.field_sale_order__grid_update
 msgid "Grid Update"
-msgstr "Ažuriraj mrežu"
+msgstr ""
+
+#. module: sale_product_matrix
+#: model:ir.model.fields,field_description:sale_product_matrix.field_product_template__id
+#: model:ir.model.fields,field_description:sale_product_matrix.field_sale_order__id
+#: model:ir.model.fields,field_description:sale_product_matrix.field_sale_order_line__id
+msgid "ID"
+msgstr ""
 
 #. module: sale_product_matrix
 #: model:ir.model.fields,field_description:sale_product_matrix.field_sale_order__grid
 msgid "Matrix local storage"
-msgstr "Lokalna pohrana matrice"
+msgstr ""
 
 #. module: sale_product_matrix
 #: model:ir.model.fields.selection,name:sale_product_matrix.selection__product_template__product_add_mode__matrix
 msgid "Order Grid Entry"
-msgstr "Unos rešetke naloga"
+msgstr ""
 
 #. module: sale_product_matrix
 #: model:ir.model.fields,field_description:sale_product_matrix.field_sale_order__report_grids
 msgid "Print Variant Grids"
-msgstr "Ispisuj rešetke varijanti"
+msgstr ""
 
-# taken from hr.po
 #. module: sale_product_matrix
 #: model:ir.model,name:sale_product_matrix.model_product_template
 msgid "Product"
-msgstr "Proizvod"
+msgstr ""
 
-# taken from hr.po
 #. module: sale_product_matrix
 #: model:ir.model.fields.selection,name:sale_product_matrix.selection__product_template__product_add_mode__configurator
 msgid "Product Configurator"
-msgstr "Konfigurator artikala"
+msgstr ""
 
-# taken from hr.po
 #. module: sale_product_matrix
 #: model:ir.model,name:sale_product_matrix.model_sale_order
 msgid "Sales Order"
-msgstr "Prodajni nalog"
+msgstr ""
 
-# taken from hr.po
 #. module: sale_product_matrix
 #: model:ir.model,name:sale_product_matrix.model_sale_order_line
 msgid "Sales Order Line"
-msgstr "Stavka prodajnog naloga"
+msgstr ""
 
 #. module: sale_product_matrix
 #: model_terms:ir.ui.view,arch_db:sale_product_matrix.product_template_grid_view_form
 msgid "Sales Variant Selection"
-msgstr "Odabir varijante prodaje"
+msgstr ""
 
 #. module: sale_product_matrix
 #: model:ir.model.fields,help:sale_product_matrix.field_sale_order__grid
@@ -116,15 +106,10 @@ msgid ""
 "If grid_update, will be loaded on the SO.\n"
 "If not, represents the matrix to open."
 msgstr ""
-"Tehnička lokalna pohrana rešetke. \n"
-"Ako je grid_update, bit će učitana na SO.\n"
-"Ako ne, predstavlja matricu za otvaranje."
 
 #. module: sale_product_matrix
 #. odoo-python
-#: code:addons/sale_product_matrix/models/sale_order.py
-#, python-format
+#: code:addons/sale_product_matrix/models/sale_order.py:0
 msgid ""
 "You cannot change the quantity of a product present in multiple sale lines."
 msgstr ""
-"Ne možete promijeniti količinu proizvoda prisutnog u više linija prodaje."

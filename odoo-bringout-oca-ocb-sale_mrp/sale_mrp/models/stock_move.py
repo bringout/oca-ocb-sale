@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo import models
@@ -7,19 +6,11 @@ from odoo import models
 class StockMove(models.Model):
     _inherit = 'stock.move'
 
-    def _prepare_procurement_values(self):
-        res = super()._prepare_procurement_values()
-        res['analytic_account_id'] = self.sale_line_id.order_id.analytic_account_id
-        return res
-
-
-class StockMoveLine(models.Model):
-    _inherit = 'stock.move.line'
-
-    def _compute_sale_price(self):
-        kit_lines = self.filtered(lambda move_line: move_line.move_id.bom_line_id.bom_id.type == 'phantom')
-        for move_line in kit_lines:
-            unit_price = move_line.product_id.list_price
-            qty = move_line.product_uom_id._compute_quantity(move_line.qty_done, move_line.product_id.uom_id)
-            move_line.sale_price = unit_price * qty
-        super(StockMoveLine, self - kit_lines)._compute_sale_price()
+    def _get_price_unit(self):
+        order_line = self.sale_line_id
+        if order_line and all(move.sale_line_id == order_line for move in self) and any(move.product_id != order_line.product_id for move in self):
+            product = order_line.product_id.with_company(order_line.company_id)
+            bom = product.env['mrp.bom']._bom_find(product, company_id=self.company_id.id, bom_type='phantom')[product]
+            if bom:
+                return self._get_kit_price_unit(product, bom, order_line.qty_delivered)
+        return super()._get_price_unit()
