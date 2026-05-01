@@ -24,7 +24,7 @@ msgstr "Dodaj u košaricu"
 # taken from hr.po
 #. module: website_sale_product_configurator
 #. odoo-javascript
-#: code:addons/website_sale_product_configurator/static/src/js/website_sale_options.js
+#: code:addons/website_sale_product_configurator/static/src/js/website_sale_options.js:0
 #, python-format
 msgid "Add to cart"
 msgstr "Dodaj u košaricu"
@@ -32,7 +32,7 @@ msgstr "Dodaj u košaricu"
 # taken from hr.po
 #. module: website_sale_product_configurator
 #. odoo-javascript
-#: code:addons/website_sale_product_configurator/static/src/js/website_sale_options.js
+#: code:addons/website_sale_product_configurator/static/src/js/website_sale_options.js:0
 #, python-format
 msgid "Continue Shopping"
 msgstr "Nastavi s kupovinom"
@@ -46,7 +46,7 @@ msgstr "Neka korisnik odluči (dijalog)"
 # taken from hr.po
 #. module: website_sale_product_configurator
 #. odoo-javascript
-#: code:addons/website_sale_product_configurator/static/src/js/website_sale_options.js
+#: code:addons/website_sale_product_configurator/static/src/js/website_sale_options.js:0
 #, python-format
 msgid "Proceed to Checkout"
 msgstr "Nastavi na naplatu"
@@ -55,7 +55,7 @@ msgstr "Nastavi na naplatu"
 #. module: website_sale_product_configurator
 #: model:ir.model,name:website_sale_product_configurator.model_sale_order
 msgid "Sales Order"
-msgstr "Prodajni nalog"
+msgstr "Narudžba"
 
 # taken from hr.po
 #. module: website_sale_product_configurator

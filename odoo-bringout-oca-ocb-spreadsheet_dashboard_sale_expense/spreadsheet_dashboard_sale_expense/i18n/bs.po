@@ -18,7 +18,7 @@ msgstr ""
 # taken from hr.po
 #. module: spreadsheet_dashboard_sale_expense
 #. openerp-web
-#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json
+#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json:0
 #, python-format
 msgid "# Expenses"
 msgstr "# Troškovi"
@@ -26,7 +26,7 @@ msgstr "# Troškovi"
 # taken from hr.po
 #. module: spreadsheet_dashboard_sale_expense
 #. openerp-web
-#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json
+#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json:0
 #, python-format
 msgid "Category"
 msgstr "Kategorija"
@@ -34,7 +34,7 @@ msgstr "Kategorija"
 # taken from hr.po
 #. module: spreadsheet_dashboard_sale_expense
 #. openerp-web
-#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json
+#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json:0
 #, python-format
 msgid "Employee"
 msgstr "Zaposlenik"
@@ -42,7 +42,7 @@ msgstr "Zaposlenik"
 # taken from hr.po
 #. module: spreadsheet_dashboard_sale_expense
 #. openerp-web
-#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json
+#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json:0
 #, python-format
 msgid "Expense"
 msgstr "Trošak"
@@ -50,7 +50,7 @@ msgstr "Trošak"
 # taken from hr.po
 #. module: spreadsheet_dashboard_sale_expense
 #. openerp-web
-#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json
+#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json:0
 #, python-format
 msgid "Expenses"
 msgstr "Troškovi"
@@ -58,14 +58,14 @@ msgstr "Troškovi"
 # taken from hr.po
 #. module: spreadsheet_dashboard_sale_expense
 #. openerp-web
-#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json
+#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json:0
 #, python-format
 msgid "Expenses Analysis"
 msgstr "Analiza troškova"
 
 #. module: spreadsheet_dashboard_sale_expense
 #. openerp-web
-#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json
+#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json:0
 #, python-format
 msgid "Expenses Analysis by Customer to Reinvoice"
 msgstr "Analiza troškova po kupcu za refakturisanje"
@@ -73,7 +73,7 @@ msgstr "Analiza troškova po kupcu za refakturisanje"
 # taken from hr.po
 #. module: spreadsheet_dashboard_sale_expense
 #. openerp-web
-#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json
+#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json:0
 #, python-format
 msgid "KPI - Expenses"
 msgstr "KPI - Troškovi"
@@ -81,7 +81,7 @@ msgstr "KPI - Troškovi"
 # taken from hr.po
 #. module: spreadsheet_dashboard_sale_expense
 #. openerp-web
-#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json
+#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json:0
 #, python-format
 msgid "KPI - To reimburse"
 msgstr "KPI - Za nadoknaditi"
@@ -89,7 +89,7 @@ msgstr "KPI - Za nadoknaditi"
 # taken from hr.po
 #. module: spreadsheet_dashboard_sale_expense
 #. openerp-web
-#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json
+#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json:0
 #, python-format
 msgid "KPI - To report"
 msgstr "KPI - Za prijaviti"
@@ -97,7 +97,7 @@ msgstr "KPI - Za prijaviti"
 # taken from hr.po
 #. module: spreadsheet_dashboard_sale_expense
 #. openerp-web
-#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json
+#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json:0
 #, python-format
 msgid "KPI - To validate"
 msgstr "KPI - Za odobriti"
@@ -105,15 +105,15 @@ msgstr "KPI - Za odobriti"
 # taken from hr.po
 #. module: spreadsheet_dashboard_sale_expense
 #. openerp-web
-#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json
+#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json:0
 #, python-format
 msgid "Order"
-msgstr "Narudžba"
+msgstr "Nalog"
 
 # taken from hr.po
 #. module: spreadsheet_dashboard_sale_expense
 #. openerp-web
-#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json
+#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json:0
 #, python-format
 msgid "Product"
 msgstr "Proizvod"
@@ -121,7 +121,7 @@ msgstr "Proizvod"
 # taken from hr.po
 #. module: spreadsheet_dashboard_sale_expense
 #. openerp-web
-#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json
+#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json:0
 #, python-format
 msgid "To reimburse"
 msgstr "Za nadoknaditi"
@@ -129,7 +129,7 @@ msgstr "Za nadoknaditi"
 # taken from hr.po
 #. module: spreadsheet_dashboard_sale_expense
 #. openerp-web
-#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json
+#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json:0
 #, python-format
 msgid "To report"
 msgstr "Za izvještavanje"
@@ -137,15 +137,15 @@ msgstr "Za izvještavanje"
 # taken from hr.po
 #. module: spreadsheet_dashboard_sale_expense
 #. openerp-web
-#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json
+#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json:0
 #, python-format
 msgid "To validate"
-msgstr "Za odobriti"
+msgstr "Za validaciju"
 
 # taken from hr.po
 #. module: spreadsheet_dashboard_sale_expense
 #. openerp-web
-#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json
+#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json:0
 #, python-format
 msgid "Top Categories"
 msgstr "Top kategorije"
@@ -153,7 +153,7 @@ msgstr "Top kategorije"
 # taken from hr.po
 #. module: spreadsheet_dashboard_sale_expense
 #. openerp-web
-#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json
+#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json:0
 #, python-format
 msgid "Top Employees"
 msgstr "Top zaposlenici"
@@ -161,14 +161,14 @@ msgstr "Top zaposlenici"
 # taken from hr.po
 #. module: spreadsheet_dashboard_sale_expense
 #. openerp-web
-#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json
+#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json:0
 #, python-format
 msgid "Top Expenses"
 msgstr "Najveći troškovi"
 
 #. module: spreadsheet_dashboard_sale_expense
 #. openerp-web
-#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json
+#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json:0
 #, python-format
 msgid "Top Reinvoiced Orders"
 msgstr "Najbolje refakturisane narudžbe"
@@ -176,20 +176,20 @@ msgstr "Najbolje refakturisane narudžbe"
 # taken from hr.po
 #. module: spreadsheet_dashboard_sale_expense
 #. openerp-web
-#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json
+#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json:0
 #, python-format
 msgid "Total"
 msgstr "Ukupno"
 
 #. module: spreadsheet_dashboard_sale_expense
 #. openerp-web
-#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json
+#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json:0
 #, python-format
 msgid "Year"
 msgstr "Godina"
 
 #. module: spreadsheet_dashboard_sale_expense
-#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json
+#: code:addons/spreadsheet_dashboard_sale_expense/data/files/expense_dashboard.json:0
 #, python-format
 msgid "Period"
-msgstr "Period"
+msgstr ""

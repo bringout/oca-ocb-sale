@@ -15,29 +15,30 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
+# taken from hr.po
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_option_buy_course_now
 msgid "<i class=\"fa fa-bolt\"/> Buy Now"
-msgstr ""
+msgstr "<i class=\"fa fa-bolt\"/> Kupi odmah"
 
+# taken from hr.po
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_buy_course_button
 msgid "<i class=\"fa fa-shopping-cart\"/> Add to Cart"
-msgstr ""
+msgstr "<i class=\"fa fa-shopping-cart\"/>Dodaj u košaricu"
 
 #. module: website_sale_slides
 #. odoo-python
 #: code:addons/website_sale_slides/models/product_product.py:0
 msgid "Access to: %(new_line)s%(channel_list)s"
-msgstr ""
+msgstr "Pristup za: %(new_line)s%(channel_list)s"
 
 #. module: website_sale_slides
 #: model:product.template,name:website_sale_slides.product_course_channel_5_product_template
 msgid "Basics of Furniture Creation"
-msgstr ""
+msgstr "Osnove izrade namještaja"
 
 #. module: website_sale_slides
 #. odoo-javascript
@@ -48,12 +49,14 @@ msgstr ""
 #. module: website_sale_slides
 #. odoo-javascript
 #: code:addons/website_sale_slides/static/src/xml/website_sale_slides_quiz.xml:0
+#, python-format
 msgid "Buy the course to validate your answers!"
-msgstr ""
+msgstr "Buy the course to validate your odgovori!"
 
 #. module: website_sale_slides
 #. odoo-javascript
 #: code:addons/website_sale_slides/static/src/xml/slide_course_join.xml:0
+#, python-format
 msgid "Buy this Course"
 msgstr ""
 
@@ -61,15 +64,16 @@ msgstr ""
 #: model_terms:ir.actions.act_window,help:website_sale_slides.sale_report_action_slides
 msgid "Come back once your courses starts selling to report on your revenues."
 msgstr ""
+"Come nazad once your courses starts selling to izvještaj on your revenues."
 
+# taken from hr.po
 #. module: website_sale_slides
 #: model:ir.model,name:website_sale_slides.model_slide_channel
 msgid "Course"
-msgstr ""
+msgstr "Tečaj"
 
 #. module: website_sale_slides
 #: model:ir.model.fields.selection,name:website_sale_slides.selection__product_template__service_tracking__course
-#: model:product.template,name:website_sale_slides.default_product_course_product_template
 msgid "Course Access"
 msgstr ""
 
@@ -77,28 +81,29 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/website_sale_slides/static/src/website_builder/course_page_option_plugin.js:0
 msgid "Course Page"
-msgstr ""
+msgstr "Course stranica"
 
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_buy_course_button
 msgid "Course Unavailable"
 msgstr ""
 
+# taken from hr.po
 #. module: website_sale_slides
 #: model:ir.model.fields,field_description:website_sale_slides.field_product_product__channel_ids
 msgid "Courses"
-msgstr ""
+msgstr "Tečajevi"
 
 #. module: website_sale_slides
 #: model:ir.model.fields,field_description:website_sale_slides.field_product_product__service_tracking
-#: model:ir.model.fields,field_description:website_sale_slides.field_product_template__service_tracking
 msgid "Create on Order"
-msgstr ""
+msgstr "Kreiraj po nalogu"
 
+# taken from hr.po
 #. module: website_sale_slides
 #: model:ir.model.fields,field_description:website_sale_slides.field_slide_channel__currency_id
 msgid "Currency"
-msgstr ""
+msgstr "Valuta"
 
 #. module: website_sale_slides
 #: model:product.template,name:website_sale_slides.product_course_channel_6_product_template
@@ -108,20 +113,15 @@ msgstr ""
 #. module: website_sale_slides
 #: model:ir.model.fields,help:website_sale_slides.field_slide_channel__enroll
 msgid "Defines how people can enroll to your Course."
-msgstr ""
+msgstr "Definiše način kako se ljudi mogu prijaviti na vaš kurs."
 
 #. module: website_sale_slides
 #: model:ir.model.fields,field_description:website_sale_slides.field_product_product__display_name
-#: model:ir.model.fields,field_description:website_sale_slides.field_product_template__display_name
-#: model:ir.model.fields,field_description:website_sale_slides.field_sale_order__display_name
-#: model:ir.model.fields,field_description:website_sale_slides.field_sale_order_line__display_name
-#: model:ir.model.fields,field_description:website_sale_slides.field_slide_channel__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Naziv za prikaz"
 
 #. module: website_sale_slides
 #: model:ir.model.fields,field_description:website_sale_slides.field_slide_channel__enroll
-#: model_terms:ir.ui.view,arch_db:website_sale_slides.slide_channel_view_form_add_inherit_sale_slides
 msgid "Enroll Policy"
 msgstr ""
 
@@ -134,34 +134,32 @@ msgstr ""
 #. odoo-python
 #: code:addons/website_sale_slides/models/product_template.py:0
 msgid "Grant access to the eLearning course linked to this product."
-msgstr ""
+msgstr "Omogući pristup eLearning kursu povezanom sa ovim proizvodom."
 
 #. module: website_sale_slides
 #: model:ir.model.fields,field_description:website_sale_slides.field_product_product__id
-#: model:ir.model.fields,field_description:website_sale_slides.field_product_template__id
-#: model:ir.model.fields,field_description:website_sale_slides.field_sale_order__id
-#: model:ir.model.fields,field_description:website_sale_slides.field_sale_order_line__id
-#: model:ir.model.fields,field_description:website_sale_slides.field_slide_channel__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_buy_course_link
 msgid "Join this Course"
-msgstr ""
+msgstr "Pridružite se ovom tečaju"
 
 #. module: website_sale_slides
 #. odoo-javascript
 #: code:addons/website_sale_slides/static/src/xml/website_slides_unsubscribe.xml:0
+#, python-format
 msgid ""
 "Leaving the course and re-enrolling afterwards means that you'll be charged "
 "again."
 msgstr ""
+"Ako napustite kurs i ponovo se upišete kasnije, bićete ponovo naplaćeni."
 
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_buy_course_button
 msgid "Log in"
-msgstr ""
+msgstr "Prijava"
 
 #. module: website_sale_slides
 #: model_terms:ir.actions.act_window,help:website_sale_slides.sale_report_action_slides
@@ -181,71 +179,78 @@ msgstr ""
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_buy_course_button
 msgid "Prerequisite:"
-msgstr ""
+msgstr "Preduslov:"
 
+# taken from hr.po
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_slides_list_slide
 msgid "Preview"
-msgstr ""
+msgstr "Pregled"
 
+# taken from hr.po
 #. module: website_sale_slides
 #: model:ir.model,name:website_sale_slides.model_product_template
-#: model:ir.model.fields,field_description:website_sale_slides.field_slide_channel__product_id
 msgid "Product"
-msgstr ""
+msgstr "Proizvod"
 
+# taken from hr.po
 #. module: website_sale_slides
 #: model:ir.model,name:website_sale_slides.model_product_product
 msgid "Product Variant"
-msgstr ""
+msgstr "Varijanta proizvoda"
 
 #. module: website_sale_slides
 #: model:ir.model.constraint,message:website_sale_slides.constraint_slide_channel_product_id_check
 msgid "Product is required for on payment channels."
 msgstr ""
 
+# taken from hr.po
 #. module: website_sale_slides
 #: model:ir.ui.menu,name:website_sale_slides.website_slides_menu_report_revenues
 msgid "Revenues"
-msgstr ""
+msgstr "Prihodi"
 
+# taken from hr.po
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.slide_channel_view_form
-#: model_terms:ir.ui.view,arch_db:website_sale_slides.slide_channel_view_kanban
 msgid "Sales"
-msgstr ""
+msgstr "Prodaja"
 
+# taken from hr.po
 #. module: website_sale_slides
 #: model:ir.model,name:website_sale_slides.model_sale_order
 msgid "Sales Order"
-msgstr ""
+msgstr "Narudžba"
 
 #. module: website_sale_slides
 #: model:ir.model,name:website_sale_slides.model_sale_order_line
 msgid "Sales Order Line"
-msgstr ""
+msgstr "Stavka prodajnog naloga"
 
+# taken from hr.po
 #. module: website_sale_slides
 #. odoo-javascript
 #: code:addons/website_sale_slides/static/src/xml/slide_course_join.xml:0
+#, python-format
 msgid "Sign in"
-msgstr ""
+msgstr "Prijava"
 
 #. module: website_sale_slides
 #. odoo-javascript
 #: code:addons/website_sale_slides/static/src/xml/website_sale_slides_quiz.xml:0
+#, python-format
 msgid "Sign in and buy the course to take the quiz"
 msgstr ""
 
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_buy_course_button
 msgid "Sign up"
-msgstr ""
+msgstr "Registracija"
 
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_purchased_confirmation_message
 msgid "Start Learning"
-msgstr ""
+msgstr "početak Learning"
 
 #. module: website_sale_slides
 #: model:product.template,name:website_sale_slides.product_course_channel_1_product_template
@@ -255,7 +260,7 @@ msgstr ""
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_buy_course_button
 msgid "There are some"
-msgstr ""
+msgstr "Postoje neki"
 
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_main
@@ -265,24 +270,26 @@ msgstr ""
 #. module: website_sale_slides
 #. odoo-javascript
 #: code:addons/website_sale_slides/static/src/xml/website_slides_unsubscribe.xml:0
+#, python-format
 msgid "This course is paid."
 msgstr ""
 
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.slide_channel_view_tree_report
 msgid "Total Revenues"
-msgstr ""
+msgstr "ukupno Revenues"
 
 #. module: website_sale_slides
 #: model:ir.model.fields,field_description:website_sale_slides.field_slide_channel__product_sale_revenues
 msgid "Total revenues"
-msgstr ""
+msgstr "ukupno revenues"
 
 #. module: website_sale_slides
 #. odoo-python
 #: code:addons/website_sale_slides/models/sale_order.py:0
+#, python-format
 msgid "You can only add a course once in your cart."
-msgstr ""
+msgstr "You can only dodaj a course once in your cart."
 
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_purchased_confirmation_message
@@ -297,17 +304,17 @@ msgstr ""
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.sale_report_view_graph_slides
 msgid "eLearning Sales Analysis"
-msgstr ""
+msgstr "eLearning Sales analiza"
 
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_main
 msgid "is not published."
-msgstr ""
+msgstr "is not objavljeno."
 
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_buy_course_button
 msgid "prerequisite courses."
-msgstr ""
+msgstr "preduslovni kursevi."
 
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_purchased_confirmation_message
@@ -318,3 +325,33 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_buy_course_link
 msgid "to access resources"
 msgstr ""
+
+# taken from hr.po
+#. module: website_sale_slides
+#: model:ir.model.fields,help:website_sale_slides.field_product_product__detailed_type
+msgid ""
+"A storable product is a product for which you manage stock. The Inventory app has to be installed.\n"
+"A consumable product is a product for which stock is not managed.\n"
+"A service is a non-material product you provide."
+msgstr ""
+"Skladišni proizvod je proizvod za koji vodite evidenciju zaliha. Aplikacija Inventar mora biti instalirana.\n"
+"Potrošni proizvod je proizvod za koji se zalihe ne prate.\n"
+"Usluga je nematerijalni proizvod koji pružate."
+
+#. module: website_sale_slides
+#: code:addons/website_sale_slides/models/product_product.py:0
+#, python-format
+msgid "Access to:%s%s"
+msgstr ""
+
+# taken from hr.po
+#. module: website_sale_slides
+#: model:ir.model.fields,field_description:website_sale_slides.field_product_product__detailed_type
+msgid "Product Type"
+msgstr "Tip artikla"
+
+# taken from hr.po
+#. module: website_sale_slides
+#: model:ir.model,name:website_sale_slides.model_website
+msgid "Website"
+msgstr "Web stranica"

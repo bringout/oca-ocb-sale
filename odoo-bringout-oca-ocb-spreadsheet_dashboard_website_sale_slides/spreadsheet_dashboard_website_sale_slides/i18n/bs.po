@@ -15,165 +15,215 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #. module: spreadsheet_dashboard_website_sale_slides
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_sample_dashboard.json:0
 msgid "AWS Cloud Essentials"
-msgstr ""
+msgstr "AWS Cloud Essentials"
 
 #. module: spreadsheet_dashboard_website_sale_slides
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_sample_dashboard.json:0
 msgid "Article"
-msgstr ""
+msgstr "Članak"
 
+# taken from hr.po
 #. module: spreadsheet_dashboard_website_sale_slides
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_sample_dashboard.json:0
+#, python-format
 msgid "Attendees"
-msgstr ""
+msgstr "Sudionici"
 
 #. module: spreadsheet_dashboard_website_sale_slides
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_sample_dashboard.json:0
+#, python-format
 msgid "Attendees by Course"
-msgstr ""
+msgstr "Polaznici po kursu"
 
 #. module: spreadsheet_dashboard_website_sale_slides
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_sample_dashboard.json:0
 msgid "Attendees by course"
-msgstr ""
+msgstr "Prisutni po kursu"
 
+# taken from hr.po
 #. module: spreadsheet_dashboard_website_sale_slides
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_sample_dashboard.json:0
+#, python-format
 msgid "Content"
-msgstr ""
+msgstr "Sadržaj"
 
+# taken from hr.po
 #. module: spreadsheet_dashboard_website_sale_slides
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_sample_dashboard.json:0
+#, python-format
 msgid "Courses"
-msgstr ""
+msgstr "Tečajevi"
 
+# taken from hr.po
 #. module: spreadsheet_dashboard_website_sale_slides
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_sample_dashboard.json:0
+#, python-format
 msgid "Current"
-msgstr ""
+msgstr "Trenutno"
 
 #. module: spreadsheet_dashboard_website_sale_slides
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_sample_dashboard.json:0
 msgid "Data Science 101"
-msgstr ""
+msgstr "Data Science 101"
 
 #. module: spreadsheet_dashboard_website_sale_slides
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_sample_dashboard.json:0
 msgid "Document"
-msgstr ""
+msgstr "Dokument"
 
 #. module: spreadsheet_dashboard_website_sale_slides
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_sample_dashboard.json:0
 msgid "Image"
-msgstr ""
+msgstr "Slika"
 
 #. module: spreadsheet_dashboard_website_sale_slides
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_sample_dashboard.json:0
 msgid "Introduction to AI"
-msgstr ""
+msgstr "Uvod u AI"
 
 #. module: spreadsheet_dashboard_website_sale_slides
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_sample_dashboard.json:0
 msgid "Machine Learning Basics"
-msgstr ""
+msgstr "Osnove mašinskog učenja"
 
 #. module: spreadsheet_dashboard_website_sale_slides
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_dashboard.json:0
+#, python-format
 msgid "Period"
 msgstr ""
 
+# taken from hr.po
 #. module: spreadsheet_dashboard_website_sale_slides
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_sample_dashboard.json:0
+#, python-format
 msgid "Previous"
-msgstr ""
+msgstr "Prethodni"
 
 #. module: spreadsheet_dashboard_website_sale_slides
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_sample_dashboard.json:0
 msgid "Python for Beginners"
-msgstr ""
+msgstr "Python za početnike"
 
 #. module: spreadsheet_dashboard_website_sale_slides
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_sample_dashboard.json:0
 msgid "Quiz"
-msgstr ""
+msgstr "Kviz"
 
+# taken from hr.po
 #. module: spreadsheet_dashboard_website_sale_slides
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_sample_dashboard.json:0
+#, python-format
 msgid "Rating"
-msgstr ""
+msgstr "Ocjena"
 
+# taken from hr.po
 #. module: spreadsheet_dashboard_website_sale_slides
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_sample_dashboard.json:0
+#, python-format
 msgid "Revenue"
-msgstr ""
+msgstr "Prihod"
 
+# taken from hr.po
 #. module: spreadsheet_dashboard_website_sale_slides
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_sample_dashboard.json:0
+#, python-format
 msgid "Revenues"
-msgstr ""
+msgstr "Prihodi"
 
 #. module: spreadsheet_dashboard_website_sale_slides
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_sample_dashboard.json:0
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #. module: spreadsheet_dashboard_website_sale_slides
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_sample_dashboard.json:0
+#, python-format
 msgid "Views by Course"
-msgstr ""
+msgstr "Pregledi po kursu"
 
 #. module: spreadsheet_dashboard_website_sale_slides
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_sample_dashboard.json:0
 msgid "Views by course"
-msgstr ""
+msgstr "Pregledi po kursu"
 
 #. module: spreadsheet_dashboard_website_sale_slides
 #: model:spreadsheet.dashboard,name:spreadsheet_dashboard_website_sale_slides.spreadsheet_dashboard_elearning
 msgid "eLearning"
-msgstr ""
+msgstr "eUčenje"
 
 #. module: spreadsheet_dashboard_website_sale_slides
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_sample_dashboard.json:0
+#, python-format
 msgid "since last period"
-msgstr ""
+msgstr "od prošlog perioda"
+
+#. module: spreadsheet_dashboard_website_sale_slides
+#: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_dashboard.json:0
+#, python-format
+msgid "attendees - current"
+msgstr "polaznici - trenutni"
+
+#. module: spreadsheet_dashboard_website_sale_slides
+#: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_dashboard.json:0
+#, python-format
+msgid "attendees - previous"
+msgstr "polaznici - prethodni"
+
+#. module: spreadsheet_dashboard_website_sale_slides
+#: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_dashboard.json:0
+#, python-format
+msgid "content"
+msgstr "sadržaj"
+
+#. module: spreadsheet_dashboard_website_sale_slides
+#: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_dashboard.json:0
+#, python-format
+msgid "courses"
+msgstr "kursevi"
+
+#. module: spreadsheet_dashboard_website_sale_slides
+#: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_dashboard.json:0
+#, python-format
+msgid "rating"
+msgstr "ocjena"
+
+#. module: spreadsheet_dashboard_website_sale_slides
+#: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_dashboard.json:0
+#, python-format
+msgid "revenue - current"
+msgstr "prihod - trenutni"
+
+#. module: spreadsheet_dashboard_website_sale_slides
+#: code:addons/spreadsheet_dashboard_website_sale_slides/data/files/elearning_dashboard.json:0
+#, python-format
+msgid "revenue - previous"
+msgstr "prihod - prethodni"

@@ -17,7 +17,7 @@ msgstr ""
 
 #. module: website_sale_digital
 #. odoo-python
-#: code:addons/website_sale_digital/models/product.py
+#: code:addons/website_sale_digital/models/product.py:0
 #, python-format
 msgid "Add attachments for this digital product"
 msgstr "Dodajte priloge za ovaj digitalni proizvod"
@@ -31,7 +31,7 @@ msgstr "Zakačka"
 # taken from hr.po
 #. module: website_sale_digital
 #. odoo-python
-#: code:addons/website_sale_digital/models/product.py
+#: code:addons/website_sale_digital/models/product.py:0
 #, python-format
 msgid "Digital Attachments"
 msgstr "Digitalni prilozi"
@@ -62,7 +62,7 @@ msgstr "Datoteka"
 #. module: website_sale_digital
 #: model:ir.model,name:website_sale_digital.model_account_move_line
 msgid "Journal Item"
-msgstr "Stavka dnevnika"
+msgstr "Stavka žurnala"
 
 # taken from hr.po
 #. module: website_sale_digital
@@ -78,7 +78,7 @@ msgstr "Varijanta proizvoda"
 
 #. module: website_sale_digital
 #. odoo-python
-#: code:addons/website_sale_digital/models/product.py
+#: code:addons/website_sale_digital/models/product.py:0
 #, python-format
 msgid ""
 "The attached files are the ones that will be purchased and sent to the "

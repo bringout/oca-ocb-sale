@@ -15,89 +15,87 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #. module: sale_product_matrix
 #: model:ir.model.fields,field_description:sale_product_matrix.field_product_product__product_add_mode
-#: model:ir.model.fields,field_description:sale_product_matrix.field_product_template__product_add_mode
-#: model:ir.model.fields,field_description:sale_product_matrix.field_sale_order_line__product_add_mode
 msgid "Add product mode"
-msgstr ""
+msgstr "Način dodavanja proizvoda"
 
 #. module: sale_product_matrix
 #: model:ir.model.fields,help:sale_product_matrix.field_product_product__product_add_mode
-#: model:ir.model.fields,help:sale_product_matrix.field_product_template__product_add_mode
-#: model:ir.model.fields,help:sale_product_matrix.field_sale_order_line__product_add_mode
 msgid ""
-"Configurator: choose attribute values to add the matching product variant to "
-"the order.\n"
+"Configurator: choose attribute values to add the matching product variant to the order.\n"
 "Grid: add several variants at once from the grid of attribute values"
 msgstr ""
+"Konfiguratori: odaberite vrijednosti atributa za dodavanje odgovarajuće varijante proizvoda u narud·bu.\n"
+"Rešetka: dodajte nekoliko varijanti odjednom iz rešetke vrijednosti atributa"
 
 #. module: sale_product_matrix
 #: model:ir.model.fields,field_description:sale_product_matrix.field_product_template__display_name
-#: model:ir.model.fields,field_description:sale_product_matrix.field_sale_order__display_name
-#: model:ir.model.fields,field_description:sale_product_matrix.field_sale_order_line__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Naziv za prikaz"
 
+# taken from hr.po
 #. module: sale_product_matrix
 #: model:ir.model.fields,field_description:sale_product_matrix.field_sale_order__grid_product_tmpl_id
 msgid "Grid Product Tmpl"
-msgstr ""
+msgstr "Mreža predložaka proizvoda"
 
+# taken from hr.po
 #. module: sale_product_matrix
 #: model:ir.model.fields,field_description:sale_product_matrix.field_sale_order__grid_update
 msgid "Grid Update"
-msgstr ""
+msgstr "Ažuriraj mrežu"
 
 #. module: sale_product_matrix
 #: model:ir.model.fields,field_description:sale_product_matrix.field_product_template__id
-#: model:ir.model.fields,field_description:sale_product_matrix.field_sale_order__id
-#: model:ir.model.fields,field_description:sale_product_matrix.field_sale_order_line__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: sale_product_matrix
 #: model:ir.model.fields,field_description:sale_product_matrix.field_sale_order__grid
 msgid "Matrix local storage"
-msgstr ""
+msgstr "Lokalna pohrana matrice"
 
 #. module: sale_product_matrix
 #: model:ir.model.fields.selection,name:sale_product_matrix.selection__product_template__product_add_mode__matrix
 msgid "Order Grid Entry"
-msgstr ""
+msgstr "Unos rešetke naloga"
 
 #. module: sale_product_matrix
 #: model:ir.model.fields,field_description:sale_product_matrix.field_sale_order__report_grids
 msgid "Print Variant Grids"
-msgstr ""
+msgstr "Ispisuj rešetke varijanti"
 
+# taken from hr.po
 #. module: sale_product_matrix
 #: model:ir.model,name:sale_product_matrix.model_product_template
 msgid "Product"
-msgstr ""
+msgstr "Proizvod"
 
+# taken from hr.po
 #. module: sale_product_matrix
 #: model:ir.model.fields.selection,name:sale_product_matrix.selection__product_template__product_add_mode__configurator
 msgid "Product Configurator"
-msgstr ""
+msgstr "Konfigurator artikala"
 
+# taken from hr.po
 #. module: sale_product_matrix
 #: model:ir.model,name:sale_product_matrix.model_sale_order
 msgid "Sales Order"
-msgstr ""
+msgstr "Narudžba"
 
+# taken from hr.po
 #. module: sale_product_matrix
 #: model:ir.model,name:sale_product_matrix.model_sale_order_line
 msgid "Sales Order Line"
-msgstr ""
+msgstr "Stavka narudžbe"
 
 #. module: sale_product_matrix
 #: model_terms:ir.ui.view,arch_db:sale_product_matrix.product_template_grid_view_form
 msgid "Sales Variant Selection"
-msgstr ""
+msgstr "Odabir varijante prodaje"
 
 #. module: sale_product_matrix
 #: model:ir.model.fields,help:sale_product_matrix.field_sale_order__grid
@@ -106,10 +104,36 @@ msgid ""
 "If grid_update, will be loaded on the SO.\n"
 "If not, represents the matrix to open."
 msgstr ""
+"Tehnička lokalna pohrana rešetke. \n"
+"Ako je grid_update, bit će učitana na SO.\n"
+"Ako ne, predstavlja matricu za otvaranje."
 
 #. module: sale_product_matrix
 #. odoo-python
 #: code:addons/sale_product_matrix/models/sale_order.py:0
+#, python-format
 msgid ""
 "You cannot change the quantity of a product present in multiple sale lines."
 msgstr ""
+"Ne možete promijeniti količinu proizvoda prisutnog u više linija prodaje."
+
+# taken from hr.po
+#. module: sale_product_matrix
+#: code:addons/sale_product_matrix/static/src/js/sale_product_field.js:0
+#, python-format
+msgid "Choose Product Variants"
+msgstr "Odaberi varijante proizvoda"
+
+# taken from hr.po
+#. module: sale_product_matrix
+#: code:addons/sale_product_matrix/static/src/js/sale_product_field.js:0
+#, python-format
+msgid "Close"
+msgstr "Zatvori"
+
+# taken from hr.po
+#. module: sale_product_matrix
+#: code:addons/sale_product_matrix/static/src/js/sale_product_field.js:0
+#, python-format
+msgid "Confirm"
+msgstr "Potvrdi"
