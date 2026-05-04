@@ -54,3 +54,13 @@ msgstr "Telefon sponzora"
 #: model:ir.model.fields,field_description:website_event_booth_sale_exhibitor.field_event_booth_registration__sponsor_subtitle
 msgid "Sponsor Slogan"
 msgstr "Slogan sponzora"
+
+#. module: website_event_booth_sale_exhibitor
+#: model:ir.model.fields,field_description:website_event_booth_sale_exhibitor.field_event_booth_registration__display_name
+msgid "Display Name"
+msgstr "Naziv za prikaz"
+
+#. module: website_event_booth_sale_exhibitor
+#: model:ir.model.fields,field_description:website_event_booth_sale_exhibitor.field_event_booth_registration__id
+msgid "ID"
+msgstr "ID"

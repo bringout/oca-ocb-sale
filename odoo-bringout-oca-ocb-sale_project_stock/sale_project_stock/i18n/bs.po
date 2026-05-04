@@ -25,7 +25,7 @@ msgstr "Nije nađeno skladišno kretanje"
 #. module: sale_project_stock
 #: model:ir.model,name:sale_project_stock.model_sale_order_line
 msgid "Sales Order Line"
-msgstr "Stavka prodajnog naloga"
+msgstr "Stavka narudžbe"
 
 # taken from hr.po
 #. module: sale_project_stock
@@ -44,3 +44,57 @@ msgstr ""
 #: model:ir.actions.act_window,name:sale_project_stock.stock_move_per_sale_order_line_action
 msgid "Transfers"
 msgstr "Prijenosi"
+
+#. module: sale_project_stock
+#: model:ir.model.fields,field_description:sale_project_stock.field_project_project__display_name
+msgid "Display Name"
+msgstr "Naziv za prikaz"
+
+#. module: sale_project_stock
+#: model:ir.model.fields,field_description:sale_project_stock.field_project_project__id
+msgid "ID"
+msgstr "ID"
+
+#. module: sale_project_stock
+#: model:ir.model,name:sale_project_stock.model_project_project
+msgid "Project"
+msgstr "Projekt"
+
+#. module: sale_project_stock
+#: model:ir.model,name:sale_project_stock.model_stock_move
+msgid "Stock Move"
+msgstr "Kretanje zaliha"
+
+#. module: sale_project_stock
+#: code:addons/sale_project_stock/models/stock_picking.py:0
+msgid ""
+"The Sales Order %(order)s linked to the Project %(project)s is cancelled. "
+"You cannot validate a stock picking on a cancelled Sales Order."
+msgstr ""
+"Prodajna narudžba %(order)s povezana s projektom %(project)s je otkazana. Ne"
+" možete validirati skladišno izdavanje za otkazanu prodajnu narudžbu."
+
+#. module: sale_project_stock
+#: code:addons/sale_project_stock/models/stock_picking.py:0
+msgid ""
+"The Sales Order %(order)s linked to the Project %(project)s is currently "
+"locked. You cannot validate a stock picking on a locked Sales Order. Please "
+"create a new SO linked to this Project."
+msgstr ""
+"Prodajna narudžba %(order)s povezana s projektom %(project)s je trenutno "
+"zaključana. Ne možete validirati skladišno izdavanje za zaključanu prodajnu "
+"narudžbu. Kreirajte novu prodajnu narudžbu povezanu s ovim projektom."
+
+#. module: sale_project_stock
+#: code:addons/sale_project_stock/models/stock_picking.py:0
+msgid ""
+"The Sales Order %(order)s linked to the Project %(project)s must be "
+"validated before validating the stock picking."
+msgstr ""
+"Prodajna narudžba %(order)s povezana s projektom %(project)s mora biti "
+"validirana prije validacije skladišnog izdavanja."
+
+#. module: sale_project_stock
+#: model:ir.model,name:sale_project_stock.model_stock_picking
+msgid "Transfer"
+msgstr "Transfer"

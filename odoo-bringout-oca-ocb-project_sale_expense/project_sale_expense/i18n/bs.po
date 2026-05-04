@@ -19,3 +19,23 @@ msgstr ""
 #: model:ir.model,name:project_sale_expense.model_project_project
 msgid "Project"
 msgstr "Projekat"
+
+#. module: project_sale_expense
+#: model:ir.model.fields,field_description:project_sale_expense.field_account_move_line__display_name
+msgid "Display Name"
+msgstr "Naziv za prikaz"
+
+#. module: project_sale_expense
+#: model:ir.model,name:project_sale_expense.model_hr_expense
+msgid "Expense"
+msgstr "Trošak"
+
+#. module: project_sale_expense
+#: model:ir.model.fields,field_description:project_sale_expense.field_account_move_line__id
+msgid "ID"
+msgstr "ID"
+
+#. module: project_sale_expense
+#: model:ir.model,name:project_sale_expense.model_account_move_line
+msgid "Journal Item"
+msgstr "Stavka dnevnika"

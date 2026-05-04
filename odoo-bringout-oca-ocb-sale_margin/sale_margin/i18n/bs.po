@@ -43,10 +43,20 @@ msgstr "Izvještaj analize prodaje"
 #. module: sale_margin
 #: model:ir.model,name:sale_margin.model_sale_order
 msgid "Sales Order"
-msgstr "Prodajni nalog"
+msgstr "Narudžba"
 
 # taken from hr.po
 #. module: sale_margin
 #: model:ir.model,name:sale_margin.model_sale_order_line
 msgid "Sales Order Line"
-msgstr "Stavka prodajne narudžbe"
+msgstr "Stavka narudžbe"
+
+#. module: sale_margin
+#: model:ir.model.fields,field_description:sale_margin.field_sale_order__display_name
+msgid "Display Name"
+msgstr "Naziv za prikaz"
+
+#. module: sale_margin
+#: model:ir.model.fields,field_description:sale_margin.field_sale_order__id
+msgid "ID"
+msgstr "ID"

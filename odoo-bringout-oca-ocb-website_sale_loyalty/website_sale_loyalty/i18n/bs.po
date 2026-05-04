@@ -18,7 +18,7 @@ msgstr ""
 # taken from hr.po
 #. module: website_sale_loyalty
 #. odoo-python
-#: code:addons/website_sale_loyalty/wizard/sale_coupon_share.py
+#: code:addons/website_sale_loyalty/wizard/coupon_share.py:0
 #, python-format
 msgid "A coupon is needed for coupon programs."
 msgstr "Kupon je potreban za kuponske programe."
@@ -26,7 +26,7 @@ msgstr "Kupon je potreban za kuponske programe."
 # taken from hr.po
 #. module: website_sale_loyalty
 #. odoo-python
-#: code:addons/website_sale_loyalty/models/loyalty_rule.py
+#: code:addons/website_sale_loyalty/models/loyalty_rule.py:0
 #, python-format
 msgid "A coupon with the same code was found."
 msgstr "Pronađen je kupon s istim kodom."
@@ -44,7 +44,7 @@ msgstr "Dostupno na web stranici"
 
 #. module: website_sale_loyalty
 #. odoo-python
-#: code:addons/website_sale_loyalty/controllers/main.py
+#: code:addons/website_sale_loyalty/controllers/main.py:0
 #, python-format
 msgid "Cannot process payment: applied reward was changed or has expired."
 msgstr ""
@@ -53,7 +53,7 @@ msgstr ""
 
 # taken from hr.po
 #. module: website_sale_loyalty
-#: model_terms:ir.ui.view,arch_db:website_sale_loyalty.modify_code_form
+#: code:addons/website_sale_loyalty/static/src/js/portal_loyalty_card.xml:0
 msgid "Claim"
 msgstr "Zahtjev"
 
@@ -127,7 +127,7 @@ msgstr "Iznos s popustom"
 #. module: website_sale_loyalty
 #: model:ir.model.fields,field_description:website_sale_loyalty.field_coupon_share__display_name
 msgid "Display Name"
-msgstr "Naziv"
+msgstr "Naziv za prikaz"
 
 # taken from hr.po
 #. module: website_sale_loyalty
@@ -167,19 +167,19 @@ msgstr "Nevažeći ili istekao promotivni kôd."
 #. module: website_sale_loyalty
 #: model:ir.model.fields,field_description:website_sale_loyalty.field_coupon_share____last_update
 msgid "Last Modified on"
-msgstr "Zadnja promjena"
+msgstr "Zadnja izmjena"
 
 # taken from hr.po
 #. module: website_sale_loyalty
 #: model:ir.model.fields,field_description:website_sale_loyalty.field_coupon_share__write_uid
 msgid "Last Updated by"
-msgstr "Promijenio"
+msgstr "Zadnji ažurirao"
 
 # taken from hr.po
 #. module: website_sale_loyalty
 #: model:ir.model.fields,field_description:website_sale_loyalty.field_coupon_share__write_date
 msgid "Last Updated on"
-msgstr "Vrijeme promjene"
+msgstr "Zadnje ažurirano"
 
 #. module: website_sale_loyalty
 #: model:ir.ui.menu,name:website_sale_loyalty.menu_loyalty
@@ -217,7 +217,7 @@ msgstr "Platite sa eNovčanikom"
 #. module: website_sale_loyalty
 #: model:ir.model.fields,field_description:website_sale_loyalty.field_coupon_share__program_id
 msgid "Program"
-msgstr "Program"
+msgstr ""
 
 #. module: website_sale_loyalty
 #: model:ir.model.fields,field_description:website_sale_loyalty.field_coupon_share__program_website_id
@@ -233,7 +233,7 @@ msgstr "Promo kod"
 # taken from hr.po
 #. module: website_sale_loyalty
 #. odoo-python
-#: code:addons/website_sale_loyalty/wizard/sale_coupon_share.py
+#: code:addons/website_sale_loyalty/wizard/coupon_share.py:0
 #, python-format
 msgid "Provide either a coupon or a program."
 msgstr "Navedite ili kupon ili program."
@@ -254,18 +254,18 @@ msgstr "Ograniči objavljivanje na ovu web stranicu."
 #. module: website_sale_loyalty
 #: model:ir.model,name:website_sale_loyalty.model_sale_order
 msgid "Sales Order"
-msgstr "Prodajni nalog"
+msgstr "Narudžba"
 
 # taken from hr.po
 #. module: website_sale_loyalty
 #: model:ir.model,name:website_sale_loyalty.model_sale_order_line
 msgid "Sales Order Line"
-msgstr "Stavka prodajnog naloga"
+msgstr "Stavka narudžbe"
 
 # taken from hr.po
 #. module: website_sale_loyalty
 #. odoo-python
-#: code:addons/website_sale_loyalty/wizard/sale_coupon_share.py
+#: code:addons/website_sale_loyalty/wizard/coupon_share.py:0
 #, python-format
 msgid "Share"
 msgstr "Podjeli"
@@ -284,14 +284,14 @@ msgstr "Podijelite karticu vjernosti"
 
 # taken from hr.po
 #. module: website_sale_loyalty
-#: model_terms:ir.ui.view,arch_db:website_sale_loyalty.snippet_options
+#: code:addons/website_sale_loyalty/static/src/website_builder/coupon_option.xml:0
 msgid "Show Discount in Subtotal"
 msgstr "Prikaži popust u međuzbroju"
 
 # taken from hr.po
 #. module: website_sale_loyalty
 #. odoo-python
-#: code:addons/website_sale_loyalty/controllers/main.py
+#: code:addons/website_sale_loyalty/controllers/main.py:0
 #, python-format
 msgid ""
 "The coupon will be automatically applied when you add something in your "
@@ -308,14 +308,14 @@ msgstr "Sljedeći promotivni kod je primijenjen na vašu narudžbu:"
 # taken from hr.po
 #. module: website_sale_loyalty
 #. odoo-python
-#: code:addons/website_sale_loyalty/models/loyalty_rule.py
+#: code:addons/website_sale_loyalty/models/loyalty_rule.py:0
 #, python-format
 msgid "The promo code must be unique."
 msgstr "Promo kod mora biti jedinstven."
 
 #. module: website_sale_loyalty
 #. odoo-python
-#: code:addons/website_sale_loyalty/wizard/sale_coupon_share.py
+#: code:addons/website_sale_loyalty/wizard/coupon_share.py:0
 #, python-format
 msgid "The shared website should correspond to the website of the program."
 msgstr "Dijeljanja web stranica treba da odgovara web stranici programa."
@@ -351,3 +351,71 @@ msgstr "Uspješno ste primijenili sljedeći kôd:"
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.modify_code_form
 msgid "in your ewallet"
 msgstr "u vašem enovčaniku"
+
+#. module: website_sale_loyalty
+#: code:addons/website_sale_loyalty/controllers/payment.py:0
+msgid ""
+"Cannot process payment: applied reward was changed or has expired.\n"
+"Please refresh the page and try again."
+msgstr ""
+"Plaćanje nije moguće obraditi: primijenjena nagrada je promijenjena ili je istekla.\n"
+"Molimo osvježite stranicu i pokušajte ponovo."
+
+#. module: website_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:website_sale_loyalty.modify_code_form
+msgid "Code:"
+msgstr "Kôd:"
+
+#. module: website_sale_loyalty
+#: code:addons/website_sale_loyalty/static/src/website_builder/coupon_option_plugin.js:0
+msgid "Coupon Snippet Options"
+msgstr "Opcije kupon snippeta"
+
+#. module: website_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:website_sale_loyalty.modify_code_form
+msgid "Coupons -"
+msgstr "Kuponi -"
+
+#. module: website_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:website_sale_loyalty.modify_code_form
+msgid "Expired Date:"
+msgstr "Datum isteka:"
+
+#. module: website_sale_loyalty
+#: model:ir.model,name:website_sale_loyalty.model_product_product
+msgid "Product Variant"
+msgstr "Varijanta proizvoda"
+
+#. module: website_sale_loyalty
+#: model:ir.model.fields,help:website_sale_loyalty.field_coupon_share__program_website_id
+msgid "Restrict to a specific website."
+msgstr "Ograniči na određenu web stranicu."
+
+#. module: website_sale_loyalty
+#: code:addons/website_sale_loyalty/wizard/coupon_share.py:0
+msgid "Share %s"
+msgstr "Podijeli %s"
+
+#. module: website_sale_loyalty
+#: model:ir.model.fields,field_description:website_sale_loyalty.field_loyalty_program__show_non_published_product_warning
+msgid "Show Non Published Product Warning"
+msgstr "Prikaži upozorenje o neobjavljenom proizvodu"
+
+#. module: website_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:website_sale_loyalty.loyalty_program_view_form_inherit_website_sale_loyalty
+msgid ""
+"To be able to top up eWallet from the portal, eWallet products must be\n"
+"                     published."
+msgstr ""
+"Da biste mogli dopuniti eWallet sa portala, eWallet proizvodi moraju biti\n"
+"                     objavljeni."
+
+#. module: website_sale_loyalty
+#: code:addons/website_sale_loyalty/static/src/js/portal_loyalty_card.xml:0
+msgid "Top Up"
+msgstr "Dopuni"
+
+#. module: website_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:website_sale_loyalty.modify_code_form
+msgid "Use"
+msgstr "Koristi"

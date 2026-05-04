@@ -19,3 +19,13 @@ msgstr ""
 #: model:ir.model,name:event_crm_sale.model_event_registration
 msgid "Event Registration"
 msgstr "Registracija događaja"
+
+#. module: event_crm_sale
+#: model:ir.model.fields,field_description:event_crm_sale.field_event_registration__display_name
+msgid "Display Name"
+msgstr "Naziv za prikaz"
+
+#. module: event_crm_sale
+#: model:ir.model.fields,field_description:event_crm_sale.field_event_registration__id
+msgid "ID"
+msgstr "ID"

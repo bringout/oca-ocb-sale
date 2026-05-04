@@ -18,12 +18,12 @@ msgstr ""
 #. module: sale_expense
 #: model:ir.model.fields,field_description:sale_expense.field_sale_order__expense_count
 msgid "# of Expenses"
-msgstr "# of Expenses"
+msgstr ""
 
 #. module: sale_expense
 #: model:ir.model.fields,field_description:sale_expense.field_hr_expense__can_be_reinvoiced
 msgid "Can be reinvoiced"
-msgstr "Can be reinvoiced"
+msgstr ""
 
 #. module: sale_expense
 #: model:ir.model.fields,field_description:sale_expense.field_hr_expense__sale_order_id
@@ -39,7 +39,7 @@ msgstr "Trošak"
 #. module: sale_expense
 #: model:ir.model.fields,field_description:sale_expense.field_product_product__expense_policy_tooltip
 msgid "Expense Policy Tooltip"
-msgstr "Expense Policy Tooltip"
+msgstr ""
 
 # taken from hr.po
 #. module: sale_expense
@@ -66,14 +66,14 @@ msgstr "Troškovi"
 
 #. module: sale_expense
 #. odoo-python
-#: code:addons/sale_expense/models/product_template.py
+#: code:addons/sale_expense/models/product_template.py:0
 #, python-format
 msgid "Expenses of this category may not be added to a Sales Order."
 msgstr "Expenses of this category may not be added to a Prodajas Nalog."
 
 #. module: sale_expense
 #. odoo-python
-#: code:addons/sale_expense/models/product_template.py
+#: code:addons/sale_expense/models/product_template.py:0
 #, python-format
 msgid ""
 "Expenses will be added to the Sales Order at their actual cost when posted."
@@ -83,7 +83,7 @@ msgstr ""
 
 #. module: sale_expense
 #. odoo-python
-#: code:addons/sale_expense/models/product_template.py
+#: code:addons/sale_expense/models/product_template.py:0
 #, python-format
 msgid ""
 "Expenses will be added to the Sales Order at their sales price (product "
@@ -111,13 +111,13 @@ msgstr "Fakturisanje"
 #. module: sale_expense
 #: model:ir.model,name:sale_expense.model_account_move
 msgid "Journal Entry"
-msgstr "Temeljnica"
+msgstr "Stavka dnevnika"
 
 # taken from hr.po
 #. module: sale_expense
 #: model:ir.model,name:sale_expense.model_account_move_line
 msgid "Journal Item"
-msgstr "Stavka dnevnika"
+msgstr "Stavka žurnala"
 
 # taken from hr.po
 #. module: sale_expense
@@ -127,7 +127,7 @@ msgstr "Proizvod"
 
 #. module: sale_expense
 #. odoo-python
-#: code:addons/sale_expense/models/hr_expense_sheet.py
+#: code:addons/sale_expense/models/hr_expense_sheet.py:0
 #, python-format
 msgid "Reinvoiced Sales Orders"
 msgstr "<strong style=\"font-size: 16px;\">Pošaljite troškove e-mailom</strong>"
@@ -142,10 +142,30 @@ msgstr "Broj ponuda"
 #. module: sale_expense
 #: model:ir.model,name:sale_expense.model_sale_order
 msgid "Sales Order"
-msgstr "Prodajni nalog"
+msgstr "Narudžba"
 
 # taken from hr.po
 #. module: sale_expense
 #: model_terms:ir.ui.view,arch_db:sale_expense.hr_expense_sheet_view_form
 msgid "Sales Orders"
 msgstr "Aktiviraj e-mailove troškova"
+
+#. module: sale_expense
+#: model:ir.model.fields,field_description:sale_expense.field_account_move__display_name
+msgid "Display Name"
+msgstr "Naziv za prikaz"
+
+#. module: sale_expense
+#: model:ir.model.fields,field_description:sale_expense.field_account_move__id
+msgid "ID"
+msgstr "ID"
+
+#. module: sale_expense
+#: model:ir.model.fields,field_description:sale_expense.field_hr_expense__sale_order_line_id
+msgid "Sale Order Line"
+msgstr "Stavka prodajnog naloga"
+
+#. module: sale_expense
+#: model:ir.model,name:sale_expense.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Stavka prodajnog naloga"

@@ -18,4 +18,14 @@ msgstr ""
 #. module: sale_stock_margin
 #: model:ir.model,name:sale_stock_margin.model_sale_order_line
 msgid "Sales Order Line"
-msgstr "Stavka prodajne narudžbe"
+msgstr "Stavka narudžbe"
+
+#. module: sale_stock_margin
+#: model:ir.model.fields,field_description:sale_stock_margin.field_sale_order_line__display_name
+msgid "Display Name"
+msgstr "Naziv za prikaz"
+
+#. module: sale_stock_margin
+#: model:ir.model.fields,field_description:sale_stock_margin.field_sale_order_line__id
+msgid "ID"
+msgstr "ID"

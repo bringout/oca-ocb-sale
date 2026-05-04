@@ -129,7 +129,7 @@ msgstr ""
 #. module: sale_quotation_builder
 #: model_terms:ir.ui.view,arch_db:sale_quotation_builder.brand_promotion
 msgid "Open Source CRM"
-msgstr "Open Source CRM"
+msgstr ""
 
 # taken from hr.po
 #. module: sale_quotation_builder
@@ -192,9 +192,8 @@ msgstr "Opis ponude"
 
 #. module: sale_quotation_builder
 #: model:ir.model.fields,field_description:sale_quotation_builder.field_product_product__quotation_only_description
-#: model:ir.model.fields,field_description:sale_quotation_builder.field_product_template__quotation_only_description
 msgid "Quotation Only Description"
-msgstr "Quotation Only Description"
+msgstr ""
 
 # taken from hr.po
 #. module: sale_quotation_builder
@@ -224,13 +223,13 @@ msgstr "Opcija prodaje"
 #. module: sale_quotation_builder
 #: model:ir.model,name:sale_quotation_builder.model_sale_order
 msgid "Sales Order"
-msgstr "Prodajni nalog"
+msgstr "Narudžba"
 
 # taken from hr.po
 #. module: sale_quotation_builder
 #: model:ir.model,name:sale_quotation_builder.model_sale_order_line
 msgid "Sales Order Line"
-msgstr "Stavka prodajne narudžbe"
+msgstr "Stavka narudžbe"
 
 # taken from hr.po
 #. module: sale_quotation_builder
@@ -240,9 +239,8 @@ msgstr "Termini i Uslovi"
 
 #. module: sale_quotation_builder
 #: model:ir.model.fields,help:sale_quotation_builder.field_product_product__quotation_only_description
-#: model:ir.model.fields,help:sale_quotation_builder.field_product_template__quotation_only_description
 msgid "The quotation description (not used on eCommerce)"
-msgstr "The quotation description (not used on eCommerce)"
+msgstr ""
 
 #. module: sale_quotation_builder
 #: model:ir.model.fields,help:sale_quotation_builder.field_product_product__quotation_description

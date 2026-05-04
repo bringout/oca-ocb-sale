@@ -42,7 +42,7 @@ msgstr "Majca moje tvrtke (mreža)"
 # taken from hr.po
 #. module: product_matrix
 #. odoo-javascript
-#: code:addons/product_matrix/static/src/xml/product_matrix.xml
+#: code:addons/product_matrix/static/src/xml/product_matrix.xml:0
 #, python-format
 msgid "Not available"
 msgstr "Nije dostupno"
@@ -50,7 +50,7 @@ msgstr "Nije dostupno"
 #. module: product_matrix
 #: model:product.attribute.value,name:product_matrix.product_attribute_value_color_2
 msgid "Pink"
-msgstr "Pink"
+msgstr ""
 
 # taken from hr.po
 #. module: product_matrix
@@ -103,3 +103,66 @@ msgstr "XS"
 #: model:product.attribute.value,name:product_matrix.product_attribute_value_color_3
 msgid "Yellow"
 msgstr "Žuta"
+
+#. module: product_matrix
+#: model_terms:ir.ui.view,arch_db:product_matrix.matrix
+msgid ""
+"<small>Switch to the \"else\" condition of this block to view or edit the "
+"table.</small>"
+msgstr ""
+"<small>Prebacite se na \"else\" uslov ovog bloka da vidite ili uredite "
+"tabelu.</small>"
+
+#. module: product_matrix
+#: model_terms:ir.ui.view,arch_db:product_matrix.matrix
+msgid "<strong>Product matrix block</strong>"
+msgstr "<strong>Blok matrice proizvoda</strong>"
+
+#. module: product_matrix
+#: model_terms:ir.ui.view,arch_db:product_matrix.matrix
+msgid "Cell name"
+msgstr "Naziv ćelije"
+
+#. module: product_matrix
+#: code:addons/product_matrix/static/src/xml/product_matrix_dialog.xml:0
+msgid "Choose Product Variants"
+msgstr "Odaberite varijante proizvoda"
+
+#. module: product_matrix
+#: model_terms:ir.ui.view,arch_db:product_matrix.matrix
+msgid "Column name"
+msgstr "Naziv kolone"
+
+#. module: product_matrix
+#: code:addons/product_matrix/static/src/xml/product_matrix_dialog.xml:0
+msgid "Confirm"
+msgstr "Potvrdi"
+
+#. module: product_matrix
+#: code:addons/product_matrix/static/src/xml/product_matrix_dialog.xml:0
+msgid "Discard"
+msgstr "Odbaci"
+
+#. module: product_matrix
+#: model:ir.model.fields,field_description:product_matrix.field_product_template__display_name
+msgid "Display Name"
+msgstr "Naziv za prikaz"
+
+#. module: product_matrix
+#: model:ir.model.fields,field_description:product_matrix.field_product_template__id
+msgid "ID"
+msgstr "ID"
+
+#. module: product_matrix
+#: model_terms:ir.ui.view,arch_db:product_matrix.matrix
+msgid ""
+"The matrix of product variants of this order will be displayed here, if "
+"there are any."
+msgstr ""
+"Matrica varijanti proizvoda ove narudžbe će biti prikazana ovdje, ako ih "
+"ima."
+
+#. module: product_matrix
+#: model_terms:ir.ui.view,arch_db:product_matrix.extra_price
+msgid "Variant price"
+msgstr "Cijena varijante"

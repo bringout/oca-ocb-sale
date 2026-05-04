@@ -47,7 +47,7 @@ msgstr "Prilagodi mjesta preuzimanja"
 
 #. module: website_sale_picking
 #. odoo-javascript
-#: code:addons/website_sale_picking/static/src/js/checkout_form.js
+#: code:addons/website_sale_picking/static/src/js/checkout_form.js:0
 #, python-format
 msgid ""
 "If you believe that it is an error, please contact the website "
@@ -58,7 +58,7 @@ msgstr ""
 
 #. module: website_sale_picking
 #. odoo-javascript
-#: code:addons/website_sale_picking/static/src/js/checkout_form.js
+#: code:addons/website_sale_picking/static/src/js/checkout_form.js:0
 #, python-format
 msgid "No suitable payment option could be found."
 msgstr "Nijedna pogodna opcija plaćanja nije mogla biti pronađena."
@@ -66,7 +66,7 @@ msgstr "Nijedna pogodna opcija plaćanja nije mogla biti pronađena."
 #. module: website_sale_picking
 #: model:ir.model.fields.selection,name:website_sale_picking.selection__payment_provider__custom_mode__onsite
 msgid "On Site"
-msgstr "On Site"
+msgstr ""
 
 #. module: website_sale_picking
 #: model:product.template,name:website_sale_picking.onsite_delivery_product_product_template
@@ -92,7 +92,7 @@ msgstr "Prilagođeni način"
 #. module: website_sale_picking
 #: model:ir.model.fields.selection,name:website_sale_picking.selection__delivery_carrier__delivery_type__onsite
 msgid "Pickup in store"
-msgstr "Pickup in store"
+msgstr ""
 
 # taken from hr.po
 #. module: website_sale_picking
@@ -108,7 +108,7 @@ msgstr "Načini dostave"
 
 #. module: website_sale_picking
 #. odoo-python
-#: code:addons/website_sale_picking/models/delivery_carrier.py
+#: code:addons/website_sale_picking/models/delivery_carrier.py:0
 #, python-format
 msgid "The picking site and warehouse must share the same company"
 msgstr "Mjesto preuzimanja i skladište moraju dijeliti istu kompaniju"
@@ -127,7 +127,7 @@ msgstr "Web stranica"
 
 #. module: website_sale_picking
 #. odoo-python
-#: code:addons/website_sale_picking/controllers/main.py
+#: code:addons/website_sale_picking/controllers/main.py:0
 #, python-format
 msgid "You cannot pay onsite if the delivery is not onsite"
 msgstr "Ne možete platiti na licu mjesta ako dostava nije na licu mjesta"

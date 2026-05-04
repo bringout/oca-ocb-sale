@@ -28,7 +28,7 @@ msgstr ""
 # taken from hr.po
 #. module: sale_loyalty
 #. odoo-python
-#: code:addons/sale_loyalty/models/sale_order.py
+#: code:addons/sale_loyalty/models/sale_order.py:0
 #, python-format
 msgid " - On product with the following taxes: %(taxes)s"
 msgstr " - Na proizvode sa porezima: %(taxes)s"
@@ -36,18 +36,18 @@ msgstr " - Na proizvode sa porezima: %(taxes)s"
 #. module: sale_loyalty
 #: model_terms:ir.ui.view,arch_db:sale_loyalty.sale_purchased_gift_card
 msgid "<span class=\"fa fa-clipboard\"/> Copy"
-msgstr "<span class=\"fa fa-clipboard\"/> Copy"
+msgstr ""
 
 #. module: sale_loyalty
 #. odoo-python
-#: code:addons/sale_loyalty/models/sale_order.py
+#: code:addons/sale_loyalty/models/sale_order.py:0
 #, python-format
 msgid "A better global discount is already applied."
-msgstr "A better global discount is already applied."
+msgstr ""
 
 #. module: sale_loyalty
 #. odoo-python
-#: code:addons/sale_loyalty/models/sale_order.py
+#: code:addons/sale_loyalty/models/sale_order.py:0
 #, python-format
 msgid ""
 "A minimum of %(amount)s %(currency)s should be purchased to get the reward"
@@ -69,12 +69,12 @@ msgstr "Dostupne nagrade"
 #. module: sale_loyalty
 #: model_terms:ir.ui.view,arch_db:sale_loyalty.sale_loyalty_reward_wizard_view_form
 msgid "Choose a product:"
-msgstr "Choose a product:"
+msgstr ""
 
 #. module: sale_loyalty
 #: model_terms:ir.ui.view,arch_db:sale_loyalty.sale_loyalty_reward_wizard_view_form
 msgid "Choose your reward:"
-msgstr "Choose your reward:"
+msgstr ""
 
 # taken from hr.po
 #. module: sale_loyalty
@@ -101,10 +101,10 @@ msgstr "Bod kupona"
 
 #. module: sale_loyalty
 #. odoo-python
-#: code:addons/sale_loyalty/wizard/sale_loyalty_reward_wizard.py
+#: code:addons/sale_loyalty/wizard/sale_loyalty_reward_wizard.py:0
 #, python-format
 msgid "Coupon not found while trying to add the following reward: %s"
-msgstr "Coupon not found while trying to add the following reward: %s"
+msgstr ""
 
 # taken from hr.po
 #. module: sale_loyalty
@@ -139,16 +139,16 @@ msgstr "Kuponi i Vjernost"
 # taken from hr.po
 #. module: sale_loyalty
 #. odoo-python
-#: code:addons/sale_loyalty/models/sale_order.py
+#: code:addons/sale_loyalty/models/sale_order.py:0
 #, python-format
 msgid "Discount: %(desc)s%(tax_str)s"
 msgstr "Popust: %(desc)s%(tax_str)s"
 
 # taken from hr.po
 #. module: sale_loyalty
-#: model:ir.model.fields,field_description:sale_loyalty.field_sale_loyalty_coupon_wizard__display_name
+#: model:ir.model.fields,field_description:sale_loyalty.field_loyalty_card__display_name
 msgid "Display Name"
-msgstr "Naziv"
+msgstr "Naziv za prikaz"
 
 #. module: sale_loyalty
 #: model:ir.actions.act_window,name:sale_loyalty.sale_loyalty_coupon_wizard_action
@@ -162,7 +162,7 @@ msgstr "Expired Datum:"
 
 #. module: sale_loyalty
 #. odoo-python
-#: code:addons/sale_loyalty/models/sale_order.py
+#: code:addons/sale_loyalty/models/sale_order.py:0
 #, python-format
 msgid "Free Product - %(product)s"
 msgstr "Free Proizvod - %(product)s"
@@ -170,12 +170,12 @@ msgstr "Free Proizvod - %(product)s"
 #. module: sale_loyalty
 #: model_terms:ir.ui.view,arch_db:sale_loyalty.sale_purchased_gift_card
 msgid "Gift #"
-msgstr "Gift #"
+msgstr ""
 
 #. module: sale_loyalty
 #: model_terms:ir.ui.view,arch_db:sale_loyalty.sale_purchased_gift_card
 msgid "Gift Card Code"
-msgstr "Gift Card Code"
+msgstr ""
 
 # taken from hr.po
 #. module: sale_loyalty
@@ -189,23 +189,23 @@ msgid "How much point this reward cost on the loyalty card."
 msgstr "Koliko bodova ova nagrada košta na kartici lojalnosti."
 
 #. module: sale_loyalty
-#: model:ir.model.fields,field_description:sale_loyalty.field_sale_loyalty_coupon_wizard__id
+#: model:ir.model.fields,field_description:sale_loyalty.field_loyalty_card__id
 msgid "ID"
 msgstr "ID"
 
 #. module: sale_loyalty
 #. odoo-python
-#: code:addons/sale_loyalty/models/sale_order.py
+#: code:addons/sale_loyalty/models/sale_order.py:0
 #, python-format
 msgid "Invalid product to claim."
-msgstr "Invalid product to claim."
+msgstr ""
 
 #. module: sale_loyalty
 #. odoo-python
-#: code:addons/sale_loyalty/wizard/sale_loyalty_coupon_wizard.py
+#: code:addons/sale_loyalty/wizard/sale_loyalty_coupon_wizard.py:0
 #, python-format
 msgid "Invalid sales order."
-msgstr "Invalid sales order."
+msgstr ""
 
 #. module: sale_loyalty
 #: model:ir.model.fields,field_description:sale_loyalty.field_sale_order_line__is_reward_line
@@ -216,19 +216,19 @@ msgstr "Stavka nagradnog programa"
 #. module: sale_loyalty
 #: model:ir.model.fields,field_description:sale_loyalty.field_sale_loyalty_coupon_wizard____last_update
 msgid "Last Modified on"
-msgstr "Zadnja promjena"
+msgstr "Zadnja izmjena"
 
 # taken from hr.po
 #. module: sale_loyalty
 #: model:ir.model.fields,field_description:sale_loyalty.field_sale_loyalty_coupon_wizard__write_uid
 msgid "Last Updated by"
-msgstr "Promijenio"
+msgstr "Zadnji ažurirao"
 
 # taken from hr.po
 #. module: sale_loyalty
 #: model:ir.model.fields,field_description:sale_loyalty.field_sale_loyalty_coupon_wizard__write_date
 msgid "Last Updated on"
-msgstr "Vrijeme promjene"
+msgstr "Zadnje ažurirano"
 
 #. module: sale_loyalty
 #: model:ir.model,name:sale_loyalty.model_loyalty_card
@@ -264,7 +264,7 @@ msgstr "Više proizvoda"
 
 #. module: sale_loyalty
 #. odoo-python
-#: code:addons/sale_loyalty/models/sale_order.py
+#: code:addons/sale_loyalty/models/sale_order.py:0
 #, python-format
 msgid ""
 "No card found for this loyalty program and no points will be given with this"
@@ -275,19 +275,19 @@ msgstr ""
 
 #. module: sale_loyalty
 #. odoo-python
-#: code:addons/sale_loyalty/wizard/sale_loyalty_reward_wizard.py
+#: code:addons/sale_loyalty/wizard/sale_loyalty_reward_wizard.py:0
 #, python-format
 msgid "No reward selected."
-msgstr "No reward selected."
+msgstr ""
 
 #. module: sale_loyalty
 #: model_terms:ir.ui.view,arch_db:sale_loyalty.sale_loyalty_reward_wizard_view_form
 msgid "No rewards available for this customer!"
-msgstr "No rewards available for this customer!"
+msgstr ""
 
 #. module: sale_loyalty
 #. odoo-python
-#: code:addons/sale_loyalty/models/sale_order.py
+#: code:addons/sale_loyalty/models/sale_order.py:0
 #, python-format
 msgid "One or more rewards on the sale order is invalid. Please check them."
 msgstr ""
@@ -297,7 +297,7 @@ msgstr ""
 #. module: sale_loyalty
 #: model:ir.model.fields,field_description:sale_loyalty.field_sale_loyalty_coupon_wizard__order_id
 msgid "Order"
-msgstr "Narudžba"
+msgstr "Nalog"
 
 # taken from hr.po
 #. module: sale_loyalty
@@ -313,7 +313,7 @@ msgstr "Referenca narudžbe"
 
 # taken from hr.po
 #. module: sale_loyalty
-#: model:ir.model.fields,field_description:sale_loyalty.field_sale_order_coupon_points__points
+#: code:addons/sale_loyalty/models/sale_order.py:0
 msgid "Points"
 msgstr "Bodovi"
 
@@ -376,13 +376,13 @@ msgstr "Prodaja"
 #. module: sale_loyalty
 #: model:ir.model,name:sale_loyalty.model_sale_order
 msgid "Sales Order"
-msgstr "Prodajni nalog"
+msgstr "Narudžba"
 
 # taken from hr.po
 #. module: sale_loyalty
 #: model:ir.model,name:sale_loyalty.model_sale_order_line
 msgid "Sales Order Line"
-msgstr "Stavka prodajnog naloga"
+msgstr "Stavka narudžbe"
 
 #. module: sale_loyalty
 #: model:ir.model.fields,field_description:sale_loyalty.field_sale_loyalty_reward_wizard__selected_product_id
@@ -396,24 +396,24 @@ msgstr "Odabrana nagrada"
 
 #. module: sale_loyalty
 #. odoo-python
-#: code:addons/sale_loyalty/models/sale_order.py
+#: code:addons/sale_loyalty/models/sale_order.py:0
 #, python-format
 msgid "TEMPORARY DISCOUNT LINE"
-msgstr "TEMPORARY DISCOUNT LINE"
+msgstr ""
 
 #. module: sale_loyalty
 #. odoo-python
-#: code:addons/sale_loyalty/models/sale_order.py
+#: code:addons/sale_loyalty/models/sale_order.py:0
 #, python-format
 msgid "The coupon can only be claimed on future orders."
-msgstr "The coupon can only be claimed on future orders."
+msgstr ""
 
 #. module: sale_loyalty
 #. odoo-python
-#: code:addons/sale_loyalty/models/sale_order.py
+#: code:addons/sale_loyalty/models/sale_order.py:0
 #, python-format
 msgid "The coupon does not have enough points for the selected reward."
-msgstr "The coupon does not have enough points for the selected reward."
+msgstr ""
 
 #. module: sale_loyalty
 #: model:ir.model.constraint,message:sale_loyalty.constraint_sale_order_coupon_points_order_coupon_unique
@@ -422,10 +422,10 @@ msgstr "Unos bodova za kupon već postoji."
 
 #. module: sale_loyalty
 #. odoo-python
-#: code:addons/sale_loyalty/models/sale_order.py
+#: code:addons/sale_loyalty/models/sale_order.py:0
 #, python-format
 msgid "The program is not available for this order."
-msgstr "The program is not available for this order."
+msgstr ""
 
 #. module: sale_loyalty
 #: model:ir.model.fields,help:sale_loyalty.field_loyalty_card__order_id
@@ -434,10 +434,10 @@ msgstr "Prodajni nalog iz kojeg je generiran kupon"
 
 #. module: sale_loyalty
 #. odoo-python
-#: code:addons/sale_loyalty/models/sale_order.py
+#: code:addons/sale_loyalty/models/sale_order.py:0
 #, python-format
 msgid "There is nothing to discount"
-msgstr "There is nothing to discount"
+msgstr ""
 
 #. module: sale_loyalty
 #: model:ir.model.fields,help:sale_loyalty.field_sale_loyalty_reward_wizard__reward_product_ids
@@ -446,56 +446,56 @@ msgstr "Ovo su proizvodi koji se mogu preuzeti pomoću ovog pravila."
 
 #. module: sale_loyalty
 #. odoo-python
-#: code:addons/sale_loyalty/models/sale_order.py
+#: code:addons/sale_loyalty/models/sale_order.py:0
 #, python-format
 msgid "This code is expired (%s)."
-msgstr "This code is expired (%s)."
+msgstr ""
 
 #. module: sale_loyalty
 #. odoo-python
-#: code:addons/sale_loyalty/models/sale_order.py
+#: code:addons/sale_loyalty/models/sale_order.py:0
 #, python-format
 msgid "This code is invalid (%s)."
-msgstr "This code is invalid (%s)."
+msgstr ""
 
 #. module: sale_loyalty
 #. odoo-python
-#: code:addons/sale_loyalty/models/sale_order.py
+#: code:addons/sale_loyalty/models/sale_order.py:0
 #, python-format
 msgid "This coupon has already been used."
-msgstr "This coupon has already been used."
+msgstr ""
 
 #. module: sale_loyalty
 #. odoo-python
-#: code:addons/sale_loyalty/models/sale_order.py
+#: code:addons/sale_loyalty/models/sale_order.py:0
 #, python-format
 msgid "This coupon is expired."
-msgstr "This coupon is expired."
+msgstr ""
 
 #. module: sale_loyalty
 #. odoo-python
-#: code:addons/sale_loyalty/models/sale_order.py
+#: code:addons/sale_loyalty/models/sale_order.py:0
 #, python-format
 msgid "This program is already applied to this order."
-msgstr "This program is already applied to this order."
+msgstr ""
 
 #. module: sale_loyalty
 #. odoo-python
-#: code:addons/sale_loyalty/models/sale_order.py
+#: code:addons/sale_loyalty/models/sale_order.py:0
 #, python-format
 msgid "This program is not available for public users."
 msgstr "Ovaj program nije dostupan za javne korisnike."
 
 #. module: sale_loyalty
 #. odoo-python
-#: code:addons/sale_loyalty/models/sale_order.py
+#: code:addons/sale_loyalty/models/sale_order.py:0
 #, python-format
 msgid "This program requires a code to be applied."
 msgstr "Za ovaj program je potrebno unijeti kod."
 
 #. module: sale_loyalty
 #. odoo-python
-#: code:addons/sale_loyalty/models/sale_order.py
+#: code:addons/sale_loyalty/models/sale_order.py:0
 #, python-format
 msgid "This promo code is already applied."
 msgstr "Ovaj promo kod je već primijenjen."
@@ -509,7 +509,7 @@ msgstr ""
 
 #. module: sale_loyalty
 #. odoo-python
-#: code:addons/sale_loyalty/models/sale_order.py
+#: code:addons/sale_loyalty/models/sale_order.py:0
 #, python-format
 msgid "You don't have the required product quantities on your sales order."
 msgstr "Nemate potrebne količine proizvoda na vašem prodajnom nalogu."
@@ -522,3 +522,121 @@ msgid ""
 msgstr ""
 "U nastavku ćete pronaći kod vaše poklon kartice. Poslan vam je i e-mail s "
 "kodom. Možete ga početi koristiti odmah."
+
+#. module: sale_loyalty
+#: code:addons/sale_loyalty/models/sale_order.py:0
+msgid " - On products with the following taxes: %(taxes)s"
+msgstr " - Na proizvodima sa sljedećim porezima: %(taxes)s"
+
+#. module: sale_loyalty
+#: model_terms:ir.ui.view,arch_db:sale_loyalty.sale_order_portal_loyalty_content
+msgid "<strong>Loyalty Card</strong>"
+msgstr "<strong>Kartica lojalnosti</strong>"
+
+#. module: sale_loyalty
+#: code:addons/sale_loyalty/models/sale_order.py:0
+msgid "Discount %(desc)s%(tax_str)s"
+msgstr "Popust %(desc)s%(tax_str)s"
+
+#. module: sale_loyalty
+#: model:ir.model.fields,field_description:sale_loyalty.field_sale_order__gift_card_count
+msgid "Gift Card Count"
+msgstr "Broj poklon kartica"
+
+#. module: sale_loyalty
+#: code:addons/sale_loyalty/models/sale_order.py:0
+msgid "Gift Cards"
+msgstr "Poklon kartice"
+
+#. module: sale_loyalty
+#: model:ir.model,name:sale_loyalty.model_loyalty_history
+msgid "History for Loyalty cards and Ewallets"
+msgstr "Historija za loyalty kartice i eNovčanike"
+
+#. module: sale_loyalty
+#: model:ir.model.fields,help:sale_loyalty.field_sale_order_line__points_cost
+msgid "How much point this reward costs on the loyalty card."
+msgstr "Koliko bodova ova nagrada košta na kartici lojalnosti."
+
+#. module: sale_loyalty
+#: model_terms:ir.ui.view,arch_db:sale_loyalty.sale_order_portal_loyalty_content
+msgid "Issued"
+msgstr "Izdano"
+
+#. module: sale_loyalty
+#: code:addons/sale_loyalty/static/src/views/fields/loyalty_total/loyalty_data_field.xml:0
+msgid "Issued :"
+msgstr "Izdato:"
+
+#. module: sale_loyalty
+#: model:ir.model,name:sale_loyalty.model_account_move_line
+msgid "Journal Item"
+msgstr "Stavka dnevnika"
+
+#. module: sale_loyalty
+#: code:addons/sale_loyalty/static/src/views/fields/loyalty_total/loyalty_data_field.xml:0
+msgid "Loyalty Card :"
+msgstr "Kartica lojalnosti:"
+
+#. module: sale_loyalty
+#: model:ir.model.fields,field_description:sale_loyalty.field_sale_order__loyalty_data
+msgid "Loyalty Data"
+msgstr "Podaci o lojalnosti"
+
+#. module: sale_loyalty
+#: code:addons/sale_loyalty/models/sale_order.py:0
+msgid "Order %s"
+msgstr "Narudžba %s"
+
+#. module: sale_loyalty
+#: code:addons/sale_loyalty/models/sale_order.py:0
+msgid "Rewards Available"
+msgstr "Dostupne nagrade"
+
+#. module: sale_loyalty
+#: model:ir.model.fields,field_description:sale_loyalty.field_loyalty_card__order_id_partner_id
+msgid "Sale Order Customer"
+msgstr "Kupac prodajne narudžbe"
+
+#. module: sale_loyalty
+#: model:ir.model.fields,help:sale_loyalty.field_sale_order_line__reward_identifier_code
+msgid ""
+"Technical field used to link multiple reward lines from the same reward "
+"together."
+msgstr ""
+"Tehničko polje koje se koristi za povezivanje više stavki nagrade iz iste "
+"nagrade."
+
+#. module: sale_loyalty
+#: code:addons/sale_loyalty/models/sale_order.py:0
+msgid "There are available rewards not added to this order."
+msgstr "Postoje dostupne nagrade koje nisu dodane ovoj narudžbi."
+
+#. module: sale_loyalty
+#: code:addons/sale_loyalty/models/sale_order.py:0
+msgid ""
+"This discount (%(discount)s) is not compatible with \"%(other_discount)s\". "
+"Please remove it in order to apply this one."
+msgstr ""
+"Ovaj popust (%(discount)s) nije kompatibilan sa \"%(other_discount)s\". "
+"Uklonite ga da biste primijenili ovaj."
+
+#. module: sale_loyalty
+#: code:addons/sale_loyalty/models/sale_order.py:0
+msgid "This program cannot be applied with code."
+msgstr "Ovaj program se ne može primijeniti pomoću koda."
+
+#. module: sale_loyalty
+#: model_terms:ir.ui.view,arch_db:sale_loyalty.sale_order_portal_loyalty_content
+msgid "Used"
+msgstr "Iskorišteno"
+
+#. module: sale_loyalty
+#: code:addons/sale_loyalty/static/src/views/fields/loyalty_total/loyalty_data_field.xml:0
+msgid "Used :"
+msgstr "Iskorišteno:"
+
+#. module: sale_loyalty
+#: code:addons/sale_loyalty/models/sale_order.py:0
+msgid "order_id"
+msgstr "order_id"

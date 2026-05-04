@@ -17,7 +17,7 @@ msgstr ""
 
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/models/account_move.py
+#: code:addons/sale_timesheet/models/account_move.py:0
 #, python-format
 msgid ""
 "\n"
@@ -56,7 +56,7 @@ msgstr ""
 
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/wizard/project_create_sale_order.py
+#: code:addons/sale_timesheet/wizard/project_create_sale_order.py:0
 #, python-format
 msgid "%(amount)s %(label)s will be added to the new Sales Order."
 msgstr "%(amount)s %(label)s će biti dodano u novi prodajni nalog."
@@ -144,7 +144,7 @@ msgstr ""
 "- Premještanje zaliha: količina dolazi iz potvrđenih izbora\n"
 
 #. module: sale_timesheet
-#: model:project.project,name:sale_timesheet.project_support
+#: model:account.analytic.account,name:sale_timesheet.account_analytic_account_project_support
 msgid "After-Sales Services"
 msgstr "Usluge nakon prodaje"
 
@@ -161,7 +161,7 @@ msgid "Amount to invoice"
 msgstr "Iznos za Račun"
 
 #. module: sale_timesheet
-#: model:ir.model.constraint,message:sale_timesheet.constraint_project_create_sale_order_line_unique_employee_per_wizard
+#: model:ir.model.constraint,message:sale_timesheet.constraint_project_sale_line_employee_map_uniqueness_employee
 msgid ""
 "An employee cannot be selected more than once in the mapping. Please remove "
 "duplicate(s) and try again."
@@ -194,7 +194,7 @@ msgstr ""
 
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/wizard/project_create_sale_order.py
+#: code:addons/sale_timesheet/wizard/project_create_sale_order.py:0
 #, python-format
 msgid "At least one line should be filled."
 msgstr "Najmanje jedna linija treba biti popunjena."
@@ -202,14 +202,14 @@ msgstr "Najmanje jedna linija treba biti popunjena."
 # taken from hr.po
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/models/product.py
+#: code:addons/sale_timesheet/models/product_template.py:0
 #, python-format
 msgid "Based on Timesheets"
 msgstr "Temeljem Kontrolnih kartica"
 
 # taken from hr.po
 #. module: sale_timesheet
-#: model:ir.model.fields,field_description:sale_timesheet.field_project_task__allow_billable
+#: model:ir.model.fields,field_description:sale_timesheet.field_account_analytic_line__allow_billable
 msgid "Billable"
 msgstr "Naplatno"
 
@@ -236,7 +236,7 @@ msgstr "Zadatak generiran stavkom prodajne narudžbe"
 
 # taken from hr.po
 #. module: sale_timesheet
-#: model_terms:ir.ui.view,arch_db:sale_timesheet.hr_timesheet_report_search_sale_timesheet
+#: model_terms:ir.ui.view,arch_db:sale_timesheet.timesheet_view_search
 msgid "Billed at a Fixed Price"
 msgstr "Naplaćeno po fiksnoj cijeni"
 
@@ -255,7 +255,7 @@ msgstr "Naplaćeno po etapi"
 #. module: sale_timesheet
 #: model:ir.model.fields.selection,name:sale_timesheet.selection__account_analytic_line__timesheet_invoice_type__billable_time
 msgid "Billed on Timesheets"
-msgstr "Billed on Timesheets"
+msgstr ""
 
 # taken from hr.po
 #. module: sale_timesheet
@@ -264,7 +264,7 @@ msgid "Billing"
 msgstr "Računi"
 
 #. module: sale_timesheet
-#: model_terms:ir.ui.view,arch_db:sale_timesheet.timesheet_view_search
+#: model:ir.model.fields,field_description:sale_timesheet.field_project_project__billing_type
 msgid "Billing Type"
 msgstr "Naplativ fiksno"
 
@@ -277,7 +277,7 @@ msgstr "Po tipu naplate"
 #. module: sale_timesheet
 #: model_terms:ir.ui.view,arch_db:sale_timesheet.project_create_invoice_view_form
 msgid "Cancel"
-msgstr "Naplativo vrijeme"
+msgstr "Otkaži"
 
 #. module: sale_timesheet
 #: model:ir.model.fields,field_description:sale_timesheet.field_project_create_invoice__sale_order_id
@@ -330,7 +330,7 @@ msgstr "Valuta troška"
 #: model:ir.actions.act_window,name:sale_timesheet.project_project_action_multi_create_invoice
 #, python-format
 msgid "Create Invoice"
-msgstr "Kreriaj Fakturu"
+msgstr "Kreiraj fakturu"
 
 #. module: sale_timesheet
 #: model:ir.model,name:sale_timesheet.model_project_create_invoice
@@ -350,7 +350,7 @@ msgstr "Kreiraj prodajni nalog iz projekta"
 #. module: sale_timesheet
 #. odoo-javascript
 #. odoo-python
-#: code:addons/sale_timesheet/models/project.py
+#: code:addons/sale_timesheet/models/project.py:0
 #, python-format
 msgid "Create Sales Order"
 msgstr "Naplativo vrijeme"
@@ -368,25 +368,25 @@ msgstr "Kreiraj prodajni nalog"
 
 # taken from hr.po
 #. module: sale_timesheet
-#: model:ir.model.fields,field_description:sale_timesheet.field_project_create_invoice__create_uid
+#: model:ir.model.fields,field_description:sale_timesheet.field_project_sale_line_employee_map__create_uid
 msgid "Created by"
 msgstr "Kreirao"
 
 # taken from hr.po
 #. module: sale_timesheet
-#: model:ir.model.fields,field_description:sale_timesheet.field_project_create_invoice__create_date
+#: model:ir.model.fields,field_description:sale_timesheet.field_project_sale_line_employee_map__create_date
 msgid "Created on"
 msgstr "Kreirano"
 
 # taken from hr.po
 #. module: sale_timesheet
-#: model:ir.model.fields,field_description:sale_timesheet.field_project_create_invoice__currency_id
+#: model:ir.model.fields,field_description:sale_timesheet.field_project_sale_line_employee_map__currency_id
 msgid "Currency"
 msgstr "Valuta"
 
 # taken from hr.po
 #. module: sale_timesheet
-#: model:ir.model.fields,field_description:sale_timesheet.field_project_create_sale_order__partner_id
+#: model:ir.model.fields,field_description:sale_timesheet.field_project_project__partner_id
 msgid "Customer"
 msgstr "Kupac"
 
@@ -430,9 +430,9 @@ msgstr "Ostali trošak"
 
 # taken from hr.po
 #. module: sale_timesheet
-#: model:ir.model.fields,field_description:sale_timesheet.field_project_create_invoice__display_name
+#: model:ir.model.fields,field_description:sale_timesheet.field_account_analytic_line__display_name
 msgid "Display Name"
-msgstr "Prikazani naziv"
+msgstr "Naziv za prikaz"
 
 # taken from hr.po
 #. module: sale_timesheet
@@ -448,7 +448,7 @@ msgstr "Efektivno"
 
 # taken from hr.po
 #. module: sale_timesheet
-#: model:ir.model.fields,field_description:sale_timesheet.field_project_create_sale_order_line__employee_id
+#: model:ir.model,name:sale_timesheet.model_hr_employee
 msgid "Employee"
 msgstr "Zaposleni"
 
@@ -522,10 +522,7 @@ msgid "Hours Remaining)"
 msgstr "Preostali sati)"
 
 #. module: sale_timesheet
-#: model:ir.model.fields,field_description:sale_timesheet.field_project_create_invoice__id
-#: model:ir.model.fields,field_description:sale_timesheet.field_project_create_sale_order__id
-#: model:ir.model.fields,field_description:sale_timesheet.field_project_create_sale_order_line__id
-#: model:ir.model.fields,field_description:sale_timesheet.field_project_sale_line_employee_map__id
+#: model:ir.model.fields,field_description:sale_timesheet.field_account_analytic_line__id
 msgid "ID"
 msgstr "ID"
 
@@ -550,7 +547,7 @@ msgstr "Informacije o fakturi"
 # taken from hr.po
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/controllers/portal.py
+#: code:addons/sale_timesheet/controllers/portal.py:0
 #, python-format
 msgid "Invoice"
 msgstr "Faktura"
@@ -564,7 +561,7 @@ msgstr "Politika izdavanja računa"
 # taken from hr.po
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/models/product.py
+#: code:addons/sale_timesheet/models/product.py:0
 #, python-format
 msgid ""
 "Invoice based on timesheets (delivered quantity) on projects or tasks you'll"
@@ -576,7 +573,7 @@ msgstr ""
 # taken from hr.po
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/models/product.py
+#: code:addons/sale_timesheet/models/product.py:0
 #, python-format
 msgid ""
 "Invoice based on timesheets (delivered quantity), and create a project for "
@@ -589,7 +586,7 @@ msgstr ""
 # taken from hr.po
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/models/product.py
+#: code:addons/sale_timesheet/models/product.py:0
 #, python-format
 msgid ""
 "Invoice based on timesheets (delivered quantity), and create a task in an "
@@ -601,7 +598,7 @@ msgstr ""
 # taken from hr.po
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/models/product.py
+#: code:addons/sale_timesheet/models/product.py:0
 #, python-format
 msgid ""
 "Invoice based on timesheets (delivered quantity), and create an empty "
@@ -625,7 +622,7 @@ msgstr "Fakturiraj vrijeme i materijal kupcu"
 # taken from hr.po
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/controllers/portal.py
+#: code:addons/sale_timesheet/controllers/portal.py:0
 #, python-format
 msgid "Invoices"
 msgstr "Fakture"
@@ -661,13 +658,13 @@ msgstr "Stavka prodajnog naloga je ručno uređena"
 #. module: sale_timesheet
 #: model:ir.model,name:sale_timesheet.model_account_move
 msgid "Journal Entry"
-msgstr "Temeljnica"
+msgstr "Stavka dnevnika"
 
 # taken from hr.po
 #. module: sale_timesheet
 #: model:ir.model,name:sale_timesheet.model_account_move_line
 msgid "Journal Item"
-msgstr "Stavka dnevnika"
+msgstr "Stavka žurnala"
 
 #. module: sale_timesheet
 #: model:product.template,name:sale_timesheet.product_service_deliver_timesheet_2_product_template
@@ -692,17 +689,17 @@ msgstr "Montaža kuhinje (prekretnice)"
 #. module: sale_timesheet
 #: model:ir.model.fields,field_description:sale_timesheet.field_project_create_invoice____last_update
 msgid "Last Modified on"
-msgstr "Zadnje mijenjano"
+msgstr "Zadnja izmjena"
 
 # taken from hr.po
 #. module: sale_timesheet
-#: model:ir.model.fields,field_description:sale_timesheet.field_project_create_invoice__write_uid
+#: model:ir.model.fields,field_description:sale_timesheet.field_project_sale_line_employee_map__write_uid
 msgid "Last Updated by"
 msgstr "Zadnji ažurirao"
 
 # taken from hr.po
 #. module: sale_timesheet
-#: model:ir.model.fields,field_description:sale_timesheet.field_project_create_invoice__write_date
+#: model:ir.model.fields,field_description:sale_timesheet.field_project_sale_line_employee_map__write_date
 msgid "Last Updated on"
 msgstr "Zadnje ažurirano"
 
@@ -732,7 +729,7 @@ msgstr "RUC"
 
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/models/project.py
+#: code:addons/sale_timesheet/models/project_project.py:0
 #, python-format
 msgid "Materials"
 msgstr "Materijali"
@@ -788,7 +785,7 @@ msgid "Non Billable Tasks"
 msgstr "Ne-naplative zadaci"
 
 #. module: sale_timesheet
-#: model_terms:ir.ui.view,arch_db:sale_timesheet.hr_timesheet_report_search_sale_timesheet
+#: model:ir.model.fields.selection,name:sale_timesheet.selection__account_analytic_line__timesheet_invoice_type__non_billable
 msgid "Non-Billable"
 msgstr "Ne-naplativo"
 
@@ -836,7 +833,7 @@ msgstr ""
 # taken from hr.po
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/models/project.py
+#: code:addons/sale_timesheet/models/project.py:0
 #, python-format
 msgid "Operation not supported"
 msgstr "Zadatak nije pronađen"
@@ -900,7 +897,7 @@ msgstr "Datum potvrde prodajne narudžbe"
 #. module: sale_timesheet
 #: model:ir.model,name:sale_timesheet.model_product_template
 msgid "Product"
-msgstr "Proizvod po klijentu"
+msgstr "Proizvod"
 
 # taken from hr.po
 #. module: sale_timesheet
@@ -971,7 +968,7 @@ msgstr "Projekt za naplatu"
 # taken from hr.po
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/controllers/portal.py
+#: code:addons/sale_timesheet/controllers/portal.py:0
 #, python-format
 msgid "Quotation"
 msgstr "Ponuda"
@@ -1035,15 +1032,15 @@ msgstr "Račun za predujam"
 # taken from hr.po
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/controllers/portal.py
+#: code:addons/sale_timesheet/controllers/portal.py:0
 #, python-format
 msgid "Sales Order"
-msgstr "Prodajna narudžba"
+msgstr "Narudžba"
 
 # taken from hr.po
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/controllers/portal.py
+#: code:addons/sale_timesheet/controllers/portal.py:0
 #, python-format
 msgid "Sales Order Item"
 msgstr "Stavka prodajnog naloga"
@@ -1052,7 +1049,7 @@ msgstr "Stavka prodajnog naloga"
 #. module: sale_timesheet
 #: model:ir.model,name:sale_timesheet.model_sale_order_line
 msgid "Sales Order Line"
-msgstr "Dodijeli liniju prodajne narudžbe zadacima"
+msgstr "Stavka narudžbe"
 
 # taken from hr.po
 #. module: sale_timesheet
@@ -1094,21 +1091,21 @@ msgstr ""
 
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/controllers/portal.py
+#: code:addons/sale_timesheet/controllers/portal.py:0
 #, python-format
 msgid "Search in Invoice"
 msgstr "Pretraži u fakturi"
 
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/controllers/portal.py
+#: code:addons/sale_timesheet/controllers/portal.py:0
 #, python-format
 msgid "Search in Sales Order"
 msgstr "Pretraži u prodajnom nalogu"
 
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/controllers/portal.py
+#: code:addons/sale_timesheet/controllers/portal.py:0
 #, python-format
 msgid "Search in Sales Order Item"
 msgstr "Pretraži u stavci prodajnog naloga"
@@ -1177,7 +1174,7 @@ msgstr "Prodano"
 #. module: sale_timesheet
 #: model:ir.model.fields,field_description:sale_timesheet.field_sale_advance_payment_inv__date_start_invoice_timesheet
 msgid "Start Date"
-msgstr "Početni datum"
+msgstr "Početni Datum"
 
 # taken from hr.po
 #. module: sale_timesheet
@@ -1204,7 +1201,7 @@ msgstr "Zadaci"
 
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/models/product.py
+#: code:addons/sale_timesheet/models/product.py:0
 #, python-format
 msgid ""
 "The %s product is required by the Timesheets app and cannot be archived nor "
@@ -1215,7 +1212,7 @@ msgstr ""
 
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/models/product.py
+#: code:addons/sale_timesheet/models/product.py:0
 #, python-format
 msgid ""
 "The %s product is required by the Timesheets app and cannot be linked to a "
@@ -1226,7 +1223,7 @@ msgstr ""
 
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/wizard/project_create_sale_order.py
+#: code:addons/sale_timesheet/wizard/project_create_sale_order.py:0
 #, python-format
 msgid ""
 "The Sales Order cannot be created because you did not enter some employees that entered timesheets on this project. Please list all the relevant employees before creating the Sales Order.\n"
@@ -1242,7 +1239,7 @@ msgstr "Trošak projekta je sada na"
 
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/wizard/project_create_sale_order.py
+#: code:addons/sale_timesheet/wizard/project_create_sale_order.py:0
 #, python-format
 msgid "The project has already a sale order."
 msgstr ""
@@ -1251,14 +1248,14 @@ msgstr ""
 
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/wizard/project_create_sale_order.py
+#: code:addons/sale_timesheet/wizard/project_create_sale_order.py:0
 #, python-format
 msgid "The project is already linked to a sales order item."
 msgstr "Projekt je već povezan sa stavkom prodajnog naloga."
 
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/wizard/project_create_sale_order.py
+#: code:addons/sale_timesheet/wizard/project_create_sale_order.py:0
 #, python-format
 msgid ""
 "The sales order cannot be created because some timesheets of this project "
@@ -1269,7 +1266,7 @@ msgstr ""
 
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/wizard/project_create_invoice.py
+#: code:addons/sale_timesheet/wizard/project_create_invoice.py:0
 #, python-format
 msgid "The selected Sales Order should contain something to invoice."
 msgstr "Odabrani prodajni nalog treba da sadrži nešto za fakturisanje."
@@ -1374,7 +1371,7 @@ msgstr "Aktivnosti kontrolnih kartica povezanih sa prodajom"
 # taken from hr.po
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/models/account_move.py
+#: code:addons/sale_timesheet/models/account_move.py:0
 #, python-format
 msgid "Timesheets"
 msgstr "Šihtarice"
@@ -1382,15 +1379,15 @@ msgstr "Šihtarice"
 # taken from hr.po
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/models/project.py
+#: code:addons/sale_timesheet/models/project_project.py:0
 #, python-format
 msgid "Timesheets (Billed Manually)"
-msgstr "Timesheets (Billed Manually)"
+msgstr ""
 
 # taken from hr.po
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/models/project.py
+#: code:addons/sale_timesheet/models/project_project.py:0
 #, python-format
 msgid "Timesheets (Billed on Milestones)"
 msgstr ""
@@ -1400,21 +1397,21 @@ msgstr ""
 
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/models/project.py
+#: code:addons/sale_timesheet/models/project_project.py:0
 #, python-format
 msgid "Timesheets (Billed on Timesheets)"
 msgstr "Vrijeme po ljudima"
 
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/models/project.py
+#: code:addons/sale_timesheet/models/project_project.py:0
 #, python-format
 msgid "Timesheets (Fixed Price)"
 msgstr "Evidencije radnog vremena (fiksna cijena)"
 
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/models/project.py
+#: code:addons/sale_timesheet/models/project.py:0
 #, python-format
 msgid "Timesheets (Non Billable)"
 msgstr "Evidencije radnog vremena (ne-naplative)"
@@ -1448,7 +1445,7 @@ msgstr "Evidencije radnog vremena za"
 
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/models/project.py
+#: code:addons/sale_timesheet/models/project_project.py:0
 #, python-format
 msgid "Timesheets of %s"
 msgstr "Evidencije radnog vremena od %s"
@@ -1462,7 +1459,7 @@ msgstr ""
 
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/models/project.py
+#: code:addons/sale_timesheet/models/project_project.py:0
 #, python-format
 msgid "Timesheets revenues"
 msgstr "Prihodi od evidencija radnog vremena"
@@ -1485,7 +1482,7 @@ msgstr "Evidencije radnog vremena uzete pri fakturisanju utrošenog vremena"
 
 # taken from hr.po
 #. module: sale_timesheet
-#: model_terms:ir.ui.view,arch_db:sale_timesheet.project_update_default_description
+#: model_terms:ir.ui.view,arch_db:sale_timesheet.timesheets_analysis_report_list_inherited
 msgid "Total"
 msgstr "Ukupno"
 
@@ -1530,7 +1527,7 @@ msgstr ""
 
 # taken from hr.po
 #. module: sale_timesheet
-#: model:ir.model.fields,field_description:sale_timesheet.field_project_create_sale_order_line__price_unit
+#: model:ir.model.fields,field_description:sale_timesheet.field_project_sale_line_employee_map__price_unit
 msgid "Unit Price"
 msgstr "Cijena"
 
@@ -1541,7 +1538,7 @@ msgstr "Cijena stavke prodajne narudžbe."
 
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/models/project.py
+#: code:addons/sale_timesheet/models/project.py:0
 #, python-format
 msgid "Value does not exist in the pricing type"
 msgstr "Vrijednost ne postoji u tipu cijena"
@@ -1597,14 +1594,14 @@ msgstr ""
 
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/wizard/project_create_invoice.py
+#: code:addons/sale_timesheet/wizard/project_create_invoice.py:0
 #, python-format
 msgid "You can only apply this action from a project."
 msgstr "Možete primijeniti ovu akciju samo iz projekta."
 
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/models/project.py
+#: code:addons/sale_timesheet/models/project_project.py:0
 #, python-format
 msgid ""
 "You cannot link a billable project to a sales order item that comes from an "
@@ -1615,7 +1612,7 @@ msgstr ""
 
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/models/project.py
+#: code:addons/sale_timesheet/models/project_project.py:0
 #, python-format
 msgid ""
 "You cannot link a billable project to a sales order item that is not a "
@@ -1626,7 +1623,7 @@ msgstr ""
 
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/models/account.py
+#: code:addons/sale_timesheet/models/hr_timesheet.py:0
 #, python-format
 msgid "You cannot modify timesheets that are already invoiced."
 msgstr ""
@@ -1634,7 +1631,7 @@ msgstr ""
 
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/models/account.py
+#: code:addons/sale_timesheet/models/hr_timesheet.py:0
 #, python-format
 msgid "You cannot remove a timesheet that has already been invoiced."
 msgstr ""
@@ -1644,7 +1641,7 @@ msgstr ""
 # taken from hr.po
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/models/sale_order.py
+#: code:addons/sale_timesheet/models/sale_order.py:0
 #, python-format
 msgid "day"
 msgstr "dan"
@@ -1652,7 +1649,7 @@ msgstr "dan"
 # taken from hr.po
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/models/sale_order.py
+#: code:addons/sale_timesheet/models/sale_order.py:0
 #, python-format
 msgid "days"
 msgstr "dana"
@@ -1660,10 +1657,10 @@ msgstr "dana"
 # taken from hr.po
 #. module: sale_timesheet
 #. odoo-python
-#: code:addons/sale_timesheet/wizard/project_create_sale_order.py
+#: code:addons/sale_timesheet/wizard/project_create_sale_order.py:0
 #, python-format
 msgid "hours"
-msgstr "hours"
+msgstr ""
 
 #. module: sale_timesheet
 #: model_terms:ir.ui.view,arch_db:sale_timesheet.project_update_default_description
@@ -1674,3 +1671,615 @@ msgstr "marža ("
 #: model_terms:ir.ui.view,arch_db:sale_timesheet.view_product_timesheet_form
 msgid "of hours sold."
 msgstr "od prodanih sati."
+
+#. module: sale_timesheet
+#: code:addons/sale_timesheet/models/sale_order.py:0
+msgid ""
+"\n"
+"                <p class=\"o_view_nocontent_smiling_face\">\n"
+"                    No activities found. Let's start a new one!\n"
+"                </p><p>\n"
+"                    Track your working hours by projects every day and invoice this time to your customers.\n"
+"                </p>\n"
+"            "
+msgstr ""
+"\n"
+"                <p class=\"o_view_nocontent_smiling_face\">\n"
+"                    Nema pronađenih aktivnosti. Hajde da započnemo novu!\n"
+"                </p><p>\n"
+"                    Pratite svoje radne sate po projektima svaki dan i fakturisajte ovo vrijeme svojim kupcima.\n"
+"                </p>\n"
+"            "
+
+#. module: sale_timesheet
+#: code:addons/sale_timesheet/models/hr_timesheet.py:0
+msgid ""
+"'%(missing_plan_names)s' analytic plan(s) required on the analytic "
+"distribution of the sale order item '%(so_line_name)s' linked to the "
+"timesheet."
+msgstr ""
+"'%(missing_plan_names)s' analitički plan(ovi) potrebni na analitičkoj "
+"distribuciji stavke prodajne narudžbe '%(so_line_name)s' povezane s "
+"vremenskim listom."
+
+#. module: sale_timesheet
+#: model_terms:ir.ui.view,arch_db:sale_timesheet.timesheet_sale_page
+msgid "- Timesheet product"
+msgstr "- Proizvod vremenskog lista"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,job_details:sale_timesheet.job_engineer
+msgid "1 Onsite Interview"
+msgstr "1 intervju na lokaciji"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,job_details:sale_timesheet.job_engineer
+msgid "1 Phone Call"
+msgstr "1 telefonski poziv"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "12 days / year, including <br>6 of your choice."
+msgstr "12 dana / godišnje, uključujući <br>6 po vašem izboru."
+
+#. module: sale_timesheet
+#: model_terms:hr.job,job_details:sale_timesheet.job_engineer
+msgid "2 open days"
+msgstr "2 dana otvorenih vrata"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,job_details:sale_timesheet.job_engineer
+msgid "4 Days after Interview"
+msgstr "4 dana nakon intervjua"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid ""
+"<a href=\"/\" class=\"btn btn-primary o_translate_inline\" "
+"target=\"_blank\"><small><b>READ</b></small></a>"
+msgstr ""
+"<a href=\"/\" class=\"btn btn-primary o_translate_inline\" "
+"target=\"_blank\"><small><b>PROČITAJ</b></small></a>"
+
+#. module: sale_timesheet
+#: model_terms:ir.ui.view,arch_db:sale_timesheet.project_project_view_form
+msgid "<b>Daily Cost: </b>"
+msgstr "<b>Dnevni trošak: </b>"
+
+#. module: sale_timesheet
+#: model_terms:ir.ui.view,arch_db:sale_timesheet.project_project_view_form
+msgid "<b>Unit Price: </b>"
+msgstr "<b>Jedinična cijena: </b>"
+
+#. module: sale_timesheet
+#: model_terms:ir.ui.view,arch_db:sale_timesheet.project_project_view_form
+msgid ""
+"<i class=\"fa fa-lightbulb-o\"/>\n"
+"                        <span>\n"
+"                            Define the rate at which an employee's time is billed based on their expertise, skills, or experience.\n"
+"                            To bill the same service at a different rate, create separate sales order items.\n"
+"                        </span>"
+msgstr ""
+"<i class=\"fa fa-lightbulb-o\"/>\n"
+"                        <span>\n"
+"                            Definišite tarifu po kojoj se vrijeme zaposlenika fakturira na osnovu stručnosti, vještina ili iskustva.\n"
+"                            Da biste istu uslugu fakturisali po drugoj tarifi, kreirajte odvojene stavke prodajne narudžbe.\n"
+"                        </span>"
+
+#. module: sale_timesheet
+#: model_terms:ir.ui.view,arch_db:sale_timesheet.hr_timesheet_line_form_inherit
+msgid ""
+"<span class=\"fa fa-exclamation-triangle text-warning\" title=\"The sales "
+"order associated with this timesheet entry has been cancelled.\" "
+"invisible=\"sale_order_state != 'cancel'\"/>"
+msgstr ""
+"<span class=\"fa fa-exclamation-triangle text-warning\" title=\"Prodajna "
+"narudžba povezana sa ovim unosom vremenskog lista je otkazana.\" "
+"invisible=\"sale_order_state != 'cancel'\"/>"
+
+#. module: sale_timesheet
+#: model_terms:ir.ui.view,arch_db:sale_timesheet.hr_timesheet_line_form_inherit
+msgid "<span class=\"o_stat_text\">Invoice</span>"
+msgstr "<span class=\"o_stat_text\">Faktura</span>"
+
+#. module: sale_timesheet
+#: model_terms:ir.ui.view,arch_db:sale_timesheet.hr_timesheet_line_form_inherit
+msgid "<span class=\"o_stat_text\">Sales Order</span>"
+msgstr "<span class=\"o_stat_text\">Prodajna narudžba</span>"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,job_details:sale_timesheet.job_engineer
+msgid "<span class=\"text-muted small\">Days to get an Offer</span>"
+msgstr "<span class=\"text-muted small\">Dana do dobijanja ponude</span>"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,job_details:sale_timesheet.job_engineer
+msgid "<span class=\"text-muted small\">Process</span>"
+msgstr "<span class=\"text-muted small\">Proces</span>"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,job_details:sale_timesheet.job_engineer
+msgid "<span class=\"text-muted small\">Time to Answer</span>"
+msgstr "<span class=\"text-muted small\">Vrijeme za odgovor</span>"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "<strong class=\"s_rating_title\">Administrative Work</strong>"
+msgstr "<strong class=\"s_rating_title\">Administrativni rad</strong>"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "<strong class=\"s_rating_title\">Autonomy</strong>"
+msgstr "<strong class=\"s_rating_title\">Autonomija</strong>"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "<strong class=\"s_rating_title\">Customer Relationship</strong>"
+msgstr "<strong class=\"s_rating_title\">Odnosi s kupcima</strong>"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "<strong class=\"s_rating_title\">Personal Evolution</strong>"
+msgstr "<strong class=\"s_rating_title\">Lični razvoj</strong>"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "<strong class=\"s_rating_title\">Technical Expertise</strong>"
+msgstr "<strong class=\"s_rating_title\">Tehnička stručnost</strong>"
+
+#. module: sale_timesheet
+#: model_terms:ir.ui.view,arch_db:sale_timesheet.portal_my_task_inherit
+msgid "<strong>Amount Due:</strong>"
+msgstr "<strong>Iznos za plaćanje:</strong>"
+
+#. module: sale_timesheet
+#: model_terms:ir.ui.view,arch_db:sale_timesheet.portal_timesheet_table_inherit
+msgid "<strong>Time Remaining on SO: </strong>"
+msgstr "<strong>Preostalo vrijeme na SO: </strong>"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "A full-time position <br>Attractive salary package."
+msgstr "Puno radno vrijeme <br>Atraktivan paket plate."
+
+#. module: sale_timesheet
+#: model:ir.model.fields,help:sale_timesheet.field_sale_order_line__qty_delivered_method
+msgid ""
+"According to product configuration, the delivered quantity can be automatically computed by mechanism:\n"
+"  - Manual: the quantity is set manually on the line\n"
+"  - Analytic From expenses: the quantity is the quantity sum from posted expenses\n"
+"  - Timesheet: the quantity is the sum of hours recorded on tasks linked to this sale line\n"
+"  - Stock Moves: the quantity comes from confirmed pickings\n"
+msgstr ""
+"Prema konfiguraciji proizvoda, isporučena količina može se automatski izračunati mehanizmom:\n"
+"  - Ručno: količina se postavlja ručno na stavci\n"
+"  - Analitika iz troškova: količina je zbir količina iz proknjiženih troškova\n"
+"  - Vremenski list: količina je zbir sati zabilježenih na zadacima povezanim s ovom prodajnom stavkom\n"
+"  - Skladišni prometi: količina dolazi iz potvrđenih izdavanja\n"
+
+#. module: sale_timesheet
+#: model:ir.model,name:sale_timesheet.model_account_move_reversal
+msgid "Account Move Reversal"
+msgstr "Storno knjigovodstvenog prometa"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "Achieve monthly sales objectives"
+msgstr "Postizanje mjesečnih prodajnih ciljeva"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "Additional languages"
+msgstr "Dodatni jezici"
+
+#. module: sale_timesheet
+#: model:ir.model.fields,field_description:sale_timesheet.field_project_project__allocated_hours
+msgid "Allocated Time"
+msgstr "Dodijeljeno vrijeme"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid ""
+"As an employee of our company, you will <b>collaborate with each department\n"
+"                        to create and deploy disruptive products.</b> Come work at a growing company\n"
+"                        that offers great benefits with opportunities to moving forward and learn\n"
+"                        alongside accomplished leaders. We're seeking an experienced and outstanding\n"
+"                        member of staff.\n"
+"                        <br><br>\n"
+"                        This position is both <b>creative and rigorous</b> by nature you need to think\n"
+"                        outside the box. We expect the candidate to be proactive and have a \"get it done\"\n"
+"                        spirit. To be successful, you will have solid solving problem skills."
+msgstr ""
+"Kao zaposlenik naše kompanije, <b>sarađivat ćete sa svakim odjelom\n"
+"                        u kreiranju i implementaciji inovativnih proizvoda.</b> Dođite raditi u rastuću kompaniju\n"
+"                        koja nudi odlične pogodnosti sa mogućnostima napredovanja i učenja\n"
+"                        uz vrhunske lidere. Tražimo iskusnog i izvanrednog\n"
+"                        člana tima.\n"
+"                        <br><br>\n"
+"                        Ova pozicija je po prirodi <b>kreativna i zahtjevna</b>, morate razmišljati\n"
+"                        izvan okvira. Očekujemo da kandidat bude proaktivan i da ima duh \"završi posao\".\n"
+"                        Za uspjeh, trebate posjedovati čvrste vještine rješavanja problema."
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "Bachelor Degree or Higher"
+msgstr "Diplomirani ili viši stepen"
+
+#. module: sale_timesheet
+#: model:ir.model.fields,field_description:sale_timesheet.field_timesheets_analysis_report__billable_time
+msgid "Billable Time"
+msgstr "Naplativo vrijeme"
+
+#. module: sale_timesheet
+#: model:ir.model,website_form_label:sale_timesheet.model_project_task
+msgid "Create a Task"
+msgstr "Kreiraj zadatak"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "Create content that will help our users on a daily basis"
+msgstr "Kreiranje sadržaja koji će svakodnevno pomagati našim korisnicima"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "Discover our products."
+msgstr "Otkrijte naše proizvode."
+
+#. module: sale_timesheet
+#: model_terms:ir.ui.view,arch_db:sale_timesheet.timesheet_sale_page
+msgid "Draft"
+msgstr "Nacrt"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid ""
+"Each employee has a chance to see the impact of his work.\n"
+"                    You can make a real contribution to the success of the company.\n"
+"                    <br>\n"
+"                    Several activities are often organized all over the year, such as weekly\n"
+"                    sports sessions, team building events, monthly drink, and much more"
+msgstr ""
+"Svaki zaposlenik ima priliku da vidi uticaj svog rada.\n"
+"                    Možete dati pravi doprinos uspjehu kompanije.\n"
+"                    <br>\n"
+"                    Tokom godine se često organizuju različite aktivnosti, kao što su sedmične\n"
+"                    sportske sesije, team building događaji, mjesečno druženje uz piće i još mnogo toga"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "Eat &amp; Drink"
+msgstr "Hrana i piće"
+
+#. module: sale_timesheet
+#: model:product.template,name:sale_timesheet.product_product_elevator_installation_product_template
+msgid "Elevator Installation"
+msgstr "Instalacija lifta"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "Expand your knowledge of various business industries"
+msgstr "Proširite svoje znanje o različitim poslovnim industrijama"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "Experience in writing online content"
+msgstr "Iskustvo u pisanju online sadržaja"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "Fruit, coffee and <br>snacks provided."
+msgstr "Voće, kafa i <br>grickalice obezbijeđeni."
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "Google Adwords experience"
+msgstr "Iskustvo s Google Adwords"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "Great team of smart people, in a friendly and open culture"
+msgstr "Sjajan tim pametnih ljudi, u prijateljskoj i otvorenoj kulturi"
+
+#. module: sale_timesheet
+#: model:hr.job,name:sale_timesheet.job_labour
+msgid "Handyman"
+msgstr "Majstor"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "Highly creative and autonomous"
+msgstr "Vrlo kreativan i samostalan"
+
+#. module: sale_timesheet
+#: model:hr.job,name:sale_timesheet.job_interior_designer
+msgid "Interior Designer"
+msgstr "Dizajner enterijera"
+
+#. module: sale_timesheet
+#: model:product.template,name:sale_timesheet.product_product_interior_designing_product_template
+msgid "Interior Designing"
+msgstr "Dizajn enterijera"
+
+#. module: sale_timesheet
+#: code:addons/sale_timesheet/models/product_template.py:0
+msgid "Invoice based on timesheets (delivered quantity)."
+msgstr "Faktura na osnovu vremenskih listova (isporučena količina)."
+
+#. module: sale_timesheet
+#: model:ir.model.fields,field_description:sale_timesheet.field_project_task__last_sol_of_customer
+msgid "Last Sol Of Customer"
+msgstr "Posljednja stavka prodaje kupca"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "Lead the entire sales cycle"
+msgstr "Vođenje cijelog prodajnog ciklusa"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "Master demos of our software"
+msgstr "Savladajte demonstracije našeg softvera"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "Must Have"
+msgstr "Obavezno"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "Negotiate and contract"
+msgstr "Pregovaranje i ugovaranje"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "Nice to have"
+msgstr "Poželjno"
+
+#. module: sale_timesheet
+#: model_terms:ir.actions.act_window,help:sale_timesheet.timesheet_action_from_sales_order_item
+msgid "No activities found. Let's start a new one!"
+msgstr "Nema pronađenih aktivnosti. Hajde da započnemo novu!"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "No dumb managers, no stupid tools to use, no rigid working hours"
+msgstr ""
+"Nema glupih menadžera, nema glupih alata za korištenje, nema krutih radnih "
+"sati"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid ""
+"No waste of time in enterprise processes, real responsibilities and autonomy"
+msgstr ""
+"Nema gubljenja vremena u korporativnim procesima, prave odgovornosti i "
+"autonomija"
+
+#. module: sale_timesheet
+#: model_terms:ir.ui.view,arch_db:sale_timesheet.hr_timesheet_line_form_inherit
+msgid "Non-billable"
+msgstr "Nenaplativo"
+
+#. module: sale_timesheet
+#: model:ir.model.fields,field_description:sale_timesheet.field_timesheets_analysis_report__non_billable_time
+msgid "Non-billable Time"
+msgstr "Nenaplativo vrijeme"
+
+#. module: sale_timesheet
+#: model_terms:ir.ui.view,arch_db:sale_timesheet.portal_my_timesheets_inherit
+msgid "Not Billed"
+msgstr "Nije fakturisano"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "Our Product"
+msgstr "Naš proizvod"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "Passion for software products"
+msgstr "Strast prema softverskim proizvodima"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "Perfect written English"
+msgstr "Savršen pisani engleski"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "Perks"
+msgstr "Pogodnosti"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "Play any sport with colleagues, <br>the bill is covered."
+msgstr "Igrajte bilo koji sport s kolegama, <br>račun je pokriven."
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "Qualify the customer needs"
+msgstr "Kvalifikacija potreba kupca"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "Real responsibilities and challenges in a fast evolving company"
+msgstr "Prave odgovornosti i izazovi u kompaniji koja se brzo razvija"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "Responsibilities"
+msgstr "Odgovornosti"
+
+#. module: sale_timesheet
+#: model:product.template,name:sale_timesheet.product_product_roofing_product_template
+msgid "Roofing"
+msgstr "Krovopokrivanje"
+
+#. module: sale_timesheet
+#: model_terms:ir.ui.view,arch_db:sale_timesheet.timesheet_sale_page
+msgid "S0001"
+msgstr "S0001"
+
+#. module: sale_timesheet
+#: model:product.template,name:sale_timesheet.time_product_product_template
+msgid "Service on Timesheets"
+msgstr "Usluga na vremenskim listovima"
+
+#. module: sale_timesheet
+#: model:hr.job,name:sale_timesheet.job_engineer
+msgid "Site Manager"
+msgstr "Voditelj gradilišta"
+
+#. module: sale_timesheet
+#: model:product.template,name:sale_timesheet.product_product_solar_installation_product_template
+msgid "Solar Panel Installation"
+msgstr "Instalacija solarnih panela"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "Sport Activity"
+msgstr "Sportska aktivnost"
+
+#. module: sale_timesheet
+#: model:ir.model.fields,field_description:sale_timesheet.field_account_analytic_line__sale_order_state
+msgid "Status"
+msgstr "Status"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "Strong analytical skills"
+msgstr "Snažne analitičke vještine"
+
+#. module: sale_timesheet
+#: model:ir.model,name:sale_timesheet.model_report_project_task_user
+msgid "Tasks Analysis"
+msgstr "Analiza zadataka"
+
+#. module: sale_timesheet
+#: code:addons/sale_timesheet/models/product_product.py:0
+msgid ""
+"The %s product is required by the Timesheets app and cannot be archived, "
+"deleted nor linked to a company."
+msgstr ""
+"Proizvod %s je potreban aplikaciji Vremenski listovi i ne može se "
+"arhivirati, brisati niti povezati s kompanijom."
+
+#. module: sale_timesheet
+#: code:addons/sale_timesheet/models/sale_order.py:0
+msgid "The Sales Order must contain at least one service product."
+msgstr "Prodajna narudžba mora sadržavati barem jedan uslužni proizvod."
+
+#. module: sale_timesheet
+#: code:addons/sale_timesheet/models/project_project.py:0
+msgid "This project is current linked to timesheet."
+msgstr "Ovaj projekt je trenutno povezan s vremenskim listom."
+
+#. module: sale_timesheet
+#: model_terms:ir.ui.view,arch_db:sale_timesheet.res_config_settings_view_form
+msgid "Time Billing"
+msgstr "Naplata vremena"
+
+#. module: sale_timesheet
+#: model:ir.model.fields,field_description:sale_timesheet.field_project_task__remaining_hours_so
+msgid "Time Remaining on SO"
+msgstr "Preostalo vrijeme na SO"
+
+#. module: sale_timesheet
+#: model_terms:ir.ui.view,arch_db:sale_timesheet.view_hr_timesheet_line_graph_employee_per_date
+msgid "Time Spent"
+msgstr "Utrošeno vrijeme"
+
+#. module: sale_timesheet
+#: model_terms:ir.ui.view,arch_db:sale_timesheet.project_project_view_form
+msgid "Timesheet Activities"
+msgstr "Aktivnosti vremenskog lista"
+
+#. module: sale_timesheet
+#: model_terms:ir.ui.view,arch_db:sale_timesheet.hr_timesheet_report_search_sale_timesheet
+msgid "Timesheet Report"
+msgstr "Izvještaj vremenskog lista"
+
+#. module: sale_timesheet
+#: code:addons/sale_timesheet/models/project_project.py:0
+msgid "Timesheets (Non-Billable)"
+msgstr "Vremenski listovi (nenaplativi)"
+
+#. module: sale_timesheet
+#: model_terms:ir.ui.view,arch_db:sale_timesheet.project_project_view_form
+msgid "Timesheets without a sales order item are reported as"
+msgstr "Vremenski listovi bez stavke prodajne narudžbe prijavljuju se kao"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "Trainings"
+msgstr "Obuke"
+
+#. module: sale_timesheet
+#: model:ir.model.fields,help:sale_timesheet.field_project_task__display_name
+msgid ""
+"Use these keywords in the title to set new tasks:\n"
+"\n"
+"        30h Allocate 30 hours to the task\n"
+"        #tags Set tags on the task\n"
+"        @user Assign the task to a user\n"
+"        ! Set the task a medium priority\n"
+"        !! Set the task a high priority\n"
+"        !!! Set the task a urgent priority\n"
+"\n"
+"        Make sure to use the right format and order e.g. Improve the configuration screen 5h #feature #v16 @Mitchell !"
+msgstr ""
+"Koristite ove ključne riječi u naslovu za postavljanje novih zadataka:\n"
+"\n"
+"        30h Dodijeli 30 sati zadatku\n"
+"        #tags Postavi oznake na zadatku\n"
+"        @user Dodijeli zadatak korisniku\n"
+"        ! Postavi zadatku srednji prioritet\n"
+"        !! Postavi zadatku visok prioritet\n"
+"        !!! Postavi zadatku hitan prioritet\n"
+"\n"
+"        Pazite da koristite ispravan format i redoslijed npr. Improve the configuration screen 5h #feature #v16 @Mitchell !"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "Valid work permit for Belgium"
+msgstr "Važeća radna dozvola za Belgiju"
+
+#. module: sale_timesheet
+#: model_terms:ir.ui.view,arch_db:sale_timesheet.portal_invoice_page_inherit
+msgid "View Timesheet"
+msgstr "Pregled vremenskog lista"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "What We Offer"
+msgstr "Šta nudimo"
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
+msgid "What's great in the job?"
+msgstr "Šta je sjajno u poslu?"
+
+#. module: sale_timesheet
+#: model:ir.model.fields.selection,name:sale_timesheet.selection__project_project__billing_type__manually
+msgid "billed manually"
+msgstr "ručno fakturisano"
+
+#. module: sale_timesheet
+#: code:addons/sale_timesheet/models/sale_order_line.py:0
+msgid "days remaining"
+msgstr "preostalo dana"
+
+#. module: sale_timesheet
+#: model:ir.model.fields.selection,name:sale_timesheet.selection__project_project__billing_type__not_billable
+msgid "not billable"
+msgstr "nenaplativo"
+
+#. module: sale_timesheet
+#: code:addons/sale_timesheet/models/account_move.py:0
+msgid "project_id"
+msgstr "project_id"
+
+#. module: sale_timesheet
+#: code:addons/sale_timesheet/models/sale_order_line.py:0
+msgid "remaining"
+msgstr "preostalo"

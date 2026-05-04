@@ -33,7 +33,7 @@ msgstr ""
 
 #. module: website_sale_delivery
 #. odoo-python
-#: code:addons/website_sale_delivery/controllers/main.py
+#: code:addons/website_sale_delivery/controllers/main.py:0
 #, python-format
 msgid "Anonymous express checkout partner for order %s"
 msgstr "Anoniman ekspresni partner za završetak kupovine za narudžbu %s"
@@ -94,7 +94,7 @@ msgstr "Easypost metoda dostave"
 # taken from hr.po
 #. module: website_sale_delivery
 #. odoo-javascript
-#: code:addons/website_sale_delivery/static/src/js/website_sale_delivery.js
+#: code:addons/website_sale_delivery/static/src/js/website_sale_delivery.js:0
 #, python-format
 msgid "Free"
 msgstr "Slobodno"
@@ -108,7 +108,7 @@ msgstr "USPS načini dostave"
 # taken from hr.po
 #. module: website_sale_delivery
 #. odoo-python
-#: code:addons/website_sale_delivery/controllers/main.py
+#: code:addons/website_sale_delivery/controllers/main.py:0
 #, python-format
 msgid ""
 "It seems that a delivery method is not compatible with your address. Please "
@@ -120,7 +120,7 @@ msgstr ""
 # taken from hr.po
 #. module: website_sale_delivery
 #. odoo-python
-#: code:addons/website_sale_delivery/controllers/main.py
+#: code:addons/website_sale_delivery/controllers/main.py:0
 #, python-format
 msgid ""
 "It seems that there is already a transaction for your order, you can not "
@@ -132,7 +132,7 @@ msgstr ""
 # taken from hr.po
 #. module: website_sale_delivery
 #. odoo-python
-#: code:addons/website_sale_delivery/controllers/main.py
+#: code:addons/website_sale_delivery/controllers/main.py:0
 #, python-format
 msgid ""
 "No shipping method is available for your current order and shipping address."
@@ -143,7 +143,7 @@ msgstr ""
 
 #. module: website_sale_delivery
 #. odoo-python
-#: code:addons/website_sale_delivery/controllers/main.py
+#: code:addons/website_sale_delivery/controllers/main.py:0
 #, python-format
 msgid "No shipping method is selected."
 msgstr "Nijedan način dostave nije izabran."
@@ -164,13 +164,13 @@ msgstr "Ograniči objavljivanje na ovu web stranicu."
 #. module: website_sale_delivery
 #: model:ir.model,name:website_sale_delivery.model_sale_order
 msgid "Sales Order"
-msgstr "Prodajni nalog"
+msgstr "Narudžba"
 
 # taken from hr.po
 #. module: website_sale_delivery
 #: model:ir.model,name:website_sale_delivery.model_sale_order_line
 msgid "Sales Order Line"
-msgstr "Stavka prodajnog naloga"
+msgstr "Stavka narudžbe"
 
 #. module: website_sale_delivery
 #: model_terms:ir.ui.view,arch_db:website_sale_delivery.payment_delivery_methods
@@ -186,7 +186,7 @@ msgstr "Načini dostave"
 # taken from hr.po
 #. module: website_sale_delivery
 #. odoo-python
-#: code:addons/website_sale_delivery/controllers/main.py
+#: code:addons/website_sale_delivery/controllers/main.py:0
 #, python-format
 msgid "Sorry, we are unable to ship your order"
 msgstr "Nažalost, nismo u mogućnosti da isporučimo vašu narudžbu"

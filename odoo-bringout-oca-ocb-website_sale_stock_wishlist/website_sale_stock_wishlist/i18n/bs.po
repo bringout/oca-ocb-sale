@@ -59,7 +59,7 @@ msgstr ""
 # taken from hr.po
 #. module: website_sale_stock_wishlist
 #. odoo-javascript
-#: code:addons/website_sale_stock_wishlist/static/src/xml/product_availability.xml
+#: code:addons/website_sale_stock_wishlist/static/src/xml/product_availability.xml:0
 #, python-format
 msgid "Add to wishlist"
 msgstr "Dodaj na listu želja"
@@ -67,7 +67,7 @@ msgstr "Dodaj na listu želja"
 # taken from hr.po
 #. module: website_sale_stock_wishlist
 #. odoo-javascript
-#: code:addons/website_sale_stock_wishlist/static/src/xml/product_availability.xml
+#: code:addons/website_sale_stock_wishlist/static/src/xml/product_availability.xml:0
 #, python-format
 msgid "Added to your wishlist"
 msgstr "Dodaje status dostupnosti inventara na web stranicu proizvoda."
@@ -86,7 +86,7 @@ msgstr "Lista želja proizvoda"
 
 #. module: website_sale_stock_wishlist
 #. odoo-javascript
-#: code:addons/website_sale_stock_wishlist/static/src/xml/product_availability.xml
+#: code:addons/website_sale_stock_wishlist/static/src/xml/product_availability.xml:0
 #, python-format
 msgid "Save for later"
 msgstr "Web stranica kojoj pripada ovaj picking."
@@ -99,10 +99,38 @@ msgstr "Stock obavještenje"
 #. module: website_sale_stock_wishlist
 #: model_terms:ir.ui.view,arch_db:website_sale_stock_wishlist.product_wishlist
 msgid "Temporarily out of stock"
-msgstr "Temporarily out of stock"
+msgstr ""
 
 # taken from hr.po
 #. module: website_sale_stock_wishlist
 #: model_terms:ir.ui.view,arch_db:website_sale_stock_wishlist.product_wishlist
 msgid "youremail@gmail.com"
 msgstr "vasemail@gmail.com"
+
+#. module: website_sale_stock_wishlist
+#: model_terms:ir.ui.view,arch_db:website_sale_stock_wishlist.product_wishlist
+msgid ""
+"<i class=\"fa fa-circle text-danger me-1\" aria-hidden=\"true\"/>\n"
+"                    Out of stock"
+msgstr ""
+"<i class=\"fa fa-circle text-danger me-1\" aria-hidden=\"true\"/>\n"
+"                    Nije na zalihi"
+
+#. module: website_sale_stock_wishlist
+#: model_terms:ir.ui.view,arch_db:website_sale_stock_wishlist.product_wishlist
+msgid ""
+"<i class=\"fa fa-fw fa-shopping-cart o_not-animable\" role=\"presentation\"/>\n"
+"                <span class=\"o_label small ms-1\">Add to Cart</span>"
+msgstr ""
+"<i class=\"fa fa-fw fa-shopping-cart o_not-animable\" role=\"presentation\"/>\n"
+"                <span class=\"o_label small ms-1\">Dodaj u korpu</span>"
+
+#. module: website_sale_stock_wishlist
+#: model:ir.model.fields,field_description:website_sale_stock_wishlist.field_product_template__display_name
+msgid "Display Name"
+msgstr "Naziv za prikaz"
+
+#. module: website_sale_stock_wishlist
+#: model:ir.model.fields,field_description:website_sale_stock_wishlist.field_product_template__id
+msgid "ID"
+msgstr "ID"

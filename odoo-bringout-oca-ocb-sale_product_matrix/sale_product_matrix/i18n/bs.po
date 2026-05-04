@@ -23,7 +23,7 @@ msgstr "Način dodavanja proizvoda"
 # taken from hr.po
 #. module: sale_product_matrix
 #. odoo-javascript
-#: code:addons/sale_product_matrix/static/src/js/sale_product_field.js
+#: code:addons/sale_product_matrix/static/src/js/sale_product_field.js:0
 #, python-format
 msgid "Choose Product Variants"
 msgstr "Odaberi varijante proizvoda"
@@ -31,7 +31,7 @@ msgstr "Odaberi varijante proizvoda"
 # taken from hr.po
 #. module: sale_product_matrix
 #. odoo-javascript
-#: code:addons/sale_product_matrix/static/src/js/sale_product_field.js
+#: code:addons/sale_product_matrix/static/src/js/sale_product_field.js:0
 #, python-format
 msgid "Close"
 msgstr "Zatvori"
@@ -48,7 +48,7 @@ msgstr ""
 # taken from hr.po
 #. module: sale_product_matrix
 #. odoo-javascript
-#: code:addons/sale_product_matrix/static/src/js/sale_product_field.js
+#: code:addons/sale_product_matrix/static/src/js/sale_product_field.js:0
 #, python-format
 msgid "Confirm"
 msgstr "Potvrdi"
@@ -96,13 +96,13 @@ msgstr "Konfigurator artikala"
 #. module: sale_product_matrix
 #: model:ir.model,name:sale_product_matrix.model_sale_order
 msgid "Sales Order"
-msgstr "Prodajni nalog"
+msgstr "Narudžba"
 
 # taken from hr.po
 #. module: sale_product_matrix
 #: model:ir.model,name:sale_product_matrix.model_sale_order_line
 msgid "Sales Order Line"
-msgstr "Stavka prodajnog naloga"
+msgstr "Stavka narudžbe"
 
 #. module: sale_product_matrix
 #: model_terms:ir.ui.view,arch_db:sale_product_matrix.product_template_grid_view_form
@@ -122,9 +122,19 @@ msgstr ""
 
 #. module: sale_product_matrix
 #. odoo-python
-#: code:addons/sale_product_matrix/models/sale_order.py
+#: code:addons/sale_product_matrix/models/sale_order.py:0
 #, python-format
 msgid ""
 "You cannot change the quantity of a product present in multiple sale lines."
 msgstr ""
 "Ne možete promijeniti količinu proizvoda prisutnog u više linija prodaje."
+
+#. module: sale_product_matrix
+#: model:ir.model.fields,field_description:sale_product_matrix.field_product_template__display_name
+msgid "Display Name"
+msgstr "Naziv za prikaz"
+
+#. module: sale_product_matrix
+#: model:ir.model.fields,field_description:sale_product_matrix.field_product_template__id
+msgid "ID"
+msgstr "ID"

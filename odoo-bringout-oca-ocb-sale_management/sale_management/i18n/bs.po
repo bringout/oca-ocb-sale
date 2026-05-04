@@ -43,7 +43,7 @@ msgstr "<span>Potpis</span>"
 #. module: sale_management
 #: model:ir.model.fields,field_description:sale_management.field_sale_order_template__active
 msgid "Active"
-msgstr "Aktivan"
+msgstr "Aktivno"
 
 # taken from hr.po
 #. module: sale_management
@@ -56,7 +56,7 @@ msgstr ""
 
 # taken from hr.po
 #. module: sale_management
-#: model_terms:ir.ui.view,arch_db:sale_management.sale_order_form_quote
+#: model_terms:ir.ui.view,arch_db:sale_management.sale_order_template_view_form
 msgid "Add a product"
 msgstr "<span>Popust</span>"
 
@@ -68,7 +68,7 @@ msgstr "<span>Opcionalni proizvodi</span>"
 
 # taken from hr.po
 #. module: sale_management
-#: model_terms:ir.ui.view,arch_db:sale_management.sale_order_portal_content_inherit_sale_management
+#: model_terms:ir.ui.view,arch_db:sale_management.sale_order_portal_optional_product_quantity
 msgid "Add one"
 msgstr "Dodaj jedan"
 
@@ -112,7 +112,7 @@ msgstr "Tvrtke"
 #. module: sale_management
 #: model:ir.model.fields,field_description:sale_management.field_sale_order_template__company_id
 msgid "Company"
-msgstr "Tvrtka"
+msgstr "Kompanija"
 
 # taken from hr.po
 #. module: sale_management
@@ -151,13 +151,13 @@ msgstr "Kreiraj predložak ponude"
 
 # taken from hr.po
 #. module: sale_management
-#: model:ir.model.fields,field_description:sale_management.field_sale_order_option__create_uid
+#: model:ir.model.fields,field_description:sale_management.field_sale_order_template__create_uid
 msgid "Created by"
 msgstr "Kreirao"
 
 # taken from hr.po
 #. module: sale_management
-#: model:ir.model.fields,field_description:sale_management.field_sale_order_option__create_date
+#: model:ir.model.fields,field_description:sale_management.field_sale_order_template__create_date
 msgid "Created on"
 msgstr "Kreirano"
 
@@ -175,7 +175,7 @@ msgstr "Zadani predložak"
 
 # taken from hr.po
 #. module: sale_management
-#: model:ir.model.fields,field_description:sale_management.field_sale_order_option__name
+#: model:ir.model.fields,field_description:sale_management.field_sale_order_template_line__name
 msgid "Description"
 msgstr "Opis"
 
@@ -209,9 +209,9 @@ msgstr "Popust (%)"
 
 # taken from hr.po
 #. module: sale_management
-#: model:ir.model.fields,field_description:sale_management.field_sale_order_option__display_name
+#: model:ir.model.fields,field_description:sale_management.field_digest_digest__display_name
 msgid "Display Name"
-msgstr "Prikazani naziv"
+msgstr "Naziv za prikaz"
 
 # taken from hr.po
 #. module: sale_management
@@ -222,7 +222,7 @@ msgstr "Vrsta prikaza"
 # taken from hr.po
 #. module: sale_management
 #. odoo-python
-#: code:addons/sale_management/models/digest.py
+#: code:addons/sale_management/models/digest.py:0
 #, python-format
 msgid "Do not have access, skip this data for user's digest email"
 msgstr "Nemate pristup, preskočite ove podatke za sažetak e-pošte korisnika"
@@ -257,13 +257,10 @@ msgstr "Daje redoslijed kada se prikazuje popis stavaka ponude."
 #. module: sale_management
 #: model_terms:ir.ui.view,arch_db:sale_management.sale_order_template_view_search
 msgid "Group By"
-msgstr "Dizajnirajte vaše template ponuda koristeći blokove<br/>"
+msgstr "Grupiši po"
 
 #. module: sale_management
-#: model:ir.model.fields,field_description:sale_management.field_sale_order_option__id
-#: model:ir.model.fields,field_description:sale_management.field_sale_order_template__id
-#: model:ir.model.fields,field_description:sale_management.field_sale_order_template_line__id
-#: model:ir.model.fields,field_description:sale_management.field_sale_order_template_option__id
+#: model:ir.model.fields,field_description:sale_management.field_digest_digest__id
 msgid "ID"
 msgstr "ID"
 
@@ -287,17 +284,17 @@ msgstr "KPI Ukupna vrijednost sve prodaje"
 #. module: sale_management
 #: model:ir.model.fields,field_description:sale_management.field_sale_order_option____last_update
 msgid "Last Modified on"
-msgstr "Zadnje mijenjano"
+msgstr "Zadnja izmjena"
 
 # taken from hr.po
 #. module: sale_management
-#: model:ir.model.fields,field_description:sale_management.field_sale_order_option__write_uid
+#: model:ir.model.fields,field_description:sale_management.field_sale_order_template__write_uid
 msgid "Last Updated by"
 msgstr "Zadnji ažurirao"
 
 # taken from hr.po
 #. module: sale_management
-#: model:ir.model.fields,field_description:sale_management.field_sale_order_option__write_date
+#: model:ir.model.fields,field_description:sale_management.field_sale_order_template__write_date
 msgid "Last Updated on"
 msgstr "Zadnje ažurirano"
 
@@ -382,13 +379,13 @@ msgstr "Prisutno na ponudi"
 
 # taken from hr.po
 #. module: sale_management
-#: model:ir.model.fields,field_description:sale_management.field_sale_order_option__product_id
+#: model:ir.model.fields,field_description:sale_management.field_sale_order_template_line__product_id
 msgid "Product"
 msgstr "Proizvod"
 
 # taken from hr.po
 #. module: sale_management
-#: model:ir.model.fields,field_description:sale_management.field_sale_order_option__quantity
+#: model:ir.model.fields,field_description:sale_management.field_sale_order_template_line__product_uom_qty
 msgid "Quantity"
 msgstr "Količina"
 
@@ -460,7 +457,7 @@ msgstr "Ukloni"
 
 # taken from hr.po
 #. module: sale_management
-#: model_terms:ir.ui.view,arch_db:sale_management.sale_order_portal_content_inherit_sale_management
+#: model_terms:ir.ui.view,arch_db:sale_management.sale_order_portal_optional_product_quantity
 msgid "Remove one"
 msgstr "Ukloni jednu"
 
@@ -498,13 +495,13 @@ msgstr "Prodaja"
 #. module: sale_management
 #: model:ir.model,name:sale_management.model_sale_order
 msgid "Sales Order"
-msgstr "Prodajni nalog"
+msgstr "Narudžba"
 
 # taken from hr.po
 #. module: sale_management
 #: model:ir.model,name:sale_management.model_sale_order_line
 msgid "Sales Order Line"
-msgstr "Stavka prodajne narudžbe"
+msgstr "Stavka narudžbe"
 
 # taken from hr.po
 #. module: sale_management
@@ -544,9 +541,9 @@ msgstr ""
 
 # taken from hr.po
 #. module: sale_management
-#: model:ir.model.fields,field_description:sale_management.field_sale_order_option__sequence
+#: model:ir.model.fields,field_description:sale_management.field_sale_order_template__sequence
 msgid "Sequence"
-msgstr "Sekvenca"
+msgstr "Redoslijed"
 
 # taken from hr.po
 #. module: sale_management
@@ -571,7 +568,7 @@ msgstr "Uvijeti isporuke"
 #. module: sale_management
 #: model:ir.model.fields,field_description:sale_management.field_sale_order_template__note
 msgid "Terms and conditions"
-msgstr "Odredbe i uslovi"
+msgstr "Uslovi i odredbe"
 
 # taken from hr.po
 #. module: sale_management
@@ -655,7 +652,7 @@ msgstr ""
 # taken from hr.po
 #. module: sale_management
 #. odoo-python
-#: code:addons/sale_management/models/sale_order_option.py
+#: code:addons/sale_management/models/sale_order_option.py:0
 #, python-format
 msgid "You cannot add options to a confirmed order."
 msgstr "Ne možete dodati opcije na potvrđenu narudžbu."
@@ -663,7 +660,7 @@ msgstr "Ne možete dodati opcije na potvrđenu narudžbu."
 # taken from hr.po
 #. module: sale_management
 #. odoo-python
-#: code:addons/sale_management/models/sale_order_template_line.py
+#: code:addons/sale_management/models/sale_order_template_line.py:0
 #, python-format
 msgid ""
 "You cannot change the type of a sale quote line. Instead you should delete "
@@ -675,7 +672,7 @@ msgstr ""
 # taken from hr.po
 #. module: sale_management
 #. odoo-python
-#: code:addons/sale_management/models/sale_order.py
+#: code:addons/sale_management/models/sale_order.py:0
 #, python-format
 msgid ""
 "Your quotation contains products from company %(product_company)s whereas your quotation belongs to company %(quote_company)s. \n"
@@ -687,7 +684,7 @@ msgstr ""
 # taken from hr.po
 #. module: sale_management
 #. odoo-python
-#: code:addons/sale_management/models/sale_order_template.py
+#: code:addons/sale_management/models/sale_order_template.py:0
 #, python-format
 msgid "Your template cannot contain products from multiple companies."
 msgstr "Vaš predložak ne može sadržavati proizvode više tvrtki."
@@ -695,7 +692,7 @@ msgstr "Vaš predložak ne može sadržavati proizvode više tvrtki."
 # taken from hr.po
 #. module: sale_management
 #. odoo-python
-#: code:addons/sale_management/models/sale_order_template.py
+#: code:addons/sale_management/models/sale_order_template.py:0
 #, python-format
 msgid ""
 "Your template contains products from company %(product_company)s whereas your template belongs to company %(template_company)s. \n"
@@ -715,3 +712,116 @@ msgstr "Dani"
 #: model_terms:ir.ui.view,arch_db:sale_management.sale_order_template_view_form
 msgid "e.g. Standard Consultancy Package"
 msgstr "npr. Standardni savjetodavni paket"
+
+#. module: sale_management
+#: model_terms:ir.ui.view,arch_db:sale_management.sale_order_template_view_form
+msgid "<span invisible=\"not require_payment\">of</span>"
+msgstr "<span invisible=\"not require_payment\">od</span>"
+
+#. module: sale_management
+#: model:ir.model.fields,field_description:sale_management.field_sale_order_template_line__allowed_uom_ids
+msgid "Allowed Uom"
+msgstr "Dozvoljene JM"
+
+#. module: sale_management
+#: model:ir.model.fields,help:sale_management.field_sale_order_template__journal_id
+msgid ""
+"If set, SO with this template will invoice in this journal; otherwise the "
+"sales journal with the lowest sequence is used."
+msgstr ""
+"Ako je postavljeno, SO s ovim predloškom će fakturisati u ovom dnevniku; "
+"inače se koristi dnevnik prodaje s najnižim redoslijedom."
+
+#. module: sale_management
+#: model:ir.model.fields,field_description:sale_management.field_sale_order_template__journal_id
+msgid "Invoicing Journal"
+msgstr "Dnevnik fakturisanja"
+
+#. module: sale_management
+#: model:ir.model.fields,field_description:sale_management.field_sale_order_line__is_optional
+msgid "Optional Line"
+msgstr "Opcionalna stavka"
+
+#. module: sale_management
+#: code:addons/sale_management/models/sale_order_template.py:0
+msgid "Optional Products Section"
+msgstr "Opcionalna sekcija proizvoda"
+
+#. module: sale_management
+#: model:ir.model.fields,field_description:sale_management.field_sale_order_template_line__parent_id
+msgid "Parent Section Line"
+msgstr "Stavka nadređene sekcije"
+
+#. module: sale_management
+#: model:ir.model.fields,field_description:sale_management.field_sale_order_template__prepayment_percent
+msgid "Prepayment percentage"
+msgstr "Postotak avansa"
+
+#. module: sale_management
+#: code:addons/sale_management/models/sale_order_template.py:0
+msgid "Prepayment percentage must be a valid percentage."
+msgstr "Postotak avansa mora biti važeći postotak."
+
+#. module: sale_management
+#: model_terms:ir.ui.view,arch_db:sale_management.sale_order_template_view_form
+msgid "Quotation Validity"
+msgstr "Važenje ponude"
+
+#. module: sale_management
+#: code:addons/sale_management/static/src/fields/sale_order_line_field/sale_order_line_field.xml:0
+msgid "Set Optional"
+msgstr "Postavi kao opcionalno"
+
+#. module: sale_management
+#: model:ir.model.fields.selection,name:sale_management.selection__sale_order_template_line__display_type__line_subsection
+msgid "Subsection"
+msgstr "Podsekcija"
+
+#. module: sale_management
+#: model:ir.model.fields,help:sale_management.field_sale_order_template__prepayment_percent
+msgid "The percentage of the amount needed to be paid to confirm quotations."
+msgstr "Postotak iznosa koji treba biti plaćen za potvrdu ponuda."
+
+#. module: sale_management
+#: model:ir.model.fields,field_description:sale_management.field_sale_order_template_line__product_uom_id
+msgid "Unit"
+msgstr "Jedinica"
+
+#. module: sale_management
+#: code:addons/sale_management/static/src/fields/sale_order_line_field/sale_order_line_field.xml:0
+msgid "Unset Optional"
+msgstr "Ukloni kao opcionalno"
+
+#. module: sale_management
+#: model_terms:ir.ui.view,arch_db:sale_management.sale_order_template_view_form
+msgid "Visible to all"
+msgstr "Vidljivo svima"
+
+#. module: sale_management
+#: code:addons/sale_management/models/sale_order_template.py:0
+msgid ""
+"Your template belongs to company %(template_company)s but contains products from company (%(product_company)s) that are not accessible to %(template_company)s.\n"
+"Please change the company of your template or remove the products from other companies."
+msgstr ""
+"Vaš predložak pripada kompaniji %(template_company)s, ali sadrži proizvode kompanije (%(product_company)s) koji nisu dostupni %(template_company)s.\n"
+"Molimo promijenite kompaniju vašeg predloška ili uklonite proizvode iz drugih kompanija."
+
+#. module: sale_management
+#: code:addons/sale_management/models/sale_order_template.py:0
+msgid ""
+"Your template belongs to company %(template_company)s but contains products from other companies (%(product_company)s) that are not accessible to %(template_company)s.\n"
+"Please change the company of your template or remove the products from other companies."
+msgstr ""
+"Vaš predložak pripada kompaniji %(template_company)s, ali sadrži proizvode drugih kompanija (%(product_company)s) koji nisu dostupni %(template_company)s.\n"
+"Promijenite kompaniju svog predloška ili uklonite proizvode drugih kompanija."
+
+#. module: sale_management
+#: code:addons/sale_management/models/sale_order_template.py:0
+msgid ""
+"Your template cannot contain products from specific companies if it's shared"
+" between companies. Please restrict the template access, or remove those "
+"products."
+msgstr ""
+"Vaš predložak ne može sadržavati proizvode određenih kompanija ako se dijeli"
+" između kompanija. Molimo ograničite pristup predlošku ili uklonite te "
+"proizvode."

@@ -39,7 +39,7 @@ msgstr ""
 
 #. module: website_event_sale
 #. odoo-python
-#: code:addons/website_event_sale/models/product_pricelist.py
+#: code:addons/website_event_sale/models/product_pricelist.py:0
 #, python-format
 msgid ""
 "A pricelist item with a positive min. quantity cannot be applied to this "
@@ -50,7 +50,7 @@ msgstr ""
 
 #. module: website_event_sale
 #. odoo-python
-#: code:addons/website_event_sale/models/product_pricelist.py
+#: code:addons/website_event_sale/models/product_pricelist.py:0
 #, python-format
 msgid ""
 "A pricelist item with a positive min. quantity will not be applied to the "
@@ -72,13 +72,13 @@ msgstr "Karta događaja"
 
 # taken from hr.po
 #. module: website_event_sale
-#: model_terms:ir.ui.view,arch_db:website_event_sale.registration_template
+#: model_terms:ir.ui.view,arch_db:website_event_sale.modal_ticket_registration
 msgid "Free"
 msgstr "Slobodan"
 
 # taken from hr.po
 #. module: website_event_sale
-#: model_terms:ir.ui.view,arch_db:website_event_sale.registration_template
+#: model_terms:ir.ui.view,arch_db:website_event_sale.modal_ticket_registration
 msgid "From"
 msgstr "Od"
 
@@ -114,18 +114,18 @@ msgstr "Objavljeni događaji"
 #. module: website_event_sale
 #: model:ir.model,name:website_event_sale.model_sale_order
 msgid "Sales Order"
-msgstr "Prodajni nalog"
+msgstr "Narudžba"
 
 # taken from hr.po
 #. module: website_event_sale
 #: model:ir.model,name:website_event_sale.model_sale_order_line
 msgid "Sales Order Line"
-msgstr "Stavka prodajne narudžbe"
+msgstr "Stavka narudžbe"
 
 # taken from hr.po
 #. module: website_event_sale
 #. odoo-python
-#: code:addons/website_event_sale/models/sale_order.py
+#: code:addons/website_event_sale/models/sale_order.py:0
 #, python-format
 msgid "Sorry, The %(ticket)s tickets for the %(event)s event are sold out."
 msgstr "Žao nam je %(ticket)s karte za %(event)s događaj su rasprodane."
@@ -133,7 +133,7 @@ msgstr "Žao nam je %(ticket)s karte za %(event)s događaj su rasprodane."
 # taken from hr.po
 #. module: website_event_sale
 #. odoo-python
-#: code:addons/website_event_sale/models/sale_order.py
+#: code:addons/website_event_sale/models/sale_order.py:0
 #, python-format
 msgid ""
 "Sorry, only %(remaining_seats)d seats are still available for the %(ticket)s"
@@ -144,7 +144,7 @@ msgstr ""
 
 #. module: website_event_sale
 #. odoo-python
-#: code:addons/website_event_sale/models/sale_order.py
+#: code:addons/website_event_sale/models/sale_order.py:0
 #, python-format
 msgid "The provided ticket doesn't exist"
 msgstr "Pružena karta ne postoji"
@@ -152,7 +152,7 @@ msgstr "Pružena karta ne postoji"
 # taken from hr.po
 #. module: website_event_sale
 #. odoo-python
-#: code:addons/website_event_sale/models/sale_order.py
+#: code:addons/website_event_sale/models/sale_order.py:0
 #, python-format
 msgid "The ticket doesn't match with this product."
 msgstr "Ulaznica se ne podudara sa ovim proizvodom."
@@ -160,7 +160,7 @@ msgstr "Ulaznica se ne podudara sa ovim proizvodom."
 # taken from hr.po
 #. module: website_event_sale
 #. odoo-python
-#: code:addons/website_event_sale/models/product_pricelist.py
+#: code:addons/website_event_sale/models/product_pricelist.py:0
 #, python-format
 msgid "Warning"
 msgstr "Upozorenje"
@@ -178,7 +178,7 @@ msgstr "Web stranica"
 
 #. module: website_event_sale
 #. odoo-python
-#: code:addons/website_event_sale/models/sale_order.py
+#: code:addons/website_event_sale/models/sale_order.py:0
 #, python-format
 msgid "You cannot raise manually the event ticket quantity in your cart"
 msgstr "Ne možete ručno povećati količinu karte događaja u korpi"
@@ -195,6 +195,74 @@ msgstr "događaji"
 
 # taken from hr.po
 #. module: website_event_sale
-#: model_terms:ir.ui.view,arch_db:website_event_sale.registration_template
+#: model_terms:ir.ui.view,arch_db:website_event_sale.modal_ticket_registration
 msgid "to"
 msgstr "do"
+
+#. module: website_event_sale
+#: model_terms:ir.ui.view,arch_db:website_event_sale.event_confirmation
+msgid "<b>End</b>"
+msgstr "<b>Kraj</b>"
+
+#. module: website_event_sale
+#: model_terms:ir.ui.view,arch_db:website_event_sale.event_confirmation
+msgid "<b>Start</b>"
+msgstr "<b>Početak</b>"
+
+#. module: website_event_sale
+#: model_terms:ir.ui.view,arch_db:website_event_sale.event_confirmation
+msgid "<i class=\"fa fa-check me-2\" role=\"img\"/>Registered"
+msgstr "<i class=\"fa fa-check me-2\" role=\"img\"/>Registrovan"
+
+#. module: website_event_sale
+#: model_terms:ir.ui.view,arch_db:website_event_sale.registration_attendee_details
+msgid ""
+"<span>Sign In</span>\n"
+"                <span class=\"fa fa-sign-in\"/>"
+msgstr ""
+"<span>Prijavi se</span>\n"
+"                <span class=\"fa fa-sign-in\"/>"
+
+#. module: website_event_sale
+#: model_terms:ir.ui.view,arch_db:website_event_sale.registration_attendee_details
+msgid "Confirm Registration"
+msgstr "Potvrdi registraciju"
+
+#. module: website_event_sale
+#: model:ir.model.fields,field_description:website_event_sale.field_event_sale_report__display_name
+msgid "Display Name"
+msgstr "Naziv za prikaz"
+
+#. module: website_event_sale
+#: model_terms:ir.ui.view,arch_db:website_event_sale.event_confirmation
+msgid "Event Subtitle"
+msgstr "Podnaslov događaja"
+
+#. module: website_event_sale
+#: model_terms:ir.ui.view,arch_db:website_event_sale.event_confirmation
+msgid "Event Title"
+msgstr "Naslov događaja"
+
+#. module: website_event_sale
+#: model_terms:ir.ui.view,arch_db:website_event_sale.registration_attendee_details
+msgid "Go to Payment"
+msgstr "Idi na plaćanje"
+
+#. module: website_event_sale
+#: model:ir.model.fields,field_description:website_event_sale.field_event_sale_report__id
+msgid "ID"
+msgstr "ID"
+
+#. module: website_event_sale
+#: code:addons/website_event_sale/models/sale_order.py:0
+msgid ""
+"Sorry, only %(remaining_seats)d seats are still available for the %(ticket)s"
+" ticket for the %(event)s event%(slot)s."
+msgstr ""
+"Nažalost, samo %(remaining_seats)d mjesta je još uvijek dostupno za "
+"%(ticket)s ulaznicu za događaj %(event)s%(slot)s."
+
+#. module: website_event_sale
+#: code:addons/website_event_sale/models/sale_order.py:0
+msgid "The provided ticket slot doesn't exist"
+msgstr "Navedeni slot ulaznice ne postoji"

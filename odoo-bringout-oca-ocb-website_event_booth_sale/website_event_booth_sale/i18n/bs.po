@@ -42,7 +42,7 @@ msgstr "Varijanta proizvoda"
 #. module: website_event_booth_sale
 #: model:ir.model,name:website_event_booth_sale.model_sale_order
 msgid "Sales Order"
-msgstr "Prodajni nalog"
+msgstr "Narudžba"
 
 # taken from hr.po
 #. module: website_event_booth_sale
@@ -52,7 +52,42 @@ msgstr "Web stranica"
 
 #. module: website_event_booth_sale
 #. odoo-python
-#: code:addons/website_event_booth_sale/models/sale_order.py
+#: code:addons/website_event_booth_sale/models/sale_order.py:0
 #, python-format
 msgid "You cannot manually change the quantity of an Event Booth product."
 msgstr "You cannot manually change the quantity of an događaj štand product."
+
+#. module: website_event_booth_sale
+#: model_terms:ir.ui.view,arch_db:website_event_booth_sale.event_booth_registration
+msgid "<span>Total</span>"
+msgstr "<span>Ukupno</span>"
+
+#. module: website_event_booth_sale
+#: model_terms:ir.ui.view,arch_db:website_event_booth_sale.event_booth_registration_details
+msgid "Book my Booth(s)"
+msgstr "Rezerviši moj/e štand(ove)"
+
+#. module: website_event_booth_sale
+#: model_terms:ir.ui.view,arch_db:website_event_booth_sale.event_booth_order_progress
+msgid "Confirmed"
+msgstr "Potvrđeno"
+
+#. module: website_event_booth_sale
+#: model:ir.model.fields,field_description:website_event_booth_sale.field_product_template__display_name
+msgid "Display Name"
+msgstr "Naziv za prikaz"
+
+#. module: website_event_booth_sale
+#: model_terms:ir.ui.view,arch_db:website_event_booth_sale.event_booth_registration_details
+msgid "Go to Payment"
+msgstr "Idi na plaćanje"
+
+#. module: website_event_booth_sale
+#: model:ir.model.fields,field_description:website_event_booth_sale.field_product_template__id
+msgid "ID"
+msgstr "ID"
+
+#. module: website_event_booth_sale
+#: model_terms:ir.ui.view,arch_db:website_event_booth_sale.event_booth_order_progress
+msgid "Payment"
+msgstr "Plaćanje"

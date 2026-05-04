@@ -18,7 +18,7 @@ msgstr ""
 # taken from hr.po
 #. module: mass_mailing_sale
 #. odoo-python
-#: code:addons/mass_mailing_sale/models/mailing_mailing.py
+#: code:addons/mass_mailing_sale/models/mailing_mailing.py:0
 #, python-format
 msgid "INVOICED"
 msgstr "Mail track govornici"
@@ -38,7 +38,7 @@ msgstr "Fakturirani iznos"
 # taken from hr.po
 #. module: mass_mailing_sale
 #. odoo-python
-#: code:addons/mass_mailing_sale/models/mailing_mailing.py
+#: code:addons/mass_mailing_sale/models/mailing_mailing.py:0
 #, python-format
 msgid "Invoices Analysis"
 msgstr "Analiza računa"
@@ -51,14 +51,14 @@ msgstr "Masovno slanje pošte"
 
 #. module: mass_mailing_sale
 #. odoo-python
-#: code:addons/mass_mailing_sale/models/mailing_mailing.py
+#: code:addons/mass_mailing_sale/models/mailing_mailing.py:0
 #, python-format
 msgid "No Quotations yet!"
 msgstr "Još nema ponuda!"
 
 #. module: mass_mailing_sale
 #. odoo-python
-#: code:addons/mass_mailing_sale/models/mailing_mailing.py
+#: code:addons/mass_mailing_sale/models/mailing_mailing.py:0
 #, python-format
 msgid "No Revenues yet!"
 msgstr "Još nema prihoda!"
@@ -66,7 +66,7 @@ msgstr "Još nema prihoda!"
 # taken from hr.po
 #. module: mass_mailing_sale
 #. odoo-python
-#: code:addons/mass_mailing_sale/models/mailing_mailing.py
+#: code:addons/mass_mailing_sale/models/mailing_mailing.py:0
 #, python-format
 msgid "QUOTATIONS"
 msgstr "PONUDE"
@@ -85,7 +85,7 @@ msgstr "Predračuni"
 
 #. module: mass_mailing_sale
 #. odoo-python
-#: code:addons/mass_mailing_sale/models/mailing_mailing.py
+#: code:addons/mass_mailing_sale/models/mailing_mailing.py:0
 #, python-format
 msgid ""
 "Quotations will appear here once your customers add products to their Carts "
@@ -102,7 +102,7 @@ msgstr "Prihodi"
 
 #. module: mass_mailing_sale
 #. odoo-python
-#: code:addons/mass_mailing_sale/models/mailing_mailing.py
+#: code:addons/mass_mailing_sale/models/mailing_mailing.py:0
 #, python-format
 msgid "Revenues will appear here once orders are turned into invoices."
 msgstr ""
@@ -111,7 +111,7 @@ msgstr ""
 # taken from hr.po
 #. module: mass_mailing_sale
 #. odoo-python
-#: code:addons/mass_mailing_sale/models/mailing_mailing.py
+#: code:addons/mass_mailing_sale/models/mailing_mailing.py:0
 #, python-format
 msgid "Sales Analysis"
 msgstr "Analiza prodaje"
@@ -120,7 +120,7 @@ msgstr "Analiza prodaje"
 #. module: mass_mailing_sale
 #: model:ir.model,name:mass_mailing_sale.model_sale_order
 msgid "Sales Order"
-msgstr "Prodajni nalog"
+msgstr "Narudžba"
 
 #. module: mass_mailing_sale
 #: model:ir.model.fields,help:mass_mailing_sale.field_utm_campaign__ab_testing_winner_selection
@@ -137,3 +137,13 @@ msgstr "UTM kampanja"
 #: model:ir.model.fields,field_description:mass_mailing_sale.field_utm_campaign__ab_testing_winner_selection
 msgid "Winner Selection"
 msgstr "Odabir pobjednika"
+
+#. module: mass_mailing_sale
+#: model:ir.model.fields,field_description:mass_mailing_sale.field_mailing_mailing__display_name
+msgid "Display Name"
+msgstr "Naziv za prikaz"
+
+#. module: mass_mailing_sale
+#: model:ir.model.fields,field_description:mass_mailing_sale.field_mailing_mailing__id
+msgid "ID"
+msgstr "ID"
