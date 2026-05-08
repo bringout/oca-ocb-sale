@@ -154,7 +154,7 @@ registry.category("web_tour.tours").add("test_combo_variant_mix", {
             Dialog.is("Attribute selection"),
             ProductConfigurator.pickRadio("Blue"),
             Dialog.confirm("Add"),
-            Dialog.confirm(),
+            Dialog.confirm("Add to order"),
             inLeftSide(
                 [
                     Order.hasLine({
@@ -198,20 +198,6 @@ registry.category("web_tour.tours").add("test_cross_exclusion_attribute_values",
             ProductConfigurator.pickRadio("attribute_1_value_2"),
             ProductConfigurator.pickRadio("attribute_2_value_1"),
             ProductConfigurator.isAddEnabled(),
-            Chrome.endTour(),
-        ].flat(),
-});
-
-registry.category("web_tour.tours").add("test_exclusion_attribute_values", {
-    steps: () =>
-        [
-            Chrome.startPoS(),
-            Dialog.confirm("Open Register"),
-            ProductScreen.clickDisplayedProduct("Configurable Chair"),
-            ProductConfigurator.pickColor("Red"),
-            ProductConfigurator.pickSelect("Metal"),
-            ProductConfigurator.isUnavailable("Other"),
-            ProductConfigurator.isUnavailable("Wool"),
             Chrome.endTour(),
         ].flat(),
 });

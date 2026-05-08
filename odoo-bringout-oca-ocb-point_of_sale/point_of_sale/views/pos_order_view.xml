@@ -9,6 +9,7 @@
                     <button name="%(action_pos_payment)d" string="Payment" class="oe_highlight" type="action" invisible="state != 'draft'" />
                     <button name="action_pos_order_invoice" string="Invoice" type="object"
                             invisible="state not in ['paid', 'done'] or account_move"/>
+                    <button name="action_pos_order_receipt" string="Download Receipt" type="object" invisible="state not in ['paid', 'done']"/>
                     <button name="refund" string="Return Products" type="object"
                         invisible="state == 'draft' or not has_refundable_lines"/>
                     <field name="state" widget="statusbar" invisible="state == 'cancel'" statusbar_visible="draft,paid,done"/>
@@ -16,16 +17,7 @@
                     <field name="has_refundable_lines" invisible="1" />
                 </header>
                 <sheet>
-                <field name="failed_pickings" invisible="1"/>
                 <div class="oe_button_box" name="button_box">
-                    <button name="action_stock_picking"
-                        type="object"
-                        class="oe_stat_button"
-                        icon="fa-truck"
-                        invisible="picking_count == 0">
-                        <field name="picking_count" widget="statinfo" string="Pickings" invisible="failed_pickings"/>
-                        <field name="picking_count" widget="statinfo" string="Pickings" class="text-danger" invisible="not failed_pickings"/>
-                    </button>
                     <button name="action_view_invoice"
                         string="Invoice"
                         type="object"
@@ -48,16 +40,23 @@
                         <field name="refunded_order_id" widget="statinfo" string="Refunded Orders" />
                     </button>
                 </div>
-                <group col="4" colspan="4" name="order_fields">
-                    <field name="name"/>
-                    <field name="source" readonly="True" />
-                    <field name="date_order"/>
-                    <field name="session_id"  readonly="state != 'draft'"/>
-                    <field string="User" name="user_id" readonly="account_move or state == 'done'"/>
-                    <field name="order_edit_tracking" invisible="1"/>
-                    <field name="is_edited" readonly="1" invisible="not order_edit_tracking"/>
-                    <field name="partner_id" context="{'res_partner_search_mode': 'customer'}" readonly="account_move"/>
-                    <field name="fiscal_position_id" options="{'no_create': True}" readonly="state != 'draft'"/>
+                <div class="oe_title">
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                </div>
+                <group>
+                    <group name="order_customer_details">
+                        <field name="date_order"/>
+                        <field name="partner_id" context="{'res_partner_search_mode': 'customer'}" readonly="account_move"/>
+                        <field name="fiscal_position_id" options="{'no_create': True}" readonly="state != 'draft'"/>
+                    </group>
+                    <group name="order_operational_details">
+                        <field string="Served by" name="user_id" readonly="account_move or state == 'done'" widget="many2one_avatar_user"/>
+                        <field name="session_id"  readonly="state != 'draft'"/>
+                        <field name="order_edit_tracking" invisible="1"/>
+                        <field name="is_edited" readonly="1" invisible="not order_edit_tracking"/>
+                    </group>
                 </group>
                 <notebook colspan="4">
                     <page string="Products" name="products">
@@ -86,7 +85,6 @@
                                 <field name="full_product_name" optional="hide" readonly="1"/>
                                 <field name="product_id" widget="product_label_section_and_note_field" />
                                 <field name="is_edited" readonly="1" column_invisible="not parent.order_edit_tracking"/>
-                                <field name="pack_lot_ids" widget="many2many_tags" groups="stock.group_production_lot"/>
                                 <field name="qty"/>
                                 <field name="customer_note" optional="hide"/>
                                 <field name="product_uom_id" groups="uom.group_uom"/>
@@ -113,14 +111,13 @@
                                     <field name="price_subtotal_incl" invisible="1" widget="monetary" force_save="1"/>
                                     <field name="tax_ids_after_fiscal_position" widget="many2many_tax_tags" string="Taxes"/>
                                     <field name="tax_ids" widget="many2many_tax_tags" invisible="1"/>
-                                    <field name="pack_lot_ids" widget="many2many_tags" groups="stock.group_production_lot"/>
                                     <field name="notice"/>
                                     <field name="currency_id" invisible="1"/>
                                     <field name="full_product_name" readonly="1" />
                                 </group>
                             </form>
                         </field>
-                        <group class="oe_subtotal_footer" colspan="2" name="order_total">
+                        <group class="oe_subtotal_footer border-0 mt-4 mt-md-0" name="order_total">
                             <field name="amount_tax"
                                    force_save="1"
                                    widget="monetary"/>
@@ -138,17 +135,16 @@
                                 invisible="amount_paid == 'amount_total'"
                                 readonly="state != 'draft'"/>
                             <label for="margin"/>
-                            <div class="text-nowrap">
+                            <div>
                                 <field name="margin" class="oe_inline" invisible="not is_total_cost_computed"/>
                                 <span class="oe_inline" invisible="not is_total_cost_computed">
                                     (<field name="margin_percent" nolabel="1" class="oe_inline" widget="percentage"/>)
                                 </span>
-                                <span class="float-end" invisible="is_total_cost_computed">To be determined</span>
+                                <span class="o_field_widget o_readonly_modifier" invisible="is_total_cost_computed">To be determined</span>
                             </div>
                             <field name="is_total_cost_computed" invisible="1"/>
                             <field name="currency_id" invisible="1"/>
                         </group>
-                        <div class="clearfix"/>
                     </page>
                     <page string="Payments" name="payments">
                         <field name="payment_ids" colspan="4" nolabel="1" readonly="account_move or state == 'done' or nb_print > 0">
@@ -216,7 +212,7 @@
         <field name="name">pos.order.kanban</field>
         <field name="model">pos.order</field>
         <field name="arch" type="xml">
-            <kanban class="o_kanban_mobile" create="0" sample="1">
+            <kanban class="o_kanban_mobile" create="0" sample="1" js_class="pos_kanban_view">
                 <field name="currency_id"/>
                 <templates>
                     <t t-name="card">
@@ -244,7 +240,7 @@
         <field name="name">pos.order.pivot</field>
         <field name="model">pos.order</field>
         <field name="arch" type="xml">
-            <pivot string="PoS Orders" sample="1">
+            <pivot string="PoS Orders" sample="1" js_class="pos_pivot_view">
                 <field name="date_order" type="row"/>
                 <field name="margin"/>
                 <field name="margin_percent" invisible="1"/>
@@ -287,7 +283,7 @@
         <field name="name">pos.order.list</field>
         <field name="model">pos.order</field>
         <field name="arch" type="xml">
-            <list string="POS Orders" create="0" sample="1" decoration-info="state == 'draft'" decoration-muted="state == 'cancel'" duplicate="0">
+            <list string="POS Orders" create="0" sample="1" decoration-info="state == 'draft'" decoration-muted="state == 'cancel'" duplicate="0" js_class="pos_list_view">
                 <header>
                     <button name="action_create_invoices" type="object" string="Create Invoices"/>
                 </header>
@@ -460,8 +456,8 @@
         <field name="state">code</field>
         <field name="binding_view_types">list,kanban,form</field>
         <field name="code">
-if records:
-    action = records.action_pos_order_cancel()
+            if records:
+                action = records.action_pos_order_cancel()
         </field>
     </record>
 

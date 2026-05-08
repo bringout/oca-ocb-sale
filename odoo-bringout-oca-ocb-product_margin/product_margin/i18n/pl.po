@@ -19,10 +19,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.5alpha1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:36+0000\n"
-"PO-Revision-Date: 2026-03-06 17:46+0000\n"
+"POT-Creation-Date: 2026-02-04 18:36+0000\n"
+"PO-Revision-Date: 2026-03-07 14:37+0000\n"
 "Last-Translator: \"Marta (wacm)\" <wacm@odoo.com>\n"
-"Language-Team: Polish <https://translate.odoo.com/projects/odoo-19/"
+"Language-Team: Polish <https://translate.odoo.com/projects/odoo-s19-2/"
 "product_margin/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -46,7 +46,7 @@ msgstr "# Fakturowanych sprzedaży"
 #. module: product_margin
 #: model_terms:ir.ui.view,arch_db:product_margin.view_product_margin_tree
 msgid "# Purchased"
-msgstr "# Zakupionych"
+msgstr "# Zakupów"
 
 #. module: product_margin
 #: model_terms:ir.ui.view,arch_db:product_margin.view_product_margin_form
@@ -76,12 +76,7 @@ msgstr "Śr. Cena jednostkowa sprzedaży"
 #. module: product_margin
 #: model_terms:ir.ui.view,arch_db:product_margin.view_product_margin_form
 msgid "Avg. Unit Price"
-msgstr "Średnia cena jednostkowa"
-
-#. module: product_margin
-#: model_terms:ir.ui.view,arch_db:product_margin.product_margin_form_view
-msgid "Cancel"
-msgstr "Anuluj"
+msgstr "Średnia cena"
 
 #. module: product_margin
 #: model_terms:ir.ui.view,arch_db:product_margin.view_product_margin_form
@@ -108,7 +103,7 @@ msgstr "Nazwa wyświetlana"
 #: model:ir.model.fields.selection,name:product_margin.selection__product_margin__invoice_state__draft_open_paid
 #: model:ir.model.fields.selection,name:product_margin.selection__product_product__invoice_state__draft_open_paid
 msgid "Draft, Open and Paid"
-msgstr "Projekty, otwarte i opłacone"
+msgstr "Projekty, otwarte i zapłacone"
 
 #. module: product_margin
 #: model:ir.model.fields,field_description:product_margin.field_product_product__expected_margin
@@ -165,7 +160,7 @@ msgstr "Stan faktury"
 #. module: product_margin
 #: model:ir.model.fields,field_description:product_margin.field_product_margin__write_uid
 msgid "Last Updated by"
-msgstr "Ostatnio zaktualizowane przez"
+msgstr "Ostatnio aktualizowane przez"
 
 #. module: product_margin
 #: model:ir.model.fields,field_description:product_margin.field_product_margin__write_date
@@ -339,9 +334,3 @@ msgstr "Obrót"
 #: model:ir.model.fields,help:product_margin.field_product_product__total_margin
 msgid "Turnover - Total cost"
 msgstr "Obroty – całkowity koszt"
-
-#~ msgid "Last Modified on"
-#~ msgstr "Data ostatniej modyfikacji"
-
-#~ msgid "Turnover - Standard price"
-#~ msgstr "Obrót - Cena przeciętna"

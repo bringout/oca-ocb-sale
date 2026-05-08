@@ -17,16 +17,8 @@ export class ProductsDesignPanelPlugin extends Plugin {
         builder_components: {
             ProductsDesignPanel,
         },
-        handleNewRecords: this.handleMutations.bind(this),
-        save_handlers: this.onSave.bind(this),
-        change_current_options_containers_listeners: () => {
-            this.panels.forEach((panel) => {
-                if (panel.state.overlayVisible) {
-                    panel.closeDesignOverlay();
-                }
-            });
-        },
-
+        on_new_records_handled_handlers: this.handleMutations.bind(this),
+        on_ready_to_save_document_handlers: this.onSave.bind(this),
         product_design_list_to_save: {
             selector: "#o_wsale_products_grid",
             getData(el) {
@@ -118,7 +110,7 @@ export class ProductsDesignPanelPlugin extends Plugin {
 /**
  * Handles suggestedClasses with clean slate approach and delegates to classAction/setClassRange
  */
-class ClassActionWithSuggestedAction extends BuilderAction {
+export class ClassActionWithSuggestedAction extends BuilderAction {
     static id = "classActionWithSave";
     static dependencies = ["builderActions"];
 
@@ -228,7 +220,7 @@ class ClassActionWithSuggestedAction extends BuilderAction {
     }
 }
 
-class SetGapAction extends BuilderAction {
+export class SetGapAction extends BuilderAction {
     static id = "setGap";
 
     isApplied() {

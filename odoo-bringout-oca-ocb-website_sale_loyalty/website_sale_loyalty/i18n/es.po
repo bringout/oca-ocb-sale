@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:37+0000\n"
+"POT-Creation-Date: 2026-03-12 18:37+0000\n"
 "PO-Revision-Date: 2025-11-12 09:36+0000\n"
 "Last-Translator: \"Noemi Pla Garcia (nopl)\" <nopl@odoo.com>\n"
 "Language-Team: Spanish <https://translate.odoo.com/projects/odoo-19/"
@@ -76,12 +76,6 @@ msgid "Coupon"
 msgstr "Cupón"
 
 #. module: website_sale_loyalty
-#. odoo-javascript
-#: code:addons/website_sale_loyalty/static/src/website_builder/coupon_option_plugin.js:0
-msgid "Coupon Snippet Options"
-msgstr "Opciones del fragmento de cupón"
-
-#. module: website_sale_loyalty
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.modify_code_form
 msgid "Coupons -"
 msgstr "Cupones -"
@@ -116,16 +110,6 @@ msgstr "Descuento y fidelidad"
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.reduction_coupon_code
 msgid "Discount code or gift card"
 msgstr "Código de descuento o tarjeta regalo"
-
-#. module: website_sale_loyalty
-#: model_terms:ir.ui.view,arch_db:website_sale_loyalty.cart_discount
-msgid "Discount:"
-msgstr "Descuento:"
-
-#. module: website_sale_loyalty
-#: model_terms:ir.ui.view,arch_db:website_sale_loyalty.cart_discount
-msgid "Discounted amount"
-msgstr "Cantidad descontada"
 
 #. module: website_sale_loyalty
 #: model:ir.model.fields,field_description:website_sale_loyalty.field_coupon_share__display_name
@@ -215,6 +199,12 @@ msgid "Loyalty Rule"
 msgstr "Regla de fidelidad"
 
 #. module: website_sale_loyalty
+#. odoo-python
+#: code:addons/website_sale_loyalty/tests/test_shop_sale_coupon.py:0
+msgid "No reward to claim with this coupon"
+msgstr ""
+
+#. module: website_sale_loyalty
 #: model:ir.model,name:website_sale_loyalty.model_product_product
 msgid "Product Variant"
 msgstr "Variante de producto"
@@ -285,12 +275,6 @@ msgstr "Compartir enlace"
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.coupon_share_view_form
 msgid "Share Loyalty Card"
 msgstr "Compartir tarjeta de fidelidad"
-
-#. module: website_sale_loyalty
-#. odoo-javascript
-#: code:addons/website_sale_loyalty/static/src/website_builder/coupon_option.xml:0
-msgid "Show Discount in Subtotal"
-msgstr "Mostrar descuento en el subtotal"
 
 #. module: website_sale_loyalty
 #: model:ir.model.fields,field_description:website_sale_loyalty.field_loyalty_program__show_non_published_product_warning

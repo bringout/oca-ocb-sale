@@ -1,14 +1,13 @@
 import { Plugin } from "@html_editor/plugin";
 import { registry } from "@web/core/registry";
-import { AddToCartOption, addToCartValues } from "./add_to_card_option";
+import { addToCartValues } from "./add_to_cart_option";
 import { BuilderAction } from "@html_builder/core/builder_action";
 
-class AddToCartOptionPlugin extends Plugin {
+export class AddToCartOptionPlugin extends Plugin {
     static id = "addToCartOption";
     static dependencies = ["builderActions"];
     resources = {
-        builder_options: [AddToCartOption],
-        so_content_addition_selector: [".s_add_to_cart"],
+        so_content_addition_selectors: [".s_add_to_cart"],
         builder_actions: {
             ProductToCartAction,
             VariantToCartAction,
@@ -35,9 +34,9 @@ export class ProductToCartAction extends BuilderAction {
         buttonEl.dataset.productType = type;
         const oneVariant = product_variant_ids.length === 1;
         if (oneVariant) {
-            buttonEl.dataset.productVariantId = product_variant_ids[0];
+            buttonEl.dataset.productId = product_variant_ids[0];
         } else {
-            delete buttonEl.dataset.productVariantId;
+            delete buttonEl.dataset.productId;
         }
         classAction.clean({
             editingElement: buttonEl,
@@ -58,7 +57,7 @@ export class ProductToCartAction extends BuilderAction {
         const buttonEl = editingElement.querySelector(".s_add_to_cart_btn");
         delete buttonEl.dataset.productTemplateId;
         delete buttonEl.dataset.productType;
-        delete buttonEl.dataset.productVariantId;
+        delete buttonEl.dataset.productId;
         classAction.apply({
             editingElement: buttonEl,
             params: { mainParam: "disabled" },
@@ -94,12 +93,12 @@ export class VariantToCartAction extends BuilderAction {
         const { id } = JSON.parse(value);
         editingElement.dataset.productVariant = id;
         const buttonEl = editingElement.querySelector(".s_add_to_cart_btn");
-        buttonEl.dataset.productVariantId = id;
+        buttonEl.dataset.productId = id;
     }
     clean({ editingElement }) {
         delete editingElement.dataset.productVariant;
         const buttonEl = editingElement.querySelector(".s_add_to_cart_btn");
-        delete buttonEl.dataset.productVariantId;
+        delete buttonEl.dataset.productId;
         this.dependencies.builderActions
             .getAction("addToCartAction")
             .resetDefaultAction(editingElement);

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:36+0000\n"
+"POT-Creation-Date: 2025-10-08 18:38+0000\n"
 "PO-Revision-Date: 2025-12-03 18:47+0000\n"
 "Last-Translator: \"Fernanda Alvarez (mfar)\" <mfar@odoo.com>\n"
 "Language-Team: Spanish (Latin America) <https://translate.odoo.com/projects/"
@@ -152,15 +152,3 @@ msgstr "Orden de venta"
 #: model:ir.model,name:sale_expense.model_sale_order_line
 msgid "Sales Order Line"
 msgstr "Línea de la orden de venta"
-
-#~ msgid "Expense Report"
-#~ msgstr "Reporte de gastos"
-
-#~ msgid "Reinvoiced Sales Orders"
-#~ msgstr "Órdenes de venta refacturadas"
-
-#~ msgid "Sale Order Count"
-#~ msgstr "Número de órdenes de venta"
-
-#~ msgid "Sales Orders"
-#~ msgstr "Órdenes de venta"

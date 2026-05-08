@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:36+0000\n"
+"POT-Creation-Date: 2025-10-08 18:38+0000\n"
 "PO-Revision-Date: 2025-09-16 10:06+0000\n"
 "Last-Translator: \"Dylan Kiss (dyki)\" <dyki@odoo.com>\n"
 "Language-Team: Portuguese (Brazil) <https://translate.odoo.com/projects/"
@@ -116,33 +116,3 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:product_matrix.extra_price
 msgid "Variant price"
 msgstr "Preço da variante"
-
-#~ msgid "Blue"
-#~ msgstr "Azul"
-
-#~ msgid "Gender"
-#~ msgstr "Sexo"
-
-#~ msgid "Men"
-#~ msgstr "Homem"
-
-#~ msgid "Pink"
-#~ msgstr "Rosa"
-
-#~ msgid "Rainbow"
-#~ msgstr "Arco iris"
-
-#~ msgid "Size"
-#~ msgstr "Tamanho"
-
-#~ msgid "Women"
-#~ msgstr "Mulher"
-
-#~ msgid "XL"
-#~ msgstr "GG"
-
-#~ msgid "XS"
-#~ msgstr "PP"
-
-#~ msgid "Yellow"
-#~ msgstr "Amarelo"

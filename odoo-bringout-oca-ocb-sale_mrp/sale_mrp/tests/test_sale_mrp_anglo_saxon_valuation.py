@@ -234,7 +234,7 @@ class TestSaleMRPAngloSaxonValuation(TestSaleCommon, ValuationReconciliationTest
             'product_id': component.id,
             'location_id': self.env.ref('stock.stock_location_suppliers').id,
             'location_dest_id': self.company_data['default_warehouse'].lot_stock_id.id,
-            'product_uom': component.uom_id.id,
+            'uom_id': component.uom_id.id,
             'product_uom_qty': 1,
             'price_unit': p,
         } for p in [10, 20, 60]])
@@ -275,7 +275,7 @@ class TestSaleMRPAngloSaxonValuation(TestSaleCommon, ValuationReconciliationTest
             'product_id': component.id,
             'location_id': self.env.ref('stock.stock_location_suppliers').id,
             'location_dest_id': self.company_data['default_warehouse'].lot_stock_id.id,
-            'product_uom': component.uom_id.id,
+            'uom_id': component.uom_id.id,
             'product_uom_qty': 1,
             'price_unit': 100,
         })
@@ -284,11 +284,9 @@ class TestSaleMRPAngloSaxonValuation(TestSaleCommon, ValuationReconciliationTest
         in_moves._action_done()
 
         # Return the second picking (i.e. one component @20)
-        ctx = {'active_id': pickings[1].id, 'active_model': 'stock.picking'}
-        return_wizard = Form(self.env['stock.return.picking'].with_context(ctx)).save()
-        return_wizard.product_return_moves.quantity = 1
-        return_picking = return_wizard._create_return()
-        return_picking.move_ids.write({'quantity': 1, 'picked': True})
+        return_picking = pickings[1]._create_return()
+        return_picking.move_ids.product_uom_qty = 1
+        return_picking.action_assign()
         return_picking.button_validate()
 
         # Add a credit note for the returned kit
@@ -335,7 +333,7 @@ class TestSaleMRPAngloSaxonValuation(TestSaleCommon, ValuationReconciliationTest
             'product_id': component.id,
             'location_id': self.env.ref('stock.stock_location_suppliers').id,
             'location_dest_id': self.company_data['default_warehouse'].lot_stock_id.id,
-            'product_uom': component.uom_id.id,
+            'uom_id': component.uom_id.id,
             'product_uom_qty': 1,
             'price_unit': p,
         } for p in [10, 20, 60]])
@@ -376,7 +374,7 @@ class TestSaleMRPAngloSaxonValuation(TestSaleCommon, ValuationReconciliationTest
             'product_id': component.id,
             'location_id': self.env.ref('stock.stock_location_suppliers').id,
             'location_dest_id': self.company_data['default_warehouse'].lot_stock_id.id,
-            'product_uom': component.uom_id.id,
+            'uom_id': component.uom_id.id,
             'product_uom_qty': 1,
             'price_unit': 100,
         })
@@ -385,11 +383,9 @@ class TestSaleMRPAngloSaxonValuation(TestSaleCommon, ValuationReconciliationTest
         in_moves._action_done()
 
         # Return the second picking (i.e. one component @20)
-        ctx = {'active_id': pickings[1].id, 'active_model': 'stock.picking'}
-        return_wizard = Form(self.env['stock.return.picking'].with_context(ctx)).save()
-        return_wizard.product_return_moves.quantity = 1
-        return_picking = return_wizard._create_return()
-        return_picking.move_ids.write({'quantity': 1, 'picked': True})
+        return_picking = pickings[1]._create_return()
+        return_picking.move_ids.product_uom_qty = 1
+        return_picking.move_ids.action_assign()
         return_picking.button_validate()
 
         # Create a new invoice for the returned kit
@@ -426,7 +422,7 @@ class TestSaleMRPAngloSaxonValuation(TestSaleCommon, ValuationReconciliationTest
         self.env['mrp.bom'].create({
             'product_id': kit.id,
             'product_tmpl_id': kit.product_tmpl_id.id,
-            'product_uom_id': kit.uom_id.id,
+            'uom_id': kit.uom_id.id,
             'product_qty': 1.0,
             'type': 'phantom',
             'bom_line_ids': [
@@ -478,7 +474,7 @@ class TestSaleMRPAngloSaxonValuation(TestSaleCommon, ValuationReconciliationTest
         self.env['mrp.bom'].create({
             'product_id': kit.id,
             'product_tmpl_id': kit.product_tmpl_id.id,
-            'product_uom_id': kit.uom_id.id,
+            'uom_id': kit.uom_id.id,
             'product_qty': 1.0,
             'type': 'phantom',
             'bom_line_ids': [

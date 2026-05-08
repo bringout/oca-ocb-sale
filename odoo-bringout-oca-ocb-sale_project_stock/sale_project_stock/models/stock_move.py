@@ -13,11 +13,11 @@ class StockMove(models.Model):
         """
         self.ensure_one()
 
-        if self.product_id.expense_policy == 'sales_price':
+        if self.product_id.reinvoice_policy == 'sales_price':
             return order.pricelist_id._get_product_price(
                 self.product_id,
                 1.0,
-                uom=self.product_uom,
+                uom=self.uom_id,
                 date=order.date_order,
             )
 

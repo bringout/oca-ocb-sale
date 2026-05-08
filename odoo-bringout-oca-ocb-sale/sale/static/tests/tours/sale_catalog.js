@@ -33,6 +33,9 @@ registry.category("web_tour.tours").add('sale_catalog', {
             run: "edit Restricted",
         },
         {
+            trigger: '.fst-italic.text-primary:contains("Restricted"):first',
+        },
+        {
             content: "Search for the product",
             trigger: 'input.o_searchview_input',
             run: "press Enter",
@@ -56,12 +59,12 @@ registry.category("web_tour.tours").add('sale_catalog', {
         },
         {
             content: "Input a custom quantity",
-            trigger: '.o_kanban_record:contains("Restricted Product") .o_input',
+            trigger: '.o_kanban_record:contains("Restricted Product") input',
             run: "edit 6",
         },
         {
             content: "Increase the quantity",
-            trigger: '.o_kanban_record:contains("Restricted Product") .fa-plus',
+            trigger: '.o_kanban_record:contains("Restricted Product") .oi-plus',
             run: 'click',
         },
         {

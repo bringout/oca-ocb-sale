@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.5alpha1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:37+0000\n"
+"POT-Creation-Date: 2026-02-04 18:37+0000\n"
 "PO-Revision-Date: 2025-12-20 09:47+0000\n"
 "Last-Translator: \"Noemi Pla Garcia (nopl)\" <nopl@odoo.com>\n"
 "Language-Team: Catalan <https://translate.odoo.com/projects/odoo-19/"
@@ -40,9 +40,34 @@ msgstr ""
 "disponible."
 
 #. module: website_sale_stock
+#. odoo-python
+#: code:addons/website_sale_stock/models/product_product.py:0
+msgid "%(product_name)s is back in stock"
+msgstr ""
+
+#. module: website_sale_stock
+#: model_terms:ir.ui.view,arch_db:website_sale_stock.product_wishlist
+msgid ""
+"<i class=\"fa fa-circle text-danger me-1\" aria-hidden=\"true\"/>\n"
+"                    Out of stock"
+msgstr ""
+
+#. module: website_sale_stock
 #: model_terms:ir.ui.view,arch_db:website_sale_stock.res_config_settings_view_form
 msgid "<span invisible=\"not default_show_availability\">units</span>"
 msgstr "<span invisible=\"not default_show_availability\">unitats</span>"
+
+#. module: website_sale_stock
+#. odoo-javascript
+#: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:0
+msgid "Add to wishlist"
+msgstr ""
+
+#. module: website_sale_stock
+#. odoo-javascript
+#: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:0
+msgid "Added to your wishlist"
+msgstr ""
 
 #. module: website_sale_stock
 #. odoo-javascript
@@ -86,11 +111,6 @@ msgid "Continue selling when out-of-stock"
 msgstr "Continuar venent quan s'esgoten les existències"
 
 #. module: website_sale_stock
-#: model_terms:ir.ui.view,arch_db:website_sale_stock.availability_email_body
-msgid "Dear Customer,"
-msgstr "Estimat client,"
-
-#. module: website_sale_stock
 #: model_terms:ir.ui.view,arch_db:website_sale_stock.res_config_settings_view_form
 msgid ""
 "Default availability mode set on newly created storable products. This can "
@@ -115,11 +135,17 @@ msgstr ""
 "- Esgotat: s'aplica quan el producte està esgotat."
 
 #. module: website_sale_stock
+#: model_terms:ir.ui.view,arch_db:website_sale_stock.availability_email_body
+msgid "Desk Combination"
+msgstr ""
+
+#. module: website_sale_stock
 #: model:ir.model.fields,field_description:website_sale_stock.field_product_combo__display_name
 #: model:ir.model.fields,field_description:website_sale_stock.field_product_feed__display_name
 #: model:ir.model.fields,field_description:website_sale_stock.field_product_product__display_name
 #: model:ir.model.fields,field_description:website_sale_stock.field_product_ribbon__display_name
 #: model:ir.model.fields,field_description:website_sale_stock.field_product_template__display_name
+#: model:ir.model.fields,field_description:website_sale_stock.field_product_wishlist__display_name
 #: model:ir.model.fields,field_description:website_sale_stock.field_res_config_settings__display_name
 #: model:ir.model.fields,field_description:website_sale_stock.field_sale_order__display_name
 #: model:ir.model.fields,field_description:website_sale_stock.field_sale_order_line__display_name
@@ -135,11 +161,17 @@ msgid "Get notified when back in stock"
 msgstr "Avisa'm quan tornis a l'estoc"
 
 #. module: website_sale_stock
+#: model_terms:ir.ui.view,arch_db:website_sale_stock.availability_email_body
+msgid "Hello"
+msgstr ""
+
+#. module: website_sale_stock
 #: model:ir.model.fields,field_description:website_sale_stock.field_product_combo__id
 #: model:ir.model.fields,field_description:website_sale_stock.field_product_feed__id
 #: model:ir.model.fields,field_description:website_sale_stock.field_product_product__id
 #: model:ir.model.fields,field_description:website_sale_stock.field_product_ribbon__id
 #: model:ir.model.fields,field_description:website_sale_stock.field_product_template__id
+#: model:ir.model.fields,field_description:website_sale_stock.field_product_wishlist__id
 #: model:ir.model.fields,field_description:website_sale_stock.field_res_config_settings__id
 #: model:ir.model.fields,field_description:website_sale_stock.field_sale_order__id
 #: model:ir.model.fields,field_description:website_sale_stock.field_sale_order_line__id
@@ -161,9 +193,24 @@ msgid "Invalid email"
 msgstr "Correu electrònic no vàlid"
 
 #. module: website_sale_stock
+#: model_terms:ir.ui.view,arch_db:website_sale_stock.product_template_form_view_inherit_website_sale_stock
+msgid "Inventory"
+msgstr ""
+
+#. module: website_sale_stock
 #: model_terms:ir.ui.view,arch_db:website_sale_stock.res_config_settings_view_form
 msgid "Inventory Defaults"
 msgstr "Valors per defecte de l'inventari"
+
+#. module: website_sale_stock
+#: model_terms:ir.ui.view,arch_db:website_sale_stock.availability_email_body
+msgid "Logo"
+msgstr ""
+
+#. module: website_sale_stock
+#: model_terms:ir.ui.view,arch_db:website_sale_stock.availability_email_body
+msgid "Mitchell Admin"
+msgstr ""
 
 #. module: website_sale_stock
 #: model_terms:ir.ui.view,arch_db:website_sale_stock.availability_email_body
@@ -217,6 +264,16 @@ msgid "Product Variant"
 msgstr "Variant de producte"
 
 #. module: website_sale_stock
+#: model:ir.model,name:website_sale_stock.model_product_wishlist
+msgid "Product Wishlist"
+msgstr ""
+
+#. module: website_sale_stock
+#: model_terms:ir.ui.view,arch_db:website_sale_stock.availability_email_body
+msgid "Product image"
+msgstr ""
+
+#. module: website_sale_stock
 #: model:ir.model,name:website_sale_stock.model_product_ribbon
 msgid "Product ribbon"
 msgstr "Etiqueta del producte"
@@ -227,11 +284,6 @@ msgid "Product: send email regarding products availability"
 msgstr ""
 "Producte: envia un correu electrònic pel que fa a la disponibilitat de "
 "productes"
-
-#. module: website_sale_stock
-#: model_terms:ir.ui.view,arch_db:website_sale_stock.availability_email_body
-msgid "Regards,"
-msgstr "Quant a,"
 
 #. module: website_sale_stock
 #: model:ir.model,name:website_sale_stock.model_sale_order
@@ -284,15 +336,14 @@ msgstr ""
 "Lamentem les molèsties."
 
 #. module: website_sale_stock
-#: model_terms:ir.ui.view,arch_db:website_sale_stock.availability_email_body
-msgid "The following product is now available."
-msgstr "El producte següent ja està disponible."
+#: model:ir.model.fields,field_description:website_sale_stock.field_product_wishlist__stock_notification
+msgid "Stock Notification"
+msgstr ""
 
 #. module: website_sale_stock
-#. odoo-python
-#: code:addons/website_sale_stock/models/product_product.py:0
-msgid "The product '%(product_name)s' is now available"
-msgstr "El producte '%(product_name)s' ja està disponible"
+#: model_terms:ir.ui.view,arch_db:website_sale_stock.availability_email_body
+msgid "The product you were waiting for is now back in stock!"
+msgstr ""
 
 #. module: website_sale_stock
 #: model:ir.model,name:website_sale_stock.model_stock_picking
@@ -380,48 +431,3 @@ msgstr "quan s'esgoti l'estoc"
 #: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:0
 msgid "youremail@gmail.com"
 msgstr "youremail@gmail.com"
-
-#~ msgid "<span invisible=\"not show_availability\">Units</span>"
-#~ msgstr "<span invisible=\"not show_availability\">Unitats</span>"
-
-#~ msgid "Default visibility for custom messages."
-#~ msgstr "Visibilitat predeterminada per als missatges personalitzats."
-
-#~ msgid "How to display products having low quantities (on hand - reserved)"
-#~ msgstr "Com mostrar productes amb quantitats baixes (a mà - reservat)"
-
-#~ msgid "Only"
-#~ msgstr "Sols"
-
-#~ msgid "This product is out of stock."
-#~ msgstr "Aquest producte està esgotat."
-
-#~ msgid "Units"
-#~ msgstr "Unitats"
-
-#~ msgid "We'll notify you once the product is back in stock."
-#~ msgstr "Us ho notificarem un cop el producte hagi tornat a l'estoc."
-
-#~ msgid "You already added"
-#~ msgstr "Ja heu afegit"
-
-#~ msgid "You already added all the available product in your cart."
-#~ msgstr "Ja has afegit tots els productes disponibles en la teva cistella."
-
-#~ msgid "You already have %s Units in your cart."
-#~ msgstr "Ja teniu %s unitats a la cistella."
-
-#~ msgid ""
-#~ "You ask for %(desired_qty)s products but only %(new_qty)s is available"
-#~ msgstr ""
-#~ "Heu demanat %(desired_qty)s productes però només hi ha %(new_qty)s "
-#~ "disponibles"
-
-#~ msgid "You ask for %s Units but only %s are available."
-#~ msgstr "Heu demanat %s unitats, però només %s estan disponibles."
-
-#~ msgid "in your cart."
-#~ msgstr "a la vostra cistella."
-
-#~ msgid "left in stock."
-#~ msgstr "que queden en estoc."

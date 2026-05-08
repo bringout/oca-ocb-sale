@@ -1,6 +1,8 @@
-import { onMounted, onRendered, useEffect, useRef, useState } from "@odoo/owl";
+import { onRendered, useLayoutEffect, useRef, useState } from "@web/owl2/utils";
+import { onMounted } from "@odoo/owl";
 import { Dialog } from "@web/core/dialog/dialog";
 import { useHotkey } from "@web/core/hotkeys/hotkey_hook";
+import { useDebounced } from "@web/core/utils/timing";
 
 const ZOOM_STEP = 0.1;
 const TOUCHMOVE_STEP = 96;
@@ -9,11 +11,17 @@ export class ProductImageViewer extends Dialog {
     static template = "website_sale.ProductImageViewer";
     static props = {
         ...Dialog.props,
-        images: { type: NodeList, required: true },
+        images: { type: NodeList },
         selectedImageIdx: { type: Number, optional: true },
         imageRatio: { type: String, optional: true },
+        imageRatioMobile: { type: String, optional: true },
         close: Function,
     };
+    static defaultProps = {
+        ...Dialog.defaultProps,
+        imageRatio: 'auto',
+        imageRatioMobile: 'auto',
+    }
 
     setup() {
         super.setup();
@@ -42,9 +50,15 @@ export class ProductImageViewer extends Dialog {
             this.updateImage();
         });
 
+        // Debounce update in line with `ease-out` animation.
+        this.updateCarousel = useDebounced(this._updateCarousel, 250, {
+            immediate: true,
+            trailing: true,
+        });
+
         // Not using a t-on-click on purpose because we want to be able to cancel the drag
         // when we go outside of the window.
-        useEffect(
+        useLayoutEffect(
             (document) => {
                 const onGlobalClick = this.onGlobalClick.bind(this);
                 document.addEventListener("click", onGlobalClick);
@@ -53,13 +67,9 @@ export class ProductImageViewer extends Dialog {
             () => [document],
         );
         onMounted(() => {
-            const carousel = document.querySelector('.o_wsale_image_viewer_carousel');
-            if (carousel) {
-                carousel.addEventListener('touchstart', this._onTouchstartCarousel.bind(this));
-                carousel.addEventListener('touchmove', this._onTouchmoveCarousel.bind(this));
-                const lastImg = carousel.querySelector('li:last-of-type img');
-                lastImg?.addEventListener('load', this._updateCarousel.bind(this), { once: true });
-            }
+            document.querySelector(
+                '.o_wsale_image_viewer_carousel li:last-of-type img'
+            )?.addEventListener('load', this.updateCarousel.bind(this), { once: true });
         });
         // For some reason the styling does not always update properly.
         onRendered(() => {
@@ -75,7 +85,7 @@ export class ProductImageViewer extends Dialog {
         this.state.imageScale = 1;
         this.imageTranslate = { x: 0, y: 0 };
         this.state.selectedImageIdx = this.images.indexOf(image);
-        this._updateCarousel();
+        this.updateCarousel();
     }
 
     get imageStyle() {

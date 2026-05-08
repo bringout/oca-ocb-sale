@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 
@@ -22,9 +21,8 @@ This module adds a custom Sales Team for the Point of Sale. This enables you to 
         'views/pos_order_views.xml',
         'views/sales_team_views.xml',
         'views/res_config_settings_views.xml',
-        'views/stock_template.xml',
+        'receipt/pos_order_receipt.xml',
     ],
-    'installable': True,
     'auto_install': True,
     'assets': {
         'point_of_sale._assets_pos': [

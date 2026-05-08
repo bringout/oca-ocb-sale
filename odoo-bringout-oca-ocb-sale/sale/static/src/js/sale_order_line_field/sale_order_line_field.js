@@ -1,3 +1,4 @@
+import { useSubEnv } from "@web/owl2/utils";
 import {
     ProductLabelSectionAndNoteListRender,
     productLabelSectionAndNoteOne2Many,
@@ -10,7 +11,6 @@ import {
     sectionAndNoteText,
     SectionAndNoteText,
 } from '@account/components/section_and_note_fields_backend/section_and_note_fields_backend';
-import { useSubEnv } from '@odoo/owl';
 import { registry } from '@web/core/registry';
 import { CharField } from '@web/views/fields/char/char_field';
 
@@ -39,7 +39,7 @@ function getComboRecords(listRecords, record) {
 
     } else if (record.data.combo_item_id?.id) {
         // if current record is combo item then we move backward util we find associated combo line
-        // Here we assume that the record we get is the last item of the combo 
+        // Here we assume that the record we get is the last item of the combo
         let index = listRecords.indexOf(record);
         while (index >= 0) {
             const r = listRecords[index];
@@ -111,7 +111,7 @@ export class SaleOrderLineListRenderer extends ProductLabelSectionAndNoteListRen
         if (this.isCombo(record) || this.isComboItem(record)) {
             classNames = classNames.replace('o_row_draggable', '');
         }
-        return `${classNames} ${this.isCombo(record) ? 'o_is_line_section o_is_line_section_no_indent' : ''}`;
+        return `${classNames} ${this.isCombo(record) ? 'fw-bold' : ''}`;
     }
 
     isCellReadonly(column, record) {

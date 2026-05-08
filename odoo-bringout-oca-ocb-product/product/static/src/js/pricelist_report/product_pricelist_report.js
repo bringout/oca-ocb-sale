@@ -1,4 +1,5 @@
-import { Component, markup, onRendered, onWillStart, useState } from "@odoo/owl";
+import { onRendered, useState } from "@web/owl2/utils";
+import { Component, markup, onWillStart } from "@odoo/owl";
 import { _t } from "@web/core/l10n/translation";
 import { download } from "@web/core/network/download";
 import { registry } from "@web/core/registry";
@@ -7,6 +8,8 @@ import { useSetupAction } from "@web/search/action_hook";
 import { Layout } from "@web/search/layout";
 import { SelectCreateDialog } from "@web/views/view_dialogs/select_create_dialog";
 import { standardActionServiceProps } from "@web/webclient/actions/action_service";
+import { DateTimeInput } from "@web/core/datetime/datetime_input";
+import { serializeDate } from "@web/core/l10n/dates";
 
 function sendCustomNotification(type, message) {
     return {
@@ -21,7 +24,7 @@ function sendCustomNotification(type, message) {
 
 export class ProductPricelistReport extends Component {
     static props = { ...standardActionServiceProps };
-    static components = { Layout };
+    static components = { Layout, DateTimeInput };
     static template = "product.ProductPricelistReport";
 
     setup() {
@@ -44,6 +47,7 @@ export class ProductPricelistReport extends Component {
             pricelists: [],
             _quantities: pastState.quantities || [1, 5, 10],
             selectedPricelist: {},
+            date: luxon.DateTime.now(),
         });
 
         onWillStart(async () => {
@@ -105,13 +109,18 @@ export class ProductPricelistReport extends Component {
         this.state._quantities = value;
     }
 
+    get date() {
+        return this.state.date;
+    }
+
     get reportParams() {
         return {
             active_model: this.activeModel || 'product.template',
             active_ids: this.activeIds || [],
             display_pricelist_title: this.displayPricelistTitle || '',
-            pricelist_id: this.selectedPricelist.id || '',
+            pricelist_id: this.selectedPricelist?.id || '',
             quantities: this.quantities || [1],
+            date: serializeDate(this.date || luxon.DateTime.now()),
         };
     }
 
@@ -274,6 +283,11 @@ export class ProductPricelistReport extends Component {
 
     onToggleDisplayPricelist() {
         this.state.displayPricelistTitle = !this.displayPricelistTitle;
+        this.renderHtml();
+    }
+
+    onDateChange(value) {
+        this.state.date = value;
         this.renderHtml();
     }
 }

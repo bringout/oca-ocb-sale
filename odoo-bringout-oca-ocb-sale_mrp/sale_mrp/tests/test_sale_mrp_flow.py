@@ -144,14 +144,13 @@ class TestSaleMrpFlowCommon(ValuationReconciliationTestCommon, TestSaleCommon):
 
     @classmethod
     def _cls_create_product(cls, name, uom_id, routes=()):
-        p = Form(cls.env['product.product'])
-        p.name = name
-        p.is_storable = True
-        p.uom_id = uom_id
-        p.route_ids.clear()
-        for r in routes:
-            p.route_ids.add(r)
-        return p.save()
+        product = cls.env['product.product'].create({
+            'name': name,
+            'uom_id': uom_id.id,
+            'is_storable': True,
+            'route_ids': [Command.set([route.id for route in routes])],
+        })
+        return product
 
         # Helper to process quantities based on a dict following this structure :
         #
@@ -199,7 +198,7 @@ class TestSaleMrpFlowCommon(ValuationReconciliationTestCommon, TestSaleCommon):
             f.location_id = self.env.ref('stock.stock_location_suppliers')
             f.location_dest_id = warehouse.lot_stock_id
             f.product_id = comp
-            f.product_uom = qty_to_process[comp][1]
+            f.uom_id = qty_to_process[comp][1]
             f.product_uom_qty = qty_to_process[comp][0]
             move = f.save()
             move._action_confirm()
@@ -233,40 +232,40 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
         with Form(self.env['mrp.bom']) as f:
             f.product_tmpl_id = product_a.product_tmpl_id
             f.product_qty = 2
-            f.product_uom_id = self.uom_dozen
+            f.uom_id = self.uom_dozen
             with f.bom_line_ids.new() as line:
                 line.product_id = product_b
                 line.product_qty = 3
-                line.product_uom_id = self.uom_unit
+                line.uom_id = self.uom_unit
             with f.bom_line_ids.new() as line:
                 line.product_id = product_c
                 line.product_qty = 300.0
-                line.product_uom_id = self.uom_gm
+                line.uom_id = self.uom_gm
             with f.bom_line_ids.new() as line:
                 line.product_id = product_d
                 line.product_qty = 4
-                line.product_uom_id = self.uom_unit
+                line.uom_id = self.uom_unit
 
         # Bill of materials for Product B.
         with Form(self.env['mrp.bom']) as f:
             f.product_tmpl_id = product_b.product_tmpl_id
             f.product_qty = 1
-            f.product_uom_id = self.uom_unit
+            f.uom_id = self.uom_unit
             f.type = 'phantom'
             with f.bom_line_ids.new() as line:
                 line.product_id = product_c
                 line.product_qty = 0.400
-                line.product_uom_id = self.uom_kg
+                line.uom_id = self.uom_kg
 
         # Bill of materials for Product D.
         with Form(self.env['mrp.bom']) as f:
             f.product_tmpl_id = product_d.product_tmpl_id
             f.product_qty = 1
-            f.product_uom_id = self.uom_unit
+            f.uom_id = self.uom_unit
             with f.bom_line_ids.new() as line:
                 line.product_id = product_c
                 line.product_qty = 1
-                line.product_uom_id = self.uom_kg
+                line.uom_id = self.uom_kg
 
         # ----------------------------------------
         # Create sales order of 10 Dozen product A.
@@ -323,7 +322,7 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
 
         self.assertTrue(mnf_product_a, 'Manufacturing order not created.')
         self.assertEqual(mnf_product_a.product_qty, 10, 'Wrong product quantity in manufacturing order.')
-        self.assertEqual(mnf_product_a.product_uom_id, self.uom_dozen, 'Wrong unit of measure in manufacturing order.')
+        self.assertEqual(mnf_product_a.uom_id, self.uom_dozen, 'Wrong unit of measure in manufacturing order.')
         self.assertEqual(mnf_product_a.state, 'confirmed', 'Manufacturing order should be confirmed.')
 
         # ------------------------------------------------------------------------------------------
@@ -336,7 +335,7 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
         moves = self.StockMove.search([
             ('raw_material_production_id', '=', mnf_product_a.id),
             ('product_id', '=', product_c.id),
-            ('product_uom', '=', self.uom_kg.id)])
+            ('uom_id', '=', self.uom_kg.id)])
 
         # Check total consume line with product c and uom kg.
         self.assertEqual(len(moves), 1, 'Production move lines are not generated proper.')
@@ -352,7 +351,7 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
         move = self.StockMove.search([
             ('raw_material_production_id', '=', mnf_product_a.id),
             ('product_id', '=', product_c.id),
-            ('product_uom', '=', self.uom_gm.id)])
+            ('uom_id', '=', self.uom_gm.id)])
 
         # Check total consume line of product c with gm.
         self.assertEqual(len(move), 1, 'Production move lines are not generated proper.')
@@ -385,7 +384,7 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
 
         move = self.StockMove.search([('raw_material_production_id', '=', mnf_product_d.id), ('product_id', '=', product_c.id)])
         self.assertEqual(move.product_uom_qty, 20, "Wrong product quantity in 'To consume line' of manufacturing order.")
-        self.assertEqual(move.product_uom.id, self.uom_kg.id, "Wrong unit of measure in 'To consume line' of manufacturing order.")
+        self.assertEqual(move.uom_id.id, self.uom_kg.id, "Wrong unit of measure in 'To consume line' of manufacturing order.")
         self.assertEqual(move.state, 'confirmed', "Wrong state in 'To consume line' of manufacturing order.")
 
         # -------------------------------
@@ -458,7 +457,7 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
         mo_form = Form(mnf_product_a)
         mo_form.qty_producing = mo_form.product_qty
         mnf_product_a = mo_form.save()
-        mnf_product_a._post_inventory()
+        mnf_product_a.button_mark_done()
         # Check state of manufacturing order product A.
         self.assertEqual(mnf_product_a.state, 'done', 'Manufacturing order should still be in the progress state.')
         # Check product A avaialble quantity should be 120.
@@ -486,18 +485,18 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
         })
         self.env['mrp.bom'].create({
             'product_tmpl_id': product.product_tmpl_id.id,
-            'product_uom_id': self.env.ref('uom.product_uom_unit').id,
+            'uom_id': self.env.ref('uom.product_uom_unit').id,
             'sequence': 2,
             'type': 'phantom',
             'bom_line_ids': [
                 (0, 0, {
                     'product_id': product_wood_panel.id,
                     'product_qty': 1,
-                    'product_uom_id': self.env.ref('uom.product_uom_unit').id,
+                    'uom_id': self.env.ref('uom.product_uom_unit').id,
                 }), (0, 0, {
                     'product_id': product_desk_bolt.id,
                     'product_qty': 4,
-                    'product_uom_id': self.env.ref('uom.product_uom_unit').id,
+                    'uom_id': self.env.ref('uom.product_uom_unit').id,
                 })
             ]
         })
@@ -569,10 +568,10 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
             'property_valuation': 'real_time',
             'property_cost_method': 'fifo',
         })
-        self.account_receiv = self.env['account.account'].create({'name': 'Receivable', 'code': 'RCV00', 'account_type': 'asset_receivable', 'reconcile': True})
-        account_expense = self.env['account.account'].create({'name': 'Expense', 'code': 'EXP00', 'account_type': 'liability_current', 'reconcile': True})
-        account_income = self.env['account.account'].create({'name': 'Income', 'code': 'INC00', 'account_type': 'asset_current', 'reconcile': True})
-        account_valuation = self.env['account.account'].create({'name': 'Valuation', 'code': 'STV00', 'account_type': 'asset_receivable', 'reconcile': True})
+        self.account_receiv = self.env['account.account'].create({'name': 'Receivable', 'code': 'RCV00', 'account_type': 'asset_receivable'})
+        account_expense = self.env['account.account'].create({'name': 'Expense', 'code': 'EXP00', 'account_type': 'liability_current'})
+        account_income = self.env['account.account'].create({'name': 'Income', 'code': 'INC00', 'account_type': 'asset_current'})
+        account_valuation = self.env['account.account'].create({'name': 'Valuation', 'code': 'STV00', 'account_type': 'asset_receivable'})
         self.partner.property_account_receivable_id = self.account_receiv
         self.category.property_account_income_categ_id = account_income
         self.category.property_account_expense_categ_id = account_expense
@@ -882,7 +881,7 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
             self.component_g: 21
         }
 
-        # Check that the computed quantities are matching the theorical ones.
+        # Check that the computed quantities are matching the theoretical ones.
         # Since component_e was totally processed, this componenent shouldn't be
         # present in backorder_2
         self.assertEqual(len(backorder_2.move_ids), 6)
@@ -930,32 +929,20 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
         self.assertEqual(order_line.qty_delivered, 7.0)
 
         # Return all components processed by backorder_3
-        stock_return_picking_form = Form(self.env['stock.return.picking']
-            .with_context(active_ids=backorder_3.ids, active_id=backorder_3.ids[0],
-            active_model='stock.picking'))
-        return_wiz = stock_return_picking_form.save()
-        for return_move in return_wiz.product_return_moves:
-            return_move.write({
-                'quantity': expected_quantities[return_move.product_id],
-                'to_refund': True
-            })
-        res = return_wiz.action_create_returns()
-        return_pick = self.env['stock.picking'].browse(res['res_id'])
+        return_pick = backorder_3._create_return()
+        for move in return_pick.move_ids:
+            move.product_uom_qty = expected_quantities[move.product_id]
 
         # Process all components and validate the picking
+        return_pick.action_assign()
         return_pick.button_validate()
 
         # Now quantity delivered should be 3 again
         self.assertEqual(order_line.qty_delivered, 3)
 
-        stock_return_picking_form = Form(self.env['stock.return.picking']
-            .with_context(active_ids=return_pick.ids, active_id=return_pick.ids[0],
-            active_model='stock.picking'))
-        return_wiz = stock_return_picking_form.save()
-        for move in return_wiz.product_return_moves:
-            move.quantity = expected_quantities[move.product_id]
-        res = return_wiz.action_create_returns()
-        return_of_return_pick = self.env['stock.picking'].browse(res['res_id'])
+        return_of_return_pick = return_pick._create_return()
+        for move in return_of_return_pick.move_ids:
+            move.product_uom_qty = expected_quantities[move.product_id]
 
         # Process all components except one of each
         for move in return_of_return_pick.move_ids:
@@ -964,6 +951,7 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
                 'picked': True,
                 'to_refund': True
             })
+        return_of_return_pick.action_assign()
 
         Form.from_action(self.env, return_of_return_pick.button_validate()).save().process()
 
@@ -1109,17 +1097,17 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
         BomLine.create({
             'product_id': component_uom_unit.id,
             'product_qty': 2.0,
-            'product_uom_id': self.uom_dozen.id,
+            'uom_id': self.uom_dozen.id,
             'bom_id': bom_kit_uom_1.id})
         BomLine.create({
             'product_id': component_uom_dozen.id,
             'product_qty': 1.0,
-            'product_uom_id': self.uom_dozen.id,
+            'uom_id': self.uom_dozen.id,
             'bom_id': bom_kit_uom_1.id})
         BomLine.create({
             'product_id': component_uom_kg.id,
             'product_qty': 3.0,
-            'product_uom_id': self.uom_gm.id,
+            'uom_id': self.uom_gm.id,
             'bom_id': bom_kit_uom_1.id})
 
         # Updating the quantities in stock to prevent
@@ -1147,7 +1135,7 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
         # Check that the quantities on the picking are the one expected for each components
         for move in move_ids:
             corr_bom_line = bom_kit_uom_1.bom_line_ids.filtered(lambda b: b.product_id.id == move.product_id.id)
-            computed_qty = move.product_uom._compute_quantity(move.product_uom_qty, corr_bom_line.product_uom_id)
+            computed_qty = move.uom_id._compute_quantity(move.product_uom_qty, corr_bom_line.uom_id)
             self.assertEqual(computed_qty, order_line.product_uom_qty * corr_bom_line.product_qty)
 
         # Processe enough componenents in the picking to make 2 kit_uom_1
@@ -1215,17 +1203,17 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
         BomLine.create({
             'product_id': component_uom_unit.id,
             'product_qty': 2.0,
-            'product_uom_id': self.uom_dozen.id,
+            'uom_id': self.uom_dozen.id,
             'bom_id': bom_kit_uom_1.id})
         BomLine.create({
             'product_id': component_uom_dozen.id,
             'product_qty': 1.0,
-            'product_uom_id': self.uom_dozen.id,
+            'uom_id': self.uom_dozen.id,
             'bom_id': bom_kit_uom_1.id})
         BomLine.create({
             'product_id': component_uom_kg.id,
             'product_qty': 5.0,
-            'product_uom_id': self.uom_gm.id,
+            'uom_id': self.uom_gm.id,
             'bom_id': bom_kit_uom_1.id})
 
         bom_kit_uom_in_kit = self.env['mrp.bom'].create({
@@ -1236,12 +1224,12 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
         BomLine.create({
             'product_id': component_uom_gm.id,
             'product_qty': 3.0,
-            'product_uom_id': self.uom_kg.id,
+            'uom_id': self.uom_kg.id,
             'bom_id': bom_kit_uom_in_kit.id})
         BomLine.create({
             'product_id': kit_uom_1.id,
             'product_qty': 2.0,
-            'product_uom_id': self.uom_dozen.id,
+            'uom_id': self.uom_dozen.id,
             'bom_id': bom_kit_uom_in_kit.id})
 
         # Create a simple warehouse to receives some products
@@ -1324,16 +1312,16 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
         with Form(self.env['mrp.bom']) as bom:
             bom.product_tmpl_id = kit_1.product_tmpl_id
             bom.product_qty = 1
-            bom.product_uom_id = self.uom_unit
+            bom.uom_id = self.uom_unit
             bom.type = 'phantom'
             with bom.bom_line_ids.new() as line:
                 line.product_id = component_shelf1
                 line.product_qty = 3
-                line.product_uom_id = self.uom_unit
+                line.uom_id = self.uom_unit
             with bom.bom_line_ids.new() as line:
                 line.product_id = component_shelf2
                 line.product_qty = 2
-                line.product_uom_id = self.uom_unit
+                line.uom_id = self.uom_unit
 
         # Creating 2 specific routes for each of the components of the kit
         route_shelf1 = self.env['stock.route'].create({
@@ -1406,16 +1394,16 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
         with Form(self.env['mrp.bom']) as bom:
             bom.product_tmpl_id = kit_1.product_tmpl_id
             bom.product_qty = 2
-            bom.product_uom_id = self.uom_dozen
+            bom.uom_id = self.uom_dozen
             bom.type = 'phantom'
             with bom.bom_line_ids.new() as line:
                 line.product_id = component_unit
                 line.product_qty = 6
-                line.product_uom_id = self.uom_unit
+                line.uom_id = self.uom_unit
             with bom.bom_line_ids.new() as line:
                 line.product_id = component_kg
                 line.product_qty = 7
-                line.product_uom_id = self.uom_kg
+                line.uom_id = self.uom_kg
 
         # Create a simple warehouse to receives some products
         warehouse_1 = self.env['stock.warehouse'].create({
@@ -1469,7 +1457,7 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
         bom = self.env['mrp.bom'].create({
             'product_id': finished_product.id,
             'product_tmpl_id': finished_product.product_tmpl_id.id,
-            'product_uom_id': self.env.ref('uom.product_uom_unit').id,
+            'uom_id': self.env.ref('uom.product_uom_unit').id,
             'product_qty': 1.0,
             'type': 'normal',
             'bom_line_ids': [(5, 0), (0, 0, {'product_id': product_raw.id})]
@@ -1517,7 +1505,7 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
         bom = self.env['mrp.bom'].create({
             'product_id': finished_product.id,
             'product_tmpl_id': finished_product.product_tmpl_id.id,
-            'product_uom_id': self.env.ref('uom.product_uom_unit').id,
+            'uom_id': self.env.ref('uom.product_uom_unit').id,
             'product_qty': 1.0,
             'type': 'normal',
             'bom_line_ids': [(5, 0), (0, 0, {'product_id': product_raw.id})]
@@ -1571,7 +1559,7 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
         bom = self.env['mrp.bom'].create({
             'product_id': finished_product.id,
             'product_tmpl_id': finished_product.product_tmpl_id.id,
-            'product_uom_id': self.env.ref('uom.product_uom_unit').id,
+            'uom_id': self.env.ref('uom.product_uom_unit').id,
             'product_qty': 1.0,
             'type': 'normal',
             'bom_line_ids': [(5, 0), (0, 0, {'product_id': product_raw.id})]
@@ -1669,17 +1657,9 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
         self.assertEqual(qty_del_validated, 1.0, 'The order went from warehouse to client, so it has been delivered')
 
         # 1 was delivered, now create a return
-        stock_return_picking_form = Form(self.env['stock.return.picking'].with_context(
-            active_ids=pick.ids, active_id=pick.ids[0], active_model='stock.picking'))
-        return_wiz = stock_return_picking_form.save()
-        for return_move in return_wiz.product_return_moves:
-            return_move.write({
-                'quantity': 1,
-                'to_refund': True
-            })
-        res = return_wiz.action_create_returns()
-        return_pick = self.env['stock.picking'].browse(res['res_id'])
-        return_pick.move_line_ids.quantity = 1
+        return_pick = pick._create_return()
+        return_pick.move_ids.product_uom_qty = 1
+        return_pick.action_assign()
         return_pick.button_validate()  # validate return
 
         # Delivered quantities to the client should be 0
@@ -1736,7 +1716,6 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
         invoice.action_post()
         self.assertEqual(invoice.state, 'posted')
 
-    @skip('Temporary to fast merge new valuation')
     def test_15_anglo_saxon_variant_price_unit(self):
         """
         Test the price unit of a variant from which template has another variant with kit bom.
@@ -1865,9 +1844,9 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
         aml_nokit_expense = amls.filtered(lambda l: l.display_type == 'cogs' and l.debit > 0 and l.product_id == self.variant_NOKIT)
         aml_nokit_output = amls.filtered(lambda l: l.display_type == 'cogs' and l.credit > 0 and l.product_id == self.variant_NOKIT)
 
-        # Check that the Cost of Goods Sold for variant KIT is equal to 2*(2*20)+10 = 90
-        self.assertEqual(aml_kit_expense.debit, 90, "Cost of Good Sold entry missing or mismatching for variant with kit")
-        self.assertEqual(aml_kit_output.credit, 90, "Cost of Good Sold entry missing or mismatching for variant with kit")
+        # Check that the Cost of Goods Sold for variant KIT is equal to (2*20)+10 = 50
+        self.assertEqual(aml_kit_expense.debit, 50, "Cost of Good Sold entry missing or mismatching for variant with kit")
+        self.assertEqual(aml_kit_output.credit, 50, "Cost of Good Sold entry missing or mismatching for variant with kit")
         # Check that the Cost of Goods Sold for variant NOKIT is equal to its standard_price = 25
         self.assertEqual(aml_nokit_expense.debit, 25, "Cost of Good Sold entry missing or mismatching for variant without kit")
         self.assertEqual(aml_nokit_output.credit, 25, "Cost of Good Sold entry missing or mismatching for variant without kit")
@@ -1896,10 +1875,10 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
             'property_valuation': 'real_time',
             'property_cost_method': 'fifo',
         })
-        account_receiv = self.env['account.account'].create({'name': 'Receivable', 'code': 'RCV00', 'account_type': 'asset_receivable', 'reconcile': True})
-        account_income = self.env['account.account'].create({'name': 'Income', 'code': 'INC00', 'account_type': 'asset_current', 'reconcile': True})
-        account_expense = self.env['account.account'].create({'name': 'Expense', 'code': 'EXP00', 'account_type': 'liability_current', 'reconcile': True})
-        account_valuation = self.env['account.account'].create({'name': 'Valuation', 'code': 'STV00', 'account_type': 'asset_receivable', 'reconcile': True})
+        account_receiv = self.env['account.account'].create({'name': 'Receivable', 'code': 'RCV00', 'account_type': 'asset_receivable'})
+        account_income = self.env['account.account'].create({'name': 'Income', 'code': 'INC00', 'account_type': 'asset_current'})
+        account_expense = self.env['account.account'].create({'name': 'Expense', 'code': 'EXP00', 'account_type': 'liability_current'})
+        account_valuation = self.env['account.account'].create({'name': 'Valuation', 'code': 'STV00', 'account_type': 'asset_receivable'})
         self.stock_location = self.company_data['default_warehouse'].lot_stock_id
         self.partner.property_account_receivable_id = account_receiv
         self.category.property_account_income_categ_id = account_income
@@ -2080,11 +2059,9 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
         picking = so.picking_ids
         picking.button_validate()
 
-        ctx = {'active_ids':picking.ids, 'active_id': picking.ids[0], 'active_model': 'stock.picking'}
-        return_picking_wizard_form = Form(self.env['stock.return.picking'].with_context(ctx))
-        return_picking_wizard = return_picking_wizard_form.save()
-        return_picking_wizard.product_return_moves.quantity = 1
-        return_picking_wizard.action_create_returns()
+        return_picking = picking._create_return()
+        return_picking.move_ids.product_uom_qty = 1
+        return_picking.action_assign()
 
         price = line.product_id.with_company(line.company_id)._compute_average_price(0, line.product_uom_qty, line.move_ids)
         self.assertEqual(price, 10)
@@ -2140,13 +2117,10 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
         delivery.button_validate()
 
         # Return 2 [uom_ten] x kit_3
-        return_wizard_form = Form(self.env['stock.return.picking'].with_context(active_ids=delivery.ids, active_id=delivery.id, active_model='stock.picking'))
-        return_wizard = return_wizard_form.save()
-        return_wizard.product_return_moves[0].quantity = 20
-        return_wizard.product_return_moves[1].quantity = 40
-        action = return_wizard.action_create_returns()
-        return_picking = self.env['stock.picking'].browse(action['res_id'])
-        return_picking.move_ids.picked = True
+        return_picking = delivery._create_return()
+        return_picking.move_ids[0].product_uom_qty = 20
+        return_picking.move_ids[1].product_uom_qty = 40
+        return_picking.action_assign()
         return_picking.button_validate()
 
         # Adapt the SOL qty according to the delivered one
@@ -2238,13 +2212,9 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
         self.assertEqual(delivery.state, 'done')
         self.assertEqual(so.order_line.qty_delivered, 2)
 
-        ctx = {'active_id': delivery.id, 'active_model': 'stock.picking'}
-        return_wizard = Form(self.env['stock.return.picking'].with_context(ctx)).save()
-        for line in return_wizard.product_return_moves:
-            line.quantity = line.move_id.quantity
-        return_picking = return_wizard._create_return()
-        for m in return_picking.move_ids:
-            m.write({'quantity': m.product_uom_qty, 'picked': True})
+        return_picking = delivery._create_return()
+        return_picking.action_return_all()
+        return_picking.action_assign()
         return_picking.button_validate()
 
         self.assertEqual(return_picking.state, 'done')
@@ -2294,7 +2264,7 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
             'product_id': self.component_a.id,
             'location_id': self.env.ref('stock.stock_location_suppliers').id,
             'location_dest_id': self.company_data['default_warehouse'].lot_stock_id.id,
-            'product_uom': self.component_a.uom_id.id,
+            'uom_id': self.component_a.uom_id.id,
             'product_uom_qty': 1,
             'price_unit': p,
         } for p in [10, 50]])
@@ -2359,7 +2329,7 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
         self.env['mrp.bom'].create({
             'product_id': kit.id,
             'product_tmpl_id': kit.product_tmpl_id.id,
-            'product_uom_id': kit.uom_id.id,
+            'uom_id': kit.uom_id.id,
             'product_qty': 1.0,
             'type': 'phantom',
             'bom_line_ids': [
@@ -2446,8 +2416,8 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
         kit = self.kit_3
         # create a similar kit
         bom_copy = kit.bom_ids[0].copy()
-        kit_copy = kit.copy()
-        bom_copy.product_tmpl_id = kit_copy.product_tmpl_id
+        kit_copy = self._cls_create_product('kit 3 copy', self.uom_unit)
+        bom_copy.product_tmpl_id = kit_copy.product_tmpl_id.id
         # put component in stock: 10 kit = 10 x comp_f + 20 x comp_g
         self.env['stock.quant']._update_available_quantity(self.component_f, warehouse.lot_stock_id, 10)
         self.env['stock.quant']._update_available_quantity(self.component_g, warehouse.lot_stock_id, 20)
@@ -2525,15 +2495,10 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
         delivery.button_validate()
         self.assertEqual(delivery.state, 'done')
 
-        return_wizard = self.env['stock.return.picking'].with_context(active_id=delivery.id, active_model='stock.picking').create({})
-        for line in return_wizard.product_return_moves:
-            line.quantity = line.move_quantity
-        res = return_wizard.action_create_returns()
-
-        return_picking = self.env['stock.picking'].browse(res["res_id"])
+        return_picking = delivery._create_return()
+        return_picking.action_return_all()
         return_picking.location_dest_id = return_location
-        for move in return_picking.move_ids:
-            move.quantity = move.product_qty
+        return_picking.action_assign()
         return_picking.button_validate()
         self.assertEqual(return_picking.state, 'done')
         self.assertEqual(order.order_line.qty_delivered, 0)
@@ -2567,12 +2532,11 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
         delivery = sale_order.picking_ids
         delivery.action_assign()
         delivery.button_validate()
-        return_picking_form = Form(self.env['stock.return.picking'].with_context(active_id=delivery.id, active_model='stock.picking'))
-        return_wizard = return_picking_form.save()
-        return_wizard.product_return_moves.filtered(lambda prm: prm.product_id == comp_to_return).quantity = 1
-        res = return_wizard.action_create_exchanges()
-        return_picking = self.env['stock.picking'].browse(res['res_id'])
+        return_picking = delivery._create_return()
+        return_picking.move_ids.filtered(lambda m: m.product_id == comp_to_return).product_uom_qty = 1
+        return_picking.action_assign()
         return_picking.button_validate()
+        return_picking.action_exchange()
         exchange_picking = sale_order.picking_ids.filtered(lambda so: so.state != 'done')
         exchange_picking.button_validate()
         self.assertEqual(sale_order.order_line.qty_delivered, 1)
@@ -2604,7 +2568,9 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
         """Test that a Sale Order with a kit product containing multiple identical components
         can be confirmed, and that the picking is created correctly. Then verify that the
         Sale Order can be cancelled and re-confirmed, resulting in a new picking with moves
-        properly linked to each BOM line. Finally, test returning a kit component for exchange."""
+        properly linked to each BOM line. Finally, test returning a kit component for exchange
+        and ensure the delivered quantity is correctly computed.
+        """
         # Create a kit product with two identical components by duplicating the first BOM line
         self.bom_kit_1.bom_line_ids = self.bom_kit_1.bom_line_ids[0]
         self.env['mrp.bom.line'].create([
@@ -2644,19 +2610,17 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
         self.env['stock.quant']._update_available_quantity(self.component_a, self.company_data['default_warehouse'].lot_stock_id, quantity=10)
         second_picking.action_assign()
         second_picking.button_validate()
-        return_picking_form = Form(self.env['stock.return.picking'].with_context(active_id=second_picking.id, active_model='stock.picking'))
-        return_wizard = return_picking_form.save()
-        return_wizard.product_return_moves.filtered(lambda prm: prm.product_id == self.component_a).quantity = 1
-        res = return_wizard.action_create_exchanges()
-        return_picking = self.env['stock.picking'].browse(res['res_id'])
+        return_picking = second_picking._create_return()
+        return_picking.move_ids.filtered(lambda m: m.product_id == self.component_a).product_uom_qty = 1
+        return_picking.action_assign()
         return_picking.button_validate()
+        return_picking.action_exchange()
         exchange_picking = so.picking_ids.filtered(lambda so: so.state == 'assigned')
         exchange_picking.button_validate()
         so.order_line._compute_qty_delivered()
-        # In the case where the kit has multiple identical components, only the first BOM line
-        # is linked to all moves (this is a known limitation).
-        self.assertEqual(exchange_picking.move_ids.bom_line_id, self.bom_kit_1.bom_line_ids[0], "All moves in the exchange picking should be linked to the first BOM line.")
-        self.assertEqual(exchange_picking.move_ids.quantity, 2)
+        self.assertEqual(len(exchange_picking.move_ids), 2, "The exchange picking should have 2 moves for the components")
+        self.assertEqual(exchange_picking.move_ids.bom_line_id, self.bom_kit_1.bom_line_ids, "All moves in the exchange picking should be linked to it's corresponding BOM line.")
+        self.assertEqual(so.order_line.qty_delivered, 1, "Exchange return of a kit with identical components must correctly calculate the delivered quantity.")
 
     def test_delivery_after_splitting_production(self):
         """
@@ -2670,7 +2634,7 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
         ])
         self.env['mrp.bom'].create({
             'product_tmpl_id': product.product_tmpl_id.id,
-            'product_uom_id': self.env.ref('uom.product_uom_unit').id,
+            'uom_id': self.env.ref('uom.product_uom_unit').id,
         })
 
         sale_order = self.env['sale.order'].create({
@@ -2767,7 +2731,7 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
 
         production = sale_order.stock_reference_ids.production_ids
         self.assertRecordValues(production, [
-            {'product_qty': 3.0, 'product_uom_id': product.uom_id.id}
+            {'product_qty': 3.0, 'uom_id': product.uom_id.id}
         ])
         # Cancel the delivery which adds a warning in the chatter but does not cancel the MO
         delivery = sale_order.picking_ids
@@ -2783,7 +2747,7 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
             with so_form.order_line.edit(0) as order_line:
                 order_line.product_uom_qty = 10.0
         self.assertRecordValues(sale_order.stock_reference_ids.production_ids, [
-            {'product_qty': 13.0, 'product_uom_id': product.uom_id.id}
+            {'product_qty': 13.0, 'uom_id': product.uom_id.id}
         ])
 
         # Check that cancelling the SO, propagates the cancellation on the delivery
@@ -2846,7 +2810,7 @@ class TestSaleMrpFlow(TestSaleMrpFlowCommon):
         invoice = so.invoice_ids
         invoice.action_post()
 
-        expense_line = invoice.journal_line_ids.filtered(lambda line: line.account_name == "Expenses")
+        expense_line = invoice.line_ids.filtered(lambda line: line.account_name == "Expenses")
         correct_amount = 16  # 2.5 * 4 + 6 * 1
         self.assertTrue(expense_line, "COGS entry was not generated")
         self.assertAlmostEqual(expense_line.debit, correct_amount, "COGS entry has the incorrect ammount")

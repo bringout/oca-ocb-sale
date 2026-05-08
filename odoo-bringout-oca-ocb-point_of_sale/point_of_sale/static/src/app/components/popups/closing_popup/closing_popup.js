@@ -1,23 +1,24 @@
+import { useState } from "@web/owl2/utils";
 import { Dialog } from "@web/core/dialog/dialog";
 import { SaleDetailsButton } from "@point_of_sale/app/components/navbar/sale_details_button/sale_details_button";
 import { ConfirmationDialog, AlertDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
 import { MoneyDetailsPopup } from "@point_of_sale/app/components/popups/money_details_popup/money_details_popup";
 import { useService } from "@web/core/utils/hooks";
-import { Component, useState } from "@odoo/owl";
+import { Component } from "@odoo/owl";
 import { ConnectionLostError } from "@web/core/network/rpc";
 import { _t } from "@web/core/l10n/translation";
 import { usePos } from "@point_of_sale/app/hooks/pos_hook";
 import { parseFloat } from "@web/views/fields/parsers";
-import { Input } from "@point_of_sale/app/components/inputs/input/input";
 import { useAsyncLockedMethod } from "@point_of_sale/app/hooks/hooks";
 import { ask } from "@point_of_sale/app/utils/make_awaitable_dialog";
 import { FormViewDialog } from "@web/views/view_dialogs/form_view_dialog";
 import { PaymentMethodBreakdown } from "@point_of_sale/app/components/payment_method_breakdown/payment_method_breakdown";
+import { CashInput } from "@point_of_sale/app/components/inputs/input/cash_input/cash_input";
 
 const { DateTime } = luxon;
 
 export class ClosePosPopup extends Component {
-    static components = { SaleDetailsButton, Input, Dialog, PaymentMethodBreakdown };
+    static components = { SaleDetailsButton, Dialog, PaymentMethodBreakdown, CashInput };
     static template = "point_of_sale.ClosePosPopup";
     static props = [
         "orders_details",
@@ -32,26 +33,10 @@ export class ClosePosPopup extends Component {
     setup() {
         this.pos = usePos();
         this.report = useService("report");
-        this.hardwareProxy = useService("hardware_proxy");
         this.dialog = useService("dialog");
         this.ui = useService("ui");
         this.state = useState(this.getInitialState());
         this.confirm = useAsyncLockedMethod(this.confirm);
-    }
-    autoFillCashCount() {
-        const count = this.props.default_cash_details.amount;
-        this.state.payments[this.props.default_cash_details.id].counted =
-            this.env.utils.formatCurrency(count, false);
-        this.setManualCashInput(count);
-    }
-    autoFillPMCount(paymentId) {
-        const pm = this.props.non_cash_payment_methods.find((pm) => pm.id === paymentId);
-        if (pm) {
-            this.state.payments[paymentId].counted = this.env.utils.formatCurrency(
-                pm.amount,
-                false
-            );
-        }
     }
     get cashMoveData() {
         const { total, moves } = this.props.default_cash_details.moves.reduce(
@@ -82,16 +67,15 @@ export class ClosePosPopup extends Component {
     getInitialState() {
         const initialState = { notes: "", payments: {} };
         if (this.pos.config.cash_control) {
-            initialState.payments[this.props.default_cash_details.id] = {
-                counted: "0",
+            const defaultCash = this.props.default_cash_details;
+            initialState.payments[defaultCash.id] = {
+                counted: this.env.utils.formatCurrency(defaultCash.amount, false),
             };
         }
         this.props.non_cash_payment_methods.forEach((pm) => {
-            if (pm.type === "bank") {
-                initialState.payments[pm.id] = {
-                    counted: this.env.utils.formatCurrency(pm.amount, false),
-                };
-            }
+            initialState.payments[pm.id] = {
+                counted: this.env.utils.formatCurrency(pm.amount || 0, false),
+            };
         });
         return initialState;
     }
@@ -134,7 +118,7 @@ export class ClosePosPopup extends Component {
     }
     async openDetailsPopup() {
         const action = _t("Cash control - closing");
-        this.hardwareProxy.openCashbox(action);
+        this.pos.openCashbox(action);
         this.dialog.add(MoneyDetailsPopup, {
             moneyDetails: this.moneyDetails,
             action: action,
@@ -158,6 +142,17 @@ export class ClosePosPopup extends Component {
             this.state.notes = "";
             this.moneyDetails = null;
         }
+    }
+    handleCashCountBlur() {
+        const counted = this.state.payments[this.props.default_cash_details.id].counted;
+        this.setManualCashInput(counted);
+        this.state.payments[this.props.default_cash_details.id].counted =
+            this.env.utils.parseAndFormatCurrency(counted);
+    }
+    handlePaymentCountBlur(paymentId) {
+        this.state.payments[paymentId].counted = this.env.utils.parseAndFormatCurrency(
+            this.state.payments[paymentId].counted
+        );
     }
     getDifference(paymentId) {
         const counted = this.state.payments[paymentId].counted;
@@ -295,7 +290,7 @@ export class ClosePosPopup extends Component {
     }
     async handleClosingError(response) {
         this.dialog.add(ConfirmationDialog, {
-            title: response.title || "Error",
+            title: response.title || "Oh snap !",
             body: response.message,
             confirmLabel: _t("Review Orders"),
             cancelLabel: _t("Cancel Orders"),
@@ -325,5 +320,17 @@ export class ClosePosPopup extends Component {
     getMovesTotalAmount() {
         const amounts = this.props.default_cash_details.moves.map((move) => move.amount);
         return amounts.reduce((acc, x) => acc + x, 0);
+    }
+    get validPms() {
+        return this.props.non_cash_payment_methods.filter(
+            (item) => item.number == 1 && (item.type === "bank" || item.type === "cash")
+        );
+    }
+    isTheLastPM(pm) {
+        return pm === this.validPms.at(-1) && this.validPms.length % 2 === 0;
+    }
+
+    isOnePmUsed() {
+        return this.validPms.length == 0;
     }
 }

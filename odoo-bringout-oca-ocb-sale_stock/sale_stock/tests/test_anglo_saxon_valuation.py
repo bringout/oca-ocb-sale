@@ -370,15 +370,9 @@ class TestAngloSaxonValuation(TestStockValuationCommon, TestSaleStockCommon):
 
         product.standard_price = 40
 
-        stock_return_picking_form = Form(self.env['stock.return.picking']
-            .with_context(active_ids=pick.ids, active_id=pick.sorted().ids[0], active_model='stock.picking'))
-        return_wiz = stock_return_picking_form.save()
-        return_wiz.product_return_moves.quantity = 1
-        return_wiz.product_return_moves.to_refund = False
-        res = return_wiz.action_create_returns()
-
-        return_pick = self.env['stock.picking'].browse(res['res_id'])
-        return_pick.move_ids.write({'quantity': 1, 'picked': True})
+        return_pick = pick._create_return()
+        return_pick.move_ids.product_uom_qty = 1
+        return_pick.action_assign()
         return_pick.button_validate()
 
         # We don't set the price_unit so that the `standard_price` will be used (see _get_price_unit()):
@@ -386,7 +380,7 @@ class TestAngloSaxonValuation(TestStockValuationCommon, TestSaleStockCommon):
             'location_id': self.env.ref('stock.stock_location_suppliers').id,
             'location_dest_id': self.stock_location.id,
             'product_id': product.id,
-            'product_uom': product.uom_id.id,
+            'uom_id': product.uom_id.id,
             'quantity': 1,
             'picked': True,
         })
@@ -993,17 +987,10 @@ class TestAngloSaxonValuation(TestStockValuationCommon, TestSaleStockCommon):
         so_1 = self._so_deliver(self.product_fifo_auto, 2, 12)
 
         # Return 1 from SO1
-        stock_return_picking_form = Form(
-            self.env['stock.return.picking'].with_context(
-                active_ids=so_1.picking_ids.ids, active_id=so_1.picking_ids.ids[0], active_model='stock.picking')
-        )
-        stock_return_picking = stock_return_picking_form.save()
-        stock_return_picking.product_return_moves.quantity = 1.0
-        stock_return_picking_action = stock_return_picking.action_create_returns()
-        return_pick = self.env['stock.picking'].browse(stock_return_picking_action['res_id'])
+        return_pick = so_1.picking_ids._create_return()
+        return_pick.move_ids.product_uom_qty = 1.0
         return_pick.action_assign()
-        return_pick.move_ids.write({'quantity': 1, 'picked': True})
-        return_pick._action_done()
+        return_pick.button_validate()
 
         # Create, confirm and deliver a sale order for 1@12 (SO2)
         so_2 = self._so_deliver(self.product_fifo_auto, 1, 12)
@@ -1012,14 +999,8 @@ class TestAngloSaxonValuation(TestStockValuationCommon, TestSaleStockCommon):
         self._make_in_move(self.product_fifo_auto, 1, 20)
 
         # Re-deliver returned 1 from SO1
-        stock_redeliver_picking_form = Form(
-            self.env['stock.return.picking'].with_context(
-                active_ids=return_pick.ids, active_id=return_pick.ids[0], active_model='stock.picking')
-        )
-        stock_redeliver_picking = stock_redeliver_picking_form.save()
-        stock_redeliver_picking.product_return_moves.quantity = 1.0
-        stock_redeliver_picking_action = stock_redeliver_picking.action_create_returns()
-        redeliver_pick = self.env['stock.picking'].browse(stock_redeliver_picking_action['res_id'])
+        redeliver_pick = return_pick._create_return()
+        redeliver_pick.move_ids.product_uom_qty = 1.0
         redeliver_pick.action_assign()
         redeliver_pick.move_ids.write({'quantity': 1, 'picked': True})
         redeliver_pick._action_done()
@@ -1196,11 +1177,9 @@ class TestAngloSaxonValuation(TestStockValuationCommon, TestSaleStockCommon):
         self._make_in_move(self.product_fifo_auto, 1, 100)
 
         # Return the second picking (i.e. 1@20)
-        ctx = {'active_id': pickings[1].id, 'active_model': 'stock.picking'}
-        return_wizard = Form(self.env['stock.return.picking'].with_context(ctx)).save()
-        return_wizard.product_return_moves.quantity = 1
-        return_picking = return_wizard._create_return()
-        return_picking.move_ids.write({'quantity': 1, 'picked': True})
+        return_picking = pickings[1]._create_return()
+        return_picking.move_ids.product_uom_qty = 1
+        return_picking.action_assign()
         return_picking.button_validate()
 
         # Add a credit note for the returned product
@@ -1259,11 +1238,9 @@ class TestAngloSaxonValuation(TestStockValuationCommon, TestSaleStockCommon):
         self._make_in_move(self.product_fifo_auto, 1, 100)
 
         # Return the second picking (i.e. 1@20)
-        ctx = {'active_id': pickings[1].id, 'active_model': 'stock.picking'}
-        return_wizard = Form(self.env['stock.return.picking'].with_context(ctx)).save()
-        return_wizard.product_return_moves.quantity = 1
-        return_picking = return_wizard._create_return()
-        return_picking.move_ids.write({'quantity': 1, 'picked': True})
+        return_picking = pickings[1]._create_return()
+        return_picking.move_ids.product_uom_qty = 1
+        return_picking.action_assign()
         return_picking.button_validate()
 
         # Create a new invoice for the returned product
@@ -1287,50 +1264,6 @@ class TestAngloSaxonValuation(TestStockValuationCommon, TestSaleStockCommon):
         self.assertRecordValues(closing_move.line_ids, [
             {'account_id': self.account_stock_variation.id, 'debit': 0.0, 'credit': 190.0},
             {'account_id': self.account_stock_valuation.id, 'debit': 190.0, 'credit': 0.0},
-        ])
-
-    def test_fifo_two_step_return_store_picking_not_valued(self):
-        """Ensure 2-step customer return does not value the Input -> Stock leg and keeps COGS correct."""
-        self.product_fifo_auto.standard_price = 5
-        self.warehouse.reception_steps = 'two_steps'
-
-        in_move = self._make_in_move(self.product_fifo_auto, 1, 5)
-        self.assertEqual(in_move.value, 5)
-
-        so = self._so_deliver(self.product_fifo_auto, 1, 10)
-        original_delivery = so.picking_ids
-
-        # Return Delivery in 2 steps
-        ctx = {'active_id': original_delivery.id, 'active_model': 'stock.picking'}
-        return_wizard = Form(self.env['stock.return.picking'].with_context(ctx)).save()
-        return_wizard.product_return_moves.quantity = 1
-        return_picking = return_wizard._create_return()
-
-        # 1st step, Customer -> Input
-        return_picking.move_ids.write({'quantity': 1, 'picked': True})
-        return_picking.button_validate()
-
-        # 2nd step, Input -> Stock
-        store_pick = return_picking.move_ids.move_dest_ids.picking_id
-        store_pick.move_ids.write({'quantity': 1, 'picked': True})
-        store_pick.button_validate()
-
-        self.assertFalse(store_pick.move_ids.is_valued)
-        self.assertEqual(store_pick.move_ids.value, 0)
-        self.assertEqual(store_pick.move_ids.state, 'done')
-
-        # Re-deliver before creating invoice for COGS generation
-        new_delivery = original_delivery.copy()
-        new_delivery.move_ids.write({'quantity': 1, 'picked': True})
-        new_delivery.button_validate()
-
-        invoice = so._create_invoices()
-        invoice.action_post()
-
-        cogs_lines = invoice.line_ids.filtered(lambda l: l.display_type == 'cogs').sorted('debit')
-        self.assertRecordValues(cogs_lines, [
-            {'account_id': self.account_stock_valuation.id, 'debit': 0.0, 'credit': 5.0},
-            {'account_id': self.account_expense.id, 'debit': 5.0, 'credit': 0.0},
         ])
 
     def test_fifo_several_invoices_reset_repost(self):
@@ -1604,7 +1537,7 @@ class TestAngloSaxonValuation(TestStockValuationCommon, TestSaleStockCommon):
                 'name': self.product_standard_auto.name,
                 'product_id': self.product_standard_auto.id,
                 'product_uom_qty': 2,
-                'product_uom_id': self.uom_pack_of_6.id,
+                'product_uom_id': self.ref('uom.product_uom_pack_6'),
                 'price_unit': 20,
                 'tax_ids': False,
             })],
@@ -1618,10 +1551,8 @@ class TestAngloSaxonValuation(TestStockValuationCommon, TestSaleStockCommon):
         invoice_1.action_post()
 
         # create the return in the products uom
-        ctx = {'active_id': so_1.picking_ids.id, 'active_model': 'stock.picking'}
-        return_wizard = Form(self.env['stock.return.picking'].with_context(ctx)).save()
-        return_wizard.product_return_moves.quantity = 9
-        return_picking = return_wizard._create_return()
+        return_picking = so_1.picking_ids._create_return()
+        return_picking.move_ids[0].product_uom_qty = 9.0
         return_picking.move_ids.write({'quantity': 9, 'picked': True})
         return_picking.button_validate()
 
@@ -1654,7 +1585,7 @@ class TestAngloSaxonValuation(TestStockValuationCommon, TestSaleStockCommon):
                 'name': self.product_standard_auto.name,
                 'product_id': self.product_standard_auto.id,
                 'product_uom_qty': 2,
-                'product_uom_id': self.uom_pack_of_6.id,
+                'product_uom_id': self.ref('uom.product_uom_pack_6'),
                 'price_unit': 20,
                 'tax_ids': False,
             })],
@@ -1683,48 +1614,6 @@ class TestAngloSaxonValuation(TestStockValuationCommon, TestSaleStockCommon):
         self.assertRecordValues(backorder_cogs_aml, [
             {'account_id': self.account_stock_valuation.id, 'debit': 0.0, 'credit': 60.0},
             {'account_id': self.account_expense.id, 'debit': 60.0, 'credit': 0.0},
-        ])
-
-    def test_cogs_fifo_multiple_invoice_uom(self):
-        """
-        Ensure that multiple COGS lines with different UoM do not negatively impact the COGS computation.
-        Each COGS line quantity must be individually converted to the product UoM using its own UoM.
-        """
-        unit_6 = self.env['uom.uom'].create({
-            'name': 'Pack of 6',
-            'relative_factor': 6,
-            'relative_uom_id': self.env.ref('uom.product_uom_unit').id,
-        })
-        self.product_fifo_auto.write({"uom_ids": [Command.link(unit_6.id)]})
-
-        self._make_in_move(self.product_fifo_auto, 12, 1)
-
-        moves = self.env['stock.move'].search([('product_id', '=', self.product_fifo_auto.id)])
-        self.assertEqual(moves.value, 12)
-
-        sale_order = self._so_deliver(self.product_fifo_auto, 6, 5)
-        invoice1 = sale_order._create_invoices()
-        invoice1.action_post()
-
-        order_line = sale_order.order_line
-        order_line.product_uom_qty = 12
-
-        move = order_line.move_ids.filtered(lambda sm: sm.state != "done")
-        move.write({'quantity': 6, 'picked': True})
-        move.picking_id.button_validate()
-
-        invoice2 = sale_order._create_invoices()
-        # Change invoice UoM from 6 Units to 1 Pack of 6 (because why not?)
-        invoice2.invoice_line_ids.write({"quantity": 1, "product_uom_id": unit_6.id})
-        invoice2.action_post()
-
-        cogs_line_1 = invoice1.line_ids.filtered(lambda l: l.display_type == 'cogs').sorted('debit')
-        cogs_line_2 = invoice2.line_ids.filtered(lambda l: l.display_type == 'cogs')
-        self.assertRecordValues((cogs_line_1 | cogs_line_2), [
-            {'account_id': self.account_stock_valuation.id, 'debit': 0.0, 'credit': 6.0},
-            {'account_id': self.account_expense.id, 'debit': 6.0, 'credit': 0.0},
-            {'account_id': self.account_stock_valuation.id, 'debit': 0.0, 'credit': 6.0},
-            {'account_id': self.account_expense.id, 'debit': 6.0, 'credit': 0.0},
         ])
 
     def test_multi_steps_partially_delivered(self):

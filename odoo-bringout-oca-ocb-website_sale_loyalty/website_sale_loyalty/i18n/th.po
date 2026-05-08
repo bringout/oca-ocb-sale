@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:37+0000\n"
+"POT-Creation-Date: 2026-03-12 18:37+0000\n"
 "PO-Revision-Date: 2025-09-16 22:55+0000\n"
 "Last-Translator: \"Tiffany Chang (tic)\" <tic@odoo.com>\n"
 "Language-Team: Thai <https://translate.odoo.com/projects/odoo-19/"
@@ -72,12 +72,6 @@ msgid "Coupon"
 msgstr "คูปอง"
 
 #. module: website_sale_loyalty
-#. odoo-javascript
-#: code:addons/website_sale_loyalty/static/src/website_builder/coupon_option_plugin.js:0
-msgid "Coupon Snippet Options"
-msgstr ""
-
-#. module: website_sale_loyalty
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.modify_code_form
 msgid "Coupons -"
 msgstr ""
@@ -111,16 +105,6 @@ msgstr "คูปอง & สมาชิก"
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.reduction_coupon_code
 msgid "Discount code or gift card"
 msgstr ""
-
-#. module: website_sale_loyalty
-#: model_terms:ir.ui.view,arch_db:website_sale_loyalty.cart_discount
-msgid "Discount:"
-msgstr "ส่วนลด:"
-
-#. module: website_sale_loyalty
-#: model_terms:ir.ui.view,arch_db:website_sale_loyalty.cart_discount
-msgid "Discounted amount"
-msgstr "จำนวนส่วนลด"
 
 #. module: website_sale_loyalty
 #: model:ir.model.fields,field_description:website_sale_loyalty.field_coupon_share__display_name
@@ -210,6 +194,12 @@ msgid "Loyalty Rule"
 msgstr "กฎลูกค้าสมาชิก"
 
 #. module: website_sale_loyalty
+#. odoo-python
+#: code:addons/website_sale_loyalty/tests/test_shop_sale_coupon.py:0
+msgid "No reward to claim with this coupon"
+msgstr ""
+
+#. module: website_sale_loyalty
 #: model:ir.model,name:website_sale_loyalty.model_product_product
 msgid "Product Variant"
 msgstr "ตัวแปรสินค้า"
@@ -280,12 +270,6 @@ msgstr "แชร์ลิงก์"
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.coupon_share_view_form
 msgid "Share Loyalty Card"
 msgstr "แชร์บัตรสมาชิก"
-
-#. module: website_sale_loyalty
-#. odoo-javascript
-#: code:addons/website_sale_loyalty/static/src/website_builder/coupon_option.xml:0
-msgid "Show Discount in Subtotal"
-msgstr "แสดงส่วนลดเป็นยอดรวมย่อย"
 
 #. module: website_sale_loyalty
 #: model:ir.model.fields,field_description:website_sale_loyalty.field_loyalty_program__show_non_published_product_warning

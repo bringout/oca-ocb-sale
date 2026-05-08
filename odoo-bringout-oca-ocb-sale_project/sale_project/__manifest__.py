@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 {
     'name': "Sales - Project",
@@ -25,6 +24,8 @@ This module allows to generate a project/task from sales orders.
         'views/project_task_type_views.xml',
         'data/sale_project_data.xml',
         'wizard/project_template_create_wizard.xml',
+        'report/account_analytic_line_views.xml',
+        'views/project_menus.xml',
     ],
     'demo': [
         'data/sale_project_demo.xml',
@@ -32,6 +33,7 @@ This module allows to generate a project/task from sales orders.
     'assets': {
         'web.assets_backend': [
             'sale_project/static/src/components/**/*',
+            'sale_project/static/src/fields/**/*',
             'sale_project/static/src/core/**/*',
             'sale_project/static/src/views/**/*',
         ],

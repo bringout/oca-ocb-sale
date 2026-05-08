@@ -10,7 +10,7 @@ import * as Chrome from "@point_of_sale/../tests/pos/tours/utils/chrome_util";
 import * as OfflineUtil from "@point_of_sale/../tests/generic_helpers/offline_util";
 import * as ProductConfigurator from "@point_of_sale/../tests/pos/tours/utils/product_configurator_util";
 import * as PaymentScreen from "@point_of_sale/../tests/pos/tours/utils/payment_screen_util";
-import * as ReceiptScreen from "@point_of_sale/../tests/pos/tours/utils/receipt_screen_util";
+import * as FeedbackScreen from "@point_of_sale/../tests/pos/tours/utils/feedback_screen_util";
 import { refresh, scan_barcode } from "@point_of_sale/../tests/generic_helpers/utils";
 
 registry.category("web_tour.tours").add("pos_pricelist", {
@@ -123,6 +123,7 @@ const test_pricelists_in_pos_steps = [
 
     // Test if post-loaded product with attribute open the configrator
     scan_barcode("cherry_3"),
+    ProductScreen.selectedOrderlineHas("Cherry", "1", "5.0", "MEDIUM"),
     Chrome.waitRequest(),
     {
         content: "Click hided product with attribute",
@@ -144,8 +145,8 @@ const test_pricelists_in_pos_steps = [
     ProductScreen.clickPayButton(),
     PaymentScreen.clickPaymentMethod("Bank", true, { remaining: "0.00" }),
     PaymentScreen.clickValidate(),
-    ReceiptScreen.isShown(),
-    ReceiptScreen.clickNextOrder(),
+    FeedbackScreen.isShown(),
+    FeedbackScreen.clickNextOrder(),
 ];
 
 registry.category("web_tour.tours").add("test_pricelists_in_pos", {

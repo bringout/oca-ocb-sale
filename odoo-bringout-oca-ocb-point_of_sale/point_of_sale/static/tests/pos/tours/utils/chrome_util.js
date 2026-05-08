@@ -91,10 +91,21 @@ export function doCashMove(amount, reason) {
         })),
         {
             isActive: ["mobile"],
-            trigger: ".o-overlay-item:nth-child(2) .modal-footer button:contains('Confirm')",
-            run: "click",
+            trigger: `.input-value:contains(${amount})`,
         },
-        Dialog.confirm(),
+        {
+            isActive: ["mobile"],
+            ...Dialog.proceed({ title: "Amount", button: "Confirm" }),
+        },
+        {
+            isActive: ["mobile"],
+            ...Dialog.isNot({ title: "Amount" }),
+        },
+        {
+            isActive: ["mobile"],
+            trigger: `.input-amount input:value(${amount})`,
+        },
+        Dialog.proceed({ button: "Confirm" }),
     ];
 }
 export function endTour() {
@@ -116,6 +127,7 @@ export function clickPlanButton() {
             run: "click",
         },
         ...waitRequest(),
+        ...waitForOrdersSync(),
     ];
 }
 export function startPoS() {
@@ -152,14 +164,15 @@ export function createFloatingOrder() {
     return { trigger: ".pos-leftheader .list-plus-btn", run: "click" };
 }
 
-function _hasFloatingOrder(name, yes) {
+function _hasFloatingOrder(name, yes, click) {
     const negateIfNecessary = (trigger) => (yes ? trigger : negate(trigger));
     return [
         {
             isActive: ["desktop"],
             trigger: negateIfNecessary(
-                `.pos-topheader .floating-order-container:contains('${name}')`
+                `.pos-topheader .floating-order-container button:contains('${name}')`
             ),
+            run: click ? "click" : undefined,
         },
         {
             isActive: ["mobile"],
@@ -169,8 +182,9 @@ function _hasFloatingOrder(name, yes) {
         {
             isActive: ["mobile"],
             trigger: negateIfNecessary(
-                `.modal-header:contains(Choose an order) ~ .modal-body .floating-order-container:contains('${name}')`
+                `.modal-header:contains(Choose an order) ~ .modal-body .floating-order-container button:contains('${name}')`
             ),
+            run: click ? "click" : undefined,
         },
         {
             isActive: ["mobile"],
@@ -183,18 +197,17 @@ function _hasFloatingOrder(name, yes) {
 export function hasFloatingOrder(name) {
     return _hasFloatingOrder(name, true);
 }
-
-export function noFloatingOrder(name) {
-    return _hasFloatingOrder(name, false);
+export function clickFloatingOrder(name) {
+    return _hasFloatingOrder(name, true, true);
 }
 export function clickOrders() {
     return { trigger: ".pos-leftheader .orders-button", run: "click" };
 }
-export function selectPresetTimingSlotHour(hour) {
+export function selectPresetTimingSlotHour({ title, hour } = {}) {
     return [
         {
             content: `Click on the slot hour ${hour} in the modal`,
-            trigger: `.modal:has(.modal-header:contains(select a preset)) button:contains('${hour}')`,
+            trigger: `.modal:has(.modal-header:contains(${title})) button:contains('${hour}')`,
             run: "click",
         },
         {
@@ -216,10 +229,15 @@ export function presetTimingSlotHourExists(hour) {
     return { trigger: `.modal button:contains('${hour}')` };
 }
 export function selectSlotDays(d) {
-    return {
-        trigger: `.modal .d-flex.w-100.flex-wrap.gap-2.mt-2 button:nth-of-type(${d})`,
-        run: "click",
-    };
+    return [
+        {
+            trigger: `.modal .d-flex.w-100.flex-wrap.gap-2.mt-2 button:nth-of-type(${d})`,
+            run: "click",
+        },
+        {
+            trigger: `.modal .d-flex.w-100.flex-wrap.gap-2.mt-2 button:nth-of-type(${d}).btn-primary`,
+        },
+    ];
 }
 export function selectPresetTimingSlotIndex(index) {
     return {
@@ -266,6 +284,13 @@ export function storedOrderCount(expectedCount) {
     };
 }
 
+export function checkButtonDisabled(text) {
+    return {
+        trigger: `button:contains("${text}")[disabled]`,
+        content: `Verify that the "${text}" button is disabled.`,
+    };
+}
+
 export function isSynced() {
     return {
         content: "Check if the request is proceeded",
@@ -300,14 +325,6 @@ export function CustomerDisplayHasQRButton() {
         isActive: ["desktop"],
         content: "Check that the customer display popup has a 'Display QR' button",
         trigger: ".o_dialog .modal-body .container .btn-secondary:contains('Display QR')",
-    };
-}
-export function ClickCustomerDisplayThisDeviceButton() {
-    return {
-        isActive: ["desktop"],
-        content: "Check that the customer display popup has a 'This device' button",
-        trigger: ".btn-primary:contains('This device')",
-        run: "click",
     };
 }
 export function ClickCustomerDisplayQRButton() {
@@ -370,4 +387,31 @@ export function selectPresetDateButton(formattedDate) {
         trigger: `.modal-body button:contains("${formattedDate}")`,
         run: "click",
     };
+}
+
+export function waitForOrdersSync() {
+    return [
+        {
+            trigger: "body",
+            content: "Wait for the orders to be synced",
+            timeout: 15000,
+            async run({ waitUntil }) {
+                await waitUntil(() => !posmodel.syncingOrders.size, { timeout: 10000 });
+                await new Promise((resolve) => setTimeout(resolve));
+            },
+        },
+    ];
+}
+
+export function flushPendingOrdersSync() {
+    return [
+        {
+            trigger: "body",
+            content: "Flush pending PoS orders to the server (sync_all_orders)",
+            timeout: 15000,
+            async run() {
+                await posmodel.syncAllOrders({ force: true });
+            },
+        },
+    ];
 }

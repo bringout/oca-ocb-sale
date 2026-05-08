@@ -1,8 +1,11 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
+from odoo.tests import tagged
+
 from odoo.addons.stock.tests.common import TestStockCommon
 
 
+@tagged('at_install', '-post_install')  # LEGACY at_install
 class TestReInvoice(TestStockCommon):
 
     @classmethod
@@ -29,19 +32,19 @@ class TestReInvoice(TestStockCommon):
             {
                 'name': 'product_order_cost',
                 'standard_price': 100.0,
-                'expense_policy': 'cost',
+                'reinvoice_policy': 'cost',
             },
             {
                 'name': 'product_order_cost',
                 'list_price': 500.0,
-                'expense_policy': 'sales_price',
+                'reinvoice_policy': 'sales_price',
             },
         ])
         cls.sale_order.action_confirm()
 
     def test_picking_reinvoicing(self):
         move_values = {
-            'product_uom': self.uom_unit.id,
+            'uom_id': self.uom_unit.id,
             'picking_id': self.picking_out.id,
             'location_id': self.stock_location.id,
             'location_dest_id': self.customer_location.id,

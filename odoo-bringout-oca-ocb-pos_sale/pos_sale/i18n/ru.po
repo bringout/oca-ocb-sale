@@ -4,14 +4,13 @@
 #
 # Translators:
 # "Dylan Kiss (dyki)" <dyki@odoo.com>, 2025.
-# "Anastasiia Koroleva (koan)" <koan@odoo.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-10 18:38+0000\n"
-"PO-Revision-Date: 2026-04-24 18:39+0000\n"
-"Last-Translator: \"Anastasiia Koroleva (koan)\" <koan@odoo.com>\n"
+"POT-Creation-Date: 2026-03-12 18:36+0000\n"
+"PO-Revision-Date: 2025-10-22 11:17+0000\n"
+"Last-Translator: \"Dylan Kiss (dyki)\" <dyki@odoo.com>\n"
 "Language-Team: Russian <https://translate.odoo.com/projects/odoo-19/pos_sale/"
 "ru/>\n"
 "Language: ru\n"
@@ -21,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
-"X-Generator: Weblate 5.17\n"
+"X-Generator: Weblate 5.12.2\n"
 
 #. module: pos_sale
 #. odoo-python
@@ -42,9 +41,9 @@ msgid "(tax incl.)"
 msgstr "(с учетом НДС)"
 
 #. module: pos_sale
-#: model_terms:ir.ui.view,arch_db:pos_sale.report_invoice_document
-msgid "<span style=\"margin: 0px 5px;\">:</span>"
-msgstr "<span style=\"margin: 0px 5px;\">:</span>"
+#: model_terms:ir.ui.view,arch_db:pos_sale.pos_orderline_receipt_information
+msgid "<strong>Sale Order: </strong>"
+msgstr ""
 
 #. module: pos_sale
 #. odoo-javascript
@@ -107,12 +106,19 @@ msgid "Delivery Quantity"
 msgstr "Доставка Количество"
 
 #. module: pos_sale
+#. odoo-javascript
+#: code:addons/pos_sale/static/src/app/services/pos_store.js:0
+msgid "Discard"
+msgstr ""
+
+#. module: pos_sale
 #: model:ir.model.fields,field_description:pos_sale.field_account_move__display_name
 #: model:ir.model.fields,field_description:pos_sale.field_account_move_line__display_name
 #: model:ir.model.fields,field_description:pos_sale.field_crm_team__display_name
 #: model:ir.model.fields,field_description:pos_sale.field_pos_config__display_name
 #: model:ir.model.fields,field_description:pos_sale.field_pos_order__display_name
 #: model:ir.model.fields,field_description:pos_sale.field_pos_order_line__display_name
+#: model:ir.model.fields,field_description:pos_sale.field_pos_order_receipt__display_name
 #: model:ir.model.fields,field_description:pos_sale.field_pos_session__display_name
 #: model:ir.model.fields,field_description:pos_sale.field_product_template__display_name
 #: model:ir.model.fields,field_description:pos_sale.field_res_config_settings__display_name
@@ -122,7 +128,7 @@ msgstr "Доставка Количество"
 #: model:ir.model.fields,field_description:pos_sale.field_sale_report__display_name
 #: model:ir.model.fields,field_description:pos_sale.field_stock_picking__display_name
 msgid "Display Name"
-msgstr "Отображаемое название"
+msgstr ""
 
 #. module: pos_sale
 #. odoo-javascript
@@ -170,17 +176,13 @@ msgid "Due balance: %s"
 msgstr "Должный баланс: %s"
 
 #. module: pos_sale
-#: model_terms:ir.ui.view,arch_db:pos_sale.report_invoice_document
-msgid "From"
-msgstr "От"
-
-#. module: pos_sale
 #: model:ir.model.fields,field_description:pos_sale.field_account_move__id
 #: model:ir.model.fields,field_description:pos_sale.field_account_move_line__id
 #: model:ir.model.fields,field_description:pos_sale.field_crm_team__id
 #: model:ir.model.fields,field_description:pos_sale.field_pos_config__id
 #: model:ir.model.fields,field_description:pos_sale.field_pos_order__id
 #: model:ir.model.fields,field_description:pos_sale.field_pos_order_line__id
+#: model:ir.model.fields,field_description:pos_sale.field_pos_order_receipt__id
 #: model:ir.model.fields,field_description:pos_sale.field_pos_session__id
 #: model:ir.model.fields,field_description:pos_sale.field_product_template__id
 #: model:ir.model.fields,field_description:pos_sale.field_res_config_settings__id
@@ -204,9 +206,14 @@ msgid ""
 "It seems that you didn't configure a down payment product in your point of "
 "sale. You can go to your point of sale configuration to choose one."
 msgstr ""
-"Похоже, что вы не настроили продукт для авансового платежа в вашей торговой "
-"точке. Вы можете перейти к настройкам торговой точки, чтобы выбрать один из "
-"них."
+
+#. module: pos_sale
+#. odoo-javascript
+#: code:addons/pos_sale/static/src/app/services/pos_store.js:0
+msgid ""
+"It seems that you didn't configure a down payment product in your point of "
+"sale. You can go to your point of sale settings to choose one."
+msgstr ""
 
 #. module: pos_sale
 #: model:ir.model,name:pos_sale.model_account_move
@@ -273,14 +280,19 @@ msgid "Point of Sale Configuration"
 msgstr "Конфигурация точки продаж"
 
 #. module: pos_sale
-#: model:ir.model,name:pos_sale.model_pos_order_line
-msgid "Point of Sale Order Lines"
-msgstr "Линии заказов в точках продаж"
+#: model:ir.model,name:pos_sale.model_pos_order
+msgid "Point of Sale Order"
+msgstr ""
 
 #. module: pos_sale
-#: model:ir.model,name:pos_sale.model_pos_order
-msgid "Point of Sale Orders"
-msgstr "Заказы в торговых точках"
+#: model:ir.model,name:pos_sale.model_pos_order_line
+msgid "Point of Sale Order Line"
+msgstr ""
+
+#. module: pos_sale
+#: model:ir.model,name:pos_sale.model_pos_order_receipt
+msgid "Point of Sale Order Receipt Generator"
+msgstr ""
 
 #. module: pos_sale
 #: model:ir.model,name:pos_sale.model_pos_session
@@ -456,119 +468,3 @@ msgstr "Каковы ваши действия?"
 #: code:addons/pos_sale/models/sale_order.py:0
 msgid "id"
 msgstr ""
-
-#. module: pos_sale
-#. odoo-javascript
-#: code:addons/pos_sale/static/src/app/components/orderline/orderline.xml:0
-#: model_terms:ir.ui.view,arch_db:pos_sale.report_invoice_document
-msgid "x"
-msgstr ""
-
-#~ msgid "(left:"
-#~ msgstr "(слева:"
-
-#~ msgid "Back"
-#~ msgstr "Назад"
-
-#~ msgid "Cancelled"
-#~ msgstr "Отменен"
-
-#~ msgid "Customer"
-#~ msgstr "Клиент"
-
-#~ msgid "Customer loading error"
-#~ msgstr "Ошибка загрузки клиента"
-
-#~ msgid "Date"
-#~ msgstr "Дата"
-
-#~ msgid "E.g. customer: Steward, date: 2020-05-09"
-#~ msgstr "Например, заказчик: Стюард, дата: 2020-05-09"
-
-#~ msgid "Locked"
-#~ msgstr "Заблокировано"
-
-#~ msgid "Next Order List"
-#~ msgstr "Список следующих заказов"
-
-#~ msgid "No"
-#~ msgstr "Нет"
-
-#~ msgid "Open POS Sessions"
-#~ msgstr "Открытые POS-сессии"
-
-#~ msgid "Previous Order List"
-#~ msgstr "Предыдущий список заказов"
-
-#~ msgid "Products not available in POS"
-#~ msgstr "Продукты, недоступные в POS"
-
-#~ msgid "Quotation"
-#~ msgstr "Цитирование"
-
-#~ msgid "Quotation Sent"
-#~ msgstr "Отправленная котировка"
-
-#~ msgid "Related Order"
-#~ msgstr "Связанный заказ"
-
-#~ msgid "Salesman"
-#~ msgstr "Продавец"
-
-#~ msgid "Salesperson"
-#~ msgstr "Продавец"
-
-#~ msgid "Session Running"
-#~ msgstr "Сессия Выполняется"
-
-#~ msgid "Session Sale Amount"
-#~ msgstr "Сумма продажи сессии"
-
-#~ msgid "Sessions Running"
-#~ msgstr "Сессии Выполняются"
-
-#~ msgid ""
-#~ "Some of the products in your Sale Order are not available in POS, do you "
-#~ "want to import them?"
-#~ msgstr ""
-#~ "Некоторые товары в вашем заказе на продажу не доступны в POS, хотите ли "
-#~ "вы их импортировать?"
-
-#~ msgid "State"
-#~ msgstr "Область"
-
-#~ msgid "The amount due from the sale order."
-#~ msgstr "Сумма к оплате по ордеру на продажу."
-
-#~ msgid "There was a problem in loading the %s customer."
-#~ msgstr "Возникла проблема при загрузке %s клиента."
-
-#~ msgid "Total"
-#~ msgstr "Всего"
-
-#~ msgid ""
-#~ "Transfered<br/>\n"
-#~ "                                from Sale"
-#~ msgstr ""
-#~ "Перенесено<br/>\n"
-#~ "                                с продажи"
-
-#~ msgid ""
-#~ "Transfered<br/>\n"
-#~ "                                to POS"
-#~ msgstr ""
-#~ "Переведено<br/>\n"
-#~ "                                на POS"
-
-#~ msgid "Unpaid Amount"
-#~ msgstr "Неоплаченная сумма"
-
-#~ msgid "Yes"
-#~ msgstr "Да"
-
-#~ msgid ""
-#~ "You have tried to charge a down payment of %s but only %s remains to be "
-#~ "paid, %s will be applied to the purchase order line."
-#~ msgstr ""
-#~ "Вы попытались внести авансовый платеж в размере %s, но осталось оплатить "
-#~ "только %s, %s будет применено к строке заказа на поставку."

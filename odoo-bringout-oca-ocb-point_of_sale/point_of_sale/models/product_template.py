@@ -3,8 +3,7 @@ from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 from collections import defaultdict
 from odoo.tools import SQL, is_html_empty
-from itertools import groupby
-from operator import itemgetter
+from odoo.tools.translate import adapt_translated_field_value
 from datetime import date
 from odoo.fields import Domain
 
@@ -22,7 +21,12 @@ class ProductTemplate(models.Model):
         return max_sequence + 1
 
     available_in_pos = fields.Boolean(string='Available in POS', help='Check if you want this product to appear in the Point of Sale.', default=False)
-    to_weight = fields.Boolean(string='To Weigh With Scale', help="Check if the product should be weighted using the hardware scale integration.")
+    to_weight = fields.Boolean(
+        string='To Weigh',
+        help="Enable this option if the product should be sold by weight. "
+            "When enabled and scale is not avalable, the 'Price' button will update the quantity instead of the unit price. "
+            "This applies to both normal POS usage and when integrated with a hardware scale."
+    )
     pos_categ_ids = fields.Many2many(
         'pos.category', string='Point of Sale Category',
         help="Category used in the Point of Sale.")
@@ -45,11 +49,21 @@ class ProductTemplate(models.Model):
         copy=False,
     )
 
+    @api.model
+    def set_pos_sequence(self, sequence_by_id):
+        for tmpl_id, sequence in sequence_by_id.items():
+            product_tmpl = self.browse(int(tmpl_id))
+            if product_tmpl.exists():
+                product_tmpl.pos_sequence = sequence
+
     def write(self, vals):
         # Clear empty public description content to avoid side-effects on product page
         # when there is no content to display anyway.
-        if vals.get('public_description') and is_html_empty(vals['public_description']):
-            vals['public_description'] = ''
+        if (public_description := vals.get('public_description')):
+            vals['public_description'] = adapt_translated_field_value(
+                self.env, public_description,
+                lambda lang, v: '' if is_html_empty(v) else v
+            )
         return super().write(vals)
 
     @api.depends('pos_categ_ids')
@@ -81,7 +95,7 @@ class ProductTemplate(models.Model):
         return domain
 
     @api.model
-    def load_product_from_pos(self, config_id, domain, offset=0, limit=0):
+    def load_product_from_pos(self, config_id, domain, offset=0, limit=None):
         load_archived = self.env.context.get('load_archived', False)
         domain = Domain(domain)
         config = self.env['pos.config'].browse(config_id)
@@ -113,13 +127,6 @@ class ProductTemplate(models.Model):
         product_tmpl_attr_line_read = product_tmpl_attr_line._load_pos_data_read(product_tmpl_attr_line, config)
         product_tmpl_attr_value = product_tmpls.attribute_line_ids.product_template_value_ids
         product_tmpl_attr_value_read = product_tmpl_attr_value._load_pos_data_read(product_tmpl_attr_value, config)
-
-        # product.template.attribute.exclusion loading
-        product_tmpl_excl = self.env['product.template.attribute.exclusion']
-        product_tmpl_exclusion = product_tmpl_attr_value.exclude_for + product_tmpl_excl.search([
-            ('product_tmpl_id', 'in', product_tmpls.ids),
-        ])
-        product_tmpl_exclusion_read = product_tmpl_excl._load_pos_data_read(product_tmpl_exclusion, config)
 
         # product.product loading
         product_read = products._load_pos_data_read(products.with_context(display_default_code=False), config)
@@ -157,14 +164,13 @@ class ProductTemplate(models.Model):
             'product.combo.item': combo_item_read,
             'product.template.attribute.value': product_tmpl_attr_value_read,
             'product.template.attribute.line': product_tmpl_attr_line_read,
-            'product.template.attribute.exclusion': product_tmpl_exclusion_read,
         }
 
     @api.model
     def _load_pos_data_fields(self, config_id):
         return [
             'id', 'display_name', 'standard_price', 'categ_id', 'pos_categ_ids', 'taxes_id', 'barcode', 'name', 'list_price', 'is_favorite',
-            'default_code', 'to_weight', 'uom_id', 'description_sale', 'description', 'tracking', 'type', 'service_tracking', 'is_storable',
+            'default_code', 'to_weight', 'uom_id', 'description_sale', 'description', 'type', 'service_tracking', 'is_storable',
             'write_date', 'color', 'pos_sequence', 'available_in_pos', 'attribute_line_ids', 'active', 'image_128', 'combo_ids', 'product_variant_ids', 'public_description',
             'pos_optional_product_ids', 'sequence', 'product_tag_ids', 'currency_id',
         ]
@@ -175,29 +181,7 @@ class ProductTemplate(models.Model):
         pos_limited_loading = self.env.context.get('pos_limited_loading', True)
         if limit_count and pos_limited_loading:
             query = self._search(self._load_pos_data_domain(data, config), bypass_access=True)
-            sql = SQL(
-                """
-                    WITH pm AS (
-                        SELECT pp.product_tmpl_id,
-                            MAX(sml.write_date) date
-                        FROM stock_move_line sml
-                        JOIN product_product pp ON sml.product_id = pp.id
-                        GROUP BY pp.product_tmpl_id
-                    )
-                    SELECT product_template.id
-                        FROM %s
-                    LEFT JOIN pm ON product_template.id = pm.product_tmpl_id
-                        WHERE %s
-                    ORDER BY product_template.is_favorite DESC NULLS LAST,
-                        CASE WHEN product_template.type = 'service' THEN 1 ELSE 0 END DESC,
-                        pm.date DESC NULLS LAST,
-                        product_template.write_date DESC
-                    LIMIT %s
-                """,
-                query.from_clause,
-                query.where_clause or SQL("TRUE"),
-                limit_count,
-            )
+            sql = self._get_load_product_template_sql(query, limit_count)
             product_tmpl_ids = [r[0] for r in self.env.execute_query(sql)]
             products = self._load_product_with_domain([('id', 'in', product_tmpl_ids)])
         else:
@@ -233,14 +217,14 @@ class ProductTemplate(models.Model):
         self._process_pos_ui_product_product(read_records, config)
         return read_records
 
-    def _load_product_with_domain(self, domain, load_archived=False, offset=0, limit=0):
-        context = {**self.env.context, 'display_default_code': False, 'active_test': not load_archived, 'bin_size': True}
+    def _load_product_with_domain(self, domain, load_archived=False, offset=0, limit=None):
+        context = {**self.env.context, 'display_default_code': False, 'active_test': not load_archived}
         domain = self._server_date_to_domain(domain)
         return self.with_context(context).search(
             domain,
             order='sequence,default_code,name',
             offset=offset,
-            limit=limit if limit else False
+            limit=limit or None,
         )
 
     def _process_pos_ui_product_product(self, products, config_id):
@@ -352,7 +336,7 @@ class ProductTemplate(models.Model):
         self.ensure_one()
         config = self.env['pos.config'].browse(pos_config_id)
         product_variant = self.env['product.product'].browse(product_variant_id) if product_variant_id else False
-        template_or_variant = product_variant or self.product_variant_id
+        template_or_variant = product_variant or self
 
         # Tax related
         tax_to_use = self.env['account.tax']
@@ -386,27 +370,9 @@ class ProductTemplate(models.Model):
         price_per_pricelist_id = pricelists._price_get(template_or_variant, quantity) if pricelists else False
         pricelist_list = [{'name': pl.name, 'price': price_per_pricelist_id[pl.id]} for pl in pricelists]
 
-        # Warehouses
-        warehouse_list = [
-            {'id': w.id,
-            'name': w.name,
-            'available_quantity': template_or_variant.with_context({'warehouse_id': w.id}).qty_available,
-            'free_qty': template_or_variant.with_context({'warehouse_id': w.id}).free_qty,
-            'forecasted_quantity': template_or_variant.with_context({'warehouse_id': w.id}).virtual_available,
-            'uom': template_or_variant.uom_name}
-            for w in self.env['stock.warehouse'].search([('company_id', '=', config.company_id.id)])]
-
-        if config.picking_type_id.warehouse_id:
-            # Sort the warehouse_list, prioritizing config.picking_type_id.warehouse_id
-            warehouse_list = sorted(
-                warehouse_list,
-                key=lambda w: w['id'] != config.picking_type_id.warehouse_id.id
-            )
-
         # Suppliers
-        key = itemgetter('partner_id')
         supplier_list = []
-        for _key, group in groupby(sorted(self.seller_ids, key=key), key=key):
+        for group in self.seller_ids.grouped('partner_id').values():
             for s in group:
                 if not ((s.date_start and s.date_start > date.today()) or (s.date_end and s.date_end < date.today()) or (s.min_qty > quantity)):
                     supplier_list.append({
@@ -425,8 +391,24 @@ class ProductTemplate(models.Model):
         return {
             'all_prices': all_prices,
             'pricelists': pricelist_list,
-            'warehouses': warehouse_list,
             'suppliers': supplier_list,
             'variants': variant_list,
             'optional_products': self.pos_optional_product_ids.read(['id', 'name', 'list_price']),
+            'free_qty': template_or_variant.qty_available,
+            'uom': template_or_variant.uom_name,
         }
+
+    def _get_load_product_template_sql(self, query, limit_count):
+        return SQL("""
+            SELECT product_template.id
+                FROM %s
+                WHERE %s
+            ORDER BY product_template.is_favorite DESC NULLS LAST,
+                CASE WHEN product_template.type = 'service' THEN 1 ELSE 0 END DESC,
+                product_template.write_date DESC
+            LIMIT %s
+            """,
+            query.from_clause,
+            query.where_clause or SQL("TRUE"),
+            limit_count,
+        )

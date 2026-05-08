@@ -58,7 +58,6 @@ class TestSaleMrpKitBom(BaseCommon):
             'product_id': product_variant_ids[0].id,
             'product_tmpl_id': product_variant_ids[0].product_tmpl_id.id,
             'product_qty': 1.0,
-            'consumption': 'flexible',
             'type': 'phantom',
             'bom_line_ids': [(0, 0, {'product_id': component_1.id, 'product_qty': 1})]
         })
@@ -67,7 +66,6 @@ class TestSaleMrpKitBom(BaseCommon):
             'product_id': product_variant_ids[1].id,
             'product_tmpl_id': product_variant_ids[1].product_tmpl_id.id,
             'product_qty': 1.0,
-            'consumption': 'flexible',
             'type': 'phantom',
             'bom_line_ids': [(0, 0, {'product_id': component_2.id, 'product_qty': 1})]
         })
@@ -130,13 +128,13 @@ class TestSaleMrpKitBom(BaseCommon):
                 'product_id': self.component_a.id,
                 'product_qty': 1.0,
                 'bom_id': self.bom.id,
-                'product_uom_id': self.env.ref('uom.product_uom_dozen').id,
+                'uom_id': self.env.ref('uom.product_uom_dozen').id,
         })
         self.env['mrp.bom.line'].create({
                 'product_id': self.component_b.id,
                 'product_qty': 2.0,
                 'bom_id': self.bom.id,
-                'product_uom_id': self.env.ref('uom.product_uom_unit').id,
+                'uom_id': self.env.ref('uom.product_uom_unit').id,
         })
 
         # Create a SO with one unit of the kit product
@@ -198,12 +196,12 @@ class TestSaleMrpKitBom(BaseCommon):
                 Command.create({
                     'product_id': self.component_a.id,
                     'product_qty': 10.0,
-                    'product_uom_id': self.env.ref('uom.product_uom_meter').id,
+                    'uom_id': self.env.ref('uom.product_uom_meter').id,
                 }),
                 Command.create({
                     'product_id': self.component_b.id,
                     'product_qty': 2.0,
-                    'product_uom_id': self.env.ref('uom.product_uom_dozen').id,
+                    'uom_id': self.env.ref('uom.product_uom_dozen').id,
                 }),
             ]
         })
@@ -338,7 +336,7 @@ class TestSaleMrpKitBom(BaseCommon):
             a bom_line_id
         """
 
-        wh = self.env['stock.warehouse'].search([('company_id', '=', self.env.user.id)], limit=1)
+        wh = self.env['stock.warehouse'].search([('company_id', '=', self.env.company.id)], limit=1)
         wh.write({'delivery_steps': 'pick_ship'})
 
         kitA = self._create_product('Kit Product', True, 0.00)
@@ -392,7 +390,7 @@ class TestSaleMrpKitBom(BaseCommon):
            is correct for each products.
         """
 
-        wh = self.env['stock.warehouse'].search([('company_id', '=', self.env.user.id)], limit=1)
+        wh = self.env['stock.warehouse'].search([('company_id', '=', self.env.company.id)], limit=1)
         wh.write({'delivery_steps': 'pick_ship'})
 
         kitAB = self._create_product('Kit AB', True, 0.00)
@@ -658,42 +656,28 @@ class TestSaleMrpKitBom(BaseCommon):
         self.assertEqual(so.order_line.qty_delivered, 25 / 5 * 6)
 
         # Return 10 components
-        stock_return_picking_form = Form(self.env['stock.return.picking']
-            .with_context(active_ids=picking_ship.ids, active_id=picking_ship.id,
-            active_model='stock.picking'))
-        return_wiz = stock_return_picking_form.save()
-        for return_move in return_wiz.product_return_moves:
-            return_move.write({
-                'quantity': 10,
-                'to_refund': True
-            })
-        res = return_wiz.action_create_returns()
-        return_pick = self.env['stock.picking'].browse(res['res_id'])
+        return_pick = picking_ship._create_return()
+        return_pick.move_ids.product_uom_qty = 10
+        return_pick.action_assign()
 
         # Process all components and validate the return
         return_pick.button_validate()
         self.assertEqual(so.order_line.qty_delivered, 15 / 5 * 6)
 
         # Resend 5 components
-        stock_return_picking_form = Form(self.env['stock.return.picking']
-            .with_context(active_ids=return_pick.ids, active_id=return_pick.id,
-            active_model='stock.picking'))
-        return_wiz = stock_return_picking_form.save()
-        for return_move in return_wiz.product_return_moves:
-            return_move.write({
-                'quantity': 5,
-                'to_refund': True
-            })
-        res = return_wiz.action_create_returns()
+        return_pick_2 = return_pick._create_return()
+        return_pick_2.move_ids.product_uom_qty = 5
+        return_pick_2.action_assign()
 
         # Validate the return
-        self.env['stock.picking'].browse(res['res_id']).button_validate()
+        return_pick_2.button_validate()
         self.assertEqual(so.order_line.qty_delivered, 20 / 5 * 6)
 
     def test_sale_kit_qty_change(self):
 
-        # Create record rule
+        # Create record rule (remove access from all)
         mrp_bom_model = self.env['ir.model']._get('mrp.bom')
+        self.env['ir.rule'].search([('model_id', '=', mrp_bom_model.id)]).unlink()
         self.env['ir.rule'].create({
             'name': "No one allowed to access BoMs",
             'model_id': mrp_bom_model.id,
@@ -707,7 +691,6 @@ class TestSaleMrpKitBom(BaseCommon):
             'product_id': kit_product.id,
             'product_tmpl_id': kit_product.product_tmpl_id.id,
             'product_qty': 1,
-            'consumption': 'flexible',
             'type': 'phantom',
             'bom_line_ids': [(0, 0, {'product_id': component_a.id, 'product_qty': 1})]
         })
@@ -820,7 +803,6 @@ class TestSaleMrpKitBom(BaseCommon):
             'product_id': kit_product.id,
             'product_tmpl_id': kit_product.product_tmpl_id.id,
             'product_qty': 1,
-            'consumption': 'flexible',
             'type': 'phantom',
             'bom_line_ids': [(0, 0, {'product_id': component_product.id, 'product_qty': 1})]
         })

@@ -5,12 +5,11 @@ import odoo
 
 from odoo import fields
 from odoo.addons.point_of_sale.tests.common import TestPoSCommon
-from odoo.exceptions import ValidationError
+from odoo.exceptions import ValidationError, UserError
 from freezegun import freeze_time
 from dateutil.relativedelta import relativedelta
 from datetime import datetime, timedelta
 import unittest.mock
-from odoo.http import UserError
 
 
 @odoo.tests.tagged('post_install', '-at_install')
@@ -31,7 +30,6 @@ class TestPoSBasicConfig(TestPoSCommon):
         self.product4 = self.create_product('Product_4', self.categ_basic, 9.96, 4.98)
         self.product99 = self.create_product('Product_99', self.categ_basic, 99, 50)
         self.product_multi_tax = self.create_product('Multi-tax product', self.categ_basic, 100, 100, (self.taxes['tax8'] | self.taxes['tax9']).ids)
-        self.adjust_inventory([self.product1, self.product2, self.product3], [100, 50, 50])
         self.company_data_2 = self.setup_other_company()
 
     def test_orders_no_invoiced(self):
@@ -94,20 +92,6 @@ class TestPoSBasicConfig(TestPoSCommon):
                 self.product3.qty_available + 6,
                 start_qty_available[self.product3],
             )
-
-            # picking and stock moves should be in done state
-            for order in self.pos_session.order_ids:
-                self.assertEqual(
-                    order.picking_ids[0].state,
-                    'done',
-                    'Picking should be in done state.'
-                )
-                move_ids = order.picking_ids[0].move_ids
-                self.assertEqual(
-                    move_ids.mapped('state'),
-                    ['done'] * len(move_ids),
-                    'Move Lines should be in done state.'
-                )
 
         self._run_test({
             'payment_methods': self.cash_pm1 | self.bank_pm1,
@@ -208,21 +192,6 @@ class TestPoSBasicConfig(TestPoSCommon):
                 start_qty_available[self.product3],
             )
 
-            # picking and stock moves should be in done state
-            # no exception for invoiced orders
-            for order in self.pos_session.order_ids:
-                self.assertEqual(
-                    order.picking_ids[0].state,
-                    'done',
-                    'Picking should be in done state.'
-                )
-                move_ids = order.picking_ids[0].move_ids
-                self.assertEqual(
-                    move_ids.mapped('state'),
-                    ['done'] * len(move_ids),
-                    'Move Lines should be in done state.'
-                )
-
             # check account move in the invoiced order
             invoiced_order = self.pos_session.order_ids.filtered(lambda order: order.account_move)
             self.assertEqual(1, len(invoiced_order), 'Only one order is invoiced in this test.')
@@ -310,7 +279,7 @@ class TestPoSBasicConfig(TestPoSCommon):
                 '00100-010-0001': {
                     'invoice': {
                         'line_ids': [
-                            {'account_id': self.sales_account.id, 'partner_id': self.customer.id, 'debit': 0, 'credit': 0, 'reconciled': False},
+                            {'account_id': self.sales_account.id, 'partner_id': self.customer.id, 'debit': 0, 'credit': 0, 'reconciled': True},
                             {'account_id': self.c1_receivable.id, 'partner_id': self.customer.id, 'debit': 0, 'credit': 0, 'reconciled': True},
                         ]
                     },
@@ -459,21 +428,6 @@ class TestPoSBasicConfig(TestPoSCommon):
                 self.product3.qty_available,
                 start_qty_available[self.product3],
             )
-
-            # picking and stock moves should be in done state
-            # no exception of return orders
-            for order in self.pos_session.order_ids:
-                self.assertEqual(
-                    order.picking_ids[0].state,
-                    'done',
-                    'Picking should be in done state.'
-                )
-                move_ids = order.picking_ids[0].move_ids
-                self.assertEqual(
-                    move_ids.mapped('state'),
-                    ['done'] * len(move_ids),
-                    'Move Lines should be in done state.'
-                )
 
         self._run_test({
             'payment_methods': self.cash_pm1 | self.bank_pm1,
@@ -828,7 +782,7 @@ class TestPoSBasicConfig(TestPoSCommon):
             self.assertLogs('odoo.addons.point_of_sale.models.pos_order') as cm,
             unittest.mock.patch('odoo.addons.point_of_sale.models.pos_order.randrange', return_value=1996)
         ):
-            self.env['ir.config_parameter'].sudo().set_param('point_of_sale.log_order_data', 'True')
+            self.env['ir.config_parameter'].sudo().set_bool('point_of_sale.log_order_data', True)
             res = self.env['pos.order'].sync_from_ui([order_data])
             # Basic check for logs on order synchronization
             order_log_str = self.env['pos.order']._get_order_log_representation(order_data)
@@ -1132,7 +1086,7 @@ class TestPoSBasicConfig(TestPoSCommon):
         ])
 
     def test_limited_products_loading(self):
-        self.env['ir.config_parameter'].sudo().set_param('point_of_sale.limited_product_count', 3)
+        self.env['ir.config_parameter'].sudo().set_int('point_of_sale.limited_product_count', 3)
 
         # Make the service products that are available in the pos inactive.
         # We don't need them to test the loading of 'consu' products.
@@ -1163,7 +1117,7 @@ class TestPoSBasicConfig(TestPoSCommon):
 
     def test_closing_entry_by_product(self):
         # set the Group by Product at Closing Entry
-        self.config.is_closing_entry_by_product = True
+        self.config.use_closing_entry_by_product = True
         self.open_new_session()
 
         # 4 orders
@@ -1348,7 +1302,6 @@ class TestPoSBasicConfig(TestPoSCommon):
         self.assertEqual(res['pos.order'][0]['id'], order_id, 'Syncing the same order should not create a new one')
 
         order = self.env['pos.order'].browse(order_id)
-        self.assertEqual(order.picking_count, 1, 'Order should have one picking')
         self.assertEqual(len(order.payment_ids), 1, 'Order should have one payment')
         self.assertEqual(self.env['account.move'].search_count([('pos_order_ids', 'in', order.ids)]), 1, 'Order should have one invoice')
 

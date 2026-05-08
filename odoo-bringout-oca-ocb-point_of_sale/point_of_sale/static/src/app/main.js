@@ -1,6 +1,7 @@
+import { reactive } from "@web/owl2/utils";
 import { Loader } from "@point_of_sale/app/components/loader/loader";
 import { getTemplate } from "@web/core/templates";
-import { mount, reactive, whenReady } from "@odoo/owl";
+import { mount, whenReady } from "@odoo/owl";
 import { _t, appTranslateFn } from "@web/core/l10n/translation";
 import { hasTouch } from "@web/core/browser/feature_detection";
 import { localization } from "@web/core/l10n/localization";
@@ -39,6 +40,24 @@ whenReady(() => {
                 );
                 event.returnValue = confirmationMessage;
                 return confirmationMessage;
+            }
+            const pos = app.env.services.pos;
+            if (pos?.session?.state === "opening_control") {
+                const data = JSON.stringify({
+                    jsonrpc: "2.0",
+                    method: "call",
+                    id: 1,
+                    params: {
+                        model: "pos.session",
+                        method: "delete_opening_control_session",
+                        args: [[pos.session.id]],
+                        kwargs: {},
+                    },
+                });
+                navigator.sendBeacon(
+                    "/web/dataset/call_kw",
+                    new Blob([data], { type: "application/json" })
+                );
             }
         });
         const classList = document.body.classList;

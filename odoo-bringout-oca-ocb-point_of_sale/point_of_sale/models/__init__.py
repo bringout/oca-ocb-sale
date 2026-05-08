@@ -16,7 +16,9 @@ from . import digest
 from . import pos_category
 from . import pos_config
 from . import pos_order
+from . import pos_order_line
 from . import pos_session
+from . import pos_snooze
 from . import product_pricelist
 from . import product_attribute
 from . import product_category
@@ -30,9 +32,6 @@ from . import res_company
 from . import res_config_settings
 from . import ir_http
 from . import ir_module_module
-from . import stock_picking
-from . import stock_reference
-from . import stock_warehouse
 from . import pos_payment
 from . import pos_payment_method
 from . import pos_bill

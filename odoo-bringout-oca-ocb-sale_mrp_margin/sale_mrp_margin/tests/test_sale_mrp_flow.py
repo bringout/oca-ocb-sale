@@ -86,7 +86,7 @@ class TestSaleMrpFlow(test_sale_mrp_flow.TestSaleMrpFlowCommon):
             },
             {
                 'product_tmpl_id': kit.product_tmpl_id.id,
-                'product_uom_id': kit.uom_id.id,
+                'uom_id': kit.uom_id.id,
                 'product_qty': 1.0,
                 'type': 'phantom',
                 'bom_line_ids': [
@@ -156,7 +156,7 @@ class TestSaleMrpFlow(test_sale_mrp_flow.TestSaleMrpFlowCommon):
                     Command.create({
                         'product_id': self.component_a.id,
                         'product_qty': 1.0,
-                        'product_uom_id': self.uom_unit.id,
+                        'uom_id': self.uom_unit.id,
                     }),
                 ],
             }
@@ -184,3 +184,41 @@ class TestSaleMrpFlow(test_sale_mrp_flow.TestSaleMrpFlowCommon):
             {'debit': 0.0, 'credit': 1.0},
             {'debit': 1.0, 'credit': 0.0}
         ])
+
+    def test_kit_cost_calculation_multi_qty_bom(self):
+        """ Check that the average cost price is correctly normalized by bom.product_qty.
+
+            BOM: 12 units of "Kit X" = 12 x Comp A + 12 x Comp B
+            Comp A cost = $10, Comp B cost = $20
+            Per-unit cost of Kit X = (12*10 + 12*20) / 12 = $30
+
+            Without normalization the cost would incorrectly be 12*10 + 12*20 = $360.
+        """
+        kit_x = self._cls_create_product('Kit X', self.uom_unit)
+        (kit_x + self.component_a + self.component_b).categ_id.property_cost_method = 'average'
+        self.env['mrp.bom'].create({
+            'product_tmpl_id': kit_x.product_tmpl_id.id,
+            'product_qty': 12.0,
+            'type': 'phantom',
+            'bom_line_ids': [
+                (0, 0, {'product_id': self.component_a.id, 'product_qty': 12.0}),
+                (0, 0, {'product_id': self.component_b.id, 'product_qty': 12.0}),
+            ],
+        })
+        self.component_a.standard_price = 10
+        self.component_b.standard_price = 20
+        kit_x.button_bom_cost()
+
+        stock_location = self.env['stock.warehouse'].search(
+            [('company_id', '=', self.env.company.id)], limit=1,
+        ).lot_stock_id
+        self.env['stock.quant']._update_available_quantity(self.component_a, stock_location, 100)
+        self.env['stock.quant']._update_available_quantity(self.component_b, stock_location, 100)
+
+        so_form = Form(self.env['sale.order'])
+        so_form.partner_id = self.partner_a
+        with so_form.order_line.new() as line:
+            line.product_id = kit_x
+        so = so_form.save()
+        so.action_confirm()
+        self.assertEqual(so.order_line.purchase_price, 30)

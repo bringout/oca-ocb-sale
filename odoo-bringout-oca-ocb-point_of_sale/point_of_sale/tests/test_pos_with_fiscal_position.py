@@ -46,7 +46,6 @@ class TestPoSWithFiscalPosition(TestPoSCommon):
             standard_price=15.0,
             tax_ids=cls.taxes['tax7'].ids,
         )
-        cls.adjust_inventory([cls.product1, cls.product2, cls.product3], [100, 50, 50])
 
     @classmethod
     def _create_fiscal_position(cls):
@@ -368,6 +367,64 @@ class TestPoSWithFiscalPosition(TestPoSCommon):
                         'line_ids': [
                             {'account_id': self.bank_pm1.outstanding_account_id.id, 'partner_id': False, 'debit': 691.06, 'credit': 0, 'reconciled': False},
                             {'account_id': self.bank_pm1.receivable_account_id.id, 'partner_id': False, 'debit': 0, 'credit': 691.06, 'reconciled': True},
+                        ]
+                    }),
+                ],
+            },
+        })
+
+    def test_04_remove_tax_if_not_in_fp(self):
+        """ Tax a, with only fiscal position a set, should be removed if fiscal position b is set on order
+
+        Orders
+        ======
+        +---------+----------+---------------------+----------+-----+---------+------------------+--------+
+        | order   | payments | invoiced?           | product  | qty | untaxed | tax              |  total |
+        +---------+----------+---------------------+----------+-----+---------+------------------+--------+
+        | order 1 | cash     | yes, customer       | product1 |  10 |  109.90 | 18.68 [7%->None] | 109.90 |
+        +---------+----------+---------------------+----------+-----+---------+-----------------+--------+
+
+        Expected Result
+        ===============
+        +---------------------+---------+
+        | account             | balance |
+        +---------------------+---------+
+        | other_sale_account  | -109.90 |
+        | pos receivable cash |  109.90 |
+        +---------------------+---------+
+        | Total balance       |     0.0 |
+        +---------------------+---------+
+        """
+        def _before_closing_cb():
+            # check values before closing the session
+            self.assertEqual(1, self.pos_session.order_count)
+            orders_total = sum(order.amount_total for order in self.pos_session.order_ids)
+            self.assertAlmostEqual(orders_total, self.pos_session.total_payments_amount, msg='Total order amount should be equal to the total payment amount.')
+
+        self.new_tax_17.original_tax_ids = None  # cancel tax replacement
+        self.customer.property_account_position_id = self.fpos  # enable applying fpos on order
+        dummy_fp = self.env['account.fiscal.position'].create({'name': 'Dummy FP'})
+        self.taxes['tax7'].fiscal_position_ids |= dummy_fp  # set a dummy fp on tax, as 'normal' taxes should have fp and and a tax without fp is never replaced
+
+        self._run_test({
+            'payment_methods': self.cash_pm1,
+            'orders': [
+                {'pos_order_lines_ui_args': [(self.product1, 10)], 'customer': self.customer, 'uuid': '00100-010-0001'},
+            ],
+            'before_closing_cb': _before_closing_cb,
+            'journal_entries_before_closing': {},
+            'journal_entries_after_closing': {
+                'session_journal_entry': {
+                    'line_ids': [
+                        {'account_id': self.other_sale_account.id, 'partner_id': False, 'debit': 0, 'credit': 109.9, 'reconciled': False},
+                        {'account_id': self.cash_pm1.receivable_account_id.id, 'partner_id': False, 'debit': 109.9, 'credit': 0, 'reconciled': True},
+                    ],
+                },
+                'cash_statement': [
+                    ((109.9, ), {
+                        'line_ids': [
+                            {'account_id': self.cash_pm1.journal_id.default_account_id.id, 'partner_id': False, 'debit': 109.9, 'credit': 0, 'reconciled': False},
+                            {'account_id': self.cash_pm1.receivable_account_id.id, 'partner_id': False, 'debit': 0, 'credit': 109.9, 'reconciled': True},
                         ]
                     }),
                 ],

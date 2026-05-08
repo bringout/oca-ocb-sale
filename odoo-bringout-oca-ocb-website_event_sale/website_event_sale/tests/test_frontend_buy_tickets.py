@@ -89,7 +89,7 @@ class TestUi(HttpCaseWithUserDemo, TestWebsiteEventSaleCommon):
         })
         transfer_provider._transfer_ensure_pending_msg_is_set()
 
-        self.start_tour("/", 'event_buy_tickets', login="admin")
+        self.start_tour("/event", 'event_buy_tickets', login="admin")
 
     def test_demo(self):
         self.env['product.pricelist'].with_context(active_test=False).search([]).unlink()
@@ -103,7 +103,7 @@ class TestUi(HttpCaseWithUserDemo, TestWebsiteEventSaleCommon):
         #  Ensure the use of USD (company currency)
         self.env['product.pricelist'].create({'name': "Public Pricelist"})
 
-        self.start_tour("/", 'event_buy_tickets', login="demo")
+        self.start_tour("/event", 'event_buy_tickets', login="demo")
 
     def test_buy_last_ticket(self):
         transfer_provider = self.env.ref('payment.payment_provider_transfer')
@@ -113,11 +113,11 @@ class TestUi(HttpCaseWithUserDemo, TestWebsiteEventSaleCommon):
         })
         transfer_provider._transfer_ensure_pending_msg_is_set()
 
-        self.start_tour("/", 'event_buy_last_ticket')
+        self.start_tour("/event", 'event_buy_last_ticket')
 
     def test_pricelists_different_currencies(self):
         self.env.user.group_ids += self.env.ref('product.group_product_pricelist')
-        self.start_tour("/", 'event_sale_pricelists_different_currencies', login='admin')
+        self.start_tour("/event", 'event_sale_pricelists_different_currencies', login='admin')
     # TO DO - add public test with new address when convert to web.tour format.
 
 
@@ -132,8 +132,6 @@ class TestRoutes(HttpCaseWithUserDemo, TestWebsiteEventSaleCommon, PaymentHttpCo
         - Finally do a successful purchase of a single ticket without limit
         """
         self.authenticate(None, None)
-
-        sale_order = self.empty_cart
 
         self.ticket_2.write({
             'name': "VIP",
@@ -150,11 +148,15 @@ class TestRoutes(HttpCaseWithUserDemo, TestWebsiteEventSaleCommon, PaymentHttpCo
         self.assertEqual(self.event.seats_available, 3)
 
         # Add VIP ticket to cart & create draft registration
-        sale_order.order_line = [Command.create({
-            'product_id': self.ticket.product_id.id,
-            'event_id': self.event.id,
-            'event_ticket_id': self.ticket_2.id,
-        })]
+        sale_order = self._create_so(
+            order_line=[
+                Command.create({
+                    'product_id': self.ticket.product_id.id,
+                    'event_id': self.event.id,
+                    'event_ticket_id': self.ticket_2.id,
+                })
+            ]
+        )
         registration = self.env['event.registration'].create({
             'state': 'draft',
             'partner_id': sale_order.partner_id.id,

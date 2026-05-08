@@ -1,10 +1,10 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo.fields import Command
-from odoo.tests.common import TransactionCase
-from odoo.exceptions import UserError
+from odoo.tests.common import tagged, TransactionCase
 
 
+@tagged('at_install', '-post_install')  # LEGACY at_install
 class TestPointOfSale(TransactionCase):
     @classmethod
     def setUpClass(cls):
@@ -96,16 +96,6 @@ class TestPointOfSale(TransactionCase):
         })
         self.assertEqual(coin.value, 0.005)
 
-    def test_pos_config_creates_warehouse(self):
-        warehouse = self.env['stock.warehouse'].search([('company_id', '=', self.env.company.id)])
-        if warehouse:
-            warehouse.write({'active': False, 'name': 'Archived ' + warehouse[0].name})
-        pos_config = self.env['pos.config'].create({
-            'name': 'Shop',
-            'module_pos_restaurant': False,
-        })
-        self.assertEqual(pos_config.warehouse_id.code, 'Sho')
-
     def test_session_filter_local_data(self):
         product1 = self.env['product.template'].create({
             'name': 'product1'
@@ -145,7 +135,3 @@ class TestPointOfSale(TransactionCase):
         models_to_filter = {'product.template': products_to_display}
         products_to_display = list(set(products_to_display) - set(session.filter_local_data(models_to_filter)['product.template']))
         self.assertEqual(products_to_display, [])
-
-        # Cannot archive config while session is active
-        with self.assertRaises(UserError):
-            config.write({'active': False})

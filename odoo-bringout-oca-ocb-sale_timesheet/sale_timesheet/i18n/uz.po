@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:37+0000\n"
+"POT-Creation-Date: 2026-03-12 18:37+0000\n"
 "PO-Revision-Date: 2025-10-08 18:39+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -223,41 +223,48 @@ msgid "<span class=\"text-muted small\">Time to Answer</span>"
 msgstr "<span class=\"text-muted small\">Javob berish vaqti</span>"
 
 #. module: sale_timesheet
-#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
-#: model_terms:hr.job,website_description:sale_timesheet.job_interior_designer
-#: model_terms:hr.job,website_description:sale_timesheet.job_labour
+#: model_terms:ir.ui.view,arch_db:sale_timesheet.project_project_view_form
+msgid ""
+"<span class=\"text-muted\">Timesheets without a sales order item are "
+"reported as</span>"
+msgstr ""
+
+#. module: sale_timesheet
+#: model_terms:hr.job,website_rating:sale_timesheet.job_engineer
+#: model_terms:hr.job,website_rating:sale_timesheet.job_interior_designer
+#: model_terms:hr.job,website_rating:sale_timesheet.job_labour
 #, fuzzy
 msgid "<strong class=\"s_rating_title\">Administrative Work</strong>"
 msgstr "<strong class=\"s_rating_title\">Ma'muriy ishlar</strong>"
 
 #. module: sale_timesheet
-#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
-#: model_terms:hr.job,website_description:sale_timesheet.job_interior_designer
-#: model_terms:hr.job,website_description:sale_timesheet.job_labour
+#: model_terms:hr.job,website_rating:sale_timesheet.job_engineer
+#: model_terms:hr.job,website_rating:sale_timesheet.job_interior_designer
+#: model_terms:hr.job,website_rating:sale_timesheet.job_labour
 #, fuzzy
 msgid "<strong class=\"s_rating_title\">Autonomy</strong>"
 msgstr "<strong class=\"s_rating_title\">Mustaqillik</strong>"
 
 #. module: sale_timesheet
-#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
-#: model_terms:hr.job,website_description:sale_timesheet.job_interior_designer
-#: model_terms:hr.job,website_description:sale_timesheet.job_labour
+#: model_terms:hr.job,website_rating:sale_timesheet.job_engineer
+#: model_terms:hr.job,website_rating:sale_timesheet.job_interior_designer
+#: model_terms:hr.job,website_rating:sale_timesheet.job_labour
 #, fuzzy
 msgid "<strong class=\"s_rating_title\">Customer Relationship</strong>"
 msgstr "<strong class=\"s_rating_title\">Mijozlar bilan munosabat</strong>"
 
 #. module: sale_timesheet
-#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
-#: model_terms:hr.job,website_description:sale_timesheet.job_interior_designer
-#: model_terms:hr.job,website_description:sale_timesheet.job_labour
+#: model_terms:hr.job,website_rating:sale_timesheet.job_engineer
+#: model_terms:hr.job,website_rating:sale_timesheet.job_interior_designer
+#: model_terms:hr.job,website_rating:sale_timesheet.job_labour
 #, fuzzy
 msgid "<strong class=\"s_rating_title\">Personal Evolution</strong>"
 msgstr "<strong class=\"s_rating_title\">Shaxsiy rivojlanish</strong>"
 
 #. module: sale_timesheet
-#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
-#: model_terms:hr.job,website_description:sale_timesheet.job_interior_designer
-#: model_terms:hr.job,website_description:sale_timesheet.job_labour
+#: model_terms:hr.job,website_rating:sale_timesheet.job_engineer
+#: model_terms:hr.job,website_rating:sale_timesheet.job_interior_designer
+#: model_terms:hr.job,website_rating:sale_timesheet.job_labour
 #, fuzzy
 msgid "<strong class=\"s_rating_title\">Technical Expertise</strong>"
 msgstr "<strong class=\"s_rating_title\">Texnik malaka</strong>"
@@ -287,7 +294,7 @@ msgid "<strong>Sales Order:</strong>"
 msgstr "<strong>Savdo buyurtmasi:</strong>"
 
 #. module: sale_timesheet
-#: model_terms:ir.ui.view,arch_db:sale_timesheet.portal_timesheet_table_inherit
+#: model_terms:ir.ui.view,arch_db:sale_timesheet.portal_timesheet_table_with_total_inherit
 #, fuzzy
 msgid "<strong>Time Remaining on SO: </strong>"
 msgstr "<strong>Savdo buyurtmasidagi qolgan vaqt: </strong>"
@@ -302,7 +309,6 @@ msgstr "To‘liq stavkali ish o‘rni <br>Jozibador maosh paketi."
 
 #. module: sale_timesheet
 #: model:ir.model.fields,help:sale_timesheet.field_sale_order_line__qty_delivered_method
-#, fuzzy
 msgid ""
 "According to product configuration, the delivered quantity can be "
 "automatically computed by mechanism:\n"
@@ -310,19 +316,8 @@ msgid ""
 "  - Analytic From expenses: the quantity is the quantity sum from posted "
 "expenses\n"
 "  - Timesheet: the quantity is the sum of hours recorded on tasks linked to "
-"this sale line\n"
+"this line\n"
 "  - Stock Moves: the quantity comes from confirmed pickings\n"
-msgstr ""
-"Mahsulot konfiguratsiyasiga ko‘ra, yetkazib beriladigan miqdor quyidagi "
-"mexanizmlar orqali avtomatik ravishda hisoblanishi mumkin: - Qo‘lda: miqdor "
-"qatorda qo‘lda o‘rnatiladi - Xarajatlar tahlilidan: miqdor qayd etilgan "
-"xarajatlardan olingan miqdorlar yig‘indisi - Vaqt jadvali: miqdor ushbu "
-"savdo qatoriga bog‘liq vazifalarda qayd etilgan soatlar yig‘indisi - "
-"Omborxona harakatlari: miqdor tasdiqlangan jo‘natmalardan olinadi"
-
-#. module: sale_timesheet
-#: model:ir.model,name:sale_timesheet.model_account_move_reversal
-msgid "Account Move Reversal"
 msgstr ""
 
 #. module: sale_timesheet
@@ -377,36 +372,24 @@ msgid "Analytic lines"
 msgstr "Tahliliy qatorlar"
 
 #. module: sale_timesheet
-#: model_terms:hr.job,website_description:sale_timesheet.job_engineer
-#: model_terms:hr.job,website_description:sale_timesheet.job_interior_designer
-#: model_terms:hr.job,website_description:sale_timesheet.job_labour
-#, fuzzy
+#: model_terms:hr.job,description:sale_timesheet.job_engineer
+#: model_terms:hr.job,description:sale_timesheet.job_interior_designer
+#: model_terms:hr.job,description:sale_timesheet.job_labour
 msgid ""
 "As an employee of our company, you will <b>collaborate with each department\n"
-"                        to create and deploy disruptive products.</b> Come "
-"work at a growing company\n"
-"                        that offers great benefits with opportunities to "
-"moving forward and learn\n"
-"                        alongside accomplished leaders. We're seeking an "
-"experienced and outstanding\n"
-"                        member of staff.\n"
-"                        <br><br>\n"
-"                        This position is both <b>creative and rigorous</b> "
-"by nature you need to think\n"
-"                        outside the box. We expect the candidate to be "
-"proactive and have a \"get it done\"\n"
-"                        spirit. To be successful, you will have solid "
-"solving problem skills."
+"to create and deploy disruptive products.</b> Come work at a growing "
+"company\n"
+"that offers great benefits with opportunities to moving forward and learn\n"
+"alongside accomplished leaders. We're seeking an experienced and "
+"outstanding\n"
+"member of staff.\n"
+"<br><br>\n"
+"This position is both <b>creative and rigorous</b> by nature you need to "
+"think\n"
+"outside the box. We expect the candidate to be proactive and have a \"get it "
+"done\"\n"
+"spirit. To be successful, you will have solid solving problem skills."
 msgstr ""
-"Kompaniyamiz xodimi sifatida siz <b>innovatsion mahsulotlarni yaratish va "
-"joriy etish uchun har bir bo‘lim bilan hamkorlik qilasiz.</b> Katta "
-"imkoniyatlar taqdim etadigan va tajribali rahbarlar bilan birga o‘sish hamda "
-"o‘rganish imkonini beradigan rivojlanayotgan kompaniyada ishlashga keling. "
-"Biz tajribali va iste'dodli xodim izlayapmiz. <br><br> Bu lavozim "
-"<b>ijodkorlik va puxtalikni</b> talab qiladi, siz qolipdan tashqarida "
-"fikrlashingiz kerak. Biz nomzoddan faol va \"ishni bitiruvchi\" ruhda "
-"bo‘lishini kutamiz. Muvaffaqiyatga erishish uchun sizda muammolarni hal "
-"qilishning mustahkam ko‘nikmalari bo‘lishi lozim."
 
 #. module: sale_timesheet
 #: model_terms:hr.job,website_description:sale_timesheet.job_engineer
@@ -425,6 +408,7 @@ msgstr "Vaqt jadvallariga asoslangan"
 
 #. module: sale_timesheet
 #: model:ir.model.fields,field_description:sale_timesheet.field_account_analytic_line__allow_billable
+#: model_terms:ir.ui.view,arch_db:sale_timesheet.timesheet_view_search
 #, fuzzy
 msgid "Billable"
 msgstr "To‘lovga loyiq"
@@ -436,45 +420,36 @@ msgid "Billable Time"
 msgstr "To‘lanadigan vaqt"
 
 #. module: sale_timesheet
-#: model:ir.model.fields,field_description:sale_timesheet.field_account_analytic_line__timesheet_invoice_type
-#: model:ir.model.fields,field_description:sale_timesheet.field_timesheets_analysis_report__timesheet_invoice_type
+#: model:ir.model.fields,field_description:sale_timesheet.field_account_analytic_line__billable_type
+#: model:ir.model.fields,field_description:sale_timesheet.field_timesheets_analysis_report__billable_type
 #, fuzzy
 msgid "Billable Type"
 msgstr "To‘lov turi"
 
 #. module: sale_timesheet
-#: model:ir.model.fields.selection,name:sale_timesheet.selection__account_analytic_line__timesheet_invoice_type__billable_manual
-#: model:ir.model.fields.selection,name:sale_timesheet.selection__timesheets_analysis_report__timesheet_invoice_type__billable_manual
-#: model_terms:ir.ui.view,arch_db:sale_timesheet.timesheet_view_search
+#: model:ir.model.fields.selection,name:sale_timesheet.selection__account_analytic_line__billable_type__08_billable_manual
+#: model:ir.model.fields.selection,name:sale_timesheet.selection__timesheets_analysis_report__billable_type__08_billable_manual
 #, fuzzy
 msgid "Billed Manually"
 msgstr "Qo‘lda hisoblangan"
 
 #. module: sale_timesheet
-#: model_terms:ir.ui.view,arch_db:sale_timesheet.timesheet_view_search
-#, fuzzy
-msgid "Billed at a Fixed Price"
-msgstr "Belgilangan narxda hisoblangan"
-
-#. module: sale_timesheet
-#: model:ir.model.fields.selection,name:sale_timesheet.selection__account_analytic_line__timesheet_invoice_type__billable_fixed
-#: model:ir.model.fields.selection,name:sale_timesheet.selection__timesheets_analysis_report__timesheet_invoice_type__billable_fixed
+#: model:ir.model.fields.selection,name:sale_timesheet.selection__account_analytic_line__billable_type__02_billable_fixed
+#: model:ir.model.fields.selection,name:sale_timesheet.selection__timesheets_analysis_report__billable_type__02_billable_fixed
 #, fuzzy
 msgid "Billed at a Fixed price"
 msgstr "Belgilangan narxda hisoblangan"
 
 #. module: sale_timesheet
-#: model:ir.model.fields.selection,name:sale_timesheet.selection__account_analytic_line__timesheet_invoice_type__billable_milestones
-#: model:ir.model.fields.selection,name:sale_timesheet.selection__timesheets_analysis_report__timesheet_invoice_type__billable_milestones
-#: model_terms:ir.ui.view,arch_db:sale_timesheet.timesheet_view_search
+#: model:ir.model.fields.selection,name:sale_timesheet.selection__account_analytic_line__billable_type__06_billable_milestones
+#: model:ir.model.fields.selection,name:sale_timesheet.selection__timesheets_analysis_report__billable_type__06_billable_milestones
 #, fuzzy
 msgid "Billed on Milestones"
 msgstr "Bosqichlar bo‘yicha hisoblangan"
 
 #. module: sale_timesheet
-#: model:ir.model.fields.selection,name:sale_timesheet.selection__account_analytic_line__timesheet_invoice_type__billable_time
-#: model:ir.model.fields.selection,name:sale_timesheet.selection__timesheets_analysis_report__timesheet_invoice_type__billable_time
-#: model_terms:ir.ui.view,arch_db:sale_timesheet.timesheet_view_search
+#: model:ir.model.fields.selection,name:sale_timesheet.selection__account_analytic_line__billable_type__04_billable_time
+#: model:ir.model.fields.selection,name:sale_timesheet.selection__timesheets_analysis_report__billable_type__04_billable_time
 #, fuzzy
 msgid "Billed on Timesheets"
 msgstr "Vaqt jadvallari asosida hisoblangan"
@@ -662,6 +637,7 @@ msgstr "Lift o‘rnatish"
 #. module: sale_timesheet
 #: model:ir.model,name:sale_timesheet.model_hr_employee
 #: model:ir.model.fields,field_description:sale_timesheet.field_project_sale_line_employee_map__employee_id
+#: model_terms:ir.ui.view,arch_db:sale_timesheet.view_analytic_lines_service_search
 #, fuzzy
 msgid "Employee"
 msgstr "Xodim"
@@ -805,8 +781,7 @@ msgstr "Interyer dizayni"
 #. odoo-python
 #: code:addons/sale_timesheet/controllers/portal.py:0
 #: code:addons/sale_timesheet/models/hr_timesheet.py:0
-#: model:ir.model.fields,field_description:sale_timesheet.field_account_analytic_line__timesheet_invoice_id
-#: model:ir.model.fields,field_description:sale_timesheet.field_timesheets_analysis_report__timesheet_invoice_id
+#: model:ir.model.fields,field_description:sale_timesheet.field_timesheets_analysis_report__reinvoice_move_id
 #: model_terms:ir.ui.view,arch_db:sale_timesheet.portal_my_timesheets_inherit
 #: model_terms:ir.ui.view,arch_db:sale_timesheet.report_timesheet_account_move
 #: model_terms:ir.ui.view,arch_db:sale_timesheet.timesheet_view_search
@@ -828,8 +803,7 @@ msgid "Invoice based on timesheets (delivered quantity)."
 msgstr "Ish vaqti jadvallari asosida hisob-faktura (yetkazib berilgan miqdor)."
 
 #. module: sale_timesheet
-#: model:ir.model.fields,help:sale_timesheet.field_account_analytic_line__timesheet_invoice_id
-#: model:ir.model.fields,help:sale_timesheet.field_timesheets_analysis_report__timesheet_invoice_id
+#: model:ir.model.fields,help:sale_timesheet.field_timesheets_analysis_report__reinvoice_move_id
 #, fuzzy
 msgid "Invoice created from the timesheet"
 msgstr "Ish vaqti jadvalidan yaratilgan hisob-faktura"
@@ -864,6 +838,11 @@ msgstr "Sotish buyurtmasi elementi qo‘lda tahrirlanadimi"
 #, fuzzy
 msgid "Journal Entry"
 msgstr "Jurnal yozuvi"
+
+#. module: sale_timesheet
+#: model:ir.model,name:sale_timesheet.model_account_move_reversal
+msgid "Journal Entry Reversal"
+msgstr ""
 
 #. module: sale_timesheet
 #: model:ir.model,name:sale_timesheet.model_account_move_line
@@ -942,13 +921,6 @@ msgid "Master demos of our software"
 msgstr "Dasturiy ta'minotimizning asosiy namoyishlari"
 
 #. module: sale_timesheet
-#. odoo-python
-#: code:addons/sale_timesheet/models/project_project.py:0
-#, fuzzy
-msgid "Materials"
-msgstr "Materiallar"
-
-#. module: sale_timesheet
 #: model:ir.model.fields,field_description:sale_timesheet.field_sale_order_line__qty_delivered_method
 #, fuzzy
 msgid "Method to update delivered qty"
@@ -967,6 +939,21 @@ msgstr "Bosqichli xizmatlar"
 #, fuzzy
 msgid "Must Have"
 msgstr "Zaruriy"
+
+#. module: sale_timesheet
+#: model_terms:ir.ui.view,arch_db:sale_timesheet.view_analytic_lines_service_search
+msgid "My Department"
+msgstr ""
+
+#. module: sale_timesheet
+#: model_terms:ir.ui.view,arch_db:sale_timesheet.view_analytic_lines_service_search
+msgid "My Projects"
+msgstr ""
+
+#. module: sale_timesheet
+#: model_terms:ir.ui.view,arch_db:sale_timesheet.view_analytic_lines_service_search
+msgid "My Team"
+msgstr ""
 
 #. module: sale_timesheet
 #: model_terms:hr.job,website_description:sale_timesheet.job_engineer
@@ -1028,8 +1015,8 @@ msgstr ""
 "Korxona jarayonlarida vaqt yo‘qotish yo‘q, haqiqiy mas'uliyat va mustaqillik"
 
 #. module: sale_timesheet
-#: model:ir.model.fields.selection,name:sale_timesheet.selection__account_analytic_line__timesheet_invoice_type__non_billable
-#: model:ir.model.fields.selection,name:sale_timesheet.selection__timesheets_analysis_report__timesheet_invoice_type__non_billable
+#: model:ir.model.fields.selection,name:sale_timesheet.selection__account_analytic_line__billable_type__09_non_billable
+#: model:ir.model.fields.selection,name:sale_timesheet.selection__timesheets_analysis_report__billable_type__09_non_billable
 #: model_terms:ir.ui.view,arch_db:sale_timesheet.timesheet_view_search
 #, fuzzy
 msgid "Non-Billable"
@@ -1059,6 +1046,13 @@ msgstr "To‘lanmaydigan vaqt"
 #, fuzzy
 msgid "Not Billed"
 msgstr "Hisob-kitob qilinmagan"
+
+#. module: sale_timesheet
+#: model_terms:ir.ui.view,arch_db:sale_timesheet.view_product_timesheet_form
+msgid ""
+"Notify the salesperson about an upsell opportunity when completed work "
+"exceeds"
+msgstr ""
 
 #. module: sale_timesheet
 #: model:ir.model.fields,help:sale_timesheet.field_timesheets_analysis_report__timesheet_revenues
@@ -1095,24 +1089,14 @@ msgstr ""
 "tasdiqlangan) ish vaqti jadvallari farqlanmagan holda hisob-kitob qilinadi."
 
 #. module: sale_timesheet
-#: model:ir.model.fields,field_description:sale_timesheet.field_account_analytic_line__order_id
-#, fuzzy
-msgid "Order Reference"
-msgstr "Buyurtma raqami"
+#: model:ir.model.fields.selection,name:sale_timesheet.selection__timesheets_analysis_report__billable_type__12_other_costs
+msgid "Other Costs"
+msgstr ""
 
 #. module: sale_timesheet
-#: model:ir.model.fields.selection,name:sale_timesheet.selection__account_analytic_line__timesheet_invoice_type__other_costs
-#: model:ir.model.fields.selection,name:sale_timesheet.selection__timesheets_analysis_report__timesheet_invoice_type__other_costs
-#, fuzzy
-msgid "Other costs"
-msgstr "Boshqa xarajatlar"
-
-#. module: sale_timesheet
-#: model:ir.model.fields.selection,name:sale_timesheet.selection__account_analytic_line__timesheet_invoice_type__other_revenues
-#: model:ir.model.fields.selection,name:sale_timesheet.selection__timesheets_analysis_report__timesheet_invoice_type__other_revenues
-#, fuzzy
-msgid "Other revenues"
-msgstr "Boshqa daromadlar"
+#: model:ir.model.fields.selection,name:sale_timesheet.selection__timesheets_analysis_report__billable_type__11_other_revenues
+msgid "Other Revenues"
+msgstr ""
 
 #. module: sale_timesheet
 #: model_terms:hr.job,website_description:sale_timesheet.job_engineer
@@ -1191,6 +1175,7 @@ msgstr "Mahsulot varianti"
 #: model:ir.model.fields,field_description:sale_timesheet.field_product_product__project_id
 #: model:ir.model.fields,field_description:sale_timesheet.field_product_template__project_id
 #: model:ir.model.fields,field_description:sale_timesheet.field_project_sale_line_employee_map__project_id
+#: model_terms:ir.ui.view,arch_db:sale_timesheet.view_analytic_lines_service_search
 #, fuzzy
 msgid "Project"
 msgstr "Loyiha"
@@ -1251,6 +1236,27 @@ msgstr "Qolgan mavjud soatlar"
 #, fuzzy
 msgid "Responsibilities"
 msgstr "Majburiyatlar"
+
+#. module: sale_timesheet
+#: model:ir.model.fields.selection,name:sale_timesheet.selection__timesheets_analysis_report__billable_type__01_revenues_fixed
+msgid "Revenues Fixed Price"
+msgstr ""
+
+#. module: sale_timesheet
+#: model:ir.model.fields.selection,name:sale_timesheet.selection__timesheets_analysis_report__billable_type__07_revenues_manual
+msgid "Revenues Manual"
+msgstr ""
+
+#. module: sale_timesheet
+#: model:ir.model.fields.selection,name:sale_timesheet.selection__timesheets_analysis_report__billable_type__05_revenues_milestones
+msgid "Revenues Milestones"
+msgstr ""
+
+#. module: sale_timesheet
+#: model:ir.model.fields.selection,name:sale_timesheet.selection__account_analytic_line__billable_type__03_timesheet_revenues
+#: model:ir.model.fields.selection,name:sale_timesheet.selection__timesheets_analysis_report__billable_type__03_timesheet_revenues
+msgid "Revenues Timesheets"
+msgstr ""
 
 #. module: sale_timesheet
 #: model_terms:ir.actions.act_window,help:sale_timesheet.timesheet_action_billing_report
@@ -1392,8 +1398,7 @@ msgid "Senior Architect (Invoice on Timesheets)"
 msgstr "Yetakchi arxitektor (Tabellarga asosan hisob-faktura)"
 
 #. module: sale_timesheet
-#: model:ir.model.fields.selection,name:sale_timesheet.selection__account_analytic_line__timesheet_invoice_type__service_revenues
-#: model:ir.model.fields.selection,name:sale_timesheet.selection__timesheets_analysis_report__timesheet_invoice_type__service_revenues
+#: model:ir.model.fields.selection,name:sale_timesheet.selection__timesheets_analysis_report__billable_type__10_service_revenues
 #, fuzzy
 msgid "Service Revenues"
 msgstr "Xizmat daromadlari"
@@ -1466,6 +1471,7 @@ msgstr "Kuchli tahlil qilish ko‘nikmalari"
 
 #. module: sale_timesheet
 #: model:ir.model,name:sale_timesheet.model_project_task
+#: model_terms:ir.ui.view,arch_db:sale_timesheet.view_analytic_lines_service_search
 #, fuzzy
 msgid "Task"
 msgstr "Topshiriq"
@@ -1534,13 +1540,6 @@ msgid ""
 msgstr ""
 "Bu xarajat xodimning HR sozlamalaridagi standart soatlik ish haqini bekor "
 "qiladi"
-
-#. module: sale_timesheet
-#. odoo-python
-#: code:addons/sale_timesheet/models/project_project.py:0
-#, fuzzy
-msgid "This project is current linked to timesheet."
-msgstr "Ushbu loyiha hozirda vaqt jadvaliga bog‘langan."
 
 #. module: sale_timesheet
 #: model:ir.model.fields,field_description:sale_timesheet.field_product_product__service_upsell_threshold
@@ -1614,8 +1613,6 @@ msgstr "Vaqt jadvali hisoboti"
 
 #. module: sale_timesheet
 #: model:ir.model.fields,field_description:sale_timesheet.field_timesheets_analysis_report__timesheet_revenues
-#: model:ir.model.fields.selection,name:sale_timesheet.selection__account_analytic_line__timesheet_invoice_type__timesheet_revenues
-#: model:ir.model.fields.selection,name:sale_timesheet.selection__timesheets_analysis_report__timesheet_invoice_type__timesheet_revenues
 #, fuzzy
 msgid "Timesheet Revenues"
 msgstr "Vaqt jadvali daromadlari"
@@ -1641,41 +1638,6 @@ msgstr "Vaqt jadvalining umumiy davomiyligi"
 #, fuzzy
 msgid "Timesheets"
 msgstr "Vaqt jadvallari"
-
-#. module: sale_timesheet
-#. odoo-python
-#: code:addons/sale_timesheet/models/project_project.py:0
-#, fuzzy
-msgid "Timesheets (Billed Manually)"
-msgstr "Vaqt jadvallari (qo‘lda hisoblangan)"
-
-#. module: sale_timesheet
-#. odoo-python
-#: code:addons/sale_timesheet/models/project_project.py:0
-#, fuzzy
-msgid "Timesheets (Billed on Milestones)"
-msgstr "Vaqt jadvallari (bosqichlar bo‘yicha hisoblangan)"
-
-#. module: sale_timesheet
-#. odoo-python
-#: code:addons/sale_timesheet/models/project_project.py:0
-#, fuzzy
-msgid "Timesheets (Billed on Timesheets)"
-msgstr "Vaqt jadvallari (vaqt jadvallari asosida hisoblangan)"
-
-#. module: sale_timesheet
-#. odoo-python
-#: code:addons/sale_timesheet/models/project_project.py:0
-#, fuzzy
-msgid "Timesheets (Fixed Price)"
-msgstr "Vaqt jadvallari (belgilangan narx)"
-
-#. module: sale_timesheet
-#. odoo-python
-#: code:addons/sale_timesheet/models/project_project.py:0
-#, fuzzy
-msgid "Timesheets (Non-Billable)"
-msgstr "Vaqt jadvallari (hisob-kitobga kiritilmaydigan)"
 
 #. module: sale_timesheet
 #: model_terms:ir.ui.view,arch_db:sale_timesheet.timesheets_analysis_report_pivot_invoice_type
@@ -1721,13 +1683,6 @@ msgid "Timesheets on project (one fare per SO/Project)"
 msgstr "Loyiha bo‘yicha vaqt jadvallari (har bir SO/Loyiha uchun bitta tarif)"
 
 #. module: sale_timesheet
-#. odoo-python
-#: code:addons/sale_timesheet/models/project_project.py:0
-#, fuzzy
-msgid "Timesheets revenues"
-msgstr "Vaqt jadvallari daromadlari"
-
-#. module: sale_timesheet
 #: model:ir.model.fields,help:sale_timesheet.field_timesheets_analysis_report__margin
 #, fuzzy
 msgid "Timesheets revenues minus the costs"
@@ -1744,13 +1699,6 @@ msgstr "Vaqtingizni hisoblashda hisobga olinadigan vaqt jadvallari"
 #, fuzzy
 msgid "Timesheets taken when invoicing time spent"
 msgstr "Sarflangan vaqtni hisoblashda olinadigan vaqt jadvallari"
-
-#. module: sale_timesheet
-#: model_terms:ir.ui.view,arch_db:sale_timesheet.project_project_view_form
-#, fuzzy
-msgid "Timesheets without a sales order item are reported as"
-msgstr ""
-"Sotuv buyurtmasi elementisiz vaqt jadvallari quyidagicha xabar qilinadi"
 
 #. module: sale_timesheet
 #: model_terms:ir.ui.view,arch_db:sale_timesheet.timesheets_analysis_report_list_inherited
@@ -1848,14 +1796,6 @@ msgid "View Timesheets"
 msgstr "Vaqt jadvallarini ko‘rish"
 
 #. module: sale_timesheet
-#: model_terms:ir.ui.view,arch_db:sale_timesheet.view_product_timesheet_form
-#, fuzzy
-msgid "Warn the salesperson for an upsell when work done exceeds"
-msgstr ""
-"Bajarilgan ish hajmi belgilangan miqdordan oshib ketganda sotuvchini "
-"qo‘shimcha sotish imkoniyati haqida ogohlantiring"
-
-#. module: sale_timesheet
 #: model_terms:hr.job,website_description:sale_timesheet.job_engineer
 #: model_terms:hr.job,website_description:sale_timesheet.job_interior_designer
 #: model_terms:hr.job,website_description:sale_timesheet.job_labour
@@ -1896,18 +1836,14 @@ msgstr ""
 #. module: sale_timesheet
 #. odoo-python
 #: code:addons/sale_timesheet/models/hr_timesheet.py:0
-#, fuzzy
-msgid "You cannot modify timesheets that are already invoiced."
+msgid "You cannot modify timsheets that are already invoiced."
 msgstr ""
-"Allaqachon hisob-faktura qilingan vaqt jadvallarini o‘zgartira olmaysiz."
 
 #. module: sale_timesheet
 #. odoo-python
 #: code:addons/sale_timesheet/models/hr_timesheet.py:0
-#, fuzzy
-msgid "You cannot remove a timesheet that has already been invoiced."
+msgid "You cannot remove timsheets that are already invoiced."
 msgstr ""
-"Allaqachon hisob-faktura qilingan vaqt jadvalini olib tashlay olmaysiz."
 
 #. module: sale_timesheet
 #: model:ir.model.fields.selection,name:sale_timesheet.selection__project_project__billing_type__manually
@@ -1930,9 +1866,8 @@ msgstr "to‘lovga kirmaydi"
 
 #. module: sale_timesheet
 #: model_terms:ir.ui.view,arch_db:sale_timesheet.view_product_timesheet_form
-#, fuzzy
-msgid "of hours sold."
-msgstr "soat sotildi."
+msgid "of the hours sold."
+msgstr ""
 
 #. module: sale_timesheet
 #. odoo-python

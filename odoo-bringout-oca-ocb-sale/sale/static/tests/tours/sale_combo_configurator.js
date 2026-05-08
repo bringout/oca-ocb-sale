@@ -2,12 +2,11 @@ import { registry } from '@web/core/registry';
 import { stepUtils } from '@web_tour/tour_utils';
 import comboConfiguratorTourUtils from '@sale/js/tours/combo_configurator_tour_utils';
 import productConfiguratorTourUtils from '@sale/js/tours/product_configurator_tour_utils';
-import tourUtils from '@sale/js/tours/tour_utils';
+import * as tourUtils from '@sale/js/tours/tour_utils';
 
 registry
     .category('web_tour.tours')
     .add('sale_combo_configurator', {
-        url: '/odoo',
         steps: () => [
             ...stepUtils.goToAppSteps('sale.sale_menu_root', "Open the sales app"),
             ...tourUtils.createNewSalesOrder(),
@@ -109,7 +108,6 @@ registry
     registry
     .category('web_tour.tours')
     .add('sale_combo_configurator_with_optional_products', {
-        url: '/odoo',
         steps: () => [
             ...stepUtils.goToAppSteps('sale.sale_menu_root', "Open the sales app"),
             ...tourUtils.createNewSalesOrder(),

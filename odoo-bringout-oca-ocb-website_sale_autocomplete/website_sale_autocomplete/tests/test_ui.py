@@ -41,7 +41,7 @@ class TestUI(HttpCase):
                                      'google_place_id': MOCK_GOOGLE_ID
                                  } for x in range(5)]}):
             self.env['website'].get_current_website().google_places_api_key = MOCK_API_KEY
-            self.start_tour('/shop/address', 'autocomplete_tour')
+            self.start_tour('/shop', 'autocomplete_tour')
 
     def test_autocomplete_br(self):
         if self.env['ir.module.module']._get('l10n_br').state != 'installed':
@@ -66,7 +66,7 @@ class TestUI(HttpCase):
                             } for x in range(5)]}):
 
             website.google_places_api_key = MOCK_API_KEY
-            self.start_tour('/shop/address', 'autocomplete_br_tour')
+            self.start_tour('/shop', 'autocomplete_br_tour')
 
     def test_autocomplete_pe(self):
         if self.env['ir.module.module']._get('l10n_pe').state != 'installed':
@@ -97,4 +97,4 @@ class TestUI(HttpCase):
                             } for x in range(5)]}):
 
             website.google_places_api_key = MOCK_API_KEY
-            self.start_tour('/shop/address', 'autocomplete_pe_tour')
+            self.start_tour('/shop', 'autocomplete_pe_tour')

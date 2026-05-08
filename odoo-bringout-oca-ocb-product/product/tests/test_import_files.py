@@ -4,7 +4,6 @@ import unittest
 
 from odoo.tests import TransactionCase, can_import, loaded_demo_data, tagged
 from odoo.tools import mute_logger
-from odoo.tools.misc import file_open
 
 
 @tagged("post_install", "-at_install")
@@ -12,13 +11,11 @@ class TestImportFiles(TransactionCase):
 
     def import_product_xls(self, model, filepath=None):
         if filepath is None:
-            model_str = model.replace(".", "_")
-            filepath = f"product/static/xls/{model_str}.xls"
-        file_content = file_open(filepath, "rb").read()
-        import_wizard = self.env["base_import.import"].create(  # noqa: OLS03001
+            filepath = f"product/static/xls/{model.replace(".", "_")}.xls"
+        import_wizard = self.env["base_import.import"].create(
             {
                 "res_model": model,
-                "file": file_content,
+                "file": self.file_read(filepath),
                 "file_type": "application/vnd.ms-excel",
             }
         )
@@ -77,7 +74,7 @@ class TestImportFiles(TransactionCase):
                 "results should be empty on successful import of ",
             )
 
-            template = self.env.ref('__import__.product_template_BB')  # noqa: OLS05003
+            template = self.env.ref('__import__.product_template_BB')
             self.assertEqual(self.env.ref('__import__.product_product_1').list_price, 110)
             self.assertEqual(len(template.product_variant_ids), 8)
             self.assertEqual([
@@ -96,7 +93,7 @@ class TestImportFiles(TransactionCase):
 
     def test_import_write_product_demo_xls(self):
         self.import_product_xls("product.product")  # create products
-        template = self.env.ref('__import__.product_template_BB')  # noqa: OLS05003
+        template = self.env.ref('__import__.product_template_BB')
         self.assertEqual(len(template.product_variant_ids), 8)
         self.assertEqual(self.env.ref('__import__.product_product_1').standard_price, 40)
         self.assertEqual(self.env.ref('__import__.product_tshirt_SW_red_m').standard_price, 45)

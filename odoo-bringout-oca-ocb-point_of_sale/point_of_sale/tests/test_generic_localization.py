@@ -12,12 +12,12 @@ class TestGenericLocalization(TestPointOfSaleHttpCommon):
         super().setUpClass()
         cls.partner_a.name = "AAAA Generic Partner"
         cls.partner_a.vat = "32345678"
-        cls.whiteboard_pen.write({
+        cls.whiteboard_pen.sudo().write({
             'standard_price': 10.0,
             'taxes_id': [Command.link(cls.tax_sale_a.id)]
         })
 
-        cls.wall_shelf.write({
+        cls.wall_shelf.sudo().write({
             'standard_price': 10.0,
             'taxes_id': [Command.link(cls.tax_sale_a.id)]
         })
@@ -27,3 +27,7 @@ class TestGenericLocalization(TestPointOfSaleHttpCommon):
         url = "/pos/ui?config_id=%d" % self.main_pos_config.id
         url += "&company_name=%s" % self.main_pos_config.company_id.name
         self.start_tour(url, "generic_localization_tour", login="accountman")
+        last_order = self.main_pos_config.current_session_id.order_ids[-1]
+        html_data = last_order.order_receipt_generate_html()
+        last_order.order_receipt_generate_image()  # verify if image generation works
+        return last_order, html_data

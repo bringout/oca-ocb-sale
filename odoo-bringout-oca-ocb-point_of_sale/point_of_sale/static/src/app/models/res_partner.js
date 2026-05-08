@@ -15,15 +15,7 @@ export class ResPartner extends Base {
             return this._searchString;
         }
 
-        const fields = [
-            "name",
-            "barcode",
-            "phone",
-            "email",
-            "vat",
-            "parent_name",
-            "pos_contact_address",
-        ];
+        const fields = ["name", "barcode", "phone", "email", "vat", "parent_name", "address"];
         this._searchString = fields
             .map((field) => {
                 if (field === "phone" && this[field]) {

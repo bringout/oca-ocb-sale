@@ -1,13 +1,12 @@
 import { registry } from "@web/core/registry";
 import { stepUtils } from "@web_tour/tour_utils";
 import configuratorTourUtils from "@sale/js/tours/product_configurator_tour_utils";
-import tourUtils from "@sale/js/tours/tour_utils";
+import * as tourUtils from "@sale/js/tours/tour_utils";
 
 // Note: please keep this test without pricelist for maximum coverage.
 // The pricelist is tested on the other tours.
 
 registry.category("web_tour.tours").add('sale_product_configurator_tour', {
-    url: '/odoo',
     steps: () => [
         ...stepUtils.goToAppSteps("sale.sale_menu_root", "Go to the Sales App"),
         ...tourUtils.createNewSalesOrder(),

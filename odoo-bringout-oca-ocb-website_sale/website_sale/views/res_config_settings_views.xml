@@ -36,7 +36,7 @@
                     string="Configure Delivery Methods"
                     id="website_delivery_setting"
                     help="Configure delivery methods or work with delivery providers using existing integrations."
-                    documentation="/applications/inventory_and_mrp/inventory/shipping/setup/third_party_shipper.html"
+                    documentation="/applications/inventory_and_mrp/inventory/shipping_receiving/setup_configuration.html"
                 >
                     <button
                         string="Configure Methods"
@@ -47,7 +47,7 @@
                     <button
                         string="Find a Delivery Provider"
                         type="object"
-                        name="action_view_delivery_provider_modules"
+                        name="action_install_more_provider"
                         class="btn btn-link"
                         icon="oi-arrow-right"
                     />
@@ -102,15 +102,50 @@
                     </div>
                 </setting>
                 <setting
+                    string="Inventory Defaults"
+                    id="product_availability_setting"
+                    info="This setting is common to all websites."
+                >
+                    <div class="content-group">
+                        <div class="row mt16"
+                            id="allow_out_of_stock_order_setting"
+                            title="Default availability mode set on newly created storable products. This can be changed at the product level.">
+                            <div class="col-12">
+                                <label for="default_allow_out_of_stock_order" string="Out-of-Stock" class="p-0 col-4 o_light_label"/>
+                                <field name="default_allow_out_of_stock_order" class=" w-auto"/>
+                                <label for="default_allow_out_of_stock_order" class="o_light_label" string="Continue Selling"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-group">
+                        <label for="default_show_availability" string="Show Available Quantity" class="p-0 col-4 o_light_label mt-2"/>
+                        <field name="default_show_availability" class="w-auto"/>
+                        <label for="default_available_threshold" string="only if below" class="o_light_label" invisible="not default_show_availability"/>
+                        <field
+                            name="default_available_threshold"
+                            style="width: 30px;"
+                            digits="[42, 0]"
+                            invisible="not default_show_availability"
+                        />
+                        <span invisible="not default_show_availability">units</span>
+                    </div>
+                </setting>
+                <setting
                     help="Add a strikethrough price, as a comparison"
                     info="This setting is common to all websites."
                 >
                     <field name="group_product_price_comparison"/>
                 </setting>
                 <setting
+                    help="Automatically add optional, accessory, and alternative products."
+                    info="This setting is shared across all companies."
+                >
+                    <field name="group_automate_suggested_products"/>
+                </setting>
+                <setting
                     string="Product Reference Price"
                     id="ecom_uom_price_option_setting"
-                    help="Add a reference price per UoM on products (i.e $/kg), in addition to the
+                    help="Add a reference price per UoM on products (e.g $/kg), in addition to the
                           sale price"
                     info="This setting is common to all websites."
                 >
@@ -162,17 +197,36 @@
                 </setting>
                 <setting
                     id="hide_add_to_cart_setting"
-                    help="If product price equals 0, replace 'Add to Cart' by 'Contact us'."
+                    help="Show &quot;Contact Us&quot; for zero-priced products or specific categories."
                 >
-                    <field name="website_sale_prevent_zero_price_sale"/>
-                    <div class="content-group" invisible="not website_sale_prevent_zero_price_sale">
+                    <field name="prevent_sale"/>
+                    <div class="content-group" invisible="not prevent_sale">
                         <div class="row mt16">
                             <label
-                                string="Button URL"
-                                for="website_sale_contact_us_button_url"
+                                string="For"
+                                for="prevent_sale_for"
                                 class="o_light_label col-lg-3"
                             />
-                            <field name="website_sale_contact_us_button_url"/>
+                            <field name="prevent_sale_for" required="prevent_sale"/>
+                        </div>
+                        <div
+                            class="row mt16"
+                            invisible="prevent_sale_for != 'specific_categories'"
+                        >
+                            <label
+                                for="prevent_sale_for_categories"
+                                class="o_light_label col-lg-3"
+                            />
+                            <field
+                                name="prevent_sale_for_categories"
+                                widget="many2many_tags"
+                                options="{'no_create': True}"
+                                required="prevent_sale_for == 'specific_categories'"
+                            />
+                        </div>
+                        <div class="row mt16">
+                            <label for="contact_us_link_url" class="o_light_label col-lg-3"/>
+                            <field name="contact_us_link_url"/>
                         </div>
                     </div>
                 </setting>
@@ -216,6 +270,27 @@
                         <button type="object" name="action_open_abandoned_cart_mail_template" string="Customize Abandoned Email Template" class="btn-link" icon="oi-arrow-right"/>
                     </div>
                 </setting>
+                <setting
+                    id="send_order_rating_emails_setting"
+                    help="Send a rating request for each order"
+                >
+                    <field name="send_order_rating_emails"/>
+                    <div invisible="not send_order_rating_emails" class="mt-1">
+                        <field name="rating_email_delay" style="width: 1rem;"/> days after order confirmation
+                    </div>
+                    <div invisible="not send_order_rating_emails" class="mt-2">
+                        <label
+                            string="Email"
+                            for="rating_email_template_id"
+                            class="o_light_label me-2"
+                        />
+                        <field
+                            name="rating_email_template_id"
+                            class="oe_inline"
+                            style="min-width: 16rem;"
+                        />
+                    </div>
+                </setting>
                 <setting string="Orders Assignment" help="Assignment of online orders">
                     <div class="content-group">
                         <div class="row mt16">
@@ -241,6 +316,13 @@
                     documentation="/applications/websites/ecommerce/shipping.html#click-collect"
                 >
                     <field name="module_website_sale_collect"/>
+                </setting>
+                <setting
+                    id="restrict_packagings_setting"
+                    help="Prevent from selling the specified packagings"
+                    invisible="not group_uom"
+                >
+                    <field name="restricted_uom_ids" widget="many2many_tags"/>
                 </setting>
             </block>
             <setting id="google_analytics_setting" position="after">

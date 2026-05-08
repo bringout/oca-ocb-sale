@@ -38,23 +38,21 @@ export default class OrderPaymentValidation {
     }
 
     get nextPage() {
-        if (this.pos.config.iface_print_auto && this.pos.config.iface_print_skip_screen) {
-            return {
-                page: "FeedbackScreen",
-                params: {
-                    orderUuid: this.order.uuid,
-                },
-            };
+        if (this.pos.config.set_tip_after_payment && !this.order.is_tipped) {
+            if (this.order.adjustableTipLine) {
+                return {
+                    page: "TipScreen",
+                    params: { orderUuid: this.order.uuid },
+                };
+            }
         }
 
-        return !this.error
-            ? {
-                  page: "ReceiptScreen",
-                  params: {
-                      orderUuid: this.order.uuid,
-                  },
-              }
-            : this.pos.defaultPage;
+        return {
+            page: "FeedbackScreen",
+            params: {
+                orderUuid: this.order.uuid,
+            },
+        };
     }
 
     get paymentLines() {
@@ -80,11 +78,13 @@ export default class OrderPaymentValidation {
 
     async shouldHideValidationBehindFeedbackScreen() {
         const nextPage = this.nextPage;
+        const waitForFn = async () => {
+            await this.finalizeValidation();
+        };
         if (nextPage.page === "FeedbackScreen") {
-            const waitForFn = async () => {
-                await this.finalizeValidation();
-            };
             nextPage.params.waitFor = waitForFn();
+        } else if (nextPage.page === "TipScreen" && !this.pos.config.module_pos_restaurant) {
+            nextPage.params.finalizeValidation = waitForFn;
         } else {
             try {
                 this.pos.env.services.ui.block();
@@ -137,10 +137,13 @@ export default class OrderPaymentValidation {
 
     async finalizeValidation() {
         if (this.order.isPaidWithCash() || this.order.change) {
-            this.pos.hardwareProxy.openCashbox();
+            this.pos.openCashbox();
         }
 
-        this.order.date_order = serializeDateTime(luxon.DateTime.now());
+        if (!this.order.finalized) {
+            // Only update the datetime for normal orders not for the update
+            this.order.date_order = serializeDateTime(luxon.DateTime.now());
+        }
         for (const line of this.paymentLines) {
             if (!line.amount === 0) {
                 this.order.removePaymentline(line);
@@ -158,8 +161,12 @@ export default class OrderPaymentValidation {
             }
 
             // 2. Invoice, should not stop the validation process but a dialog is shown if an
-            // error occured.
-            if (this.shouldDownloadInvoice() && this.order.isToInvoice()) {
+            // error occurred.
+            if (
+                this.pos.config.use_download_invoice &&
+                this.shouldDownloadInvoice() &&
+                this.order.isToInvoice()
+            ) {
                 if (this.order.raw.account_move) {
                     await this.pos.env.services.account_move.downloadPdf(
                         this.order.raw.account_move
@@ -168,7 +175,7 @@ export default class OrderPaymentValidation {
                     this.pos.dialog.add(AlertDialog, {
                         title: _t("Backend Invoice"),
                         body: _t(
-                            "An error occurred while generating an invoice. You can try again from the order list."
+                            "An error occurred while trying to generate an invoice. Try again from the order tab or generate the invoice from the backend."
                         ),
                     });
                 }
@@ -199,16 +206,14 @@ export default class OrderPaymentValidation {
     async afterOrderValidation() {
         // Always show the next screen regardless of error since pos has to
         // continue working even offline.
-        if (!this.pos.config.module_pos_restaurant) {
-            this.pos.checkPreparationStateAndSentOrderInPreparation(this.order, {
-                orderDone: true,
-            });
-        }
+        await this.pos.checkPreparationStateAndSentOrderInPreparation(this.order, {
+            orderDone: true,
+        });
 
         if (this.order.nb_print === 0 && this.pos.config.iface_print_auto) {
             const invoiced_finalized = this.order.isToInvoice() ? this.order.finalized : true;
             if (invoiced_finalized) {
-                await this.pos.printReceipt({ order: this.order });
+                await this.pos.ticketPrinter.printOrderReceipt({ order: this.order });
             }
         }
     }
@@ -287,32 +292,20 @@ export default class OrderPaymentValidation {
             return false;
         }
 
-        if (
-            (this.order.isToInvoice() || this.order.getShippingDate()) &&
-            !this.order.getPartner()
-        ) {
+        if (this.shouldAskForPartner()) {
             const confirmed = await ask(this.pos.dialog, {
                 title: _t("Please select the Customer"),
-                body: _t(
-                    "You need to select the customer before you can invoice or ship an order."
-                ),
+                body: _t("Select a customer with a valid address."),
+                confirmLabel: _t("Customer"),
             });
             if (confirmed) {
-                this.pos.selectPartner();
+                const partner = await this.pos.selectPartner();
+                if (!partner) {
+                    return false;
+                }
+            } else {
+                return false;
             }
-            return false;
-        }
-
-        const partner = this.order.getPartner();
-        if (
-            this.order.getShippingDate() &&
-            !(partner.name && partner.street && partner.city && partner.country_id)
-        ) {
-            this.pos.dialog.add(AlertDialog, {
-                title: _t("Incorrect address for shipping"),
-                body: _t("The selected customer needs an address."),
-            });
-            return false;
         }
 
         if (!this.order.presetRequirementsFilled) {
@@ -332,7 +325,7 @@ export default class OrderPaymentValidation {
             return false;
         }
 
-        if (!this.order.isPaid() || this.invoicing) {
+        if (!this.order.toBeValidate() || this.invoicing) {
             return false;
         }
 
@@ -345,7 +338,7 @@ export default class OrderPaymentValidation {
                 this.pos.dialog.add(AlertDialog, {
                     title: _t("Cannot return change without a cash payment method"),
                     body: _t(
-                        "There is no cash payment method available in this point of sale to handle the change.\n\n Please pay the exact amount or add a cash payment method in the point of sale configuration"
+                        "There is no cash payment method available in this point of sale to handle the change.\n\n Please pay the exact amount or add a cash payment method in the point of sale settings."
                     ),
                 });
                 return false;
@@ -380,6 +373,10 @@ export default class OrderPaymentValidation {
         }
 
         return true;
+    }
+
+    shouldAskForPartner() {
+        return this.order.isToInvoice() && !this.order.getPartner();
     }
 
     async _askForCustomerIfRequired() {

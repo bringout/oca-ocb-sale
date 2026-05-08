@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-13 18:36+0000\n"
+"POT-Creation-Date: 2026-03-12 18:37+0000\n"
 "PO-Revision-Date: 2025-11-08 19:11+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Lithuanian <https://translate.odoo.com/projects/odoo-19/"
@@ -97,14 +97,8 @@ msgstr ""
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.report_delivery_document_inherit_sale_stock
-#: model_terms:ir.ui.view,arch_db:sale_stock.report_saleorder_document_inherit_sale_stock
 msgid "<strong>Incoterm</strong>"
 msgstr "<strong>Pristatymo sąlygos</strong>"
-
-#. module: sale_stock
-#: model:ir.model.fields,help:sale_stock.field_sale_order_line__is_storable
-msgid "A storable product is a product for which you manage stock."
-msgstr ""
 
 #. module: sale_stock
 #: model:ir.model.fields,help:sale_stock.field_sale_order_line__qty_delivered_method
@@ -115,7 +109,7 @@ msgid ""
 "  - Analytic From expenses: the quantity is the quantity sum from posted "
 "expenses\n"
 "  - Timesheet: the quantity is the sum of hours recorded on tasks linked to "
-"this sale line\n"
+"this line\n"
 "  - Stock Moves: the quantity comes from confirmed pickings\n"
 msgstr ""
 
@@ -137,8 +131,8 @@ msgstr "Pritaikyti specifines taisykles"
 
 #. module: sale_stock
 #: model:ir.model.fields.selection,name:sale_stock.selection__sale_order__picking_policy__direct
-msgid "As soon as possible"
-msgstr "Kaip įmanoma greičiau"
+msgid "As soon as possible, with back orders"
+msgstr ""
 
 #. module: sale_stock
 #. odoo-javascript
@@ -159,22 +153,14 @@ msgid "Available in stock"
 msgstr "Turima sandėlyje"
 
 #. module: sale_stock
-#: model:ir.model.fields,help:sale_stock.field_sale_order__delivery_status
-msgid ""
-"Blue: Not Delivered/Started\n"
-"            Orange: Partially Delivered\n"
-"            Green: Fully Delivered"
-msgstr ""
-
-#. module: sale_stock
 #: model:ir.model.fields,help:sale_stock.field_stock_rules_report__so_route_ids
 msgid "Choose to apply SO lines specific routes."
 msgstr "Pasirinkite taikyti pardavimų užsakymų eilučių specifinius maršrutus."
 
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_res_company
-msgid "Companies"
-msgstr "Įmonės"
+msgid "Company"
+msgstr ""
 
 #. module: sale_stock
 #: model:ir.model.fields,help:sale_stock.field_sale_order__effective_date
@@ -217,11 +203,6 @@ msgid "Delivery Orders"
 msgstr "Pristatymo užsakymai"
 
 #. module: sale_stock
-#: model:ir.model.fields,field_description:sale_stock.field_sale_order__delivery_status
-msgid "Delivery Status"
-msgstr "Pristatymo būsena"
-
-#. module: sale_stock
 #: model:ir.model.fields,help:sale_stock.field_sale_order__expected_date
 msgid ""
 "Delivery date you can promise to the customer, computed from the minimum "
@@ -247,6 +228,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order__display_name
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__display_name
 #: model:ir.model.fields,field_description:sale_stock.field_sale_report__display_name
+#: model:ir.model.fields,field_description:sale_stock.field_stock_account_stock_valuation_report__display_name
 #: model:ir.model.fields,field_description:sale_stock.field_stock_forecasted_product_product__display_name
 #: model:ir.model.fields,field_description:sale_stock.field_stock_lot__display_name
 #: model:ir.model.fields,field_description:sale_stock.field_stock_move__display_name
@@ -305,11 +287,6 @@ msgid "Expected Delivery"
 msgstr "Numatomas pristatymas"
 
 #. module: sale_stock
-#: model_terms:ir.ui.view,arch_db:sale_stock.view_order_form_inherit_sale_stock
-msgid "Expected:"
-msgstr "Numatoma:"
-
-#. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__forecast_expected_date
 msgid "Forecast Expected Date"
 msgstr ""
@@ -324,11 +301,6 @@ msgstr "Sandėlio prognozė"
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__free_qty_today
 msgid "Free Qty Today"
 msgstr "Šiandien laisvas kiekis"
-
-#. module: sale_stock
-#: model:ir.model.fields.selection,name:sale_stock.selection__sale_order__delivery_status__full
-msgid "Fully Delivered"
-msgstr "Pilnai pristatyta"
 
 #. module: sale_stock
 #. odoo-javascript
@@ -353,6 +325,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order__id
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__id
 #: model:ir.model.fields,field_description:sale_stock.field_sale_report__id
+#: model:ir.model.fields,field_description:sale_stock.field_stock_account_stock_valuation_report__id
 #: model:ir.model.fields,field_description:sale_stock.field_stock_forecasted_product_product__id
 #: model:ir.model.fields,field_description:sale_stock.field_stock_lot__id
 #: model:ir.model.fields,field_description:sale_stock.field_stock_move__id
@@ -367,30 +340,9 @@ msgid "ID"
 msgstr "ID"
 
 #. module: sale_stock
-#: model:ir.model.fields,help:sale_stock.field_sale_order__picking_policy
-msgid ""
-"If you deliver all products at once, the delivery order will be scheduled "
-"based on the greatest product lead time. Otherwise, it will be based on the "
-"shortest."
-msgstr ""
-"Jei pristatote visus produktus vienu metu, pristatymo užsakymas bus "
-"suplanuotas pagal geriausią jūsų pristatymo laiką. Kitu atveju, jis bus "
-"paremtas trumpiausiu laiku."
-
-#. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.exception_on_so
 msgid "Impacted Transfer(s):"
 msgstr "Paliesti perkėlimai:"
-
-#. module: sale_stock
-#: model:ir.model.fields,field_description:sale_stock.field_sale_order__incoterm
-msgid "Incoterm"
-msgstr "Incoterm sąlygos"
-
-#. module: sale_stock
-#: model:ir.model.fields,field_description:sale_stock.field_sale_order__incoterm_location
-msgid "Incoterm Location"
-msgstr "Incoterm vieta"
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.report_delivery_document_inherit_sale_stock
@@ -398,28 +350,19 @@ msgid "Incoterm details"
 msgstr ""
 
 #. module: sale_stock
-#: model_terms:ir.ui.view,arch_db:sale_stock.sale_order_portal_content_inherit_sale_stock
-msgid "Incoterm:"
-msgstr ""
-
-#. module: sale_stock
-#: model:ir.model.fields,help:sale_stock.field_sale_order__incoterm
-msgid ""
-"International Commercial Terms are a series of predefined commercial terms "
-"used in international transactions."
-msgstr ""
-"Tarptautinės prekybos (sutarčių) sąlygos, numatančios specifines prekių "
-"pristatymo sąlygas užsienio prekyboje."
-
-#. module: sale_stock
 #: model:ir.model,name:sale_stock.model_stock_route
-msgid "Inventory Routes"
-msgstr "Inventoriaus maršrutai"
+msgid "Inventory Route"
+msgstr ""
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__is_mto
 msgid "Is Mto"
 msgstr "Yra MTO"
+
+#. module: sale_stock
+#: model:ir.model.fields,help:sale_stock.field_sale_order__picking_policy
+msgid "It specifies goods to be deliver partially or all at once"
+msgstr ""
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order__json_popover
@@ -493,8 +436,8 @@ msgstr "Pristatyto kiekio atnaujinimo būdas"
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_stock
-msgid "Move forward expected delivery dates by"
-msgstr "Numatomas pristatymo datas pastumti į priekį per"
+msgid "Move forward expected delivery dates by <br/>"
+msgstr ""
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.sale_stock_help_message_template
@@ -513,7 +456,6 @@ msgid "Not Available"
 msgstr "Neprieinamas"
 
 #. module: sale_stock
-#: model:ir.model.fields.selection,name:sale_stock.selection__sale_order__delivery_status__pending
 #: model_terms:ir.ui.view,arch_db:sale_stock.portal_my_orders
 msgid "Not Delivered"
 msgstr "Nepristatyta"
@@ -528,10 +470,8 @@ msgstr ""
 #: model:ir.model.fields,help:sale_stock.field_sale_order_line__customer_lead
 msgid ""
 "Number of days between the order confirmation and the shipping of the "
-"products to the customer"
+"products"
 msgstr ""
-"Planuojamas dienų skaičius nuo užsakymo patvirtinimo iki siuntos pristatymo "
-"pirkėjui."
 
 #. module: sale_stock
 #. odoo-javascript
@@ -540,15 +480,9 @@ msgid "On"
 msgstr "  "
 
 #. module: sale_stock
-#: model:ir.model.fields.selection,name:sale_stock.selection__sale_order__delivery_status__partial
 #: model_terms:ir.ui.view,arch_db:sale_stock.portal_my_orders
 msgid "Partially Delivered"
 msgstr "Dalinis pristatymas"
-
-#. module: sale_stock
-#: model:ir.model.fields,field_description:sale_stock.field_res_config_settings__default_picking_policy
-msgid "Picking Policy"
-msgstr "Paėmimo politika"
 
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_product_template
@@ -559,11 +493,6 @@ msgstr "Produktas"
 #: model:ir.model,name:sale_stock.model_stock_move_line
 msgid "Product Moves (Stock Move Line)"
 msgstr "Produkto perkėlimai (atsargų perkėlimo eilutė)"
-
-#. module: sale_stock
-#: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__qty_available_today
-msgid "Qty Available Today"
-msgstr "Pasiekiamas kiekis šiandien"
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__qty_to_deliver
@@ -692,11 +621,6 @@ msgid "Schedule deliveries earlier to avoid delays"
 msgstr "Planuokite pristatymus anksčiau, kad išvengtumėte vėlavimų"
 
 #. module: sale_stock
-#: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__scheduled_date
-msgid "Scheduled Date"
-msgstr "Suplanuota data"
-
-#. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_res_config_settings__security_lead
 msgid "Security Lead Time"
 msgstr "Saugus gaminimo laikas"
@@ -712,16 +636,6 @@ msgid "Selectable on Sales Order Line"
 msgstr "Pasirenkamas pardavimų užsakymų eilutėje"
 
 #. module: sale_stock
-#: model:ir.model.fields.selection,name:sale_stock.selection__res_config_settings__default_picking_policy__one
-msgid "Ship all products at once"
-msgstr "Siųsti visus produktus vienu metu"
-
-#. module: sale_stock
-#: model:ir.model.fields.selection,name:sale_stock.selection__res_config_settings__default_picking_policy__direct
-msgid "Ship products as soon as available, with back orders"
-msgstr "Siųsti produktus iškart, kai jie yra pasiekiami, su atidėta siunta"
-
-#. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order__picking_policy
 msgid "Shipping Policy"
 msgstr "Pristatymo politika"
@@ -732,7 +646,6 @@ msgid "Shipping Status"
 msgstr ""
 
 #. module: sale_stock
-#: model:ir.model.fields.selection,name:sale_stock.selection__sale_order__delivery_status__started
 #: model_terms:ir.ui.view,arch_db:sale_stock.portal_my_orders
 msgid "Started"
 msgstr ""
@@ -762,6 +675,11 @@ msgstr "Atsargų taisyklė"
 #: model:ir.model,name:sale_stock.model_stock_rules_report
 msgid "Stock Rules report"
 msgstr "Atsargų taisyklių ataskaita"
+
+#. module: sale_stock
+#: model:ir.model,name:sale_stock.model_stock_account_stock_valuation_report
+msgid "Stock Valuation"
+msgstr "Atsargų vertinimas"
 
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_report_stock_report_stock_rule
@@ -808,11 +726,6 @@ msgid "This product is replenished on demand."
 msgstr "Šis produktas papildomas pagal poreikį."
 
 #. module: sale_stock
-#: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__is_storable
-msgid "Track Inventory"
-msgstr "Inventoriaus stebėjimas"
-
-#. module: sale_stock
 #: model:ir.model,name:sale_stock.model_stock_picking
 msgid "Transfer"
 msgstr "Perkelti"
@@ -839,11 +752,6 @@ msgid "View Forecast"
 msgstr "Rodyti prognozę"
 
 #. module: sale_stock
-#: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__virtual_available_at_date
-msgid "Virtual Available At Date"
-msgstr ""
-
-#. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order__warehouse_id
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__warehouse_id
 #: model:ir.model.fields,field_description:sale_stock.field_sale_report__warehouse_id
@@ -860,11 +768,6 @@ msgstr "Įspėjimas!"
 #: model:ir.model.fields.selection,name:sale_stock.selection__sale_order__picking_policy__one
 msgid "When all products are ready"
 msgstr "Kai visi produktai paruošti"
-
-#. module: sale_stock
-#: model_terms:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_stock
-msgid "When to start shipping"
-msgstr "Kada pradėti siuntimą"
 
 #. module: sale_stock
 #. odoo-python
@@ -910,52 +813,3 @@ msgstr "apdorota vietoje"
 #: code:addons/sale_stock/static/src/xml/delay_alert.xml:0
 msgid "will be late."
 msgstr "bus vėliau"
-
-#~ msgid "Stock Valuation"
-#~ msgstr "Atsargų vertinimas"
-
-#~ msgid "<i class=\"fa fa-fw fa-clock-o\"/> <b>Preparation</b>"
-#~ msgstr "<i class=\"fa fa-fw fa-clock-o\"/><b>Ruošiama</b>"
-
-#~ msgid "<i class=\"fa fa-fw fa-times\"/> <b>Cancelled</b>"
-#~ msgstr "<i class=\"fa fa-fw fa-times\"/><b>Atšaukta</b>"
-
-#~ msgid "<i class=\"fa fa-fw fa-truck\"/> <b>Shipped</b>"
-#~ msgstr "<i class=\"fa fa-fw fa-truck\"/><b>Pristatyta</b>"
-
-#~ msgid "<strong>Customer Reference:</strong>"
-#~ msgstr "<strong>Kliento numeris:</strong>"
-
-#~ msgid "<strong>Delivery Orders</strong>"
-#~ msgstr "<strong>Pristatymo užsakymai</strong>"
-
-#~ msgid "<strong>Incoterm: </strong>"
-#~ msgstr "<strong>Pristatymo sąlygos: </strong>"
-
-#~ msgid "<strong>Incoterm:</strong>"
-#~ msgstr "<strong>Pristatymo sąlygos:</strong>"
-
-#~ msgid "Delivery Alert"
-#~ msgstr "Pristatymo įspėjimas"
-
-#~ msgid "Display incoterms on Sales Order and related invoices"
-#~ msgstr ""
-#~ "Rodyti Incoterm sąlygas pardavimų užsakymuose ir susijusiose sąskaitose"
-
-#~ msgid "Incoterms"
-#~ msgstr "Incoterm sąlygos"
-
-#~ msgid "Inventory"
-#~ msgstr "Inventorius"
-
-#~ msgid "Procurement Group"
-#~ msgstr "Planinio užsakymo grupė"
-
-#~ msgid "Route"
-#~ msgstr "Maršrutas"
-
-#~ msgid "Sale Order"
-#~ msgstr "Pardavimo užsakymas"
-
-#~ msgid "Sales Order Cancel"
-#~ msgstr "Pardavimų užsakymas buvo atšauktas"

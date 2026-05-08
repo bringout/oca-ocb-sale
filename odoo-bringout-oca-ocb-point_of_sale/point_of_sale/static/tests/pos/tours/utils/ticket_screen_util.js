@@ -19,8 +19,11 @@ export function clickDiscard() {
 export function selectOrder(orderName) {
     return [
         {
-            trigger: `.ticket-screen .order-row:contains("${orderName}")`,
+            trigger: `.ticket-screen .order-row:contains(${orderName})`,
             run: "click",
+        },
+        {
+            trigger: `.ticket-screen .order-row:contains(${orderName}).highlight`,
         },
     ];
 }
@@ -124,7 +127,7 @@ export function confirmRefund() {
     return [
         ProductScreen.clickReview(),
         {
-            trigger: ".ticket-screen .btn-primary.pay-order-button",
+            trigger: ".ticket-screen .btn-primary.pay-order-button:not(.disabled)",
             run: "click",
         },
     ];
@@ -153,6 +156,28 @@ export function nthRowContains(n, string, viewMode) {
             trigger: `.ticket-screen .orders tbody .order-row:nth-child(${n}):contains("${string}")`,
         },
     ];
+}
+export function checkOrderDetailsDialog(orderRef, totalPayment, payments) {
+    const steps = [
+        {
+            trigger: `.modal-content .field-details:contains("Order Reference"):contains(${orderRef})`,
+        },
+        {
+            trigger: ".modal-content .field-details:contains('Origin')",
+        },
+        {
+            trigger: `.modal-content h5:contains("Payment Info")`,
+        },
+        {
+            trigger: `.modal-content .text-success:contains(${totalPayment})`,
+        },
+    ];
+    for (const pm in payments) {
+        steps.push({
+            trigger: `.modal-content .row:has(.fw-medium:contains("${pm}")):has(.fw-medium:contains(${payments[pm]}))`,
+        });
+    }
+    return steps;
 }
 export function nthRowIsHighlighted(n) {
     return [
@@ -186,18 +211,18 @@ export function filterIs(name) {
 export function invoicePrinted() {
     return [
         {
-            trigger: ProductScreen.controlButtonTrigger("Reprint Invoice"),
+            trigger: ProductScreen.controlButtonTrigger("Print Invoice"),
         },
     ];
 }
-export function toRefundTextContains(text) {
+export function toRefundTextContains(text, product) {
+    if (!product) {
+        return inLeftSide({
+            trigger: `.ticket-screen .qty .refund:contains("${text}")`,
+        });
+    }
     return inLeftSide({
-        trigger: `.ticket-screen .to-refund-highlight:contains("${text}")`,
-    });
-}
-export function toRefundLineContains(product, text) {
-    return inLeftSide({
-        trigger: `.ticket-screen div:has(.product-name:contains("${product}")):has(.to-refund-highlight:contains("${text}"))`,
+        trigger: `.ticket-screen .product-name:contains("${product}"):has(.refund:contains("${text}"))`,
     });
 }
 export function refundedNoteContains(text) {
@@ -218,26 +243,21 @@ export function tipContains(amount) {
         },
     ];
 }
-export function receiptTotalIs(amount) {
-    return [
-        {
-            trigger: `.receipt-screen .pos-receipt-amount:contains("${amount}")`,
-        },
-    ];
-}
-export function receiptChangeIs(amount) {
-    return [
-        {
-            trigger: `.receipt-screen .receipt-change:contains("${amount}")`,
-        },
-    ];
-}
 export function back() {
     return {
         isActive: ["mobile"],
         trigger: ".back-button",
         run: "click",
     };
+}
+
+export function clickFilterButton(buttonText) {
+    return [
+        {
+            trigger: `.filter-buttons button:contains("${buttonText}")`,
+            run: "click",
+        },
+    ];
 }
 export function checkCameraIsOpen() {
     return {
@@ -250,6 +270,13 @@ export function noOrderIsThere() {
     return {
         content: "No orders should be visible on the Ticket Screen",
         trigger: ".ticket-screen:not(:has(.order-row))",
+    };
+}
+
+export function isReady() {
+    return {
+        content: "Wait for the Ticket Screen to be ready",
+        trigger: ".ticket-screen:not(.loading-orders)",
     };
 }
 

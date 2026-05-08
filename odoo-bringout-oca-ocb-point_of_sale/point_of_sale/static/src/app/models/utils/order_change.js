@@ -1,3 +1,67 @@
+import { logPosMessage } from "@point_of_sale/app/utils/pretty_console_log";
+const CONSOLE_COLOR = "#F5B427";
+
+export const getStrNotes = (note) => {
+    if (!note) {
+        return "";
+    }
+    if (Array.isArray(note)) {
+        return note.map((n) => (typeof n === "string" ? n : n.text)).join(", ");
+    }
+    if (typeof note === "string") {
+        try {
+            const parsed = JSON.parse(note);
+            if (Array.isArray(parsed)) {
+                return parsed.map((n) => (typeof n === "string" ? n : n.text)).join(", ");
+            }
+            return note;
+        } catch (error) {
+            logPosMessage(
+                "OrderChange",
+                "getStrNotes",
+                "Error while parsing note, not valid JSON",
+                CONSOLE_COLOR,
+                [error]
+            );
+            return note;
+        }
+    }
+    return "";
+};
+
+export const filterChangeByCategories = (categoryIdsSet, currentOrderChange, models) => {
+    const matchesCategories = (change) => {
+        const product = models["product.product"].get(change["product_id"]);
+        const categoryIds = product.parentPosCategIds;
+        for (const categoryId of categoryIds) {
+            if (categoryIdsSet.has(categoryId)) {
+                return true;
+            }
+        }
+        return false;
+    };
+
+    const filterChanges = (changes) => {
+        // Combo line uuids to have at least one child line in the given categories
+        const validComboUuids = new Set(
+            changes
+                .filter((change) => change.combo_parent_uuid && matchesCategories(change))
+                .map((change) => change.combo_parent_uuid)
+        );
+        return changes.filter(
+            (change) =>
+                (change.isCombo && validComboUuids.has(change.uuid)) ||
+                (!change.isCombo && matchesCategories(change))
+        );
+    };
+
+    return {
+        new: filterChanges(currentOrderChange["new"]),
+        cancelled: filterChanges(currentOrderChange["cancelled"]),
+        noteUpdate: filterChanges(currentOrderChange["noteUpdate"]),
+    };
+};
+
 export const changesToOrder = (order, orderPreparationCategories, cancelled = false) => {
     const toAdd = [];
     const toRemove = [];
@@ -8,6 +72,7 @@ export const changesToOrder = (order, orderPreparationCategories, cancelled = fa
         : Object.values(order.last_order_preparation_change.lines);
 
     for (const lineChange of linesChanges) {
+        lineChange["note"] = getStrNotes(lineChange.note);
         if (lineChange["quantity"] > 0 && !cancelled) {
             toAdd.push(lineChange);
         } else {
@@ -45,7 +110,6 @@ export const getOrderChanges = (order, orderPreparationCategories) => {
         }
         return product.parentPosCategIds.some((id) => prepaCategoryIds.has(id));
     };
-
     // Compares the orderlines of the order with the last ones sent.
     // When one of them has changed, we add the change.
     for (const orderline of order.getOrderlines()) {
@@ -53,18 +117,19 @@ export const getOrderChanges = (order, orderPreparationCategories) => {
         const note = orderline.getNote();
         const customerNote = orderline.getCustomerNote();
         const lineKey = orderline.uuid;
-
+        const quantity = orderline.getQuantity();
         const hasPrepaCategory =
             hasPreparationCategory(product) ||
             hasPreparationCategory(orderline.combo_parent_id?.product_id) ||
             orderline.combo_line_ids?.some((line) => hasPreparationCategory(line.getProduct())) ||
             false;
-
-        if (hasPrepaCategory) {
+        if (
+            hasPrepaCategory &&
+            order.last_order_preparation_change[lineKey]?.ignoreQty !== quantity
+        ) {
             const key = Object.keys(order.last_order_preparation_change.lines).find((k) =>
                 k.startsWith(orderline.uuid)
             ); // find old data but note changed
-            const quantity = orderline.getQuantity();
 
             const relatedKey = key !== lineKey ? key : lineKey; // if note update key would be different
             const quantityDiff =
@@ -75,28 +140,15 @@ export const getOrderChanges = (order, orderPreparationCategories) => {
                 (oldChanges[relatedKey].note !== note ||
                     oldChanges[relatedKey].customer_note !== customerNote);
 
-            const lineDetails = {
-                uuid: orderline.uuid,
-                name: orderline.getFullProductName(),
-                basic_name: orderline.product_id.name,
-                isCombo: Boolean(orderline?.combo_line_ids?.length),
-                combo_parent_uuid: orderline?.combo_parent_id?.uuid,
-                product_id: product.id,
-                attribute_value_names: orderline.attribute_value_ids.map((a) => a.name),
-                quantity: quantityDiff,
-                note: note,
-                customer_note: customerNote,
-                pos_categ_id: product.pos_categ_ids[0]?.id ?? 0,
-                pos_categ_sequence: product.pos_categ_ids[0]?.sequence ?? 0,
-                display_name: product.display_name,
-                group: receiptLineGrouper.getGroup(orderline),
-            };
+            const lineDetails = LineDetailsGetter.getLineDetails(order, orderline, quantityDiff);
 
             if (quantityDiff) {
                 // if note update with qty add
                 changes[lineKey] = lineDetails;
                 changesCount += quantityDiff;
-                changeAbsCount += Math.abs(quantityDiff);
+                if (!lineDetails.isCombo) {
+                    changeAbsCount += Math.abs(quantityDiff);
+                }
                 if (noteChange) {
                     lineDetails.quantity = oldChanges[relatedKey].quantity || 0;
                     noteUpdate[lineKey] = lineDetails;
@@ -136,13 +188,15 @@ export const getOrderChanges = (order, orderPreparationCategories) => {
                     display_name: lineResume["display_name"],
                     isCombo: Boolean(lineResume["isCombo"]),
                     combo_parent_uuid: lineResume["combo_parent_uuid"],
-                    note: lineResume["note"],
+                    note: getStrNotes(lineResume["note"]),
                     customer_note: lineResume["customer_note"],
                     attribute_value_names: lineResume["attribute_value_names"],
                     group: lineResume["group"],
                     quantity: -quantity,
                 };
-                changeAbsCount += Math.abs(quantity);
+                if (!lineResume["isCombo"]) {
+                    changeAbsCount += Math.abs(quantity);
+                }
                 changesCount += quantity;
             } else {
                 changes[lineKey]["quantity"] -= quantity;
@@ -172,5 +226,29 @@ export const getOrderChanges = (order, orderPreparationCategories) => {
 export const receiptLineGrouper = {
     getGroup(orderLine) {
         // To be overridden
+    },
+};
+
+export const LineDetailsGetter = {
+    getLineDetails(order, orderline, quantityDiff) {
+        const product = orderline.getProduct();
+        return {
+            uuid: orderline.uuid,
+            name: orderline.getFullProductName(),
+            basic_name: order.config_id.module_pos_restaurant
+                ? orderline.product_id.name
+                : orderline.product_id.display_name,
+            isCombo: Boolean(orderline?.combo_line_ids?.length),
+            combo_parent_uuid: orderline?.combo_parent_id?.uuid,
+            product_id: product.id,
+            attribute_value_names: orderline.attribute_value_ids.map((a) => a.name),
+            quantity: quantityDiff,
+            note: getStrNotes(orderline.getNote()),
+            customer_note: orderline.getCustomerNote(),
+            pos_categ_id: product.pos_categ_ids[0]?.id ?? 0,
+            pos_categ_sequence: product.pos_categ_ids[0]?.sequence ?? 0,
+            display_name: product.display_name,
+            group: receiptLineGrouper.getGroup(orderline),
+        };
     },
 };

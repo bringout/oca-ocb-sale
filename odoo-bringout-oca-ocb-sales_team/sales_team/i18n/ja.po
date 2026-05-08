@@ -13,10 +13,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:37+0000\n"
-"PO-Revision-Date: 2026-02-02 13:44+0000\n"
+"POT-Creation-Date: 2026-03-12 18:37+0000\n"
+"PO-Revision-Date: 2026-02-07 12:31+0000\n"
 "Last-Translator: \"Junko Augias (juau)\" <juau@odoo.com>\n"
-"Language-Team: Japanese <https://translate.odoo.com/projects/odoo-19/"
+"Language-Team: Japanese <https://translate.odoo.com/projects/odoo-s19-1/"
 "sales_team/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -38,7 +38,6 @@ msgid "%(user_names)s already in other teams (%(team_names)s)."
 msgstr "%(user_names)s はすでに他のチーム (%(team_names)s) にいます。"
 
 #. module: sales_team
-#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_kanban
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_form
 msgid ""
 "<i class=\"fa fa-envelope me-1\" role=\"img\" aria-label=\"Email\" "
@@ -49,12 +48,6 @@ msgstr ""
 
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
-msgid "<i class=\"fa fa-fw me-1 fa-building text-primary\" title=\"Company\"/>"
-msgstr ""
-"<i class=\"fa fa-fw me-1 fa-building text-primary\" title=\"Company\"/>"
-
-#. module: sales_team
-#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
 msgid "<i class=\"fa fa-fw me-1 fa-envelope text-primary\" title=\"Email\"/>"
 msgstr "<i class=\"fa fa-fw me-1 fa-envelope text-primary\" title=\"Email\"/>"
 
@@ -62,6 +55,19 @@ msgstr "<i class=\"fa fa-fw me-1 fa-envelope text-primary\" title=\"Email\"/>"
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
 msgid "<i class=\"fa fa-fw me-1 fa-phone text-primary\" title=\"Phone\"/>"
 msgstr "<i class=\"fa fa-fw me-1 fa-phone text-primary\" title=\"Phone\"/>"
+
+#. module: sales_team
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_kanban
+msgid "<i class=\"fa fa-fw me-1 fa-users text-primary\" title=\"Sales Team\"/>"
+msgstr ""
+
+#. module: sales_team
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
+msgid ""
+"<i class=\"o_input_box_overlay_start fa fa-fw fa-building\" "
+"title=\"Company\"/>"
+msgstr ""
 
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_kanban_dashboard
@@ -248,6 +254,7 @@ msgstr "表示名"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__email
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
 msgid "Email"
 msgstr "メール"
 
@@ -314,7 +321,8 @@ msgstr "有効にすると、一部のメッセージに配信エラーが発生
 msgid ""
 "If the active field is set to false, it will allow you to hide the Sales "
 "Team without removing it."
-msgstr "有効フィールドをfalseに設定すると、販売チームを削除せずに非表示にすることがで"
+msgstr ""
+"有効フィールドをfalseに設定すると、販売チームを削除せずに非表示にすることがで"
 "きます。"
 
 #. module: sales_team
@@ -435,6 +443,7 @@ msgstr "その他"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__phone
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
 msgid "Phone"
 msgstr "電話"
 
@@ -480,6 +489,7 @@ msgstr "営業担当者"
 #: model:ir.model,name:sales_team.model_crm_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__name
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__crm_team_id
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_search
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_form
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_tree
@@ -723,8 +733,8 @@ msgstr "マルチチームで勤務？"
 #. odoo-python
 #: code:addons/sales_team/models/crm_team_member.py:0
 msgid ""
-"You are trying to create duplicate membership(s). We found that %"
-"(duplicates)s already exist(s)."
+"You are trying to create duplicate membership(s). We found that "
+"%(duplicates)s already exist(s)."
 msgstr ""
 "重複したメンバーシップを作成しようとしています。%(duplicates)sはすでに存在し"
 "ています。"
@@ -762,28 +772,3 @@ msgid ""
 "the user will have an access to the sales configuration as well as statistic "
 "reports."
 msgstr "ユーザは販売構成および統計レポートにアクセスできます。"
-
-#~ msgid "Contact"
-#~ msgstr "連絡先"
-
-#~ msgid ""
-#~ "Follow this salesteam to automatically track the events associated to "
-#~ "users of this team."
-#~ msgstr ""
-#~ "この販売チームに従って、このチームのユーザに関連付けられたイベントを自動的"
-#~ "に追跡します。"
-
-#~ msgid "Group By"
-#~ msgstr "グループ化"
-
-#~ msgid "Group By..."
-#~ msgstr "グループ化…"
-
-#~ msgid "Mobile"
-#~ msgstr "携帯電話"
-
-#~ msgid "Number of messages which requires an action"
-#~ msgstr "アクションを必要とするメッセージの数"
-
-#~ msgid "Sample data"
-#~ msgstr "サンプルデータ"

@@ -1,13 +1,14 @@
-import { Component, useEffect, useRef } from "@odoo/owl";
+import { useLayoutEffect, useRef } from "@web/owl2/utils";
+import { Component } from "@odoo/owl";
 import { CenteredIcon } from "@point_of_sale/app/components/centered_icon/centered_icon";
 import { Orderline } from "@point_of_sale/app/components/orderline/orderline";
 import { formatCurrency } from "@web/core/currency";
-import { TagsList } from "@web/core/tags_list/tags_list";
+import { BadgeTag } from "@web/core/tags_list/badge_tag";
 
 // This methods is service-less, see PoS knowledges for more information
 export class OrderDisplay extends Component {
     static template = "point_of_sale.OrderDisplay";
-    static components = { CenteredIcon, Orderline, TagsList };
+    static components = { CenteredIcon, Orderline, BadgeTag };
     static props = {
         order: Object,
         slots: Object,
@@ -19,7 +20,7 @@ export class OrderDisplay extends Component {
 
     setup() {
         this.scrollableRef = useRef("scrollable");
-        useEffect(() => {
+        useLayoutEffect(() => {
             this.scrollableRef.el
                 ?.querySelector(".orderline.selected")
                 ?.scrollIntoView({ behavior: "smooth", block: "start" });

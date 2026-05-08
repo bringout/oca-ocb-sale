@@ -56,7 +56,7 @@ class TestReInvoice(TestExpenseCommon, TestSaleCommon):
                 'uom_id': cls.env.ref('uom.product_uom_unit').id,
                 'default_code': 'FURN_99991',
                 'invoice_policy': 'order',
-                'expense_policy': 'sales_price',
+                'reinvoice_policy': 'sales_price',
                 'taxes_id': [Command.set([new_sale_tax.id])],
                 'supplier_taxes_id': [Command.set([new_purchase_tax.id])],
                 'can_be_expensed': True,
@@ -71,7 +71,7 @@ class TestReInvoice(TestExpenseCommon, TestSaleCommon):
                 'uom_id': cls.env.ref('uom.product_uom_unit').id,
                 'default_code': 'FURN_99992',
                 'invoice_policy': 'delivery',
-                'expense_policy': 'sales_price',
+                'reinvoice_policy': 'sales_price',
                 'taxes_id': [Command.set([new_sale_tax.id])],
                 'supplier_taxes_id': [Command.set([new_purchase_tax.id])],
                 'can_be_expensed': True,
@@ -86,7 +86,7 @@ class TestReInvoice(TestExpenseCommon, TestSaleCommon):
                 'uom_id': cls.env.ref('uom.product_uom_unit').id,
                 'default_code': 'FURN_99993',
                 'invoice_policy': 'delivery',
-                'expense_policy': 'cost',
+                'reinvoice_policy': 'cost',
                 'taxes_id': [Command.set([new_sale_tax.id])],
                 'supplier_taxes_id': [Command.set([new_purchase_tax.id])],
                 'can_be_expensed': True,
@@ -101,14 +101,14 @@ class TestReInvoice(TestExpenseCommon, TestSaleCommon):
                 'uom_id': cls.env.ref('uom.product_uom_unit').id,
                 'default_code': 'FURN_99994',
                 'invoice_policy': 'order',
-                'expense_policy': 'cost',
+                'reinvoice_policy': 'cost',
                 'taxes_id': [Command.set([new_sale_tax.id])],
                 'supplier_taxes_id': [Command.set([new_purchase_tax.id])],
                 'can_be_expensed': True,
             }),
         })
         # create SO line and confirm SO (with only one line)
-        cls.expense_sale_order = cls.env['sale.order'].with_context(mail_notrack=True, mail_create_nolog=True).create({
+        cls.expense_sale_order = cls.env['sale.order'].create({
             'partner_id': cls.partner_a.id,
             'partner_invoice_id': cls.partner_a.id,
             'partner_shipping_id': cls.partner_a.id,
@@ -414,7 +414,7 @@ class TestReInvoice(TestExpenseCommon, TestSaleCommon):
         })
 
         # create SO line and confirm SO (with only one line)
-        sale_order = self.env['sale.order'].with_context(mail_notrack=True, mail_create_nolog=True).create({
+        sale_order = self.env['sale.order'].create({
             'partner_id': self.partner_a.id,
             'partner_invoice_id': self.partner_a.id,
             'partner_shipping_id': self.partner_a.id,
@@ -497,7 +497,7 @@ class TestReInvoice(TestExpenseCommon, TestSaleCommon):
         })
 
         # create SO line and confirm SO (with only one line)
-        sale_order = self.env['sale.order'].with_context(mail_notrack=True, mail_create_nolog=True).create({
+        sale_order = self.env['sale.order'].create({
             'partner_id': self.partner_a.id,
             'partner_invoice_id': self.partner_a.id,
             'partner_shipping_id': self.partner_a.id,

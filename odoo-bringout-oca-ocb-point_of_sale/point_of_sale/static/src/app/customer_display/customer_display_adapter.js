@@ -1,5 +1,4 @@
 import { formatCurrency } from "@point_of_sale/app/models/utils/currency";
-import { toRaw } from "@odoo/owl";
 import { logPosMessage } from "@point_of_sale/app/utils/pretty_console_log";
 
 const CONSOLE_COLOR = "#FF8269";
@@ -38,6 +37,16 @@ export class CustomerDisplayPosAdapter {
             });
     }
 
+    displayScreenSaver() {
+        this.data.displayScreenSaver = true;
+    }
+
+    setExtraData(data) {
+        if (data) {
+            Object.assign(this.data, data);
+        }
+    }
+
     formatOrderData(order) {
         this.currency = order.currency;
         this.data = {
@@ -52,7 +61,8 @@ export class CustomerDisplayPosAdapter {
             change: order.change && formatCurrency(order.change, order.currency),
             paymentLines: order.payment_ids.map((pl) => this.getPaymentData(pl)),
             lines: order.lines.map((l) => this.getOrderlineData(l)),
-            qrPaymentData: toRaw(order.getSelectedPaymentline()?.qrPaymentData),
+            qrPaymentData: this.getQrPaymentData(order),
+            displayScreenSaver: false,
         };
     }
 
@@ -68,7 +78,6 @@ export class CustomerDisplayPosAdapter {
             qty: line.getQuantityStr().qtyStr,
             unit: line.product_id.uom_id ? line.product_id.uom_id.name : "",
             unitPrice: line.currencyDisplayPriceUnit,
-            packLotLines: line.packLotLines,
             comboParent: line.combo_parent_id?.getFullProductName?.() || "",
             price_without_discount: formatCurrency(line.displayPriceNoDiscount, line.currency),
             isSelected: line.isSelected(),
@@ -80,5 +89,15 @@ export class CustomerDisplayPosAdapter {
             name: payment.payment_method_id.name,
             amount: formatCurrency(payment.amount, this.currency),
         };
+    }
+
+    getQrPaymentData(order) {
+        const qrPaymentData = order.getSelectedPaymentline()?.getQrPopupProps(true);
+        return qrPaymentData
+            ? {
+                  ...qrPaymentData,
+                  amount: formatCurrency(qrPaymentData.amount, this.currency),
+              }
+            : null;
     }
 }

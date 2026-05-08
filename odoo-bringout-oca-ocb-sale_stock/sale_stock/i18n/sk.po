@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * sale_stock
+# 	* sale_stock
 #
 # Translators:
 # SAKodoo <sak@odoo.com>, 2022
@@ -10,23 +10,21 @@
 # Rastislav Brencic <rastislav.brencic@azet.sk>, 2022
 # Martin Trigaux, 2022
 # Jan Prokop, 2022
-# Tomáš Píšek <Tomas.Pisek@seznam.cz>, 2025, 2026.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-13 18:36+0000\n"
-"PO-Revision-Date: 2026-03-15 20:12+0000\n"
-"Last-Translator: Tomáš Píšek <Tomas.Pisek@seznam.cz>\n"
-"Language-Team: Slovak <https://translate.odoo.com/projects/odoo-19/"
-"sale_stock/sk/>\n"
+"POT-Creation-Date: 2026-03-12 18:37+0000\n"
+"PO-Revision-Date: 2022-09-22 05:55+0000\n"
+"Last-Translator: Jan Prokop, 2022\n"
+"Language-Team: Slovak (https://app.transifex.com/odoo/teams/41243/sk/)\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && "
-"n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);\n"
-"X-Generator: Weblate 5.16.2\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n "
+">= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);\n"
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.exception_on_picking
@@ -41,37 +39,37 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/sale_stock/static/src/sale_stock_forecasted/forecasted_details.xml:0
 msgid "1 Quotation"
-msgstr "1 Ponuka"
+msgstr ""
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.sale_order_portal_content_inherit_sale_stock
 msgid "<i class=\"fa fa-fw fa-clock-o\"/> Awaiting arrival"
-msgstr "<i class=\"fa fa-fw fa-clock-o\"/> Čakáme na dodávku"
+msgstr ""
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.sale_order_portal_content_inherit_sale_stock
 msgid "<i class=\"fa fa-fw fa-clock-o\"/>Preparation"
-msgstr "<i class=\"fa fa-fw fa-clock-o\"/>Príprava"
+msgstr ""
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.sale_order_portal_content_inherit_sale_stock
 msgid "<i class=\"fa fa-fw fa-times\"/> Cancelled"
-msgstr "<i class=\"fa fa-fw fa-times\"/> Zrušené"
+msgstr ""
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.sale_order_portal_content_inherit_sale_stock
 msgid "<i class=\"fa fa-fw fa-times\"/>Cancelled"
-msgstr "<i class=\"fa fa-fw fa-times\"/>Zrušené"
+msgstr ""
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.sale_order_portal_content_inherit_sale_stock
 msgid "<i class=\"fa fa-fw fa-truck\"/> Received"
-msgstr "<i class=\"fa fa-fw fa-truck\"/> Prijaté"
+msgstr ""
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.stock_production_lot_view_form
 msgid "<span class=\"o_stat_text\">Sales</span>"
-msgstr "<span class=\"o_stat_text\">Predaj</span>"
+msgstr ""
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.sale_order_portal_content_inherit_sale_stock
@@ -82,27 +80,16 @@ msgid ""
 "Shipped\n"
 "                                    </span>"
 msgstr ""
-"<span class=\"small badge rounded-pill text-bg-success "
-"orders_label_text_align\">\n"
-"                                        <i class=\"fa fa-fw fa-truck\"/> "
-"Expedované\n"
-"                                    </span>"
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.report_delivery_document_inherit_sale_stock
 msgid "<strong>Customer Reference</strong>"
-msgstr "<strong>Referencia zákazníka</strong>"
+msgstr ""
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.report_delivery_document_inherit_sale_stock
-#: model_terms:ir.ui.view,arch_db:sale_stock.report_saleorder_document_inherit_sale_stock
 msgid "<strong>Incoterm</strong>"
-msgstr "<strong>Incoterm</strong>"
-
-#. module: sale_stock
-#: model:ir.model.fields,help:sale_stock.field_sale_order_line__is_storable
-msgid "A storable product is a product for which you manage stock."
-msgstr "Skladový tovar je tovar, ktorý spravujete na sklade."
+msgstr ""
 
 #. module: sale_stock
 #: model:ir.model.fields,help:sale_stock.field_sale_order_line__qty_delivered_method
@@ -113,38 +100,30 @@ msgid ""
 "  - Analytic From expenses: the quantity is the quantity sum from posted "
 "expenses\n"
 "  - Timesheet: the quantity is the sum of hours recorded on tasks linked to "
-"this sale line\n"
+"this line\n"
 "  - Stock Moves: the quantity comes from confirmed pickings\n"
 msgstr ""
-"V závislosti od konfigurácie produktu sa dodávané množstvo môže automaticky "
-"vypočítať nasledujúcimi spôsobmi:\n"
-"  - Ručne: množstvo sa zadáva ručne v riadku\n"
-"  - Analyticky z výdavkov: množstvo je súčtom množstiev z zaúčtovaných "
-"výdavkov\n"
-"  - Pracovný výkaz: množstvo je súčtom hodín zaznamenaných v úlohách "
-"prepojených s týmto predajným riadkom\n"
-"  - Skladové pohyby: množstvo vychádza z potvrdených presunov\n"
 
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_account_accrued_orders_wizard
 msgid "Accrued Orders Wizard"
-msgstr "Sprievodca dohadnými objednávkami"
+msgstr ""
 
 #. module: sale_stock
 #. odoo-javascript
 #: code:addons/sale_stock/static/src/widgets/qty_at_date_widget.xml:0
 msgid "All planned operations included"
-msgstr "Všetky plánované operácie sú zahrnuté"
+msgstr ""
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_stock_rules_report__so_route_ids
 msgid "Apply specific routes"
-msgstr "Použiť špecifické trasy"
+msgstr ""
 
 #. module: sale_stock
 #: model:ir.model.fields.selection,name:sale_stock.selection__sale_order__picking_policy__direct
-msgid "As soon as possible"
-msgstr "Čo najskôr"
+msgid "As soon as possible, with back orders"
+msgstr ""
 
 #. module: sale_stock
 #. odoo-javascript
@@ -162,33 +141,22 @@ msgstr "Dostupné"
 #. odoo-javascript
 #: code:addons/sale_stock/static/src/widgets/qty_at_date_widget.xml:0
 msgid "Available in stock"
-msgstr "Dostupné na sklade"
-
-#. module: sale_stock
-#: model:ir.model.fields,help:sale_stock.field_sale_order__delivery_status
-msgid ""
-"Blue: Not Delivered/Started\n"
-"            Orange: Partially Delivered\n"
-"            Green: Fully Delivered"
 msgstr ""
-"Modrá: Nedodané/nezačaté\n"
-"            Oranžová: Čiastočne dodané\n"
-"            Zelená: Plne dodané"
 
 #. module: sale_stock
 #: model:ir.model.fields,help:sale_stock.field_stock_rules_report__so_route_ids
 msgid "Choose to apply SO lines specific routes."
-msgstr "Zvoľte použitie špecifických trás pre riadky predajnej objednávky."
+msgstr ""
 
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_res_company
-msgid "Companies"
-msgstr "Spoločnosti"
+msgid "Company"
+msgstr ""
 
 #. module: sale_stock
 #: model:ir.model.fields,help:sale_stock.field_sale_order__effective_date
 msgid "Completion date of the first delivery order."
-msgstr "Dátum skompletovania prvej dodacej objednávky."
+msgstr "Dátum skompletovania prvej dodacej objednávky"
 
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_res_config_settings
@@ -198,7 +166,7 @@ msgstr "Nastavenia konfigurácie"
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.report_delivery_document_inherit_sale_stock
 msgid "Customer reference"
-msgstr "Referencia zákazníka"
+msgstr ""
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.sale_order_portal_content_inherit_sale_stock
@@ -208,12 +176,12 @@ msgstr "Dátum:"
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_res_users__property_warehouse_id
 msgid "Default Warehouse"
-msgstr "Predvolený sklad"
+msgstr ""
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.portal_my_orders
 msgid "Delivered"
-msgstr "Dodané"
+msgstr ""
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.view_order_form_inherit_sale_stock
@@ -226,11 +194,6 @@ msgid "Delivery Orders"
 msgstr "Dodacie objednávky"
 
 #. module: sale_stock
-#: model:ir.model.fields,field_description:sale_stock.field_sale_order__delivery_status
-msgid "Delivery Status"
-msgstr "Stav dodávky"
-
-#. module: sale_stock
 #: model:ir.model.fields,help:sale_stock.field_sale_order__expected_date
 msgid ""
 "Delivery date you can promise to the customer, computed from the minimum "
@@ -238,10 +201,10 @@ msgid ""
 "shipping, the shipping policy of the order will be taken into account to "
 "either use the minimum or maximum lead time of the order lines."
 msgstr ""
-"Termín dodania, ktorý môžete zákazníkovi sľúbiť, sa v prípade produktov typu "
-"„Služba“ vypočíta na základe najkratšej dodacej lehoty z riadkov objednávky. "
-"V prípade expedície sa zohľadnia dodacie podmienky objednávky, pričom sa "
-"použije buď najkratšia, alebo najdlhšia dodacia lehota z riadkov objednávky."
+"Dátum dodania, ktorý môžete zákazníkovi sľúbiť, sa počíta od minimálnej "
+"dodacej lehoty objednávkových položiek v prípade dodania produktov. V "
+"prípade prepravy sa bude brať do úvahy prepravné podmienky objednávky, aby "
+"sa použil minimálny alebo maximálny dodací čas objednávky."
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_account_accrued_orders_wizard__display_name
@@ -255,6 +218,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order__display_name
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__display_name
 #: model:ir.model.fields,field_description:sale_stock.field_sale_report__display_name
+#: model:ir.model.fields,field_description:sale_stock.field_stock_account_stock_valuation_report__display_name
 #: model:ir.model.fields,field_description:sale_stock.field_stock_forecasted_product_product__display_name
 #: model:ir.model.fields,field_description:sale_stock.field_stock_lot__display_name
 #: model:ir.model.fields,field_description:sale_stock.field_stock_move__display_name
@@ -266,12 +230,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:sale_stock.field_stock_rule__display_name
 #: model:ir.model.fields,field_description:sale_stock.field_stock_rules_report__display_name
 msgid "Display Name"
-msgstr "Zobrazovaný názov"
+msgstr ""
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__display_qty_widget
 msgid "Display Qty Widget"
-msgstr "Zobraziť widget množstva"
+msgstr ""
 
 #. module: sale_stock
 #. odoo-python
@@ -283,12 +247,12 @@ msgstr "Nezabudni zmeniť partnera na nasledovných dodacích objednávkach: %s"
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order__effective_date
 msgid "Effective Date"
-msgstr "Skutočné dátum"
+msgstr "Dátum účinnosti"
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.exception_on_picking
 msgid "Exception(s) occurred on the picking:"
-msgstr "Pri výdaji nastala výnimka(y):"
+msgstr "Pri výdaji nastala výnimka(y)"
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.exception_on_so
@@ -299,7 +263,7 @@ msgstr "Výnimka(y) nastala(i) pri objednávke predaja:"
 #: model_terms:ir.ui.view,arch_db:sale_stock.exception_on_picking
 #: model_terms:ir.ui.view,arch_db:sale_stock.exception_on_so
 msgid "Exception(s):"
-msgstr "Výnimka(y):"
+msgstr "Výnimka(y)"
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order__expected_date
@@ -310,44 +274,34 @@ msgstr "Očakávaný dátum"
 #. odoo-javascript
 #: code:addons/sale_stock/static/src/widgets/qty_at_date_widget.xml:0
 msgid "Expected Delivery"
-msgstr "Očakávané dodanie"
-
-#. module: sale_stock
-#: model_terms:ir.ui.view,arch_db:sale_stock.view_order_form_inherit_sale_stock
-msgid "Expected:"
-msgstr "Očakávané:"
+msgstr ""
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__forecast_expected_date
 msgid "Forecast Expected Date"
-msgstr "Predpokladaný termín"
+msgstr ""
 
 #. module: sale_stock
 #. odoo-javascript
 #: code:addons/sale_stock/static/src/widgets/qty_at_date_widget.js:0
 msgid "Forecasted Stock"
-msgstr "Prognóza zásob"
+msgstr ""
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__free_qty_today
 msgid "Free Qty Today"
-msgstr "Dostupné množstvo dnes"
-
-#. module: sale_stock
-#: model:ir.model.fields.selection,name:sale_stock.selection__sale_order__delivery_status__full
-msgid "Fully Delivered"
-msgstr "Plne dodané"
+msgstr ""
 
 #. module: sale_stock
 #. odoo-javascript
 #: code:addons/sale_stock/static/src/stock_valuation/stock_valuation_report.js:0
 msgid "Goods Delivered Not Invoiced"
-msgstr "Tovar dodaný, nefakturované"
+msgstr ""
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order__show_json_popover
 msgid "Has late picking"
-msgstr "Má omeškaný presun"
+msgstr ""
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_account_accrued_orders_wizard__id
@@ -361,6 +315,7 @@ msgstr "Má omeškaný presun"
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order__id
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__id
 #: model:ir.model.fields,field_description:sale_stock.field_sale_report__id
+#: model:ir.model.fields,field_description:sale_stock.field_stock_account_stock_valuation_report__id
 #: model:ir.model.fields,field_description:sale_stock.field_stock_forecasted_product_product__id
 #: model:ir.model.fields,field_description:sale_stock.field_stock_lot__id
 #: model:ir.model.fields,field_description:sale_stock.field_stock_move__id
@@ -372,71 +327,42 @@ msgstr "Má omeškaný presun"
 #: model:ir.model.fields,field_description:sale_stock.field_stock_rule__id
 #: model:ir.model.fields,field_description:sale_stock.field_stock_rules_report__id
 msgid "ID"
-msgstr "ID"
-
-#. module: sale_stock
-#: model:ir.model.fields,help:sale_stock.field_sale_order__picking_policy
-msgid ""
-"If you deliver all products at once, the delivery order will be scheduled "
-"based on the greatest product lead time. Otherwise, it will be based on the "
-"shortest."
 msgstr ""
-"Ak dodávate všetky produkty naraz, termín dodávky sa stanoví podľa najdlhšej "
-"dodacej lehoty. V opačnom prípade sa stanoví podľa najkratšej."
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.exception_on_so
 msgid "Impacted Transfer(s):"
-msgstr "Ovplyvnený presun(y):"
-
-#. module: sale_stock
-#: model:ir.model.fields,field_description:sale_stock.field_sale_order__incoterm
-msgid "Incoterm"
-msgstr "Incoterm"
-
-#. module: sale_stock
-#: model:ir.model.fields,field_description:sale_stock.field_sale_order__incoterm_location
-msgid "Incoterm Location"
-msgstr "Lokácia Incoterm"
+msgstr "Ovplyvnený prenos(y):"
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.report_delivery_document_inherit_sale_stock
 msgid "Incoterm details"
-msgstr "Detail Incoterm"
-
-#. module: sale_stock
-#: model_terms:ir.ui.view,arch_db:sale_stock.sale_order_portal_content_inherit_sale_stock
-msgid "Incoterm:"
-msgstr "Incoterm:"
-
-#. module: sale_stock
-#: model:ir.model.fields,help:sale_stock.field_sale_order__incoterm
-msgid ""
-"International Commercial Terms are a series of predefined commercial terms "
-"used in international transactions."
 msgstr ""
-"Medzinárodné obchodné podmienky (Incoterms) sú zbierka predefinovaných "
-"obchodných podmienok používaných pri medzinárodných transakciách."
 
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_stock_route
-msgid "Inventory Routes"
-msgstr "Skladová trasa"
+msgid "Inventory Route"
+msgstr ""
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__is_mto
 msgid "Is Mto"
-msgstr "Je MTO"
+msgstr ""
+
+#. module: sale_stock
+#: model:ir.model.fields,help:sale_stock.field_sale_order__picking_policy
+msgid "It specifies goods to be deliver partially or all at once"
+msgstr ""
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order__json_popover
 msgid "JSON data for the popover widget"
-msgstr "Údaje JSON pre popover widget"
+msgstr "Údaje JSON pre miniaplikáciu pre popover"
 
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_account_move
 msgid "Journal Entry"
-msgstr "Účtovný záznam"
+msgstr "Vstup účtovnej knihy"
 
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_account_move_line
@@ -446,13 +372,13 @@ msgstr "Položka účtovnej knihy"
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.sale_order_portal_content_inherit_sale_stock
 msgid "Last Delivery Orders"
-msgstr "Posledné dodacie objednávky"
+msgstr ""
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order__late_availability
 #: model_terms:ir.ui.view,arch_db:sale_stock.sale_stock_sale_order_view_search_inherit
 msgid "Late Availability"
-msgstr "Dostupné neskôr"
+msgstr ""
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__customer_lead
@@ -462,7 +388,7 @@ msgstr "Dodacia doba"
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_stock_lot
 msgid "Lot/Serial"
-msgstr "Šarža/sériové číslo"
+msgstr "Šarža/sériové"
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.exception_on_so
@@ -476,9 +402,9 @@ msgid ""
 "for delivery that many days earlier than the actual promised date, to cope "
 "with unexpected delays in the supply chain."
 msgstr ""
-"Rezerva v termínoch dodania sľúbených zákazníkom. Dodávky produktov budú "
-"naplánované o toľko dní skôr, než je skutočný sľúbený termín, aby sa "
-"predišlo neočakávaným meškaniam v dodávateľskom reťazci."
+"Rezerva pre chyby na dátumy sľúbené zákazníkovi. Produkty budú plánované na "
+"dodanie o toľko dní vopred ako skutočný sľúbený dátum, aby sa pokryli "
+"neočakávané meškania v dodávateľskom reťazci."
 
 #. module: sale_stock
 #: model:ir.model.fields,help:sale_stock.field_res_company__security_lead
@@ -489,9 +415,9 @@ msgid ""
 "for procurement and delivery that many days earlier than the actual promised "
 "date, to cope with unexpected delays in the supply chain."
 msgstr ""
-"Rezerva v prípade termínov sľúbených zákazníkom. Objednávky a dodávky "
-"produktov budú naplánované o toľko dní skôr, než je skutočný sľúbený termín, "
-"aby bolo možné zvládnuť neočakávané meškania v dodávateľskom reťazci."
+"Rezerva pre chyby na dátumy sľúbené zákazníkovi. Produkty budú naplánované "
+"na obstarávanie o toľko dní skôr ako skutočný sľúbený dátum, aby sa pokryli "
+"neočakávané meškania v dodávateľskom reťazci."
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__qty_delivered_method
@@ -500,60 +426,53 @@ msgstr "Metóda úpravy dodaného množstva"
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_stock
-msgid "Move forward expected delivery dates by"
-msgstr "Posunúť predpokladané termíny dodania o"
+msgid "Move forward expected delivery dates by <br/>"
+msgstr ""
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.sale_stock_help_message_template
 msgid "No delivery yet! Automate them with sales orders."
-msgstr "Zatiaľ žiadne dodávky! Automatizujte ich pomocou predajných objednávok."
+msgstr ""
 
 #. module: sale_stock
 #. odoo-javascript
 #: code:addons/sale_stock/static/src/widgets/qty_at_date_widget.xml:0
 msgid "No future availability"
-msgstr "V budúcnosti nie je dostupné"
+msgstr ""
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.portal_my_orders
 msgid "Not Available"
-msgstr "Nedostupné"
+msgstr ""
 
 #. module: sale_stock
-#: model:ir.model.fields.selection,name:sale_stock.selection__sale_order__delivery_status__pending
 #: model_terms:ir.ui.view,arch_db:sale_stock.portal_my_orders
 msgid "Not Delivered"
-msgstr "Nedodané"
+msgstr ""
 
 #. module: sale_stock
 #. odoo-javascript
 #: code:addons/sale_stock/static/src/widgets/qty_at_date_widget.xml:0
 msgid "Not enough future availability"
-msgstr "Nedostatočná dostupnosť v budúcnosti"
+msgstr ""
 
 #. module: sale_stock
 #: model:ir.model.fields,help:sale_stock.field_sale_order_line__customer_lead
 msgid ""
 "Number of days between the order confirmation and the shipping of the "
-"products to the customer"
-msgstr "Počet dní medzi potvrdením objednávky a odoslaním tovaru zákazníkovi"
+"products"
+msgstr ""
 
 #. module: sale_stock
 #. odoo-javascript
 #: code:addons/sale_stock/static/src/widgets/qty_at_date_widget.xml:0
 msgid "On"
-msgstr "K"
+msgstr "Zapnuté"
 
 #. module: sale_stock
-#: model:ir.model.fields.selection,name:sale_stock.selection__sale_order__delivery_status__partial
 #: model_terms:ir.ui.view,arch_db:sale_stock.portal_my_orders
 msgid "Partially Delivered"
-msgstr "Čiastočne dodané"
-
-#. module: sale_stock
-#: model:ir.model.fields,field_description:sale_stock.field_res_config_settings__default_picking_policy
-msgid "Picking Policy"
-msgstr "Politika expedície"
+msgstr ""
 
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_product_template
@@ -563,17 +482,12 @@ msgstr "Produkt"
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_stock_move_line
 msgid "Product Moves (Stock Move Line)"
-msgstr "Pohyby produktu (Riadok skladového pohybu)"
-
-#. module: sale_stock
-#: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__qty_available_today
-msgid "Qty Available Today"
-msgstr "Množ. dostupné dnes"
+msgstr ""
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__qty_to_deliver
 msgid "Qty To Deliver"
-msgstr "Množ. k dodaniu"
+msgstr ""
 
 #. module: sale_stock
 #. odoo-javascript
@@ -584,7 +498,7 @@ msgstr "Cenové ponuky"
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.sale_order_portal_content_inherit_sale_stock
 msgid "RETURN"
-msgstr "VRÁTIŤ"
+msgstr ""
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.sale_stock_help_message_template
@@ -593,32 +507,28 @@ msgid ""
 "                replenishment propositions, shipping connectors, barcode "
 "scanner, etc."
 msgstr ""
-"Znížte počet nevybavených objednávok vďaka rezerváciám, správe skladových "
-"lokácií, inteligentným\n"
-"                návrhom na doplnenie zásob, prepojeniu s prepravnými "
-"službami, čítačke čiarových kódov atď."
 
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_stock_reference
 msgid "Reference between stock documents"
-msgstr "Prepojenie medzi skladovými dokladmi"
+msgstr ""
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order__stock_reference_ids
 msgid "References"
-msgstr "Referencie"
+msgstr ""
 
 #. module: sale_stock
 #. odoo-javascript
 #: code:addons/sale_stock/static/src/widgets/qty_at_date_widget.xml:0
 msgid "Remaining demand available at"
-msgstr "Zostávajúci dopyt je k dispozícii k"
+msgstr ""
 
 #. module: sale_stock
 #. odoo-python
 #: code:addons/sale_stock/models/sale_order_line.py:0
 msgid "Replenish on Order (MTO)"
-msgstr "Dodanie na objednávku (MTO)"
+msgstr ""
 
 #. module: sale_stock
 #. odoo-javascript
@@ -629,17 +539,17 @@ msgstr "Rezervované"
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_stock_return_picking
 msgid "Return Picking"
-msgstr "Skladový presun vrátenia"
+msgstr ""
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.sale_order_portal_content_inherit_sale_stock
 msgid "Returns"
-msgstr "Vrátenie tovaru"
+msgstr ""
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__route_ids
 msgid "Routes"
-msgstr "Trasy"
+msgstr ""
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_stock_move__sale_line_id
@@ -651,49 +561,49 @@ msgstr "Položka predaja"
 #: code:addons/sale_stock/static/src/stock_valuation/stock_valuation_report.js:0
 #: model_terms:ir.ui.view,arch_db:sale_stock.stock_production_lot_view_form
 msgid "Sale Orders"
-msgstr "Predajné objednávky"
+msgstr "Objednávky predaja"
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_stock_lot__sale_order_count
 msgid "Sale order count"
-msgstr "Počet predajných objednávok"
+msgstr "Počet riadkov predaja"
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_stock_reference__sale_ids
 msgid "Sales"
-msgstr "Predajné objednávky"
+msgstr ""
 
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_sale_report
 msgid "Sales Analysis Report"
-msgstr "Prehľad analýzy predaja"
+msgstr "Report analýzy predaja"
 
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_sale_order
 #: model:ir.model.fields,field_description:sale_stock.field_stock_picking__sale_id
 msgid "Sales Order"
-msgstr "Predajná objednávka"
+msgstr "Objednávka "
 
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_sale_order_line
 msgid "Sales Order Line"
-msgstr "Riadok predajnej objednávky"
+msgstr "Položka objednávok"
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.stock_location_route_view_form_inherit_sale_stock
 msgid "Sales Order Lines"
-msgstr "Riadky predajnej objednávky"
+msgstr "Položky objednávky"
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_stock_lot__sale_order_ids
 #: model_terms:ir.ui.view,arch_db:sale_stock.sale_stock_help_message_template
 msgid "Sales Orders"
-msgstr "Predajné objednávky"
+msgstr "Objednávky predaja"
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_res_company__security_lead
 msgid "Sales Safety Days"
-msgstr "Bezpečnostné dní predaja"
+msgstr "Bezpečnostné dní predajov"
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_stock
@@ -701,19 +611,14 @@ msgid "Schedule deliveries earlier to avoid delays"
 msgstr "Plánovať dodávky skôr pre obmedzenie meškaní"
 
 #. module: sale_stock
-#: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__scheduled_date
-msgid "Scheduled Date"
-msgstr "Plánovaný dátum"
-
-#. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_res_config_settings__security_lead
 msgid "Security Lead Time"
-msgstr "Bezpečnostná lehota"
+msgstr "Bezpečnostný čas"
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_res_config_settings__use_security_lead
 msgid "Security Lead Time for Sales"
-msgstr "Bezpečnostná lehota pre Predaj"
+msgstr "Bezpečnostný čas predaja"
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_stock_route__sale_selectable
@@ -721,35 +626,24 @@ msgid "Selectable on Sales Order Line"
 msgstr "Voliteľné na položkách objednávky predaja"
 
 #. module: sale_stock
-#: model:ir.model.fields.selection,name:sale_stock.selection__res_config_settings__default_picking_policy__one
-msgid "Ship all products at once"
-msgstr "Odoslať všetky produkty naraz"
-
-#. module: sale_stock
-#: model:ir.model.fields.selection,name:sale_stock.selection__res_config_settings__default_picking_policy__direct
-msgid "Ship products as soon as available, with back orders"
-msgstr "Odoslať produkty hneď, ako budú k dispozícii, so zvyšnými objednávkami"
-
-#. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order__picking_policy
 msgid "Shipping Policy"
-msgstr "Politika expedície"
+msgstr "Podmienky dopravy"
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.portal_my_orders
 msgid "Shipping Status"
-msgstr "Stav expedície"
+msgstr ""
 
 #. module: sale_stock
-#: model:ir.model.fields.selection,name:sale_stock.selection__sale_order__delivery_status__started
 #: model_terms:ir.ui.view,arch_db:sale_stock.portal_my_orders
 msgid "Started"
-msgstr "Spustené"
+msgstr ""
 
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_stock_move
 msgid "Stock Move"
-msgstr "Skladový pohyb"
+msgstr "Pohyb skladu"
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__move_ids
@@ -760,7 +654,7 @@ msgstr "Skladové pohyby"
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_stock_forecasted_product_product
 msgid "Stock Replenishment Report"
-msgstr "Prehľad doplnenia zásob"
+msgstr ""
 
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_stock_rule
@@ -770,18 +664,23 @@ msgstr "Skladové pravidlo"
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_stock_rules_report
 msgid "Stock Rules report"
-msgstr "Prehľad skladových pravidiel"
+msgstr "Report skladových pravidiel"
+
+#. module: sale_stock
+#: model:ir.model,name:sale_stock.model_stock_account_stock_valuation_report
+msgid "Stock Valuation"
+msgstr ""
 
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_report_stock_report_stock_rule
 msgid "Stock rule report"
-msgstr "Prehľad skladového pravidla"
+msgstr "Report skladového pravidla"
 
 #. module: sale_stock
 #. odoo-javascript
 #: code:addons/sale_stock/static/src/xml/delay_alert.xml:0
 msgid "The delivery"
-msgstr "Dodávka"
+msgstr ""
 
 #. module: sale_stock
 #. odoo-python
@@ -793,11 +692,6 @@ msgid ""
 "                        You should probably update the partner on this "
 "document."
 msgstr ""
-"V predajnej objednávke bola zmenená dodacia adresa<br/>\n"
-"                        z <strong>„%(old_address)s“</strong> na <strong>„%"
-"(new_address)s“</strong>,\n"
-"                        v tomto dokumente by ste mali pravdepodobne "
-"aktualizovať údaje o partnerovi."
 
 #. module: sale_stock
 #. odoo-javascript
@@ -806,8 +700,6 @@ msgid ""
 "The ordered quantity cannot be decreased below the amount already delivered. "
 "Instead, create a return in your inventory."
 msgstr ""
-"Objednané množstvo nie je možné znížiť pod úroveň už dodaného množstva. "
-"Namiesto toho vytvorte v sklade vrátenie tovaru."
 
 #. module: sale_stock
 #. odoo-python
@@ -816,8 +708,6 @@ msgid ""
 "The ordered quantity of a sale order line cannot be decreased below the "
 "amount already delivered. Instead, create a return in your inventory."
 msgstr ""
-"Objednané množstvo v riadku predajnej objednávky nemožno znížiť pod úroveň "
-"už dodaného množstva. Namiesto toho vytvorte v sklade vrátenie tovaru."
 
 #. module: sale_stock
 #. odoo-javascript
@@ -826,24 +716,19 @@ msgid "This product is replenished on demand."
 msgstr "Tento produkt je doplňovaný na požiadanie."
 
 #. module: sale_stock
-#: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__is_storable
-msgid "Track Inventory"
-msgstr "Sledovať zásoby"
-
-#. module: sale_stock
 #: model:ir.model,name:sale_stock.model_stock_picking
 msgid "Transfer"
-msgstr "Presun"
+msgstr "Prevod"
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order__picking_ids
 msgid "Transfers"
-msgstr "Presuny"
+msgstr "Prevody"
 
 #. module: sale_stock
 #: model:ir.model.fields,help:sale_stock.field_sale_order__late_availability
 msgid "True if any related picking has late availability"
-msgstr "Platí, ak má akýkoľvek súvisiaci presun oneskorenú dostupnosť"
+msgstr ""
 
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_res_users
@@ -854,12 +739,7 @@ msgstr "Užívateľ"
 #. odoo-javascript
 #: code:addons/sale_stock/static/src/widgets/qty_at_date_widget.xml:0
 msgid "View Forecast"
-msgstr "Zobraziť prognózu"
-
-#. module: sale_stock
-#: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__virtual_available_at_date
-msgid "Virtual Available At Date"
-msgstr "Virtuálna dostupnosť k dňu"
+msgstr ""
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order__warehouse_id
@@ -877,25 +757,20 @@ msgstr "Varovanie!"
 #. module: sale_stock
 #: model:ir.model.fields.selection,name:sale_stock.selection__sale_order__picking_policy__one
 msgid "When all products are ready"
-msgstr "Keď sú dostupné všetky produkty"
-
-#. module: sale_stock
-#: model_terms:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_stock
-msgid "When to start shipping"
-msgstr "Kedy začať s expedíciou"
+msgstr "Keď sú pripravené všetky produkty"
 
 #. module: sale_stock
 #. odoo-python
 #: code:addons/sale_stock/models/sale_order.py:0
 msgid ""
 "You must have a warehouse for line using a delivery in different company."
-msgstr "Pre riadky dodávky v rámci inej spoločnosti musíte mať nastavený sklad."
+msgstr ""
 
 #. module: sale_stock
 #. odoo-python
 #: code:addons/sale_stock/models/sale_order.py:0
 msgid "You must set a warehouse on your sale order to proceed."
-msgstr "Aby ste mohli pokračovať, musíte v predajnej objednávke nastaviť sklad."
+msgstr ""
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.exception_on_so
@@ -927,31 +802,4 @@ msgstr "spracované namiesto"
 #. odoo-javascript
 #: code:addons/sale_stock/static/src/xml/delay_alert.xml:0
 msgid "will be late."
-msgstr "bude oneskorená."
-
-#~ msgid "<strong>Customer Reference:</strong>"
-#~ msgstr "<strong>Referencia zákazníka:</strong>"
-
-#~ msgid "<strong>Delivery Orders</strong>"
-#~ msgstr "<strong>Dodacie objednávky</strong>"
-
-#~ msgid "<strong>Incoterm: </strong>"
-#~ msgstr "<strong>Incoterm: </strong>"
-
-#~ msgid "Display incoterms on Sales Order and related invoices"
-#~ msgstr "Zobrazenie Incoterms na objednávke predaja a súvisiace faktúry"
-
-#~ msgid "Incoterms"
-#~ msgstr "Incoterms"
-
-#~ msgid "Inventory"
-#~ msgstr "Sklad"
-
-#~ msgid "Procurement Group"
-#~ msgstr "Skupina obstarávania"
-
-#~ msgid "Route"
-#~ msgstr "Trasa"
-
-#~ msgid "Sale Order"
-#~ msgstr "Objednávka predaja"
+msgstr ""

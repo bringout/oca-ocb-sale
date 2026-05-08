@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:36+0000\n"
+"POT-Creation-Date: 2026-01-04 18:36+0000\n"
 "PO-Revision-Date: 2025-09-16 21:37+0000\n"
 "Last-Translator: \"Tiffany Chang (tic)\" <tic@odoo.com>\n"
 "Language-Team: Thai <https://translate.odoo.com/projects/odoo-19/event_sale/"
@@ -54,6 +54,11 @@ msgstr "<span>แก้ไขการลงทะเบียนสำหรั
 #: model_terms:ir.ui.view,arch_db:event_sale.event_configurator_view_form
 msgid "Add"
 msgstr "เพิ่ม"
+
+#. module: event_sale
+#: model:ir.model.fields,field_description:event_sale.field_event_event_configurator__additional_product_ids
+msgid "Additional Products"
+msgstr ""
 
 #. module: event_sale
 #: model_terms:ir.ui.view,arch_db:event_sale.event_configurator_view_form
@@ -561,6 +566,13 @@ msgid "Select an Event"
 msgstr "เลือกกิจกรรม"
 
 #. module: event_sale
+#: model:ir.model.fields,help:event_sale.field_event_event_configurator__additional_product_ids
+msgid ""
+"Select products to include with each registration. They will also show up "
+"separately on Sale Orders."
+msgstr ""
+
+#. module: event_sale
 #. odoo-python
 #: code:addons/event_sale/models/event_registration.py:0
 #: model:ir.model.fields,field_description:event_sale.field_event_event_configurator__event_slot_id
@@ -671,102 +683,3 @@ msgstr "กรุณาระบุรายละเอียดผู้เข
 #: model_terms:ir.ui.view,arch_db:event_sale.event_registration_change_exception
 msgid "to"
 msgstr "ถึง"
-
-#~ msgid ""
-#~ "A description of the ticket that you want to communicate to your "
-#~ "customers."
-#~ msgstr "คำอธิบายของทิกเก็ตที่คุณต้องการสื่อสารกับลูกค้าของคุณ"
-
-#~ msgid ""
-#~ "A storable product is a product for which you manage stock. The Inventory "
-#~ "app has to be installed.\n"
-#~ "A consumable product is a product for which stock is not managed.\n"
-#~ "A service is a non-material product you provide."
-#~ msgstr ""
-#~ "สินค้าที่จัดเก็บได้คือสินค้าที่ทคุณจัดการสต๊อก จำเป็นต้องติดตั้งแอปคลังสินค้า\n"
-#~ "สินค้าบริโภคคือสินค้าที่ไม่มีการจัดการสต๊อก\n"
-#~ "บริการคือสินค้าที่ไม่ใช่วัตถุที่คุณจัดหา"
-
-#~ msgid "Cancel"
-#~ msgstr "ยกเลิก"
-
-#~ msgid "Configure an event"
-#~ msgstr "กำหนดค่าอีเวนต์"
-
-#~ msgid "Currency"
-#~ msgstr "สกุลเงิน"
-
-#~ msgid "Description"
-#~ msgstr "คำอธิบาย"
-
-#~ msgid "Event Template Ticket"
-#~ msgstr "ทิกเก็ตเทมเพลตอีเวนต์"
-
-#~ msgid "Event Tickets"
-#~ msgstr "ทิกเก็ตอีเวนต์"
-
-#~ msgid "Group By"
-#~ msgstr "กลุ่มโดย"
-
-#~ msgid "Is Paid"
-#~ msgstr "จ่ายแล้ว"
-
-#~ msgid "Journal Entry"
-#~ msgstr "รายการบันทึกประจำวัน"
-
-#~ msgid "Locked"
-#~ msgstr "ล็อก"
-
-#~ msgid "Mobile"
-#~ msgstr "มือถือ"
-
-#~ msgid "Not Paid"
-#~ msgstr "ยังไม่ได้จ่าย"
-
-#~ msgid "Ok"
-#~ msgstr "โอเค"
-
-#~ msgid "Order Ref"
-#~ msgstr "อ้างอิงคำสั่ง"
-
-#~ msgid "Paid"
-#~ msgstr "ชำระแล้ว"
-
-#~ msgid "Price"
-#~ msgstr "ราคา"
-
-#~ msgid "Price Reduce"
-#~ msgstr "ลดราคา"
-
-#~ msgid "Price Reduce Tax inc"
-#~ msgstr "ราคาที่ลดรวมภาษี"
-
-#~ msgid "Product Type"
-#~ msgstr "ประเภทสินค้า"
-
-#~ msgid "Product Variant"
-#~ msgstr "ตัวแปรสินค้า"
-
-#~ msgid "Quotation Template Line"
-#~ msgstr "ไลน์เทมเพลตใบเสนอราคา"
-
-#~ msgid "Quotation Template Option"
-#~ msgstr "ตัวเลือกเทมเพลตใบเสนอราคา"
-
-#~ msgid "Sales (Tax Excluded)"
-#~ msgstr "การขาย (ไม่รวมภาษี)"
-
-#~ msgid "Sales End"
-#~ msgstr "การขายสิ้นสุด"
-
-#~ msgid "Sales Start"
-#~ msgstr "การขายเริ่มต้น"
-
-#~ msgid "Skip"
-#~ msgstr "ข้าม"
-
-#~ msgid "Ticket changed from"
-#~ msgstr "ทิกเก็ตถูกเปลี่ยนจาก"
-
-#~ msgid "Transaction"
-#~ msgstr "ธุรกรรม"

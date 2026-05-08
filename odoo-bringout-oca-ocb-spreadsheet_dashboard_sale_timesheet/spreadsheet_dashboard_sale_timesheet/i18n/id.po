@@ -3,14 +3,13 @@
 # * spreadsheet_dashboard_sale_timesheet
 #
 # "Dylan Kiss (dyki)" <dyki@odoo.com>, 2025.
-# "Nurul Aini Akrima Sabila (nuaas)" <nuaas@odoo.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:37+0000\n"
-"PO-Revision-Date: 2026-04-22 07:40+0000\n"
-"Last-Translator: \"Nurul Aini Akrima Sabila (nuaas)\" <nuaas@odoo.com>\n"
+"POT-Creation-Date: 2026-02-20 09:02+0000\n"
+"PO-Revision-Date: 2025-09-16 02:32+0000\n"
+"Last-Translator: \"Dylan Kiss (dyki)\" <dyki@odoo.com>\n"
 "Language-Team: Indonesian <https://translate.odoo.com/projects/odoo-19/"
 "spreadsheet_dashboard_sale_timesheet/id/>\n"
 "Language: id\n"
@@ -18,35 +17,46 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.17\n"
+"X-Generator: Weblate 5.12.2\n"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_sample_dashboard.json:0
 msgid "Billable Hours"
-msgstr "Jam Tertagih"
+msgstr "Jam yang Dapat Ditagih"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_sample_dashboard.json:0
 msgid "Billable Rate"
-msgstr "Tarif Tagihan"
+msgstr "Billable Rate"
+
+#. module: spreadsheet_dashboard_sale_timesheet
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+msgid "Billable Time"
+msgstr ""
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_sample_dashboard.json:0
 msgid "Billable hours"
-msgstr "Jam tertagih"
+msgstr "Jam Billable"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_sample_dashboard.json:0
 msgid "Billable rate"
-msgstr "Tarif tagihan"
+msgstr "Billable rate"
+
+#. module: spreadsheet_dashboard_sale_timesheet
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+msgid "Billed by Month"
+msgstr ""
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
@@ -65,6 +75,12 @@ msgstr "Ditagih manual"
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+msgid "Billed milestones"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale_timesheet
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_sample_dashboard.json:0
 msgid "Billed timesheets"
 msgstr "Timesheet yang ditagih"
@@ -72,9 +88,39 @@ msgstr "Timesheet yang ditagih"
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+msgid "Costs"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale_timesheet
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_sample_dashboard.json:0
 msgid "Current"
 msgstr "Terbaru"
+
+#. module: spreadsheet_dashboard_sale_timesheet
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+msgid "Current Days"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale_timesheet
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+msgid "Current Score"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale_timesheet
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+msgid "Days billed"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale_timesheet
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+msgid "Days spent"
+msgstr ""
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
@@ -99,12 +145,14 @@ msgstr "Grand total"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_sample_dashboard.json:0
 msgid "Hours billed"
 msgstr "Jam yang ditagih"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_sample_dashboard.json:0
 msgid "Hours spent"
 msgstr "Jam yang digunakan"
@@ -119,16 +167,33 @@ msgstr "KPI"
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+msgid "Non-Billable Projects Costs"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale_timesheet
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+msgid "Non-Billable Tasks Costs"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale_timesheet
+#. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_sample_dashboard.json:0
 msgid "Non-billable Hours"
-msgstr "Jam Tidak Tertagih"
+msgstr "Jam yang Non-Billable"
+
+#. module: spreadsheet_dashboard_sale_timesheet
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+msgid "Non-billable Time"
+msgstr ""
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_sample_dashboard.json:0
 msgid "Non-billable hours"
-msgstr "Jam tidak tertagih"
+msgstr "Jam yang Non-billable"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
@@ -142,6 +207,18 @@ msgstr "Periode"
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_sample_dashboard.json:0
 msgid "Previous"
 msgstr "Sebelum"
+
+#. module: spreadsheet_dashboard_sale_timesheet
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+msgid "Previous Days"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale_timesheet
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+msgid "Previous Score"
+msgstr ""
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
@@ -165,12 +242,19 @@ msgid "Time Billed by Week"
 msgstr "Waktu yang Ditagih berdasarkan Minggu"
 
 #. module: spreadsheet_dashboard_sale_timesheet
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+msgid "Time Encoding:"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale_timesheet
 #: model:spreadsheet.dashboard,name:spreadsheet_dashboard_sale_timesheet.spreadsheet_dashboard_timesheet
 msgid "Timesheets"
 msgstr "Tabel Waktu"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_sample_dashboard.json:0
 msgid "Top Departments"
 msgstr "Departemen Terbaik"
@@ -199,13 +283,24 @@ msgstr "Task-Task Terbaik"
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+msgid "Total Time"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale_timesheet
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
+msgid "expected"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale_timesheet
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_sample_dashboard.json:0
 msgid "last period"
 msgstr "periode terakhir"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_sample_dashboard.json:0
 msgid "since last period"
 msgstr "semenjak periode terakhir"

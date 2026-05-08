@@ -1,5 +1,6 @@
+import { useState } from "@web/owl2/utils";
 import { Dialog } from "@web/core/dialog/dialog";
-import { Component, useState } from "@odoo/owl";
+import { Component } from "@odoo/owl";
 import { usePos } from "@point_of_sale/app/hooks/pos_hook";
 import { NumericInput } from "@point_of_sale/app/components/inputs/numeric_input/numeric_input";
 import { _t } from "@web/core/l10n/translation";
@@ -30,10 +31,7 @@ export class MoneyDetailsPopup extends Component {
                 : Object.fromEntries(this.pos.models["pos.bill"].map((bill) => [bill.value, 0])),
         });
         this.env.dialogData.dismiss = () => {
-            if (
-                this.pos.config.iface_cashdrawer &&
-                this.pos.hardwareProxy.connectionInfo.status === "connected"
-            ) {
+            if (this.pos.canOpenCashdrawer) {
                 this.pos.logEmployeeMessage(this.props.action, "ACTION_CANCELLED");
             }
         };

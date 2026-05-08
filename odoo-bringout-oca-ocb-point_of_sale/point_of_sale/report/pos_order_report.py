@@ -8,7 +8,7 @@ class ReportPosOrder(models.Model):
     _name = 'report.pos.order'
     _description = "Point of Sale Orders Report"
     _auto = False
-    _order = 'date desc'
+    _order = 'date desc, id desc'
     _rec_name = 'order_id'
 
     date = fields.Datetime(string='Order Date', readonly=True)
@@ -38,6 +38,7 @@ class ReportPosOrder(models.Model):
     session_id = fields.Many2one('pos.session', string='Session', readonly=True)
     margin = fields.Float(string='Margin', readonly=True)
     payment_method_id = fields.Many2one('pos.payment.method', string='Payment Method', readonly=True)
+    preset_id = fields.Many2one('pos.preset', string='Preset', readonly=True)
 
     def _select(self):
         return """
@@ -88,6 +89,7 @@ class ReportPosOrder(models.Model):
                 ps.config_id,
                 s.pricelist_id,
                 s.session_id,
+                s.preset_id,
                 s.account_move IS NOT NULL AS invoiced,
                 ((SIGN(l.qty) * SIGN(l.price_unit) * ABS(l.price_subtotal)) - COALESCE(l.total_cost,0)) / COALESCE(NULLIF(s.currency_rate, 0), 1.0) AS margin,
                 pm.payment_method_id AS payment_method_id,

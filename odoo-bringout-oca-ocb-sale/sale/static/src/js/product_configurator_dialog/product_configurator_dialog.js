@@ -1,4 +1,5 @@
-import { Component, onMounted, onWillStart, onWillUnmount, useState, useSubEnv } from "@odoo/owl";
+import { useState, useSubEnv } from "@web/owl2/utils";
+import { Component, onMounted, onWillStart, onWillUnmount } from "@odoo/owl";
 import { Dialog } from '@web/core/dialog/dialog';
 import { _t } from "@web/core/l10n/translation";
 import { rpc } from "@web/core/network/rpc";
@@ -180,8 +181,6 @@ export class ProductConfiguratorDialog extends Component {
     async _getOptionalProducts(product) {
         return rpc(this.getOptionalProductsUrl, {
             product_template_id: product.product_tmpl_id,
-            ptav_ids: this._getCombination(product),
-            parent_ptav_ids: this._getParentsCombination(product),
             currency_id: this.currency.id,
             so_date: this.props.soDate,
             company_id: this.props.companyId,
@@ -319,6 +318,11 @@ export class ProductConfiguratorDialog extends Component {
         if (this._isPossibleCombination(product)) {
             const updatedValues = await this._updateCombination(product, product.quantity, product.uom.id);
             Object.assign(product, updatedValues);
+            if (product.available_uoms?.length) {
+                if (!product.available_uoms.find(uom => uom.id === product.uom.id)) {
+                    product.uom = product.available_uoms[0];
+                }
+            }
             // When a combination should exist but was deleted from the database, it should not be
             // selectable and considered as an exclusion.
             if (!product.id && product.attribute_lines.every(ptal => ptal.create_variant === "always")) {
@@ -351,9 +355,7 @@ export class ProductConfiguratorDialog extends Component {
     _checkExclusions(product) {
         const combination = this._getCombination(product);
         const exclusions = product.exclusions;
-        const parentExclusions = product.parent_exclusions;
         const archivedCombinations = product.archived_combinations;
-        const parentCombination = this._getParentsCombination(product);
         const childProducts = this._getChildProducts(product.product_tmpl_id)
         const ptavList = product.attribute_lines.flat().flatMap(ptal => ptal.attribute_values)
         ptavList.map(ptav => ptav.excluded = false); // Reset all the values
@@ -362,16 +364,6 @@ export class ProductConfiguratorDialog extends Component {
             for(const ptavId of combination) {
                 for(const excludedPtavId of exclusions[ptavId]) {
                     ptavList.find(ptav => ptav.id === excludedPtavId).excluded = true;
-                }
-            }
-        }
-        if (parentCombination) {
-            for(const ptavId of parentCombination) {
-                for(const excludedPtavId of (parentExclusions[ptavId]||[])) {
-                    const ptav = ptavList.find(ptav => ptav.id === excludedPtavId);
-                    if (ptav) {
-                        ptav.excluded = true; // Assign only if the element exists
-                    }
                 }
             }
         }

@@ -1,42 +1,55 @@
+import { useRef, useState } from "@web/owl2/utils";
 import { _t } from "@web/core/l10n/translation";
 import { useService } from "@web/core/utils/hooks";
 import { parseFloat } from "@web/views/fields/parsers";
-import { Component, useState } from "@odoo/owl";
+import { Component, onWillStart } from "@odoo/owl";
 import { usePos } from "@point_of_sale/app/hooks/pos_hook";
-
-import { CashMoveReceipt } from "@point_of_sale/app/components/popups/cash_move_popup/cash_move_receipt/cash_move_receipt";
 import { CashMoveListPopup } from "@point_of_sale/app/components/popups/cash_move_popup/cash_move_list_popup/cash_move_list_popup";
 import { Dialog } from "@web/core/dialog/dialog";
 import { useAsyncLockedMethod } from "@point_of_sale/app/hooks/hooks";
-import { Input } from "@point_of_sale/app/components/inputs/input/input";
 import { makeAwaitable } from "@point_of_sale/app/utils/make_awaitable_dialog";
 import { NumberPopup } from "@point_of_sale/app/components/popups/number_popup/number_popup";
+import { CashInput } from "@point_of_sale/app/components/inputs/input/cash_input/cash_input";
+import { logPosMessage } from "@point_of_sale/app/utils/pretty_console_log";
 
 const { DateTime } = luxon;
 
 export class CashMovePopup extends Component {
     static template = "point_of_sale.CashMovePopup";
-    static components = { Input, Dialog };
+    static components = { Dialog, CashInput };
     static props = ["confirmKey?", "close", "getPayload?"];
     setup() {
         super.setup();
         this.notification = useService("notification");
         this.pos = usePos();
         this.dialog = useService("dialog");
-        this.hardwareProxy = useService("hardware_proxy");
-        this.printer = useService("printer");
         this.state = useState({
             /** @type {'in'|'out'} */
             type: "out",
             amount: "",
             reason: "",
+            cashMoves: [],
         });
         this.confirm = useAsyncLockedMethod(this.confirm);
         this.ui = useService("ui");
+        this.inputRef = useRef("inputRef");
+        onWillStart(() => {
+            this.loadCashMoves();
+        });
     }
 
     get partnerId() {
         return this.pos.user.partner_id.id;
+    }
+
+    async loadCashMoves() {
+        try {
+            this.state.cashMoves = await this.pos.data.call("pos.session", "get_cash_in_out_list", [
+                this.pos.session.id,
+            ]);
+        } catch (e) {
+            logPosMessage(e);
+        }
     }
 
     async confirm() {
@@ -73,12 +86,11 @@ export class CashMovePopup extends Component {
             sequence_number: 0,
             pos_reference: "",
         });
-        await this.printer.print(CashMoveReceipt, {
+        await this.pos.ticketPrinter.printCashMoveReceipt({
             reason,
             translatedType,
             order: order,
             formattedAmount,
-            date: new Date().toLocaleString(),
         });
         this.pos.models["pos.order"].delete(order);
 
@@ -104,15 +116,15 @@ export class CashMovePopup extends Component {
         return this.env.utils.isValidFloat(this.state.amount) && this.state.reason.trim() !== "";
     }
     async openDetails() {
-        const cashMoves = await this.pos.data.call("pos.session", "get_cash_in_out_list", [
-            this.pos.session.id,
-        ]);
         this.dialog.add(CashMoveListPopup, {
-            cashMoves: cashMoves.map((m) => ({
+            cashMoves: this.state.cashMoves.map((m) => ({
                 ...m,
                 date: DateTime.fromSQL(m.date, { zone: "UTC" }).setZone("local"),
             })),
             partnerId: this.partnerId,
+            onDelete: (id) => {
+                this.state.cashMoves = this.state.cashMoves.filter((cm) => cm.id !== id);
+            },
         });
     }
     async openNumpadDialog() {
@@ -128,5 +140,8 @@ export class CashMovePopup extends Component {
         if (result) {
             this.state.amount = result;
         }
+    }
+    handleAmountBlur() {
+        this.state.amount = this.env.utils.parseAndFormatCurrency(this.state.amount);
     }
 }

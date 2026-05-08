@@ -29,9 +29,6 @@
                                 </div>
                             </div>
                         </setting>
-                        <setting id="email_template" title="Sending an email is useful if you need to share specific information or content about a product (instructions, rules, links, media, etc.). Create and set the email template from the product detail form (in Accounting tab)." string="Deliver Content by Email" help="Send a product-specific email once the invoice is validated">
-                            <field name="module_product_email_template"/>
-                        </setting>
                     </block>
                     <block title="Pricing" id="pricing_setting_container">
                       <setting id="discount_sale_order_lines" title="Apply manual discounts on sales order lines or display discounts computed from pricelists (option to activate in the pricelist configuration)." help="Grant discounts on sales order lines">
@@ -79,7 +76,7 @@
                                         name="action_sale_start_payment_onboarding"
                                         class="btn-primary"
                                     >
-                                        Activate
+                                        Connect
                                         <field
                                             name="onboarding_payment_module"
                                             nolabel="1"
@@ -93,7 +90,7 @@
                                     class="oe_inline"
                                 >
                                     <button
-                                        string="Activate Stripe" class="btn btn-primary" disabled=""
+                                        string="Connect Stripe" class="btn btn-primary" disabled=""
                                     />
                                 </div>
                                 <button
@@ -150,72 +147,29 @@
                             <field name="module_sale_pdf_quote_builder"/>
                             <div class="mt8" name="sale_pdf_module_settings" invisible="not module_sale_pdf_quote_builder"/>
                         </setting>
+                        <setting
+                            id="display_product_images_on_so"
+                            string="Display Product Images"
+                            help="Show product images on your PDF and online quotes."
+                            company_dependent="1"
+                        >
+                            <field name="display_product_images_on_so"/>
+                        </setting>
                         <setting id="no_edit_order" help="No longer edit orders once confirmed">
                             <field name="group_auto_done_setting"/>
                         </setting>
-                        <setting id="proforma_configuration" help="Allows you to send Pro-Forma Invoice to your customers">
+                        <setting id="proforma_configuration" help="Allows you to send Pro Forma Invoice to your customers">
                             <field name="group_proforma_sales"/>
                         </setting>
                     </block>
                     <block title="Shipping" name="sale_shipping_setting_container">
-                        <setting id="delivery" help="Compute shipping costs on orders">
+                        <setting
+                            string="Configure Delivery Methods"
+                            id="delivery"
+                            help="Configure delivery methods or work with delivery providers using existing integrations."
+                            documentation="/applications/inventory_and_mrp/inventory/shipping_receiving/setup_configuration.html"
+                        >
                             <field name="module_delivery"/>
-                        </setting>
-                        <setting id="ups">
-                            <div class="o_form_label">UPS Connector</div>
-                                <a href="https://www.odoo.com/documentation/latest/applications/inventory_and_mrp/inventory/shipping/setup/third_party_shipper.html" title="Documentation" class="o_doc_link" target="_blank"></a>
-                                <div class="text-muted">
-                                    Compute shipping costs and ship with UPS<br/>
-                                    <strong>(please go to Home>Apps to install)</strong>
-                                </div>
-                        </setting>
-                        <setting id="shipping_costs_dhl">
-                            <div class="o_form_label">DHL Connector</div>
-                                <a href="https://www.odoo.com/documentation/latest/applications/inventory_and_mrp/inventory/shipping/setup/third_party_shipper.html" title="Documentation" class="o_doc_link" target="_blank"></a>
-                                <div class="text-muted">
-                                    Compute shipping costs and ship with DHL<br/>
-                                    <strong>(please go to Home>Apps to install)</strong>
-                                </div>
-                        </setting>
-                        <setting id="shipping_costs_fedex">
-                            <div class="o_form_label">FedEx Connector</div>
-                                <a href="https://www.odoo.com/documentation/latest/applications/inventory_and_mrp/inventory/shipping/setup/third_party_shipper.html" title="Documentation" class="o_doc_link" target="_blank"></a>
-                                <div class="text-muted">
-                                    Compute shipping costs and ship with FedEx<br/>
-                                    <strong>(please go to Home>Apps to install)</strong>
-                                </div>
-                        </setting>
-                        <setting id="shipping_costs_usps">
-                            <div class="o_form_label">USPS Connector</div>
-                                <a href="https://www.odoo.com/documentation/latest/applications/inventory_and_mrp/inventory/shipping/setup/third_party_shipper.html" title="Documentation" class="o_doc_link" target="_blank"></a>
-                                <div class="text-muted">
-                                    Compute shipping costs and ship with USPS<br/>
-                                    <strong>(please go to Home>Apps to install)</strong>
-                                </div>
-                        </setting>
-                        <setting id="shipping_costs_bpost" help="Compute shipping costs and ship with bpost"
-                                 documentation="/applications/inventory_and_mrp/inventory/shipping/setup/third_party_shipper.html">
-                            <field name="module_delivery_bpost" widget="upgrade_boolean"/>
-                        </setting>
-                        <setting id="shipping_costs_easypost" help="Compute shipping costs and ship with Easypost"
-                                 documentation="/applications/inventory_and_mrp/inventory/shipping/setup/third_party_shipper.html">
-                            <field name="module_delivery_easypost" widget="upgrade_boolean"/>
-                        </setting>
-                        <setting id="shipping_costs_sendcloud" help="Compute shipping costs and ship with Sendcloud"
-                                 documentation="/applications/inventory_and_mrp/inventory/shipping/setup/third_party_shipper.html">
-                            <field name="module_delivery_sendcloud" widget="upgrade_boolean"/>
-                        </setting>
-                        <setting id="shipping_costs_shiprocket" help="Compute shipping costs and ship with Shiprocket"
-                                 documentation="/applications/inventory_and_mrp/inventory/shipping/setup/third_party_shipper.html">
-                            <field name="module_delivery_shiprocket" widget="upgrade_boolean"/>
-                        </setting>
-                        <setting id="shipping_costs_starshipit" help="Compute shipping costs and ship with Starshipit"
-                                 documentation="/applications/inventory_and_mrp/inventory/shipping/setup/third_party_shipper.html">
-                            <field name="module_delivery_starshipit" widget="upgrade_boolean"/>
-                        </setting>
-                        <setting id="shipping_costs_envia" help="Compute shipping costs and ship with Envia.com"
-                                 documentation="/applications/inventory_and_mrp/inventory/shipping/setup/third_party_shipper.html">
-                            <field name="module_delivery_envia" widget="upgrade_boolean"/>
                         </setting>
                     </block>
                     <block title="Invoicing" name="invoicing_setting_container">
@@ -231,6 +185,12 @@
                         </setting>
                         <setting id="setting_commission" help="Manage Sales &amp; teams targets and commissions">
                             <field name="module_sale_commission" widget="upgrade_boolean"/>
+                        </setting>
+                        <setting
+                            id="setting_services_and_materials"
+                            help="Use fixed-price and cost-based services and materials for re-invoicing"
+                        >
+                            <field name="group_services_and_material"/>
                         </setting>
                     </block>
                     <block title="Connectors" id="connectors_setting_container">
@@ -267,7 +227,7 @@
             <xpath expr="//setting[@id='product_accounts']" position="inside">
                 <div class="row mt8">
                     <label for="downpayment_account_id" class="col-lg-5 o_light_label"/>
-                    <field name="downpayment_account_id"/>
+                    <field name="downpayment_account_id" placeholder="Client's most used account" decoration-muted="not downpayment_account_active"/>
                 </div>
             </xpath>
         </field>

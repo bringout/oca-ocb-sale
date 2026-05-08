@@ -1,4 +1,5 @@
-import { Component, onMounted, useRef, useState } from "@odoo/owl";
+import { useRef, useState } from "@web/owl2/utils";
+import { Component, onMounted } from "@odoo/owl";
 import { Dialog } from "@web/core/dialog/dialog";
 
 export class TextInputPopup extends Component {
@@ -55,7 +56,6 @@ export class TextInputPopup extends Component {
     onKeydown(ev) {
         if (this.props.rows === 1 && ev.key.toUpperCase() === "ENTER") {
             ev.preventDefault();
-            ev.stopPropagation();
             if (this.state.inputValue.trim()) {
                 this.confirm();
             }

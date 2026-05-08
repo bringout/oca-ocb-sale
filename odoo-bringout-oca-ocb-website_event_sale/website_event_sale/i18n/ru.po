@@ -4,14 +4,13 @@
 #
 # Translators:
 # "Dylan Kiss (dyki)" <dyki@odoo.com>, 2025.
-# "Anastasiia Koroleva (koan)" <koan@odoo.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:37+0000\n"
-"PO-Revision-Date: 2026-04-24 18:42+0000\n"
-"Last-Translator: \"Anastasiia Koroleva (koan)\" <koan@odoo.com>\n"
+"POT-Creation-Date: 2026-01-09 18:39+0000\n"
+"PO-Revision-Date: 2025-10-22 11:28+0000\n"
+"Last-Translator: \"Dylan Kiss (dyki)\" <dyki@odoo.com>\n"
 "Language-Team: Russian <https://translate.odoo.com/projects/odoo-19/"
 "website_event_sale/ru/>\n"
 "Language: ru\n"
@@ -21,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
-"X-Generator: Weblate 5.17\n"
+"X-Generator: Weblate 5.12.2\n"
 
 #. module: website_event_sale
 #: model_terms:ir.ui.view,arch_db:website_event_sale.event_confirmation
@@ -58,16 +57,6 @@ msgstr ""
 "применен к этому продукту \"Билеты на мероприятие\"."
 
 #. module: website_event_sale
-#. odoo-python
-#: code:addons/website_event_sale/models/product_pricelist.py:0
-msgid ""
-"A pricelist item with a positive min. quantity will not be applied to the "
-"event tickets products."
-msgstr ""
-"Элемент прейскуранта с положительным значением мин. количества не будет "
-"применяться к продуктам \"Билеты на мероприятие\"."
-
-#. module: website_event_sale
 #: model_terms:ir.ui.view,arch_db:website_event_sale.registration_attendee_details
 msgid "Confirm Registration"
 msgstr "Подтверждение Регистрации"
@@ -80,7 +69,7 @@ msgstr "Подтверждение Регистрации"
 #: model:ir.model.fields,field_description:website_event_sale.field_sale_order__display_name
 #: model:ir.model.fields,field_description:website_event_sale.field_sale_order_line__display_name
 msgid "Display Name"
-msgstr "Отображаемое название"
+msgstr ""
 
 #. module: website_event_sale
 #: model:ir.model,name:website_event_sale.model_event_sale_report
@@ -208,42 +197,3 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:website_event_sale.modal_ticket_registration
 msgid "to"
 msgstr "в"
-
-#~ msgid ""
-#~ "<i class=\"fa fa-ban me-2\"/>\n"
-#~ "                                            Unpublished"
-#~ msgstr ""
-#~ "<i class=\"fa fa-ban me-2\"/>\n"
-#~ "                                            Неопубликованный"
-
-#~ msgid ""
-#~ "<i class=\"fa fa-check me-2\"/>\n"
-#~ "                                            Registered"
-#~ msgstr ""
-#~ "<i class=\"fa fa-check me-2\"/>\n"
-#~ "                                            Зарегистрированный"
-
-#~ msgid "Download Tickets <i class=\"ms-1 fa fa-download\"/>"
-#~ msgstr "Скачать билеты <i class=\"ms-1 fa fa-download\"/>"
-
-#~ msgid "Go to Event"
-#~ msgstr "Перейти к событию"
-
-#~ msgid ""
-#~ "Sorry, only %(remaining_seats)d seats are still available for the %"
-#~ "(ticket)s ticket for the %(event)s event."
-#~ msgstr ""
-#~ "К сожалению, на %(ticket)s билет на %(event)s мероприятие осталось только "
-#~ "%(remaining_seats)d мест."
-
-#~ msgid "We are looking forward to meeting you at the following"
-#~ msgstr "Мы с нетерпением ждем встречи с вами на следующих мероприятиях"
-
-#~ msgid "Website"
-#~ msgstr "Сайт"
-
-#~ msgid "event"
-#~ msgstr "событие"
-
-#~ msgid "events"
-#~ msgstr "события"

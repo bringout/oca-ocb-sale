@@ -34,10 +34,7 @@
                     name="template_id"
                     string="Project Template"
                     placeholder="New project"
-                    domain="[
-                        ('is_template', '=', True),
-                        '|', ('company_id', '=?', context.get('sale_company_id')), ('company_id', '=', False),
-                    ]"
+                    domain="[('is_template', '=', True)]"
                     context="{'default_is_template': True}"
                 />
             </field>

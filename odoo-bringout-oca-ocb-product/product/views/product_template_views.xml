@@ -19,6 +19,9 @@
                     groups="base.group_multi_company" optional="hide"/>
                 <field name="list_price" string="Sales Price" widget='monetary' options="{'currency_field': 'currency_id'}" optional="show" decoration-muted="not sale_ok"/>
                 <field name="standard_price" widget='monetary' options="{'currency_field': 'cost_currency_id'}" optional="show" readonly="1"/>
+                <field name="qty_available" string="On Hand" decoration-danger="qty_available &lt; 0" optional="show" sum="Total On Hand" readonly="1"/>
+                <field name="free_qty" invisible="not is_storable" readonly="1" optional="show" sum="Total Free To Use"/>
+                <field name="virtual_available" string="Forecasted" decoration-danger="virtual_available &lt; 0" optional="show" decoration-bf="1" sum="Total Forecasted" readonly="1"/>
                 <field name="categ_id" optional="hide"/>
                 <field name="type" optional="hide" readonly="1"/>
                 <field name="uom_id" readonly="1" optional="show" groups="uom.group_uom"/>
@@ -62,6 +65,18 @@
             <xpath expr="//form" position="attributes">
                 <attribute name="name">Product Template</attribute>
             </xpath>
+            <div name="list_price_per_uom_id" position="after">
+                <label for="base_unit_count" groups="product.group_show_uom_price"/>
+                <div name="base_unit_price" groups="product.group_show_uom_price" class="d-flex flex-row">
+                    <field name="base_unit_count" invisible="product_variant_count &gt; 1" style="width: 4rem;"/>
+                    <field name="base_unit_id" options="{'no_open': True}" invisible="product_variant_count &gt; 1" placeholder="Specify unit" style="width: 10rem;"/>
+                    <div class="d-flex flex-row" invisible="base_unit_price == 0 or product_variant_count &gt; 1">
+                        (<field name="base_unit_price" class="oe_inline"/> / <field name="base_unit_name" class="oe_inline"/>)
+                    </div>
+                    <span class="text-muted" invisible="product_variant_count &lt;= 1">Based on variants</span>
+                </div>
+            </div>
+
             <field name="categ_id" position="after">
                 <field name="default_code" string="Reference" invisible="product_variant_count &gt; 1"/>
                 <field name="valid_product_template_attribute_line_ids" invisible="1"/>
@@ -92,18 +107,26 @@
                         <list string="Variants" editable="bottom" decoration-info="value_count &lt;= 1">
                             <field name="value_count" column_invisible="True"/>
                             <field name="sequence" widget="handle"/>
-                            <field name="attribute_id" readonly="id"/>
-                            <field name="value_ids" widget="many2many_tags" options="{'no_create_edit': True, 'color_field': 'color'}" context="{'default_attribute_id': attribute_id, 'show_attribute': False}"/>
+                            <field name="attribute_id" placeholder="Attribute name (e.g. Color, Size, ... )" readonly="id"/>
+                            <field
+                                    name="value_ids"
+                                    placeholder="List of possible values (e.g. Blue, Green, White, ... )"
+                                    widget="many2many_tags_color_dot"
+                                    options="{
+                                        'can_open': True,
+                                        'color_field': 'html_color',
+                                    }"
+                                    context="{
+                                        'default_attribute_id': attribute_id,
+                                        'show_attribute': False,
+                                        'form_view_ref': 'product.product_attribute_value_form',
+                                    }"
+                            />
                             <button string="Configure" class="float-end btn-secondary"
                                 type="object" name="action_open_attribute_values"
                                 groups="product.group_product_variant"/>
                         </list>
                     </field>
-                        <p class="opacity-50 oe_edit_only">
-                        <strong>Warning</strong>: adding or deleting attributes
-                        will delete and recreate existing variants and lead
-                        to the loss of their possible customizations.
-                    </p>
                 </page>
             </xpath>
             <xpath expr="//group[@name='group_standard_price']" position="after">
@@ -120,6 +143,7 @@
                 <field name="currency_id"/>
                 <field name="activity_state"/>
                 <field name="categ_id"/>
+                <field name="is_storable" invisible="1"/>
                 <progressbar field="activity_state" colors='{"planned": "success", "today": "warning", "overdue": "danger"}'/>
                 <templates>
                     <t t-name="card" class="flex-row">
@@ -140,6 +164,9 @@
                                 Price: <field name="list_price" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}"/>
                             </span>
                             <field name="product_properties" widget="properties"/>
+                            <span name="on_hand_qty_kanban" t-if="record.is_storable.raw_value">
+                                On hand: <field name="qty_available"/> <field name="uom_id" groups="uom.group_uom"/>
+                            </span>
                         </main>
                         <aside>
                             <field

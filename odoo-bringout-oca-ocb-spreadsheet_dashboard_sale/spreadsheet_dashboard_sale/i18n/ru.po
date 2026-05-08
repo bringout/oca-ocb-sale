@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:37+0000\n"
+"POT-Creation-Date: 2025-10-08 18:39+0000\n"
 "PO-Revision-Date: 2025-09-16 02:35+0000\n"
 "Last-Translator: \"Dylan Kiss (dyki)\" <dyki@odoo.com>\n"
 "Language-Team: Russian <https://translate.odoo.com/projects/odoo-19/"
@@ -466,45 +466,3 @@ msgstr "с прошлого периода"
 #: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
 msgid "sold"
 msgstr "продано"
-
-#~ msgid "Order"
-#~ msgstr "Заказ"
-
-#~ msgid "Quotation"
-#~ msgstr "Цитирование"
-
-#~ msgid "Quotations by Untaxed Amount"
-#~ msgstr "Котировки по необлагаемой сумме"
-
-#~ msgid "Sales Analysis by Customer"
-#~ msgstr "Анализ продаж по клиентам"
-
-#~ msgid "Sales Analysis by Customer Country"
-#~ msgstr "Анализ продаж по странам-потребителям"
-
-#~ msgid "Sales Analysis by Medium"
-#~ msgstr "Анализ продаж по средам"
-
-#~ msgid "Sales Analysis by Product Category"
-#~ msgstr "Анализ продаж по категориям продуктов"
-
-#~ msgid "Sales Analysis by Product Variant"
-#~ msgstr "Анализ продаж по видам продукции"
-
-#~ msgid "Sales Analysis by Sales Team"
-#~ msgstr "Анализ продаж по отделам продаж"
-
-#~ msgid "Sales Analysis by Salesperson"
-#~ msgstr "Анализ продаж по сотрудникам отдела продаж"
-
-#~ msgid "Sales Analysis by Source"
-#~ msgstr "Анализ продаж по источникам"
-
-#~ msgid "Sales Orders by Untaxed Amount"
-#~ msgstr "Заказы на продажу по необлагаемым суммам"
-
-#~ msgid "so stats - current"
-#~ msgstr "статистика - текущая"
-
-#~ msgid "so stats - previous"
-#~ msgstr "статистика - предыдущая"

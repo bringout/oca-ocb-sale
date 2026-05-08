@@ -20,6 +20,7 @@ class TestPricelist(ProductVariantsCommon):
         cls.datacard = cls.env['product.product'].create({'name': 'Office Lamp'})
         cls.usb_adapter = cls.env['product.product'].create({'name': 'Office Chair'})
 
+        cls.pricelist = cls._enable_pricelists()
         cls.sale_pricelist_id, cls.pricelist_eu = cls.env['product.pricelist'].create([{
             'name': 'Sale pricelist',
             'item_ids': [
@@ -185,8 +186,9 @@ class TestPricelist(ProductVariantsCommon):
         self.assertEqual(self.partner.property_product_pricelist, pricelist_1)
 
         self.partner.invalidate_recordset(['property_product_pricelist'])
-        ICP = self.env['ir.config_parameter'].sudo()
-        ICP.set_param('res.partner.property_product_pricelist', pricelist_2.id)
+        self.env['ir.config_parameter'].sudo().set_int(
+            'res.partner.property_product_pricelist', pricelist_2.id,
+        )
         with patch.object(
             self.pricelist.__class__,
             '_get_partner_pricelist_multi_search_domain_hook',
@@ -294,7 +296,7 @@ class TestPricelist(ProductVariantsCommon):
         } for company in self.env.company + company_2])
         parent = self.partner.create({
             'name': f"{self.partner.name}'s Company",
-            'is_company': True,
+            'vat': 'BE0477472701',
             'specific_property_product_pricelist': company_1_b2b_pl.id,
         })
         parent.with_company(company_2).specific_property_product_pricelist = company_2_b2b_pl
@@ -432,6 +434,83 @@ class TestPricelist(ProductVariantsCommon):
         self.assertTrue(self.product_sofa_blue.pricelist_rule_ids)
         self.assertEqual(len(self.product_template_sofa.pricelist_rule_ids), 2)
 
+    def test_copy_product_variant_pricings(self):
+        """Check that pricelists rules targeting a product are copied on template copy."""
+        self.env['product.pricelist.item'].create([
+            {
+                'product_tmpl_id': self.product_template_sofa.id,
+                'fixed_price': 22,
+            },
+            {
+                'product_id': self.product_sofa_blue.id,
+                'fixed_price': 33,
+            },
+            {
+                'product_id': self.product_sofa_red.id,
+                'fixed_price': 44,
+            },
+            {
+                'product_id': self.product_sofa_green.id,
+                'fixed_price': 55,
+            }
+        ])
+        self.assertEqual(
+            len(self.product_template_sofa.pricelist_rule_ids),
+            4,
+        )
+
+        with patch.object(
+            self.env.registry['product.template'],
+            '_duplicate_pricelist_rules_on_copy',
+            return_value=True,
+        ):
+            sofa_copy = self.product_template_sofa.copy()
+
+        product_sofa_red_copy = sofa_copy.product_variant_ids.filtered(
+            lambda pp:
+                pp.product_template_attribute_value_ids.product_attribute_value_id
+                ==
+                self.color_attribute_red
+        )
+        product_sofa_blue_copy = sofa_copy.product_variant_ids.filtered(
+            lambda pp:
+                pp.product_template_attribute_value_ids.product_attribute_value_id
+                ==
+                self.color_attribute_blue
+        )
+        product_sofa_green_copy = sofa_copy.product_variant_ids.filtered(
+            lambda pp:
+                pp.product_template_attribute_value_ids.product_attribute_value_id
+                ==
+                self.color_attribute_green
+        )
+
+        self.assertRecordValues(
+            sofa_copy.pricelist_rule_ids.sorted('id'),
+            [
+                {
+                    'product_tmpl_id': sofa_copy.id,
+                    'product_id': False,
+                    'fixed_price': 22,
+                },
+                {
+                    'product_tmpl_id': sofa_copy.id,
+                    'product_id': product_sofa_blue_copy.id,
+                    'fixed_price': 33,
+                },
+                {
+                    'product_tmpl_id': sofa_copy.id,
+                    'product_id': product_sofa_red_copy.id,
+                    'fixed_price': 44,
+                },
+                {
+                    'product_tmpl_id': sofa_copy.id,
+                    'product_id': product_sofa_green_copy.id,
+                    'fixed_price': 55,
+                }
+            ],
+        )
+
     def test_pricelist_applied_on_product_variant(self):
         # product template with variants
         sofa_1 = self.product_template_sofa.product_variant_ids[0]
@@ -464,3 +543,51 @@ class TestPricelist(ProductVariantsCommon):
         self.assertEqual(pricelist.item_ids.applied_on, "1_product")
         # check that product_id is cleared
         self.assertFalse(pricelist.item_ids.product_id)
+
+    def test_pricelist_packaging_rules(self):
+        self.product_template_sofa.uom_ids = [Command.link(self.uom_dozen.id)]
+        packaging_pricelist = self.env["product.pricelist"].create({
+            "name": "Packaging Pricelist",
+            "item_ids": [
+                Command.create({
+                    "applied_on": "1_product",
+                    "compute_price": "fixed",
+                    "fixed_price": 10.0,
+                    "product_tmpl_id": self.product_template_sofa.id,
+                    "min_quantity": 6,
+                })
+            ],
+        })
+        packaging_rule_1 = self.env["product.pricelist.item"].create({
+            "applied_on": "1_product",
+            "compute_price": "fixed",
+            "fixed_price": 10.0,
+            "product_tmpl_id": self.product_template_sofa.id,
+            "min_quantity": 6,
+            "pricelist_id": packaging_pricelist.id,
+            "uom_id": self.uom_unit.id,
+        })
+        packaging_rule_2 = self.env["product.pricelist.item"].create({
+            "applied_on": "1_product",
+            "compute_price": "fixed",
+            "fixed_price": 10.0,
+            "product_tmpl_id": self.product_template_sofa.id,
+            "min_quantity": 6,
+            "pricelist_id": packaging_pricelist.id,
+            "uom_id": self.uom_dozen.id,
+        })
+
+        self.assertEqual(
+            packaging_pricelist._get_product_rule(
+                self.product_template_sofa, 6.0, uom=self.uom_unit
+            ),
+            packaging_rule_1.id,
+            "Packaging rule with uom_unit should be applied",
+        )
+        self.assertEqual(
+            packaging_pricelist._get_product_rule(
+                self.product_template_sofa, 6.0, uom=self.uom_dozen
+            ),
+            packaging_rule_2.id,
+            "Packaging rule with uom_dozen should be applied",
+        )

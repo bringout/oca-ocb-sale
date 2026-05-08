@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-10 18:38+0000\n"
+"POT-Creation-Date: 2026-03-12 18:36+0000\n"
 "PO-Revision-Date: 2022-09-22 05:54+0000\n"
 "Last-Translator: Armīns Jeltajevs <armins.jeltajevs@gmail.com>, 2023\n"
 "Language-Team: Latvian (https://app.transifex.com/odoo/teams/41243/lv/)\n"
@@ -44,9 +44,9 @@ msgid "(tax incl.)"
 msgstr "(iekļaujot PVN)"
 
 #. module: pos_sale
-#: model_terms:ir.ui.view,arch_db:pos_sale.report_invoice_document
-msgid "<span style=\"margin: 0px 5px;\">:</span>"
-msgstr "<span style=\"margin: 0px 5px;\">:</span>"
+#: model_terms:ir.ui.view,arch_db:pos_sale.pos_orderline_receipt_information
+msgid "<strong>Sale Order: </strong>"
+msgstr ""
 
 #. module: pos_sale
 #. odoo-javascript
@@ -107,12 +107,19 @@ msgid "Delivery Quantity"
 msgstr ""
 
 #. module: pos_sale
+#. odoo-javascript
+#: code:addons/pos_sale/static/src/app/services/pos_store.js:0
+msgid "Discard"
+msgstr ""
+
+#. module: pos_sale
 #: model:ir.model.fields,field_description:pos_sale.field_account_move__display_name
 #: model:ir.model.fields,field_description:pos_sale.field_account_move_line__display_name
 #: model:ir.model.fields,field_description:pos_sale.field_crm_team__display_name
 #: model:ir.model.fields,field_description:pos_sale.field_pos_config__display_name
 #: model:ir.model.fields,field_description:pos_sale.field_pos_order__display_name
 #: model:ir.model.fields,field_description:pos_sale.field_pos_order_line__display_name
+#: model:ir.model.fields,field_description:pos_sale.field_pos_order_receipt__display_name
 #: model:ir.model.fields,field_description:pos_sale.field_pos_session__display_name
 #: model:ir.model.fields,field_description:pos_sale.field_product_template__display_name
 #: model:ir.model.fields,field_description:pos_sale.field_res_config_settings__display_name
@@ -168,17 +175,13 @@ msgid "Due balance: %s"
 msgstr ""
 
 #. module: pos_sale
-#: model_terms:ir.ui.view,arch_db:pos_sale.report_invoice_document
-msgid "From"
-msgstr "No"
-
-#. module: pos_sale
 #: model:ir.model.fields,field_description:pos_sale.field_account_move__id
 #: model:ir.model.fields,field_description:pos_sale.field_account_move_line__id
 #: model:ir.model.fields,field_description:pos_sale.field_crm_team__id
 #: model:ir.model.fields,field_description:pos_sale.field_pos_config__id
 #: model:ir.model.fields,field_description:pos_sale.field_pos_order__id
 #: model:ir.model.fields,field_description:pos_sale.field_pos_order_line__id
+#: model:ir.model.fields,field_description:pos_sale.field_pos_order_receipt__id
 #: model:ir.model.fields,field_description:pos_sale.field_pos_session__id
 #: model:ir.model.fields,field_description:pos_sale.field_product_template__id
 #: model:ir.model.fields,field_description:pos_sale.field_res_config_settings__id
@@ -201,6 +204,14 @@ msgstr "Rēķins izrakstīts"
 msgid ""
 "It seems that you didn't configure a down payment product in your point of "
 "sale. You can go to your point of sale configuration to choose one."
+msgstr ""
+
+#. module: pos_sale
+#. odoo-javascript
+#: code:addons/pos_sale/static/src/app/services/pos_store.js:0
+msgid ""
+"It seems that you didn't configure a down payment product in your point of "
+"sale. You can go to your point of sale settings to choose one."
 msgstr ""
 
 #. module: pos_sale
@@ -268,14 +279,19 @@ msgid "Point of Sale Configuration"
 msgstr "Pārdošanas punkta konfigurācija"
 
 #. module: pos_sale
-#: model:ir.model,name:pos_sale.model_pos_order_line
-msgid "Point of Sale Order Lines"
-msgstr "Pasūtījuma punkta pasūtījuma rindas"
+#: model:ir.model,name:pos_sale.model_pos_order
+msgid "Point of Sale Order"
+msgstr ""
 
 #. module: pos_sale
-#: model:ir.model,name:pos_sale.model_pos_order
-msgid "Point of Sale Orders"
-msgstr "Pārdošanas punkta pasūtījumi"
+#: model:ir.model,name:pos_sale.model_pos_order_line
+msgid "Point of Sale Order Line"
+msgstr ""
+
+#. module: pos_sale
+#: model:ir.model,name:pos_sale.model_pos_order_receipt
+msgid "Point of Sale Order Receipt Generator"
+msgstr ""
 
 #. module: pos_sale
 #: model:ir.model,name:pos_sale.model_pos_session
@@ -448,91 +464,3 @@ msgstr "Ko Jūs vēlaties darīt?"
 #: code:addons/pos_sale/models/sale_order.py:0
 msgid "id"
 msgstr ""
-
-#. module: pos_sale
-#. odoo-javascript
-#: code:addons/pos_sale/static/src/app/components/orderline/orderline.xml:0
-#: model_terms:ir.ui.view,arch_db:pos_sale.report_invoice_document
-msgid "x"
-msgstr ""
-
-#~ msgid "(left:"
-#~ msgstr "(atlika:"
-
-#~ msgid "Back"
-#~ msgstr "Atpakaļ"
-
-#~ msgid "Back to list"
-#~ msgstr "Atpakaļ uz sarakstu"
-
-#~ msgid "Cancelled"
-#~ msgstr "Atcelts"
-
-#~ msgid "Customer"
-#~ msgstr "Klients"
-
-#~ msgid "Customer loading error"
-#~ msgstr "Klienta ielādes kļūda"
-
-#~ msgid "Date"
-#~ msgstr "Datums"
-
-#~ msgid "E.g. customer: Steward, date: 2020-05-09"
-#~ msgstr "Piem. klients: Jānis, datums: 2020-05-09"
-
-#~ msgid "Locked"
-#~ msgstr "Aizslēgts"
-
-#~ msgid "New"
-#~ msgstr "Jauns"
-
-#~ msgid "Next Order List"
-#~ msgstr "Nākošais pasūtījumu saraksts"
-
-#~ msgid "No"
-#~ msgstr "Numurs"
-
-#~ msgid "Open POS Sessions"
-#~ msgstr "Atvērtās POS sesijas"
-
-#~ msgid "Previous Order List"
-#~ msgstr "Iepriekšējais pasūtījumu saraksts"
-
-#~ msgid "Products not available in POS"
-#~ msgstr "Prece nav pieejama POS"
-
-#~ msgid "Quotation"
-#~ msgstr "Piedāvājums"
-
-#~ msgid "Quotation Sent"
-#~ msgstr "Piedāvājums nosūtīts"
-
-#~ msgid "Salesman"
-#~ msgstr "Pārdevējs"
-
-#~ msgid "Salesperson"
-#~ msgstr "Pārdevējs"
-
-#~ msgid "Session Running"
-#~ msgstr "Sesija darbojas"
-
-#~ msgid "Sessions Running"
-#~ msgstr "Sesijas darbojas"
-
-#~ msgid "State"
-#~ msgstr "Stāvoklis"
-
-#~ msgid "The amount due from the sale order."
-#~ msgstr "Summa, kas jāmaksā no pārdošanas pasūtījuma."
-
-#~ msgid "There was a problem in loading the %s customer."
-#~ msgstr "Radās problēma ielādējot %s klientu."
-
-#~ msgid "Total"
-#~ msgstr "Summa"
-
-#~ msgid "Unpaid Amount"
-#~ msgstr "Neapmaksātā summa"
-
-#~ msgid "Yes"
-#~ msgstr "Jā"

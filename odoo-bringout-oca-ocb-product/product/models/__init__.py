@@ -11,6 +11,7 @@ from . import ir_attachment
 from . import product_attribute
 from . import product_attribute_custom_value
 from . import product_attribute_value
+from . import product_base_unit
 from . import product_catalog_mixin
 from . import product_category
 from . import product_combo
@@ -21,7 +22,6 @@ from . import product_pricelist_item
 from . import product_supplierinfo
 from . import product_tag
 from . import product_template_attribute_line
-from . import product_template_attribute_exclusion
 from . import product_template_attribute_value
 from . import product_uom
 from . import res_company

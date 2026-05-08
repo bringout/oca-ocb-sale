@@ -1,9 +1,9 @@
 import { registry } from "@web/core/registry";
 import { stepUtils } from "@web_tour/tour_utils";
-import tourUtils from "@sale/js/tours/tour_utils";
+import * as tourUtils from "@sale/js/tours/tour_utils";
 
 let EXPECTED = [
-    "Matrix", "PAV11", "PAV12 + $ 50.00",
+    "", "PAV11", "PAV12 + $ 50.00",
 ];
 for (let no of ['PAV41', 'PAV42']) {
     for (let dyn of ['PAV31', 'PAV32']) {
@@ -18,7 +18,6 @@ for (let no of ['PAV41', 'PAV42']) {
 }
 
 registry.category("web_tour.tours").add('sale_matrix_tour', {
-    url: '/odoo',
     steps: () => [
         ...stepUtils.goToAppSteps("sale.sale_menu_root", "Go to the Sales App"),
         ...tourUtils.createNewSalesOrder(),

@@ -1,3 +1,4 @@
+import { onWillRender, useLayoutEffect, useRef, useState } from "@web/owl2/utils";
 import { registry } from "@web/core/registry";
 import { useService } from "@web/core/utils/hooks";
 import { useTrackedAsync } from "@point_of_sale/app/hooks/hooks";
@@ -5,7 +6,8 @@ import { useLongPress } from "@point_of_sale/app/hooks/long_press_hook";
 import { useBarcodeReader } from "@point_of_sale/app/hooks/barcode_reader_hook";
 import { _t } from "@web/core/l10n/translation";
 import { usePos } from "@point_of_sale/app/hooks/pos_hook";
-import { Component, onMounted, useEffect, useState, onWillRender, onWillUnmount } from "@odoo/owl";
+import { user } from "@web/core/user";
+import { Component, onMounted, onWillUnmount } from "@odoo/owl";
 import { CategorySelector } from "@point_of_sale/app/components/category_selector/category_selector";
 import { Input } from "@point_of_sale/app/components/inputs/input/input";
 import {
@@ -28,6 +30,7 @@ import { AlertDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
 import { OptionalProductPopup } from "@point_of_sale/app/components/popups/optional_products_popup/optional_products_popup";
 import { useRouterParamsChecker } from "@point_of_sale/app/hooks/pos_router_hook";
 import { debounce } from "@web/core/utils/timing";
+import { useSortable } from "@web/core/utils/sortable_owl";
 
 const { DateTime } = luxon;
 
@@ -56,8 +59,6 @@ export class ProductScreen extends Component {
         this.notification = useService("notification");
         this.numberBuffer = useService("number_buffer");
         this.state = useState({
-            previousSearchWord: "",
-            currentOffset: 0,
             quantityByProductTmplId: {},
         });
 
@@ -90,6 +91,7 @@ export class ProductScreen extends Component {
                     await this.pos.syncAllOrders();
                 }
             }
+            this.pos.searchProductDBState = null;
         });
 
         this.barcodeReader = useService("barcode_reader");
@@ -113,7 +115,7 @@ export class ProductScreen extends Component {
         this.longPressHandlers = useLongPress((product) => this.pos.onProductInfoClick(product));
         this.onScroll = debounce(this.longPressHandlers.onScroll, 200, { leading: true });
 
-        useEffect(
+        useLayoutEffect(
             () => {
                 this.state.quantityByProductTmplId = this.currentOrder?.lines?.reduce((acc, ol) => {
                     if (!ol.combo_parent_id) {
@@ -125,13 +127,79 @@ export class ProductScreen extends Component {
             },
             () => [this.currentOrder, this.currentOrder.totalQuantity]
         );
+
+        this.canReorderProducts = false;
+        Promise.resolve(user.checkAccessRight("product.template", "write")).then((hasAccess) => {
+            this.canReorderProducts = hasAccess;
+        });
+
+        useSortable({
+            ref: useRef("productsRoot"),
+            elements: ".product-sortable",
+            cursor: "move",
+            tolerance: 10,
+            connectGroups: false,
+            enable: () => this.canReorderProducts,
+            preventDrag: (element) => isNaN(Number(element.dataset.productId)),
+            onDragStart: () => {
+                this.longPressHandlers.onMouseUp();
+                this.longPressHandlers.onTouchEnd();
+            },
+            onDrop: async (params) => this._sortDrop(params),
+        });
     }
 
-    onMouseDown(event, product) {
-        this.longPressHandlers.onMouseDown(event, product);
+    async _sortDrop({ element, previous, next }) {
+        const elementId = Number(element.dataset.productId);
+        if (isNaN(elementId)) {
+            return;
+        }
+        let currentSeq = 0;
+        while (previous) {
+            if (previous.dataset.pos_sequence) {
+                currentSeq = Number(previous.dataset.pos_sequence) + 1;
+                break;
+            }
+            previous = previous.previousElementSibling;
+        }
+        if (!currentSeq) {
+            currentSeq = 1;
+        }
+
+        const sequenceById = { [elementId]: currentSeq };
+
+        while (next) {
+            if (next == element) {
+                next = next.nextElementSibling;
+            }
+            const nextSeq = Number(next.dataset.pos_sequence);
+            if (nextSeq > currentSeq) {
+                break;
+            }
+            currentSeq += 1;
+            const nextId = Number(next.dataset.productId);
+            if (!isNaN(nextId)) {
+                sequenceById[nextId] = currentSeq;
+            }
+            next = next.nextElementSibling;
+        }
+
+        // Force a rerender on the screen
+        for (const [id, seq] of Object.entries(sequenceById)) {
+            const record = this.pos.models["product.template"].get(Number(id));
+            record?.update({ pos_sequence: seq });
+        }
+        await this.pos.data.call("product.template", "set_pos_sequence", [sequenceById]);
     }
 
-    onTouchStart(product) {
+    onPointerDown(event, product) {
+        if (isNaN(Number(product.id))) {
+            return;
+        }
+        if (event.pointerType == "mouse") {
+            this.longPressHandlers.onMouseDown(event, product);
+            return;
+        }
         this.longPressHandlers.onTouchStart(product);
     }
 
@@ -356,63 +424,6 @@ export class ProductScreen extends Component {
         return this.pos.searchProductWord.trim();
     }
 
-    async onPressEnterKey() {
-        const { searchProductWord } = this.pos;
-        if (!searchProductWord) {
-            return;
-        }
-        if (this.state.previousSearchWord !== searchProductWord) {
-            this.state.currentOffset = 0;
-        }
-        const result = await this.loadProductFromDB();
-        if (result.length === 0) {
-            this.notification.add(_t('No other products found for "%s".', searchProductWord), 3000);
-        }
-        if (this.state.previousSearchWord === searchProductWord) {
-            this.state.currentOffset += result.length;
-        } else {
-            this.state.previousSearchWord = searchProductWord;
-            this.state.currentOffset = result.length;
-        }
-    }
-
-    loadProductFromDBDomain(searchProductWord) {
-        return [
-            "|",
-            "|",
-            "|",
-            ["name", "ilike", searchProductWord],
-            ["product_variant_ids.name", "ilike", searchProductWord],
-            "|",
-            ["default_code", "ilike", searchProductWord],
-            ["product_variant_ids.default_code", "ilike", searchProductWord],
-            "|",
-            ["barcode", "ilike", searchProductWord],
-            ["product_variant_ids.barcode", "ilike", searchProductWord],
-            ["available_in_pos", "=", true],
-            ["sale_ok", "=", true],
-        ];
-    }
-
-    async loadProductFromDB() {
-        const { searchProductWord } = this.pos;
-        if (!searchProductWord) {
-            return;
-        }
-
-        this.pos.setSelectedCategory(0);
-        const domain = this.loadProductFromDBDomain(searchProductWord);
-
-        const { limit_categories, iface_available_categ_ids } = this.pos.config;
-        if (limit_categories && iface_available_categ_ids.length > 0) {
-            const categIds = iface_available_categ_ids.map((categ) => categ.id);
-            domain.push(["pos_categ_ids", "in", categIds]);
-        }
-
-        const results = await this.pos.loadNewProducts(domain, this.state.currentOffset, 30);
-        return results["product.product"];
-    }
-
     async addProductToOrder(product) {
         const options = {};
         if (this.searchWord && product.isConfigurable()) {
@@ -424,8 +435,10 @@ export class ProductScreen extends Component {
                 options["presetVariant"] = searchedProduct[0];
             }
         }
-        await this.pos.addLineToCurrentOrder({ product_tmpl_id: product }, options);
+        const line = await this.pos.addLineToCurrentOrder({ product_tmpl_id: product }, options);
         this.showOptionalProductPopupIfNeeded(product);
+
+        return line;
     }
     showOptionalProductPopupIfNeeded(product) {
         if (product.pos_optional_product_ids?.length) {

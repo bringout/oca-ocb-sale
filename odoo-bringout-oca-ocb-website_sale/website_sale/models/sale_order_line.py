@@ -5,22 +5,25 @@ from odoo.exceptions import UserError
 
 
 class SaleOrderLine(models.Model):
-    _inherit = 'sale.order.line'
+    _inherit = "sale.order.line"
 
-    name_short = fields.Char(compute='_compute_name_short')
+    name_short = fields.Char(compute="_compute_name_short")
     shop_warning = fields.Char(string="Warning")
 
-    #=== COMPUTE METHODS ===#
+    # === COMPUTE METHODS ===#
 
-    @api.depends('product_id.display_name')
+    @api.depends("product_id.display_name")
     def _compute_name_short(self):
-        """ Compute a short name for this sale order line, to be used on the website where we don't have much space.
-            To keep it short, instead of using the first line of the description, we take the product name without the internal reference.
+        """Compute a short name for this sale order line, to be used on the website where we don't
+        have much space. To keep it short, instead of using the first line of the description,
+        we take the product name without the internal reference.
         """
         for record in self:
-            record.name_short = record.product_id.with_context(display_default_code=False).display_name
+            record.name_short = record.product_id.with_context(
+                display_default_code=False
+            ).display_name
 
-    #=== BUSINESS METHODS ===#
+    # === BUSINESS METHODS ===#
 
     def get_description_following_lines(self):
         return self.name.splitlines()[1:]
@@ -36,7 +39,7 @@ class SaleOrderLine(models.Model):
 
     def _get_order_date(self):
         self.ensure_one()
-        if self.order_id.website_id and self.state == 'draft':
+        if self.order_id.website_id and self.state == "draft":
             # cart prices must always be computed based on the current time, not on the order
             # creation date.
             return fields.Datetime.now()
@@ -46,36 +49,43 @@ class SaleOrderLine(models.Model):
         self.ensure_one()
         warn = self.shop_warning
         if clear:
-            self.shop_warning = ''
+            self.shop_warning = ""
         return warn
 
     def _get_displayed_unit_price(self):
         show_tax = self.order_id.website_id.show_line_subtotals_tax_selection
-        tax_display = 'total_excluded' if show_tax == 'tax_excluded' else 'total_included'
-        is_combo = self.product_type == 'combo'
+        tax_display = "total_excluded" if show_tax == "tax_excluded" else "total_included"
+        is_combo = self.product_type == "combo"
         unit_price = self._get_display_price_ignore_combo() if is_combo else self.price_unit
 
         return self.tax_ids.compute_all(
-            unit_price, self.currency_id, 1, self.product_id, self.order_partner_id,
+            unit_price, self.currency_id, 1, self.product_id, self.order_partner_id
         )[tax_display]
 
     def _get_selected_combo_items(self):
-        if self.product_id.type == 'combo':
-            return [{
-                'id': linked_line.combo_item_id.id,
-                'no_variant_ptav_ids': linked_line.product_no_variant_attribute_value_ids.ids,
-                'custom_ptavs': [{
-                    'id': pcav.custom_product_template_attribute_value_id.id,
-                    'value': pcav.custom_value,
-                } for pcav in linked_line.product_custom_attribute_value_ids]
-            } for linked_line in self.linked_line_ids]
+        if self.product_id.type == "combo":
+            return [
+                {
+                    "id": linked_line.combo_item_id.id,
+                    "no_variant_ptav_ids": linked_line.product_no_variant_attribute_value_ids.ids,
+                    "custom_ptavs": [
+                        {
+                            "id": pcav.custom_product_template_attribute_value_id.id,
+                            "value": pcav.custom_value,
+                        }
+                        for pcav in linked_line.product_custom_attribute_value_ids
+                    ],
+                }
+                for linked_line in self.linked_line_ids
+            ]
 
         return None
 
     def _get_displayed_quantity(self):
-        rounded_uom_qty = round(self.product_uom_qty,
-                                self.env['decimal.precision'].precision_get('Product Unit'))
-        return int(rounded_uom_qty) == rounded_uom_qty and int(rounded_uom_qty) or rounded_uom_qty
+        rounded_uom_qty = round(
+            self.product_uom_qty, self.env["decimal.precision"].precision_get("Product Unit")
+        )
+        return (int(rounded_uom_qty) == rounded_uom_qty and int(rounded_uom_qty)) or rounded_uom_qty
 
     def _show_in_cart(self):
         self.ensure_one()
@@ -93,25 +103,36 @@ class SaleOrderLine(models.Model):
     def _get_cart_display_price(self):
         self.ensure_one()
         price_type = (
-            'price_subtotal'
-            if self.order_id.website_id.show_line_subtotals_tax_selection == 'tax_excluded'
-            else 'price_total'
+            "price_subtotal"
+            if self.order_id.website_id.show_line_subtotals_tax_selection == "tax_excluded"
+            else "price_total"
         )
         return sum(self._get_lines_with_price().mapped(price_type))
 
     def _check_validity(self):
+        website = self.order_id.website_id
         if (
             not self.combo_item_id
-            and sum(self._get_lines_with_price().mapped('price_unit')) == 0
-            and self.order_id.website_id.prevent_zero_price_sale
-            and self.product_template_id.service_tracking not in self.env['product.template']._get_product_types_allow_zero_price()
+            and website.prevent_sale
+            and website._prevent_product_sale(
+                self.product_template_id,
+                sum(self._get_lines_with_price().mapped("price_unit")) == 0,
+            )
+            # Only allow zero-price exemption for zero_price mode, not for category-based prevention
+            and not (
+                website.prevent_sale_for == "zero_price"
+                and self.product_template_id.service_tracking
+                in self.env["product.template"]._get_product_types_allow_zero_price()
+            )
         ):
-            raise UserError(self.env._(
-                "The given product does not have a price therefore it cannot be added to cart.",
-            ))
+            raise UserError(
+                self.env._(
+                    "The given product does not have a price therefore it cannot be added to cart."
+                )
+            )
 
     def _should_show_strikethrough_price(self):
-        """ Compute whether the strikethrough price should be shown.
+        """Compute whether the strikethrough price should be shown.
 
         The strikethrough price should be shown if there is a discount on a sellable line for
         which a price unit is non-zero.
@@ -130,3 +151,43 @@ class SaleOrderLine(models.Model):
         :rtype: bool
         """
         return self.product_id.is_published and not self.is_delivery
+
+    def _get_max_line_qty(self):
+        max_quantity = self._get_max_available_qty()
+        return self.product_uom_qty + max_quantity if (max_quantity is not None) else None
+
+    def _get_max_available_qty(self):
+        """Return the max quantity of a combo product.
+
+        It is the max quantity of its selected combo item with the lowest max quantity. If none of
+        the combo items has a max quantity, then the combo product also has no max quantity.
+        """
+        self.ensure_one()
+        cart_and_free_quantities = [
+            line.order_id._get_cart_and_free_qty(line.product_id)
+            for line in self._get_lines_with_price()
+            if line.product_id.is_storable and not line.product_id.allow_out_of_stock_order
+        ]
+        max_quantities = [free_qty - cart_qty for cart_qty, free_qty in cart_and_free_quantities]
+        return min(max_quantities, default=None)
+
+    def _set_shop_warning_stock(self, desired_qty, new_qty, save=True):
+        self.ensure_one()
+        warning = self.env._(
+            "You ask for %(desired_qty)s %(product_name)s but only %(new_qty)s is available",
+            desired_qty=desired_qty,
+            product_name=self.product_id.name,
+            new_qty=new_qty,
+        )
+        if save:
+            self.shop_warning = warning
+        return warning
+
+    def _check_availability(self):
+        self.ensure_one()
+        if self.product_id.is_storable and not self.product_id.allow_out_of_stock_order:
+            cart_qty, avl_qty = self.order_id._get_cart_and_free_qty(self.product_id)
+            if cart_qty > avl_qty:
+                self._set_shop_warning_stock(cart_qty, max(avl_qty, 0))
+                return False
+        return True

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:36+0000\n"
+"POT-Creation-Date: 2025-10-08 18:38+0000\n"
 "PO-Revision-Date: 2022-09-22 05:54+0000\n"
 "Last-Translator: Martin Trigaux, 2022\n"
 "Language-Team: Ukrainian (https://app.transifex.com/odoo/teams/41243/uk/)\n"
@@ -111,33 +111,3 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:product_matrix.extra_price
 msgid "Variant price"
 msgstr ""
-
-#~ msgid "Blue"
-#~ msgstr "Синій"
-
-#~ msgid "Gender"
-#~ msgstr "Стать"
-
-#~ msgid "Men"
-#~ msgstr "Чоловіки"
-
-#~ msgid "Pink"
-#~ msgstr "Рожевий"
-
-#~ msgid "Rainbow"
-#~ msgstr "Веселка"
-
-#~ msgid "Size"
-#~ msgstr "Розмір"
-
-#~ msgid "Women"
-#~ msgstr "Жінки"
-
-#~ msgid "XL"
-#~ msgstr "XL"
-
-#~ msgid "XS"
-#~ msgstr "XS"
-
-#~ msgid "Yellow"
-#~ msgstr "Жовтий"

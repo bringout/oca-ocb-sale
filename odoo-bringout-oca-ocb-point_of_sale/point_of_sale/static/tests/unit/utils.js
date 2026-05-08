@@ -7,11 +7,12 @@ import {
 } from "@web/../tests/web_test_helpers";
 import { animationFrame, tick, waitFor, waitUntil } from "@odoo/hoot-dom";
 import { Deferred } from "@odoo/hoot-mock";
+import { expect, destroy } from "@odoo/hoot";
 import { MainComponentsContainer } from "@web/core/main_components_container";
 import { patch } from "@web/core/utils/patch";
 import { onMounted } from "@odoo/owl";
-import { expect } from "@odoo/hoot";
 import { user } from "@web/core/user";
+import { ConfirmationDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
 
 const { DateTime } = luxon;
 
@@ -31,8 +32,10 @@ export const setupPosEnv = async () => {
     store.setCashier(store.user);
     patchWithCleanup(user, {
         // Needed for the allowProductCreation method
+        // and for product reorder in the frontend
         checkAccessRight: (model, operation) =>
-            operation === "create" && model === "product.product",
+            (operation === "create" && model === "product.product") ||
+            (operation === "write" && model === "product.template"),
     });
     return store;
 };
@@ -102,7 +105,14 @@ export const mountPosDialog = async (component, props) => {
 };
 
 export const patchDialogComponent = (component) => {
-    component.props = [...component.props, "onMounted?"];
+    if (Array.isArray(component.props)) {
+        component.props = [...component.props, "onMounted?"];
+    } else {
+        component.props = {
+            ...component.props,
+            onMounted: { optional: true },
+        };
+    }
     patch(component.prototype, {
         setup() {
             super.setup();
@@ -141,3 +151,37 @@ export const dialogActions = async (action, steps = []) => {
     // Return the result of the action
     return await promise;
 };
+
+export const createPaymentLine = (store, order, paymentMethod, data = {}) =>
+    store.models["pos.payment"].create({
+        amount: 10,
+        payment_method_id: paymentMethod.id,
+        pos_order_id: order.id,
+        write_date: DateTime.now(),
+        create_date: DateTime.now(),
+        ...data,
+    });
+
+export const activateMountingDialogs = async (env) => {
+    const dialog = await mountWithCleanup(ConfirmationDialog, {
+        env,
+        props: {
+            title: "Title",
+            body: "Body",
+            confirm: () => false,
+            cancel: () => true,
+            dismiss: () => false,
+            close: () => {},
+        },
+    });
+    destroy(dialog);
+    await animationFrame();
+};
+
+export const normalizeFunctionsInObject = (obj) =>
+    Object.fromEntries(
+        Object.entries(obj).map(([key, value]) => [
+            key,
+            typeof value === "function" ? "function" : value,
+        ])
+    );

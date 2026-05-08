@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:37+0000\n"
+"POT-Creation-Date: 2026-03-12 18:37+0000\n"
 "PO-Revision-Date: 2025-11-10 14:27+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Korean <https://translate.odoo.com/projects/odoo-19/"
@@ -38,7 +38,6 @@ msgid "%(user_names)s already in other teams (%(team_names)s)."
 msgstr "%(user_names)s님은 이미 다른 팀(%(team_names)s)에 속해 있습니다."
 
 #. module: sales_team
-#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_kanban
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_form
 msgid ""
 "<i class=\"fa fa-envelope me-1\" role=\"img\" aria-label=\"Email\" "
@@ -49,12 +48,6 @@ msgstr ""
 
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
-msgid "<i class=\"fa fa-fw me-1 fa-building text-primary\" title=\"Company\"/>"
-msgstr ""
-"<i class=\"fa fa-fw me-1 fa-building text-primary\" title=\"Company\"/>"
-
-#. module: sales_team
-#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
 msgid "<i class=\"fa fa-fw me-1 fa-envelope text-primary\" title=\"Email\"/>"
 msgstr "<i class=\"fa fa-fw me-1 fa-envelope text-primary\" title=\"Email\"/>"
 
@@ -62,6 +55,19 @@ msgstr "<i class=\"fa fa-fw me-1 fa-envelope text-primary\" title=\"Email\"/>"
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
 msgid "<i class=\"fa fa-fw me-1 fa-phone text-primary\" title=\"Phone\"/>"
 msgstr "<i class=\"fa fa-fw me-1 fa-phone text-primary\" title=\"Phone\"/>"
+
+#. module: sales_team
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_kanban
+msgid "<i class=\"fa fa-fw me-1 fa-users text-primary\" title=\"Sales Team\"/>"
+msgstr ""
+
+#. module: sales_team
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
+msgid ""
+"<i class=\"o_input_box_overlay_start fa fa-fw fa-building\" "
+"title=\"Company\"/>"
+msgstr ""
 
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_kanban_dashboard
@@ -247,6 +253,7 @@ msgstr "표시명"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__email
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
 msgid "Email"
 msgstr "이메일"
 
@@ -435,6 +442,7 @@ msgstr "기타"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__phone
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
 msgid "Phone"
 msgstr "전화번호"
 
@@ -480,6 +488,7 @@ msgstr "영업 담당자"
 #: model:ir.model,name:sales_team.model_crm_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__name
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__crm_team_id
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_search
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_form
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_tree
@@ -716,8 +725,8 @@ msgstr "여러 팀에서 작업 중인가요?"
 #. odoo-python
 #: code:addons/sales_team/models/crm_team_member.py:0
 msgid ""
-"You are trying to create duplicate membership(s). We found that %"
-"(duplicates)s already exist(s)."
+"You are trying to create duplicate membership(s). We found that "
+"%(duplicates)s already exist(s)."
 msgstr "중복된 멤버십입니다. %(duplicates)s이(가) 이미 존재합니다."
 
 #. module: sales_team
@@ -754,37 +763,3 @@ msgid ""
 "the user will have an access to the sales configuration as well as statistic "
 "reports."
 msgstr "사용자는 통계 보고서뿐만 아니라 판매 환경 설정에 접근할 수 있습니다."
-
-#~ msgid "Contact"
-#~ msgstr "연락처"
-
-#~ msgid "Dashboard Graph Data"
-#~ msgstr "현황판 그래프 데이터"
-
-#~ msgid ""
-#~ "Follow this salesteam to automatically track the events associated to "
-#~ "users of this team."
-#~ msgstr ""
-#~ "이 팀의 사용자와 관련된 행사를 자동으로 추적하기 위해 이 영업팀을 팔로우하"
-#~ "기."
-
-#~ msgid "Group By"
-#~ msgstr "그룹별"
-
-#~ msgid "Group By..."
-#~ msgstr "그룹별..."
-
-#~ msgid "Mobile"
-#~ msgstr "모바일"
-
-#~ msgid "Number of messages which requires an action"
-#~ msgstr "조치가 필요한 메시지 수"
-
-#~ msgid "Sample data"
-#~ msgstr "예제 데이터"
-
-#~ msgid "Undefined graph model for Sales Team: %s"
-#~ msgstr "영업팀에 대한 정의되지 않은 그래프 모델 : %s"
-
-#~ msgid "eBay"
-#~ msgstr "eBay"

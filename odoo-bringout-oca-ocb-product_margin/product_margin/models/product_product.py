@@ -54,12 +54,12 @@ class ProductProduct(models.Model):
         'total_margin', 'expected_margin', 'total_margin_rate', 'expected_margin_rate',
     )}
 
-    def _read_group_select(self, aggregate_spec, query):
+    def _read_group_select(self, table, aggregate_spec):
         # the purpose of this override is to flag the aggregates above as such:
         # field._description_aggregator() should simply not fail
         if aggregate_spec in self._SPECIAL_SUM_AGGREGATES:
             return SQL("NULL")
-        return super()._read_group_select(aggregate_spec, query)
+        return super()._read_group_select(table, aggregate_spec)
 
     @api.model
     def _read_group(self, domain, groupby=(), aggregates=(), having=(), offset=0, limit=None, order=None):
@@ -73,7 +73,7 @@ class ProductProduct(models.Model):
         base_result = super()._read_group(domain, groupby, base_aggregates, having, offset, limit, order)
 
         # Force the compute of all records to bypass the limit compute batching (PREFETCH_MAX)
-        all_records = self.browse().union(*(item[-1] for item in base_result))
+        all_records = self.browse().union(item[-1] for item in base_result)
         # This line will compute all fields having _compute_product_margin_fields_values
         # as compute method.
         self._fields['turnover'].compute_value(all_records)
@@ -97,7 +97,7 @@ class ProductProduct(models.Model):
         base_result = super()._read_grouping_sets(domain, grouping_sets, base_aggregates, order)
 
         # Force the compute of all records to bypass the limit compute batching (PREFETCH_MAX)
-        all_records = self.concat(*(item[-1] for row in base_result for item in row))
+        all_records = self + self.browse().concat(item[-1] for row in base_result for item in row)
         # This line will compute all fields having _compute_product_margin_fields_values
         # as compute method.
         all_records._compute_product_margin_fields_values()

@@ -1,3 +1,4 @@
+import { reactive } from "@web/owl2/utils";
 import { uuidv4 } from "@point_of_sale/utils";
 import { TrapDisabler } from "@point_of_sale/proxy_trap";
 import { RecordStore } from "./record_store";
@@ -19,7 +20,7 @@ import { Base } from "./base";
 import { processModelDefs } from "./model_defs";
 import { createExtraField, processModelClasses } from "./model_classes";
 import { ormSerialization } from "./serialization";
-import { reactive, toRaw } from "@odoo/owl";
+import { toRaw } from "@odoo/owl";
 const AVAILABLE_EVENT = ["create", "update", "delete"];
 
 export function createRelatedModels(modelDefs, modelClasses = {}, opts = {}) {
@@ -279,6 +280,7 @@ export function createRelatedModels(modelDefs, modelClasses = {}, opts = {}) {
          **/
         toRaw() {
             this.length; // Ensure reactivity when the record map of this model is updated
+            this.lastUpdateDate; // Ensure reactivity when the record fields of this model is updated
             return toRaw(this);
         }
 
@@ -549,6 +551,8 @@ export function createRelatedModels(modelDefs, modelClasses = {}, opts = {}) {
                 this[STORE_SYMBOL].remove(record);
                 this[STORE_SYMBOL].add(record);
             }
+
+            this.lastUpdateDate = Date.now();
 
             aggregatedUpdates.fireEventAndDirty({
                 silentModels: opts.silent ? [record.model.name] : [],

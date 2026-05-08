@@ -17,7 +17,7 @@ export class QrCodeCustomerDisplay extends Component {
     }
 
     getQrCode() {
-        return generateQRCodeDataUrl(this.props.customerDisplayURL);
+        return generateQRCodeDataUrl(this.props.customerDisplayURL, { useThemeQr: true });
     }
 
     openOnThisDevice() {
@@ -27,6 +27,7 @@ export class QrCodeCustomerDisplay extends Component {
             "width=800,height=600,left=200,top=200"
         );
         this.notification.add(_t("PoS Customer Display opened in a new window"));
+        this.props.close();
     }
 
     showQr() {
@@ -44,8 +45,8 @@ class QrDialog extends Component {
     static template = xml`
         <Dialog header="false" footer="false" size="'sm'">
             <div class="d-flex flex-column align-items-center">
-                <img id="CustomerDisplayqrCode" t-att-src="props.qrData" alt="Customer QR Code" class="img-fluid mb-3 square w-100"/>
-                <button t-on-click="close" class="button btn btn-secondary h1 mb-3 rounded-3">
+                <img id="CustomerDisplayqrCode" t-att-src="this.props.qrData" alt="Customer QR Code" class="img-fluid mb-3 square w-100"/>
+                <button t-on-click="this.close" class="button btn btn-secondary h1 mb-3 rounded-3">
                     Close
                 </button>
             </div>

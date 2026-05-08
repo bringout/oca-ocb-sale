@@ -1,10 +1,11 @@
 import * as ProductScreen from "@point_of_sale/../tests/pos/tours/utils/product_screen_util";
 import * as PaymentScreen from "@point_of_sale/../tests/pos/tours/utils/payment_screen_util";
+import * as FeedbackScreen from "@point_of_sale/../tests/pos/tours/utils/feedback_screen_util";
 import * as TicketScreen from "@point_of_sale/../tests/pos/tours/utils/ticket_screen_util";
-import * as ReceiptScreen from "@point_of_sale/../tests/pos/tours/utils/receipt_screen_util";
 import * as combo from "@point_of_sale/../tests/pos/tours/utils/combo_popup_util";
 import * as Dialog from "@point_of_sale/../tests/generic_helpers/dialog_util";
 import * as Order from "@point_of_sale/../tests/generic_helpers/order_widget_util";
+import * as ProductConfiguratorPopup from "@point_of_sale/../tests/pos/tours/utils/product_configurator_util";
 import { scan_barcode } from "@point_of_sale/../tests/generic_helpers/utils";
 import { inLeftSide } from "@point_of_sale/../tests/pos/tours/utils/common";
 import * as Chrome from "@point_of_sale/../tests/pos/tours/utils/chrome_util";
@@ -95,8 +96,8 @@ registry.category("web_tour.tours").add("ProductComboPriceTaxIncludedTour", {
             ...ProductScreen.clickPayButton(),
             ...PaymentScreen.clickPaymentMethod("Bank"),
             ...PaymentScreen.clickValidate(),
-            ...ReceiptScreen.isShown(),
-            ...ReceiptScreen.clickNextOrder(),
+            ...FeedbackScreen.isShown(),
+            ...FeedbackScreen.clickNextOrder(),
 
             // another order but won't be sent to the backend
             ...ProductScreen.clickDisplayedProduct("Office Combo"),
@@ -131,7 +132,7 @@ registry.category("web_tour.tours").add("ProductComboPriceCheckTour", {
             ProductScreen.clickPayButton(),
             PaymentScreen.clickPaymentMethod("Bank"),
             PaymentScreen.clickValidate(),
-            ReceiptScreen.isShown(),
+            FeedbackScreen.isShown(),
         ].flat(),
 });
 
@@ -179,16 +180,16 @@ registry.category("web_tour.tours").add("test_combo_refund_different_qty", {
             ProductScreen.clickPayButton(),
             PaymentScreen.clickPaymentMethod("Bank"),
             PaymentScreen.clickValidate(),
-            ReceiptScreen.isShown(),
-            ReceiptScreen.clickNextOrder(),
+            FeedbackScreen.isShown(),
+            FeedbackScreen.clickNextOrder(),
             // First refund order
             ProductScreen.clickRefund(),
             TicketScreen.selectOrder("001"),
             ProductScreen.clickNumpad("1"),
-            TicketScreen.toRefundLineContains("Office Combo", "To Refund: 1.00"),
-            TicketScreen.toRefundLineContains("Combo Product 4", "To Refund: 2.00"),
-            TicketScreen.toRefundLineContains("Combo Product 3", "To Refund: 1.00"),
-            TicketScreen.toRefundLineContains("Combo Product 6", "To Refund: 1.00"),
+            TicketScreen.toRefundTextContains("1", "Office Combo"),
+            TicketScreen.toRefundTextContains("2", "Combo Product 4"),
+            TicketScreen.toRefundTextContains("1", "Combo Product 3"),
+            TicketScreen.toRefundTextContains("1", "Combo Product 6"),
             TicketScreen.confirmRefund(),
             PaymentScreen.isShown(),
         ].flat(),
@@ -210,6 +211,7 @@ registry.category("web_tour.tours").add("ProductComboMaxFreeQtyTour", {
             combo.select("Combo Product 5"),
             combo.checkProductQty("Combo Product 5", "1"),
             combo.select("Combo Product 5"),
+            combo.checkProductQty("Combo Product 5", "1"),
             combo.select("Combo Product 5"),
             // Check that we cannot exceed the combo 'max_qty' which is 2
             combo.checkProductQty("Combo Product 5", "2"),
@@ -243,7 +245,7 @@ registry.category("web_tour.tours").add("ProductComboMaxFreeQtyTour", {
             ProductScreen.clickPayButton(),
             PaymentScreen.clickPaymentMethod("Bank"),
             PaymentScreen.clickValidate(),
-            ReceiptScreen.isShown(),
+            FeedbackScreen.isShown(),
         ].flat(),
 });
 
@@ -291,6 +293,68 @@ registry.category("web_tour.tours").add("ProductComboDiscountTour", {
         ].flat(),
 });
 
+registry.category("web_tour.tours").add("test_convert_orderlines_to_combo", {
+    steps: () =>
+        [
+            Chrome.startPoS(),
+            Dialog.confirm("Open Register"),
+
+            // Add products that can be part of a combo
+            ProductScreen.clickDisplayedProduct("Combo Product 2"),
+            ProductScreen.clickDisplayedProduct("Combo Product 4"),
+            ProductScreen.clickDisplayedProduct("Combo Product 6"),
+
+            // Convert to combo
+            ProductScreen.clickApplyCombo(),
+
+            // Check that orderline is now a combo
+            inLeftSide([
+                { ...ProductScreen.clickLine("Office Combo")[0], isActive: ["mobile"] },
+                ...Order.hasLine({
+                    productName: "Office Combo",
+                    quantity: "1",
+                    withClass: ".selected",
+                }),
+                ...ProductScreen.clickControlButtonMore(),
+                ...ProductScreen.clickBreakCombo(),
+                ...Order.hasLine({ productName: "Combo Product 2", quantity: "1" }),
+                ...Order.hasLine({ productName: "Combo Product 4", quantity: "1" }),
+                ...Order.hasLine({ productName: "Combo Product 6", quantity: "1" }),
+                ...Order.doesNotHaveLine({ productName: "Office Combo" }),
+            ]),
+
+            ProductScreen.clickDisplayedProduct("Second Product 2"),
+            ProductScreen.clickDisplayedProduct("Second Product 4"),
+            ProductScreen.clickDisplayedProduct("Second Product 9"),
+            // Select attributes
+            ProductConfiguratorPopup.pickColor("Blue"),
+            ProductConfiguratorPopup.selectedColor("Blue"),
+            Dialog.proceed({ title: `Second Product 9`, button: "add" }),
+
+            // Convert to combo
+            ProductScreen.clickApplyCombo(
+                true,
+                ["Second Combo Product", "Office Combo"],
+                "Second Combo Product",
+                "Office Combo"
+            ),
+
+            // Check that orderline is now a combo
+            inLeftSide([
+                ...Order.hasLine({ productName: "Second Combo Product", quantity: "1" }),
+                ...Order.hasLine({
+                    productName: "Second Product 9",
+                    quantity: "1",
+                    attributeLine: "Blue",
+                }),
+            ]),
+            ProductScreen.clickPayButton(),
+            PaymentScreen.clickPaymentMethod("Bank"),
+            PaymentScreen.clickValidate(),
+            FeedbackScreen.isShown(),
+        ].flat(),
+});
+
 registry.category("web_tour.tours").add("test_combo_item_image_display", {
     steps: () =>
         [
@@ -313,6 +377,57 @@ registry.category("web_tour.tours").add("test_combo_item_image_not_display", {
             combo.checkImgAndSelect("Combo Product 4", false),
             combo.checkImgAndSelect("Combo Product 6", false),
             Dialog.confirm(),
+        ].flat(),
+});
+
+registry.category("web_tour.tours").add("test_convert_orderlines_to_combo_with_upsell", {
+    steps: () =>
+        [
+            Chrome.startPoS(),
+
+            // Add products that can be part of a first combo
+            ProductScreen.clickDisplayedProduct("Combo Product 2"),
+            ProductScreen.clickDisplayedProduct("Combo Product 4"),
+            ProductScreen.clickDisplayedProduct("Combo Product 6"),
+
+            // Add products that can be part of a second combo
+            ProductScreen.clickDisplayedProduct("Second Product 2"),
+            ProductScreen.clickDisplayedProduct("Second Product 4"),
+            ProductScreen.clickDisplayedProduct("Second Product 6"),
+
+            inLeftSide([
+                {
+                    content: "Click apply combo button",
+                    trigger: ".combo-proposition button.btn",
+                    run: "click",
+                },
+                Dialog.is(),
+                {
+                    content: "Check 'Second Combo Product' price",
+                    trigger: ".modal-body .combo-item:eq(0) .fw-bolder:contains('50.00')",
+                },
+                {
+                    content: "Check 'Second Combo Product' save price",
+                    trigger: ".modal-body .combo-item:eq(0) span:contains('11.00')",
+                },
+                {
+                    content: "Check 'Office Combo' price",
+                    trigger: ".modal-body .combo-item:eq(1) .fw-bolder:contains('47.33')",
+                },
+                {
+                    content: "Check 'Office Combo' save price",
+                    trigger: ".modal-body .combo-item:eq(1) span:contains('24.67')",
+                },
+                {
+                    content: "Check 'Third Combo Product' price",
+                    trigger: ".modal-body .combo-item:eq(2) span:contains('80.00')",
+                },
+                {
+                    content: "Check 'Third Combo Product' add price",
+                    trigger: ".modal-body .combo-item:eq(2) span:contains('19.00')",
+                },
+                Dialog.cancel(),
+            ]),
         ].flat(),
 });
 
@@ -343,29 +458,6 @@ registry.category("web_tour.tours").add("test_combo_no_free_item", {
             ProductScreen.clickPayButton(),
             PaymentScreen.clickPaymentMethod("Bank"),
             PaymentScreen.clickValidate(),
-            ReceiptScreen.isShown(),
-        ].flat(),
-});
-
-registry.category("web_tour.tours").add("test_combo_price_unchanged_with_lot_tracked_product", {
-    steps: () =>
-        [
-            Chrome.startPoS(),
-            Dialog.confirm("Open Register"),
-            ProductScreen.clickDisplayedProduct("Test Combo"),
-            inLeftSide([
-                ...ProductScreen.selectedOrderlineHasDirect("Test Combo"),
-                ...ProductScreen.orderLineHas("Product A", "1.0"),
-            ]),
-            ProductScreen.totalAmountIs("8.05"),
-            inLeftSide([
-                ...ProductScreen.clickLotIcon(),
-                ...ProductScreen.enterLotNumber("1", "lot"),
-                ...ProductScreen.orderLineHas("Product A", "1.0"),
-                {
-                    trigger: ".info-list:contains('Lot Number 1')",
-                },
-            ]),
-            ProductScreen.totalAmountIs("8.05"),
+            FeedbackScreen.isShown(),
         ].flat(),
 });

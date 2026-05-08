@@ -14,13 +14,15 @@ class ProjectSaleLineEmployeeMap(models.Model):
             self.env['sale.order.line']._sellable_lines_domain(),
             self.env['sale.order.line']._domain_sale_line_service(),
             [
+            '|',
+                ('order_partner_id.commercial_partner_id.id', 'parent_of', unquote('partner_id if partner_id else []')),
                 ('order_partner_id', '=?', unquote('partner_id')),
             ],
         ])
         return domain
 
     project_id = fields.Many2one('project.project', "Project", domain=[('is_template', '=', False)], required=True, index=True)
-    employee_id = fields.Many2one('hr.employee', "Employee", required=True, domain="[('id', 'not in', existing_employee_ids)]")
+    employee_id = fields.Many2one('hr.employee', "Employee", required=True, index=True, domain="[('id', 'not in', existing_employee_ids)]")
     existing_employee_ids = fields.Many2many('hr.employee', compute="_compute_existing_employee_ids", export_string_translation=False, compute_sudo=True)
     sale_line_id = fields.Many2one(
         'sale.order.line', "Sales Order Item",

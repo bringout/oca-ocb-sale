@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:36+0000\n"
+"POT-Creation-Date: 2025-10-08 18:38+0000\n"
 "PO-Revision-Date: 2025-09-16 13:41+0000\n"
 "Last-Translator: \"Tiffany Chang (tic)\" <tic@odoo.com>\n"
 "Language-Team: Arabic <https://translate.odoo.com/projects/odoo-19/"
@@ -114,33 +114,3 @@ msgstr "سيتم عرض مصفوفة متغيرات المنتجات لهذا ا
 #: model_terms:ir.ui.view,arch_db:product_matrix.extra_price
 msgid "Variant price"
 msgstr "سعر المتغير"
-
-#~ msgid "Blue"
-#~ msgstr "أزرق"
-
-#~ msgid "Gender"
-#~ msgstr "الجنس"
-
-#~ msgid "Men"
-#~ msgstr "الرجال "
-
-#~ msgid "Pink"
-#~ msgstr "وردي "
-
-#~ msgid "Rainbow"
-#~ msgstr "قوس قزح "
-
-#~ msgid "Size"
-#~ msgstr "الحجم"
-
-#~ msgid "Women"
-#~ msgstr "النساء "
-
-#~ msgid "XL"
-#~ msgstr "كبير جداً "
-
-#~ msgid "XS"
-#~ msgstr "صغير جداً "
-
-#~ msgid "Yellow"
-#~ msgstr "أصفر"

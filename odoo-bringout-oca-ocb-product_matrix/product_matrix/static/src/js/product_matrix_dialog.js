@@ -1,13 +1,15 @@
+import { useRef } from "@web/owl2/utils";
 import { Dialog } from '@web/core/dialog/dialog';
 import { formatMonetary } from "@web/views/fields/formatters";
 import { useHotkey } from "@web/core/hotkeys/hotkey_hook";
-import { Component, onMounted, markup, useRef } from "@odoo/owl";
+import { Component, onMounted, markup } from "@odoo/owl";
 
 export class ProductMatrixDialog extends Component {
     static template = "product_matrix.dialog";
     static props = {
         header: { type: Object },
         rows: { type: Object },
+        dialogTitle: { type: String }, 
         editedCellAttributes: { type: String },
         product_template_id: { type: Number },
         record: { type: Object },
@@ -49,6 +51,10 @@ export class ProductMatrixDialog extends Component {
                 document.getElementsByClassName('o_matrix_input')[0].select();
             }
         });
+    }
+
+    toggleOpacity(ev) {
+        ev.target.classList.toggle('opacity-25', ev.target.value === '0');
     }
 
     _format({price, currency_id}) {

@@ -1,19 +1,18 @@
 import { Plugin } from "@html_editor/plugin";
 import { registry } from "@web/core/registry";
-import { ProductPageOption } from "./product_page_option";
+import { PRODUCT_PAGE_OPTION_SELECTOR } from "./product_page_option";
 import { rpc } from "@web/core/network/rpc";
 import { isImageCorsProtected } from "@html_editor/utils/image";
-import { TABS } from "@html_editor/main/media/media_dialog/media_dialog";
+import { TABS } from "@html_editor/main/media/media_dialog/media_dialog_utils";
 import { WebsiteConfigAction, PreviewableWebsiteConfigAction } from "@website/builder/plugins/customize_website_plugin";
 import { BuilderAction } from "@html_builder/core/builder_action";
 import wSaleUtils from "@website_sale/js/website_sale_utils";
 
-class ProductPageOptionPlugin extends Plugin {
+export class ProductPageOptionPlugin extends Plugin {
     static id = "productPageOption";
     static dependencies = ["builderActions", "media", "customizeWebsite"];
     static shared = ["forceCarouselRedraw"];
     resources = {
-        builder_options: ProductPageOption,
         builder_actions: {
             ProductPageContainerWidthAction,
             ProductPageContainerOrderAction,
@@ -28,8 +27,8 @@ class ProductPageOptionPlugin extends Plugin {
             ProductAddExtraImageAction,
             ProductRemoveAllExtraImagesAction,
         },
-        clean_for_save_handlers: ({ root: el }) => {
-            // TODO the content of this clean_for_save_handlers should probably
+        clean_for_save_processors: (el) => {
+            // TODO the content of this clean_for_save_processors should probably
             // be a generic thing for the whole editor.
 
             // Make sure that if the user removes the whole text of the
@@ -44,7 +43,7 @@ class ProductPageOptionPlugin extends Plugin {
                 el.textContent = el.getAttribute("placeholder");
             }
 
-            const mainEl = el.querySelector(ProductPageOption.selector);
+            const mainEl = el.querySelector(PRODUCT_PAGE_OPTION_SELECTOR);
             if (!mainEl) {
                 return;
             }
@@ -68,18 +67,13 @@ class ProductPageOptionPlugin extends Plugin {
                 }
             });
         },
-        patch_builder_options: [
-            {
-                target_name: 'ProductsRibbonOption',
-                target_element: 'selector',
-                method: 'add',
-                value: ProductPageOption.selector,
-            },
-        ],
+        builder_options_render_context: {
+            productPageOptionSelector: PRODUCT_PAGE_OPTION_SELECTOR,
+        }
     };
 
     setup() {
-        const mainEl = this.document.querySelector(ProductPageOption.selector);
+        const mainEl = this.document.querySelector(PRODUCT_PAGE_OPTION_SELECTOR);
         if (mainEl) {
             const productProduct = mainEl.querySelector('[data-oe-model="product.product"]');
             const productTemplate = mainEl.querySelector('[data-oe-model="product.template"]');
@@ -170,10 +164,10 @@ export class ProductPageImageLayoutAction extends WebsiteConfigAction {
     static id = "productPageImageLayout";
     static dependencies = [...super.dependencies, "customizeWebsite", "productPageOption"];
     isApplied({ editingElement: productDetailMainEl, value }) {
-        return productDetailMainEl.dataset.image_layout === value;
+        return productDetailMainEl.dataset.imageLayout === value;
     }
     getValue({ editingElement: productDetailMainEl }) {
-        return productDetailMainEl.dataset.image_layout;
+        return productDetailMainEl.dataset.imageLayout;
     }
     async apply({ value }) {
         return rpc("/shop/config/website", { product_page_image_layout: value });
@@ -184,7 +178,7 @@ export class BaseProductPageAction extends BuilderAction {
     static id = "baseProductPage";
     setup() {
         this.reload = {};
-        const mainEl = this.document.querySelector(ProductPageOption.selector);
+        const mainEl = this.document.querySelector(PRODUCT_PAGE_OPTION_SELECTOR);
         if (mainEl) {
             const productProduct = mainEl.querySelector('[data-oe-model="product.product"]');
             const productTemplate = mainEl.querySelector('[data-oe-model="product.template"]');
@@ -269,7 +263,7 @@ export class BaseProductPageAction extends BuilderAction {
                     {
                         name: webpName,
                         description: size === originalSize ? "" : `resize: ${size}`,
-                        datas: canvas.toDataURL("image/webp").split(",")[1],
+                        raw: canvas.toDataURL("image/webp").split(",")[1],
                         res_id: referenceId,
                         res_model: "ir.attachment",
                         mimetype: "image/webp",
@@ -288,7 +282,7 @@ export class BaseProductPageAction extends BuilderAction {
                     {
                         name: attachment.name,
                         description: `format: ${format}`,
-                        datas: canvas.toDataURL(mimetype).split(",")[1],
+                        raw: canvas.toDataURL(mimetype).split(",")[1],
                         res_id: resizedId,
                         res_model: "ir.attachment",
                         mimetype: mimetype,
@@ -317,21 +311,25 @@ export class ProductPageImageGridColumnsAction extends BaseProductPageAction {
 }
 export class ProductReplaceMainImageAction extends BaseProductPageAction {
     static id = "productReplaceMainImage";
-    static dependencies = [...super.dependencies, "media", "media_website"];
+    static dependencies = [...super.dependencies, "media"];
     setup() {
         super.setup();
         this.reload = false;
         this.canTimeout = false;
     }
-    apply({ editingElement: productDetailMainEl }) {
+    async apply({ editingElement }) {
+        await this.dependencies.media.openMediaDialog(this.getMediaDialogProps({ editingElement }));
+    }
+
+    getMediaDialogProps({ editingElement: productDetailMainEl }){
         // Emulate click on the main image of the carousel.
         const image = productDetailMainEl.querySelector(
             `[data-oe-model="${this.model}"][data-oe-field=image_1920] img`
         );
-        this.dependencies.media.openMediaDialog({
+        return {
             multiImages: false,
             visibleTabs: ["IMAGES"],
-            node: productDetailMainEl,
+            node: image,
             save: (imgEl, selectedMedia) => {
                 const attachment = selectedMedia[0];
                 if (["image/gif", "image/svg+xml"].includes(attachment.mimetype)) {
@@ -354,7 +352,7 @@ export class ProductReplaceMainImageAction extends BaseProductPageAction {
                     image_1920: image.src.split(",")[1],
                 });
             },
-        });
+        }
     }
 }
 
@@ -373,21 +371,28 @@ export class ProductAddExtraImageAction extends BaseProductPageAction {
             );
         }
         return new Promise((resolve) => {
-            const onClose = this.dependencies.media.openMediaDialog({
-                addFieldImage: true,
-                multiImages: true,
-                visibleTabs: ["IMAGES", "VIDEOS"],
-                node: el,
-                // Kinda hack-ish but the regular save does not get the information we need
-                save: async (imgEls, selectedMedia, activeTab) => {
-                    if (selectedMedia.length) {
-                        const type = activeTab === TABS["IMAGES"].id ? "image" : "video";
-                        resolve({ imgEls, selectedMedia, type });
-                    }
-                },
-            });
-            onClose.then(resolve);
+            const onClose = this.dependencies.media.openMediaDialog(this.getMediaDialogProps({ editingElement: el, loadPromiseResolveFunction: resolve }));
+            // Make sure to resolve with a Falsy value when the mediaDialog is closed without selecting an image so that
+            // loadResult is Falsy and apply() cancels the reload of the page.
+            onClose.then(() => resolve());
         });
+    }
+
+    getMediaDialogProps({ editingElement, loadPromiseResolveFunction }) {
+        return {
+            addFieldImage: true,
+            multiImages: true,
+            visibleTabs: ["IMAGES", "VIDEOS"],
+            node: editingElement,
+            // Kinda hack-ish but the regular save does not get the information we need
+            save: async (imgEls, selectedMedia, activeTab) => {
+                if (selectedMedia.length) {
+                    const type =
+                        activeTab === TABS["IMAGES"].id ? "image" : "video";
+                    loadPromiseResolveFunction({ imgEls, selectedMedia, type });
+                }
+            },
+        };
     }
     async apply({ editingElement: el, loadResult }) {
         if (!loadResult) {

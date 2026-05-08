@@ -1,3 +1,4 @@
+import { markup } from '@odoo/owl';
 import { Interaction } from '@web/public/interaction';
 import { browser } from '@web/core/browser/browser';
 import { registry } from '@web/core/registry';
@@ -11,7 +12,7 @@ export class CartLine extends Interaction {
         '.css_quantity > input.js_quantity': {
             't-on-change.withTarget': this.locked(this.debounced(this.changeQuantity, 500)),
         },
-        '.css_quantity > a': {
+        '.css_quantity > button': {
             't-on-click.prevent.withTarget': this.locked(this.incOrDecQuantity),
         },
         '.js_delete_product': { 't-on-click.prevent': this.locked(this.deleteProduct) },
@@ -33,7 +34,7 @@ export class CartLine extends Interaction {
         const input = currentTargetEl.closest('.css_quantity').querySelector('input.js_quantity');
         const maxQuantity = parseFloat(input.dataset.max || Infinity);
         const oldQuantity = parseFloat(input.value || 0);
-        const newQuantity = currentTargetEl.querySelector('i').classList.contains('oi-minus')
+        const newQuantity = currentTargetEl.name === 'minus_button'
             ? Math.min(Math.max(oldQuantity - 1, 0), maxQuantity)
             : Math.min(oldQuantity + 1, maxQuantity);
         if (oldQuantity !== newQuantity) {
@@ -62,6 +63,8 @@ export class CartLine extends Interaction {
             quantity: quantity,
         }));
 
+        data['website_sale.cart_lines'] = markup(data['website_sale.cart_lines']);
+
         if (!data.cart_quantity) {
             // Ensure the last cart removal is recorded.
             browser.sessionStorage.setItem('website_sale_cart_quantity', 0);
@@ -73,9 +76,9 @@ export class CartLine extends Interaction {
         );
 
         const cart = this.el.closest('#shop_cart');
-        // `updateCartNavBar` regenerates the cart lines and `updateQuickReorderSidebar`
-        // regenerates the quick reorder products, so we need to stop and start interactions
-        // to make sure the regenerated cart lines and reorder products are properly handled.
+        // `updateCartNavBar` regenerates the cart lines and `updateQuickReorderSidebar` regenerates
+        // the quick reorder products, so we need to stop and start interactions to make sure the
+        // regenerated cart lines and reorder products are properly handled.
         this.services['public.interactions'].stopInteractions(cart);
         wSaleUtils.updateCartNavBar(data);
         wSaleUtils.updateQuickReorderSidebar(data);

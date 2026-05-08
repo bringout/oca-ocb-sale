@@ -1,8 +1,10 @@
+import { useComponent } from "@web/owl2/utils";
 import { parseFloat as oParseFloat } from "@web/views/fields/parsers";
 import { barcodeService } from "@barcodes/barcode_service";
 import { registry } from "@web/core/registry";
-import { EventBus, onWillDestroy, useComponent } from "@odoo/owl";
+import { EventBus, onWillDestroy } from "@odoo/owl";
 import { session } from "@web/session";
+import { localization } from "@web/core/l10n/localization";
 
 const INPUT_KEYS = new Set(
     ["Delete", "Backspace", "+1", "+2", "+5", "+10", "+20", "+50"].concat(
@@ -19,6 +21,7 @@ const getDefaultConfig = () => ({
     useWithBarcode: false,
 });
 
+const getDecimalPoint = () => localization.decimalPoint;
 /**
  * This is a singleton.
  *
@@ -65,7 +68,6 @@ class NumberBuffer extends EventBus {
         this.isReset = false;
         this.bufferHolderStack = [];
         this.sound = services["mail.sound_effects"];
-        this.localization = services.localization;
         this.overlay = services.overlay;
         window.addEventListener("keyup", this._onKeyboardInput.bind(this));
     }
@@ -157,7 +159,7 @@ class NumberBuffer extends EventBus {
         this.component = component;
         this.state = state;
         this.config = config;
-        this.decimalPoint = config.decimalPoint || this.localization.decimalPoint;
+        this.decimalPoint = config.decimalPoint || getDecimalPoint();
         this.maxTimeBetweenKeys = this.config.useWithBarcode
             ? barcodeService.maxTimeBetweenKeysInMs
             : 0;

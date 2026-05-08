@@ -1,21 +1,11 @@
+import { reactive } from "@web/owl2/utils";
 import { BuilderAction } from "@html_builder/core/builder_action";
-import { SNIPPET_SPECIFIC_NEXT } from "@html_builder/utils/option_sequence";
 import { Plugin } from "@html_editor/plugin";
-import { withSequence } from "@html_editor/utils/resource";
-import { reactive } from "@odoo/owl";
 import { ConfirmationDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
 import { _t } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
-import { ProductsRibbonOption } from "./product_ribbon_options";
 
-export class ProductHeaderShopOption2 extends ProductsRibbonOption {
-    static name = 'ProductsRibbonOption';
-    static selector = "#products_grid .oe_product";
-    static editableOnly = false;
-    static groups = ['website.group_website_designer'];
-}
-
-class ProductsRibbonOptionPlugin extends Plugin {
+export class ProductsRibbonOptionPlugin extends Plugin {
     static id = 'productsRibbonOptionPlugin';
     static dependencies = ['history'];
     static shared = [
@@ -35,9 +25,6 @@ class ProductsRibbonOptionPlugin extends Plugin {
     count = reactive({ value: 0 });
 
     resources = {
-        builder_options: [
-            withSequence(SNIPPET_SPECIFIC_NEXT, ProductHeaderShopOption2),
-        ],
         builder_actions: {
             SetRibbonAction,
             CreateRibbonAction,
@@ -233,9 +220,9 @@ class ProductsRibbonOptionPlugin extends Plugin {
             if (isProductPage) {
                 templateId = this.productTemplateID;
             } else {
-                // Find the product template ID from the ribbon element's parent form
-                const productForm = ribbonElement.closest('form.oe_product_cart');
-                const templateElement = productForm?.querySelector('[data-oe-model="product.template"]');
+                // Find the product template ID from the ribbon element's parent article.
+                const productArticle = ribbonElement.closest('article.oe_product_cart');
+                const templateElement = productArticle?.querySelector('[data-oe-model="product.template"]');
                 templateId = templateElement ? parseInt(templateElement.getAttribute('data-oe-id')) : null;
             }
             if (templateId && !isNaN(templateId)) {
@@ -292,7 +279,7 @@ class ProductsRibbonOptionPlugin extends Plugin {
     }
 }
 
-class SetRibbonAction extends BuilderAction {
+export class SetRibbonAction extends BuilderAction {
     static id = 'setRibbon';
     static dependencies = ['productsRibbonOptionPlugin'];
     setup(){
@@ -335,7 +322,7 @@ class SetRibbonAction extends BuilderAction {
         );
     }
 }
-class CreateRibbonAction extends BuilderAction {
+export class CreateRibbonAction extends BuilderAction {
     static id = 'createRibbon';
     static dependencies = ['productsRibbonOptionPlugin']
     setup(){
@@ -367,7 +354,7 @@ class CreateRibbonAction extends BuilderAction {
         return this.ribbonOptions._setRibbon(editingElement.querySelector('.o_ribbons'), ribbon);
     }
 }
-class ModifyRibbonAction extends BuilderAction {
+export class ModifyRibbonAction extends BuilderAction {
     static id = 'modifyRibbon';
     static dependencies = ['productsRibbonOptionPlugin', 'history'];
     setup() {
@@ -412,7 +399,7 @@ class ModifyRibbonAction extends BuilderAction {
         return res
     }
 }
-class DeleteRibbonAction extends BuilderAction {
+export class DeleteRibbonAction extends BuilderAction {
     static id = 'deleteRibbon';
     static dependencies = ['productsRibbonOptionPlugin'];
     setup() {
@@ -421,7 +408,9 @@ class DeleteRibbonAction extends BuilderAction {
     async apply({ editingElement }) {
         const save = await new Promise((resolve) => {
             this.services.dialog.add(ConfirmationDialog, {
-                body: _t("Are you sure you want to delete this ribbon?"),
+                title: _t("Delete Ribbon"),
+                body: _t("It will be removed from all products. Are you sure?"),
+                confirmLabel: _t("Delete Ribbon"),
                 confirm: () => resolve(true),
                 cancel: () => resolve(false),
             });

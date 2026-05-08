@@ -11,12 +11,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-10 18:38+0000\n"
+"POT-Creation-Date: 2026-03-12 18:36+0000\n"
 "PO-Revision-Date: 2022-09-22 05:54+0000\n"
 "Last-Translator: Dragan Vukosavljevic <dragan.vukosavljevic@gmail.com>, "
 "2022\n"
 "Language-Team: Serbian (https://app.transifex.com/odoo/teams/41243/sr/)\n"
-"Language: sr\n"
+"Language: sr@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -42,8 +42,8 @@ msgid "(tax incl.)"
 msgstr ""
 
 #. module: pos_sale
-#: model_terms:ir.ui.view,arch_db:pos_sale.report_invoice_document
-msgid "<span style=\"margin: 0px 5px;\">:</span>"
+#: model_terms:ir.ui.view,arch_db:pos_sale.pos_orderline_receipt_information
+msgid "<strong>Sale Order: </strong>"
 msgstr ""
 
 #. module: pos_sale
@@ -105,12 +105,19 @@ msgid "Delivery Quantity"
 msgstr ""
 
 #. module: pos_sale
+#. odoo-javascript
+#: code:addons/pos_sale/static/src/app/services/pos_store.js:0
+msgid "Discard"
+msgstr ""
+
+#. module: pos_sale
 #: model:ir.model.fields,field_description:pos_sale.field_account_move__display_name
 #: model:ir.model.fields,field_description:pos_sale.field_account_move_line__display_name
 #: model:ir.model.fields,field_description:pos_sale.field_crm_team__display_name
 #: model:ir.model.fields,field_description:pos_sale.field_pos_config__display_name
 #: model:ir.model.fields,field_description:pos_sale.field_pos_order__display_name
 #: model:ir.model.fields,field_description:pos_sale.field_pos_order_line__display_name
+#: model:ir.model.fields,field_description:pos_sale.field_pos_order_receipt__display_name
 #: model:ir.model.fields,field_description:pos_sale.field_pos_session__display_name
 #: model:ir.model.fields,field_description:pos_sale.field_product_template__display_name
 #: model:ir.model.fields,field_description:pos_sale.field_res_config_settings__display_name
@@ -166,17 +173,13 @@ msgid "Due balance: %s"
 msgstr ""
 
 #. module: pos_sale
-#: model_terms:ir.ui.view,arch_db:pos_sale.report_invoice_document
-msgid "From"
-msgstr "Od"
-
-#. module: pos_sale
 #: model:ir.model.fields,field_description:pos_sale.field_account_move__id
 #: model:ir.model.fields,field_description:pos_sale.field_account_move_line__id
 #: model:ir.model.fields,field_description:pos_sale.field_crm_team__id
 #: model:ir.model.fields,field_description:pos_sale.field_pos_config__id
 #: model:ir.model.fields,field_description:pos_sale.field_pos_order__id
 #: model:ir.model.fields,field_description:pos_sale.field_pos_order_line__id
+#: model:ir.model.fields,field_description:pos_sale.field_pos_order_receipt__id
 #: model:ir.model.fields,field_description:pos_sale.field_pos_session__id
 #: model:ir.model.fields,field_description:pos_sale.field_product_template__id
 #: model:ir.model.fields,field_description:pos_sale.field_res_config_settings__id
@@ -199,6 +202,14 @@ msgstr "Fakturisano"
 msgid ""
 "It seems that you didn't configure a down payment product in your point of "
 "sale. You can go to your point of sale configuration to choose one."
+msgstr ""
+
+#. module: pos_sale
+#. odoo-javascript
+#: code:addons/pos_sale/static/src/app/services/pos_store.js:0
+msgid ""
+"It seems that you didn't configure a down payment product in your point of "
+"sale. You can go to your point of sale settings to choose one."
 msgstr ""
 
 #. module: pos_sale
@@ -266,13 +277,18 @@ msgid "Point of Sale Configuration"
 msgstr "Podešavanje POS terminala mesta prodaje"
 
 #. module: pos_sale
-#: model:ir.model,name:pos_sale.model_pos_order_line
-msgid "Point of Sale Order Lines"
+#: model:ir.model,name:pos_sale.model_pos_order
+msgid "Point of Sale Order"
 msgstr ""
 
 #. module: pos_sale
-#: model:ir.model,name:pos_sale.model_pos_order
-msgid "Point of Sale Orders"
+#: model:ir.model,name:pos_sale.model_pos_order_line
+msgid "Point of Sale Order Line"
+msgstr ""
+
+#. module: pos_sale
+#: model:ir.model,name:pos_sale.model_pos_order_receipt
+msgid "Point of Sale Order Receipt Generator"
 msgstr ""
 
 #. module: pos_sale
@@ -446,52 +462,3 @@ msgstr ""
 #: code:addons/pos_sale/models/sale_order.py:0
 msgid "id"
 msgstr ""
-
-#. module: pos_sale
-#. odoo-javascript
-#: code:addons/pos_sale/static/src/app/components/orderline/orderline.xml:0
-#: model_terms:ir.ui.view,arch_db:pos_sale.report_invoice_document
-msgid "x"
-msgstr ""
-
-#~ msgid "Back"
-#~ msgstr "Nazad"
-
-#~ msgid "Cancelled"
-#~ msgstr "Otkazano"
-
-#~ msgid "Customer"
-#~ msgstr "Kupac"
-
-#~ msgid "Date"
-#~ msgstr "Datum"
-
-#~ msgid "Locked"
-#~ msgstr "Zaključano"
-
-#~ msgid "New"
-#~ msgstr "Novo"
-
-#~ msgid "No"
-#~ msgstr "Ne"
-
-#~ msgid "Quotation"
-#~ msgstr "Ponuda"
-
-#~ msgid "Quotation Sent"
-#~ msgstr "Ponuda poslata"
-
-#~ msgid "Salesman"
-#~ msgstr "Prodavac"
-
-#~ msgid "Salesperson"
-#~ msgstr "Prodavac"
-
-#~ msgid "State"
-#~ msgstr "Stanje"
-
-#~ msgid "Total"
-#~ msgstr "Ukupno"
-
-#~ msgid "Yes"
-#~ msgstr "Da"

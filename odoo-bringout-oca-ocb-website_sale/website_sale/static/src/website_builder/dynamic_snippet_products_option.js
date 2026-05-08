@@ -1,17 +1,23 @@
-import { BaseOptionComponent, useDomState } from "@html_builder/core/utils";
+import { useState } from "@web/owl2/utils";
+import { BaseOptionComponent } from "@html_builder/core/base_option_component";
+import { useDomState } from "@html_builder/core/utils";
 import { useDynamicSnippetOption } from "@website/builder/plugins/options/dynamic_snippet_hook";
-import { onWillStart, useState } from "@odoo/owl";
+import { onWillStart } from "@odoo/owl";
+import { registry } from "@web/core/registry";
 
 export class DynamicSnippetProductsOption extends BaseOptionComponent {
+    static id = "dynamic_snippet_products_option";
     static template = "website_sale.DynamicSnippetProductsOption";
     static dependencies = ["dynamicSnippetProductsOption"];
-    static selector = ".s_dynamic_snippet_products";
+
     setup() {
         super.setup();
-        const { fetchCategories, getModelNameFilter } = this.dependencies.dynamicSnippetProductsOption;
+        const { fetchCategories, getModelNameFilter } =
+            this.dependencies.dynamicSnippetProductsOption;
+        this.modelNameFilter = getModelNameFilter();
         const contextualFilterDomain = getContextualFilterDomain(this.env.editor.editable);
         this.dynamicOptionParams = useDynamicSnippetOption(
-            getModelNameFilter(),
+            this.modelNameFilter,
             contextualFilterDomain
         );
         this.state = useState({
@@ -29,8 +35,11 @@ export class DynamicSnippetProductsOption extends BaseOptionComponent {
     }
 }
 
+registry.category("website-options").add(DynamicSnippetProductsOption.id, DynamicSnippetProductsOption);
+
 export function getContextualFilterDomain(editable) {
-    const productTemplateId = editable.querySelector("input.product_template_id");
-    const hasProductTemplateId = productTemplateId?.value;
-    return hasProductTemplateId ? [] : [["product_cross_selling", "=", false]];
+    const productTemplateId = parseInt(editable.querySelector(
+        ".js_product [data-product-template-id]"
+    )?.dataset?.productTemplateId);
+    return productTemplateId ? [] : [["product_cross_selling", "=", false]];
 }

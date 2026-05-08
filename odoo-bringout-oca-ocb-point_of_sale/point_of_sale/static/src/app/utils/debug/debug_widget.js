@@ -1,6 +1,7 @@
+import { useLayoutEffect, useRef, useState } from "@web/owl2/utils";
 import { _t } from "@web/core/l10n/translation";
 import { useBus, useService } from "@web/core/utils/hooks";
-import { useRef, useState, Component, onMounted, onWillDestroy, useEffect } from "@odoo/owl";
+import { Component, onMounted, onWillDestroy } from "@odoo/owl";
 import { usePos } from "@point_of_sale/app/hooks/pos_hook";
 import { serializeDateTime } from "@web/core/l10n/dates";
 import { ConfirmationDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
@@ -14,7 +15,6 @@ export class DebugWidget extends Component {
     setup() {
         this.pos = usePos();
         this.barcodeReader = useService("barcode_reader");
-        this.hardwareProxy = useService("hardware_proxy");
         this.notification = useService("notification");
         this.numberBuffer = useService("number_buffer");
         this.dialog = useService("dialog");
@@ -45,7 +45,7 @@ export class DebugWidget extends Component {
             }
         });
 
-        useEffect(
+        useLayoutEffect(
             (isOpen) => {
                 if (!isOpen) {
                     return;
@@ -85,6 +85,12 @@ export class DebugWidget extends Component {
             return;
         }
         await this.barcodeReader.scan(this.state.barcodeInput);
+    }
+    async onBarcodeInputKeydown(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            this.barcodeScan();
+        }
     }
     async barcodeScanEAN() {
         if (!this.barcodeReader) {
@@ -155,7 +161,7 @@ export class DebugWidget extends Component {
                 const jsonData = JSON.parse(await file.text());
                 await this.pos.data.getLocalDataFromIndexedDB(jsonData);
             } catch (error) {
-                console.warn("An error occured during import", error);
+                console.warn("An error occurred during import", error);
             }
         }
     }
@@ -171,5 +177,48 @@ export class DebugWidget extends Component {
     }
     get bufferRepr() {
         return `"${this.state.buffer}"`;
+    }
+
+    get randomOrder() {
+        const orderLength = this.pos.models["pos.order"].length;
+        const randomIndex = Math.floor(Math.random() * orderLength);
+        return this.pos.models["pos.order"].getAll()[randomIndex];
+    }
+
+    async cashInOutPrint() {
+        await this.pos.ticketPrinter.printCashMoveReceipt({
+            reason: "Some random reason",
+            translatedType: "In",
+            order: this.pos.models["pos.order"].getFirst(),
+            formattedAmount: "$100.00",
+        });
+    }
+
+    async openCashBox() {
+        await this.pos.ticketPrinter.openCashbox();
+    }
+
+    async randomOrderPrint() {
+        await this.pos.ticketPrinter.printOrderReceipt({ order: this.randomOrder });
+    }
+
+    async printTipReceipt() {
+        await this.pos.ticketPrinter.printTipReceipt({
+            order: this.randomOrder,
+            name: "Random tip receipt",
+        });
+    }
+
+    async printSaleDetails() {
+        await this.pos.ticketPrinter.printSaleDetailsReceipt();
+    }
+
+    async printOrderChanges() {
+        const order = this.pos.getOrder();
+        if (!order) {
+            this.notification.add(_t("No order to print changes for."), { type: "warning" });
+            return;
+        }
+        await this.pos.ticketPrinter.printOrderChanges({ order });
     }
 }

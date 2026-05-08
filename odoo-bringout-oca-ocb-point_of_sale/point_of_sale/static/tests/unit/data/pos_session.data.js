@@ -12,7 +12,6 @@ export class PosSession extends models.ServerModel {
             "resource.calendar.attendance",
             "pos.order",
             "pos.order.line",
-            "pos.pack.operation.lot",
             "pos.payment",
             "pos.payment.method",
             "pos.printer",
@@ -27,7 +26,6 @@ export class PosSession extends models.ServerModel {
             "product.attribute.custom.value",
             "product.template.attribute.line",
             "product.template.attribute.value",
-            "product.template.attribute.exclusion",
             "product.combo",
             "product.combo.item",
             "res.users",
@@ -43,7 +41,6 @@ export class PosSession extends models.ServerModel {
             "product.pricelist.item",
             "account.cash.rounding",
             "account.fiscal.position",
-            "stock.picking.type",
             "res.currency",
             "pos.note",
             "product.tag",
@@ -61,7 +58,6 @@ export class PosSession extends models.ServerModel {
             "stop_at",
             "payment_method_ids",
             "state",
-            "update_stock_at_closing",
             "cash_register_balance_start",
             "access_token",
         ];
@@ -157,6 +153,10 @@ export class PosSession extends models.ServerModel {
         return {};
     }
 
+    get_cash_in_out_list() {
+        return [];
+    }
+
     _records = [
         {
             id: 1,
@@ -167,7 +167,6 @@ export class PosSession extends models.ServerModel {
             stop_at: false,
             payment_method_ids: [2, 1],
             state: "opening_control",
-            update_stock_at_closing: false,
             cash_register_balance_start: 0.0,
             access_token: "e09c4843-c913-463a-959d-b9e235881201",
         },

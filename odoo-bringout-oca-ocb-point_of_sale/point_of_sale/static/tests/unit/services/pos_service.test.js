@@ -1,10 +1,14 @@
 import { test, expect, describe } from "@odoo/hoot";
-import { getFilledOrder, setupPosEnv } from "../utils";
+import { getFilledOrder, setupPosEnv, createPaymentLine } from "../utils";
 import { definePosModels } from "../data/generate_model_definitions";
 import { ConnectionLostError } from "@web/core/network/rpc";
-import { onRpc } from "@web/../tests/web_test_helpers";
-import { imageUrl } from "@web/core/utils/urls";
+import {
+    getStrNotes,
+    filterChangeByCategories,
+} from "@point_of_sale/app/models/utils/order_change";
 import { prepareRoundingVals } from "../accounting/utils";
+import { getService, patchWithCleanup } from "@web/../tests/web_test_helpers";
+import { localization } from "@web/core/l10n/localization";
 const { DateTime } = luxon;
 
 definePosModels();
@@ -22,11 +26,10 @@ describe("pos_store.js", () => {
     });
 
     test("orderNoteFormat", async () => {
-        const store = await setupPosEnv();
-        const str = store.getStrNotes("string");
+        const str = getStrNotes("string");
         expect(str).toBeOfType("string");
         expect(str).toBe("string");
-        const json2str = store.getStrNotes([{ text: "json", colorIndex: 0 }]);
+        const json2str = getStrNotes([{ text: "json", colorIndex: 0 }]);
         expect(json2str).toBeOfType("string");
         expect(json2str).toBe("json");
     });
@@ -140,6 +143,16 @@ describe("pos_store.js", () => {
             expect(order2.lines[1].id).toBeOfType("number");
         });
 
+        test("getOrderChanges", async () => {
+            const store = await setupPosEnv();
+            const product = store.models["product.product"].get(5);
+            product.display_name = "001 TEST";
+            await getFilledOrder(store);
+            const result = store.getOrderChanges();
+            const [line] = Object.values(result.orderlines);
+            expect(line.basic_name).toBe("001 TEST");
+        });
+
         test("sync no network should not raise error", async () => {
             const store = await setupPosEnv();
             const order = await getFilledOrder(store);
@@ -195,9 +208,9 @@ describe("pos_store.js", () => {
     test("changesToOrderNoPrepCateg", async () => {
         const store = await setupPosEnv();
         const order = await getFilledOrder(store);
-        const orderChange = store.changesToOrder(order, new Set([]), false);
-        expect(orderChange.new.length).toBe(0);
-        expect(orderChange.cancelled.length).toBe(0);
+        const generator = store.ticketPrinter.getGenerator({ models: store.models, order });
+        const changes = generator.generatePreparationData(new Set([]), {});
+        expect(changes.length).toBe(0);
     });
 
     test("orderContainsProduct", async () => {
@@ -230,24 +243,13 @@ describe("pos_store.js", () => {
         order.lines[1].setNote('[{"text":"Wait","colorIndex":0}]');
 
         order.lines[0].setCustomerNote("Test Orderline Customer Note");
-        const orderChange = store.changesToOrder(order, new Set([...pos_categories]), false);
-
-        const { orderData, changes } = store.generateOrderChange(
-            order,
-            orderChange,
-            pos_categories,
-            false
-        );
-
-        const receiptsData = await store.generateReceiptsDataToPrint(
-            orderData,
-            changes,
-            orderChange
-        );
-        expect(receiptsData.length).toBe(1);
-        expect(receiptsData[0].changes.title).toBe("NEW");
-        expect(receiptsData[0].changes.data.length).toBe(2);
-        expect(receiptsData[0].changes.data[0]).toEqual({
+        const generator = store.ticketPrinter.getGenerator({ models: store.models, order });
+        const orderChange = generator.generatePreparationData(new Set([...pos_categories]), {});
+        const newChanges = orderChange[0].changes;
+        expect(orderChange.length).toBe(1);
+        expect(newChanges.title).toBe("NEW");
+        expect(newChanges.data.length).toBe(2);
+        expect(newChanges.data[0]).toEqual({
             uuid: order.lines[0].uuid,
             name: "TEST",
             basic_name: "TEST",
@@ -263,7 +265,7 @@ describe("pos_store.js", () => {
             group: undefined,
             isCombo: false,
         });
-        expect(receiptsData[0].changes.data[1]).toEqual({
+        expect(newChanges.data[1]).toEqual({
             uuid: order.lines[1].uuid,
             name: "TEST 2",
             basic_name: "TEST 2",
@@ -312,7 +314,11 @@ describe("pos_store.js", () => {
             noteUpdate: [],
         };
 
-        const filtered = store.filterChangeByCategories(allowedCategories, currentOrderChange);
+        const filtered = filterChangeByCategories(
+            new Set(allowedCategories),
+            currentOrderChange,
+            store.models
+        );
 
         const expectedUuids = ["combo-parent-uuid", "combo-child-a-uuid", "line1"];
         const actualUuids = filtered.new.map((c) => c.uuid);
@@ -340,34 +346,12 @@ describe("pos_store.js", () => {
         expect(openOrders.length).toBe(0);
     });
 
-    test("getOrderData", async () => {
-        const store = await setupPosEnv();
-        const order = await getFilledOrder(store);
-        const orderData = store.getOrderData(order);
-        expect(orderData).toEqual({
-            reprint: undefined,
-            pos_reference: "1001",
-            config_name: "Hoot",
-            time: "10:30",
-            tracking_number: "1001",
-            preset_time: false,
-            preset_name: "In",
-            employee_name: "Administrator",
-            internal_note: "",
-            general_customer_note: "",
-            changes: {
-                title: "",
-                data: [],
-            },
-        });
-    });
-
     test("productsToDisplay", async () => {
         const store = await setupPosEnv();
         store.selectedCategory = store.models["pos.category"].get(1);
         let products = store.productsToDisplay;
         expect(products.length).toBe(2);
-        expect(products[0].id).toBe(17);
+        expect(products[0].id).toBe(19);
         expect(products[1].id).toBe(5);
         expect(store.selectedCategory.id).toBe(1);
         store.selectedCategory = store.models["pos.category"].get(1);
@@ -389,9 +373,9 @@ describe("pos_store.js", () => {
         // Case 1: Grouping disabled
         store.config.iface_group_by_categ = false;
         let grouped = store.productToDisplayByCateg;
-        expect(grouped.length).toBe(1); //Only one group
+        expect(grouped.length).toBe(1); // Only one group
         expect(grouped[0][0]).toBe("0");
-        expect(grouped[0][1].length).toBe(15);
+        expect(grouped[0][1].length).toBe(17); // 17 products in same group
 
         // Case 2: Grouping enabled
         store.config.iface_group_by_categ = true;
@@ -437,17 +421,6 @@ describe("pos_store.js", () => {
         expect(grouped[0][1][0].name).toBe("Club sandwich");
         expect(grouped[1][1][0].name).toBe("Bacon burger");
         expect(grouped[2][1][0].name).toBe("Pizza margarita");
-
-        // Case 6: Grouping with special products excluded
-        const specialProduct = store.models["product.template"].get(25);
-        store.searchProductWord = "";
-        store.selectedCategory = store.models["pos.category"].get(
-            specialProduct.pos_categ_ids[0].id
-        );
-
-        grouped = store.productToDisplayByCateg;
-        expect(grouped).toHaveLength(1);
-        expect(grouped[0][1].map((p) => p.id)).not.toInclude(specialProduct.id);
     });
 
     test("productToDisplayByCateg count", async () => {
@@ -461,8 +434,6 @@ describe("pos_store.js", () => {
                 store.models["product.template"].create({
                     name: `${prefix}_${i}`,
                     pos_categ_ids: [categ.id],
-                    active: true,
-                    available_in_pos: true,
                 });
             }
 
@@ -579,79 +550,150 @@ describe("pos_store.js", () => {
         expect(store.getPaymentMethodFmtAmount(card2, order)).toBeEmpty();
     });
 
-    test("canEditPayment", async () => {
+    test("displayQrCode", async () => {
         const store = await setupPosEnv();
         const order = await getFilledOrder(store);
-        expect(store.canEditPayment(order)).toBe(true);
-        order.nb_print = 1;
-        expect(store.canEditPayment(order)).toBe(false);
+        const card = store.models["pos.payment.method"].get(2);
+        const paymentline = createPaymentLine(store, order, card);
+
+        // No qr_code
+        store.displayQrCode(paymentline);
+        expect(store.qrCode).toBeEmpty();
+
+        // With qr_code
+        paymentline.qr_code = "Test QR Code";
+        store.displayQrCode(paymentline);
+        expect({ ...(store.qrCode || {}), closer: typeof store.qrCode?.closer }).toEqual({
+            paymentline,
+            closer: "function",
+        });
     });
 
-    describe("cacheReceiptLogo", () => {
-        function getCompanyLogo256Url(companyId) {
-            const fullUrl = imageUrl("res.company", companyId, "logo", {
-                width: 256,
-                height: 256,
-            });
-            const index = fullUrl.indexOf("/web");
-            return fullUrl.substring(index);
+    test("closeQrCode", async () => {
+        const store = await setupPosEnv();
+        const order = await getFilledOrder(store);
+        const card = store.models["pos.payment.method"].get(2);
+        const paymentline = createPaymentLine(store, order, card);
+
+        // no error if no qrCode
+        store.closeQrCode();
+        expect(store.qrCode).toBeEmpty();
+
+        // close qrCode
+        store.qrCode = { paymentline, closer: () => {} };
+        store.closeQrCode();
+        expect(store.qrCode).toBeEmpty();
+    });
+
+    test("getValidationOrderOptions", async () => {
+        const store = await setupPosEnv();
+        const order = await getFilledOrder(store);
+
+        const fastPM = store.config.payment_method_ids[0];
+        const card = store.models["pos.payment.method"].get(2);
+
+        const getOpts = () => store.getValidationOrderOptions({ order });
+        const expectedWithoutFastPM = {
+            pos: store,
+            orderUuid: order.uuid,
+        };
+        const expectedWithFastPM = {
+            pos: store,
+            orderUuid: order.uuid,
+            fastPaymentMethod: fastPM,
+        };
+
+        // No payment lines
+        expect(getOpts()).toEqual(expectedWithFastPM);
+        // Refund order
+        order.is_refund = true;
+        const paymentline = createPaymentLine(store, order, card);
+        expect(getOpts()).toEqual(expectedWithoutFastPM);
+
+        // No refund + positive payment
+        order.is_refund = false;
+        expect(getOpts()).toEqual(expectedWithoutFastPM);
+
+        // No refund + negative payment
+        paymentline.amount = -10;
+        expect(getOpts()).toEqual(expectedWithFastPM);
+
+        // No refund + multiple payments
+        createPaymentLine(store, order, card, { amount: -5 });
+        expect(getOpts()).toEqual(expectedWithoutFastPM);
+    });
+
+    test("autoValidateOrder", async () => {
+        const store = await setupPosEnv();
+        const order = await getFilledOrder(store);
+        store.validateOrder = async () => "test_validated";
+
+        // Should not be validated
+        order.toBeValidate = () => false;
+        expect(await store.autoValidateOrder(order)).toBe(false);
+
+        // Should not autovalidate electronic payments
+        order.toBeValidate = () => true;
+        store.config.auto_validate_electronic_payment = false;
+        expect(await store.autoValidateOrder(order)).toBe(false);
+
+        // Is in refund process
+        store.config.auto_validate_electronic_payment = true;
+        order.isRefundInProcess = () => true;
+        expect(await store.autoValidateOrder(order)).toBe(false);
+
+        // Should be autovalidated
+        order.isRefundInProcess = () => false;
+        expect(await store.autoValidateOrder(order)).toBe("test_validated");
+    });
+
+    test("tip scenario with different decimal separators", async () => {
+        const store = await setupPosEnv();
+        const numberBuffer = getService("number_buffer");
+        const order = store.addNewOrder();
+
+        const fakeState = { buffer: "", toStartOver: false, lastSet: false };
+        numberBuffer.bufferHolderStack.push({
+            component: {},
+            state: fakeState,
+            config: { decimalPoint: false },
+        });
+
+        patchWithCleanup(localization, { decimalPoint: ".", thousandsSep: "," });
+        numberBuffer._setUp();
+        expect(numberBuffer.decimalPoint).toBe(".");
+
+        localization.decimalPoint = ",";
+        localization.thousandsSep = ".";
+        numberBuffer._setUp();
+
+        expect(numberBuffer.decimalPoint).toBe(",");
+
+        for (const key of ["1", ",", "5", "0"]) {
+            numberBuffer._updateBuffer(key);
         }
+        expect(numberBuffer.get()).toBe("1,50");
+        expect(numberBuffer.getFloat()).toBe(1.5);
 
-        test("correctly cached", async () => {
-            onRpc(getCompanyLogo256Url("<int:id>"), async (request, { id }) => {
-                expect.step(`Company logo ${id} fetched`);
-                return `Company logo ${id}`;
-            });
-            const store = await setupPosEnv();
-            const companyId = store.company.id;
-            expect.verifySteps([`Company logo ${companyId} fetched`]);
-            const { receiptLogoUrl } = store.config;
-            expect(receiptLogoUrl).toInclude("data:");
-            expect(atob(receiptLogoUrl.split(",")[1])).toInclude(`Company logo ${companyId}`);
-        });
+        store.setOrder(order);
+        await store.setTip(numberBuffer.getFloat());
+        expect(order.is_tipped).toBe(true);
+        expect(order.tip_amount).toBe(1.5);
 
-        test("fetch failed", async () => {
-            onRpc(getCompanyLogo256Url("<int:id>"), async (request, { id }) => {
-                expect.step(`Company logo ${id} fetched`);
-                throw new Error("Fetch failed");
-            });
-            const store = await setupPosEnv();
-            const companyId = store.company.id;
-            expect.verifySteps([`Company logo ${companyId} fetched`]);
-            expect(store.config.receiptLogoUrl).toInclude(getCompanyLogo256Url(companyId));
-        });
+        fakeState.buffer = "";
+        localization.decimalPoint = ".";
+        localization.thousandsSep = ",";
+        numberBuffer._setUp();
+        expect(numberBuffer.decimalPoint).toBe(".");
 
-        test("preSyncAllOrders", async () => {
-            // This test check prices sign on preSyncAllOrders for refunds
-            const store = await setupPosEnv();
-            const order = await getFilledOrder(store);
+        for (const key of ["2", ".", "5"]) {
+            numberBuffer._updateBuffer(key);
+        }
+        expect(numberBuffer.get()).toBe("2.5");
+        expect(numberBuffer.getFloat()).toBe(2.5);
 
-            await store.preSyncAllOrders([order]);
-            expect(order.amount_total).toEqual(17.85);
-            expect(order.amount_tax).toEqual(2.85);
-            expect(order.lines[0].qty).toEqual(3);
-            expect(order.lines[0].price_unit).toEqual(3);
-            expect(order.lines[0].price_subtotal).toEqual(9);
-            expect(order.lines[0].price_subtotal_incl).toEqual(10.35);
-            expect(order.lines[1].qty).toEqual(2);
-            expect(order.lines[1].price_unit).toEqual(3);
-            expect(order.lines[1].price_subtotal).toEqual(6);
-            expect(order.lines[1].price_subtotal_incl).toEqual(7.5);
-
-            order.is_refund = true;
-            order.lines.forEach((line) => (line.qty = -line.qty));
-            await store.preSyncAllOrders([order]);
-
-            expect(order.amount_total).toEqual(-17.85);
-            expect(order.amount_tax).toEqual(-2.85);
-            expect(order.lines[0].qty).toEqual(-3);
-            expect(order.lines[0].price_unit).toEqual(3);
-            expect(order.lines[0].price_subtotal).toEqual(9);
-            expect(order.lines[0].price_subtotal_incl).toEqual(10.35);
-            expect(order.lines[1].qty).toEqual(-2);
-            expect(order.lines[1].price_unit).toEqual(3);
-            expect(order.lines[1].price_subtotal).toEqual(6);
-            expect(order.lines[1].price_subtotal_incl).toEqual(7.5);
-        });
+        store.setOrder(order);
+        await store.setTip(numberBuffer.getFloat());
+        expect(order.tip_amount).toBe(2.5);
     });
 });

@@ -1,3 +1,4 @@
+import { useLayoutEffect, useState } from "@web/owl2/utils";
 import { usePos } from "@point_of_sale/app/hooks/pos_hook";
 import { Component } from "@odoo/owl";
 import { Orderline } from "@point_of_sale/app/components/orderline/orderline";
@@ -8,6 +9,7 @@ import { makeAwaitable } from "@point_of_sale/app/utils/make_awaitable_dialog";
 import { NumberPopup } from "@point_of_sale/app/components/popups/number_popup/number_popup";
 import { parseFloat } from "@web/views/fields/parsers";
 import { OrderDisplay } from "@point_of_sale/app/components/order_display/order_display";
+import { ChoseComboPopup } from "@point_of_sale/app/components/popups/chose_combo_popup/chose_combo_popup";
 
 export class OrderSummary extends Component {
     static template = "point_of_sale.OrderSummary";
@@ -22,29 +24,33 @@ export class OrderSummary extends Component {
         this.numberBuffer = useService("number_buffer");
         this.dialog = useService("dialog");
         this.pos = usePos();
+        this.state = useState({
+            potentialCombos: [],
+        });
 
         this.numberBuffer.use({
             triggerAtInput: (...args) => this.updateSelectedOrderline(...args),
             useWithBarcode: true,
         });
+
+        this.updatePotentialCombos();
+
+        useLayoutEffect(
+            () => {
+                // We update the potential combos when the order changes
+                // or the quantity of the items changes.
+                this.updatePotentialCombos();
+            },
+            () => [this.currentOrder.totalQuantity, this.currentOrder.id]
+        );
+    }
+
+    updatePotentialCombos() {
+        this.state.potentialCombos = this.pos.getApplicableProductCombo("limited");
     }
 
     get currentOrder() {
         return this.pos.selectedOrder;
-    }
-
-    async editPackLotLines(line) {
-        const isAllowOnlyOneLot = line.product_id.isAllowOnlyOneLot();
-        let editedPackLotLines = [];
-        if (line.refunded_orderline_id) {
-            editedPackLotLines = await this.pos.editLotsRefund(line);
-        } else {
-            editedPackLotLines = await this.pos.editLots(
-                line.product_id,
-                line.getPackLotLinesToEdit(isAllowOnlyOneLot)
-            );
-        }
-        line.editPackLotLines(editedPackLotLines);
     }
 
     clickLine(ev, orderline) {
@@ -264,7 +270,12 @@ export class OrderSummary extends Component {
 
     async setLinePrice(line, price) {
         line.price_type = "manual";
-        line.setUnitPrice(price);
+        if (line.product_id.to_weight) {
+            const val = line.price_unit ? parseFloat(price) / line.price_unit : 0;
+            line.setQuantity(val, false);
+        } else {
+            line.setUnitPrice(price);
+        }
     }
 
     async _showDecreaseQuantityPopup() {
@@ -366,5 +377,76 @@ export class OrderSummary extends Component {
             newLine.setQuantity(0);
         }
         return newLine;
+    }
+    get isComboApplicable() {
+        return this.state.potentialCombos.length > 0;
+    }
+    getSortedBestPotentialCombos() {
+        const bestCombos = {
+            applicable: [],
+            upsell: [],
+        };
+        this.pos.getApplicableProductCombo("combinations").forEach((applicable) => {
+            applicable.comboPrice = applicable.productTmpl.getPrice(
+                this.currentOrder.pricelist_id,
+                applicable.combinationsQty
+            );
+            applicable.numberOfUpsell = Object.values(applicable.combinations[0]).reduce(
+                (acc, combo) => {
+                    if (combo.upsell) {
+                        return acc + 1;
+                    }
+                    return acc;
+                },
+                0
+            );
+            if (applicable.numberOfUpsell > 0) {
+                bestCombos.upsell.push(applicable);
+            } else {
+                bestCombos.applicable.push(applicable);
+            }
+        });
+        bestCombos.applicable.sort((a, b) => b.comboPrice - a.comboPrice);
+        bestCombos.upsell.sort((a, b) => {
+            if (a.numberOfUpsell === b.numberOfUpsell) {
+                return b.comboPrice - a.comboPrice;
+            }
+            return a.numberOfUpsell - b.numberOfUpsell;
+        });
+        return bestCombos;
+    }
+    get bestComboName() {
+        let name = `
+            ${this.state.potentialCombos[0].quantity} ${this.state.potentialCombos[0].productTmpl.display_name}`;
+        if (this.state.potentialCombos.length > 1) {
+            name += " + Others";
+        }
+        return name;
+    }
+    async applyBestCombo(keepOpen = false) {
+        let comboToApply = false;
+        const bestPotentialCombos = this.getSortedBestPotentialCombos();
+        if (
+            bestPotentialCombos.upsell.length + bestPotentialCombos.applicable.length >
+            (keepOpen ? 0 : 1)
+        ) {
+            comboToApply = await makeAwaitable(this.dialog, ChoseComboPopup, {
+                potentialCombos: bestPotentialCombos,
+            });
+        } else if (bestPotentialCombos.applicable.length == 1) {
+            comboToApply = bestPotentialCombos.applicable[0];
+        } else if (bestPotentialCombos.upsell.length == 1) {
+            comboToApply = bestPotentialCombos.upsell[0];
+        }
+        if (comboToApply) {
+            // Apply combo
+            comboToApply = this.pos.getApplicableProductCombo("full", comboToApply.productTmpl);
+            await this.pos.createComboFromLines(
+                comboToApply[0].productTmpl,
+                comboToApply[0].combinations
+            );
+            // If more combo applicable left, keep popup opened
+            await this.applyBestCombo(true);
+        }
     }
 }

@@ -1,6 +1,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo import api, fields, models, _
+from odoo.addons.resource.models.utils import extract_comodel_domain
 from odoo.exceptions import ValidationError, AccessError
 from odoo.fields import Domain
 from odoo.tools import SQL
@@ -22,7 +23,7 @@ class ProjectTask(models.Model):
         ])
         return domain
 
-    sale_order_id = fields.Many2one('sale.order', 'Sales Order', compute='_compute_sale_order_id', store=True, help="Sales order to which the task is linked.", group_expand="_group_expand_sales_order")
+    sale_order_id = fields.Many2one('sale.order', 'Sales Order', compute='_compute_sale_order_id', store=True, index='btree_not_null', help="Sales order to which the task is linked.", group_expand="_group_expand_sales_order")
     sale_line_id = fields.Many2one(
         'sale.order.line', 'Sales Order Item',
         copy=True, tracking=True, index='btree_not_null', recursive=True,
@@ -62,7 +63,11 @@ class ProjectTask(models.Model):
         scale = self.env.context.get('gantt_scale')
         if not (start_date and scale):
             return sales_orders
-        search_on_comodel = self._search_on_comodel(domain, "sale_order_id", "sale.order")
+        comodel_domain = extract_comodel_domain(self, domain, "sale_order_id")
+        if comodel_domain.is_true():
+            # no field in the domain was related to sale_order_id
+            return sales_orders
+        search_on_comodel = self.env["sale.order"].search(comodel_domain)
         if search_on_comodel:
             return search_on_comodel
         return sales_orders
@@ -149,36 +154,6 @@ class ProjectTask(models.Model):
                         order_id=task.sale_line_id.order_id.name,
                         product_id=task.sale_line_id.product_id.display_name,
                     ))
-
-    def _ensure_sale_order_linked(self, sol_ids):
-        """ Orders created from project/task are supposed to be confirmed to match the typical flow from sales, but since
-        we allow SO creation from the project/task itself we want to confirm newly created SOs immediately after creation.
-        However this would leads to SOs being confirmed without a single product, so we'd rather do it on record save.
-        """
-        quotations = self.env['sale.order.line'].sudo()._read_group(
-            domain=[('state', '=', 'draft'), ('id', 'in', sol_ids)],
-            aggregates=['order_id:recordset'],
-        )[0][0]
-        if quotations:
-            quotations.action_confirm()
-
-    @api.model_create_multi
-    def create(self, vals_list):
-        tasks = super().create(vals_list)
-        sol_ids = {
-            vals['sale_line_id']
-            for vals in vals_list
-            if vals.get('sale_line_id')
-        }
-        if sol_ids:
-            tasks._ensure_sale_order_linked(list(sol_ids))
-        return tasks
-
-    def write(self, vals):
-        task = super().write(vals)
-        if sol_id := vals.get('sale_line_id'):
-            self._ensure_sale_order_linked([sol_id])
-        return task
 
     # ---------------------------------------------------
     # Actions

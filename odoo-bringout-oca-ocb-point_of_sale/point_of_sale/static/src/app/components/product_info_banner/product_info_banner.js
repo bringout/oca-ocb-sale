@@ -1,4 +1,5 @@
-import { Component, useEffect, useState, onWillUnmount } from "@odoo/owl";
+import { useLayoutEffect, useState } from "@web/owl2/utils";
+import { Component, onWillUnmount } from "@odoo/owl";
 import { usePos } from "@point_of_sale/app/hooks/pos_hook";
 import { useTrackedAsync } from "@point_of_sale/app/hooks/hooks";
 import { useService } from "@web/core/utils/hooks";
@@ -12,7 +13,7 @@ export class ProductInfoBanner extends Component {
     };
     static props = {
         productTemplate: Object,
-        product: { type: Object | null, optional: true },
+        product: { type: [Object, { value: null }], optional: true },
         info: { type: Object, optional: true },
     };
 
@@ -28,7 +29,6 @@ export class ProductInfoBanner extends Component {
             free_qty: 0,
             uom: "",
         });
-
         const debouncedFetchStocks = debounce(async (product, productTemplate) => {
             let result = {};
             if (!this.props.info) {
@@ -42,15 +42,11 @@ export class ProductInfoBanner extends Component {
             }
 
             if (result) {
-                const productInfo = result.productInfo;
-                this.state.other_warehouses = productInfo.warehouses.slice(1);
-                this.state.available_quantity = productInfo.warehouses[0]?.available_quantity;
-                this.state.free_qty = productInfo.warehouses[0]?.free_qty;
-                this.state.uom = productInfo.warehouses[0]?.uom;
+                this.updateState(result.productInfo);
             }
         }, 500);
 
-        useEffect(
+        useLayoutEffect(
             () => {
                 if (this.props.productTemplate) {
                     debouncedFetchStocks(this.props.product, this.props.productTemplate);
@@ -59,5 +55,10 @@ export class ProductInfoBanner extends Component {
             () => [this.props.product]
         );
         onWillUnmount(() => debouncedFetchStocks.cancel());
+    }
+
+    updateState(productInfo) {
+        this.state.free_qty = productInfo.free_qty;
+        this.state.uom = productInfo.uom;
     }
 }
