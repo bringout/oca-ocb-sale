@@ -159,7 +159,7 @@ msgstr ""
 # model_terms:ir.ui.view,arch_db:event_sale.event_configurator_view_form
 #, []
 msgid "Close"
-msgstr "Amortizovano"
+msgstr "Zatvori"
 
 # model:
 # model_terms:ir.actions.act_window,help:event_sale.event_sale_report_action

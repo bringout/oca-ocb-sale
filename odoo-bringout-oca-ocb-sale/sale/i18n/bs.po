@@ -1337,7 +1337,7 @@ msgstr ""
 # model: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_pay_modal
 #, []
 msgid "Close"
-msgstr "Amortizovano"
+msgstr "Zatvori"
 
 # model:
 # model:ir.actions.server,name:sale.model_sale_order_action_close_invoicing

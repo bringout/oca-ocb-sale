@@ -2292,7 +2292,7 @@ msgstr "Klijent"
 # code:addons/point_of_sale/static/src/app/components/popups/chose_combo_popup/chose_combo_popup.xml
 #, []
 msgid "Close"
-msgstr "Amortizovano"
+msgstr "Zatvori"
 
 # model: code:addons/point_of_sale/static/src/app/components/navbar/navbar.xml
 #, []
