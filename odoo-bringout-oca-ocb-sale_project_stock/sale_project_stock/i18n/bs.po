@@ -1,73 +1,90 @@
-# Translation of Odoo Server.
-# This file contains the translation of the following modules:
-# * sale_project_stock
 #
-# Odoo Translation Bot <c3p@odoo.com>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 19.0\n"
+"Project-Id-Version: Odoo Server master (sale_project_stock)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-20 09:02+0000\n"
-"PO-Revision-Date: 2025-10-08 18:38+0000\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"Language-Team: Bosnian\n"
 "Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#. module: sale_project_stock
-#: model:ir.model.fields,field_description:sale_project_stock.field_project_project__display_name
-#: model:ir.model.fields,field_description:sale_project_stock.field_stock_move__display_name
-#: model:ir.model.fields,field_description:sale_project_stock.field_stock_picking__display_name
+# model: model:ir.model,name:sale_project_stock.model_account_analytic_line
+#, []
+msgid "Analytic Line"
+msgstr ""
+
+# model:
+# model:ir.model.fields,field_description:sale_project_stock.field_account_analytic_line__billable_type
+#, []
+msgid "Billable Type"
+msgstr ""
+
+# model:
+# model:ir.model.fields,field_description:sale_project_stock.field_account_analytic_line__display_name
+#, []
 msgid "Display Name"
-msgstr ""
+msgstr "Naziv za prikaz"
 
-#. module: sale_project_stock
-#: model:ir.model.fields,field_description:sale_project_stock.field_project_project__id
-#: model:ir.model.fields,field_description:sale_project_stock.field_stock_move__id
-#: model:ir.model.fields,field_description:sale_project_stock.field_stock_picking__id
+# model:
+# model:ir.model.fields,field_description:sale_project_stock.field_account_analytic_line__id
+#, []
 msgid "ID"
+msgstr "ID"
+
+# model:
+# model:ir.model.fields.selection,name:sale_project_stock.selection__account_analytic_line__billable_type__16_picking_entry_negative
+#, []
+msgid "Inventory Transfers (Costs)"
 msgstr ""
 
-#. module: sale_project_stock
-#: model:ir.model,name:sale_project_stock.model_project_project
+# model:
+# model:ir.model.fields.selection,name:sale_project_stock.selection__account_analytic_line__billable_type__15_picking_entry_positive
+#, []
+msgid "Inventory Transfers (Revenues)"
+msgstr ""
+
+# model: model:ir.model,name:sale_project_stock.model_project_project
+#, []
 msgid "Project"
-msgstr ""
+msgstr "Projekt"
 
-#. module: sale_project_stock
-#: model:ir.model,name:sale_project_stock.model_stock_move
+# model: model:ir.model,name:sale_project_stock.model_stock_move
+#, []
 msgid "Stock Move"
-msgstr ""
+msgstr "Kretanje zaliha"
 
-#. module: sale_project_stock
-#. odoo-python
-#: code:addons/sale_project_stock/models/stock_picking.py:0
+# model: code:addons/sale_project_stock/models/stock_picking.py
+#, []
 msgid ""
 "The Sales Order %(order)s linked to the Project %(project)s is cancelled. "
 "You cannot validate a stock picking on a cancelled Sales Order."
 msgstr ""
+"Prodajna narudžba %(order)s povezana s projektom %(project)s je otkazana. Ne"
+" možete validirati skladišno izdavanje za otkazanu prodajnu narudžbu."
 
-#. module: sale_project_stock
-#. odoo-python
-#: code:addons/sale_project_stock/models/stock_picking.py:0
+# model: code:addons/sale_project_stock/models/stock_picking.py
+#, []
 msgid ""
 "The Sales Order %(order)s linked to the Project %(project)s is currently "
 "locked. You cannot validate a stock picking on a locked Sales Order. Please "
 "create a new SO linked to this Project."
 msgstr ""
+"Prodajna narudžba %(order)s povezana s projektom %(project)s je trenutno "
+"zaključana. Ne možete validirati skladišno izdavanje za zaključanu prodajnu "
+"narudžbu. Kreirajte novu prodajnu narudžbu povezanu s ovim projektom."
 
-#. module: sale_project_stock
-#. odoo-python
-#: code:addons/sale_project_stock/models/stock_picking.py:0
+# model: code:addons/sale_project_stock/models/stock_picking.py
+#, []
 msgid ""
 "The Sales Order %(order)s linked to the Project %(project)s must be "
 "validated before validating the stock picking."
 msgstr ""
+"Prodajna narudžba %(order)s povezana s projektom %(project)s mora biti "
+"validirana prije validacije skladišnog izdavanja."
 
-#. module: sale_project_stock
-#: model:ir.model,name:sale_project_stock.model_stock_picking
+# model: model:ir.model,name:sale_project_stock.model_stock_picking
+#, []
 msgid "Transfer"
-msgstr ""
+msgstr "Transfer"

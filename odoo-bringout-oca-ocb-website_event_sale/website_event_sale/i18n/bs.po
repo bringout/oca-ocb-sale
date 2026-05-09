@@ -1,191 +1,178 @@
-# Translation of Odoo Server.
-# This file contains the translation of the following modules:
-# * website_event_sale
 #
-# Translators:
-# Martin Trigaux, 2018
-# Boško Stojaković <bluesoft83@gmail.com>, 2018
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server saas~11.5\n"
+"Project-Id-Version: Odoo Server master (website_event_sale)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-09 18:39+0000\n"
-"PO-Revision-Date: 2018-09-21 13:18+0000\n"
-"Last-Translator: Boško Stojaković <bluesoft83@gmail.com>, 2018\n"
-"Language-Team: Bosnian (https://www.transifex.com/odoo/teams/41243/bs/)\n"
+"Language-Team: Bosnian\n"
 "Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#. module: website_event_sale
-#: model_terms:ir.ui.view,arch_db:website_event_sale.event_confirmation
+# model: model_terms:ir.ui.view,arch_db:website_event_sale.event_confirmation
+#, []
 msgid "<b>End</b>"
-msgstr ""
+msgstr "<b>Kraj</b>"
 
-#. module: website_event_sale
-#: model_terms:ir.ui.view,arch_db:website_event_sale.event_confirmation
+# model: model_terms:ir.ui.view,arch_db:website_event_sale.event_confirmation
+#, []
 msgid "<b>Start</b>"
-msgstr ""
+msgstr "<b>Početak</b>"
 
-#. module: website_event_sale
-#: model_terms:ir.ui.view,arch_db:website_event_sale.event_confirmation
+# model: model_terms:ir.ui.view,arch_db:website_event_sale.event_confirmation
+#, []
 msgid "<i class=\"fa fa-check me-2\" role=\"img\"/>Registered"
-msgstr ""
+msgstr "<i class=\"fa fa-check me-2\" role=\"img\"/>Registrovan"
 
-#. module: website_event_sale
-#: model_terms:ir.ui.view,arch_db:website_event_sale.registration_attendee_details
+# model:
+# model_terms:ir.ui.view,arch_db:website_event_sale.registration_attendee_details
+#, []
 msgid ""
 "<span>Sign In</span>\n"
 "                <span class=\"fa fa-sign-in\"/>"
 msgstr ""
+"<span>Prijavi se</span>\n"
+"                <span class=\"fa fa-sign-in\"/>"
 
-#. module: website_event_sale
-#. odoo-python
-#: code:addons/website_event_sale/models/product_pricelist.py:0
+# model: code:addons/website_event_sale/models/product_pricelist.py
+#, []
 msgid ""
 "A pricelist item with a positive min. quantity cannot be applied to this "
 "event tickets product."
 msgstr ""
+"Stavka cjenovnika sa pozitivnom min. količinom ne može biti primijenjena na "
+"proizvod karta ovog događaja."
 
-#. module: website_event_sale
-#: model_terms:ir.ui.view,arch_db:website_event_sale.registration_attendee_details
+# model:
+# model_terms:ir.ui.view,arch_db:website_event_sale.registration_attendee_details
+#, []
 msgid "Confirm Registration"
-msgstr ""
+msgstr "Potvrdi registraciju"
 
-#. module: website_event_sale
-#: model:ir.model.fields,field_description:website_event_sale.field_event_sale_report__display_name
-#: model:ir.model.fields,field_description:website_event_sale.field_product_pricelist_item__display_name
-#: model:ir.model.fields,field_description:website_event_sale.field_product_product__display_name
-#: model:ir.model.fields,field_description:website_event_sale.field_product_template__display_name
-#: model:ir.model.fields,field_description:website_event_sale.field_sale_order__display_name
-#: model:ir.model.fields,field_description:website_event_sale.field_sale_order_line__display_name
+# model:
+# model:ir.model.fields,field_description:website_event_sale.field_event_sale_report__display_name
+#, []
 msgid "Display Name"
-msgstr ""
+msgstr "Naziv za prikaz"
 
-#. module: website_event_sale
-#: model:ir.model,name:website_event_sale.model_event_sale_report
+# model: model:ir.model,name:website_event_sale.model_event_sale_report
+#, []
 msgid "Event Sales Report"
-msgstr ""
+msgstr "Izvještaj o prodaji događaja"
 
-#. module: website_event_sale
-#: model_terms:ir.ui.view,arch_db:website_event_sale.event_confirmation
+# model: model_terms:ir.ui.view,arch_db:website_event_sale.event_confirmation
+#, []
 msgid "Event Subtitle"
-msgstr ""
+msgstr "Podnaslov događaja"
 
-#. module: website_event_sale
-#: model:ir.model.fields,field_description:website_event_sale.field_product_product__event_ticket_ids
+# model:
+# model:ir.model.fields,field_description:website_event_sale.field_product_product__event_ticket_ids
+#, []
 msgid "Event Tickets"
 msgstr "Karta događaja"
 
-#. module: website_event_sale
-#: model_terms:ir.ui.view,arch_db:website_event_sale.event_confirmation
+# model: model_terms:ir.ui.view,arch_db:website_event_sale.event_confirmation
+#, []
 msgid "Event Title"
-msgstr ""
+msgstr "Naslov događaja"
 
-#. module: website_event_sale
-#: model_terms:ir.ui.view,arch_db:website_event_sale.modal_ticket_registration
+# model:
+# model_terms:ir.ui.view,arch_db:website_event_sale.modal_ticket_registration
+#, []
 msgid "Free"
-msgstr ""
+msgstr "Slobodan"
 
-#. module: website_event_sale
-#: model_terms:ir.ui.view,arch_db:website_event_sale.modal_ticket_registration
+# model:
+# model_terms:ir.ui.view,arch_db:website_event_sale.modal_ticket_registration
+#, []
 msgid "From"
-msgstr ""
+msgstr "Od"
 
-#. module: website_event_sale
-#: model_terms:ir.ui.view,arch_db:website_event_sale.registration_attendee_details
+# model:
+# model_terms:ir.ui.view,arch_db:website_event_sale.registration_attendee_details
+#, []
 msgid "Go to Payment"
-msgstr ""
+msgstr "Idi na plaćanje"
 
-#. module: website_event_sale
-#: model:ir.model.fields,field_description:website_event_sale.field_event_sale_report__id
-#: model:ir.model.fields,field_description:website_event_sale.field_product_pricelist_item__id
-#: model:ir.model.fields,field_description:website_event_sale.field_product_product__id
-#: model:ir.model.fields,field_description:website_event_sale.field_product_template__id
-#: model:ir.model.fields,field_description:website_event_sale.field_sale_order__id
-#: model:ir.model.fields,field_description:website_event_sale.field_sale_order_line__id
+# model:
+# model:ir.model.fields,field_description:website_event_sale.field_event_sale_report__id
+#, []
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
-#. module: website_event_sale
-#: model:ir.model,name:website_event_sale.model_product_pricelist_item
+# model: model:ir.model,name:website_event_sale.model_product_pricelist_item
+#, []
 msgid "Pricelist Rule"
-msgstr ""
+msgstr "Pravilo cjenika"
 
-#. module: website_event_sale
-#: model:ir.model,name:website_event_sale.model_product_template
+# model: model:ir.model,name:website_event_sale.model_product_template
+#, []
 msgid "Product"
-msgstr ""
+msgstr "Proizvod"
 
-#. module: website_event_sale
-#: model:ir.model,name:website_event_sale.model_product_product
+# model: model:ir.model,name:website_event_sale.model_product_product
+#, []
 msgid "Product Variant"
-msgstr ""
+msgstr "Varijanta proizvoda"
 
-#. module: website_event_sale
-#: model:ir.model.fields,field_description:website_event_sale.field_event_sale_report__is_published
-#: model_terms:ir.ui.view,arch_db:website_event_sale.event_sale_report_view_search
+# model:
+# model:ir.model.fields,field_description:website_event_sale.field_event_sale_report__is_published
+#, []
 msgid "Published Events"
-msgstr ""
+msgstr "Objavljeni događaji"
 
-#. module: website_event_sale
-#: model:ir.model,name:website_event_sale.model_sale_order
+# model: model:ir.model,name:website_event_sale.model_sale_order
+#, []
 msgid "Sales Order"
-msgstr ""
+msgstr "Narudžba"
 
-#. module: website_event_sale
-#: model:ir.model,name:website_event_sale.model_sale_order_line
+# model: model:ir.model,name:website_event_sale.model_sale_order_line
+#, []
 msgid "Sales Order Line"
 msgstr "Stavka prodajne narudžbe"
 
-#. module: website_event_sale
-#. odoo-python
-#: code:addons/website_event_sale/models/sale_order.py:0
+# model: code:addons/website_event_sale/models/sale_order.py
+#, []
 msgid "Sorry, The %(ticket)s tickets for the %(event)s event are sold out."
-msgstr ""
+msgstr "Žao nam je %(ticket)s karte za %(event)s događaj su rasprodane."
 
-#. module: website_event_sale
-#. odoo-python
-#: code:addons/website_event_sale/models/sale_order.py:0
+# model: code:addons/website_event_sale/models/sale_order.py
+#, []
 msgid ""
-"Sorry, only %(remaining_seats)d seats are still available for the %(ticket)s "
-"ticket for the %(event)s event%(slot)s."
+"Sorry, only %(remaining_seats)d seats are still available for the %(ticket)s"
+" ticket for the %(event)s event%(slot)s."
 msgstr ""
+"Nažalost, samo %(remaining_seats)d mjesta je još uvijek dostupno za "
+"%(ticket)s ulaznicu za događaj %(event)s%(slot)s."
 
-#. module: website_event_sale
-#. odoo-python
-#: code:addons/website_event_sale/models/sale_order.py:0
+# model: code:addons/website_event_sale/models/sale_order.py
+#, []
 msgid "The provided ticket doesn't exist"
-msgstr ""
+msgstr "Pružena karta ne postoji"
 
-#. module: website_event_sale
-#. odoo-python
-#: code:addons/website_event_sale/models/sale_order.py:0
+# model: code:addons/website_event_sale/models/sale_order.py
+#, []
 msgid "The provided ticket slot doesn't exist"
-msgstr ""
+msgstr "Navedeni slot ulaznice ne postoji"
 
-#. module: website_event_sale
-#. odoo-python
-#: code:addons/website_event_sale/models/sale_order.py:0
+# model: code:addons/website_event_sale/models/sale_order.py
+#, []
 msgid "The ticket doesn't match with this product."
-msgstr ""
+msgstr "Ulaznica se ne podudara sa ovim proizvodom."
 
-#. module: website_event_sale
-#. odoo-python
-#: code:addons/website_event_sale/models/product_pricelist.py:0
+# model: code:addons/website_event_sale/models/product_pricelist.py
+#, []
 msgid "Warning"
-msgstr ""
+msgstr "Upozorenje"
 
-#. module: website_event_sale
-#. odoo-python
-#: code:addons/website_event_sale/models/sale_order.py:0
+# model: code:addons/website_event_sale/models/sale_order.py
+#, []
 msgid "You cannot raise manually the event ticket quantity in your cart"
-msgstr ""
+msgstr "Ne možete ručno povećati količinu karte događaja u korpi"
 
-#. module: website_event_sale
-#: model_terms:ir.ui.view,arch_db:website_event_sale.modal_ticket_registration
+# model:
+# model_terms:ir.ui.view,arch_db:website_event_sale.modal_ticket_registration
+#, []
 msgid "to"
-msgstr ""
+msgstr "do"

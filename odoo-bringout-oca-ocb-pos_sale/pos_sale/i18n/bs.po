@@ -1,461 +1,404 @@
-# Translation of Odoo Server.
-# This file contains the translation of the following modules:
-# * pos_sale
 #
-# Translators:
-# Martin Trigaux, 2018
-# Boško Stojaković <bluesoft83@gmail.com>, 2018
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server saas~11.5\n"
+"Project-Id-Version: Odoo Server master (pos_sale)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-12 18:36+0000\n"
-"PO-Revision-Date: 2018-09-21 13:16+0000\n"
-"Last-Translator: Boško Stojaković <bluesoft83@gmail.com>, 2018\n"
-"Language-Team: Bosnian (https://www.transifex.com/odoo/teams/41243/bs/)\n"
+"Language-Team: Bosnian\n"
 "Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#. module: pos_sale
-#. odoo-python
-#: code:addons/pos_sale/models/sale_order.py:0
+# model: code:addons/pos_sale/models/sale_order.py
+#, []
 msgid "%(line_description)s (Cancelled)"
-msgstr ""
+msgstr "%(line_description)s (Otkazano)"
 
-#. module: pos_sale
-#. odoo-python
-#: code:addons/pos_sale/models/account_move.py:0
+# model: code:addons/pos_sale/models/account_move.py
+#, []
 msgid "%(old_name)s (Cancelled)"
-msgstr ""
+msgstr "%(old_name)s (Otkazano)"
 
-#. module: pos_sale
-#. odoo-javascript
-#: code:addons/pos_sale/static/src/app/components/orderline/orderline.xml:0
+# model:
+# code:addons/pos_sale/static/src/app/components/orderline/orderline.xml
+#, []
 msgid "(tax incl.)"
-msgstr ""
+msgstr "(porez uklj.)"
 
-#. module: pos_sale
-#: model_terms:ir.ui.view,arch_db:pos_sale.pos_orderline_receipt_information
+# model:
+# model_terms:ir.ui.view,arch_db:pos_sale.pos_orderline_receipt_information
+#, []
 msgid "<strong>Sale Order: </strong>"
 msgstr ""
 
-#. module: pos_sale
-#. odoo-javascript
-#: code:addons/pos_sale/static/src/app/services/pos_store.js:0
+# model: code:addons/pos_sale/static/src/app/services/pos_store.js
+#, []
 msgid "A new order has been created."
-msgstr ""
+msgstr "Nova narudžba je kreirana."
 
-#. module: pos_sale
-#: model:ir.model.fields,field_description:pos_sale.field_sale_order__amount_unpaid
+# model:
+# model:ir.model.fields,field_description:pos_sale.field_sale_order__amount_unpaid
+#, []
 msgid "Amount To Pay In POS"
-msgstr ""
+msgstr "Iznos za plaćanje u POS-u"
 
-#. module: pos_sale
-#: model:ir.model.fields,help:pos_sale.field_sale_order__amount_unpaid
+# model: model:ir.model.fields,help:pos_sale.field_sale_order__amount_unpaid
+#, []
 msgid "Amount left to pay in POS to avoid double payment or double invoicing."
 msgstr ""
+"Iznos koji preostaje za plaćanje u POS-u kako bi se izbjeglo dvostruko "
+"plaćanje ili dvostruko fakturisanje."
 
-#. module: pos_sale
-#. odoo-javascript
-#: code:addons/pos_sale/static/src/app/services/pos_store.js:0
+# model: code:addons/pos_sale/static/src/app/services/pos_store.js
+#, []
 msgid "Apply a down payment (fixed amount)"
-msgstr ""
+msgstr "Primijeni avans (fiksni iznos)"
 
-#. module: pos_sale
-#. odoo-javascript
-#: code:addons/pos_sale/static/src/app/services/pos_store.js:0
+# model: code:addons/pos_sale/static/src/app/services/pos_store.js
+#, []
 msgid "Apply a down payment (percentage)"
-msgstr ""
+msgstr "Primijeni avans (procenat)"
 
-#. module: pos_sale
-#: model:ir.model,name:pos_sale.model_res_config_settings
+# model: model:ir.model,name:pos_sale.model_res_config_settings
+#, []
 msgid "Config Settings"
-msgstr ""
+msgstr "Postavke konfiguracije"
 
-#. module: pos_sale
-#: model:ir.model,name:pos_sale.model_res_partner
+# model: model:ir.model,name:pos_sale.model_res_partner
+#, []
 msgid "Contact"
-msgstr ""
+msgstr "Kontakt"
 
-#. module: pos_sale
-#: model:ir.model,website_form_label:pos_sale.model_res_partner
+# model: model:ir.model,website_form_label:pos_sale.model_res_partner
+#, []
 msgid "Create a Customer"
-msgstr ""
+msgstr "Kreirajte kupca"
 
-#. module: pos_sale
-#: model:ir.model.fields,field_description:pos_sale.field_pos_order__currency_rate
+# model:
+# model:ir.model.fields,field_description:pos_sale.field_pos_order__currency_rate
+#, []
 msgid "Currency Rate"
 msgstr "Kursna lista"
 
-#. module: pos_sale
-#: model_terms:ir.ui.view,arch_db:pos_sale.message_body
-msgid "Delivered from"
-msgstr ""
-
-#. module: pos_sale
-#: model:ir.model.fields,field_description:pos_sale.field_pos_order_line__qty_delivered
+# model:
+# model:ir.model.fields,field_description:pos_sale.field_pos_order_line__qty_delivered
+#, []
 msgid "Delivery Quantity"
-msgstr ""
+msgstr "Količina isporuke"
 
-#. module: pos_sale
-#. odoo-javascript
-#: code:addons/pos_sale/static/src/app/services/pos_store.js:0
-msgid "Discard"
-msgstr ""
-
-#. module: pos_sale
-#: model:ir.model.fields,field_description:pos_sale.field_account_move__display_name
-#: model:ir.model.fields,field_description:pos_sale.field_account_move_line__display_name
-#: model:ir.model.fields,field_description:pos_sale.field_crm_team__display_name
-#: model:ir.model.fields,field_description:pos_sale.field_pos_config__display_name
-#: model:ir.model.fields,field_description:pos_sale.field_pos_order__display_name
-#: model:ir.model.fields,field_description:pos_sale.field_pos_order_line__display_name
-#: model:ir.model.fields,field_description:pos_sale.field_pos_order_receipt__display_name
-#: model:ir.model.fields,field_description:pos_sale.field_pos_session__display_name
-#: model:ir.model.fields,field_description:pos_sale.field_product_template__display_name
-#: model:ir.model.fields,field_description:pos_sale.field_res_config_settings__display_name
-#: model:ir.model.fields,field_description:pos_sale.field_res_partner__display_name
-#: model:ir.model.fields,field_description:pos_sale.field_sale_order__display_name
-#: model:ir.model.fields,field_description:pos_sale.field_sale_order_line__display_name
-#: model:ir.model.fields,field_description:pos_sale.field_sale_report__display_name
-#: model:ir.model.fields,field_description:pos_sale.field_stock_picking__display_name
+# model:
+# model:ir.model.fields,field_description:pos_sale.field_account_move__display_name
+#, []
 msgid "Display Name"
-msgstr ""
+msgstr "Naziv za prikaz"
 
-#. module: pos_sale
-#. odoo-javascript
-#: code:addons/pos_sale/static/src/app/services/pos_store.js:0
-msgid "Do you want to load the SN/Lots linked to the Sales Order?"
-msgstr ""
-
-#. module: pos_sale
-#. odoo-javascript
-#: code:addons/pos_sale/static/src/app/services/pos_store.js:0
+# model: code:addons/pos_sale/static/src/app/services/pos_store.js
+#, []
 msgid "Down Payment"
-msgstr ""
+msgstr "Avansna uplata"
 
-#. module: pos_sale
-#: model:product.template,name:pos_sale.default_downpayment_product_product_template
+# model:
+# model:product.template,name:pos_sale.default_downpayment_product_product_template
+#, []
 msgid "Down Payment (POS)"
-msgstr ""
+msgstr "Predujam (POS)"
 
-#. module: pos_sale
-#: model:ir.model.fields,field_description:pos_sale.field_pos_order_line__down_payment_details
+# model:
+# model:ir.model.fields,field_description:pos_sale.field_pos_order_line__down_payment_details
+#, []
 msgid "Down Payment Details"
-msgstr ""
+msgstr "Detalji predujma"
 
-#. module: pos_sale
-#: model:ir.model.fields,field_description:pos_sale.field_pos_config__down_payment_product_id
-#: model:ir.model.fields,field_description:pos_sale.field_res_config_settings__pos_down_payment_product_id
-#: model_terms:ir.ui.view,arch_db:pos_sale.res_config_settings_view_form
+# model:
+# model:ir.model.fields,field_description:pos_sale.field_pos_config__down_payment_product_id
+#, []
 msgid "Down Payment Product"
-msgstr ""
+msgstr "POS grupiranje"
 
-#. module: pos_sale
-#. odoo-python
-#: code:addons/pos_sale/models/sale_order.py:0
+# model: code:addons/pos_sale/models/sale_order.py
+#, []
 msgid ""
 "Down payment (ref: %(order_reference)s on \n"
 " %(date)s)"
 msgstr ""
+"Avansna uplata (ref: %(order_reference)s na \n"
+" %(date)s)"
 
-#. module: pos_sale
-#. odoo-javascript
-#: code:addons/pos_sale/static/src/app/services/pos_store.js:0
+# model: code:addons/pos_sale/static/src/app/services/pos_store.js
+#, []
 msgid "Due balance: %s"
-msgstr ""
+msgstr "Stanje dugovanja: %s"
 
-#. module: pos_sale
-#: model:ir.model.fields,field_description:pos_sale.field_account_move__id
-#: model:ir.model.fields,field_description:pos_sale.field_account_move_line__id
-#: model:ir.model.fields,field_description:pos_sale.field_crm_team__id
-#: model:ir.model.fields,field_description:pos_sale.field_pos_config__id
-#: model:ir.model.fields,field_description:pos_sale.field_pos_order__id
-#: model:ir.model.fields,field_description:pos_sale.field_pos_order_line__id
-#: model:ir.model.fields,field_description:pos_sale.field_pos_order_receipt__id
-#: model:ir.model.fields,field_description:pos_sale.field_pos_session__id
-#: model:ir.model.fields,field_description:pos_sale.field_product_template__id
-#: model:ir.model.fields,field_description:pos_sale.field_res_config_settings__id
-#: model:ir.model.fields,field_description:pos_sale.field_res_partner__id
-#: model:ir.model.fields,field_description:pos_sale.field_sale_order__id
-#: model:ir.model.fields,field_description:pos_sale.field_sale_order_line__id
-#: model:ir.model.fields,field_description:pos_sale.field_sale_report__id
-#: model:ir.model.fields,field_description:pos_sale.field_stock_picking__id
+# model:
+# model:ir.model.fields,field_description:pos_sale.field_account_move__id
+#, []
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
-#. module: pos_sale
-#: model:ir.model.fields.selection,name:pos_sale.selection__sale_report__state__invoiced
+# model:
+# model:ir.model.fields.selection,name:pos_sale.selection__sale_report__state__invoiced
+#, []
 msgid "Invoiced"
 msgstr "Fakturisano"
 
-#. module: pos_sale
-#. odoo-javascript
-#: code:addons/pos_sale/static/src/app/services/pos_store.js:0
+# model: code:addons/pos_sale/static/src/app/services/pos_store.js
+#, []
 msgid ""
 "It seems that you didn't configure a down payment product in your point of "
 "sale. You can go to your point of sale configuration to choose one."
 msgstr ""
+"Izgleda da niste konfigurisali proizvod za avansnu uplatu u svom prodajnom "
+"mjestu. Možete otići u konfiguraciju prodajnog mjesta da odaberete jedan."
 
-#. module: pos_sale
-#. odoo-javascript
-#: code:addons/pos_sale/static/src/app/services/pos_store.js:0
+# model: code:addons/pos_sale/static/src/app/services/pos_store.js
+#, []
 msgid ""
 "It seems that you didn't configure a down payment product in your point of "
 "sale. You can go to your point of sale settings to choose one."
 msgstr ""
 
-#. module: pos_sale
-#: model:ir.model,name:pos_sale.model_account_move
+# model: model:ir.model,name:pos_sale.model_account_move
+#, []
 msgid "Journal Entry"
-msgstr ""
+msgstr "Stavka dnevnika"
 
-#. module: pos_sale
-#: model:ir.model,name:pos_sale.model_account_move_line
+# model: model:ir.model,name:pos_sale.model_account_move_line
+#, []
 msgid "Journal Item"
-msgstr ""
+msgstr "Stavka dnevnika"
 
-#. module: pos_sale
-#. odoo-python
-#: code:addons/pos_sale/models/sale_order.py:0
+# model: code:addons/pos_sale/models/sale_order.py
+#, []
 msgid "Linked POS Orders"
-msgstr ""
+msgstr "Povezane narudžbe prodajnog mjesta"
 
-#. module: pos_sale
-#: model:ir.model.fields,field_description:pos_sale.field_pos_order_line__sale_order_origin_id
+# model:
+# model:ir.model.fields,field_description:pos_sale.field_pos_order_line__sale_order_origin_id
+#, []
 msgid "Linked Sale Order"
-msgstr ""
+msgstr "Povezana prodajna narudžba"
 
-#. module: pos_sale
-#. odoo-python
-#: code:addons/pos_sale/models/pos_order.py:0
+# model: code:addons/pos_sale/models/pos_order.py
+#, []
 msgid "Linked Sale Orders"
-msgstr ""
+msgstr "Povezane prodajne narudžbe"
 
-#. module: pos_sale
-#. odoo-javascript
-#: code:addons/pos_sale/static/src/app/services/pos_store.js:0
+# model: code:addons/pos_sale/static/src/app/services/pos_store.js
+#, []
 msgid "No down payment product"
-msgstr ""
+msgstr "Nema proizvoda predujma"
 
-#. module: pos_sale
-#: model:ir.actions.act_window,name:pos_sale.pos_session_action_from_crm_team
+# model:
+# model:ir.actions.act_window,name:pos_sale.pos_session_action_from_crm_team
+#, []
 msgid "Open Sessions"
-msgstr ""
+msgstr "Otvorene sesije"
 
-#. module: pos_sale
-#: model:ir.model.fields,field_description:pos_sale.field_sale_report__order_reference
+# model:
+# model:ir.model.fields,field_description:pos_sale.field_sale_report__order_reference
+#, []
 msgid "Order"
-msgstr ""
+msgstr "Nalog"
 
-#. module: pos_sale
-#: model:ir.model.fields,field_description:pos_sale.field_sale_order__pos_order_line_ids
-#: model:ir.model.fields,field_description:pos_sale.field_sale_order_line__pos_order_line_ids
+# model:
+# model:ir.model.fields,field_description:pos_sale.field_sale_order__pos_order_line_ids
+#, []
 msgid "Order lines Transfered to Point of Sale"
-msgstr ""
+msgstr "Linije narudžbi prenešene u prodajno mjesto"
 
-#. module: pos_sale
-#: model:ir.model.fields.selection,name:pos_sale.selection__sale_report__order_reference__pos_order
+# model:
+# model:ir.model.fields.selection,name:pos_sale.selection__sale_report__order_reference__pos_order
+#, []
 msgid "POS Order"
-msgstr ""
+msgstr "POS narudžba"
 
-#. module: pos_sale
-#: model:ir.model.fields.selection,name:pos_sale.selection__sale_report__state__paid
+# model:
+# model:ir.model.fields.selection,name:pos_sale.selection__sale_report__state__paid
+#, []
 msgid "Paid"
 msgstr "Plaćeno"
 
-#. module: pos_sale
-#: model:ir.model,name:pos_sale.model_pos_config
+# model: model:ir.model,name:pos_sale.model_pos_config
+#, []
 msgid "Point of Sale Configuration"
 msgstr "Postavke prodajnog mjesta"
 
-#. module: pos_sale
-#: model:ir.model,name:pos_sale.model_pos_order
+# model: model:ir.model,name:pos_sale.model_pos_order
+#, []
 msgid "Point of Sale Order"
 msgstr ""
 
-#. module: pos_sale
-#: model:ir.model,name:pos_sale.model_pos_order_line
+# model: model:ir.model,name:pos_sale.model_pos_order_line
+#, []
 msgid "Point of Sale Order Line"
 msgstr ""
 
-#. module: pos_sale
-#: model:ir.model,name:pos_sale.model_pos_order_receipt
+# model: model:ir.model,name:pos_sale.model_pos_order_receipt
+#, []
 msgid "Point of Sale Order Receipt Generator"
 msgstr ""
 
-#. module: pos_sale
-#: model:ir.model,name:pos_sale.model_pos_session
+# model: model:ir.model,name:pos_sale.model_pos_session
+#, []
 msgid "Point of Sale Session"
 msgstr "Sesija POS-a"
 
-#. module: pos_sale
-#: model:ir.model.fields,field_description:pos_sale.field_crm_team__pos_config_ids
+# model:
+# model:ir.model.fields,field_description:pos_sale.field_crm_team__pos_config_ids
+#, []
 msgid "Point of Sales"
-msgstr ""
+msgstr "Prodajna mjesta"
 
-#. module: pos_sale
-#: model:ir.model.fields,field_description:pos_sale.field_sale_order__pos_order_count
+# model:
+# model:ir.model.fields,field_description:pos_sale.field_sale_order__pos_order_count
+#, []
 msgid "Pos Order Count"
-msgstr ""
+msgstr "Pos broj narudžba"
 
-#. module: pos_sale
-#: model:ir.model.fields.selection,name:pos_sale.selection__sale_report__state__done
+# model:
+# model:ir.model.fields.selection,name:pos_sale.selection__sale_report__state__done
+#, []
 msgid "Posted"
 msgstr "Proknjižen"
 
-#. module: pos_sale
-#: model:ir.model,name:pos_sale.model_product_template
+# model: model:ir.model,name:pos_sale.model_product_template
+#, []
 msgid "Product"
+msgstr "Proizvod"
+
+# model:
+# code:addons/pos_sale/static/src/app/components/screens/product_screen/control_buttons/control_buttons.xml
+#, []
+msgid "Quotation / Order"
 msgstr ""
 
-#. module: pos_sale
-#. odoo-javascript
-#: code:addons/pos_sale/static/src/app/components/screens/product_screen/control_buttons/control_buttons.xml:0
-msgid "Quotation/Order"
-msgstr ""
-
-#. module: pos_sale
-#. odoo-javascript
-#: code:addons/pos_sale/static/src/app/services/pos_store.js:0
-msgid "SN/Lots Loading"
-msgstr ""
-
-#. module: pos_sale
-#. odoo-javascript
-#: code:addons/pos_sale/static/src/app/components/orderline/orderline.xml:0
+# model:
+# code:addons/pos_sale/static/src/app/components/orderline/orderline.xml
+#, []
 msgid "SO"
-msgstr ""
+msgstr "SO"
 
-#. module: pos_sale
-#: model:ir.model.fields,field_description:pos_sale.field_pos_order__sale_order_count
+# model:
+# model:ir.model.fields,field_description:pos_sale.field_pos_order__sale_order_count
+#, []
 msgid "Sale Order Count"
-msgstr ""
+msgstr "Broj ponuda"
 
-#. module: pos_sale
-#: model_terms:ir.ui.view,arch_db:pos_sale.res_config_settings_view_form
+# model: model_terms:ir.ui.view,arch_db:pos_sale.res_config_settings_view_form
+#, []
 msgid "Sales"
 msgstr "Prodaja"
 
-#. module: pos_sale
-#: model:ir.model,name:pos_sale.model_sale_report
+# model: model:ir.model,name:pos_sale.model_sale_report
+#, []
 msgid "Sales Analysis Report"
-msgstr ""
+msgstr "Izvještaj analize prodaje"
 
-#. module: pos_sale
-#: model:ir.model,name:pos_sale.model_sale_order
+# model: model:ir.model,name:pos_sale.model_sale_order
+#, []
 msgid "Sales Order"
 msgstr "Prodajna narudžba"
 
-#. module: pos_sale
-#: model:ir.model,name:pos_sale.model_sale_order_line
+# model: model:ir.model,name:pos_sale.model_sale_order_line
+#, []
 msgid "Sales Order Line"
-msgstr ""
+msgstr "Stavka narudžbe"
 
-#. module: pos_sale
-#: model:ir.model,name:pos_sale.model_crm_team
-#: model:ir.model.fields,field_description:pos_sale.field_pos_config__crm_team_id
-#: model:ir.model.fields,field_description:pos_sale.field_pos_order__crm_team_id
-#: model:ir.model.fields,field_description:pos_sale.field_pos_session__crm_team_id
-#: model_terms:ir.ui.view,arch_db:pos_sale.res_config_settings_view_form
+# model: model:ir.model,name:pos_sale.model_crm_team
+#, []
 msgid "Sales Team"
 msgstr "Prodajni tim"
 
-#. module: pos_sale
-#: model:ir.model.fields,field_description:pos_sale.field_res_config_settings__pos_crm_team_id
+# model:
+# model:ir.model.fields,field_description:pos_sale.field_res_config_settings__pos_crm_team_id
+#, []
 msgid "Sales Team (PoS)"
-msgstr ""
+msgstr "Prodajni tim (prodajno mjesto)"
 
-#. module: pos_sale
-#: model_terms:ir.ui.view,arch_db:pos_sale.res_config_settings_view_form
+# model: model_terms:ir.ui.view,arch_db:pos_sale.res_config_settings_view_form
+#, []
 msgid "Sales are reported to the following sales team"
-msgstr ""
+msgstr "Prodaje se prijavljivaju sljedećem prodajnom timu"
 
-#. module: pos_sale
-#. odoo-javascript
-#: code:addons/pos_sale/static/src/app/components/screens/product_screen/control_buttons/control_buttons.xml:0
-msgid "Set Sale Order"
-msgstr ""
-
-#. module: pos_sale
-#. odoo-javascript
-#: code:addons/pos_sale/static/src/app/services/pos_store.js:0
+# model: code:addons/pos_sale/static/src/app/services/pos_store.js
+#, []
 msgid "Settle the order"
-msgstr ""
+msgstr "Obradi nalog"
 
-#. module: pos_sale
-#: model:ir.model.fields,field_description:pos_sale.field_pos_order_line__sale_order_line_id
+# model:
+# model:ir.model.fields,field_description:pos_sale.field_pos_order_line__sale_order_line_id
+#, []
 msgid "Source Sale Order Line"
-msgstr ""
+msgstr "Tip tima"
 
-#. module: pos_sale
-#: model:ir.model.fields,field_description:pos_sale.field_sale_report__state
+# model:
+# model:ir.model.fields,field_description:pos_sale.field_sale_report__state
+#, []
 msgid "Status"
 msgstr "Status"
 
-#. module: pos_sale
-#: model:ir.model.fields,help:pos_sale.field_pos_order__currency_rate
+# model: model:ir.model.fields,help:pos_sale.field_pos_order__currency_rate
+#, []
 msgid ""
 "The rate of the currency to the currency of rate applicable at the date of "
 "the order"
-msgstr ""
+msgstr "Stopa valute prema valuti važećoj na datum narudžbe"
 
-#. module: pos_sale
-#: model:ir.model.fields,help:pos_sale.field_pos_config__crm_team_id
-#: model:ir.model.fields,help:pos_sale.field_pos_session__crm_team_id
-#: model:ir.model.fields,help:pos_sale.field_res_config_settings__pos_crm_team_id
+# model: model:ir.model.fields,help:pos_sale.field_pos_config__crm_team_id
+#, []
 msgid "This Point of sale's sales will be related to this Sales Team."
 msgstr ""
+"Prodaja ovog prodajnog mjesta će biti povezana sa ovim prodajnim timom."
 
-#. module: pos_sale
-#: model_terms:ir.ui.view,arch_db:pos_sale.res_config_settings_view_form
+# model: model_terms:ir.ui.view,arch_db:pos_sale.res_config_settings_view_form
+#, []
 msgid "This product will be applied when down payment is made"
-msgstr ""
+msgstr "Ovaj proizvod će biti primijenjen kada se vrši predujam"
 
-#. module: pos_sale
-#: model:ir.model.fields,help:pos_sale.field_pos_config__down_payment_product_id
-#: model:ir.model.fields,help:pos_sale.field_res_config_settings__pos_down_payment_product_id
+# model:
+# model:ir.model.fields,help:pos_sale.field_pos_config__down_payment_product_id
+#, []
 msgid "This product will be used as down payment on a sale order."
-msgstr ""
+msgstr "Ovaj proizvod će biti korišćen kao predujam na prodajnoj narudžbi."
 
-#. module: pos_sale
-#: model:ir.model,name:pos_sale.model_stock_picking
-msgid "Transfer"
-msgstr ""
-
-#. module: pos_sale
-#: model_terms:ir.ui.view,arch_db:pos_sale.view_pos_order_form_inherit_pos_sale
+# model:
+# model_terms:ir.ui.view,arch_db:pos_sale.view_pos_order_form_inherit_pos_sale
+#, []
 msgid ""
 "Transferred<br/>\n"
 "                                from Sale"
 msgstr ""
+"Prebačeno<br/>\n"
+"                                iz prodaje"
 
-#. module: pos_sale
-#: model_terms:ir.ui.view,arch_db:pos_sale.view_order_form_inherit_pos_sale
+# model:
+# model_terms:ir.ui.view,arch_db:pos_sale.view_order_form_inherit_pos_sale
+#, []
 msgid ""
 "Transferred<br/>\n"
 "                            to POS"
 msgstr ""
+"Prebačeno<br/>\n"
+"                            u POS"
 
-#. module: pos_sale
-#. odoo-javascript
-#: code:addons/pos_sale/static/src/app/services/pos_store.js:0
+# model: code:addons/pos_sale/static/src/app/services/pos_store.js
+#, []
 msgid "Warning for %s"
-msgstr ""
+msgstr "Upozorenje za %s"
 
-#. module: pos_sale
-#. odoo-javascript
-#: code:addons/pos_sale/static/src/app/services/pos_store.js:0
+# model: code:addons/pos_sale/static/src/app/services/pos_store.js
+#, []
 msgid "What do you want to do?"
-msgstr ""
+msgstr "Što želite učiniti?"
 
-#. module: pos_sale
-#. odoo-python
-#: code:addons/pos_sale/models/pos_order.py:0
-#: code:addons/pos_sale/models/sale_order.py:0
+# model: code:addons/pos_sale/models/pos_order.py
+#, []
 msgid "id"
-msgstr ""
+msgstr "id"
+
+# model:
+# code:addons/pos_sale/static/src/app/components/orderline/orderline.xml
+#, []
+msgid "x"
+msgstr "x"
