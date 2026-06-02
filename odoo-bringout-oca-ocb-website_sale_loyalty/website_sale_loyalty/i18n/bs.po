@@ -127,7 +127,7 @@ msgstr "Iznos s popustom"
 #. module: website_sale_loyalty
 #: model:ir.model.fields,field_description:website_sale_loyalty.field_coupon_share__display_name
 msgid "Display Name"
-msgstr "Naziv za prikaz"
+msgstr "Naziv prikaza"
 
 # taken from hr.po
 #. module: website_sale_loyalty
@@ -167,19 +167,19 @@ msgstr "Nevažeći ili istekao promotivni kôd."
 #. module: website_sale_loyalty
 #: model:ir.model.fields,field_description:website_sale_loyalty.field_coupon_share____last_update
 msgid "Last Modified on"
-msgstr "Zadnja izmjena"
+msgstr "Zadnji put izmijenjeno"
 
 # taken from hr.po
 #. module: website_sale_loyalty
 #: model:ir.model.fields,field_description:website_sale_loyalty.field_coupon_share__write_uid
 msgid "Last Updated by"
-msgstr "Zadnji ažurirao"
+msgstr "Zadnji put ažurirao"
 
 # taken from hr.po
 #. module: website_sale_loyalty
 #: model:ir.model.fields,field_description:website_sale_loyalty.field_coupon_share__write_date
 msgid "Last Updated on"
-msgstr "Zadnje ažurirano"
+msgstr "Zadnji put ažurirano"
 
 #. module: website_sale_loyalty
 #: model:ir.ui.menu,name:website_sale_loyalty.menu_loyalty
@@ -419,3 +419,23 @@ msgstr "Dopuni"
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.modify_code_form
 msgid "Use"
 msgstr "Koristi"
+
+#. module: website_sale_loyalty
+#: model:loyalty.program,name:website_sale_loyalty.free_shipping_promotion
+msgid "Free Shipping"
+msgstr ""
+
+#. module: website_sale_loyalty
+#: model:loyalty.reward,description:website_sale_loyalty.free_shipping_promotion_reward
+msgid "Free shipping"
+msgstr ""
+
+#. module: website_sale_loyalty
+#: code:addons/website_sale_loyalty/tests/test_shop_sale_coupon.py:0
+msgid "No reward to claim with this coupon"
+msgstr ""
+
+#. module: website_sale_loyalty
+#: model:loyalty.program,portal_point_name:website_sale_loyalty.free_shipping_promotion
+msgid "Points"
+msgstr ""

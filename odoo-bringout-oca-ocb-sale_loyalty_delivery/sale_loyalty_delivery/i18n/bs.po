@@ -77,3 +77,8 @@ msgstr "Nagrada lojalnosti"
 #: model:ir.model.fields,field_description:sale_loyalty_delivery.field_loyalty_reward__reward_type
 msgid "Reward Type"
 msgstr "Tip nagrade"
+
+#. module: sale_loyalty_delivery
+#: code:addons/sale_loyalty_delivery/tests/test_loyalty_delivery.py:0
+msgid "No reward to claim with this coupon"
+msgstr ""

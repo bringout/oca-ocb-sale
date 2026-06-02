@@ -111,13 +111,13 @@ msgstr "Fakturisanje"
 #. module: sale_expense
 #: model:ir.model,name:sale_expense.model_account_move
 msgid "Journal Entry"
-msgstr "Stavka dnevnika"
+msgstr "Knjiženje"
 
 # taken from hr.po
 #. module: sale_expense
 #: model:ir.model,name:sale_expense.model_account_move_line
 msgid "Journal Item"
-msgstr "Stavka žurnala"
+msgstr "Stavka dnevnika"
 
 # taken from hr.po
 #. module: sale_expense
@@ -169,3 +169,13 @@ msgstr "Stavka prodajnog naloga"
 #: model:ir.model,name:sale_expense.model_sale_order_line
 msgid "Sales Order Line"
 msgstr "Stavka prodajnog naloga"
+
+#. module: sale_expense
+#: code:addons/sale_expense/models/product_template.py:0
+msgid "Expenses of this product may not be added to a Sales Order."
+msgstr ""
+
+#. module: sale_expense
+#: model:ir.model.fields,field_description:sale_expense.field_hr_expense__sale_order_id
+msgid "Reinvoice to"
+msgstr ""

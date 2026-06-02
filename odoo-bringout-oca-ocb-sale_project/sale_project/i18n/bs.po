@@ -92,7 +92,7 @@ msgstr "Za fakturisanje"
 #. module: sale_project
 #: model:ir.model,name:sale_project.model_res_config_settings
 msgid "Config Settings"
-msgstr "Podešenja"
+msgstr "Postavke konfiguracije"
 
 # taken from hr.po
 #. module: sale_project
@@ -337,7 +337,7 @@ msgstr "Usluga"
 #. module: sale_project
 #: model:ir.model,name:sale_project.model_account_move_line
 msgid "Journal Item"
-msgstr "Stavka žurnala"
+msgstr "Stavka dnevnika"
 
 # taken from hr.po
 #. module: sale_project
@@ -1296,3 +1296,140 @@ msgstr "delivered_manual"
 #: code:addons/sale_project/models/sale_order.py:0
 msgid "sale_line_id"
 msgstr "sale_line_id"
+
+#. module: sale_project
+#: code:addons/sale_project/models/project_project.py:0
+msgid "%(name)s's Real Margins"
+msgstr ""
+
+#. module: sale_project
+#: model_terms:ir.ui.view,arch_db:sale_project.view_edit_project_inherit_form
+msgid "<span class=\"o_stat_text\">Customer View</span>"
+msgstr ""
+
+#. module: sale_project
+#: model:ir.model.fields,help:sale_project.field_sale_order_line__qty_delivered_method
+msgid ""
+"According to product configuration, the delivered quantity can be automatically computed by mechanism:\n"
+"  - Manual: the quantity is set manually on the line\n"
+"  - Analytic From expenses: the quantity is the quantity sum from posted expenses\n"
+"  - Timesheet: the quantity is the sum of hours recorded on tasks linked to this line\n"
+"  - Stock Moves: the quantity comes from confirmed pickings\n"
+msgstr ""
+
+#. module: sale_project
+#: model:ir.model,name:sale_project.model_account_analytic_line
+msgid "Analytic Line"
+msgstr ""
+
+#. module: sale_project
+#: code:addons/sale_project/models/product_template.py:0
+msgid "Based on Delivery (Manual)"
+msgstr ""
+
+#. module: sale_project
+#: model:ir.model.fields,field_description:sale_project.field_account_analytic_line__billable_type
+msgid "Billable Type"
+msgstr ""
+
+#. module: sale_project
+#: model_terms:ir.ui.view,arch_db:sale_project.sale_project_line_search
+msgid "Category"
+msgstr "Kategorija"
+
+#. module: sale_project
+#: model:ir.model.fields,field_description:sale_project.field_account_analytic_line__category_report
+msgid "Category Report"
+msgstr ""
+
+#. module: sale_project
+#: model:ir.model.fields.selection,name:sale_project.selection__account_analytic_line__category_report__costs
+msgid "Costs"
+msgstr ""
+
+#. module: sale_project
+#: model:ir.model.fields.selection,name:sale_project.selection__account_analytic_line__billable_type__30_other_costs
+msgid "Other Costs"
+msgstr ""
+
+#. module: sale_project
+#: model_terms:ir.ui.view,arch_db:sale_project.view_edit_project_inherit_form
+msgid "Real Costs"
+msgstr ""
+
+#. module: sale_project
+#: model:ir.embedded.actions,name:sale_project.project_embedded_action_project_actual_margin
+msgid "Real Margin"
+msgstr ""
+
+#. module: sale_project
+#: model:ir.actions.act_window,name:sale_project.action_analytic_reporting_inherit_sale_project
+msgid "Real Margins"
+msgstr ""
+
+#. module: sale_project
+#: model:ir.model.fields.selection,name:sale_project.selection__account_analytic_line__category_report__revenues
+msgid "Revenues"
+msgstr ""
+
+#. module: sale_project
+#: model:ir.model.fields.selection,name:sale_project.selection__account_analytic_line__billable_type__01_revenues_fixed
+msgid "Revenues (Fixed Price)"
+msgstr ""
+
+#. module: sale_project
+#: model:ir.model.fields.selection,name:sale_project.selection__account_analytic_line__billable_type__07_revenues_manual
+msgid "Revenues (Manual)"
+msgstr ""
+
+#. module: sale_project
+#: model:ir.model.fields.selection,name:sale_project.selection__account_analytic_line__billable_type__05_revenues_milestones
+msgid "Revenues (Milestones)"
+msgstr ""
+
+#. module: sale_project
+#: model:ir.model.fields.selection,name:sale_project.selection__account_analytic_line__billable_type__03_timesheet_revenues
+msgid "Revenues (Time & Material)"
+msgstr ""
+
+#. module: sale_project
+#: model_terms:ir.ui.view,arch_db:sale_project.view_edit_project_inherit_form
+msgid "Sales Items"
+msgstr ""
+
+#. module: sale_project
+#: model:ir.model.fields.selection,name:sale_project.selection__account_analytic_line__billable_type__10_service_revenues
+msgid "Service Revenues"
+msgstr ""
+
+#. module: sale_project
+#: code:addons/sale_project/models/sale_order.py:0
+msgid ""
+"The project couldn't be created because you don't have the right to create a"
+" project"
+msgstr ""
+
+#. module: sale_project
+#: model:ir.model.fields.selection,name:sale_project.selection__account_analytic_line__billable_type__02_billable_fixed
+msgid "Timesheets (Fixed Price)"
+msgstr ""
+
+#. module: sale_project
+#: model:ir.model.fields.selection,name:sale_project.selection__account_analytic_line__billable_type__09_non_billable
+msgid "Timesheets (Non-Billable)"
+msgstr ""
+
+#. module: sale_project
+#: model:ir.model.fields.selection,name:sale_project.selection__account_analytic_line__billable_type__08_billable_manual
+msgid "Timesheets (Manual) "
+msgstr ""
+
+#. module: sale_project
+#: model:ir.model.fields.selection,name:sale_project.selection__account_analytic_line__billable_type__06_billable_milestones
+msgid "Timesheets (Milestones)"
+msgstr ""
+
+#. module: sale_project
+#: model:ir.model.fields.selection,name:sale_project.selection__account_analytic_line__billable_type__04_billable_time
+msgid "Timesheets (Time & Materials)"
+msgstr ""

@@ -60,3 +60,108 @@ msgstr "Naziv za prikaz"
 #: model:ir.model.fields,field_description:sale_margin.field_sale_order__id
 msgid "ID"
 msgstr "ID"
+
+#. module: sale_margin
+#: model_terms:ir.ui.view,arch_db:sale_margin.sale_report_projected_margins_list
+msgid "Delivered"
+msgstr ""
+
+#. module: sale_margin
+#: model_terms:ir.ui.view,arch_db:sale_margin.sale_report_projected_margins_list
+msgid "Delivered Qty"
+msgstr ""
+
+#. module: sale_margin
+#: model:ir.actions.act_window,name:sale_margin.action_order_report_projected_margins
+msgid "Estimated Margins"
+msgstr ""
+
+#. module: sale_margin
+#: model:ir.model.fields,field_description:sale_margin.field_sale_report__purchase_price
+msgid "Expected Cost"
+msgstr ""
+
+#. module: sale_margin
+#: model_terms:ir.ui.view,arch_db:sale_margin.sale_report_projected_margins_list
+msgid "Invoiced"
+msgstr ""
+
+#. module: sale_margin
+#: model_terms:ir.ui.view,arch_db:sale_margin.sale_report_projected_margins_list
+msgid "Invoiced Qty"
+msgstr ""
+
+#. module: sale_margin
+#: model_terms:ir.actions.act_window,help:sale_margin.action_order_report_projected_margins
+msgid "No data to display"
+msgstr ""
+
+#. module: sale_margin
+#: model_terms:ir.ui.view,arch_db:sale_margin.sale_report_projected_margins_list
+msgid "Product"
+msgstr ""
+
+#. module: sale_margin
+#: model_terms:ir.ui.view,arch_db:sale_margin.sale_report_projected_margins_list
+msgid "Sales Analysis"
+msgstr ""
+
+#. module: sale_margin
+#: model_terms:ir.ui.view,arch_db:sale_margin.sale_report_projected_margins_list
+msgid "Sold"
+msgstr ""
+
+#. module: sale_margin
+#: model_terms:ir.ui.view,arch_db:sale_margin.sale_report_projected_margins_list
+msgid "Sold Qty"
+msgstr ""
+
+#. module: sale_margin
+#: model_terms:ir.actions.act_window,help:sale_margin.action_order_report_projected_margins
+msgid "This report performs analysis on estimated margins of sales orders."
+msgstr ""
+
+#. module: sale_margin
+#: model_terms:ir.ui.view,arch_db:sale_margin.sale_report_projected_margins_list
+msgid "Total Cost"
+msgstr ""
+
+#. module: sale_margin
+#: model_terms:ir.ui.view,arch_db:sale_margin.sale_report_projected_margins_list
+msgid "Total Delivered"
+msgstr ""
+
+#. module: sale_margin
+#: model_terms:ir.ui.view,arch_db:sale_margin.sale_report_projected_margins_list
+msgid "Total Delivered Qty"
+msgstr ""
+
+#. module: sale_margin
+#: model_terms:ir.ui.view,arch_db:sale_margin.sale_report_projected_margins_list
+msgid "Total Invoiced"
+msgstr ""
+
+#. module: sale_margin
+#: model_terms:ir.ui.view,arch_db:sale_margin.sale_report_projected_margins_list
+msgid "Total Invoiced Qty"
+msgstr ""
+
+#. module: sale_margin
+#: model_terms:ir.ui.view,arch_db:sale_margin.sale_report_projected_margins_list
+msgid "Total Margin"
+msgstr ""
+
+#. module: sale_margin
+#: model_terms:ir.ui.view,arch_db:sale_margin.sale_report_projected_margins_list
+msgid "Total Sold"
+msgstr ""
+
+#. module: sale_margin
+#: model_terms:ir.ui.view,arch_db:sale_margin.sale_report_projected_margins_list
+msgid "Total Sold Qty"
+msgstr ""
+
+#. module: sale_margin
+#: model:ir.model.fields,field_description:sale_margin.field_sale_order_line__purchase_price
+msgid "Unit Cost"
+msgstr ""

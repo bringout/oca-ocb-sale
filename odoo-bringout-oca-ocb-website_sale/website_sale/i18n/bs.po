@@ -1086,9 +1086,9 @@ msgid "Both"
 msgstr "Oboje"
 
 #. module: website_sale
-#: model_terms:ir.ui.view,arch_db:website_sale.snippet_options
+#: code:addons/website_sale/static/src/website_builder/product_page_option.xml:0
 msgid "Bottom"
-msgstr "Na dnu"
+msgstr "Dno"
 
 #. module: website_sale
 #. odoo-python
@@ -1394,7 +1394,7 @@ msgstr ""
 #. module: website_sale
 #: model:ir.model,name:website_sale.model_res_company
 msgid "Companies"
-msgstr "Preduzeća"
+msgstr "Kompanije"
 
 # taken from hr.po
 #. module: website_sale
@@ -1479,7 +1479,7 @@ msgstr "Izračunajte troškove dostave narudžba"
 #. module: website_sale
 #: model:ir.model,name:website_sale.model_res_config_settings
 msgid "Config Settings"
-msgstr "Postavke"
+msgstr "Postavke konfiguracije"
 
 # taken from hr.po
 #. module: website_sale
@@ -1559,7 +1559,7 @@ msgstr "Država"
 #. module: website_sale
 #: code:addons/website_sale/static/src/website_builder/product_ribbon_options.xml:0
 msgid "Create"
-msgstr "Potvrdi narudžbu <span class=\"fa fa-chevron-right\"/>"
+msgstr "Kreiraj"
 
 # taken from hr.po
 #. module: website_sale
@@ -1818,7 +1818,7 @@ msgstr "Popusti, Vjernost i Poklon kartice"
 #. module: website_sale
 #: model:ir.model.fields,field_description:website_sale.field_account_move__display_name
 msgid "Display Name"
-msgstr "Naziv za prikaz"
+msgstr "Naziv prikaza"
 
 # taken from hr.po
 #. module: website_sale
@@ -2328,7 +2328,7 @@ msgstr ""
 #. module: website_sale
 #: model:ir.model,name:website_sale.model_account_move
 msgid "Journal Entry"
-msgstr "Stavka dnevnika"
+msgstr "Knjiženje"
 
 # taken from hr.po
 #. module: website_sale
@@ -2379,13 +2379,13 @@ msgstr "Poslednja online prodajna narudžba"
 #. module: website_sale
 #: model:ir.model.fields,field_description:website_sale.field_product_feed__write_uid
 msgid "Last Updated by"
-msgstr "Zadnji ažurirao"
+msgstr "Zadnji put ažurirao"
 
 # taken from hr.po
 #. module: website_sale
 #: model:ir.model.fields,field_description:website_sale.field_product_feed__write_date
 msgid "Last Updated on"
-msgstr "Zadnje ažurirano"
+msgstr "Zadnji put ažurirano"
 
 # taken from hr.po
 #. module: website_sale
@@ -2858,10 +2858,10 @@ msgstr "Prodajne narudžbe za fakturisati"
 # taken from hr.po
 #. module: website_sale
 #. odoo-javascript
-#: code:addons/website_sale/static/src/xml/website_sale_dashboard.xml
+#: code:addons/website_sale/static/src/js/dashboard/dashboard.js:0
 #, python-format
 msgid "Orders to Invoice"
-msgstr "Prodajne narudžbe za fakturisati"
+msgstr "Narudžbe za fakturisati"
 
 #. module: website_sale
 #. odoo-javascript
@@ -3496,7 +3496,7 @@ msgid "Remove"
 msgstr "Ukloni"
 
 #. module: website_sale
-#: model_terms:ir.ui.view,arch_db:website_sale.snippet_options
+#: model_terms:ir.ui.view,arch_db:website_sale.product_compare
 msgid "Remove all"
 msgstr "Ukloni sve"
 
@@ -8131,3 +8131,1576 @@ msgstr "x"
 #: model_terms:ir.ui.view,arch_db:website_sale.dynamic_filter_template_product_product_products_item
 msgid "{{0}} image"
 msgstr "Slika {{0}}"
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.products
+msgid "\" category"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/models/sale_order.py:0
+msgid ""
+"%(product_name)s has not been added to your cart since it is not available."
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.empty_wishlist_svg
+msgid ""
+".heartBeat {\n"
+"                        animation: heartBeat 1.3s ease-in-out forwards;\n"
+"                        animation-delay: 0.75s;\n"
+"                        transform-origin: 74.5px 25.5px;\n"
+"                    }\n"
+"                @keyframes heartBeat {\n"
+"                        0% {\n"
+"                        transform: scale(1);\n"
+"                        }\n"
+"\n"
+"                        14% {\n"
+"                            transform: scale(1.2);\n"
+"                        }\n"
+"\n"
+"                        28% {\n"
+"                            transform: scale(1);\n"
+"                        }\n"
+"\n"
+"                        42% {\n"
+"                            transform: scale(1.2);\n"
+"                        }\n"
+"\n"
+"                        70% {\n"
+"                            transform: scale(1);\n"
+"                        }\n"
+"                    }\n"
+"                .swing {\n"
+"                    animation: swing 1.3s ease forwards;\n"
+"                    animation-delay: 0.75s;\n"
+"                    transform-origin: top center\n"
+"                }\n"
+"                @keyframes swing {\n"
+"                    20% {\n"
+"                    transform: rotate(15deg)\n"
+"                }\n"
+"\n"
+"                40% {\n"
+"                    transform: rotate(-10deg)\n"
+"                }\n"
+"\n"
+"                60% {\n"
+"                    transform: rotate(5deg)\n"
+"                }\n"
+"\n"
+"                80% {\n"
+"                    transform: rotate(-5deg)\n"
+"                }\n"
+"\n"
+"                to {\n"
+"                    transform: rotate(0deg)\n"
+"                }\n"
+"                }"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.snippets
+msgid "/shop"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields.selection,name:website_sale.selection__website__prevent_sale_for__zero_price
+msgid "0 price products"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/website_builder/wishlist_page_option.xml:0
+msgid "3 Columns"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/website_builder/wishlist_page_option.xml:0
+msgid "4 Columns"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/website_builder/wishlist_page_option.xml:0
+msgid "5 Columns"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/website_builder/wishlist_page_option.xml:0
+msgid "6 Columns"
+msgstr ""
+
+#. module: website_sale
+#: model:mail.template,body_html:website_sale.mail_template_sale_order_rating
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                    <t t-set=\"secondary_color\" t-value=\"object.company_id.email_secondary_color or '#875A7B'\"/>\n"
+"                    <t t-set=\"primary_color\" t-value=\"object.company_id.email_primary_color or '#FFFFFF'\"/>\n"
+"                    <t t-if=\"'website_id' in object and object.website_id\" t-set=\"logo_src\" t-value=\"object.website_id.image_url(object.website_id, 'logo')\"/>\n"
+"                    <t t-else=\"\" t-set=\"logo_src\" t-valuef=\"/logo.png?company=#{object.company_id.id}\"/>\n"
+"                    <img t-att-src=\"logo_src\" style=\"display: block; height: 50px; margin: 0 0 16px;\" alt=\"Logo\"/>\n"
+"                    <p style=\"margin: 0 0 12px; padding: 0px; line-height: 18px; font-size: 14px;\">\n"
+"                        Hello <t t-out=\"object.partner_id.display_name\"/>,\n"
+"                        <br/><br/>\n"
+"                        Take a minute to rate your order!\n"
+"                        <br/>\n"
+"                        <t t-if=\"not is_html_empty(object.user_id.signature)\">\n"
+"                            <div style=\"font-size: 14px; margin: 0 0 16px;\"><t t-out=\"object.user_id.signature\"/></div>\n"
+"                        </t>\n"
+"                        <br/>\n"
+"                        <t t-foreach=\"object.order_line.filtered(lambda l: l._is_sellable())\" t-as=\"line\">\n"
+"                            <t t-set=\"product\" t-value=\"line.product_id\"/>\n"
+"                            <table width=\"100%\" t-attf-style=\"font-size: 14px; border-collapse: collapse; margin-bottom: 10px; max-width: 590px; {{not line_last and 'border-bottom: 1px solid #dee2e6;'}}\">\n"
+"                                <tr>\n"
+"                                    <td style=\"width: 84px; padding: 10px 10px 10px 0; vertical-align: top;\">\n"
+"                                        <img t-attf-src=\"/web/image/product.product/{{ product.id }}/image_128\" t-attf-style=\"width: 64px; height: {{object.website_id and object.website_id._get_product_image_ratio_height() or '64px'}}; object-fit: cover; object-position: center;\" alt=\"Product image\"/>\n"
+"                                    </td>\n"
+"                                    <td style=\"padding: 10px 10px 10px 0;\">\n"
+"                                        <div>\n"
+"                                            <h3 t-attf-style=\"font-size: 14px; margin-bottom: {{line.product_id.product_template_attribute_value_ids and '6px' or '0'}};\">\n"
+"                                                <strong t-attf-style=\"color: {{secondary_color}};\" t-out=\"product.name\"/>\n"
+"                                            </h3>\n"
+"                                        </div>\n"
+"                                        <div>\n"
+"                                            <span t-if=\"line.product_id.product_template_attribute_value_ids\" style=\"color: #6c757d;\">\n"
+"                                                <t t-out=\"', '.join(line.product_id.product_template_attribute_value_ids.mapped('name'))\"/>\n"
+"                                            </span>\n"
+"                                        </div>\n"
+"                                    </td>\n"
+"                                    <td style=\"padding: 10px 0; text-align: right;\">\n"
+"                                        <a t-att-href=\"product.website_absolute_url + '#o_product_page_reviews'\" t-attf-style=\"border-radius: 5px; background-color: {{secondary_color}}; padding: 8px 16px 8px 16px; color: {{primary_color}}; text-decoration: none; font-size:13px; white-space: nowrap;\" target=\"_blank\">\n"
+"                                            Review Now\n"
+"                                        </a>\n"
+"                                    </td>\n"
+"                                </tr>\n"
+"                            </table>\n"
+"                        </t>\n"
+"                    </p>\n"
+"                </div>\n"
+"            "
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.confirmation
+msgid "<i class=\"fa fa-cart-arrow-down me-2\"/>Order"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.product_wishlist
+msgid ""
+"<i class=\"fa fa-circle text-danger me-1\" aria-hidden=\"true\"/>\n"
+"                                            Out of stock"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.confirmation
+msgid "<i class=\"fa fa-download me-2\"/>Download"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.dynamic_filter_template_product_product_products_item
+msgid ""
+"<i class=\"fa fa-envelope fa-fw\" role=\"presentation\"/>\n"
+"                                            <span class=\"o_label small ms-1\">Contact Us</span>"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.confirmation
+msgid "<i class=\"fa fa-file-text-o me-2\"/>Invoice"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.shop_product_buttons
+msgid ""
+"<i class=\"fa fa-fw fa-envelope o_not-animable\" role=\"presentation\"/>\n"
+"                    <span class=\"o_label small ms-1\">Contact Us</span>"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.product_add_to_wishlist
+msgid ""
+"<i class=\"fa fa-heart-o me-2 me-lg-0\" role=\"img\" aria-label=\"Add to "
+"wishlist\"/>"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.product_compare
+msgid "<i class=\"fa fa-shopping-cart me-2\" aria-hidden=\"true\"/>Add to Cart"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.product_compare
+msgid "<i class=\"oi oi-chevron-left me-1\"/> Back to shop"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.product_terms_and_conditions
+msgid ""
+"<small class=\"text-muted mb-0\">\n"
+"                <a href=\"/terms\" class=\"o_translate_inline text-muted\">\n"
+"                    <u>Terms and Conditions</u>\n"
+"                </a><br/>\n"
+"                30-day money-back guarantee<br/>\n"
+"                Shipping: 2-3 Business Days\n"
+"            </small>"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.product_wishlist
+msgid ""
+"<span class=\"d-inline-flex align-items-baseline\">\n"
+"                                                    <i class=\"fa fa-fw fa-envelope o_not-animable\" role=\"presentation\"/>\n"
+"                                                    <span class=\"o_label small ms-1\">\n"
+"                                                        Contact Us\n"
+"                                                    </span>\n"
+"                                                </span>"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.product_wishlist
+msgid ""
+"<span class=\"d-inline-flex align-items-baseline\">\n"
+"                                                    <i class=\"fa fa-fw fa-shopping-cart o_not-animable\" role=\"presentation\"/>\n"
+"                                                    <span class=\"o_label small ms-1\">\n"
+"                                                        Add to Cart\n"
+"                                                    </span>\n"
+"                                                </span>"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.comparison_button
+msgid ""
+"<span class=\"fa fa-exchange fa-fw o_not-animable\"/>\n"
+"            <span class=\"o_label small ms-2\">Compare</span>"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.product_cart_lines
+msgid "<span class=\"text-300\">|</span>"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.res_config_settings_view_form
+msgid "<span invisible=\"not default_show_availability\">units</span>"
+msgstr ""
+
+#. module: website_sale
+#: model:mail.template,body_html:website_sale.email_template_back_in_stock
+msgid ""
+"<t t-set=\"website\" t-value=\"object.website_id or object.website_id.get_current_website()\"/>\n"
+"                <div style=\"margin: 0px; padding: 0px;\">\n"
+"                    <t t-if=\"website\" t-set=\"logo_src\" t-value=\"website.image_url(website, 'logo')\"/>\n"
+"                    <t t-else=\"\" t-set=\"logo_src\" t-valuef=\"/logo.png?company=#{object.company_id.id}\"/>\n"
+"                    <img t-att-src=\"logo_src\" style=\"display:block; height:50px; margin:0 0 16px;\" alt=\"Logo\"/>\n"
+"                    <p>\n"
+"                        Hello <t t-out=\"ctx.get('customer_name')\">Customer</t>,\n"
+"                    </p>\n"
+"                    <p>The product you were waiting for is now back in stock!</p>\n"
+"                    <div t-if=\"not is_html_empty(user.signature)\" style=\"font-size: 14px; margin: 0 0 16px;\">\n"
+"                        <t t-out=\"user.signature or ''\">Mitchell Admin</t>\n"
+"                    </div>\n"
+"                    <div t-attf-style=\"margin-bottom: 22px; font-size: 14px;\">\n"
+"                        <a t-att-href=\"object.website_url\" t-attf-style=\"background-color: {{website.company_id.email_secondary_color or '#875A7B'}}; padding: 8px 16px 8px 16px; text-decoration: none; color: {{website.company_id.email_primary_color or '#fff'}}; border-radius: 5px; font-size:14px;\">\n"
+"                            Order Now\n"
+"                        </a>\n"
+"                    </div>\n"
+"                    <div style=\"margin-bottom: 12px;\">\n"
+"                        <table role=\"presentation\" width=\"100%\" style=\"max-width: 590px; border-collapse: collapse; font-size: 14px;\">\n"
+"                            <tr>\n"
+"                                <td width=\"24%\" style=\"max-width: 120px; padding: 0 10px 10px 0; vertical-align: top;\">\n"
+"                                    <img t-att-src=\"website.image_url(object, 'image_1920')\" style=\"width: 100px; height: 100px; object-fit: contain;\" alt=\"Product image\"/>\n"
+"                                </td>\n"
+"                                <td style=\"padding-bottom: 8px; vertical-align: top;\">\n"
+"                                    <h2 t-att-style=\"'margin:0; font-size:14px; color:%s;' % ((website and website.company_id.email_secondary_color) or '#875A7B')\">\n"
+"                                        <strong t-out=\"object.name or ''\">Desk Combination</strong>\n"
+"                                    </h2>\n"
+"                                    <p t-if=\"object.product_template_attribute_value_ids\" style=\"margin: 4px 0;\">\n"
+"                                        ( <t t-out=\"', '.join(object.product_template_attribute_value_ids.mapped('name'))\">Wood</t> )\n"
+"                                    </p>\n"
+"                                    <t t-out=\"object.description_ecommerce or ''\">Desk Description</t>\n"
+"                                </td>\n"
+"                                <td width=\"19%\" align=\"right\" style=\"max-width: 100%; vertical-align: top;\">\n"
+"                                    <t t-out=\"format_amount(object.list_price, object.currency_id)\">$ 450</t>\n"
+"                                </td>\n"
+"                            </tr>\n"
+"                        </table>\n"
+"                    </div>\n"
+"                </div>\n"
+"            "
+msgstr ""
+
+#. module: website_sale
+#: model:mail.template,body_html:website_sale.mail_template_sale_cart_recovery
+msgid ""
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"max-width: 590px; padding: 0px; background-color: white; color: #454748; border-collapse: collapse;\" role=\"presentation\">\n"
+"<tbody>\n"
+"    <!-- CONTENT -->\n"
+"    <tr>\n"
+"        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"max-width: 590px; background-color: white; padding: 0px 0px 0px 0px; border-collapse:collapse;\" role=\"presentation\">\n"
+"                <tr><td valign=\"top\" style=\"font-size: 14px;\">\n"
+"                    <t t-set=\"color\" t-value=\"object.company_id.email_secondary_color or '#875A7B'\"/>\n"
+"                    <t t-if=\"'website_id' in object and object.website_id\" t-set=\"logo_src\" t-value=\"object.website_id.image_url(object.website_id, 'logo')\"/>\n"
+"                    <t t-else=\"\" t-set=\"logo_src\" t-valuef=\"/logo.png?company=#{object.company_id.id}\"/>\n"
+"                    <img t-att-src=\"logo_src\" style=\"display: block; height: 50px; margin: 0 0 16px;\" alt=\"Logo\"/>\n"
+"                    <p style=\"margin: 0 0 12px; line-height: 18px;\">\n"
+"                        Hello <t t-out=\"object.partner_id.display_name or ''\">Johnny Tester</t>,\n"
+"                        <br/><br/>\n"
+"                        You did not complete your online order.<br/>\n"
+"                        Do you have any question about our products?<br/>\n"
+"                        Just reply to this email to discuss!<br/>\n"
+"                    </p>\n"
+"                    <t t-if=\"not is_html_empty(user.signature)\">\n"
+"                        <div style=\"font-size: 14px; margin: 0 0 16px;\"><t t-out=\"user.signature or ''\">Mitchell Admin</t></div>\n"
+"                    </t>\n"
+"                    <t t-if=\"'hide_recovery_button' not in ctx\">\n"
+"                        <div t-attf-style=\"margin-bottom: 22px; font-size: 14px;\">\n"
+"                            <a t-attf-href=\"{{ object.get_base_url() }}/shop/cart?id={{ object.id }}&amp;access_token={{ object.access_token }}\" target=\"_blank\" t-attf-style=\"background-color: {{object.company_id.email_secondary_color or '#875A7B'}}; padding: 8px 16px 8px 16px; text-decoration: none; color: {{object.company_id.email_primary_color or '#fff'}}; border-radius: 5px; font-size:14px;\">\n"
+"                                Resume order\n"
+"                            </a>\n"
+"                        </div>\n"
+"                    </t>\n"
+"                    <t t-if=\"object.order_line\">\n"
+"                        <!-- The following loop is also used in the addons > sale > data > mail_template_data.xml file because we want the same layout. -->\n"
+"                        <t t-foreach=\"object.order_line\" t-as=\"line\">\n"
+"                            <t t-if=\"(not hasattr(line, 'is_delivery') or not line.is_delivery) and not line.combo_item_id\">\n"
+"                                <table width=\"100%\" style=\"max-width: 590px; color: #454748; font-size: 14px; border-collapse: collapse;\" role=\"presentation\">\n"
+"                                    <tr>\n"
+"                                        <td width=\"24%\" style=\"max-width: 120px; padding: 0 10px 10px 0; vertical-align: top;\">\n"
+"                                            <img t-attf-src=\"/web/image/product.product/{{ line.product_id.id }}/image_128\" style=\"width: 100px; height: 100px; object-fit: contain;\" alt=\"Product image\"/>\n"
+"                                        </td>\n"
+"                                        <td align=\"left\" style=\"vertical-align: top; padding-bottom: 22px;\">\n"
+"                                            <h3 t-attf-style=\"mso-line-height-rule:exactly; margin:0; font-size: 14px; color: {{color}}; {{'margin-bottom: 6px;' if line.product_type == 'combo' else ''}}\">\n"
+"                                                <strong t-out=\"line.product_id.name or ''\">Taking care of Trees Course</strong>\n"
+"                                                <span t-if=\"line.product_id.product_template_attribute_value_ids\" style=\"color: #6c757d;\">\n"
+"                                                    <t t-out=\"', '.join(line.product_id.product_template_attribute_value_ids.mapped('name'))\"/>\n"
+"                                                </span>\n"
+"                                            </h3>\n"
+"                                            <t t-set=\"combo_line_idx\" t-value=\"0\"/>\n"
+"                                            <t t-set=\"totalComboLines\" t-value=\"0\"/>\n"
+"                                            <t t-set=\"line_idx\" t-value=\"line_index\"/>\n"
+"                                            <t t-foreach=\"object.order_line\" t-as=\"combo_liness\">\n"
+"                                                <t t-if=\"(not hasattr(line, 'is_delivery') or not line.is_delivery) and (combo_liness.linked_line_id.id == line.id) and line_idx == line_index\">\n"
+"                                                    <t t-if=\"combo_liness.linked_line_id.id == line.id and combo_liness.id != line.id\">\n"
+"                                                        <t t-set=\"totalComboLines\" t-value=\"totalComboLines + 1\"/>\n"
+"                                                    </t>\n"
+"                                                </t>\n"
+"                                            </t>\n"
+"                                            <t t-foreach=\"object.order_line\" t-as=\"combo_line\">\n"
+"                                                <t t-if=\"(not hasattr(line, 'is_delivery') or not line.is_delivery) and (combo_line.linked_line_id.id == line.id) and combo_line.combo_item_id and line_idx == line_index\">\n"
+"                                                        <t t-set=\"borderRadiusStyle\" t-value=\"''\"/>\n"
+"                                                        <t t-set=\"borderTopStyle\" t-value=\"''\"/>\n"
+"                                                        <t t-set=\"borderBottomStyle\" t-value=\"''\"/>\n"
+"\n"
+"                                                        <t t-if=\"combo_line.linked_line_id.id == line.id and combo_line.id != line.id\">\n"
+"                                                            <t t-set=\"combo_line_idx\" t-value=\"combo_line_idx + 1\"/>\n"
+"                                                        </t>\n"
+"                                                        <t t-elif=\"combo_line.id == line.id and line_idx != line_index\">\n"
+"                                                            <t t-set=\"combo_line_idx\" t-value=\"0\"/>\n"
+"                                                        </t>\n"
+"                                                        <t t-if=\"combo_line_idx == 1\">\n"
+"                                                            <t t-if=\"totalComboLines != 1\">\n"
+"                                                                <t t-set=\"borderRadiusStyle\" t-value=\"'border-radius: 6px 6px 0 0;'\"/>\n"
+"                                                                <t t-set=\"borderBottomStyle\" t-value=\"'border-bottom: none;'\"/>\n"
+"                                                            </t>\n"
+"                                                            <t t-else=\"\">\n"
+"                                                                <t t-set=\"borderRadiusStyle\" t-value=\"'border-radius: 6px;'\"/>\n"
+"                                                            </t>\n"
+"                                                        </t>\n"
+"                                                        <t t-elif=\"totalComboLines == combo_line_idx\">\n"
+"                                                            <t t-set=\"borderRadiusStyle\" t-value=\"'border-radius: 0 0 6px 6px;'\"/>\n"
+"                                                            <t t-if=\"totalComboLines != 2\">\n"
+"                                                                <t t-set=\"borderTopStyle\" t-value=\"'border-top: none;'\"/>\n"
+"                                                            </t>\n"
+"                                                        </t>\n"
+"                                                        <div t-attf-style=\"width: 100%; border: 1px solid #dee2e6; padding: 5px 8px; {{ borderRadiusStyle }} {{ borderBottomStyle }} {{ borderTopStyle }}\">\n"
+"                                                                    <t t-out=\"combo_line.product_id.name or ''\">Taking care of Trees Course</t>\n"
+"                                                                    <span t-if=\"combo_line.product_id.product_template_attribute_value_ids\" style=\"color: #6c757d;\">\n"
+"                                                                        <t t-out=\"', '.join(combo_line.product_id.product_template_attribute_value_ids.mapped('name'))\"/>\n"
+"                                                                    </span>\n"
+"                                                                    -\n"
+"                                                                    <span>\n"
+"                                                                        <t t-out=\"int(combo_line.product_uom_qty) or ''\">10000</t>\n"
+"                                                                        <t t-out=\"combo_line.product_uom_id.name or ''\" t-if=\"combo_line.order_id.create_uid._has_group('uom.group_uom')\"/>\n"
+"                                                                    </span>\n"
+"                                                                    <p t-if=\"hasattr(combo_line, 'is_rental') and combo_line.is_rental and combo_line.id == line.id\" style=\"color: #6c757d;\">\n"
+"                                                                        <t t-out=\"combo_line._get_rental_pricing_description() or ''\"/><br/>\n"
+"                                                                    </p>\n"
+"                                                                    <t t-if=\"(hasattr(combo_line, 'is_rental') and combo_line.is_rental) or (hasattr(combo_line, 'event_id') and combo_line.event_id) or (hasattr(combo_line, 'calendar_event_id') and combo_line.calendar_event_id)\">\n"
+"                                                                        <t t-set=\"description_lines\" t-value=\"combo_line.get_description_following_lines()\"/>\n"
+"                                                                        <div t-if=\"description_lines\" style=\"color: #6c757d;\">\n"
+"                                                                            <t t-foreach=\"description_lines\" t-as=\"description_line\">\n"
+"                                                                                <p t-if=\"description_line\" t-out=\"description_line\" style=\"margin: 4px 0 0;\"/>\n"
+"                                                                            </t>\n"
+"                                                                        </div>\n"
+"                                                                    </t>\n"
+"                                                        </div>\n"
+"                                                    </t>\n"
+"                                                <t t-elif=\"not(combo_line.linked_line_id) and combo_line.id == line.id\">\n"
+"                                                    <p t-if=\"hasattr(line, 'is_rental') and line.is_rental\" style=\"margin: 4px 0 0; color: #6c757d;\">\n"
+"                                                        <t t-out=\"line._get_rental_pricing_description() or ''\"/><br/>\n"
+"                                                    </p>\n"
+"                                                    <t t-if=\"(hasattr(combo_line, 'is_rental') and combo_line.is_rental) or (hasattr(combo_line, 'event_id') and combo_line.event_id) or (hasattr(combo_line, 'calendar_event_id') and combo_line.calendar_event_id)\">\n"
+"                                                        <t t-set=\"product_description_lines\" t-value=\"line.get_description_following_lines()\"/>\n"
+"                                                        <div t-if=\"product_description_lines\" style=\"color: #6c757d;\">\n"
+"                                                            <t t-foreach=\"product_description_lines\" t-as=\"product_description_line\">\n"
+"                                                                <p t-if=\"product_description_line\" t-out=\"product_description_line\" style=\"margin: 4px 0 0;\"/>\n"
+"                                                            </t>\n"
+"                                                        </div>\n"
+"                                                    </t>\n"
+"                                                </t>\n"
+"                                            </t>\n"
+"                                            <span style=\"display: inline-block;  margin-top: 4px; padding: 4px 8px; border-radius: 20px; background-color: #e9ecef; color: #454748; font-size: 12px;\">\n"
+"                                                <t t-out=\"int(line.product_uom_qty) or ''\">10000</t>\n"
+"                                                <t t-out=\"line.product_uom_id.name or ''\" t-if=\"line.order_id.create_uid._has_group('uom.group_uom')\"/>\n"
+"                                            </span>\n"
+"                                        </td>\n"
+"                                        <td width=\"19%\" align=\"right\" style=\"max-width: 100px; vertical-align: top;\">\n"
+"                                            <t t-if=\"line.product_type == 'combo'\">\n"
+"                                                <span t-out=\"format_amount(line._get_cart_display_price(), object.currency_id) or ''\">$ 10.00</span>\n"
+"                                            </t>\n"
+"                                            <t t-else=\"\">\n"
+"                                                <span style=\"white-space: nowrap;\">\n"
+"                                                    <t t-if=\"object.website_id.show_line_subtotals_tax_selection == 'tax_excluded'\">\n"
+"                                                        <t t-out=\"format_amount(line.price_subtotal, object.currency_id) or ''\">$ 10.00</t>\n"
+"                                                    </t>\n"
+"                                                    <t t-else=\"\">\n"
+"                                                        <t t-out=\"format_amount(line.price_total, object.currency_id) or ''\">$ 10.00</t>\n"
+"                                                    </t>\n"
+"                                                </span>\n"
+"                                            </t>\n"
+"                                            <t t-if=\"hasattr(line, 'recurring_invoice') and line.recurring_invoice\">\n"
+"                                                <br/>\n"
+"                                                <t t-out=\"line.subscription_plan_id.billing_period_display_sentence or ''\"/>\n"
+"                                            </t>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                </table>\n"
+"                            </t>\n"
+"                        </t>\n"
+"                        <table width=\"100%\" role=\"presentation\" style=\"font-size: 14px; border-collapse:collapse;\">\n"
+"                            <tr>\n"
+"                                <td style=\"padding-top: 8px;  border-top: 1px solid #dee2e6; color: #495057;\">Delivery</td>\n"
+"                                <td style=\"padding-top: 8px;  border-top: 1px solid #dee2e6; text-align: right; color: #495057;\" width=\"100px\" align=\"right\">\n"
+"                                    <t t-out=\"format_amount(object.amount_delivery, object.currency_id) or ''\">-</t>\n"
+"                                </td>\n"
+"                            </tr>\n"
+"                            <tr>\n"
+"                                <td style=\"padding-top: 4px; color: #495057;\">Subtotal</td>\n"
+"                                <td style=\"padding-top: 4px; text-align: right; color: #495057;\" width=\"100px\" align=\"right\"><t t-out=\"format_amount(object.amount_untaxed, object.currency_id) or ''\">-</t></td>\n"
+"                            </tr>\n"
+"                        </table>\n"
+"                        <t t-if=\"object.tax_totals and object.tax_totals['subtotals']\">\n"
+"                            <t t-set=\"all_tax_lines\" t-value=\"[tax for line in object.tax_totals['subtotals'] for tax in line['tax_groups']]\"/>\n"
+"                            <table width=\"100%\" t-if=\"all_tax_lines\" style=\"font-size: 14px; border-collapse:collapse;\" role=\"presentation\">\n"
+"                                <tr t-foreach=\"all_tax_lines\" t-as=\"tax_line\">\n"
+"                                    <td style=\"padding: 4px 0 8px 0; color: #495057;\"><span t-out=\"tax_line['group_name']\"/></td>\n"
+"                                    <td style=\"padding: 4px 0 8px 0; text-align: right; color: #495057;\" width=\"100px\" align=\"right\" t-out=\"format_amount(tax_line['tax_amount_currency'], object.currency_id) or ''\">$ 0.00</td>\n"
+"                                </tr>\n"
+"                            </table>\n"
+"                        </t>\n"
+"                        <table width=\"100%\" role=\"presentation\" style=\"font-size: 14px; border-collapse:collapse;\">\n"
+"                            <tr>\n"
+"                                <td style=\"padding-top: 8px; border-top: 1px solid #343a40;\"><strong>Total</strong></td>\n"
+"                                <td style=\"padding-top: 8px; border-top: 1px solid #343a40; text-align: right\" width=\"100px\" align=\"right\">\n"
+"                                    <strong t-out=\"format_amount(object.amount_total, object.currency_id) or ''\">-</strong>\n"
+"                                </td>\n"
+"                            </tr>\n"
+"                        </table>\n"
+"                    </t>\n"
+"                    <t t-set=\"company\" t-value=\"object.company_id or object.user_id.company_id or user.company_id\"/>\n"
+"                </td></tr>\n"
+"            </table>\n"
+"        </td>\n"
+"    </tr>\n"
+"</tbody>\n"
+"</table>\n"
+"            "
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.product_template_form_view
+msgid ""
+"A detailed, formatted description to promote your product on your eCommerce."
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_product_wishlist__active
+msgid "Active"
+msgstr "Aktivno"
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.product_public_category_form_view
+msgid "Add a product"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.res_config_settings_view_form
+msgid ""
+"Add a reference price per UoM on products (e.g $/kg), in addition to the"
+"                           sale price"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/website_builder/checkout_page_option.xml:0
+msgid "Add to Wishlist"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.product_add_to_compare
+msgid "Add to compare"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/xml/website_sale_product_availability.xml:0
+msgid "Add to wishlist"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/xml/website_sale_product_availability.xml:0
+msgid "Added to your wishlist"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.view_delivery_carrier_form_website_delivery
+msgid "Allow selection up to"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.shop_page_empty_screen
+msgid ""
+"Animation showing how to create a new product: Click 'New' in the top-right "
+"corner, then select 'Product'."
+msgstr ""
+
+#. module: website_sale
+#: model:ir.actions.act_window,name:website_sale.product_attribute_category_action
+msgid "Attribute Categories"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_delivery_carrier__publish_on
+msgid "Auto publish on"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_res_config_settings__group_automate_suggested_products
+msgid "Automate suggested products"
+msgstr ""
+
+#. module: website_sale
+#: model:res.groups,name:website_sale.group_automate_suggested_products
+msgid "Automatically add optional, accessory and alternative products"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.res_config_settings_view_form
+msgid "Automatically add optional, accessory, and alternative products."
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,help:website_sale.field_delivery_carrier__publish_on
+msgid "Automatically publish the page on the chosen date and time."
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_product_product__stock_notification_partner_ids
+msgid "Back in stock Notifications"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.view_delivery_carrier_form_website_delivery
+msgid "Based on"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.product_template_form_view
+msgid "Below"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/website_builder/products_design_panel.xml:0
+msgid "Bento"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/website_builder/product_page_option.xml:0
+msgid "Bottom of Page"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,help:website_sale.field_website__wishlist_opt_products_design_classes
+msgid "CSS class for wishlist page design"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/website_builder/website_sale_options.xml:0
+msgid "Category Header"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_product_attribute_category__name
+msgid "Category Name"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/website_builder/website_sale_options.xml:0
+msgid "Checkout Page"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/js/client_actions/configurator/productPageSelectionScreen.xml:0
+msgid "Choose your"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model,name:website_sale.model_res_company
+msgid "Company"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/js/product_comparison_bottom_bar/product_comparison_bottom_bar.xml:0
+msgid "Compare"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.product_compare
+msgid "Compare Products"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/js/product_comparison_bottom_bar/product_comparison_bottom_bar.xml:0
+msgid "Compare products"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.sale_order_list_view_ecommerce
+msgid "Confirm Orders"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.res_config_settings_view_form
+msgid "Continue Selling"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_res_config_settings__default_allow_out_of_stock_order
+msgid "Continue selling when out-of-stock"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.product_compare
+msgid "Continue shopping"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.sale_order_list_view_ecommerce
+msgid "Create Invoices"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.actions.act_window,help:website_sale.product_attribute_category_action
+msgid "Create a new attribute category"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.products
+msgid "Create your first product"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_res_config_settings__rating_email_delay
+msgid "Days After Order to Send Rating Email"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.res_config_settings_view_form
+msgid ""
+"Default availability mode set on newly created storable products. This can "
+"be changed at the product level."
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_delivery_carrier__delivery_calendar_id
+msgid "Delivery Calendar"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_delivery_carrier__delivery_estimate_lead_days
+msgid "Delivery Estimate Lead Days"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_delivery_carrier__delivery_estimate_range_days
+msgid "Delivery Estimate Range Days"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model,name:website_sale.model_delivery_carrier
+msgid "Delivery Method"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/website_builder/products_design_panel.xml:0
+msgid "Design"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/website_builder/wishlist_page_option.xml:0
+msgid "Desktop"
+msgstr ""
+
+#. module: website_sale
+#: model:product.attribute.category,name:website_sale.product_attribute_category_dimensions
+msgid "Dimensions"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,help:website_sale.field_delivery_carrier__enable_delivery_estimate
+msgid "Display estimated date to your customer. Editable if range is defined."
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.confirmation
+msgid "Download"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.confirmation
+msgid "Download Invoice"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.confirmation
+msgid "Download Sale Order"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.product
+msgid "Drag blocks here to add them on all products"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.products
+msgid "Drag blocks here to customize the Shop page header"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.products
+msgid ""
+"Drag blocks here to customize the footer of\n"
+"                                    the \""
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.products
+msgid ""
+"Drag blocks here to customize the header of\n"
+"                                        the \""
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.constraint,message:website_sale.constraint_product_wishlist_product_unique_partner_id
+msgid "Duplicated wishlisted product for this partner."
+msgstr ""
+
+#. module: website_sale
+#: model:product.attribute.category,name:website_sale.product_attribute_category_duration
+msgid "Duration"
+msgstr "Trajanje"
+
+#. module: website_sale
+#: model:mail.template,name:website_sale.mail_template_sale_order_rating
+msgid "Ecommerce: Order Rating Request"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_delivery_carrier__enable_delivery_estimate
+msgid "Estimated Delivery"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.product_attribute_view_form
+msgid "Filter"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/website_builder/products_design_panel.xml:0
+msgid "Fixed"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/website_builder/products_design_panel.xml:0
+msgid "Fixed - On Hover"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.res_config_settings_view_form
+msgid "For"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_res_company__free_order_label
+msgid "Free Order Label"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,help:website_sale.field_website__wishlist_gap
+msgid "Gap between products on the wishlist page"
+msgstr ""
+
+#. module: website_sale
+#: model:product.attribute.category,name:website_sale.product_attribute_category_general_features
+msgid "General Features"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/xml/website_sale_product_availability.xml:0
+msgid "Get notified when back in stock"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.products
+msgid "Go to Products Manager"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/js/tours/wishlist_tour_utils.js:0
+msgid "Go to wishlist"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.actions.act_window,help:website_sale.product_attribute_category_action
+msgid ""
+"Group attributes by category that will appear in the specification\n"
+"                part of a product page."
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.wishlist_button
+msgid "Handle your wishlist from the menu icon."
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_res_config_settings__prevent_sale
+msgid "Hide Add To Cart"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,help:website_sale.field_product_public_category__not_in_shop
+msgid ""
+"If checked, the category will not be displayed in the main catalog page"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/website_builder/product_page_option.xml:0
+msgid "Image on the left"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/website_builder/product_page_option.xml:0
+msgid "Image on the right"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.view_delivery_carrier_form_website_delivery
+msgid "In"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/website_builder/product_page_option.xml:0
+msgid "In accordion"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.wishlist_button
+msgid "In your wishlist"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.order_tax_lines
+msgid "Including"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,help:website_sale.field_product_attribute__preview_variants
+msgid ""
+"Instantly created variants are available for selection from your /shop page."
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/controllers/wishlist.py:0
+msgid "Invalid Email"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/xml/website_sale_product_availability.xml:0
+msgid "Invalid email"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.product_template_form_view
+msgid "Inventory"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.res_config_settings_view_form
+msgid "Inventory Defaults"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/website_builder/product_ribbon_options_plugin.js:0
+msgid "It will be removed from all products. Are you sure?"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/js/date_filter_button/date_filter_button.js:0
+msgid "Last 30 days"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/js/date_filter_button/date_filter_button.js:0
+msgid "Last 365 days"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/js/date_filter_button/date_filter_button.js:0
+msgid "Last 7 days"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/js/date_filter_button/date_filter_button.js:0
+msgid "Last 90 days"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_product_product__suggested_products_last_update
+msgid "Last update of suggested products"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_res_config_settings__contact_us_link_url
+msgid "Link URL"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.product_template_form_view
+msgid "Long Description"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/const.py:0
+msgid "Minimal Cards"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.product_wishlist
+msgid "My Wishlist"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/js/dashboard/dashboard.xml:0
+msgid "N/A"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/controllers/main.py:0
+msgid ""
+"No delivery method is available for your current order and shipping address."
+" Please contact us for more information."
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/models/sale_order.py:0
+msgid "No delivery method is selected."
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_product_public_category__not_in_shop
+msgid "Not in Shop"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.sale_order_list_view_ecommerce
+msgid "Number"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,help:website_sale.field_website__wishlist_mobile_columns
+msgid "Number of columns to display on mobile for the wishlist page (1 or 2)"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,help:website_sale.field_website__wishlist_grid_columns
+msgid "Number of columns to display on the wishlist page"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/js/client_actions/configurator/shopPageSelectionScreen.xml:0
+msgid "Online Catalog Template"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.actions.act_url,name:website_sale.action_open_shop_page
+msgid "Open Shop Page"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/js/dashboard/dashboard.js:0
+msgid "Orders to Confirm"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/js/dashboard/dashboard.js:0
+msgid "Orders to Fulfill"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.accordion_specs_item
+msgid "Others"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/xml/website_sale_product_availability.xml:0
+msgid "Out of Stock"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.res_config_settings_view_form
+msgid "Out-of-Stock"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_product_product__out_of_stock_message
+msgid "Out-of-Stock Message"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_product_wishlist__partner_id
+msgid "Owner"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model,name:website_sale.model_payment_transaction
+msgid "Payment Transaction"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/models/payment_transaction.py:0
+msgid "Payment was not successful, please try again."
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_res_config_settings__prevent_sale_for
+msgid "Prevent Sale For"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.res_config_settings_view_form
+msgid "Prevent from selling the specified packagings"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.filter_products_price
+msgid "Price Range"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,help:website_sale.field_product_wishlist__price
+msgid "Price of the product when it has been added in the wishlist"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,help:website_sale.field_product_wishlist__pricelist_id
+msgid "Pricelist when added"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model,name:website_sale.model_product_attribute_category
+msgid "Product Attribute Category"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model,name:website_sale.model_product_combo
+msgid "Product Combo"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/js/client_actions/configurator/productPageSelectionScreen.xml:0
+msgid "Product Page Template"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model,name:website_sale.model_product_wishlist
+msgid "Product Wishlist"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.product_compare
+msgid "Product image"
+msgstr ""
+
+#. module: website_sale
+#: model:mail.template,name:website_sale.email_template_back_in_stock
+msgid "Product: Back in Stock Email"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.actions.server,name:website_sale.ir_cron_send_availability_email_ir_actions_server
+msgid "Product: send email regarding products availability"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.product_template_form_view
+msgid "Publish on"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_delivery_carrier__published_date
+msgid "Published date"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_res_config_settings__rating_email_template_id
+msgid "Rating Email Template"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_sale_order__is_rating_email_sent
+msgid "Rating email already sent"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_product_attribute_category__attribute_ids
+msgid "Related Attributes"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/js/product_comparison_bottom_bar/product_comparison_bottom_bar.xml:0
+msgid "Remove all products from comparison"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.product_wishlist
+msgid "Remove from wishlist"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/js/product_row/product_row.xml:0
+msgid "Remove product from comparison"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_res_config_settings__send_order_rating_emails
+msgid "Request ratings"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_res_config_settings__restricted_uom_ids
+msgid "Restrict Packagings"
+msgstr ""
+
+#. module: website_sale
+#: model:mail.template,subject:website_sale.mail_template_sale_order_rating
+msgid "Review your recent order!"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/website_builder/dynamic_snippet_products_option.xml:0
+msgid "Ribbons"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.product_cart_lines
+msgid "Save for Later"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.o_wsale_offcanvas
+msgid "Search in {{0}}"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.shop_page_empty_screen
+msgid "Sell Online"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_product_product__allow_out_of_stock_order
+msgid "Sell when Out-of-Stock"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.res_config_settings_view_form
+msgid "Send a rating request for each order"
+msgstr ""
+
+#. module: website_sale
+#: model:mail.template,description:website_sale.mail_template_sale_order_rating
+msgid "Sent to customers to request feedback on their order"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,help:website_sale.field_product_attribute__category_id
+msgid ""
+"Set a category to regroup similar attributes under the same section in the "
+"Comparison page of eCommerce."
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.product_compare
+msgid "Shop Comparator"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.product_wishlist
+msgid "Shop Wishlist"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.res_config_settings_view_form
+msgid "Show \"Contact Us\" for zero-priced products or specific categories."
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.product_template_form_view
+msgid "Show Available Qty"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.res_config_settings_view_form
+msgid "Show Available Quantity"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_product_product__available_threshold
+msgid "Show Threshold"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_product_product__show_availability
+msgid "Show availability Qty"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/website_builder/products_design_panel.xml:0
+msgid "Show description"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/js/product_comparison_bottom_bar/product_comparison_bottom_bar.xml:0
+msgid "Show products added to comparison"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/const.py:0
+msgid "Showcase Grid"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/models/sale_order.py:0
+msgid ""
+"Some products became unavailable and your cart has been updated. We're sorry"
+" for the inconvenience."
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields.selection,name:website_sale.selection__website__prevent_sale_for__specific_categories
+msgid "Specific categories"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/website_builder/product_page_option.xml:0
+msgid "Specification"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.accordion_specs_item
+msgid "Specifications"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_product_wishlist__stock_notification
+msgid "Stock Notification"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_product_product__suggest_accessory_products
+msgid "Suggest Accessory Products"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_product_product__suggest_alternative_products
+msgid "Suggest Alternative Products"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_product_product__suggest_optional_products
+msgid "Suggest Optional Products"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.sale_order_list_view_ecommerce
+msgid "Tax Total"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/models/product_template.py:0
+msgid "Taxes calculated at checkout."
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,help:website_sale.field_res_company__free_order_label
+msgid ""
+"The label to be displayed on the payment buttons for orders with Total "
+"Amount zero"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/controllers/main.py:0
+msgid ""
+"The selected delivery date is no longer available. Please pick another "
+"delivery date."
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.product_template_form_view
+msgid ""
+"This note is added to sales orders, invoices, eCommerce listing and SEO "
+"descriptions."
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/interactions/add_to_comparison.js:0
+msgid "This product has already been added to the comparison."
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/js/dashboard/dashboard.js:0
+msgid "To Confirm"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/js/dashboard/dashboard.js:0
+msgid "To Fulfill"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/js/dashboard/dashboard.js:0
+msgid "To Invoice"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/interactions/add_to_comparison.js:0
+msgid "Too many products to compare"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.sale_order_list_view_ecommerce
+msgid "Total Tax Excluded"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.sale_order_list_view_ecommerce
+msgid "Total Tax Included"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.product_compare
+msgid "Uncategorized"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/models/payment_transaction.py:0
+msgid ""
+"Unfortunately your order can not be confirmed as the amount of your payment "
+"does not match the amount of your cart. Please contact the responsible of "
+"the shop for more information."
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_sale_order__is_unfulfilled
+msgid "Unfulfilled Orders"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.product_template_form_view
+msgid "Unschedule"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.actions.server,name:website_sale.action_update_suggested_products
+msgid "Update suggested products"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model,name:website_sale.model_res_users
+msgid "User"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model,name:website_sale.model_website_track
+msgid "Visited Page"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/js/dashboard/dashboard.js:0
+msgid "Visitors"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/const.py:0
+msgid "Visual Cards"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/xml/website_sale_product_availability.xml:0
+msgid "We'll notify you once the product is back in stock"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/controllers/product_feed.py:0
+msgid "Website does not match."
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields.selection,name:website_sale.selection__product_ribbon__assign__out_of_stock
+msgid "When out of stock"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/website_builder/product_page_option.xml:0
+msgid "Wishlist"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_website__wishlist_grid_columns
+msgid "Wishlist Grid Columns"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_website__wishlist_gap
+msgid "Wishlist Grid Gap"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_website__wishlist_mobile_columns
+msgid "Wishlist Mobile Columns"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/website_builder/wishlist_page_option.xml:0
+msgid "Wishlist Page"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.model.fields,field_description:website_sale.field_website__wishlist_opt_products_design_classes
+msgid "Wishlist Page Design Class"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/xml/website_sale_product_availability.xml:0
+msgid "You already added all the available product in your cart"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/models/sale_order_line.py:0
+msgid ""
+"You ask for %(desired_qty)s %(product_name)s but only %(new_qty)s is "
+"available"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/models/sale_order.py:0
+msgid ""
+"You ask for %(desired_qty)s products but only %(available_qty)s is "
+"available."
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/interactions/add_to_comparison.js:0
+msgid "You can compare up to 4 products at a time."
+msgstr ""
+
+#. module: website_sale
+#: model:mail.template,subject:website_sale.mail_template_sale_cart_recovery
+msgid "Your cart is waiting"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.product_wishlist
+msgid "Your wishlist is empty!"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.res_config_settings_view_form
+msgid "days after order confirmation"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.product_template_form_view
+msgid "e.g. 'Will be back soon'"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.actions.server,name:website_sale.update_suggested_products_cron_ir_actions_server
+msgid "eCommerce: Update suggested products"
+msgstr ""
+
+#. module: website_sale
+#: model:ir.actions.server,name:website_sale.ir_cron_send_order_rating_emails_ir_actions_server
+msgid "eCommerce: send order rating request emails"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/xml/website_sale_product_availability.xml:0
+msgid "in stock"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/xml/website_sale_product_availability.xml:0
+msgid "in your cart)"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.checkout_layout
+msgid ""
+"items - Scroll for more\n"
+"                                    <i class=\"oi oi-arrow-down ms-1\" aria-hidden=\"true\"/>"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.cart_summary_content
+msgid ""
+"items - Scroll for more\n"
+"                        <i class=\"oi oi-arrow-down ms-1\" aria-hidden=\"true\"/>"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/website_builder/products_design_panel.xml:0
+msgid ""
+"o_wsale_products_opt_name_color_regular o_wsale_products_opt_thumb_2_3\n"
+"            o_wsale_products_opt_thumb_cover o_wsale_products_opt_img_secondary_show\n"
+"            o_wsale_products_opt_img_hover_zoom_out_light o_wsale_products_opt_has_cta\n"
+"            o_wsale_products_opt_has_wishlist o_wsale_products_opt_has_comparison"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.res_config_settings_view_form
+msgid "only if below"
+msgstr ""
+
+#. module: website_sale
+#: model_terms:ir.ui.view,arch_db:website_sale.view_delivery_carrier_form_website_delivery
+msgid "working days"
+msgstr ""
+
+#. module: website_sale
+#: code:addons/website_sale/static/src/xml/website_sale_product_availability.xml:0
+msgid "youremail@gmail.com"
+msgstr ""
+
+#. module: website_sale
+#: model:mail.template,subject:website_sale.email_template_back_in_stock
+msgid "{{ object.name or 'Product' }} is back in stock"
+msgstr ""

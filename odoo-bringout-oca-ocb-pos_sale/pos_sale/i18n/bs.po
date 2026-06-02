@@ -97,7 +97,7 @@ msgstr ""
 #. module: pos_sale
 #: model:ir.model,name:pos_sale.model_res_config_settings
 msgid "Config Settings"
-msgstr "Postavke"
+msgstr "Postavke konfiguracije"
 
 # taken from hr.po
 #. module: pos_sale
@@ -760,3 +760,35 @@ msgstr "id"
 #: code:addons/pos_sale/static/src/app/components/orderline/orderline.xml:0
 msgid "x"
 msgstr "x"
+
+#. module: pos_sale
+#: model_terms:ir.ui.view,arch_db:pos_sale.pos_orderline_receipt_information
+msgid "<strong>Sale Order: </strong>"
+msgstr ""
+
+#. module: pos_sale
+#: code:addons/pos_sale/static/src/app/services/pos_store.js:0
+msgid ""
+"It seems that you didn't configure a down payment product in your point of "
+"sale. You can go to your point of sale settings to choose one."
+msgstr ""
+
+#. module: pos_sale
+#: model:ir.model,name:pos_sale.model_pos_order
+msgid "Point of Sale Order"
+msgstr ""
+
+#. module: pos_sale
+#: model:ir.model,name:pos_sale.model_pos_order_line
+msgid "Point of Sale Order Line"
+msgstr ""
+
+#. module: pos_sale
+#: model:ir.model,name:pos_sale.model_pos_order_receipt
+msgid "Point of Sale Order Receipt Generator"
+msgstr ""
+
+#. module: pos_sale
+#: code:addons/pos_sale/static/src/app/components/screens/product_screen/control_buttons/control_buttons.xml:0
+msgid "Quotation / Order"
+msgstr ""

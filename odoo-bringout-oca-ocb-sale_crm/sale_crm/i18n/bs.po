@@ -31,7 +31,7 @@ msgstr "Pridružen potencijal"
 #. module: sale_crm
 #: model_terms:ir.ui.view,arch_db:sale_crm.crm_quotation_partner_view_form
 msgid "Cancel"
-msgstr "Otkaži"
+msgstr "Odustani"
 
 # taken from hr.po
 #. module: sale_crm
@@ -78,7 +78,7 @@ msgstr "Kupac"
 #. module: sale_crm
 #: model:ir.model.fields,field_description:sale_crm.field_crm_lead__display_name
 msgid "Display Name"
-msgstr "Naziv za prikaz"
+msgstr "Naziv prikaza"
 
 # taken from hr.po
 #. module: sale_crm
@@ -100,19 +100,19 @@ msgstr "Fakturad in Prodajas Nalogs Target"
 #. module: sale_crm
 #: model:ir.model.fields,field_description:sale_crm.field_crm_quotation_partner____last_update
 msgid "Last Modified on"
-msgstr "Zadnja izmjena"
+msgstr "Zadnji put izmijenjeno"
 
 # taken from hr.po
 #. module: sale_crm
 #: model:ir.model.fields,field_description:sale_crm.field_crm_quotation_partner__write_uid
 msgid "Last Updated by"
-msgstr "Zadnji ažurirao"
+msgstr "Zadnji put ažurirao"
 
 # taken from hr.po
 #. module: sale_crm
 #: model:ir.model.fields,field_description:sale_crm.field_crm_quotation_partner__write_date
 msgid "Last Updated on"
-msgstr "Zadnje ažurirano"
+msgstr "Zadnji put ažurirano"
 
 # taken from hr.po
 #. module: sale_crm
@@ -257,3 +257,18 @@ msgstr "Očekivani prihod je ažuriran na osnovu povezanih prodajnih narudžbi."
 #: model:ir.model,name:sale_crm.model_crm_lead
 msgid "Lead"
 msgstr "Lead"
+
+#. module: sale_crm
+#: model_terms:ir.ui.view,arch_db:sale_crm.crm_quotation_partner_view_form
+msgid "Go to Quotation"
+msgstr ""
+
+#. module: sale_crm
+#: model_terms:ir.ui.view,arch_db:sale_crm.crm_quotation_partner_view_form
+msgid "Select a Customer"
+msgstr ""
+
+#. module: sale_crm
+#: model:ir.actions.act_window,name:sale_crm.crm_quotation_partner_action
+msgid "Who should be linked to this new Quotation?"
+msgstr ""

@@ -106,7 +106,7 @@ msgstr "Kategorija"
 #. module: sale_management
 #: model:ir.model,name:sale_management.model_res_company
 msgid "Companies"
-msgstr "Tvrtke"
+msgstr "Kompanije"
 
 # taken from hr.po
 #. module: sale_management
@@ -118,7 +118,7 @@ msgstr "Kompanija"
 #. module: sale_management
 #: model:ir.model,name:sale_management.model_res_config_settings
 msgid "Config Settings"
-msgstr "Postavke"
+msgstr "Postavke konfiguracije"
 
 # taken from hr.po
 #. module: sale_management
@@ -211,7 +211,7 @@ msgstr "Popust (%)"
 #. module: sale_management
 #: model:ir.model.fields,field_description:sale_management.field_digest_digest__display_name
 msgid "Display Name"
-msgstr "Naziv za prikaz"
+msgstr "Naziv prikaza"
 
 # taken from hr.po
 #. module: sale_management
@@ -284,19 +284,19 @@ msgstr "KPI Ukupna vrijednost sve prodaje"
 #. module: sale_management
 #: model:ir.model.fields,field_description:sale_management.field_sale_order_option____last_update
 msgid "Last Modified on"
-msgstr "Zadnja izmjena"
+msgstr "Zadnji put izmijenjeno"
 
 # taken from hr.po
 #. module: sale_management
 #: model:ir.model.fields,field_description:sale_management.field_sale_order_template__write_uid
 msgid "Last Updated by"
-msgstr "Zadnji ažurirao"
+msgstr "Zadnji put ažurirao"
 
 # taken from hr.po
 #. module: sale_management
 #: model:ir.model.fields,field_description:sale_management.field_sale_order_template__write_date
 msgid "Last Updated on"
-msgstr "Zadnje ažurirano"
+msgstr "Zadnji put ažurirano"
 
 # taken from hr.po
 #. module: sale_management
@@ -825,3 +825,135 @@ msgstr ""
 "Vaš predložak ne može sadržavati proizvode određenih kompanija ako se dijeli"
 " između kompanija. Molimo ograničite pristup predlošku ili uklonite te "
 "proizvode."
+
+#. module: sale_management
+#: model:ir.model.fields,field_description:sale_management.field_sale_order_template__user_has_access
+msgid "Can User access"
+msgstr ""
+
+#. module: sale_management
+#: model:ir.model.fields,field_description:sale_management.field_sale_order_template_line__collapse_composition
+msgid "Collapse Composition"
+msgstr ""
+
+#. module: sale_management
+#: model:ir.model.fields,field_description:sale_management.field_sale_order_template_line__collapse_prices
+msgid "Collapse Prices"
+msgstr ""
+
+#. module: sale_management
+#: model_terms:ir.ui.view,arch_db:sale_management.sale_order_template_view_form
+msgid "Confirmation"
+msgstr ""
+
+#. module: sale_management
+#: code:addons/sale_management/static/src/fields/sale_order_line_field/sale_order_line_field.xml:0
+msgid "Delete"
+msgstr ""
+
+#. module: sale_management
+#: code:addons/sale_management/models/sale_order_template.py:0
+msgid "Hidden Composition Section"
+msgstr ""
+
+#. module: sale_management
+#: code:addons/sale_management/models/sale_order_template.py:0
+msgid "Hidden Prices Section"
+msgstr ""
+
+#. module: sale_management
+#: model:ir.model.fields,help:sale_management.field_sale_order_template__active
+msgid ""
+"If unchecked, it will allow you to hide the Order template without removing "
+"it."
+msgstr ""
+
+#. module: sale_management
+#: model_terms:ir.ui.view,arch_db:sale_management.sale_order_template_view_form
+msgid "Invoicing"
+msgstr ""
+
+#. module: sale_management
+#: code:addons/sale_management/static/src/fields/sale_order_line_field/sale_order_line_field.xml:0
+msgid "New Section"
+msgstr ""
+
+#. module: sale_management
+#: code:addons/sale_management/models/sale_order_template.py:0
+msgid "Optional Section"
+msgstr ""
+
+#. module: sale_management
+#: model:ir.model,name:sale_management.model_sale_order_template
+msgid "Order Templates"
+msgstr ""
+
+#. module: sale_management
+#: model:ir.model.fields.selection,name:sale_management.selection__sale_order_template__template_type__quotation
+msgid "Quotation"
+msgstr ""
+
+#. module: sale_management
+#: code:addons/sale_management/models/sale_order_template.py:0
+msgid "Regular Section"
+msgstr ""
+
+#. module: sale_management
+#: model:ir.model.fields,field_description:sale_management.field_sale_order_template__team_ids
+msgid "Sales Team"
+msgstr ""
+
+#. module: sale_management
+#: code:addons/sale_management/static/src/fields/sale_order_line_field/sale_order_line_field.xml:0
+msgid "Save as Template"
+msgstr ""
+
+#. module: sale_management
+#: model_terms:ir.ui.view,arch_db:sale_management.sale_order_template_view_search
+msgid "Section Templates"
+msgstr ""
+
+#. module: sale_management
+#: code:addons/sale_management/static/src/fields/sale_order_line_field/sale_order_line_field.js:0
+msgid "Section template %s created successfully"
+msgstr ""
+
+#. module: sale_management
+#: code:addons/sale_management/static/src/fields/sale_order_line_field/sale_order_line_field.js:0
+msgid "Section template %s updated successfully"
+msgstr ""
+
+#. module: sale_management
+#: model_terms:ir.ui.view,arch_db:sale_management.sale_order_template_view_form
+msgid "Settings"
+msgstr ""
+
+#. module: sale_management
+#: model:ir.model.fields,field_description:sale_management.field_sale_order_template__share_template
+msgid "Share"
+msgstr ""
+
+#. module: sale_management
+#: model:ir.model.fields,field_description:sale_management.field_sale_order_template__name
+msgid "Template"
+msgstr ""
+
+#. module: sale_management
+#: model:ir.actions.act_window,name:sale_management.sale_order_template_action
+msgid "Templates"
+msgstr ""
+
+#. module: sale_management
+#: model:ir.model.fields,field_description:sale_management.field_sale_order_template__template_type
+msgid "Type"
+msgstr "Tip"
+
+#. module: sale_management
+#: code:addons/sale_management/static/src/fields/sale_order_line_field/sale_order_line_field.js:0
+msgid "You cannot save a section with combo lines as a template"
+msgstr ""
+
+#. module: sale_management
+#: model_terms:ir.ui.view,arch_db:sale_management.sale_order_template_view_form
+msgid "of"
+msgstr ""

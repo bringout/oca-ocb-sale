@@ -98,3 +98,23 @@ msgstr ""
 #: model:ir.model,name:sale_project_stock.model_stock_picking
 msgid "Transfer"
 msgstr "Transfer"
+
+#. module: sale_project_stock
+#: model:ir.model,name:sale_project_stock.model_account_analytic_line
+msgid "Analytic Line"
+msgstr ""
+
+#. module: sale_project_stock
+#: model:ir.model.fields,field_description:sale_project_stock.field_account_analytic_line__billable_type
+msgid "Billable Type"
+msgstr ""
+
+#. module: sale_project_stock
+#: model:ir.model.fields.selection,name:sale_project_stock.selection__account_analytic_line__billable_type__16_picking_entry_negative
+msgid "Inventory Transfers (Costs)"
+msgstr ""
+
+#. module: sale_project_stock
+#: model:ir.model.fields.selection,name:sale_project_stock.selection__account_analytic_line__billable_type__15_picking_entry_positive
+msgid "Inventory Transfers (Revenues)"
+msgstr ""

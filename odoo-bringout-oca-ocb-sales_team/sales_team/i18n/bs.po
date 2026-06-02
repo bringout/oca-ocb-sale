@@ -261,7 +261,7 @@ msgstr "Dizajn"
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_tag__display_name
 msgid "Display Name"
-msgstr "Naziv za prikaz"
+msgstr "Naziv prikaza"
 
 # taken from hr.po
 #. module: sales_team
@@ -394,19 +394,19 @@ msgstr "Je pratilac"
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_tag____last_update
 msgid "Last Modified on"
-msgstr "Zadnja izmjena"
+msgstr "Zadnji put izmijenjeno"
 
 # taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_tag__write_uid
 msgid "Last Updated by"
-msgstr "Zadnji ažurirao"
+msgstr "Zadnji put ažurirao"
 
 # taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_tag__write_date
 msgid "Last Updated on"
-msgstr "Zadnje ažurirano"
+msgstr "Zadnji put ažurirano"
 
 # taken from hr.po
 #. module: sales_team
@@ -920,3 +920,28 @@ msgstr "Radite u više timova?"
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
 msgid "e.g. John Doe"
 msgstr "npr. John Doe"
+
+#. module: sales_team
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
+msgid "<i class=\"d-none d-md-block fa fa-building\" title=\"Company\"/>"
+msgstr ""
+
+#. module: sales_team
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
+msgid "<i class=\"d-none d-md-block fa fa-envelope\" title=\"Email\"/>"
+msgstr ""
+
+#. module: sales_team
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
+msgid "<i class=\"d-none d-md-block fa fa-phone\" title=\"Phone\"/>"
+msgstr ""
+
+#. module: sales_team
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
+msgid "<i class=\"d-none d-md-block fa fa-users\" title=\"Sales Team\"/>"
+msgstr ""
+
+#. module: sales_team
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_kanban
+msgid "<i class=\"fa fa-fw me-1 fa-users text-primary\" title=\"Sales Team\"/>"
+msgstr ""

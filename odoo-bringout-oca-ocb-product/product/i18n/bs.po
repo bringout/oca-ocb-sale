@@ -651,7 +651,7 @@ msgstr "Indeksi kombinacije"
 #. module: product
 #: model:ir.model,name:product.model_res_company
 msgid "Companies"
-msgstr "Preduzeća"
+msgstr "Kompanije"
 
 # taken from hr.po
 #. module: product
@@ -697,7 +697,7 @@ msgstr "raid 10, 2048ECC ram"
 #. module: product
 #: model:ir.model,name:product.model_res_config_settings
 msgid "Config Settings"
-msgstr "Postavke"
+msgstr "Postavke konfiguracije"
 
 # taken from hr.po
 #. module: product
@@ -989,7 +989,7 @@ msgstr "Popusti"
 #. module: product
 #: model:ir.model.fields,field_description:product.field_ir_attachment__display_name
 msgid "Display Name"
-msgstr "Naziv za prikaz"
+msgstr "Naziv prikaza"
 
 # taken from hr.po
 #. module: product
@@ -1487,19 +1487,19 @@ msgstr "Veliki konferencijski sto"
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_attribute____last_update
 msgid "Last Modified on"
-msgstr "Zadnja izmjena"
+msgstr "Zadnji put izmijenjeno"
 
 # taken from hr.po
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_attribute__write_uid
 msgid "Last Updated by"
-msgstr "Zadnji ažurirao"
+msgstr "Zadnji put ažurirao"
 
 # taken from hr.po
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_attribute__write_date
 msgid "Last Updated on"
-msgstr "Zadnje ažurirano"
+msgstr "Zadnji put ažurirano"
 
 # taken from hr.po
 #. module: product
@@ -5603,3 +5603,587 @@ msgstr "prodajna cijena"
 #: code:addons/product/static/src/js/pricelist_report/product_pricelist_report.xml:0
 msgid "xlsx"
 msgstr "xlsx"
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.alternative_zpl_label
+msgid ")^FS"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields.selection,name:product.selection__product_label_layout__print_format__2x7
+msgid "2 x 7"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields.selection,name:product.selection__product_label_layout__print_format__4x7
+msgid "4 x 7"
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.product_template_only_form_view
+msgid ""
+"<span class=\"text-muted\" invisible=\"product_variant_count &lt;= 1\">Based"
+" on variants</span>"
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.report_pricelist_page
+msgid "<span> - </span>"
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.product_template_form_view
+msgid "<span>per</span>"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,help:product.field_product_product__is_storable
+msgid "A storable product is a product for which you manage stock."
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,field_description:product.field_product_pricelist__activity_plans_ids
+msgid "Activity Plans"
+msgstr "Planovi aktivnosti"
+
+#. module: product
+#: model:ir.model.fields,field_description:product.field_product_pricelist_item__allowed_uom_ids
+msgid "Allowed Uom"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields.selection,name:product.selection__product_label_layout__zpl_template__alternative
+msgid "Alternative (2.00\" x 1.00\")"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,field_description:product.field_res_partner__specific_property_product_pricelist
+msgid "Assigned Pricelist"
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.product_template_only_form_view
+msgid "Attribute name (e.g. Color, Size, ... )"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,help:product.field_product_product__free_qty
+msgid ""
+"Available quantity (computed as Quantity On Hand - reserved quantity - quantity to remove)\n"
+"In a context with a single Stock Location, this includes goods stored in this location, or any of its children.\n"
+"In a context with a single Warehouse, this includes goods stored in the Stock Location of this Warehouse, or any of its children.\n"
+"Otherwise, this includes goods stored in any Stock Location with 'internal' type."
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,field_description:product.field_res_config_settings__module_product_barcodelookup
+msgid "Barcode Database"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,field_description:product.field_product_product__base_unit_name
+msgid "Base Unit Name"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,field_description:product.field_res_config_settings__group_show_uom_price
+msgid "Base Unit Price"
+msgstr ""
+
+#. module: product
+#: model:ir.actions.act_window,name:product.base_unit_action
+msgid "Base Units"
+msgstr ""
+
+#. module: product
+#: model:product.combo,name:product.chairs_combo
+msgid "Chairs Combo"
+msgstr ""
+
+#. module: product
+#: model_terms:ir.actions.act_window,help:product.product_category_action_form
+msgid "Create a new product category"
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.res_config_settings_view_form
+msgid "Create products by scanning using"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,help:product.field_product_product__qty_available
+msgid ""
+"Current quantity of products.\n"
+"In a context with a single Stock Location, this includes goods stored at this Location, or any of its children.\n"
+"In a context with a single Warehouse, this includes goods stored in the Stock Location of this Warehouse, or any of its children.\n"
+"stored in the Stock Location of the Warehouse of this Shop, or any of its children.\n"
+"Otherwise, this includes goods stored in any Stock Location with 'internal' type."
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,field_description:product.field_product_product__base_unit_id
+msgid "Custom Unit of Measure"
+msgstr ""
+
+#. module: product
+#: code:addons/product/static/src/js/pricelist_report/product_pricelist_report.xml:0
+msgid "Date"
+msgstr "Datum"
+
+#. module: product
+#: code:addons/product/static/src/product_catalog/order_line/order_line.xml:0
+msgid "Decrease quantity"
+msgstr "Smanji količinu"
+
+#. module: product
+#: model:ir.model.fields,help:product.field_product_base_unit__name
+msgid ""
+"Define a custom unit to display in the price per unit of measure field."
+msgstr ""
+
+#. module: product
+#: model:product.combo,name:product.desk_accessories_combo
+msgid "Desk Accessories Combo"
+msgstr ""
+
+#. module: product
+#: model:product.combo,name:product.desks_combo
+msgid "Desks Combo"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,help:product.field_product_product__base_unit_count
+msgid "Display base unit price. Set to 0 to hide it for this product."
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,help:product.field_product_product__base_unit_name
+msgid ""
+"Displays the custom unit for the products if defined or the selected unit of"
+" measure otherwise."
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,field_description:product.field_product_template_attribute_value__excluded_value_ids
+msgid "Exclude For"
+msgstr ""
+
+#. module: product
+#: model:product.category,name:product.product_category_expenses
+msgid "Expenses"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,field_description:product.field_product_product__extra_uom_ids
+msgid "Extra Packagings"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,field_description:product.field_product_product__fixed_pricelist_rule_ids
+msgid "Fixed Pricelist Rule"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,help:product.field_product_product__virtual_available
+msgid ""
+"Forecast quantity (computed as Quantity On Hand - Outgoing + Incoming - Quantity to Remove)\n"
+"In a context with a single Stock Location, this includes goods stored in this location, or any of its children.\n"
+"In a context with a single Warehouse, this includes goods stored in the Stock Location of this Warehouse, or any of its children.\n"
+"Otherwise, this includes goods stored in any Stock Location with 'internal' type."
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.product_product_tree_view
+msgid "Forecasted"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,field_description:product.field_product_product__virtual_available
+msgid "Forecasted Quantity"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,field_description:product.field_product_template__free_qty
+msgid "Free To Use"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,field_description:product.field_product_product__free_qty
+msgid "Free To Use Quantity "
+msgstr ""
+
+#. module: product
+#: model:product.category,name:product.product_category_furniture
+msgid "Furniture"
+msgstr ""
+
+#. module: product
+#: model:product.category,name:product.product_category_construction
+msgid "Home Construction"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,field_description:product.field_product_product__incoming_qty
+msgid "Incoming"
+msgstr ""
+
+#. module: product
+#: code:addons/product/static/src/product_catalog/order_line/order_line.xml:0
+msgid "Increase quantity"
+msgstr "Povećaj količinu"
+
+#. module: product
+#: model:ir.model.fields,field_description:product.field_res_partner__is_pricelist_manually_set
+msgid "Is Pricelist Manually Set"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields.selection,name:product.selection__product_label_layout__zpl_template__jewelry
+msgid "Jewelry (2.20\" x 0.50\")"
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.product_template_only_form_view
+msgid "List of possible values (e.g. Blue, Green, White, ... )"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,help:product.field_product_template_attribute_value__excluded_value_ids
+msgid ""
+"Make this attribute value not compatible with other values of the product."
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields.selection,name:product.selection__product_label_layout__zpl_template__normal
+msgid "Normal (2.25\" x 1.25\")"
+msgstr ""
+
+#. module: product
+#: code:addons/product/models/product_product.py:0
+msgid "Note: Some products may be hidden due to access restrictions."
+msgstr ""
+
+#. module: product
+#: model:product.category,name:product.product_category_office
+msgid "Office"
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.product_product_tree_view
+msgid "On Hand"
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.product_template_kanban_view
+msgid "On hand:"
+msgstr ""
+
+#. module: product
+#: model:product.category,name:product.product_category_outdoor_furniture
+msgid "Outdoor"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,field_description:product.field_product_product__outgoing_qty
+msgid "Outgoing"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,field_description:product.field_product_product__base_unit_price
+msgid "Price Per Unit"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,field_description:product.field_product_label_layout__with_price
+msgid "Print With Price"
+msgstr ""
+
+#. module: product
+#: model:ir.actions.report,name:product.report_product_template_label_zpl
+msgid "Product Label (ZPL)"
+msgstr ""
+
+#. module: product
+#: model:ir.model,name:product.model_report_product_report_producttemplatelabel_zpl
+msgid "Product Label Report ZPL"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,field_description:product.field_product_product__qty_available
+msgid "Quantity On Hand"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,help:product.field_product_product__incoming_qty
+msgid ""
+"Quantity of planned incoming products.\n"
+"In a context with a single Stock Location, this includes goods arriving to this Location, or any of its children.\n"
+"In a context with a single Warehouse, this includes goods arriving to the Stock Location of this Warehouse, or any of its children.\n"
+"Otherwise, this includes goods arriving to any Stock Location with 'internal' type."
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,help:product.field_product_product__outgoing_qty
+msgid ""
+"Quantity of planned outgoing products.\n"
+"In a context with a single Stock Location, this includes goods leaving this Location, or any of its children.\n"
+"In a context with a single Warehouse, this includes goods leaving the Stock Location of this Warehouse, or any of its children.\n"
+"Otherwise, this includes goods leaving any Stock Location with 'internal' type."
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,help:product.field_product_template__free_qty
+msgid "Quantity on hand minus outgoing quantity."
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,field_description:product.field_product_product__base_unit_count
+msgid "Reference Unit"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,field_description:product.field_product_document__res_access_read
+msgid "Res Access Read"
+msgstr "Res pristup čitaj"
+
+#. module: product
+#: model:ir.model.fields,field_description:product.field_product_document__res_access_write
+msgid "Res Access Write"
+msgstr "Res pristup pisanje"
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.product_pricelist_view
+msgid "Rules"
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.product_template_form_view
+msgid "Short Description"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,field_description:product.field_product_template_attribute_value__show_price_extra
+msgid "Show Extra Price"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,field_description:product.field_product_product__show_qty_update_button
+msgid "Show Qty Update Button"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,field_description:product.field_product_product__show_sales_price_page
+msgid "Show Sales Price Page"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,help:product.field_product_template_attribute_value__show_price_extra
+msgid "Show separately the extra price for this attribute value."
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields.selection,name:product.selection__product_label_layout__zpl_template__small
+msgid "Small (1.25\" x 1.00\")"
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.product_normal_form_view
+msgid "Specify unit"
+msgstr ""
+
+#. module: product
+#: code:addons/product/models/product_pricelist.py:0
+msgid "Template for Pricelists"
+msgstr ""
+
+#. module: product
+#: code:addons/product/models/product_template.py:0
+msgid "Template for Products"
+msgstr ""
+
+#. module: product
+#: code:addons/product/models/product_supplierinfo.py:0
+msgid "Template for Vendor Pricelists"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,help:product.field_product_combo_item__lst_price
+msgid ""
+"The sale price can be set manually or computed from the product template. "
+"Click on the 'Configure Variants' button to set the extra attribute prices."
+msgstr ""
+
+#. module: product
+#: code:addons/product/models/product_product.py:0
+msgid ""
+"The value of Base Unit Count must be greater than 0. Use 0 to hide the price"
+" per unit on this product."
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.product_product_tree_view
+msgid "Total Forecasted"
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.product_product_tree_view
+msgid "Total Free To Use"
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.product_product_tree_view
+msgid "Total On Hand"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,field_description:product.field_product_product__is_storable
+msgid "Track Inventory"
+msgstr ""
+
+#. module: product
+#: model:res.groups,name:product.group_show_uom_price
+msgid "UOM price display"
+msgstr ""
+
+#. module: product
+#: model:ir.model,name:product.model_product_base_unit
+msgid "Unit of Measure for price per unit on products."
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.product_view_list_qty
+msgid "Update Quantities"
+msgstr ""
+
+#. module: product
+#: model:ir.actions.act_window,name:product.product_variant_edit_qty_action
+msgid "Update Variant Quantities"
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.report_pricelist_page
+msgid "VINT_1000"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,help:product.field_product_product__extra_uom_ids
+msgid ""
+"Variant-specific additional packagings for this product which can be used "
+"for sales"
+msgstr ""
+
+#. module: product
+#: code:addons/product/models/product_product.py:0
+msgid ""
+"You cannot archive a product that is part of a combo. Please remove it from "
+"the following combos first: %s"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields.selection,name:product.selection__product_label_layout__print_format__zpl
+msgid "ZPL Labels"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,field_description:product.field_product_label_layout__zpl_preview
+msgid "ZPL Preview"
+msgstr ""
+
+#. module: product
+#: model:ir.model.fields,field_description:product.field_product_label_layout__zpl_template
+msgid "ZPL Template"
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.small_zpl_label
+msgid "^FO150,165 ^A0N,25^FH ^FD"
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.normal_zpl_label
+msgid "^FO150,210 ^A0N,25^FH ^FD("
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.alternative_zpl_label
+msgid "^FO160,185 ^A0N,18^FH ^FD("
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.alternative_zpl_label
+msgid "^FO290,165 ^A0N,30^FH ^FD"
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.jewelry_zpl_label
+msgid "^FO290,50 ^A0N,30^FH ^FD"
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.normal_zpl_label
+msgid "^FO300,200 ^A0N,40^FH ^FD"
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.small_zpl_label
+msgid "^FO35,50^BY1 ^BCN,80,Y,N,N ^FD"
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.alternative_zpl_label
+msgid "^FO35,55^BY2 ^BCN,100,Y,N,N ^FD"
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.jewelry_zpl_label
+msgid "^FO35,5^BY1 ^BCN,80,Y,N,N ^FD"
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.normal_zpl_label
+msgid "^FO35,77^BY2 ^BCN,100,Y,N,N ^FD"
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.alternative_zpl_label
+msgid "^FS"
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.alternative_zpl_label
+msgid ""
+"^FS\n"
+"^FT35,48^A0N,15^FD"
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.normal_zpl_label
+msgid ""
+"^FS\n"
+"^FT35,65^A0N,20^FD"
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.jewelry_zpl_label
+msgid "^FT210,30^A0N,25^FD"
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.small_zpl_label
+msgid "^FT35,30^A0N,15^FD"
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.alternative_zpl_label
+msgid "^FT35,30^A0N,20^FD"
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.normal_zpl_label
+msgid "^FT35,40^A0N,25^FD"
+msgstr ""
+
+#. module: product
+#: model_terms:ir.ui.view,arch_db:product.res_config_settings_view_form
+msgid "barcodelookup.com"
+msgstr ""

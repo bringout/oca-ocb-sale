@@ -25,7 +25,7 @@ msgstr "Trošak"
 #. module: sale_expense_margin
 #: model:ir.model,name:sale_expense_margin.model_account_move_line
 msgid "Journal Item"
-msgstr "Stavka žurnala"
+msgstr "Stavka dnevnika"
 
 # taken from hr.po
 #. module: sale_expense_margin

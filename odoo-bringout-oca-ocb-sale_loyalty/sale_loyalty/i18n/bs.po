@@ -148,7 +148,7 @@ msgstr "Popust: %(desc)s%(tax_str)s"
 #. module: sale_loyalty
 #: model:ir.model.fields,field_description:sale_loyalty.field_loyalty_card__display_name
 msgid "Display Name"
-msgstr "Naziv za prikaz"
+msgstr "Naziv prikaza"
 
 #. module: sale_loyalty
 #: model:ir.actions.act_window,name:sale_loyalty.sale_loyalty_coupon_wizard_action
@@ -216,19 +216,19 @@ msgstr "Stavka nagradnog programa"
 #. module: sale_loyalty
 #: model:ir.model.fields,field_description:sale_loyalty.field_sale_loyalty_coupon_wizard____last_update
 msgid "Last Modified on"
-msgstr "Zadnja izmjena"
+msgstr "Zadnji put izmijenjeno"
 
 # taken from hr.po
 #. module: sale_loyalty
 #: model:ir.model.fields,field_description:sale_loyalty.field_sale_loyalty_coupon_wizard__write_uid
 msgid "Last Updated by"
-msgstr "Zadnji ažurirao"
+msgstr "Zadnji put ažurirao"
 
 # taken from hr.po
 #. module: sale_loyalty
 #: model:ir.model.fields,field_description:sale_loyalty.field_sale_loyalty_coupon_wizard__write_date
 msgid "Last Updated on"
-msgstr "Zadnje ažurirano"
+msgstr "Zadnji put ažurirano"
 
 #. module: sale_loyalty
 #: model:ir.model,name:sale_loyalty.model_loyalty_card
@@ -640,3 +640,15 @@ msgstr "Iskorišteno:"
 #: code:addons/sale_loyalty/models/sale_order.py:0
 msgid "order_id"
 msgstr "order_id"
+
+#. module: sale_loyalty
+#: code:addons/sale_loyalty/tests/common.py:0
+msgid "No reward to claim with this coupon"
+msgstr ""
+
+#. module: sale_loyalty
+#: code:addons/sale_loyalty/models/sale_order.py:0
+msgid ""
+"You don't have enough coupon points to proceed. Please check your applied "
+"rewards and coupon balance. "
+msgstr ""

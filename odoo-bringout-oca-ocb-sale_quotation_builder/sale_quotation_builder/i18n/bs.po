@@ -91,7 +91,7 @@ msgstr "Zatvori"
 #. module: sale_quotation_builder
 #: model:ir.model,name:sale_quotation_builder.model_res_company
 msgid "Companies"
-msgstr "Tvrtke"
+msgstr "Kompanije"
 
 #. module: sale_quotation_builder
 #: model_terms:ir.ui.view,arch_db:sale_quotation_builder.sale_order_template_view_form_inherit_sale_quotation_builder
