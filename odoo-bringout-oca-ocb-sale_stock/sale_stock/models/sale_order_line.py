@@ -5,7 +5,7 @@ from datetime import timedelta
 from collections import defaultdict
 
 from odoo import api, fields, models, _
-from odoo.tools import float_compare
+from odoo.tools import float_compare, float_is_zero
 from odoo.exceptions import UserError
 
 
@@ -43,7 +43,8 @@ class SaleOrderLine(models.Model):
 
     @api.depends(
         'product_id', 'customer_lead', 'product_uom_qty', 'product_uom', 'order_id.commitment_date',
-        'move_ids', 'move_ids.forecast_expected_date', 'move_ids.forecast_availability')
+        'move_ids', 'move_ids.forecast_expected_date', 'move_ids.forecast_availability',
+        'warehouse_id')
     def _compute_qty_at_date(self):
         """ Compute the quantity forecasted of product at delivery date. There are
         two cases:
@@ -79,7 +80,7 @@ class SaleOrderLine(models.Model):
             line.qty_available_today = 0
             line.free_qty_today = 0
             for move in moves:
-                line.qty_available_today += move.product_uom._compute_quantity(move.reserved_availability, line.product_uom)
+                line.qty_available_today += move.product_uom._compute_quantity(move.quantity, line.product_uom)
                 line.free_qty_today += move.product_id.uom_id._compute_quantity(move.forecast_availability, line.product_uom)
             line.scheduled_date = line.order_id.commitment_date or line._expected_date()
             line.virtual_available_at_date = False
@@ -143,7 +144,7 @@ class SaleOrderLine(models.Model):
             mto_route = line.order_id.warehouse_id.mto_pull_id.route_id
             if not mto_route:
                 try:
-                    mto_route = self.env['stock.warehouse']._find_global_route('stock.route_warehouse0_mto', _('Make To Order'))
+                    mto_route = self.env['stock.warehouse']._find_global_route('stock.route_warehouse0_mto', _('Replenish on Order (MTO)'))
                 except UserError:
                     # if route MTO not found in ir_model_data, we treat the product as in MTS
                     pass
@@ -165,7 +166,7 @@ class SaleOrderLine(models.Model):
             if not line.is_expense and line.product_id.type in ['consu', 'product']:
                 line.qty_delivered_method = 'stock_move'
 
-    @api.depends('move_ids.state', 'move_ids.scrapped', 'move_ids.quantity_done', 'move_ids.product_uom')
+    @api.depends('move_ids.state', 'move_ids.scrapped', 'move_ids.quantity', 'move_ids.product_uom')
     def _compute_qty_delivered(self):
         super(SaleOrderLine, self)._compute_qty_delivered()
 
@@ -176,12 +177,38 @@ class SaleOrderLine(models.Model):
                 for move in outgoing_moves:
                     if move.state != 'done':
                         continue
-                    qty += move.product_uom._compute_quantity(move.quantity_done, line.product_uom, rounding_method='HALF-UP')
+                    qty += move.product_uom._compute_quantity(move.quantity, line.product_uom, rounding_method='HALF-UP')
                 for move in incoming_moves:
                     if move.state != 'done':
                         continue
-                    qty -= move.product_uom._compute_quantity(move.quantity_done, line.product_uom, rounding_method='HALF-UP')
+                    qty -= move.product_uom._compute_quantity(move.quantity, line.product_uom, rounding_method='HALF-UP')
                 line.qty_delivered = qty
+
+    def _compute_invoice_status(self):
+        def check_moves_state(moves):
+            # All moves states are either 'done' or 'cancel', and there is at least one 'done'
+            at_least_one_done = False
+            for move in moves:
+                if move.state not in ['done', 'cancel']:
+                    return False
+                at_least_one_done = at_least_one_done or move.state == 'done'
+            return at_least_one_done
+        super()._compute_invoice_status()
+        for line in self:
+            # We handle the following specific situation: a physical product is partially delivered,
+            # but we would like to set its invoice status to 'Fully Invoiced'. The use case is for
+            # products sold by weight, where the delivered quantity rarely matches exactly the
+            # quantity ordered.
+            if (
+                line.state == 'sale'
+                and line.invoice_status == 'no'
+                and line.product_id.type in ['consu', 'product']
+                and line.product_id.invoice_policy == 'delivery'
+                and line.move_ids
+                and check_moves_state(line.move_ids)
+                and not float_is_zero(line.qty_delivered, precision_rounding=line.product_uom.rounding)
+            ):
+                line.invoice_status = 'invoiced'
 
     @api.model_create_multi
     def create(self, vals_list):
@@ -194,40 +221,20 @@ class SaleOrderLine(models.Model):
         if 'product_uom_qty' in values:
             lines = self.filtered(lambda r: r.state == 'sale' and not r.is_expense)
 
-        if 'product_packaging_id' in values:
-            self.move_ids.filtered(
-                lambda m: m.state not in ['cancel', 'done']
-            ).product_packaging_id = values['product_packaging_id']
+        old_packaging = {sol: sol.product_packaging_id for sol in self}
 
         previous_product_uom_qty = {line.id: line.product_uom_qty for line in lines}
         res = super(SaleOrderLine, self).write(values)
+
+        for sol in self:
+            if sol.product_packaging_id != old_packaging[sol]:
+                sol.move_ids.filtered(
+                    lambda m: m.state not in ['cancel', 'done']
+                ).product_packaging_id = sol.product_packaging_id
+
         if lines:
             lines._action_launch_stock_rule(previous_product_uom_qty)
         return res
-
-    @api.depends('order_id.state')
-    def _compute_invoice_status(self):
-        def check_moves_state(moves):
-            # All moves states are either 'done' or 'cancel', and there is at least one 'done'
-            at_least_one_done = False
-            for move in moves:
-                if move.state not in ['done', 'cancel']:
-                    return False
-                at_least_one_done = at_least_one_done or move.state == 'done'
-            return at_least_one_done
-        super(SaleOrderLine, self)._compute_invoice_status()
-        for line in self:
-            # We handle the following specific situation: a physical product is partially delivered,
-            # but we would like to set its invoice status to 'Fully Invoiced'. The use case is for
-            # products sold by weight, where the delivered quantity rarely matches exactly the
-            # quantity ordered.
-            if line.order_id.state == 'done'\
-                    and line.invoice_status == 'no'\
-                    and line.product_id.type in ['consu', 'product']\
-                    and line.product_id.invoice_policy == 'delivery'\
-                    and line.move_ids \
-                    and check_moves_state(line.move_ids):
-                line.invoice_status = 'invoiced'
 
     @api.depends('move_ids')
     def _compute_product_updatable(self):
@@ -278,9 +285,11 @@ class SaleOrderLine(models.Model):
         qty = 0.0
         outgoing_moves, incoming_moves = self._get_outgoing_incoming_moves()
         for move in outgoing_moves:
-            qty += move.product_uom._compute_quantity(move.product_uom_qty, self.product_uom, rounding_method='HALF-UP')
+            qty_to_compute = move.quantity if move.state == 'done' else move.product_uom_qty
+            qty += move.product_uom._compute_quantity(qty_to_compute, self.product_uom, rounding_method='HALF-UP')
         for move in incoming_moves:
-            qty -= move.product_uom._compute_quantity(move.product_uom_qty, self.product_uom, rounding_method='HALF-UP')
+            qty_to_compute = move.quantity if move.state == 'done' else move.product_uom_qty
+            qty -= move.product_uom._compute_quantity(qty_to_compute, self.product_uom, rounding_method='HALF-UP')
         return qty
 
     def _get_outgoing_incoming_moves(self):
@@ -295,7 +304,7 @@ class SaleOrderLine(models.Model):
             if move.location_dest_id.usage == "customer":
                 if not move.origin_returned_move_id or (move.origin_returned_move_id and move.to_refund):
                     outgoing_moves_ids.add(move.id)
-            elif move.location_dest_id.usage != "customer" and move.to_refund:
+            elif move.location_id.usage == "customer" and move.to_refund:
                 incoming_moves_ids.add(move.id)
 
         return self.env['stock.move'].browse(outgoing_moves_ids), self.env['stock.move'].browse(incoming_moves_ids)
@@ -311,6 +320,12 @@ class SaleOrderLine(models.Model):
             'partner_id': self.order_id.partner_shipping_id.id,
         }
 
+    def _create_procurement(self, product_qty, procurement_uom, values):
+        self.ensure_one()
+        return self.env['procurement.group'].Procurement(
+            self.product_id, product_qty, procurement_uom, self.order_id.partner_shipping_id.property_stock_customer,
+            self.product_id.display_name, self.order_id.name, self.order_id.company_id, values)
+
     def _action_launch_stock_rule(self, previous_product_uom_qty=False):
         """
         Launch procurement group run method with required/custom fields generated by a
@@ -323,7 +338,7 @@ class SaleOrderLine(models.Model):
         procurements = []
         for line in self:
             line = line.with_company(line.company_id)
-            if line.state != 'sale' or not line.product_id.type in ('consu', 'product'):
+            if line.state != 'sale' or line.order_id.locked or not line.product_id.type in ('consu', 'product'):
                 continue
             qty = line._get_qty_procurement(previous_product_uom_qty)
             if float_compare(qty, line.product_uom_qty, precision_digits=precision) == 0:
@@ -350,15 +365,9 @@ class SaleOrderLine(models.Model):
             line_uom = line.product_uom
             quant_uom = line.product_id.uom_id
             product_qty, procurement_uom = line_uom._adjust_uom_quantities(product_qty, quant_uom)
-            procurements.append(self.env['procurement.group'].Procurement(
-                line.product_id, product_qty, procurement_uom,
-                line.order_id.partner_shipping_id.property_stock_customer,
-                line.product_id.display_name, line.order_id.name, line.order_id.company_id, values))
+            procurements.append(line._create_procurement(product_qty, procurement_uom, values))
         if procurements:
-            procurement_group = self.env['procurement.group']
-            if self.env.context.get('import_file'):
-                procurement_group = procurement_group.with_context(import_file=False)
-            procurement_group.run(procurements)
+            self.env['procurement.group'].run(procurements)
 
         # This next block is currently needed only because the scheduler trigger is done by picking confirmation rather than stock.move confirmation
         orders = self.mapped('order_id')
@@ -375,3 +384,39 @@ class SaleOrderLine(models.Model):
         if line_products.mapped('qty_delivered') and float_compare(values['product_uom_qty'], max(line_products.mapped('qty_delivered')), precision_digits=precision) == -1:
             raise UserError(_('The ordered quantity of a sale order line cannot be decreased below the amount already delivered. Instead, create a return in your inventory.'))
         super(SaleOrderLine, self)._update_line_quantity(values)
+
+    #=== HOOKS ===#
+
+    def _get_action_add_from_catalog_extra_context(self, order):
+        extra_context = super()._get_action_add_from_catalog_extra_context(order)
+        extra_context.update(warehouse=order.warehouse_id.id)
+        return extra_context
+
+    def _get_product_catalog_lines_data(self, **kwargs):
+        """ Override of `sale` to add the delivered quantity.
+
+        :rtype: dict
+        :return: A dict with the following structure:
+            {
+                'deliveredQty': float,
+                'quantity': float,
+                'price': float,
+                'readOnly': bool,
+            }
+        """
+        res = super()._get_product_catalog_lines_data(**kwargs)
+        res['deliveredQty'] = sum(
+            self.mapped(
+                lambda line: line.product_uom._compute_quantity(
+                    qty=line.qty_delivered,
+                    to_unit=line.product_id.uom_id,
+                )
+            )
+        )
+        return res
+
+    def has_valued_move_ids(self):
+        return (
+            any(move.state not in ('cancel', 'draft') for move in self.move_ids)
+            or super().has_valued_move_ids()  # TODO: remove in master
+        )

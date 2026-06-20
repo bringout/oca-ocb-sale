@@ -1,33 +1,29 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* website_sale_stock
-# 
+#
 # Translators:
-# Martin Trigaux, 2023
+# Wil Odoo, 2023
 # Larissa Manderfeld, 2024
-# 
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-06 13:32+0000\n"
-"PO-Revision-Date: 2022-09-22 05:57+0000\n"
+"POT-Creation-Date: 2025-12-29 18:38+0000\n"
+"PO-Revision-Date: 2023-10-26 23:09+0000\n"
 "Last-Translator: Larissa Manderfeld, 2024\n"
 "Language-Team: German (https://app.transifex.com/odoo/teams/41243/de/)\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: website_sale_stock
 #: model_terms:ir.ui.view,arch_db:website_sale_stock.res_config_settings_view_form
-msgid ""
-"<span attrs=\"{'invisible': [('show_availability', '=', "
-"False)]}\">Units</span>"
-msgstr ""
-"<span attrs=\"{'invisible': [('show_availability', '=', "
-"False)]}\">Einheiten</span>"
+msgid "<span invisible=\"not show_availability\">Units</span>"
+msgstr "<span invisible=\"not show_availability\">Einheiten</span>"
 
 #. module: website_sale_stock
 #: model:ir.model.fields,field_description:website_sale_stock.field_product_product__stock_notification_partner_ids
@@ -149,7 +145,6 @@ msgstr "Produktvariante"
 
 #. module: website_sale_stock
 #: model:ir.actions.server,name:website_sale_stock.ir_cron_send_availability_email_ir_actions_server
-#: model:ir.cron,cron_name:website_sale_stock.ir_cron_send_availability_email
 msgid "Product: send email regarding products availability"
 msgstr "Produkt: E-Mails bezüglich Produktverfügbarkeit versenden"
 
@@ -193,8 +188,8 @@ msgstr "Mengenverfügbarkeit anzeigen"
 #: code:addons/website_sale_stock/models/sale_order.py:0
 #, python-format
 msgid ""
-"Some products became unavailable and your cart has been updated. We're sorry"
-" for the inconvenience."
+"Some products became unavailable and your cart has been updated. We're sorry "
+"for the inconvenience."
 msgstr ""
 "Manche Produkte sind zurzeit nicht auf Lager. Ihr Warenkorb wurde "
 "aktualisiert. Entschuldigen Sie die Unannehmlichkeiten."
@@ -203,6 +198,14 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:website_sale_stock.availability_email_body
 msgid "The following product is now available."
 msgstr "Das folgende Produkt ist jetzt verfügbar."
+
+#. module: website_sale_stock
+#. odoo-python
+#: code:addons/website_sale_stock/models/sale_order.py:0
+#, python-format
+msgid "The item has not been added to your cart since it is not available."
+msgstr ""
+"Der Artikel wurde nicht in Ihren Warenkorb gelegt, da er nicht verfügbar ist."
 
 #. module: website_sale_stock
 #. odoo-python
@@ -297,7 +300,6 @@ msgstr ""
 
 #. module: website_sale_stock
 #. odoo-javascript
-#: code:addons/website_sale_stock/static/src/js/website_sale_reorder.js:0
 #: code:addons/website_sale_stock/static/src/js/website_sale_reorder.js:0
 #, python-format
 msgid "You ask for %s Units but only %s are available."

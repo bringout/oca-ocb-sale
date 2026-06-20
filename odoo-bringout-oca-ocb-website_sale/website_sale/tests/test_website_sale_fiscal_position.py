@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo.addons.base.tests.common import HttpCaseWithUserPortal
-from odoo.addons.product.tests.common import ProductCommon
+from odoo import Command
 from odoo.tests import tagged
 
-from odoo import Command
+from odoo.addons.base.tests.common import HttpCaseWithUserPortal
+from odoo.addons.product.tests.common import ProductCommon
+
 
 @tagged('post_install', '-at_install')
 class TestWebsiteSaleFiscalPosition(ProductCommon, HttpCaseWithUserPortal):
@@ -18,6 +19,8 @@ class TestWebsiteSaleFiscalPosition(ProductCommon, HttpCaseWithUserPortal):
 
         cls.website = cls.env.ref('website.default_website')
         cls.website.company_id = cls.env.company
+
+        cls.env['account.tax'].search([('company_id', '=', cls.env.company.id)]).action_archive()
 
         # Create a fiscal position with a mapping of taxes
         cls.tax_15_excl = cls.env['account.tax'].create({
@@ -53,19 +56,28 @@ class TestWebsiteSaleFiscalPosition(ProductCommon, HttpCaseWithUserPortal):
             The goal of this test is to check that this template
             is up to date with the fiscal position detected.
         """
+        self.env.ref('base.group_user').write({'implied_ids': [(4, self.env.ref('product.group_product_pricelist').id)]})
+        self.env.company.country_id = self.env.ref('base.us')
         # Set setting to display tax included on the website
         config = self.env['res.config.settings'].create({})
         config.show_line_subtotals_tax_selection = "tax_included"
         config.execute()
         # Create a pricelist which will be automatically detected
-        self.env['product.pricelist'].create({
+        self.env['product.pricelist'].create([{
             'name': 'EUROPE EUR',
             'selectable': True,
             'website_id': self.website.id,
             'country_group_ids': [Command.link(self.env.ref('base.europe').id)],
             'sequence': 1,
             'currency_id': self.env.ref('base.EUR').id,
-        })
+        }, {
+            'name': 'Christmas List',
+            'selectable': False,
+            'website_id': self.website.id,
+            'country_group_ids': [Command.link(self.env.ref('base.europe').id)],
+            'sequence': 20,
+            'currency_id': self.env.ref('base.EUR').id,
+        }])
         # Create the product to be used for analysis
         self.env["product.product"].create({
             'name': "Super product",

@@ -1,56 +1,56 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* sales_team
-# 
+#
 # Translators:
-# Zvika Rap <zvikara@gmail.com>, 2022
-# Adi Sharashov <Adi@laylinetech.com>, 2022
-# Fishfur A Banter <fishfurbanter@gmail.com>, 2022
-# דודי מלכה <Dudimalka6@gmail.com>, 2022
-# david danilov, 2022
-# Amit Spilman <amit@laylinetech.com>, 2022
-# Lilach Gilliam <lilach.gilliam@gmail.com>, 2022
-# Martin Trigaux, 2022
-# Jonathan Spier, 2022
-# ZVI BLONDER <ZVIBLONDER@gmail.com>, 2022
-# ExcaliberX <excaliberx@gmail.com>, 2022
-# Yihya Hugirat <hugirat@gmail.com>, 2022
-# NoaFarkash, 2022
+# Zvika Rap <zvikara@gmail.com>, 2023
+# Adi Sharashov <Adi@laylinetech.com>, 2023
+# Fishfur A Banter <fishfurbanter@gmail.com>, 2023
 # Roy Sayag, 2023
-# yael terner, 2023
+# דודי מלכה <Dudimalka6@gmail.com>, 2023
+# Jonathan Spier, 2023
+# ExcaliberX <excaliberx@gmail.com>, 2023
+# Martin Trigaux, 2023
+# Amit Spilman <amit@laylinetech.com>, 2023
+# david danilov, 2023
+# Yihya Hugirat <hugirat@gmail.com>, 2023
+# Lilach Gilliam <lilach.gilliam@gmail.com>, 2023
+# NoaFarkash, 2023
+# ZVI BLONDER <ZVIBLONDER@gmail.com>, 2023
 # Ha Ketem <haketem@gmail.com>, 2024
+# yael terner, 2024
 # or balmas, 2025
 # Yoram Lavi, 2025
-# 
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-10 08:27+0000\n"
-"PO-Revision-Date: 2022-09-22 05:55+0000\n"
+"POT-Creation-Date: 2025-12-29 18:38+0000\n"
+"PO-Revision-Date: 2023-10-26 23:09+0000\n"
 "Last-Translator: Yoram Lavi, 2025\n"
 "Language-Team: Hebrew (https://app.transifex.com/odoo/teams/41243/he/)\n"
+"Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: he\n"
-"Plural-Forms: nplurals=3; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: 2;\n"
-
-#. module: sales_team
-#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_kanban_dashboard
-msgid "<i class=\"fa fa-ellipsis-v\" role=\"img\" aria-label=\"Manage\" title=\"Manage\"/>"
-msgstr "<i class=\"fa fa-ellipsis-v\" role=\"img\" aria-label=\"Manage\" title=\"Manage\"/>"
+"Plural-Forms: nplurals=3; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % "
+"1 == 0) ? 1: 2;\n"
 
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_kanban
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_form
-msgid "<i class=\"fa fa-envelope me-1\" role=\"img\" aria-label=\"Email\" title=\"Email\"/>"
-msgstr "<i class=\"fa fa-envelope me-1\" role=\"img\" aria-label=\"Email\" title=\"Email\"/>"
+msgid ""
+"<i class=\"fa fa-envelope me-1\" role=\"img\" aria-label=\"Email\" "
+"title=\"Email\"/>"
+msgstr ""
+"<i class=\"fa fa-envelope me-1\" role=\"img\" aria-label=\"Email\" "
+"title=\"Email\"/>"
 
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_kanban
-msgid "<span class=\"bg-odoo\">Archived</span>"
-msgstr ""
+msgid "<span class=\"text-bg-danger\">Archived</span>"
+msgstr "<span class=\"text-bg-danger\">בארכיון</span>"
 
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_kanban_dashboard
@@ -91,8 +91,7 @@ msgstr "הוסף איש צוות "
 
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team__crm_team_member_ids
-msgid ""
-"Add members to automatically assign their documents to this sales team."
+msgid "Add members to automatically assign their documents to this sales team."
 msgstr "הוסף חברים כדי להקצות אוטומטית את המסמכים שלהם לצוות המכירות הזה."
 
 #. module: sales_team
@@ -100,8 +99,8 @@ msgstr "הוסף חברים כדי להקצות אוטומטית את המסמכ
 #: code:addons/sales_team/models/crm_team.py:0
 #, python-format
 msgid ""
-"Adding %(user_name)s in this team would remove him/her from its current team"
-" %(team_name)s."
+"Adding %(user_name)s in this team would remove him/her from its current team "
+"%(team_name)s."
 msgstr ""
 "הוספת %(user_name)s לצוות זה יגרום להסרתו/ה מהצוות הנוכחי %(team_name)s."
 
@@ -180,11 +179,11 @@ msgstr "אינדקס צבעים"
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__company_id
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__company_id
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_search
 msgid "Company"
 msgstr "חברה"
 
 #. module: sales_team
-#: model:ir.ui.menu,name:sales_team.menu_sale_config
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_kanban_dashboard
 msgid "Configuration"
 msgstr "תצורה"
@@ -269,12 +268,11 @@ msgstr "דוא\"ל"
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__favorite_user_ids
 msgid "Favorite Members"
-msgstr "מנויים מועדפים"
+msgstr "חברי צוות מועדפים"
 
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team__is_favorite
-msgid ""
-"Favorite teams to display them in the dashboard and access them easily."
+msgid "Favorite teams to display them in the dashboard and access them easily."
 msgstr "צוותים מועדפים להצגה בלוח הבקרה וגישה קלה אליהם."
 
 #. module: sales_team
@@ -381,13 +379,6 @@ msgid "Is Follower"
 msgstr "עוקב"
 
 #. module: sales_team
-#: model:ir.model.fields,field_description:sales_team.field_crm_tag____last_update
-#: model:ir.model.fields,field_description:sales_team.field_crm_team____last_update
-#: model:ir.model.fields,field_description:sales_team.field_crm_team_member____last_update
-msgid "Last Modified on"
-msgstr "שינוי אחרון ב"
-
-#. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_tag__write_uid
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__write_uid
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__write_uid
@@ -400,12 +391,6 @@ msgstr "עודכן לאחרונה על-ידי"
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__write_date
 msgid "Last Updated on"
 msgstr "עדכון אחרון ב"
-
-#. module: sales_team
-#: model:ir.model.fields,field_description:sales_team.field_crm_team__message_main_attachment_id
-#: model:ir.model.fields,field_description:sales_team.field_crm_team_member__message_main_attachment_id
-msgid "Main Attachment"
-msgstr "קובץ ראשי מצורף "
 
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_res_users__sale_team_id
@@ -514,6 +499,12 @@ msgid "Product"
 msgstr "מוצר"
 
 #. module: sales_team
+#: model:ir.model.fields,field_description:sales_team.field_crm_team__rating_ids
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_member__rating_ids
+msgid "Ratings"
+msgstr "דירוגים"
+
+#. module: sales_team
 #: model:crm.team,name:sales_team.team_sales_department
 msgid "Sales"
 msgstr "מכירות"
@@ -613,8 +604,8 @@ msgstr "שם תגית"
 
 #. module: sales_team
 #: model:ir.model.constraint,message:sales_team.constraint_crm_tag_name_uniq
-msgid "Tag name already exists !"
-msgstr "שם תגית כבר קיים !"
+msgid "Tag name already exists!"
+msgstr "שם התגית כבר קיים!"
 
 #. module: sales_team
 #: model:ir.actions.act_window,name:sales_team.sales_team_crm_tag_action
@@ -699,15 +690,13 @@ msgstr "UX: הגבל לצוות החברה או לכולם אם אין חברה"
 #. module: sales_team
 #. odoo-python
 #: code:addons/sales_team/models/crm_team.py:0
-#: code:addons/sales_team/models/crm_team.py:0
 #, python-format
 msgid "Undefined graph model for Sales Team: %s"
 msgstr "מודל גרף לא מוגדר עבור צוות המכירות: %s"
 
 #. module: sales_team
 #: model_terms:ir.actions.act_window,help:sales_team.crm_team_action_config
-msgid ""
-"Use Sales Teams to organize your sales departments and draw up reports."
+msgid "Use Sales Teams to organize your sales departments and draw up reports."
 msgstr "הגדר צוותי מכירות כדי לארגן את מחלקות המכירות שלך ולערוך דוחות."
 
 #. module: sales_team
@@ -807,6 +796,6 @@ msgstr "למשתמש תהיה גישה לנתונים שלו ביישום המכ
 #. module: sales_team
 #: model:res.groups,comment:sales_team.group_sale_manager
 msgid ""
-"the user will have an access to the sales configuration as well as statistic"
-" reports."
+"the user will have an access to the sales configuration as well as statistic "
+"reports."
 msgstr "למשתמש תהיה גישה לתצורת המכירות כמו גם לדוחות סטטיסטיים."

@@ -8,12 +8,15 @@ from . import account_journal
 from . import account_tax
 from . import account_move
 from . import barcode_rule
+from . import binary
 from . import chart_template
 from . import digest
 from . import pos_category
 from . import pos_config
 from . import pos_order
 from . import pos_session
+from . import pos_combo
+from . import pos_combo_line
 from . import product
 from . import res_partner
 from . import res_company
@@ -24,3 +27,6 @@ from . import stock_warehouse
 from . import pos_payment
 from . import pos_payment_method
 from . import pos_bill
+from . import report_sale_details
+from . import pos_printer
+from . import account_fiscal_position

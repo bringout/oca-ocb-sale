@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 import logging
@@ -32,6 +31,7 @@ class TestUi(HttpCase):
             'name': 'Example shipping On Site',
             'product_id': self.env.ref('website_sale_picking.onsite_delivery_product').id,
         })
+        self.env.ref("website_sale_picking.payment_provider_onsite").state = 'enabled'
         self.env.ref("website_sale_picking.payment_provider_onsite").is_published = True
 
         self.start_tour('/shop', 'onsite_payment_tour')

@@ -1,24 +1,28 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* sale_stock
-# 
+# * sale_stock
+#
 # Translators:
-# Martin Trigaux, 2022
 # Abe Manyo, 2024
-# 
+# Wil Odoo, 2024
+#
+# Weblate <noreply-mt-weblate@weblate.org>, 2025.
+# "Nurul Aini Akrima Sabila (nuaas)" <nuaas@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-06 13:32+0000\n"
-"PO-Revision-Date: 2022-09-22 05:55+0000\n"
-"Last-Translator: Abe Manyo, 2024\n"
-"Language-Team: Indonesian (https://app.transifex.com/odoo/teams/41243/id/)\n"
+"POT-Creation-Date: 2025-12-29 18:38+0000\n"
+"PO-Revision-Date: 2026-05-02 08:11+0000\n"
+"Last-Translator: \"Nurul Aini Akrima Sabila (nuaas)\" <nuaas@odoo.com>\n"
+"Language-Team: Indonesian <https://translate.odoo.com/projects/odoo-17/"
+"sale_stock/id/>\n"
+"Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: id\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.17\n"
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.exception_on_picking
@@ -31,40 +35,28 @@ msgstr ""
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.sale_order_portal_content_inherit_sale_stock
-msgid "<i class=\"fa fa-fw fa-clock-o\"/> <b>Preparation</b>"
-msgstr "<i class=\"fa fa-fw fa-clock-o\"/> <b>Persiapan</b>"
+msgid "<i class=\"fa fa-fw fa-clock-o\"/> Awaiting arrival"
+msgstr "<i class=\"fa fa-fw fa-clock-o\"/> Menunggu kedatngan"
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.sale_order_portal_content_inherit_sale_stock
-msgid "<i class=\"fa fa-fw fa-times\"/> <b>Cancelled</b>"
-msgstr "<i class=\"fa fa-fw fa-times\"/> <b>Dibatalkan</b>"
+msgid "<i class=\"fa fa-fw fa-clock-o\"/>Preparation"
+msgstr "<i class=\"fa fa-fw fa-clock-o\"/>Persiapan"
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.sale_order_portal_content_inherit_sale_stock
-msgid "<i class=\"fa fa-fw fa-truck\"/> <b>Shipped</b>"
-msgstr "<i class=\"fa fa-fw fa-truck\"/> <b>Dikirim</b>"
+msgid "<i class=\"fa fa-fw fa-times\"/> Cancelled"
+msgstr "<i class=\"fa fa-fw fa-times\"/> Dibatalka"
 
 #. module: sale_stock
-#: model_terms:ir.ui.view,arch_db:sale_stock.sale_order_cancel_view_form_inherit
-msgid ""
-"<span attrs=\"{'invisible': [('display_delivery_alert', '=', False)]}\">\n"
-"                    Some deliveries are already done. Returns can be created from the Delivery Orders.\n"
-"                </span>"
-msgstr ""
-"<span attrs=\"{'invisible': [('display_delivery_alert', '=', False)]}\">\n"
-"                    Beberapa pengiriman sudah dilakukan. Pengembalian dapat dibuat dari Pesanan Pengiriman.\n"
-"                </span>"
+#: model_terms:ir.ui.view,arch_db:sale_stock.sale_order_portal_content_inherit_sale_stock
+msgid "<i class=\"fa fa-fw fa-times\"/>Cancelled"
+msgstr "<i class=\"fa fa-fw fa-times\"/>Dibatalkan"
 
 #. module: sale_stock
-#: model_terms:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_stock
-msgid ""
-"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
-"specific.\" role=\"img\" aria-label=\"Values set here are company-"
-"specific.\" groups=\"base.group_multi_company\"/>"
-msgstr ""
-"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
-"specific.\" role=\"img\" aria-label=\"Values set here are company-"
-"specific.\" groups=\"base.group_multi_company\"/>"
+#: model_terms:ir.ui.view,arch_db:sale_stock.sale_order_portal_content_inherit_sale_stock
+msgid "<i class=\"fa fa-fw fa-truck\"/> Received"
+msgstr "<i class=\"fa fa-fw fa-truck\"/> Diterima"
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.stock_production_lot_view_form
@@ -72,22 +64,38 @@ msgid "<span class=\"o_stat_text\">Sales</span>"
 msgstr "<span class=\"o_stat_text\">Sales</span>"
 
 #. module: sale_stock
+#: model_terms:ir.ui.view,arch_db:sale_stock.sale_order_portal_content_inherit_sale_stock
+msgid ""
+"<span class=\"small badge text-bg-success orders_label_text_align\">\n"
+"                                        <i class=\"fa fa-fw fa-truck\"/> "
+"Shipped\n"
+"                                    </span>"
+msgstr ""
+"<span class=\"small badge text-bg-success orders_label_text_align\">\n"
+"                                        <i class=\"fa fa-fw fa-truck\"/> "
+"Dikirim\n"
+"                                    </span>"
+
+#. module: sale_stock
+#: model_terms:ir.ui.view,arch_db:sale_stock.sale_order_cancel_view_form_inherit
+msgid ""
+"<span invisible=\"not display_delivery_alert\">\n"
+"                    Some deliveries are already done. Returns can be created "
+"from the Delivery Orders.\n"
+"                </span>"
+msgstr ""
+"<span invisible=\"not display_delivery_alert\">\n"
+"                    Beberapa pengiriman sudah dilakukan. Pengembalian dapat "
+"dibuat dari Pengiriman Pesanan.\n"
+"                </span>"
+
+#. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.report_delivery_document_inherit_sale_stock
 msgid "<strong>Customer Reference:</strong>"
 msgstr "<strong>Referensi Pelanggan:</strong>"
 
 #. module: sale_stock
-#: model_terms:ir.ui.view,arch_db:sale_stock.sale_order_portal_content_inherit_sale_stock
-msgid "<strong>Delivery Orders</strong>"
-msgstr "<strong>Pengiriman Pesanan</strong>"
-
-#. module: sale_stock
-#: model_terms:ir.ui.view,arch_db:sale_stock.sale_order_portal_content_inherit_sale_stock
-msgid "<strong>Incoterm: </strong>"
-msgstr "<strong>Incoterm: </strong>"
-
-#. module: sale_stock
-#: model_terms:ir.ui.view,arch_db:sale_stock.report_invoice_document_inherit_sale_stock
+#: model_terms:ir.ui.view,arch_db:sale_stock.report_delivery_document_inherit_sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.report_saleorder_document_inherit_sale_stock
 msgid "<strong>Incoterm:</strong>"
 msgstr "<strong>Incoterm:</strong>"
@@ -95,16 +103,26 @@ msgstr "<strong>Incoterm:</strong>"
 #. module: sale_stock
 #: model:ir.model.fields,help:sale_stock.field_sale_order_line__qty_delivered_method
 msgid ""
-"According to product configuration, the delivered quantity can be automatically computed by mechanism :\n"
+"According to product configuration, the delivered quantity can be "
+"automatically computed by mechanism:\n"
 "  - Manual: the quantity is set manually on the line\n"
-"  - Analytic From expenses: the quantity is the quantity sum from posted expenses\n"
-"  - Timesheet: the quantity is the sum of hours recorded on tasks linked to this sale line\n"
+"  - Analytic From expenses: the quantity is the quantity sum from posted "
+"expenses\n"
+"  - Timesheet: the quantity is the sum of hours recorded on tasks linked to "
+"this sale line\n"
 "  - Stock Moves: the quantity comes from confirmed pickings\n"
 msgstr ""
+"Menurut konfigurasi produk, kuantitas yang dikirim dapat secara otomatis "
+"dihitung dengan mekanisme:\n"
+"  - Manual: kuantitas ditetapkan secara manual pada baris\n"
+"  - Analytic From expenses: kuantitas adalah jumlah kuantitas dari "
+"pengeluaran yang dipost\n"
+"  - Timesheet: kuantitas adalah jumlah jam yang dicatat pada task terkait "
+"baris sale ini\n"
+"  - Stock Moves: kuantitas datang dari picking yang dikonfirmasi\n"
 
 #. module: sale_stock
 #. odoo-javascript
-#: code:addons/sale_stock/static/src/legacy/qty_at_date_widget.xml:0
 #: code:addons/sale_stock/static/src/widgets/qty_at_date_widget.xml:0
 #, python-format
 msgid "All planned operations included"
@@ -122,7 +140,6 @@ msgstr "Sesegera mungkin"
 
 #. module: sale_stock
 #. odoo-javascript
-#: code:addons/sale_stock/static/src/legacy/qty_at_date_widget.js:0
 #: code:addons/sale_stock/static/src/widgets/qty_at_date_widget.xml:0
 #, python-format
 msgid "Availability"
@@ -130,7 +147,6 @@ msgstr "Ketersediaan"
 
 #. module: sale_stock
 #. odoo-javascript
-#: code:addons/sale_stock/static/src/legacy/qty_at_date_widget.xml:0
 #: code:addons/sale_stock/static/src/widgets/qty_at_date_widget.xml:0
 #, python-format
 msgid "Available"
@@ -138,7 +154,6 @@ msgstr "Tersedia"
 
 #. module: sale_stock
 #. odoo-javascript
-#: code:addons/sale_stock/static/src/legacy/qty_at_date_widget.xml:0
 #: code:addons/sale_stock/static/src/widgets/qty_at_date_widget.xml:0
 #, python-format
 msgid "Available in stock"
@@ -163,6 +178,11 @@ msgstr "Tanggal selesai untuk pesanan pengiriman pertama."
 #: model:ir.model,name:sale_stock.model_res_config_settings
 msgid "Config Settings"
 msgstr "Pengaturan Konfigurasi"
+
+#. module: sale_stock
+#: model_terms:ir.ui.view,arch_db:sale_stock.report_delivery_document_inherit_sale_stock
+msgid "Customer reference"
+msgstr "Referensi pelanggan"
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.sale_order_portal_content_inherit_sale_stock
@@ -205,23 +225,13 @@ msgstr ""
 "Tanggal pengiriman yang Anda janjikan ke pelanggan, dihitung dari lead time "
 "minimal untuk baris order untuk kasus produk Layanan. Untuk kasus "
 "pengiriman, kebijakan pengiriman pesanan akan diperhitungkan dalam "
-"menentukan apakah lead time minimum atau maksimum dari baris order yang akan"
-" digunakan."
+"menentukan apakah lead time minimum atau maksimum dari baris order yang akan "
+"digunakan."
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__display_qty_widget
 msgid "Display Qty Widget"
 msgstr "Widget Tampilkan Kuantitas "
-
-#. module: sale_stock
-#: model:res.groups,name:sale_stock.group_display_incoterm
-msgid "Display incoterms on Sales Order and related invoices"
-msgstr "Tampilkan incoterm pada Order Penjualan dan faktur terkait"
-
-#. module: sale_stock
-#: model_terms:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_sale
-msgid "Display incoterms on orders &amp; invoices"
-msgstr "Tampilkan incoterm pada order &amp; faktur"
 
 #. module: sale_stock
 #. odoo-python
@@ -230,11 +240,6 @@ msgstr "Tampilkan incoterm pada order &amp; faktur"
 msgid ""
 "Do not forget to change the partner on the following delivery orders: %s"
 msgstr "Jangan lupa untuk mengganti mitra pada pesanan pengiriman berikut: %s"
-
-#. module: sale_stock
-#: model_terms:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_stock
-msgid "Documentation"
-msgstr "Dokumentasi"
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order__effective_date
@@ -264,7 +269,6 @@ msgstr "Tanggal Perkiraan"
 
 #. module: sale_stock
 #. odoo-javascript
-#: code:addons/sale_stock/static/src/legacy/qty_at_date_widget.xml:0
 #: code:addons/sale_stock/static/src/widgets/qty_at_date_widget.xml:0
 #, python-format
 msgid "Expected Delivery"
@@ -282,7 +286,6 @@ msgstr "Tanggal Forecast yang Diharapkan"
 
 #. module: sale_stock
 #. odoo-javascript
-#: code:addons/sale_stock/static/src/legacy/qty_at_date_widget.xml:0
 #: code:addons/sale_stock/static/src/widgets/qty_at_date_widget.xml:0
 #, python-format
 msgid "Forecasted Stock"
@@ -330,10 +333,14 @@ msgid "Incoterm Location"
 msgstr "Lokasi Incoterm"
 
 #. module: sale_stock
-#: model:ir.model.fields,field_description:sale_stock.field_res_config_settings__group_display_incoterm
-#: model_terms:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_sale
-msgid "Incoterms"
-msgstr "Incoterm"
+#: model_terms:ir.ui.view,arch_db:sale_stock.report_delivery_document_inherit_sale_stock
+msgid "Incoterm details"
+msgstr "Detail incoterm"
+
+#. module: sale_stock
+#: model_terms:ir.ui.view,arch_db:sale_stock.sale_order_portal_content_inherit_sale_stock
+msgid "Incoterm:"
+msgstr "Incoterm:"
 
 #. module: sale_stock
 #: model:ir.model.fields,help:sale_stock.field_sale_order__incoterm
@@ -347,12 +354,12 @@ msgstr ""
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.res_users_view_form
 msgid "Inventory"
-msgstr "Stok Persediaan"
+msgstr "Inventaris"
 
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_stock_route
 msgid "Inventory Routes"
-msgstr "Rute Stok Persediaan"
+msgstr "Rute Inventaris"
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__is_mto
@@ -375,6 +382,11 @@ msgid "Journal Item"
 msgstr "Item Jurnal"
 
 #. module: sale_stock
+#: model_terms:ir.ui.view,arch_db:sale_stock.sale_order_portal_content_inherit_sale_stock
+msgid "Last Delivery Orders"
+msgstr "Pesanan Pengiriman Terakhir"
+
+#. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__customer_lead
 msgid "Lead Time"
 msgstr "Lama Waktu"
@@ -383,13 +395,6 @@ msgstr "Lama Waktu"
 #: model:ir.model,name:sale_stock.model_stock_lot
 msgid "Lot/Serial"
 msgstr "Seri/Lot"
-
-#. module: sale_stock
-#. odoo-python
-#: code:addons/sale_stock/models/sale_order_line.py:0
-#, python-format
-msgid "Make To Order"
-msgstr "Make To Order"
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.exception_on_so
@@ -403,10 +408,10 @@ msgid ""
 "for delivery that many days earlier than the actual promised date, to cope "
 "with unexpected delays in the supply chain."
 msgstr ""
-"Margin kesalahan untuk tanggal yang dijanjikan kepada pelanggan. Produk akan"
-" dijadwalkan untuk pengadaan dan pengiriman lebih awal sebanyak hari "
-"tersebut dari tanggal yang dijanjikan, untuk mengatasi penundaan tak terduga"
-" pada rantai pemasokan."
+"Margin kesalahan untuk tanggal yang dijanjikan kepada pelanggan. Produk akan "
+"dijadwalkan untuk pengadaan dan pengiriman lebih awal sebanyak hari tersebut "
+"dari tanggal yang dijanjikan, untuk mengatasi penundaan tak terduga pada "
+"rantai pemasokan."
 
 #. module: sale_stock
 #: model:ir.model.fields,help:sale_stock.field_res_company__security_lead
@@ -414,30 +419,23 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_stock
 msgid ""
 "Margin of error for dates promised to customers. Products will be scheduled "
-"for procurement and delivery that many days earlier than the actual promised"
-" date, to cope with unexpected delays in the supply chain."
+"for procurement and delivery that many days earlier than the actual promised "
+"date, to cope with unexpected delays in the supply chain."
 msgstr ""
-"Margin kesalahan untuk tanggal yang dijanjikan kepada pelanggan. Produk akan"
-" dijadwalkan untuk pengadaan dan pengiriman lebih awal sebanyak hari "
-"tersebut dari tanggal yang dijanjikan, untuk mengatasi penundaan tak terduga"
-" pada rantai pemasokan."
+"Margin kesalahan untuk tanggal yang dijanjikan kepada pelanggan. Produk akan "
+"dijadwalkan untuk pengadaan dan pengiriman lebih awal sebanyak hari tersebut "
+"dari tanggal yang dijanjikan, untuk mengatasi penundaan tak terduga pada "
+"rantai pemasokan."
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__qty_delivered_method
 msgid "Method to update delivered qty"
-msgstr "Metode utnuk mengupdate kuantitas yang dikirim"
+msgstr "Metode untuk mengupdate kuantitas yang dikirim"
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_stock
 msgid "Move forward expected delivery dates by"
 msgstr "Majukan jadwal pengiriman sebanyak"
-
-#. module: sale_stock
-#. odoo-javascript
-#: code:addons/sale_stock/static/src/legacy/qty_at_date_widget.xml:0
-#, python-format
-msgid "No enough future availaibility"
-msgstr ""
 
 #. module: sale_stock
 #. odoo-javascript
@@ -447,16 +445,9 @@ msgid "No future availability"
 msgstr "Tidak ada ketersediaan di masa depan"
 
 #. module: sale_stock
-#. odoo-javascript
-#: code:addons/sale_stock/static/src/legacy/qty_at_date_widget.xml:0
-#, python-format
-msgid "No future availaibility"
-msgstr ""
-
-#. module: sale_stock
 #: model:ir.model.fields.selection,name:sale_stock.selection__sale_order__delivery_status__pending
 msgid "Not Delivered"
-msgstr "Belum Dikirim"
+msgstr "Tidak Terkirim"
 
 #. module: sale_stock
 #. odoo-javascript
@@ -470,12 +461,10 @@ msgstr "Tidak ada ketersediaan yang mencukupi di masa depan"
 msgid ""
 "Number of days between the order confirmation and the shipping of the "
 "products to the customer"
-msgstr ""
-"Jumlah hari antara konfirmasi order dan pengiriman produk ke pelanggan"
+msgstr "Jumlah hari antara konfirmasi order dan pengiriman produk ke pelanggan"
 
 #. module: sale_stock
 #. odoo-javascript
-#: code:addons/sale_stock/static/src/legacy/qty_at_date_widget.xml:0
 #: code:addons/sale_stock/static/src/widgets/qty_at_date_widget.xml:0
 #, python-format
 msgid "On"
@@ -503,6 +492,11 @@ msgid "Product"
 msgstr "Produk"
 
 #. module: sale_stock
+#: model:ir.model,name:sale_stock.model_stock_move_line
+msgid "Product Moves (Stock Move Line)"
+msgstr "Pergerakan Produk (Baris Pergerakan Stok)"
+
+#. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__qty_available_today
 msgid "Qty Available Today"
 msgstr "Kuantitas yang Tersedia Hari Ini"
@@ -520,20 +514,35 @@ msgid "Quotations"
 msgstr "Penawaran"
 
 #. module: sale_stock
+#: model_terms:ir.ui.view,arch_db:sale_stock.sale_order_portal_content_inherit_sale_stock
+msgid "RETURN"
+msgstr "PENGEMBALIAN"
+
+#. module: sale_stock
 #. odoo-javascript
-#: code:addons/sale_stock/static/src/legacy/qty_at_date_widget.xml:0
 #: code:addons/sale_stock/static/src/widgets/qty_at_date_widget.xml:0
 #, python-format
 msgid "Remaining demand available at"
 msgstr "Permintaan tersisa hari ini adalah"
 
 #. module: sale_stock
+#. odoo-python
+#: code:addons/sale_stock/models/sale_order_line.py:0
+#, python-format
+msgid "Replenish on Order (MTO)"
+msgstr "Replenish on Order (MTO)"
+
+#. module: sale_stock
 #. odoo-javascript
-#: code:addons/sale_stock/static/src/legacy/qty_at_date_widget.xml:0
 #: code:addons/sale_stock/static/src/widgets/qty_at_date_widget.xml:0
 #, python-format
 msgid "Reserved"
 msgstr "Reservasi"
+
+#. module: sale_stock
+#: model_terms:ir.ui.view,arch_db:sale_stock.sale_order_portal_content_inherit_sale_stock
+msgid "Returns"
+msgstr "Pengembalian"
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__route_id
@@ -579,7 +588,7 @@ msgstr "Sales Order Batal"
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_sale_order_line
 msgid "Sales Order Line"
-msgstr "Detail Order Penjualan"
+msgstr "Baris Pesanan Penjualan"
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.stock_location_route_view_form_inherit_sale_stock
@@ -653,19 +662,24 @@ msgid "Stock Moves"
 msgstr "Pergerakan Stock"
 
 #. module: sale_stock
-#: model:ir.model,name:sale_stock.model_report_stock_report_product_product_replenishment
+#: model:ir.model,name:sale_stock.model_stock_forecasted_product_product
 msgid "Stock Replenishment Report"
 msgstr "Laporan Replenishment Stok"
 
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_stock_rule
 msgid "Stock Rule"
-msgstr "Peraturan Sto"
+msgstr "Peraturan Stok"
 
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_stock_rules_report
 msgid "Stock Rules report"
-msgstr "Laporan Peraturan Sto"
+msgstr "Laporan Peraturan Stok"
+
+#. module: sale_stock
+#: model:ir.model,name:sale_stock.model_stock_valuation_layer
+msgid "Stock Valuation Layer"
+msgstr "Stock Valuation Layer"
 
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_report_stock_report_stock_rule
@@ -685,12 +699,26 @@ msgstr "Pengiriman"
 #, python-format
 msgid ""
 "The delivery address has been changed on the Sales Order<br/>\n"
-"                        From <strong>\"%s\"</strong> To <strong>\"%s\"</strong>,\n"
-"                        You should probably update the partner on this document."
+"                        From <strong>\"%s\"</strong> To <strong>\"%s\"</"
+"strong>,\n"
+"                        You should probably update the partner on this "
+"document."
 msgstr ""
 "Alamat pengiriman telah dirubah pada Sales Order<br/>\n"
-"                        Dari <strong>\"%s\"</strong> Menjadi <strong>\"%s\"</strong>,\n"
+"                        Dari <strong>\"%s\"</strong> Menjadi <strong>\"%s\"</"
+"strong>,\n"
 "                        Anda sebaiknya mengupdate mitra pada dokumen ini."
+
+#. module: sale_stock
+#. odoo-javascript
+#: code:addons/sale_stock/static/src/product_catalog/sale_order_line/sale_order_line.js:0
+#, python-format
+msgid ""
+"The ordered quantity cannot be decreased below the amount already delivered. "
+"Instead, create a return in your inventory."
+msgstr ""
+"Kuantitas yang dipesan tidak dapat dikurangi sampai di bawah jumlah yang "
+"sudah dikirim. Alih-alih, silakan buat pengembalian dalam inventaris Anda."
 
 #. module: sale_stock
 #. odoo-python
@@ -700,13 +728,12 @@ msgid ""
 "The ordered quantity of a sale order line cannot be decreased below the "
 "amount already delivered. Instead, create a return in your inventory."
 msgstr ""
-"Kuantitas yang dipesan untuk baris sale order tidak dapat dikurangi di bawah"
-" jumlah yang sudah dikirim. Alih-alih, silakan buat pengembalian dalam "
+"Kuantitas yang dipesan untuk baris sale order tidak dapat dikurangi di bawah "
+"jumlah yang sudah dikirim. Alih-alih, silakan buat pengembalian dalam "
 "inventaris Anda."
 
 #. module: sale_stock
 #. odoo-javascript
-#: code:addons/sale_stock/static/src/legacy/qty_at_date_widget.xml:0
 #: code:addons/sale_stock/static/src/widgets/qty_at_date_widget.xml:0
 #, python-format
 msgid "This product is replenished on demand."
@@ -729,7 +756,6 @@ msgstr "Pengguna"
 
 #. module: sale_stock
 #. odoo-javascript
-#: code:addons/sale_stock/static/src/legacy/qty_at_date_widget.xml:0
 #: code:addons/sale_stock/static/src/widgets/qty_at_date_widget.xml:0
 #, python-format
 msgid "View Forecast"

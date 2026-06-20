@@ -1,6 +1,7 @@
 /** @odoo-module **/
 
-import * as publicWidget from 'web.public.widget'
+import { redirect } from '@web/core/utils/urls';
+import publicWidget from '@web/legacy/js/public/public_widget'
 
 publicWidget.registry.ProductCategoriesLinks = publicWidget.Widget.extend({
     selector: '.o_wsale_products_page',
@@ -13,6 +14,6 @@ publicWidget.registry.ProductCategoriesLinks = publicWidget.Widget.extend({
         if (productsDiv) {
             productsDiv.classList.add('opacity-50');
         }
-        window.location.href = ev.currentTarget.getAttribute('data-link-href');
+        redirect(ev.currentTarget.getAttribute('data-link-href'));
     },
 });

@@ -77,7 +77,14 @@ class TestPoSSetup(TestPoSCommon):
         self.assertEqual(sorted(tax_group_7_10.children_tax_ids.ids), sorted((tax7 | tax10).ids))
 
     def test_archive_used_journal(self):
-        journal = self.cash_pm1.journal_id
+        journal = self.env['account.journal'].create({
+            'name': 'BANKOS',
+            'company_id': self.company.id,
+            'code': 'BANKOS',
+            'type': 'bank',
+            'invoice_reference_type': 'none',
+            'invoice_reference_model': 'odoo'
+        })
         payment_method = self.env['pos.payment.method'].create({'name': 'Lets Pay for Tests', 'journal_id': journal.id})
         self.basic_config.write({'payment_method_ids': [payment_method.id]})
         journal.write({'pos_payment_method_ids': [payment_method.id]})

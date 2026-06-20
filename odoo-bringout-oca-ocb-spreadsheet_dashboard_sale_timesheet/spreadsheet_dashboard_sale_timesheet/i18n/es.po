@@ -1,29 +1,26 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* spreadsheet_dashboard_sale_timesheet
-# 
+#
 # Translators:
-# e2f <projects@e2f.com>, 2022
-# Martin Trigaux, 2022
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2022
-# oscaryuu, 2022
-# Wil Odoo, 2024
+# Wil Odoo, 2023
 # Pedro M. Baeza <pedro.baeza@tecnativa.com>, 2024
 # Larissa Manderfeld, 2024
-# 
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-06 13:32+0000\n"
-"PO-Revision-Date: 2022-09-29 09:44+0000\n"
+"POT-Creation-Date: 2025-12-29 18:38+0000\n"
+"PO-Revision-Date: 2023-10-26 23:09+0000\n"
 "Last-Translator: Larissa Manderfeld, 2024\n"
 "Language-Team: Spanish (https://app.transifex.com/odoo/teams/41243/es/)\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: es\n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
+"1 : 2;\n"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
@@ -48,10 +45,6 @@ msgstr "Horas facturables"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #, python-format
 msgid "Billable rate"
@@ -81,7 +74,6 @@ msgstr "Partes de horas facturados"
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #, python-format
 msgid "Current"
 msgstr "Actual"
@@ -89,14 +81,12 @@ msgstr "Actual"
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #, python-format
 msgid "Department"
 msgstr "Departamento"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #, python-format
 msgid "Employee"
@@ -112,18 +102,12 @@ msgstr "Gran total"
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #, python-format
 msgid "Hours billed"
 msgstr "Horas facturadas"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #, python-format
 msgid "Hours spent"
@@ -160,7 +144,6 @@ msgstr "Periodo"
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #, python-format
 msgid "Previous"
 msgstr "Anterior"
@@ -168,14 +151,12 @@ msgstr "Anterior"
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #, python-format
 msgid "Project"
 msgstr "Proyecto"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #, python-format
 msgid "Task"
@@ -187,6 +168,11 @@ msgstr "Tarea"
 #, python-format
 msgid "Time Billed by Week"
 msgstr "Tiempo facturado por semana"
+
+#. module: spreadsheet_dashboard_sale_timesheet
+#: model:spreadsheet.dashboard,name:spreadsheet_dashboard_sale_timesheet.spreadsheet_dashboard_timesheet
+msgid "Timesheets"
+msgstr "Partes de horas"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
@@ -253,7 +239,6 @@ msgstr "último periodo"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #, python-format
 msgid "since last period"

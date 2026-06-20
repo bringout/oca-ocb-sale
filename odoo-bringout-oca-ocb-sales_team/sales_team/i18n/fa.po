@@ -1,46 +1,47 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* sales_team
-# 
+#
 # Translators:
 # arya sadeghi <aryasadeghy@gmail.com>, 2023
-# Hamed Mohammadi <hamed@dehongi.com>, 2023
+# Yousef Shadmanesh <y.shadmanesh@gmail.com>, 2023
 # Hamid Darabi, 2023
-# Hanna Kheradroosta, 2023
+# odooers ir, 2023
+# Hamed Mohammadi <hamed@dehongi.com>, 2023
 # Martin Trigaux, 2023
 # fardin mardani <fmardani0@gmail.com>, 2023
+# Hanna Kheradroosta, 2023
 # Abbas Ebadian, 2024
 # Mostafa Barmshory <mostafa.barmshory@gmail.com>, 2024
-# 
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0beta\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-04 09:25+0000\n"
-"PO-Revision-Date: 2022-09-22 05:55+0000\n"
+"POT-Creation-Date: 2025-12-29 18:38+0000\n"
+"PO-Revision-Date: 2023-10-26 23:09+0000\n"
 "Last-Translator: Mostafa Barmshory <mostafa.barmshory@gmail.com>, 2024\n"
 "Language-Team: Persian (https://app.transifex.com/odoo/teams/41243/fa/)\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: fa\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-
-#. module: sales_team
-#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_kanban_dashboard
-msgid "<i class=\"fa fa-ellipsis-v\" role=\"img\" aria-label=\"Manage\" title=\"Manage\"/>"
-msgstr "<i class=\"fa fa-ellipsis-v\" role=\"img\" aria-label=\"Manage\" title=\"Manage\"/>"
 
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_kanban
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_form
-msgid "<i class=\"fa fa-envelope me-1\" role=\"img\" aria-label=\"Email\" title=\"Email\"/>"
-msgstr "<i class=\"fa fa-envelope me-1\" role=\"img\" aria-label=\"Email\" title=\"Email\"/>"
+msgid ""
+"<i class=\"fa fa-envelope me-1\" role=\"img\" aria-label=\"Email\" "
+"title=\"Email\"/>"
+msgstr ""
+"<i class=\"fa fa-envelope me-1\" role=\"img\" aria-label=\"Email\" "
+"title=\"Email\"/>"
 
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_kanban
-msgid "<span class=\"bg-odoo\">Archived</span>"
-msgstr ""
+msgid "<span class=\"text-bg-danger\">Archived</span>"
+msgstr "<span class=\"text-bg-danger\">بایگانی شده</span>"
 
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_kanban_dashboard
@@ -81,23 +82,24 @@ msgstr "یک عضو تیم اضافه کنید"
 
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team__crm_team_member_ids
-msgid ""
-"Add members to automatically assign their documents to this sales team."
+msgid "Add members to automatically assign their documents to this sales team."
 msgstr ""
 "اعضا را اضافه کنید تا اسناد خود را به صورت خودکار به این تیم فروش اختصاص "
 "دهند."
 
 #. module: sales_team
+#. odoo-python
 #: code:addons/sales_team/models/crm_team.py:0
 #, python-format
 msgid ""
-"Adding %(user_name)s in this team would remove him/her from its current team"
-" %(team_name)s."
+"Adding %(user_name)s in this team would remove him/her from its current team "
+"%(team_name)s."
 msgstr ""
-"افزودن %(user_name)s به این تیم، او را از تیم فعلی‌اش %(team_name)s حذف "
-"خواهد کرد."
+"افزودن %(user_name)s به این تیم، او را از تیم فعلی‌اش %(team_name)s حذف خواهد "
+"کرد."
 
 #. module: sales_team
+#. odoo-python
 #: code:addons/sales_team/models/crm_team_member.py:0
 #, python-format
 msgid ""
@@ -108,14 +110,15 @@ msgstr ""
 "%(team_names)s حذف خواهد کرد."
 
 #. module: sales_team
+#. odoo-python
 #: code:addons/sales_team/models/crm_team.py:0
 #, python-format
 msgid ""
 "Adding %(user_names)s in this team would remove them from their current "
 "teams (%(team_names)s)."
 msgstr ""
-"افزودن %(user_names)s به این تیم آنها را از تیم‌های فعلی‌شان "
-"(%(team_names)s) حذف خواهد کرد."
+"افزودن %(user_names)s به این تیم آنها را از تیم‌های فعلی‌شان (%(team_names)s) "
+"حذف خواهد کرد."
 
 #. module: sales_team
 #: model:res.groups,name:sales_team.group_sale_manager
@@ -143,6 +146,7 @@ msgid "Avatar"
 msgstr "آواتار"
 
 #. module: sales_team
+#. odoo-python
 #: code:addons/sales_team/models/crm_team.py:0
 #, python-format
 msgid "Big Pretty Button :)"
@@ -154,6 +158,7 @@ msgid "CRM Tag"
 msgstr "تگ مدیریت ارتباط مشتریان"
 
 #. module: sales_team
+#. odoo-python
 #: code:addons/sales_team/models/crm_team.py:0
 #, python-format
 msgid "Cannot delete default team \"%s\""
@@ -172,11 +177,11 @@ msgstr "رنگ پس زمینه"
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__company_id
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__company_id
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_search
 msgid "Company"
 msgstr "شرکت"
 
 #. module: sales_team
-#: model:ir.ui.menu,name:sales_team.menu_sale_config
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_kanban_dashboard
 msgid "Configuration"
 msgstr "پیکربندی"
@@ -251,7 +256,7 @@ msgstr "طراحی"
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__display_name
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__display_name
 msgid "Display Name"
-msgstr "نام نمایشی"
+msgstr "نام نمایش داده شده"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__email
@@ -265,8 +270,7 @@ msgstr "اعضای موردعلاقه"
 
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team__is_favorite
-msgid ""
-"Favorite teams to display them in the dashboard and access them easily."
+msgid "Favorite teams to display them in the dashboard and access them easily."
 msgstr "تیم های مورد علاقه برای نمایش در داشبورد و دسترسی آسان به آنها."
 
 #. module: sales_team
@@ -352,8 +356,8 @@ msgid ""
 "If the active field is set to false, it will allow you to hide the Sales "
 "Team without removing it."
 msgstr ""
-"اگر فیلد فعال روی false تنظیم شود، به شما این امکان را می دهد که تیم فروش را"
-" بدون حذف آن پنهان کنید."
+"اگر فیلد فعال روی false تنظیم شود، به شما این امکان را می دهد که تیم فروش را "
+"بدون حذف آن پنهان کنید."
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__image_1920
@@ -377,18 +381,11 @@ msgid "Is Follower"
 msgstr "آیا دنبال می کند"
 
 #. module: sales_team
-#: model:ir.model.fields,field_description:sales_team.field_crm_tag____last_update
-#: model:ir.model.fields,field_description:sales_team.field_crm_team____last_update
-#: model:ir.model.fields,field_description:sales_team.field_crm_team_member____last_update
-msgid "Last Modified on"
-msgstr "آخرین اصلاح در"
-
-#. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_tag__write_uid
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__write_uid
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__write_uid
 msgid "Last Updated by"
-msgstr "آخرین تغییر توسط"
+msgstr "آخرین بروز رسانی توسط"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_tag__write_date
@@ -396,12 +393,6 @@ msgstr "آخرین تغییر توسط"
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__write_date
 msgid "Last Updated on"
 msgstr "آخرین بروز رسانی در"
-
-#. module: sales_team
-#: model:ir.model.fields,field_description:sales_team.field_crm_team__message_main_attachment_id
-#: model:ir.model.fields,field_description:sales_team.field_crm_team_member__message_main_attachment_id
-msgid "Main Attachment"
-msgstr "پیوست اصلی"
 
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_res_users__sale_team_id
@@ -510,9 +501,15 @@ msgid "Product"
 msgstr "محصول"
 
 #. module: sales_team
+#: model:ir.model.fields,field_description:sales_team.field_crm_team__rating_ids
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_member__rating_ids
+msgid "Ratings"
+msgstr "رتبه‌ها"
+
+#. module: sales_team
 #: model:crm.team,name:sales_team.team_sales_department
 msgid "Sales"
-msgstr "فروش ها"
+msgstr "فروش"
 
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
@@ -576,6 +573,7 @@ msgid "Salesteams Search"
 msgstr "جستجوی فروشنده ها"
 
 #. module: sales_team
+#. odoo-python
 #: code:addons/sales_team/models/crm_team.py:0
 #, python-format
 msgid "Sample data"
@@ -608,8 +606,8 @@ msgstr "نام تگ"
 
 #. module: sales_team
 #: model:ir.model.constraint,message:sales_team.constraint_crm_tag_name_uniq
-msgid "Tag name already exists !"
-msgstr "برچسب نام از قبل وجود دارد!"
+msgid "Tag name already exists!"
+msgstr "نام برچسب از قبل وجود دارد!"
 
 #. module: sales_team
 #: model:ir.actions.act_window,name:sales_team.sales_team_crm_tag_action
@@ -660,10 +658,11 @@ msgid ""
 "Those represent the different categories of things you have to do (e.g. "
 "\"Call\" or \"Prepare meeting\")."
 msgstr ""
-"آنها نمایانگر دسته‌بندی‌های مختلف چیزهایی هستند که باید انجام دهید (به عنوان"
-" مثال \"تماس\" یا \"آماده‌سازی جلسه\")."
+"آنها نمایانگر دسته‌بندی‌های مختلف چیزهایی هستند که باید انجام دهید (به عنوان "
+"مثال \"تماس\" یا \"آماده‌سازی جلسه\")."
 
 #. module: sales_team
+#. odoo-python
 #: code:addons/sales_team/models/crm_team.py:0
 #, python-format
 msgid ""
@@ -693,7 +692,7 @@ msgid "UX: Limit to team company or all if no company"
 msgstr "رابط کاربری: محدود به شرکت تیم یا همه اگر شرکتی وجود ندارد"
 
 #. module: sales_team
-#: code:addons/sales_team/models/crm_team.py:0
+#. odoo-python
 #: code:addons/sales_team/models/crm_team.py:0
 #, python-format
 msgid "Undefined graph model for Sales Team: %s"
@@ -701,11 +700,9 @@ msgstr "مدل نمودار تعریف نشده برای تیم فروش: %s"
 
 #. module: sales_team
 #: model_terms:ir.actions.act_window,help:sales_team.crm_team_action_config
-msgid ""
-"Use Sales Teams to organize your sales departments and draw up reports."
+msgid "Use Sales Teams to organize your sales departments and draw up reports."
 msgstr ""
-"از تیم‌های فروش برای سازماندهی بخش‌های فروش خود و تهیه گزارش‌ها استفاده "
-"کنید."
+"از تیم‌های فروش برای سازماندهی بخش‌های فروش خود و تهیه گزارش‌ها استفاده کنید."
 
 #. module: sales_team
 #: model_terms:ir.actions.act_window,help:sales_team.crm_team_action_pipeline
@@ -767,6 +764,7 @@ msgid "Website"
 msgstr "تارنما"
 
 #. module: sales_team
+#. odoo-python
 #: code:addons/sales_team/models/crm_team_member.py:0
 #, python-format
 msgid ""
@@ -806,6 +804,6 @@ msgstr "کاربر به داده های خود در برنامه فروش دست
 #. module: sales_team
 #: model:res.groups,comment:sales_team.group_sale_manager
 msgid ""
-"the user will have an access to the sales configuration as well as statistic"
-" reports."
+"the user will have an access to the sales configuration as well as statistic "
+"reports."
 msgstr "کاربر به پیکربندی فروش و همچنین گزارشات آماری دسترسی خواهد داشت."

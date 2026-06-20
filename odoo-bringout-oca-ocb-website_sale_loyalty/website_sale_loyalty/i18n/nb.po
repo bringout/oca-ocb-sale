@@ -1,34 +1,48 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* website_sale_loyalty
-# 
+#
 # Translators:
-# Marius Stedjan <marius@stedjan.com>, 2022
-# Martin Trigaux, 2022
-# Henning Fyllingsnes, 2023
+# Thor Arne Hvidsten <thor.arne.hvidsten@gmail.com>, 2024
+# Henning Fyllingsnes, 2024
+# Marius Stedjan <marius@stedjan.com>, 2024
+# Martin Trigaux, 2024
 # Rune Restad, 2024
-# 
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0beta\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-10 10:24+0000\n"
-"PO-Revision-Date: 2022-09-22 05:57+0000\n"
+"POT-Creation-Date: 2025-12-29 18:38+0000\n"
+"PO-Revision-Date: 2023-10-26 23:09+0000\n"
 "Last-Translator: Rune Restad, 2024\n"
-"Language-Team: Norwegian Bokmål (https://app.transifex.com/odoo/teams/41243/nb/)\n"
+"Language-Team: Norwegian Bokmål (https://app.transifex.com/odoo/teams/41243/"
+"nb/)\n"
+"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: nb\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: website_sale_loyalty
-#: code:addons/website_sale_loyalty/wizard/sale_coupon_share.py:0
+#: model_terms:ir.ui.view,arch_db:website_sale_loyalty.modify_code_form
+msgid "<strong> - </strong>"
+msgstr ""
+
+#. module: website_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:website_sale_loyalty.modify_code_form
+msgid "<strong>Coupons - </strong>"
+msgstr ""
+
+#. module: website_sale_loyalty
+#. odoo-python
+#: code:addons/website_sale_loyalty/wizard/coupon_share.py:0
 #, python-format
 msgid "A coupon is needed for coupon programs."
 msgstr ""
 
 #. module: website_sale_loyalty
+#. odoo-python
 #: code:addons/website_sale_loyalty/models/loyalty_rule.py:0
 #, python-format
 msgid "A coupon with the same code was found."
@@ -48,13 +62,20 @@ msgstr ""
 #. odoo-python
 #: code:addons/website_sale_loyalty/controllers/main.py:0
 #, python-format
-msgid "Cannot process payment: applied reward was changed or has expired."
+msgid ""
+"Cannot process payment: applied reward was changed or has expired.\n"
+"Please refresh the page and try again."
 msgstr ""
 
 #. module: website_sale_loyalty
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.modify_code_form
 msgid "Claim"
 msgstr ""
+
+#. module: website_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:website_sale_loyalty.modify_code_form
+msgid "Code:"
+msgstr "Kode:"
 
 #. module: website_sale_loyalty
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.modify_code_form
@@ -84,7 +105,7 @@ msgstr "Opprettet av"
 #. module: website_sale_loyalty
 #: model:ir.model.fields,field_description:website_sale_loyalty.field_coupon_share__create_date
 msgid "Created on"
-msgstr "Opprettet"
+msgstr "Opprettet den"
 
 #. module: website_sale_loyalty
 #: model:ir.model.fields,field_description:website_sale_loyalty.field_sale_order__disabled_auto_rewards
@@ -95,11 +116,6 @@ msgstr ""
 #: model:ir.ui.menu,name:website_sale_loyalty.menu_discount_loyalty_type_config
 msgid "Discount & Loyalty"
 msgstr "Rabatt og lojalitet"
-
-#. module: website_sale_loyalty
-#: model_terms:ir.ui.view,arch_db:website_sale_loyalty.reduction_coupon_code
-msgid "Discount code or gift card"
-msgstr ""
 
 #. module: website_sale_loyalty
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.cart_discount
@@ -120,6 +136,11 @@ msgstr "Visningsnavn"
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.coupon_share_view_form
 msgid "Done"
 msgstr "Fullført"
+
+#. module: website_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:website_sale_loyalty.modify_code_form
+msgid "Expired Date:"
+msgstr ""
 
 #. module: website_sale_loyalty
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.coupon_share_view_form
@@ -145,11 +166,6 @@ msgstr "ID"
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.modify_code_form
 msgid "Invalid or expired promo code."
 msgstr "Ugyldig eller utgått kampanjekode."
-
-#. module: website_sale_loyalty
-#: model:ir.model.fields,field_description:website_sale_loyalty.field_coupon_share____last_update
-msgid "Last Modified on"
-msgstr "Sist endret"
 
 #. module: website_sale_loyalty
 #: model:ir.model.fields,field_description:website_sale_loyalty.field_coupon_share__write_uid
@@ -207,7 +223,8 @@ msgid "Promo Code"
 msgstr "Kampanje-kode"
 
 #. module: website_sale_loyalty
-#: code:addons/website_sale_loyalty/wizard/sale_coupon_share.py:0
+#. odoo-python
+#: code:addons/website_sale_loyalty/wizard/coupon_share.py:0
 #, python-format
 msgid "Provide either a coupon or a program."
 msgstr ""
@@ -235,8 +252,8 @@ msgid "Sales Order Line"
 msgstr "Salgsordrelinje"
 
 #. module: website_sale_loyalty
-#: code:addons/website_sale_loyalty/wizard/sale_coupon_share.py:0
-#: code:addons/website_sale_loyalty/wizard/sale_coupon_share.py:0
+#. odoo-python
+#: code:addons/website_sale_loyalty/wizard/coupon_share.py:0
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.loyalty_card_view_tree_inherit_website_sale_loyalty
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.loyalty_program_view_tree_inherit_website_sale_loyalty
 #, python-format
@@ -259,11 +276,11 @@ msgid "Show Discount in Subtotal"
 msgstr ""
 
 #. module: website_sale_loyalty
+#. odoo-python
 #: code:addons/website_sale_loyalty/controllers/main.py:0
 #, python-format
 msgid ""
-"The coupon will be automatically applied when you add something in your "
-"cart."
+"The coupon will be automatically applied when you add something in your cart."
 msgstr ""
 
 #. module: website_sale_loyalty
@@ -272,15 +289,22 @@ msgid "The following promo code was applied on your order:"
 msgstr ""
 
 #. module: website_sale_loyalty
+#. odoo-python
 #: code:addons/website_sale_loyalty/models/loyalty_rule.py:0
 #, python-format
 msgid "The promo code must be unique."
 msgstr ""
 
 #. module: website_sale_loyalty
-#: code:addons/website_sale_loyalty/wizard/sale_coupon_share.py:0
+#. odoo-python
+#: code:addons/website_sale_loyalty/wizard/coupon_share.py:0
 #, python-format
 msgid "The shared website should correspond to the website of the program."
+msgstr ""
+
+#. module: website_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:website_sale_loyalty.modify_code_form
+msgid "Use"
 msgstr ""
 
 #. module: website_sale_loyalty
@@ -295,7 +319,8 @@ msgstr "Nettsted"
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.coupon_share_view_form
 msgid ""
 "You can share this promotion with your customers.\n"
-"                            It will be applied at checkout when the customer uses this link."
+"                            It will be applied at checkout when the customer "
+"uses this link."
 msgstr ""
 
 #. module: website_sale_loyalty

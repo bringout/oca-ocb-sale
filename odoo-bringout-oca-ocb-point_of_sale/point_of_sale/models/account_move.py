@@ -9,6 +9,7 @@ class AccountMove(models.Model):
 
     pos_order_ids = fields.One2many('pos.order', 'account_move')
     pos_payment_ids = fields.One2many('pos.payment', 'account_move_id')
+    pos_refunded_invoice_ids = fields.Many2many('account.move', 'refunded_invoices', 'refund_account_move', 'original_account_move')
 
     @api.depends('tax_cash_basis_created_move_ids')
     def _compute_always_tax_exigible(self):
@@ -83,3 +84,8 @@ class AccountMoveLine(models.Model):
         if sudo_order:
             price_unit = sudo_order._get_pos_anglo_saxon_price_unit(self.product_id, self.move_id.partner_id.id, self.quantity)
         return price_unit
+
+    def _check_edi_line_tax_required(self):
+        if self.product_id.type == 'combo':
+            return False
+        return super()._check_edi_line_tax_required()

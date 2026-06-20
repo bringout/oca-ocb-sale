@@ -1,35 +1,48 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* website_sale_loyalty
-# 
+# * website_sale_loyalty
+#
 # Translators:
-# Đurđica Žarković <durdica.zarkovic@storm.hr>, 2022
-# Bole <bole@dajmi5.com>, 2022
-# Martin Trigaux, 2022
-# Vladimir Olujić <olujic.vladimir@storm.hr>, 2022
-# Karolina Tonković <karolina.tonkovic@storm.hr>, 2022
-# Antonijo Kovacevic, 2023
+# Vladimir Olujić <olujic.vladimir@storm.hr>, 2024
+# Bole <bole@dajmi5.com>, 2024
 # Matija Gudlin, 2024
+# Đurđica Žarković <durdica.zarkovic@storm.hr>, 2024
+# Antonijo Kovacevic, 2024
+# Martin Trigaux, 2024
+# Karolina Tonković <karolina.tonkovic@storm.hr>, 2024
 # Servisi RAM d.o.o. <support@servisiram.hr>, 2024
 # Vladimir Vrgoč, 2024
-# 
+# Weblate <noreply-mt-weblate@weblate.org>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-10 08:28+0000\n"
-"PO-Revision-Date: 2022-09-22 05:57+0000\n"
-"Last-Translator: Vladimir Vrgoč, 2024\n"
-"Language-Team: Croatian (https://app.transifex.com/odoo/teams/41243/hr/)\n"
+"POT-Creation-Date: 2025-12-29 18:38+0000\n"
+"PO-Revision-Date: 2026-05-02 08:06+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Croatian <https://translate.odoo.com/projects/odoo-17/"
+"website_sale_loyalty/hr/>\n"
+"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: hr\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.17\n"
+
+#. module: website_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:website_sale_loyalty.modify_code_form
+msgid "<strong> - </strong>"
+msgstr ""
+
+#. module: website_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:website_sale_loyalty.modify_code_form
+msgid "<strong>Coupons - </strong>"
+msgstr ""
 
 #. module: website_sale_loyalty
 #. odoo-python
-#: code:addons/website_sale_loyalty/wizard/sale_coupon_share.py:0
+#: code:addons/website_sale_loyalty/wizard/coupon_share.py:0
 #, python-format
 msgid "A coupon is needed for coupon programs."
 msgstr "Kupon je potreban za kuponske programe."
@@ -55,13 +68,20 @@ msgstr ""
 #. odoo-python
 #: code:addons/website_sale_loyalty/controllers/main.py:0
 #, python-format
-msgid "Cannot process payment: applied reward was changed or has expired."
+msgid ""
+"Cannot process payment: applied reward was changed or has expired.\n"
+"Please refresh the page and try again."
 msgstr ""
 
 #. module: website_sale_loyalty
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.modify_code_form
 msgid "Claim"
 msgstr "Zahtjev"
+
+#. module: website_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:website_sale_loyalty.modify_code_form
+msgid "Code:"
+msgstr "Šifra:"
 
 #. module: website_sale_loyalty
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.modify_code_form
@@ -104,11 +124,6 @@ msgid "Discount & Loyalty"
 msgstr "Kuponi i Vjernost"
 
 #. module: website_sale_loyalty
-#: model_terms:ir.ui.view,arch_db:website_sale_loyalty.reduction_coupon_code
-msgid "Discount code or gift card"
-msgstr "Kod za popust ili darovna kartica."
-
-#. module: website_sale_loyalty
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.cart_discount
 msgid "Discount:"
 msgstr "Popust:"
@@ -127,6 +142,11 @@ msgstr "Naziv"
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.coupon_share_view_form
 msgid "Done"
 msgstr "Riješeno"
+
+#. module: website_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:website_sale_loyalty.modify_code_form
+msgid "Expired Date:"
+msgstr "Datum isteka:"
 
 #. module: website_sale_loyalty
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.coupon_share_view_form
@@ -154,11 +174,6 @@ msgid "Invalid or expired promo code."
 msgstr "Nevažeći ili istekao promotivni kôd."
 
 #. module: website_sale_loyalty
-#: model:ir.model.fields,field_description:website_sale_loyalty.field_coupon_share____last_update
-msgid "Last Modified on"
-msgstr "Zadnja promjena"
-
-#. module: website_sale_loyalty
 #: model:ir.model.fields,field_description:website_sale_loyalty.field_coupon_share__write_uid
 msgid "Last Updated by"
 msgstr "Promijenio"
@@ -176,7 +191,7 @@ msgstr ""
 #. module: website_sale_loyalty
 #: model:ir.model,name:website_sale_loyalty.model_loyalty_card
 msgid "Loyalty Coupon"
-msgstr ""
+msgstr "Kupon vjernosti"
 
 #. module: website_sale_loyalty
 #: model:ir.model,name:website_sale_loyalty.model_loyalty_program
@@ -215,7 +230,7 @@ msgstr "Promo kod"
 
 #. module: website_sale_loyalty
 #. odoo-python
-#: code:addons/website_sale_loyalty/wizard/sale_coupon_share.py:0
+#: code:addons/website_sale_loyalty/wizard/coupon_share.py:0
 #, python-format
 msgid "Provide either a coupon or a program."
 msgstr "Navedite ili kupon ili program."
@@ -244,8 +259,7 @@ msgstr "Stavka prodajnog naloga"
 
 #. module: website_sale_loyalty
 #. odoo-python
-#: code:addons/website_sale_loyalty/wizard/sale_coupon_share.py:0
-#: code:addons/website_sale_loyalty/wizard/sale_coupon_share.py:0
+#: code:addons/website_sale_loyalty/wizard/coupon_share.py:0
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.loyalty_card_view_tree_inherit_website_sale_loyalty
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.loyalty_program_view_tree_inherit_website_sale_loyalty
 #, python-format
@@ -272,10 +286,8 @@ msgstr "Prikaži popust u međuzbroju"
 #: code:addons/website_sale_loyalty/controllers/main.py:0
 #, python-format
 msgid ""
-"The coupon will be automatically applied when you add something in your "
-"cart."
-msgstr ""
-"Kupon će se automatski primijeniti kada nešto dodate u svoju košaricu."
+"The coupon will be automatically applied when you add something in your cart."
+msgstr "Kupon će se automatski primijeniti kada nešto dodate u svoju košaricu."
 
 #. module: website_sale_loyalty
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.layout
@@ -291,10 +303,15 @@ msgstr "Promo kod mora biti jedinstven."
 
 #. module: website_sale_loyalty
 #. odoo-python
-#: code:addons/website_sale_loyalty/wizard/sale_coupon_share.py:0
+#: code:addons/website_sale_loyalty/wizard/coupon_share.py:0
 #, python-format
 msgid "The shared website should correspond to the website of the program."
 msgstr ""
+
+#. module: website_sale_loyalty
+#: model_terms:ir.ui.view,arch_db:website_sale_loyalty.modify_code_form
+msgid "Use"
+msgstr "Upotreba"
 
 #. module: website_sale_loyalty
 #: model:ir.model.fields,field_description:website_sale_loyalty.field_coupon_share__website_id
@@ -308,7 +325,8 @@ msgstr "Web stranica"
 #: model_terms:ir.ui.view,arch_db:website_sale_loyalty.coupon_share_view_form
 msgid ""
 "You can share this promotion with your customers.\n"
-"                            It will be applied at checkout when the customer uses this link."
+"                            It will be applied at checkout when the customer "
+"uses this link."
 msgstr ""
 
 #. module: website_sale_loyalty

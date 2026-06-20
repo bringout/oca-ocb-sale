@@ -1,26 +1,30 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* website_sale_stock_wishlist
-# 
+# * website_sale_stock_wishlist
+#
 # Translators:
-# Jiří Podhorecký <jirka.p@volny.cz>, 2022
-# Rastislav Brencic <rastislav.brencic@azet.sk>, 2023
+# Wil Odoo, 2023
+# Jakub Smolka, 2023
+# Jiří Podhorecký <jirka.p@volny.cz>, 2023
 # Tereza Mokrá, 2024
 # Chris Podivinsky, 2025
-# 
+# Weblate <noreply-mt-weblate@weblate.org>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-06 13:32+0000\n"
-"PO-Revision-Date: 2022-09-22 05:57+0000\n"
-"Last-Translator: Chris Podivinsky, 2025\n"
-"Language-Team: Czech (https://app.transifex.com/odoo/teams/41243/cs/)\n"
+"POT-Creation-Date: 2025-12-29 18:38+0000\n"
+"PO-Revision-Date: 2026-06-05 07:28+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Czech <https://translate.odoo.com/projects/odoo-17/"
+"website_sale_stock_wishlist/cs/>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: cs\n"
-"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n "
+"<= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+"X-Generator: Weblate 2026.6.1\n"
 
 #. module: website_sale_stock_wishlist
 #: model_terms:ir.ui.view,arch_db:website_sale_stock_wishlist.product_wishlist
@@ -29,14 +33,17 @@ msgid ""
 "                        We'll notify you once the product is back in stock."
 msgstr ""
 "<i class=\"fa fa-bell\"/>\n"
-"                        Jakmile bude produkt opět skladem, budeme vás informovat. "
+"                        Jakmile bude produkt opět skladem, budeme vás "
+"informovat. "
 
 #. module: website_sale_stock_wishlist
 #: model_terms:ir.ui.view,arch_db:website_sale_stock_wishlist.product_wishlist
 msgid ""
 "<i class=\"fa fa-times text-danger\"/>\n"
 "                                Invalid email"
-msgstr "Neplatný email"
+msgstr ""
+"<i class=\"fa fa-times text-danger\"/>\n"
+"Neplatný email"
 
 #. module: website_sale_stock_wishlist
 #: model_terms:ir.ui.view,arch_db:website_sale_stock_wishlist.product_wishlist
@@ -48,17 +55,18 @@ msgid ""
 msgstr ""
 "<small>\n"
 "                            <i class=\"fa fa-envelope-o\"/>\n"
-"                            Dostat upozornění, jakmile bude zboží opět na skladě\n"
+"                            Dostat upozornění, jakmile bude zboží opět na "
+"skladě\n"
 "                        </small>"
 
 #. module: website_sale_stock_wishlist
 #: model_terms:ir.ui.view,arch_db:website_sale_stock_wishlist.product_wishlist
 msgid ""
-"Add\n"
-"                <span class=\"d-none d-md-inline\">to Cart</span>"
+"<span class=\"fa fa-fw fa-shopping-cart\"/>\n"
+"                <span class=\"d-none d-md-inline\">Add</span>"
 msgstr ""
-"Pridať\n"
-"                <span class=\"d-none d-md-inline\">do košíka</span>"
+"<span class=\"fa fa-fw fa-shopping-cart\"/>\n"
+"                <span class=\"d-none d-md-inline\">Přidat</span>"
 
 #. module: website_sale_stock_wishlist
 #. odoo-javascript
@@ -82,7 +90,7 @@ msgstr "Produkt"
 #. module: website_sale_stock_wishlist
 #: model:ir.model,name:website_sale_stock_wishlist.model_product_wishlist
 msgid "Product Wishlist"
-msgstr "Seznam přání produktu"
+msgstr "Produktový wishlist"
 
 #. module: website_sale_stock_wishlist
 #. odoo-javascript
@@ -94,7 +102,7 @@ msgstr "Uložit na později"
 #. module: website_sale_stock_wishlist
 #: model:ir.model.fields,field_description:website_sale_stock_wishlist.field_product_wishlist__stock_notification
 msgid "Stock Notification"
-msgstr ""
+msgstr "Oznámení o zásobách"
 
 #. module: website_sale_stock_wishlist
 #: model_terms:ir.ui.view,arch_db:website_sale_stock_wishlist.product_wishlist

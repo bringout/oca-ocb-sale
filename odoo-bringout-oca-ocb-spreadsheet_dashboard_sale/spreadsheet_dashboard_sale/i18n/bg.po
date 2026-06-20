@@ -1,32 +1,34 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* spreadsheet_dashboard_sale
-# 
+# * spreadsheet_dashboard_sale
+#
 # Translators:
-# KeyVillage, 2023
 # Rosen Vladimirov <vladimirov.rosen@gmail.com>, 2023
-# Maria Boyadjieva <marabo2000@gmail.com>, 2023
 # Ivan Ivanov, 2023
+# KeyVillage, 2023
 # aleksandar ivanov, 2023
-# Martin Trigaux, 2023
-# kalatchev, 2023
 # Igor Sheludko <igor.sheludko@gmail.com>, 2023
+# kalatchev, 2023
+# Maria Boyadjieva <marabo2000@gmail.com>, 2023
+# Martin Trigaux, 2023
 # Petko Karamotchev, 2024
 # Martin Dinovski, 2025
-# 
+# Weblate <noreply-mt-weblate@weblate.org>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-25 10:43+0000\n"
-"PO-Revision-Date: 2022-09-29 09:44+0000\n"
-"Last-Translator: Martin Dinovski, 2025\n"
-"Language-Team: Bulgarian (https://app.transifex.com/odoo/teams/41243/bg/)\n"
+"POT-Creation-Date: 2025-12-29 18:38+0000\n"
+"PO-Revision-Date: 2026-05-20 11:49+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Bulgarian <https://translate.odoo.com/projects/odoo-17/"
+"spreadsheet_dashboard_sale/bg/>\n"
+"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: bg\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.17\n"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
@@ -40,7 +42,7 @@ msgstr "Средна поръчка"
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #, python-format
 msgid "Average order amount"
-msgstr ""
+msgstr "Средна стойност на поръчка"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
@@ -61,7 +63,7 @@ msgstr "Най-продаван"
 #: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
 #, python-format
 msgid "Best Sellers by Revenue"
-msgstr ""
+msgstr "Най-продавани по приходи"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
@@ -101,8 +103,6 @@ msgstr "Най-продаван продукт"
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #, python-format
 msgid "Category"
@@ -111,7 +111,6 @@ msgstr "Категория"
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #, python-format
 msgid "Country"
 msgstr "Държава"
@@ -119,16 +118,12 @@ msgstr "Държава"
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #, python-format
 msgid "Current"
 msgstr "Настоящ"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #, python-format
 msgid "Customer"
@@ -139,7 +134,7 @@ msgstr "Клиент"
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #, python-format
 msgid "Draft quotations"
-msgstr "Проект за оферта"
+msgstr "Чернови оферти"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
@@ -151,7 +146,6 @@ msgstr "KPI"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #, python-format
 msgid "Medium"
@@ -181,15 +175,6 @@ msgstr "Поръчка"
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #, python-format
 msgid "Orders"
 msgstr "Поръчки"
@@ -205,7 +190,6 @@ msgstr "Период"
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #, python-format
 msgid "Previous"
 msgstr "Предишен"
@@ -213,9 +197,8 @@ msgstr "Предишен"
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
+#: model:spreadsheet.dashboard,name:spreadsheet_dashboard_sale.spreadsheet_dashboard_product
 #, python-format
 msgid "Product"
 msgstr "Продукт"
@@ -246,28 +229,20 @@ msgstr ""
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #, python-format
 msgid "Quotations sent"
-msgstr ""
+msgstr "Изпратени оферти"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #, python-format
 msgid "Revenue"
 msgstr "Приход"
+
+#. module: spreadsheet_dashboard_sale
+#: model:spreadsheet.dashboard,name:spreadsheet_dashboard_sale.spreadsheet_dashboard_sales
+msgid "Sales"
+msgstr "Продажби"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
@@ -337,7 +312,6 @@ msgstr ""
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #, python-format
 msgid "Sales Team"
 msgstr "Търговски отдел"
@@ -345,16 +319,12 @@ msgstr "Търговски отдел"
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #, python-format
 msgid "Salesperson"
 msgstr "Търговец"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #, python-format
 msgid "Source"
@@ -393,7 +363,7 @@ msgstr ""
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #, python-format
 msgid "Top Products"
-msgstr "топ продукти"
+msgstr "Топ продукти"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
@@ -407,21 +377,21 @@ msgstr "Топ цитати"
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #, python-format
 msgid "Top Sales Orders"
-msgstr ""
+msgstr "Най-продавани поръчки"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #, python-format
 msgid "Top Sales Teams"
-msgstr ""
+msgstr "Най-добри екипи по продажбите"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #, python-format
 msgid "Top Salespeople"
-msgstr ""
+msgstr "Най-добрите търговци"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
@@ -442,12 +412,10 @@ msgstr "Общо поръчки"
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #, python-format
 msgid "Total quotations"
-msgstr ""
+msgstr "Общо оферти"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
 #, python-format
 msgid "Units"
@@ -455,9 +423,6 @@ msgstr "Единици"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 #, python-format
 msgid "since last period"
@@ -480,7 +445,6 @@ msgstr ""
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
 #, python-format
 msgid "sold"
-msgstr ""
+msgstr "продадено"

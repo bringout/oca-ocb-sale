@@ -1,102 +1,93 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* sales_team
+# * sales_team
 #
+# Translators:
+# Martin Trigaux, 2018
+# Boško Stojaković <bluesoft83@gmail.com>, 2018
+# Bole <bole@dajmi5.com>, 2018
+# Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-10 08:27+0000\n"
-"PO-Revision-Date: 2025-02-10 08:27+0000\n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2025-12-29 18:38+0000\n"
+"PO-Revision-Date: 2026-05-16 08:13+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Bosnian <https://translate.odoo.com/projects/odoo-17/"
+"sales_team/bs/>\n"
+"Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
-
-# taken from hr.po
-#. module: sales_team
-#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_kanban_dashboard
-msgid "<i class=\"fa fa-ellipsis-v\" role=\"img\" aria-label=\"Manage\" title=\"Manage\"/>"
-msgstr ""
-"<i class=\"fa fa-ellipsis-v\" role=\"img\" aria-label=\"Manage\" "
-"title=\"Upravljaj\"/>"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.17\n"
 
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_kanban
-msgid "<i class=\"fa fa-envelope me-1\" role=\"img\" aria-label=\"Email\" title=\"Email\"/>"
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_form
+msgid ""
+"<i class=\"fa fa-envelope me-1\" role=\"img\" aria-label=\"Email\" "
+"title=\"Email\"/>"
 msgstr ""
 
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_kanban
-msgid "<span class=\"bg-odoo\">Archived</span>"
-msgstr "<span class=\"bg-odoo\">Arhivirano</span>"
+msgid "<span class=\"text-bg-danger\">Archived</span>"
+msgstr ""
 
-# taken from hr.po
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_kanban_dashboard
 msgid "<span>New</span>"
 msgstr "<span>Novi</span>"
 
-# taken from hr.po
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_kanban_dashboard
 msgid "<span>Reporting</span>"
 msgstr "<span>Izvještavanje</span>"
 
-# taken from hr.po
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_kanban_dashboard
 msgid "<span>View</span>"
 msgstr "<span>Pogledaj</span>"
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__message_needaction
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_member__message_needaction
 msgid "Action Needed"
 msgstr "Potrebna akcija"
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__active
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_member__active
 msgid "Active"
-msgstr "Aktivno"
+msgstr "Aktivan"
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.actions.act_window,name:sales_team.mail_activity_type_action_config_sales
 msgid "Activity Types"
 msgstr "Tipovi aktivnosti"
 
-# taken from hr.po
 #. module: sales_team
 #: model_terms:ir.actions.act_window,help:sales_team.crm_team_member_action
 msgid "Add a Team Member"
-msgstr "Dodaj člana tima"
+msgstr ""
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team__crm_team_member_ids
-msgid ""
-"Add members to automatically assign their documents to this sales team."
+msgid "Add members to automatically assign their documents to this sales team."
 msgstr ""
-"Dodaj članove za automatsko dodijeljivanje njihovih dokumenata ovom Timu "
-"prodaje."
 
-# taken from hr.po
 #. module: sales_team
 #. odoo-python
 #: code:addons/sales_team/models/crm_team.py:0
 #, python-format
 msgid ""
-"Adding %(user_name)s in this team would remove him/her from its current team"
-" %(team_name)s."
-msgstr ""
-"Dodavanjem %(user_name)s u ovaj tim će ga/ju ukloniti iz trenutnog tima "
+"Adding %(user_name)s in this team would remove him/her from its current team "
 "%(team_name)s."
+msgstr ""
 
-# taken from hr.po
 #. module: sales_team
 #. odoo-python
 #: code:addons/sales_team/models/crm_team_member.py:0
@@ -105,10 +96,7 @@ msgid ""
 "Adding %(user_name)s in this team would remove him/her from its current "
 "teams %(team_names)s."
 msgstr ""
-"Dodavanje %(user_name)s u ovaj tim će ga/ju ukloniti iz trenutnih timova "
-"%(team_names)s."
 
-# taken from hr.po
 #. module: sales_team
 #. odoo-python
 #: code:addons/sales_team/models/crm_team.py:0
@@ -117,119 +105,112 @@ msgid ""
 "Adding %(user_names)s in this team would remove them from their current "
 "teams (%(team_names)s)."
 msgstr ""
-"Dodavanje %(user_names)s u ovaj tim će ga ukloniti iz njegovih trenutnih "
-"timova (%(team_names)s)."
 
 #. module: sales_team
 #: model:res.groups,name:sales_team.group_sale_manager
 msgid "Administrator"
-msgstr ""
+msgstr "Administrator"
 
-# taken from hr.po
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_search
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_form
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_search
 msgid "Archived"
 msgstr "Arhivirano"
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__message_attachment_count
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_member__message_attachment_count
 msgid "Attachment Count"
-msgstr "Broj priloga"
+msgstr "Broj zakački"
 
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_kanban
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_form
 msgid "Avatar"
-msgstr ""
+msgstr "Avatar"
 
 #. module: sales_team
 #. odoo-python
 #: code:addons/sales_team/models/crm_team.py:0
 #, python-format
 msgid "Big Pretty Button :)"
-msgstr "Veliki lijepi gumb :)"
+msgstr ""
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model,name:sales_team.model_crm_tag
 msgid "CRM Tag"
-msgstr "CRM Oznaka"
+msgstr ""
 
-# taken from hr.po
 #. module: sales_team
 #. odoo-python
 #: code:addons/sales_team/models/crm_team.py:0
 #, python-format
 msgid "Cannot delete default team \"%s\""
-msgstr "Nije moguće obrisati tim \"%s\""
+msgstr ""
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_tag__color
 msgid "Color"
 msgstr "Boja"
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__color
 msgid "Color Index"
 msgstr "Indeks boje"
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__company_id
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_member__company_id
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_search
 msgid "Company"
 msgstr "Kompanija"
 
-# taken from hr.po
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_kanban_dashboard
 msgid "Configuration"
 msgstr "Konfiguracija"
 
-# taken from hr.po
 #. module: sales_team
 #: model:crm.tag,name:sales_team.categ_oppor7
 msgid "Consulting"
 msgstr "Savjetovanje"
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model,name:sales_team.model_res_partner
 msgid "Contact"
 msgstr "Kontakt"
 
-# taken from hr.po
 #. module: sales_team
 #: model_terms:ir.actions.act_window,help:sales_team.sales_team_crm_tag_action
 msgid "Create CRM Tags"
-msgstr "Kreiraj CRM oznake"
+msgstr ""
 
-# taken from hr.po
 #. module: sales_team
 #: model_terms:ir.actions.act_window,help:sales_team.crm_team_action_config
 msgid "Create a Sales Team"
-msgstr "Kreiraj prodajni tim"
+msgstr ""
 
-# taken from hr.po
 #. module: sales_team
 #: model_terms:ir.actions.act_window,help:sales_team.mail_activity_type_action_config_sales
 msgid "Create an Activity Type"
-msgstr "Kreiraj tip aktivnosti"
+msgstr ""
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_tag__create_uid
+#: model:ir.model.fields,field_description:sales_team.field_crm_team__create_uid
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_member__create_uid
 msgid "Created by"
 msgstr "Kreirao"
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_tag__create_date
+#: model:ir.model.fields,field_description:sales_team.field_crm_team__create_date
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_member__create_date
 msgid "Created on"
 msgstr "Kreirano"
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__currency_id
 msgid "Currency"
@@ -238,51 +219,46 @@ msgstr "Valuta"
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__dashboard_button_name
 msgid "Dashboard Button"
-msgstr "Dugme kontrolne table"
+msgstr ""
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__dashboard_graph_data
 msgid "Dashboard Graph Data"
-msgstr "Podaci grafa kontrolne table"
+msgstr ""
 
-# taken from hr.po
 #. module: sales_team
 #: model_terms:ir.actions.act_window,help:sales_team.crm_team_action_pipeline
+#: model_terms:ir.actions.act_window,help:sales_team.crm_team_action_sales
 msgid "Define a new sales team"
-msgstr "Definiraj novi prodajni tim"
+msgstr ""
 
-# taken from hr.po
 #. module: sales_team
 #: model:crm.tag,name:sales_team.categ_oppor5
 msgid "Design"
 msgstr "Dizajn"
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_tag__display_name
+#: model:ir.model.fields,field_description:sales_team.field_crm_team__display_name
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_member__display_name
 msgid "Display Name"
-msgstr "Naziv prikaza"
+msgstr "Prikazani naziv"
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__email
 msgid "Email"
-msgstr "E-pošta"
+msgstr "E-Mail"
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__favorite_user_ids
 msgid "Favorite Members"
-msgstr "Omiljeni članovi"
+msgstr ""
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team__is_favorite
-msgid ""
-"Favorite teams to display them in the dashboard and access them easily."
-msgstr "Omiljeni timovi za laki pristup i prikaz na nadzornoj ploči ."
+msgid "Favorite teams to display them in the dashboard and access them easily."
+msgstr ""
 
-# taken from hr.po
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_form
 msgid ""
@@ -292,71 +268,68 @@ msgstr ""
 "Prati ovaj prodajni tim kako bih automatski pratili događaje povezane sa "
 "članovima tima."
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__message_follower_ids
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_member__message_follower_ids
 msgid "Followers"
 msgstr "Pratioci"
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__message_partner_ids
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_member__message_partner_ids
 msgid "Followers (Partners)"
-msgstr "Pratioci (partneri)"
+msgstr "Pratioci (Partneri)"
 
-# taken from hr.po
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_search
 msgid "Group By"
 msgstr "Grupiši po"
 
-# taken from hr.po
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_search
 msgid "Group By..."
 msgstr "Grupiši po..."
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__has_message
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_member__has_message
 msgid "Has Message"
 msgstr "Ima poruku"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_tag__id
+#: model:ir.model.fields,field_description:sales_team.field_crm_team__id
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_member__id
 msgid "ID"
 msgstr "ID"
 
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team__is_membership_multi
+#: model:ir.model.fields,help:sales_team.field_crm_team_member__is_membership_multi
 msgid ""
 "If True, users may belong to several sales teams. Otherwise membership is "
 "limited to a single sales team."
 msgstr ""
-"Ako je postavljeno na True, korisnici mogu pripadati više prodajnih timova. "
-"U suprotnom, članstvo je ograničeno na jedan prodajni tim."
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team__message_needaction
+#: model:ir.model.fields,help:sales_team.field_crm_team_member__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr "Ako je označeno, nove poruke zahtijevaju vašu pažnju."
+msgstr "Ako je zakačeno, nove poruke će zahtjevati vašu pažnju"
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team__message_has_error
+#: model:ir.model.fields,help:sales_team.field_crm_team_member__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr "Ako je označeno, neke poruke imaju grešku pri dostavi."
+msgstr "Ako je označeno neke poruke mogu imati grešku u dostavi."
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_res_partner__team_id
+#: model:ir.model.fields,help:sales_team.field_res_users__team_id
 msgid ""
 "If set, this Sales Team will be used for sales and assignments related to "
 "this partner"
 msgstr ""
-"Ako je postavljeno, ovaj prodajni tim će se koristiti za prodaju i dodjele "
-"povezane s ovim partnerom."
 
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team__active
@@ -364,10 +337,7 @@ msgid ""
 "If the active field is set to false, it will allow you to hide the Sales "
 "Team without removing it."
 msgstr ""
-"Ako je polje aktivno postavljeno na false, biće moguće sakriti prodajni tim "
-"bez njegovog uklanjanja."
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__image_1920
 msgid "Image"
@@ -376,43 +346,32 @@ msgstr "Slika"
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__image_128
 msgid "Image (128)"
-msgstr "Slika (128)"
+msgstr ""
 
-# taken from hr.po
 #. module: sales_team
 #: model:crm.tag,name:sales_team.categ_oppor4
 msgid "Information"
-msgstr "Informacija"
+msgstr "Informacije"
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__message_is_follower
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_member__message_is_follower
 msgid "Is Follower"
 msgstr "Je pratilac"
 
-# taken from hr.po
-#. module: sales_team
-#: model:ir.model.fields,field_description:sales_team.field_crm_tag____last_update
-msgid "Last Modified on"
-msgstr "Zadnji put izmijenjeno"
-
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_tag__write_uid
+#: model:ir.model.fields,field_description:sales_team.field_crm_team__write_uid
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_member__write_uid
 msgid "Last Updated by"
-msgstr "Zadnji put ažurirao"
+msgstr "Zadnji ažurirao"
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_tag__write_date
+#: model:ir.model.fields,field_description:sales_team.field_crm_team__write_date
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_member__write_date
 msgid "Last Updated on"
-msgstr "Zadnji put ažurirano"
-
-# taken from hr.po
-#. module: sales_team
-#: model:ir.model.fields,field_description:sales_team.field_crm_team__message_main_attachment_id
-msgid "Main Attachment"
-msgstr "Glavni prilog"
+msgstr "Zadnje ažurirano"
 
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_res_users__sale_team_id
@@ -420,99 +379,89 @@ msgid ""
 "Main user sales team. Used notably for pipeline, or to set sales team in "
 "invoicing or subscription."
 msgstr ""
-"Glavni prodajni tim korisnika. Koristi se naročito za lijevak prodaje ili za"
-" postavljanje prodajnog tima na fakturisanju ili pretplati."
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__member_company_ids
 msgid "Member Company"
-msgstr "Tvrtka člana"
+msgstr ""
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__member_warning
 msgid "Member Warning"
-msgstr "Upozorenje za člana"
+msgstr ""
 
-# taken from hr.po
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_form
 msgid "Members"
-msgstr "Definiraj novi prodajni tim"
+msgstr "Članovi"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__member_warning
 msgid "Membership Issue Warning"
-msgstr "Upozorenje o problemu članstva"
+msgstr ""
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__message_has_error
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_member__message_has_error
 msgid "Message Delivery error"
-msgstr "Greška dostave poruke"
+msgstr "Greška pri isporuci poruke"
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__message_ids
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_member__message_ids
 msgid "Messages"
 msgstr "Poruke"
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__mobile
 msgid "Mobile"
-msgstr "Tip tima"
+msgstr "Mobitel"
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__is_membership_multi
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_member__is_membership_multi
 msgid "Multiple Memberships Allowed"
-msgstr "Višestruko članstvo dozvoljeno"
+msgstr ""
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__name
 msgid "Name"
-msgstr "Naziv"
+msgstr "Naziv:"
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__message_needaction_counter
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_member__message_needaction_counter
 msgid "Number of Actions"
 msgstr "Broj akcija"
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__message_has_error_counter
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_member__message_has_error_counter
 msgid "Number of errors"
 msgstr "Broj grešaka"
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team__message_needaction_counter
+#: model:ir.model.fields,help:sales_team.field_crm_team_member__message_needaction_counter
 msgid "Number of messages requiring action"
-msgstr "Broj poruka koje zahtijevaju akciju"
+msgstr "Broj poruka koje zahtijevaju radnju"
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team__message_has_error_counter
+#: model:ir.model.fields,help:sales_team.field_crm_team_member__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr "Broj poruka sa greškom pri dostavi"
+msgstr "Broj poruka sa greškama pri isporuci"
 
-# taken from hr.po
 #. module: sales_team
 #: model:crm.tag,name:sales_team.categ_oppor8
 msgid "Other"
-msgstr "Ostalo"
+msgstr "Drugo"
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__phone
 msgid "Phone"
 msgstr "Telefon"
 
-# taken from hr.po
 #. module: sales_team
 #: model:crm.team,name:sales_team.pos_sales_team
 msgid "Point of Sale"
@@ -521,15 +470,19 @@ msgstr "POS Kasa"
 #. module: sales_team
 #: model:crm.team,name:sales_team.crm_team_1
 msgid "Pre-Sales"
-msgstr "Pred-prodaja"
+msgstr ""
 
-# taken from hr.po
 #. module: sales_team
 #: model:crm.tag,name:sales_team.categ_oppor1
 msgid "Product"
 msgstr "Proizvod"
 
-# taken from hr.po
+#. module: sales_team
+#: model:ir.model.fields,field_description:sales_team.field_crm_team__rating_ids
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_member__rating_ids
+msgid "Ratings"
+msgstr "Ocjene"
+
 #. module: sales_team
 #: model:crm.team,name:sales_team.team_sales_department
 msgid "Sales"
@@ -537,17 +490,24 @@ msgstr "Prodaja"
 
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_tree
 msgid "Sales Men"
-msgstr "Prodavci"
+msgstr ""
 
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_search
 msgid "Sales Person"
-msgstr "Prodavac"
+msgstr ""
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model,name:sales_team.model_crm_team
+#: model:ir.model.fields,field_description:sales_team.field_crm_team__name
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_member__crm_team_id
+#: model:ir.model.fields,field_description:sales_team.field_res_partner__team_id
+#: model:ir.model.fields,field_description:sales_team.field_res_users__team_id
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_search
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_form
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_tree
 msgid "Sales Team"
 msgstr "Prodajni tim"
 
@@ -558,39 +518,37 @@ msgstr "Član prodajnog tima"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__crm_team_member_ids
+#: model:ir.model.fields,field_description:sales_team.field_res_users__crm_team_member_ids
 msgid "Sales Team Members"
-msgstr "Članovi prodajnog tima"
+msgstr ""
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__crm_team_member_all_ids
 msgid "Sales Team Members (incl. inactive)"
-msgstr "Članovi prodajnog tima (uklj. neaktivne)"
+msgstr ""
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.actions.act_window,name:sales_team.crm_team_action_config
+#: model:ir.actions.act_window,name:sales_team.crm_team_action_sales
+#: model:ir.model.fields,field_description:sales_team.field_res_users__crm_team_ids
 msgid "Sales Teams"
 msgstr "Prodajni timovi"
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__user_id
 msgid "Salesperson"
 msgstr "Prodavač(ica)"
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__member_ids
 msgid "Salespersons"
 msgstr "Prodavači"
 
-# taken from hr.po
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_search
 msgid "Salesteams Search"
 msgstr "Pretraga prodajnih timova"
 
-# taken from hr.po
 #. module: sales_team
 #. odoo-python
 #: code:addons/sales_team/models/crm_team.py:0
@@ -598,13 +556,11 @@ msgstr "Pretraga prodajnih timova"
 msgid "Sample data"
 msgstr "Primjer podataka"
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__sequence
 msgid "Sequence"
-msgstr "Redoslijed"
+msgstr "Sekvenca"
 
-# taken from hr.po
 #. module: sales_team
 #: model:crm.tag,name:sales_team.categ_oppor3
 msgid "Services"
@@ -613,44 +569,41 @@ msgstr "Usluge"
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__is_favorite
 msgid "Show on dashboard"
-msgstr "Prikaži na kontrolnoj tabli"
+msgstr ""
 
-# taken from hr.po
 #. module: sales_team
 #: model:crm.tag,name:sales_team.categ_oppor2
 msgid "Software"
-msgstr "Softver"
+msgstr "Software"
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_tag__name
 msgid "Tag Name"
-msgstr "Naziv taga"
+msgstr "Ime oznake"
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.constraint,message:sales_team.constraint_crm_tag_name_uniq
-msgid "Tag name already exists !"
+msgid "Tag name already exists!"
 msgstr "Naziv oznake već postoji !"
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.actions.act_window,name:sales_team.sales_team_crm_tag_action
+#: model_terms:ir.ui.view,arch_db:sales_team.sales_team_crm_tag_view_form
+#: model_terms:ir.ui.view,arch_db:sales_team.sales_team_crm_tag_view_tree
 msgid "Tags"
 msgstr "Oznake"
 
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_form
 msgid "Team Details"
-msgstr "Detalji tima"
+msgstr ""
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__user_id
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_search
 msgid "Team Leader"
 msgstr "Vođa tima"
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.actions.act_window,name:sales_team.crm_team_member_action
 msgid "Team Members"
@@ -659,9 +612,8 @@ msgstr "Članovi tima"
 #. module: sales_team
 #: model_terms:ir.actions.act_window,help:sales_team.crm_team_member_action
 msgid "Team Members are salespersons assigned to specific teams."
-msgstr "Nije definirano"
+msgstr ""
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.actions.act_window,name:sales_team.crm_team_action_pipeline
 msgid "Teams"
@@ -683,8 +635,6 @@ msgid ""
 "Those represent the different categories of things you have to do (e.g. "
 "\"Call\" or \"Prepare meeting\")."
 msgstr ""
-"One predstavljaju različite kategorije zadataka koje trebate obaviti (npr. "
-"\"Poziv\" ili \"Priprema sastanka\")."
 
 #. module: sales_team
 #. odoo-python
@@ -694,51 +644,43 @@ msgid ""
 "To add a Salesperson into multiple Teams, activate the Multi-Team option in "
 "settings."
 msgstr ""
-"Da biste prodavača dodali u više timova, aktivirajte opciju Više timova u "
-"postavkama."
 
-# taken from hr.po
 #. module: sales_team
 #: model:crm.tag,name:sales_team.categ_oppor6
 msgid "Training"
-msgstr "Edukacija"
+msgstr "Trening"
 
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team_member__user_in_teams_ids
 msgid ""
 "UX: Give users not to add in the currently chosen team to avoid duplicates"
 msgstr ""
-"UX: spriječite korisnike da dodaju članove u trenutno odabrani tim kako "
-"biste izbjegli duplikate"
 
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team__member_company_ids
+#: model:ir.model.fields,help:sales_team.field_crm_team_member__user_company_ids
 msgid "UX: Limit to team company or all if no company"
-msgstr "Kako će grafikon kontrolne table ovog kanala grupirati rezultate."
+msgstr ""
 
 #. module: sales_team
 #. odoo-python
 #: code:addons/sales_team/models/crm_team.py:0
 #, python-format
 msgid "Undefined graph model for Sales Team: %s"
-msgstr "Nedefiniran model grafa za prodajni tim: %s"
+msgstr ""
 
 #. module: sales_team
 #: model_terms:ir.actions.act_window,help:sales_team.crm_team_action_config
-msgid ""
-"Use Sales Teams to organize your sales departments and draw up reports."
+msgid "Use Sales Teams to organize your sales departments and draw up reports."
 msgstr ""
-"Koristite prodajne timove da organizujete svoje prodajne odjele i pripremite"
-" izvještaje."
 
 #. module: sales_team
 #: model_terms:ir.actions.act_window,help:sales_team.crm_team_action_pipeline
+#: model_terms:ir.actions.act_window,help:sales_team.crm_team_action_sales
 msgid ""
 "Use Sales Teams to organize your sales departments.\n"
 "                Each team will work with a separate pipeline."
 msgstr ""
-"Koristite prodajne timove da organizujete svoje prodajne odjele.\n"
-"                Svaki tim će raditi s odvojenim lijevkom prodaje."
 
 #. module: sales_team
 #: model_terms:ir.actions.act_window,help:sales_team.sales_team_crm_tag_action
@@ -746,10 +688,7 @@ msgid ""
 "Use Tags to manage and track your Opportunities (product structure, sales "
 "type, ...)"
 msgstr ""
-"Koristite oznake da upravljate i pratite svoje prilike (struktura proizvoda,"
-" tip prodaje, ...)"
 
-# taken from hr.po
 #. module: sales_team
 #: model:ir.model,name:sales_team.model_res_users
 msgid "User"
@@ -763,20 +702,18 @@ msgstr "Kompanija korisnika"
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__user_in_teams_ids
 msgid "User In Teams"
-msgstr "Korisnik u timovima"
+msgstr ""
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_res_users__sale_team_id
 msgid "User Sales Team"
 msgstr ""
 
-# taken from hr.po
 #. module: sales_team
 #: model:res.groups,name:sales_team.group_sale_salesman_all_leads
 msgid "User: All Documents"
 msgstr "Korisnik: Svi dokumenti"
 
-# taken from hr.po
 #. module: sales_team
 #: model:res.groups,name:sales_team.group_sale_salesman
 msgid "User: Own Documents Only"
@@ -785,9 +722,8 @@ msgstr "Korisnik: Samo svoji dokumenti"
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team__member_ids
 msgid "Users assigned to this team."
-msgstr "Grafikon koji će ovaj kanal prikazivati na kontrolnoj tabli."
+msgstr ""
 
-# taken from hr.po
 #. module: sales_team
 #: model:crm.team,name:sales_team.salesteam_website_sales
 msgid "Website"
@@ -801,25 +737,22 @@ msgid ""
 "You are trying to create duplicate membership(s). We found that "
 "%(duplicates)s already exist(s)."
 msgstr ""
-"Pokušavate da kreirate duplu članarinu. Utvrdili smo da %(duplicates)s već "
-"postoji."
 
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_form
 msgid "e.g. North America"
-msgstr "npr. Sjeverna Amerika"
+msgstr ""
 
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.sales_team_crm_tag_view_form
 msgid "e.g. Services"
-msgstr "npr. Usluge"
+msgstr ""
 
 #. module: sales_team
 #: model:crm.team,name:sales_team.ebay_sales_team
 msgid "eBay"
 msgstr ""
 
-# taken from hr.po
 #. module: sales_team
 #: model:res.groups,comment:sales_team.group_sale_salesman_all_leads
 msgid ""
@@ -827,121 +760,18 @@ msgid ""
 "application."
 msgstr "korisnik će imati pristup svim zapisima o svima u aplikaciji prodaje."
 
-# taken from hr.po
 #. module: sales_team
 #: model:res.groups,comment:sales_team.group_sale_salesman
 msgid "the user will have access to his own data in the sales application."
 msgstr "korisnik će imati pristup samo do svojih podataka u prodaji."
 
-# taken from hr.po
 #. module: sales_team
 #: model:res.groups,comment:sales_team.group_sale_manager
 msgid ""
-"the user will have an access to the sales configuration as well as statistic"
-" reports."
+"the user will have an access to the sales configuration as well as statistic "
+"reports."
 msgstr ""
-"korisnik će imati pristup postavkama prodaje kao i statističkim "
-"izvještajima."
+"korisnik će imati pristup postavkama prodaje kao i statističkim izvještajima."
 
-#. module: sales_team
-#: code:addons/sales_team/models/crm_team_member.py:0
-msgid "%(user_name)s already in other teams (%(team_names)s)."
-msgstr "%(user_name)s je već u drugim timovima (%(team_names)s)."
-
-#. module: sales_team
-#: code:addons/sales_team/models/crm_team.py:0
-msgid "%(user_names)s already in other teams (%(team_names)s)."
-msgstr "%(user_names)s su već u drugim timovima (%(team_names)s)."
-
-#. module: sales_team
-#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
-msgid "<i class=\"fa fa-fw me-1 fa-building text-primary\" title=\"Company\"/>"
-msgstr "<i class=\"fa fa-fw me-1 fa-building text-primary\" title=\"Kompanija\"/>"
-
-#. module: sales_team
-#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
-msgid "<i class=\"fa fa-fw me-1 fa-envelope text-primary\" title=\"Email\"/>"
-msgstr "<i class=\"fa fa-fw me-1 fa-envelope text-primary\" title=\"Email\"/>"
-
-#. module: sales_team
-#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
-msgid "<i class=\"fa fa-fw me-1 fa-phone text-primary\" title=\"Phone\"/>"
-msgstr "<i class=\"fa fa-fw me-1 fa-phone text-primary\" title=\"Telefon\"/>"
-
-#. module: sales_team
-#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
-msgid "Activate \"Multi-team\""
-msgstr "Aktiviraj \"Multi-team\""
-
-#. module: sales_team
-#: code:addons/sales_team/static/src/js/crm_team_form.js:0
-msgid "An error occurred while activating the Multi-Team option."
-msgstr "Došlo je do greške prilikom aktiviranja opcije Multi-Team."
-
-#. module: sales_team
-#: model:ir.model.fields,field_description:sales_team.field_crm_team__rating_ids
-msgid "Ratings"
-msgstr "Ocjene"
-
-#. module: sales_team
-#: model:ir.model.constraint,message:sales_team.constraint_crm_tag_name_uniq
-msgid "Tag name already exists!"
-msgstr "Naziv oznake već postoji!"
-
-#. module: sales_team
-#: code:addons/sales_team/models/crm_team.py:0
-msgid ""
-"The following team members are not allowed in company '%(company)s' of the "
-"Sales Team '%(team)s': %(users)s"
-msgstr ""
-"Sljedeći članovi tima nisu dozvoljeni u kompaniji '%(company)s' prodajnog "
-"tima '%(team)s': %(users)s"
-
-#. module: sales_team
-#: code:addons/sales_team/models/crm_team_member.py:0
-msgid ""
-"User '%(user)s' is not allowed in the company '%(company)s' of the Sales "
-"Team '%(team)s'."
-msgstr ""
-"Korisnik '%(user)s' nije dozvoljen u kompaniji '%(company)s' prodajnog tima "
-"'%(team)s'."
-
-#. module: sales_team
-#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_form
-msgid "Visible to all"
-msgstr "Vidljivo svima"
-
-#. module: sales_team
-#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
-msgid "Working in multiple teams?"
-msgstr "Radite u više timova?"
-
-#. module: sales_team
-#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
-msgid "e.g. John Doe"
-msgstr "npr. John Doe"
-
-#. module: sales_team
-#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
-msgid "<i class=\"d-none d-md-block fa fa-building\" title=\"Company\"/>"
-msgstr ""
-
-#. module: sales_team
-#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
-msgid "<i class=\"d-none d-md-block fa fa-envelope\" title=\"Email\"/>"
-msgstr ""
-
-#. module: sales_team
-#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
-msgid "<i class=\"d-none d-md-block fa fa-phone\" title=\"Phone\"/>"
-msgstr ""
-
-#. module: sales_team
-#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
-msgid "<i class=\"d-none d-md-block fa fa-users\" title=\"Sales Team\"/>"
-msgstr ""
-
-#. module: sales_team
-#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_kanban
-msgid "<i class=\"fa fa-fw me-1 fa-users text-primary\" title=\"Sales Team\"/>"
-msgstr ""
+#~ msgid "Number of messages which requires an action"
+#~ msgstr "Broj poruka koje zahtjevaju neku akciju"

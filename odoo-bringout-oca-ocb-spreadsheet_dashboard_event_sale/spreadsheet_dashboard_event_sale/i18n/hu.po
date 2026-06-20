@@ -1,32 +1,31 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* spreadsheet_dashboard_event_sale
-# 
+#
 # Translators:
-# Istvan <leki69@gmail.com>, 2022
-# Martin Trigaux, 2022
-# krnkris, 2022
-# Tamás Németh <ntomasz81@gmail.com>, 2022
+# Istvan <leki69@gmail.com>, 2023
+# Martin Trigaux, 2023
+# krnkris, 2023
+# Tamás Németh <ntomasz81@gmail.com>, 2023
 # Krisztián Juhász <juhasz.krisztian@josafar.hu>, 2025
 # gezza <geza.nagy@oregional.hu>, 2025
-# 
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-06 13:32+0000\n"
-"PO-Revision-Date: 2022-09-29 09:44+0000\n"
+"POT-Creation-Date: 2025-12-29 18:38+0000\n"
+"PO-Revision-Date: 2023-10-26 23:09+0000\n"
 "Last-Translator: gezza <geza.nagy@oregional.hu>, 2025\n"
 "Language-Team: Hungarian (https://app.transifex.com/odoo/teams/41243/hu/)\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Attendees"
@@ -34,7 +33,6 @@ msgstr "Résztvevők"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Current"
@@ -78,11 +76,7 @@ msgstr ""
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
+#: model:spreadsheet.dashboard,name:spreadsheet_dashboard_event_sale.spreadsheet_dashboard_events
 #, python-format
 msgid "Events"
 msgstr "Események"
@@ -102,8 +96,12 @@ msgid "KPI"
 msgstr "KPI"
 
 #. module: spreadsheet_dashboard_event_sale
+#: model:spreadsheet.dashboard.group,name:spreadsheet_dashboard_event_sale.spreadsheet_dashboard_group_marketing
+msgid "Marketing"
+msgstr "Marketing"
+
+#. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Organizer"
@@ -111,7 +109,6 @@ msgstr "Szervező"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Previous"
@@ -126,7 +123,6 @@ msgstr "Regisztráció állapota"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Revenue"
@@ -148,7 +144,6 @@ msgstr "Címkék"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Template"
@@ -185,7 +180,6 @@ msgstr ""
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Venue"
 msgstr "Helyszín"
@@ -220,8 +214,6 @@ msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "since last period"

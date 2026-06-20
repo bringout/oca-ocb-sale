@@ -1,32 +1,34 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* sale_expense
-# 
+# * sale_expense
+#
 # Translators:
-# Martin Trigaux, 2022
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2022
-# Carolina Fernández, 2024
 # Wil Odoo, 2024
+# Pedro M. Baeza <pedro.baeza@tecnativa.com>, 2024
 # Larissa Manderfeld, 2025
-# 
+# "Larissa Manderfeld (lman)" <lman@odoo.com>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-06 13:32+0000\n"
-"PO-Revision-Date: 2022-09-22 05:54+0000\n"
-"Last-Translator: Larissa Manderfeld, 2025\n"
-"Language-Team: Spanish (https://app.transifex.com/odoo/teams/41243/es/)\n"
+"POT-Creation-Date: 2025-12-29 18:38+0000\n"
+"PO-Revision-Date: 2025-08-06 09:55+0000\n"
+"Last-Translator: \"Larissa Manderfeld (lman)\" <lman@odoo.com>\n"
+"Language-Team: Spanish <https://translate.odoo.com/projects/odoo-17/"
+"sale_expense/es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: es\n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n != 0 && n % 1000000 == "
+"0) ? 1 : 2);\n"
+"X-Generator: Weblate 5.12.2\n"
 
 #. module: sale_expense
 #: model:ir.model.fields,field_description:sale_expense.field_sale_order__expense_count
+#, fuzzy
 msgid "# of Expenses"
-msgstr "# de gastos"
+msgstr "N.° de gastos"
 
 #. module: sale_expense
 #: model:ir.model.fields,field_description:sale_expense.field_hr_expense__can_be_reinvoiced
@@ -55,13 +57,6 @@ msgstr "Información sobre la política de gastos"
 #: model:ir.model,name:sale_expense.model_hr_expense_sheet
 msgid "Expense Report"
 msgstr "Informe de gastos"
-
-#. module: sale_expense
-#: model:ir.model.fields,field_description:sale_expense.field_account_bank_statement_line__expense_sheet_id
-#: model:ir.model.fields,field_description:sale_expense.field_account_move__expense_sheet_id
-#: model:ir.model.fields,field_description:sale_expense.field_account_payment__expense_sheet_id
-msgid "Expense Sheet"
-msgstr "Hoja de gastos"
 
 #. module: sale_expense
 #: model:ir.model,name:sale_expense.model_hr_expense_split

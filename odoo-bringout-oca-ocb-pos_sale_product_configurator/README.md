@@ -1,4 +1,4 @@
-# pos_sale_product_configurator
+# POS - Sale Product Configurator
 
 
 This module adds features depending on both modules.
@@ -12,38 +12,15 @@ pip install odoo-bringout-oca-ocb-pos_sale_product_configurator
 
 ## Dependencies
 
-This addon depends on:
 - point_of_sale
 - sale_product_configurator
 
-## Manifest Information
-
-- **Name**: pos_sale_product_configurator
-- **Version**: 1.0
-- **Category**: Hidden
-- **License**: LGPL-3
-- **Installable**: True
-
 ## Source
 
-Based on [OCA/OCB](https://github.com/OCA/OCB) branch 16.0, addon `pos_sale_product_configurator`.
+- Repository: https://github.com/OCA/OCB
+- Branch: 17.0
+- Path: addons/pos_sale_product_configurator
 
 ## License
 
-This package maintains the original LGPL-3 license from the upstream Odoo project.
-
-## Documentation
-
-- Overview: doc/OVERVIEW.md
-- Architecture: doc/ARCHITECTURE.md
-- Models: doc/MODELS.md
-- Controllers: doc/CONTROLLERS.md
-- Wizards: doc/WIZARDS.md
-- Reports: doc/REPORTS.md
-- Security: doc/SECURITY.md
-- Install: doc/INSTALL.md
-- Usage: doc/USAGE.md
-- Configuration: doc/CONFIGURATION.md
-- Dependencies: doc/DEPENDENCIES.md
-- Troubleshooting: doc/TROUBLESHOOTING.md
-- FAQ: doc/FAQ.md
+This package preserves the original LGPL-3 license.

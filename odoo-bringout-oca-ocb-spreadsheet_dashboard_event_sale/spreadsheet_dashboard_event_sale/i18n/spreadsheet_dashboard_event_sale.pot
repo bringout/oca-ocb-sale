@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-06 13:32+0000\n"
-"PO-Revision-Date: 2024-02-06 13:32+0000\n"
+"POT-Creation-Date: 2025-12-29 18:38+0000\n"
+"PO-Revision-Date: 2025-12-29 18:38+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,14 +18,12 @@ msgstr ""
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Attendees"
 msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Current"
@@ -69,11 +67,7 @@ msgstr ""
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
+#: model:spreadsheet.dashboard,name:spreadsheet_dashboard_event_sale.spreadsheet_dashboard_events
 #, python-format
 msgid "Events"
 msgstr ""
@@ -93,8 +87,12 @@ msgid "KPI"
 msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
+#: model:spreadsheet.dashboard.group,name:spreadsheet_dashboard_event_sale.spreadsheet_dashboard_group_marketing
+msgid "Marketing"
+msgstr ""
+
+#. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Organizer"
@@ -102,7 +100,6 @@ msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Previous"
@@ -117,7 +114,6 @@ msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Revenue"
@@ -139,7 +135,6 @@ msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Template"
@@ -176,7 +171,6 @@ msgstr ""
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Venue"
 msgstr ""
@@ -211,8 +205,6 @@ msgstr ""
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "since last period"

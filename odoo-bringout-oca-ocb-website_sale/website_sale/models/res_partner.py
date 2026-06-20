@@ -1,7 +1,7 @@
-# -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models, _
+from odoo import _, api, fields, models
+
 from odoo.addons.website.models import ir_http
 
 
@@ -45,22 +45,40 @@ class ResPartner(models.Model):
                 ),
             }}
 
+    def _can_be_edited_by_current_customer(self, sale_order, mode):
+        self.ensure_one()
+        children_partner_ids = self.env['res.partner']._search([
+            ('id', 'child_of', sale_order.partner_id.commercial_partner_id.id),
+            ('type', 'in', ('invoice', 'delivery', 'other')),
+        ])
+        if (
+            self == sale_order.partner_id
+            or self.id in children_partner_ids
+        ):
+            # address belongs to the customer
+            if mode == 'billing':
+                # All addresses are editable as billing
+                return True
+            elif mode == 'shipping' and self.type == 'delivery':
+                # Only delivery addresses are editable as delivery
+                return True
+
+        return False
+
     def write(self, vals):
         res = super().write(vals)
         if {'country_id', 'vat', 'zip'} & vals.keys():
             # Recompute fiscal position for open website orders
-            orders_sudo = self.env['sale.order'].sudo().search([
+            if orders_sudo := self.env['sale.order'].sudo().search([
                 ('state', '=', 'draft'),
                 ('website_id', '!=', False),
                 '|', ('partner_id', 'in', self.ids), ('partner_shipping_id', 'in', self.ids),
-            ])
-            if orders_sudo:
-                fpos_by_order = {so.id: so.fiscal_position_id.id for so in orders_sudo}
+            ]):
+                orders_by_fpos = orders_sudo.grouped('fiscal_position_id')
                 self.env.add_to_compute(orders_sudo._fields['fiscal_position_id'], orders_sudo)
-                fpos_changed = orders_sudo.filtered(
-                    lambda so: so.fiscal_position_id.id != fpos_by_order[so.id],
-                )
-                if fpos_changed:
+                if fpos_changed := orders_sudo.filtered(
+                    lambda so: so not in orders_by_fpos.get(so.fiscal_position_id, []),
+                ):
                     fpos_changed._recompute_taxes()
                     fpos_changed._recompute_prices()
         return res

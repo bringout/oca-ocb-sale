@@ -1,38 +1,35 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* website_sale_stock
-# 
+#
 # Translators:
-# Константин Коровин <korovin74@gmail.com>, 2022
-# Сергей Шебанин <sergey@shebanin.ru>, 2022
-# Ivan Kropotkin <yelizariev@itpp.dev>, 2022
-# Irina Fedulova <istartlin@gmail.com>, 2022
-# Martin Trigaux, 2022
-# ILMIR <karamov@it-projects.info>, 2022
-# Oleg Kuryan <oleg@ventor.tech>, 2022
+# Константин Коровин <korovin74@gmail.com>, 2023
+# Сергей Шебанин <sergey@shebanin.ru>, 2023
+# Martin Trigaux, 2023
+# Oleg Kuryan <oleg@ventor.tech>, 2023
 # Wil Odoo, 2024
-# Ilya Rozhkov, 2024
-# 
+# Ilya Rozhkov, 2025
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-06 13:32+0000\n"
-"PO-Revision-Date: 2022-09-22 05:57+0000\n"
-"Last-Translator: Ilya Rozhkov, 2024\n"
+"POT-Creation-Date: 2025-12-29 18:38+0000\n"
+"PO-Revision-Date: 2023-10-26 23:09+0000\n"
+"Last-Translator: Ilya Rozhkov, 2025\n"
 "Language-Team: Russian (https://app.transifex.com/odoo/teams/41243/ru/)\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: ru\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #. module: website_sale_stock
 #: model_terms:ir.ui.view,arch_db:website_sale_stock.res_config_settings_view_form
-msgid ""
-"<span attrs=\"{'invisible': [('show_availability', '=', "
-"False)]}\">Units</span>"
-msgstr ""
+msgid "<span invisible=\"not show_availability\">Units</span>"
+msgstr "<span invisible=\"not show_availability\">Единицы</span>"
 
 #. module: website_sale_stock
 #: model:ir.model.fields,field_description:website_sale_stock.field_product_product__stock_notification_partner_ids
@@ -42,13 +39,13 @@ msgstr "Уведомления о наличии на складе"
 #. module: website_sale_stock
 #: model:ir.model,name:website_sale_stock.model_res_config_settings
 msgid "Config Settings"
-msgstr "Конфигурационные настройки"
+msgstr "Параметры конфигурации"
 
 #. module: website_sale_stock
 #: model_terms:ir.ui.view,arch_db:website_sale_stock.product_template_form_view_inherit_website_sale_stock
 #: model_terms:ir.ui.view,arch_db:website_sale_stock.res_config_settings_view_form
 msgid "Continue Selling"
-msgstr "Продолжить продажи"
+msgstr "Продолжить продажу"
 
 #. module: website_sale_stock
 #: model:ir.model.fields,field_description:website_sale_stock.field_product_product__allow_out_of_stock_order
@@ -68,8 +65,8 @@ msgid ""
 "Default availability mode set on newly created storable products. This can "
 "be changed at the product level."
 msgstr ""
-"Режим доступности по умолчанию установлено на только что созданные товары, "
-"которые можно хранить. Это можно изменить на уровне товара."
+"Режим доступности по умолчанию, установленный для вновь созданных хранимых "
+"продуктов. Это можно изменить на уровне продукта."
 
 #. module: website_sale_stock
 #: model_terms:ir.ui.view,arch_db:website_sale_stock.res_config_settings_view_form
@@ -118,7 +115,7 @@ msgstr "Только"
 #. module: website_sale_stock
 #: model_terms:ir.ui.view,arch_db:website_sale_stock.availability_email_body
 msgid "Order Now"
-msgstr "Заказать сейчас"
+msgstr "Заказать Сейчас"
 
 #. module: website_sale_stock
 #. odoo-javascript
@@ -145,7 +142,7 @@ msgstr "Сообщение об отсутствии товара на скла�
 #: model:ir.model,name:website_sale_stock.model_product_template
 #, python-format
 msgid "Product"
-msgstr "Продукт"
+msgstr "Товар"
 
 #. module: website_sale_stock
 #: model:ir.model,name:website_sale_stock.model_product_product
@@ -154,14 +151,13 @@ msgstr "Вариант продукта"
 
 #. module: website_sale_stock
 #: model:ir.actions.server,name:website_sale_stock.ir_cron_send_availability_email_ir_actions_server
-#: model:ir.cron,cron_name:website_sale_stock.ir_cron_send_availability_email
 msgid "Product: send email regarding products availability"
 msgstr "Продукт: отправлять электронное сообщение о наличии товара"
 
 #. module: website_sale_stock
 #: model_terms:ir.ui.view,arch_db:website_sale_stock.availability_email_body
 msgid "Regards,"
-msgstr "С уважением,"
+msgstr "С Уважением,"
 
 #. module: website_sale_stock
 #: model:ir.model,name:website_sale_stock.model_sale_order
@@ -177,7 +173,7 @@ msgstr "Позиция заказа на продажу"
 #: model_terms:ir.ui.view,arch_db:website_sale_stock.product_template_form_view_inherit_website_sale_stock
 #: model_terms:ir.ui.view,arch_db:website_sale_stock.res_config_settings_view_form
 msgid "Show Available Qty"
-msgstr "Показать доступное количество"
+msgstr "Показать доступное кол-во"
 
 #. module: website_sale_stock
 #: model:ir.model.fields,field_description:website_sale_stock.field_product_product__available_threshold
@@ -191,23 +187,30 @@ msgstr "Показать порог"
 #: model:ir.model.fields,field_description:website_sale_stock.field_product_template__show_availability
 #: model:ir.model.fields,field_description:website_sale_stock.field_res_config_settings__show_availability
 msgid "Show availability Qty"
-msgstr "Показать наличие Кол-во"
+msgstr "Показать доступное кол-во"
 
 #. module: website_sale_stock
 #. odoo-python
 #: code:addons/website_sale_stock/models/sale_order.py:0
 #, python-format
 msgid ""
-"Some products became unavailable and your cart has been updated. We're sorry"
-" for the inconvenience."
+"Some products became unavailable and your cart has been updated. We're sorry "
+"for the inconvenience."
 msgstr ""
-"Некоторые товары стали недоступными, а вашу корзину был обновлен. Извините "
-"за неудобства."
+"Некоторые товары стали недоступны, и ваша корзина была обновлена. Приносим "
+"извинения за причиненные неудобства."
 
 #. module: website_sale_stock
 #: model_terms:ir.ui.view,arch_db:website_sale_stock.availability_email_body
 msgid "The following product is now available."
 msgstr "Теперь доступен следующий продукт."
+
+#. module: website_sale_stock
+#. odoo-python
+#: code:addons/website_sale_stock/models/sale_order.py:0
+#, python-format
+msgid "The item has not been added to your cart since it is not available."
+msgstr "Этот товар не был добавлен в вашу корзину, так как его нет в наличии."
 
 #. module: website_sale_stock
 #. odoo-python
@@ -226,7 +229,7 @@ msgstr "Этого товара нет в наличии."
 #. module: website_sale_stock
 #: model:ir.model,name:website_sale_stock.model_stock_picking
 msgid "Transfer"
-msgstr "Перемещение"
+msgstr "Перевод"
 
 #. module: website_sale_stock
 #: model_terms:ir.ui.view,arch_db:website_sale_stock.product_template_form_view_inherit_website_sale_stock
@@ -251,7 +254,7 @@ msgstr "Мы уведомим вас, как только товар снова 
 #: model:ir.model,name:website_sale_stock.model_website
 #: model:ir.model.fields,field_description:website_sale_stock.field_stock_picking__website_id
 msgid "Website"
-msgstr "Вебсайт"
+msgstr "Сайт"
 
 #. module: website_sale_stock
 #: model:ir.model.fields,help:website_sale_stock.field_stock_picking__website_id
@@ -289,8 +292,7 @@ msgid ""
 "You ask for %(desired_qty)s %(product_name)s but only %(new_qty)s is "
 "available"
 msgstr ""
-"Вы запросили %(desired_qty)s%(product_name)s, но доступно только "
-"%(new_qty)s."
+"Вы запросили %(desired_qty)s%(product_name)s, но доступно только %(new_qty)s."
 
 #. module: website_sale_stock
 #. odoo-python
@@ -298,12 +300,10 @@ msgstr ""
 #, python-format
 msgid "You ask for %(desired_qty)s products but only %(new_qty)s is available"
 msgstr ""
-"Вы запрашиваете %(desired_qty)s товаров, но в наличии есть только "
-"%(new_qty)s"
+"Вы запрашиваете %(desired_qty)s товаров, но в наличии есть только %(new_qty)s"
 
 #. module: website_sale_stock
 #. odoo-javascript
-#: code:addons/website_sale_stock/static/src/js/website_sale_reorder.js:0
 #: code:addons/website_sale_stock/static/src/js/website_sale_reorder.js:0
 #, python-format
 msgid "You ask for %s Units but only %s are available."

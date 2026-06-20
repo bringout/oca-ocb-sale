@@ -1,33 +1,35 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* event_booth_sale
-# 
-# Translators:
-# Martin Trigaux, 2023
-# Wil Odoo, 2024
-# Jaisal Shah <jaisal13shah@gmail.com>, 2025
-# Manav Shah, 2025
-# Ujjawal Pathak, 2025
-# 
+# * event_booth_sale
+#
+# Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-14 05:52+0000\n"
-"PO-Revision-Date: 2022-09-22 05:45+0000\n"
-"Last-Translator: Ujjawal Pathak, 2025\n"
-"Language-Team: Hindi (https://app.transifex.com/odoo/teams/41243/hi/)\n"
+"POT-Creation-Date: 2025-12-29 18:37+0000\n"
+"PO-Revision-Date: 2026-05-02 08:08+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Hindi <https://translate.odoo.com/projects/odoo-17/"
+"event_booth_sale/hi/>\n"
+"Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: hi\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.17\n"
+
+#. module: event_booth_sale
+#: model_terms:ir.ui.view,arch_db:event_booth_sale.event_booth_view_form_from_event
+msgid "<span class=\"o_stat_text\">Sale Order</span>"
+msgstr "<span class=\"o_stat_text\">सेल ऑर्डर</span>"
 
 #. module: event_booth_sale
 #: model:ir.model.fields,help:event_booth_sale.field_product_product__detailed_type
 #: model:ir.model.fields,help:event_booth_sale.field_product_template__detailed_type
 msgid ""
-"A storable product is a product for which you manage stock. The Inventory app has to be installed.\n"
+"A storable product is a product for which you manage stock. The Inventory "
+"app has to be installed.\n"
 "A consumable product is a product for which stock is not managed.\n"
 "A service is a non-material product you provide."
 msgstr ""
@@ -36,7 +38,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_configurator__event_booth_ids
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_registration__event_booth_id
 msgid "Booth"
-msgstr ""
+msgstr "बूथ"
 
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_configurator__event_booth_category_id
@@ -68,7 +70,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:event_booth_sale.field_sale_order__event_booth_ids
 #: model_terms:ir.ui.view,arch_db:event_booth_sale.sale_order_view_form
 msgid "Booths"
-msgstr ""
+msgstr "बूथ"
 
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_sale_order_line__event_booth_category_id
@@ -98,28 +100,23 @@ msgstr "संपर्क"
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_registration__contact_email
 msgid "Contact Email"
-msgstr ""
-
-#. module: event_booth_sale
-#: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_registration__contact_mobile
-msgid "Contact Mobile"
-msgstr ""
+msgstr "संपर्क करने के लिए ईमेल"
 
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_registration__contact_name
 msgid "Contact Name"
-msgstr ""
+msgstr "संपर्क का नाम"
 
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_registration__contact_phone
 msgid "Contact Phone"
-msgstr ""
+msgstr "संपर्क करने के लिए फ़ोन"
 
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_configurator__create_uid
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_registration__create_uid
 msgid "Created by"
-msgstr "द्वारा निर्मित"
+msgstr "इन्होंने बनाया"
 
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_configurator__create_date
@@ -142,18 +139,18 @@ msgstr "साथी"
 #. module: event_booth_sale
 #: model_terms:ir.ui.view,arch_db:event_booth_sale.event_booth_registration_view_form
 msgid "Details"
-msgstr "विवरण"
+msgstr "जानकारी"
 
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_configurator__display_name
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_registration__display_name
 msgid "Display Name"
-msgstr "डिस्प्ले नाम"
+msgstr "डिस्प्ले का नाम"
 
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_configurator__event_id
 msgid "Event"
-msgstr ""
+msgstr "इवेंट"
 
 #. module: event_booth_sale
 #: model:ir.model,name:event_booth_sale.model_event_booth
@@ -201,7 +198,7 @@ msgstr "आईडी"
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_category__image_1920
 msgid "Image"
-msgstr ""
+msgstr "इमेज"
 
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_sale_order_line__is_event_booth
@@ -211,18 +208,12 @@ msgstr ""
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth__is_paid
 msgid "Is Paid"
-msgstr ""
+msgstr "चुका दिया गया है"
 
 #. module: event_booth_sale
 #: model:ir.model,name:event_booth_sale.model_account_move
 msgid "Journal Entry"
 msgstr "जर्नल एंट्री"
-
-#. module: event_booth_sale
-#: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_configurator____last_update
-#: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_registration____last_update
-msgid "Last Modified on"
-msgstr ""
 
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_configurator__write_uid
@@ -244,7 +235,7 @@ msgstr "ठीक है"
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth__sale_order_id
 msgid "Order Reference"
-msgstr ""
+msgstr "ऑर्डर रेफ़रेंस"
 
 #. module: event_booth_sale
 #: model_terms:ir.ui.view,arch_db:event_booth_sale.event_booth_view_form_from_event
@@ -254,6 +245,15 @@ msgstr "चुका दिया गया"
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_sale_order_line__event_booth_pending_ids
 msgid "Pending Booths"
+msgstr ""
+
+#. module: event_booth_sale
+#. odoo-python
+#: code:addons/event_booth_sale/models/sale_order.py:0
+#, python-format
+msgid ""
+"Please make sure all your event-booth related lines are configured before "
+"confirming this order:%s"
 msgstr ""
 
 #. module: event_booth_sale
@@ -274,21 +274,24 @@ msgid "Price Reduce Tax inc"
 msgstr ""
 
 #. module: event_booth_sale
+#: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_category__price_incl
+msgid "Price incl"
+msgstr ""
+
+#. module: event_booth_sale
 #: model:ir.model,name:event_booth_sale.model_product_template
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth__product_id
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_category__product_id
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_configurator__product_id
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_type_booth__product_id
-#: model:ir.model.fields,field_description:event_booth_sale.field_sale_order_template_line__product_id
-#: model:ir.model.fields,field_description:event_booth_sale.field_sale_order_template_option__product_id
 msgid "Product"
-msgstr "उत्पाद"
+msgstr "प्रॉडक्ट"
 
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_product_product__detailed_type
 #: model:ir.model.fields,field_description:event_booth_sale.field_product_template__detailed_type
 msgid "Product Type"
-msgstr ""
+msgstr "प्रॉडक्ट टाइप"
 
 #. module: event_booth_sale
 #: model:ir.model,name:event_booth_sale.model_product_product
@@ -296,19 +299,9 @@ msgid "Product Variant"
 msgstr "उत्पाद प्रकार"
 
 #. module: event_booth_sale
-#: model:ir.model,name:event_booth_sale.model_sale_order_template_line
-msgid "Quotation Template Line"
-msgstr ""
-
-#. module: event_booth_sale
-#: model:ir.model,name:event_booth_sale.model_sale_order_template_option
-msgid "Quotation Template Option"
-msgstr ""
-
-#. module: event_booth_sale
 #: model_terms:ir.ui.view,arch_db:event_booth_sale.event_booth_view_form_from_event
 msgid "Registrations"
-msgstr ""
+msgstr "रजिस्ट्रेशन"
 
 #. module: event_booth_sale
 #. odoo-python
@@ -323,15 +316,10 @@ msgid "SO Lines with reservations"
 msgstr ""
 
 #. module: event_booth_sale
-#: model_terms:ir.ui.view,arch_db:event_booth_sale.event_booth_view_form_from_event
-msgid "Sale Order"
-msgstr ""
-
-#. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_configurator__sale_order_line_id
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_registration__sale_order_line_id
 msgid "Sale Order Line"
-msgstr ""
+msgstr "सेल ऑर्डर लाइन"
 
 #. module: event_booth_sale
 #: model:ir.model,name:event_booth_sale.model_sale_order
@@ -341,7 +329,7 @@ msgstr "सेल्स ऑर्डर"
 #. module: event_booth_sale
 #: model:ir.model,name:event_booth_sale.model_sale_order_line
 msgid "Sales Order Line"
-msgstr "बिक्री आदेश पंक्ति"
+msgstr "परचेज़ ऑर्डर लाइन"
 
 #. module: event_booth_sale
 #: model:ir.actions.act_window,name:event_booth_sale.event_booth_configurator_action
@@ -393,6 +381,5 @@ msgstr ""
 #: code:addons/event_booth_sale/models/event_booth_registration.py:0
 #, python-format
 msgid ""
-"Your order has been cancelled because the following booths have been "
-"reserved"
+"Your order has been cancelled because the following booths have been reserved"
 msgstr ""

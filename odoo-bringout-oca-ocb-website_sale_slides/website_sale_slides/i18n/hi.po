@@ -1,25 +1,23 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* website_sale_slides
-# 
-# Translators:
-# Wil Odoo, 2024
-# Jaisal Shah <jaisal13shah@gmail.com>, 2025
-# Ujjawal Pathak, 2025
-# 
+# * website_sale_slides
+#
+# Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-06 13:32+0000\n"
-"PO-Revision-Date: 2022-09-22 05:57+0000\n"
-"Last-Translator: Ujjawal Pathak, 2025\n"
-"Language-Team: Hindi (https://app.transifex.com/odoo/teams/41243/hi/)\n"
+"POT-Creation-Date: 2025-12-29 18:38+0000\n"
+"PO-Revision-Date: 2026-05-18 07:33+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Hindi <https://translate.odoo.com/projects/odoo-17/"
+"website_sale_slides/hi/>\n"
+"Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: hi\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.17\n"
 
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_option_buy_course_now
@@ -35,7 +33,8 @@ msgstr ""
 #: model:ir.model.fields,help:website_sale_slides.field_product_product__detailed_type
 #: model:ir.model.fields,help:website_sale_slides.field_product_template__detailed_type
 msgid ""
-"A storable product is a product for which you manage stock. The Inventory app has to be installed.\n"
+"A storable product is a product for which you manage stock. The Inventory "
+"app has to be installed.\n"
 "A consumable product is a product for which stock is not managed.\n"
 "A service is a non-material product you provide."
 msgstr ""
@@ -44,7 +43,12 @@ msgstr ""
 #. odoo-python
 #: code:addons/website_sale_slides/models/product_product.py:0
 #, python-format
-msgid "Access to:%s%s"
+msgid "Access to: %s%s"
+msgstr ""
+
+#. module: website_sale_slides
+#: model:product.template,name:website_sale_slides.product_course_channel_5_product_template
+msgid "Basics of Furniture Creation"
 msgstr ""
 
 #. module: website_sale_slides
@@ -75,7 +79,7 @@ msgstr ""
 #: model:ir.model,name:website_sale_slides.model_slide_channel
 #: model:ir.model.fields.selection,name:website_sale_slides.selection__product_template__detailed_type__course
 msgid "Course"
-msgstr ""
+msgstr "कोर्स"
 
 #. module: website_sale_slides
 #: model:product.template,name:website_sale_slides.default_product_course_product_template
@@ -95,7 +99,7 @@ msgstr ""
 #. module: website_sale_slides
 #: model:ir.model.fields,field_description:website_sale_slides.field_product_product__channel_ids
 msgid "Courses"
-msgstr ""
+msgstr "कोर्स"
 
 #. module: website_sale_slides
 #: model:ir.model.fields,field_description:website_sale_slides.field_slide_channel__currency_id
@@ -138,6 +142,11 @@ msgid ""
 msgstr ""
 
 #. module: website_sale_slides
+#: model_terms:ir.ui.view,arch_db:website_sale_slides.course_buy_course_button
+msgid "Log in"
+msgstr ""
+
+#. module: website_sale_slides
 #: model_terms:ir.actions.act_window,help:website_sale_slides.sale_report_action_slides
 msgid "No sales data yet!"
 msgstr ""
@@ -153,6 +162,11 @@ msgid "Once your order is paid &amp; confirmed, you will gain access to:"
 msgstr ""
 
 #. module: website_sale_slides
+#: model_terms:ir.ui.view,arch_db:website_sale_slides.course_buy_course_button
+msgid "Prerequisite:"
+msgstr ""
+
+#. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_slides_list_slide
 msgid "Preview"
 msgstr "प्रीव्यू"
@@ -161,13 +175,13 @@ msgstr "प्रीव्यू"
 #: model:ir.model,name:website_sale_slides.model_product_template
 #: model:ir.model.fields,field_description:website_sale_slides.field_slide_channel__product_id
 msgid "Product"
-msgstr "उत्पाद"
+msgstr "प्रॉडक्ट"
 
 #. module: website_sale_slides
 #: model:ir.model.fields,field_description:website_sale_slides.field_product_product__detailed_type
 #: model:ir.model.fields,field_description:website_sale_slides.field_product_template__detailed_type
 msgid "Product Type"
-msgstr ""
+msgstr "प्रॉडक्ट टाइप"
 
 #. module: website_sale_slides
 #: model:ir.model,name:website_sale_slides.model_product_product
@@ -182,7 +196,7 @@ msgstr ""
 #. module: website_sale_slides
 #: model:ir.ui.menu,name:website_sale_slides.website_slides_menu_report_revenues
 msgid "Revenues"
-msgstr ""
+msgstr "रेवेन्यू"
 
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.slide_channel_view_form
@@ -200,7 +214,7 @@ msgstr "सेल्स ऑर्डर"
 #: code:addons/website_sale_slides/static/src/xml/slide_course_join.xml:0
 #, python-format
 msgid "Sign in"
-msgstr ""
+msgstr "साइन इन करें"
 
 #. module: website_sale_slides
 #. odoo-javascript
@@ -208,6 +222,11 @@ msgstr ""
 #, python-format
 msgid "Sign in and buy the course to take the quiz"
 msgstr ""
+
+#. module: website_sale_slides
+#: model_terms:ir.ui.view,arch_db:website_sale_slides.course_buy_course_button
+msgid "Sign up"
+msgstr "साइन अप करें"
 
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_purchased_confirmation_message
@@ -218,6 +237,11 @@ msgstr ""
 #: model:product.template,name:website_sale_slides.product_course_channel_1_product_template
 msgid "Taking care of Trees Course"
 msgstr ""
+
+#. module: website_sale_slides
+#: model_terms:ir.ui.view,arch_db:website_sale_slides.course_buy_course_button
+msgid "There are some"
+msgstr "कुछ"
 
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_main
@@ -234,7 +258,7 @@ msgstr ""
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.slide_channel_view_tree_report
 msgid "Total Revenues"
-msgstr ""
+msgstr "कुल रेवेन्यू"
 
 #. module: website_sale_slides
 #: model:ir.model.fields,field_description:website_sale_slides.field_slide_channel__product_sale_revenues
@@ -245,6 +269,15 @@ msgstr ""
 #: model:ir.model,name:website_sale_slides.model_website
 msgid "Website"
 msgstr "वेबसाइट"
+
+#. module: website_sale_slides
+#. odoo-python
+#: code:addons/website_sale_slides/models/slide_channel.py:0
+#, python-format
+msgid ""
+"You are not allowed to add members to this course. Please contact the course "
+"responsible or an administrator."
+msgstr ""
 
 #. module: website_sale_slides
 #. odoo-python
@@ -271,6 +304,11 @@ msgstr ""
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_main
 msgid "is not published."
+msgstr ""
+
+#. module: website_sale_slides
+#: model_terms:ir.ui.view,arch_db:website_sale_slides.course_buy_course_button
+msgid "prerequisite courses."
 msgstr ""
 
 #. module: website_sale_slides

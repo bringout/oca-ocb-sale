@@ -1,34 +1,32 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* website_sale_stock
-# 
+#
 # Translators:
-# Martin Trigaux, 2022
-# Jeffery CHEN <jeffery9@gmail.com>, 2022
-# Raymond Yu <cl_yu@hotmail.com>, 2022
+# Wil Odoo, 2023
+# 山西清水欧度(QQ:54773801) <54773801@qq.com>, 2023
+# Jeffery CHEN <jeffery9@gmail.com>, 2023
 # Chloe Wang, 2024
-# 
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-06 13:32+0000\n"
-"PO-Revision-Date: 2022-09-22 05:57+0000\n"
+"POT-Creation-Date: 2025-12-29 18:38+0000\n"
+"PO-Revision-Date: 2023-10-26 23:09+0000\n"
 "Last-Translator: Chloe Wang, 2024\n"
-"Language-Team: Chinese (China) (https://app.transifex.com/odoo/teams/41243/zh_CN/)\n"
+"Language-Team: Chinese (China) (https://app.transifex.com/odoo/teams/41243/"
+"zh_CN/)\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #. module: website_sale_stock
 #: model_terms:ir.ui.view,arch_db:website_sale_stock.res_config_settings_view_form
-msgid ""
-"<span attrs=\"{'invisible': [('show_availability', '=', "
-"False)]}\">Units</span>"
-msgstr ""
-"<span attrs=\"{'invisible': [('show_availability', '=', False)]}\">单位</span>"
+msgid "<span invisible=\"not show_availability\">Units</span>"
+msgstr "<span invisible=\"not show_availability\">单位</span>"
 
 #. module: website_sale_stock
 #: model:ir.model.fields,field_description:website_sale_stock.field_product_product__stock_notification_partner_ids
@@ -147,7 +145,6 @@ msgstr "产品变体"
 
 #. module: website_sale_stock
 #: model:ir.actions.server,name:website_sale_stock.ir_cron_send_availability_email_ir_actions_server
-#: model:ir.cron,cron_name:website_sale_stock.ir_cron_send_availability_email
 msgid "Product: send email regarding products availability"
 msgstr "产品：发送有关产品可用性的电子邮件"
 
@@ -191,14 +188,21 @@ msgstr "显示可用数量"
 #: code:addons/website_sale_stock/models/sale_order.py:0
 #, python-format
 msgid ""
-"Some products became unavailable and your cart has been updated. We're sorry"
-" for the inconvenience."
+"Some products became unavailable and your cart has been updated. We're sorry "
+"for the inconvenience."
 msgstr "一些产品已经下架，您的购物车已更新。给您带来不便我们深表抱歉。"
 
 #. module: website_sale_stock
 #: model_terms:ir.ui.view,arch_db:website_sale_stock.availability_email_body
 msgid "The following product is now available."
 msgstr "以下产品现已上市。"
+
+#. module: website_sale_stock
+#. odoo-python
+#: code:addons/website_sale_stock/models/sale_order.py:0
+#, python-format
+msgid "The item has not been added to your cart since it is not available."
+msgstr "由于该商品不可用，因此尚未添加到您的购物车。"
 
 #. module: website_sale_stock
 #. odoo-python
@@ -212,7 +216,7 @@ msgstr "产品“%(product_name)s”现已上市"
 #: code:addons/website_sale_stock/static/src/js/website_sale_reorder.js:0
 #, python-format
 msgid "This product is out of stock."
-msgstr "这产品已无库存"
+msgstr "该产品缺货。"
 
 #. module: website_sale_stock
 #: model:ir.model,name:website_sale_stock.model_stock_picking
@@ -236,7 +240,7 @@ msgstr "仓库"
 #: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:0
 #, python-format
 msgid "We'll notify you once the product is back in stock."
-msgstr "一旦产品补充库存，我们将会通知您"
+msgstr "一旦产品恢复库存，我们将立即通知您。"
 
 #. module: website_sale_stock
 #: model:ir.model,name:website_sale_stock.model_website
@@ -247,7 +251,7 @@ msgstr "网站"
 #. module: website_sale_stock
 #: model:ir.model.fields,help:website_sale_stock.field_stock_picking__website_id
 msgid "Website where this order has been placed, for eCommerce orders."
-msgstr "此订单已下达的网站，用于电子商务订单"
+msgstr "下订单的网站，适用于电子商务订单。"
 
 #. module: website_sale_stock
 #. odoo-javascript
@@ -277,7 +281,8 @@ msgstr "您已经有%s件在您的购物车"
 msgid ""
 "You ask for %(desired_qty)s %(product_name)s but only %(new_qty)s is "
 "available"
-msgstr "你要求 %(desired_qty)s 件 %(product_name)s，但只有 %(new_qty)s 件可供出售。"
+msgstr ""
+"你要求 %(desired_qty)s 件 %(product_name)s，但只有 %(new_qty)s 件可供出售。"
 
 #. module: website_sale_stock
 #. odoo-python
@@ -288,7 +293,6 @@ msgstr "您想要%(desired_qty)s件产品，但是只有%(new_qty)s是可用的"
 
 #. module: website_sale_stock
 #. odoo-javascript
-#: code:addons/website_sale_stock/static/src/js/website_sale_reorder.js:0
 #: code:addons/website_sale_stock/static/src/js/website_sale_reorder.js:0
 #, python-format
 msgid "You ask for %s Units but only %s are available."

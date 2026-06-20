@@ -1,21 +1,21 @@
 /** @odoo-modules */
 
-import tour from 'web_tour.tour';
-import wTourUtils from 'website.tour_utils';
+import wTourUtils from '@website/js/tours/tour_utils';
+import { registry } from "@web/core/registry";
 
 
-tour.register('category_page_and_products_snippet_edition', {
+wTourUtils.registerWebsitePreviewTour('category_page_and_products_snippet_edition', {
     test: true,
-    url: wTourUtils.getClientActionUrl('/shop'),
-}, [
+    url: '/shop',
+}, () => [
     {
         content: "Navigate to category",
         trigger: 'iframe .o_wsale_filmstip > li:contains("Test Category")',
     },
-    wTourUtils.clickOnEdit(),
+    ...wTourUtils.clickOnEditAndWaitEditMode(),
     Object.assign(wTourUtils.dragNDrop({id: 's_dynamic_snippet_products', name: 'Products'}), {
         content: "Drag and drop the product snippet inside the category area",
-        run: 'drag_and_drop iframe #category_header',
+        run: 'drag_and_drop_native iframe #category_header',
     }),
     {
         content: "Click on the product snippet to show its options",
@@ -32,10 +32,10 @@ tour.register('category_page_and_products_snippet_edition', {
     ...wTourUtils.clickOnSave(),
 ]);
 
-tour.register('category_page_and_products_snippet_use', {
+registry.category("web_tour.tours").add('category_page_and_products_snippet_use', {
     test: true,
-    url: `/shop`,
-}, [
+    url: '/shop',
+    steps: () => [
     {
         content: "Navigate to category",
         trigger: '.o_wsale_filmstip > li:contains("Test Category")',
@@ -62,4 +62,4 @@ tour.register('category_page_and_products_snippet_use', {
             }
         },
     },
-]);
+]});

@@ -16,19 +16,20 @@ class ProjectProductEmployeeMap(models.Model):
             [
                 ('is_service', '=', True),
                 ('is_expense', '=', False),
-                ('state', 'in', ['sale', 'done']),
+                ('state', '=', 'sale'),
                 ('order_partner_id', '=?', unquote('partner_id')),
-                '|', ('company_id', '=', False), ('company_id', '=', unquote('company_id')),
             ],
         ])
         return domain
 
     project_id = fields.Many2one('project.project', "Project", required=True)
-    employee_id = fields.Many2one('hr.employee', "Employee", required=True)
+    employee_id = fields.Many2one('hr.employee', "Employee", required=True, domain="[('id', 'not in', existing_employee_ids)]")
+    existing_employee_ids = fields.Many2many('hr.employee', compute="_compute_existing_employee_ids")
     sale_line_id = fields.Many2one(
         'sale.order.line', "Sales Order Item",
         compute="_compute_sale_line_id", store=True, readonly=False,
         domain=lambda self: str(self._domain_sale_line_id()))
+    sale_order_id = fields.Many2one(related="project_id.sale_order_id")
     company_id = fields.Many2one('res.company', string='Company', related='project_id.company_id')
     partner_id = fields.Many2one(related='project_id.partner_id')
     price_unit = fields.Float("Unit Price", compute='_compute_price_unit', store=True, readonly=True)
@@ -42,6 +43,15 @@ class ProjectProductEmployeeMap(models.Model):
     _sql_constraints = [
         ('uniqueness_employee', 'UNIQUE(project_id,employee_id)', 'An employee cannot be selected more than once in the mapping. Please remove duplicate(s) and try again.'),
     ]
+
+    @api.depends('employee_id', 'project_id.sale_line_employee_ids.employee_id')
+    def _compute_existing_employee_ids(self):
+        project = self.project_id
+        if len(project) == 1:
+            self.existing_employee_ids = project.sale_line_employee_ids.employee_id
+            return
+        for map_entry in self:
+            map_entry.existing_employee_ids = map_entry.project_id.sale_line_employee_ids.employee_id
 
     @api.depends('partner_id')
     def _compute_sale_line_id(self):
@@ -80,12 +90,12 @@ class ProjectProductEmployeeMap(models.Model):
 
         read_group_data = self.env['resource.calendar']._read_group(
             [('id', 'in', self.employee_id.resource_calendar_id.ids)],
-            ['ids:array_agg(id)', 'hours_per_day'],
             ['hours_per_day'],
+            ['id:array_agg'],
         )
-        for res in read_group_data:
-            for calendar_id in res.get('ids', []):
-                resource_calendar_per_hours[calendar_id] = res.get('hours_per_day')
+        for hours_per_day, ids in read_group_data:
+            for calendar_id in ids:
+                resource_calendar_per_hours[calendar_id] = hours_per_day
 
         return resource_calendar_per_hours
 
@@ -119,6 +129,9 @@ class ProjectProductEmployeeMap(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         maps = super().create(vals_list)
+        for project, employee_maps in maps.grouped('project_id').items():
+            if not project.sale_line_id and not project.partner_id and (partner := employee_maps[:1].sale_line_id.order_partner_id):
+                project.partner_id = partner
         maps._update_project_timesheet()
         return maps
 

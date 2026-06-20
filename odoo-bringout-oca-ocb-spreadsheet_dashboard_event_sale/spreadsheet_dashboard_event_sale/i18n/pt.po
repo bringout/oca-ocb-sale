@@ -1,33 +1,31 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* spreadsheet_dashboard_event_sale
-# 
+# * spreadsheet_dashboard_event_sale
+#
 # Translators:
-# Pedro Filipe <pedro2.10@hotmail.com>, 2022
-# Martin Trigaux, 2022
-# Ricardo Martins <ricardo.nbs.martins@gmail.com>, 2022
-# Nuno Silva <nuno.silva@arxi.pt>, 2022
-# Manuela Silva <mmsrs@sky.com>, 2022
-# Reinaldo Ramos <reinaldo.ramos@arxi.pt>, 2022
+# Wil Odoo, 2023
 # Rita Bastos, 2024
-# 
+#
+# Humberto Sousa <humberto.sousa@smartimprove.pt>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-06 13:32+0000\n"
-"PO-Revision-Date: 2022-09-29 09:44+0000\n"
-"Last-Translator: Rita Bastos, 2024\n"
-"Language-Team: Portuguese (https://app.transifex.com/odoo/teams/41243/pt/)\n"
+"POT-Creation-Date: 2025-12-29 18:38+0000\n"
+"PO-Revision-Date: 2025-09-27 01:41+0000\n"
+"Last-Translator: Humberto Sousa <humberto.sousa@smartimprove.pt>\n"
+"Language-Team: Portuguese <https://translate.odoo.com/projects/odoo-17/"
+"spreadsheet_dashboard_event_sale/pt/>\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: pt\n"
-"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : ((n != 0 && n % "
+"1000000 == 0) ? 1 : 2);\n"
+"X-Generator: Weblate 5.12.2\n"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Attendees"
@@ -35,7 +33,6 @@ msgstr "Participantes"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Current"
@@ -79,11 +76,7 @@ msgstr "Evento por Local"
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
+#: model:spreadsheet.dashboard,name:spreadsheet_dashboard_event_sale.spreadsheet_dashboard_events
 #, python-format
 msgid "Events"
 msgstr "Eventos"
@@ -103,8 +96,12 @@ msgid "KPI"
 msgstr "KPI"
 
 #. module: spreadsheet_dashboard_event_sale
+#: model:spreadsheet.dashboard.group,name:spreadsheet_dashboard_event_sale.spreadsheet_dashboard_group_marketing
+msgid "Marketing"
+msgstr "Marketing"
+
+#. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Organizer"
@@ -112,7 +109,6 @@ msgstr "Organizador"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Previous"
@@ -127,7 +123,6 @@ msgstr "Estado da Inscrição"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Revenue"
@@ -150,7 +145,6 @@ msgstr "Etiquetas"
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Template"
 msgstr "Modelo"
@@ -160,7 +154,7 @@ msgstr "Modelo"
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Top Organizers"
-msgstr "Top Organizadores"
+msgstr "Top de Organizadores"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
@@ -174,7 +168,7 @@ msgstr "Top Tags"
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Top Templates"
-msgstr "Top Templates"
+msgstr "Templates Top"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
@@ -185,7 +179,6 @@ msgstr "Top Locais"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "Venue"
@@ -222,8 +215,6 @@ msgstr "eventos - anterior"
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "since last period"
 msgstr "desde o período anterior"
@@ -233,7 +224,7 @@ msgstr "desde o período anterior"
 #: code:addons/spreadsheet_dashboard_event_sale/data/files/events_dashboard.json:0
 #, python-format
 msgid "untaxed revenue - current"
-msgstr "Receita não tributada - atual"
+msgstr "Receita não tributada"
 
 #. module: spreadsheet_dashboard_event_sale
 #. odoo-javascript

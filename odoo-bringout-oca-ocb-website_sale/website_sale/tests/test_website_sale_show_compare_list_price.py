@@ -16,8 +16,6 @@ class WebsiteSaleShopPriceListCompareListPriceDispayTests(AccountTestInvoicingHt
         ProductTemplate = cls.env['product.template']
         Pricelist = cls.env['product.pricelist']
         PricelistItem = cls.env['product.pricelist.item']
-        Currency = cls.env['res.currency']
-        CurrencyRate = cls.env['res.currency.rate']
 
         # Cleanup existing pricelist.
         cls.env['website'].search([]).write({'sequence': 1000})
@@ -58,17 +56,6 @@ class WebsiteSaleShopPriceListCompareListPriceDispayTests(AccountTestInvoicingHt
             'company_id': cls.env.company.id,
         })
 
-        cls.test_custom_currency = Currency.create({
-            'name': "Test currency",
-            'symbol': 'A',
-        })
-
-        CurrencyRate.create({
-            'currency_id': cls.test_custom_currency.id,
-            'name': '2000-01-01',
-            'rate': 2.0,
-        })
-
         # Three pricelists
         Pricelist.search([]).write({'sequence': 1000})
         cls.pricelist_default = Pricelist.create({
@@ -93,14 +80,6 @@ class WebsiteSaleShopPriceListCompareListPriceDispayTests(AccountTestInvoicingHt
             'selectable': True,
             'sequence': 3,
             'discount_policy': 'without_discount',
-        })
-        cls.pricelist_other_currency = Pricelist.create({
-            'name': 'pricelist_other_currency',
-            'website_id': website.id,
-            'company_id': cls.env.company.id,
-            'selectable': True,
-            'sequence': 4,
-            'currency_id': cls.test_custom_currency.id,
         })
 
         # Pricelist items
@@ -135,6 +114,32 @@ class WebsiteSaleShopPriceListCompareListPriceDispayTests(AccountTestInvoicingHt
             'compute_price': 'fixed',
             'fixed_price': 3500,
         })
+
+    def test_compare_list_price_strikethrough_visibility(self):
+        self.env.user.write({
+            "groups_id": [
+                Command.link(self.env.ref("website_sale.group_product_price_comparison").id)
+            ]
+        })
+        mapping = {"detail": {"display_currency": self.env.company.currency_id}}
+
+        # compare_list_price == price: no strikethrough
+        self.test_product_with_compare_list_price.compare_list_price = 2000
+        combination_info = self.test_product_with_compare_list_price._get_combination_info()
+        _, list_price = self.test_product_with_compare_list_price._search_render_results_prices(
+            mapping, combination_info
+        )
+        self.assertFalse(list_price, "No strikethrough when compare_list_price equals price")
+
+        # compare_list_price > price: strikethrough shown
+        self.test_product_with_compare_list_price.compare_list_price = 2500
+        combination_info = self.test_product_with_compare_list_price._get_combination_info()
+        _, list_price = self.test_product_with_compare_list_price._search_render_results_prices(
+            mapping, combination_info
+        )
+        self.assertTrue(
+            list_price, "Strikethrough shown when compare_list_price is greater than price"
+        )
 
     def test_compare_list_price_price_list_display(self):
         self.env.user.write({

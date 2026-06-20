@@ -20,13 +20,11 @@
                     <we-button data-select-data-attribute="all">All Products</we-button>
                     <we-button data-select-data-attribute="current">Current Category or All</we-button>
                 </we-select>
-                <t t-set="domain" t-translation="off">["|", ["website_id", "=", false], ["website_id", "=", <t t-out="current_website.id"/>]]</t>
                 <we-many2many string="Tags"
                     data-name="product_tag_opt"
                     data-attribute-name="productTagIds"
                     data-no-preview="true"
                     data-model="product.tag"
-                    t-att-data-domain="domain"
                     data-allow-delete="true"
                     data-fakem2m="true"
                     data-select-data-attribute=""/>
@@ -37,10 +35,9 @@
         </xpath>
     </template>
 
-    <record id="website_sale.s_dynamic_snippet_products_000_js" model="ir.asset">
-        <field name="name">Dynamic snippet products 000 JS</field>
-        <field name="bundle">web.assets_frontend</field>
-        <field name="path">website_sale/static/src/snippets/s_dynamic_snippet_products/000.js</field>
-    </record>
+    <asset id="website_sale.s_dynamic_snippet_products_000_js" name="Dynamic snippet products 000 JS">
+        <bundle>web.assets_frontend</bundle>
+        <path>website_sale/static/src/snippets/s_dynamic_snippet_products/000.js</path>
+    </asset>
 
 </odoo>

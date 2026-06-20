@@ -1,23 +1,23 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* website_event_sale
-# 
+#
 # Translators:
-# erpgo translator <jumshud@erpgo.az>, 2022
 # Jumshud Sultanov <cumshud@gmail.com>, 2024
-# 
+# erpgo translator <jumshud@erpgo.az>, 2024
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-06 13:32+0000\n"
-"PO-Revision-Date: 2022-09-22 05:56+0000\n"
-"Last-Translator: Jumshud Sultanov <cumshud@gmail.com>, 2024\n"
+"POT-Creation-Date: 2025-12-29 18:38+0000\n"
+"PO-Revision-Date: 2023-10-26 23:09+0000\n"
+"Last-Translator: erpgo translator <jumshud@erpgo.az>, 2024\n"
 "Language-Team: Azerbaijani (https://app.transifex.com/odoo/teams/41243/az/)\n"
+"Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: az\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: website_event_sale
@@ -30,10 +30,15 @@ msgstr ""
 #. module: website_event_sale
 #: model_terms:ir.ui.view,arch_db:website_event_sale.event_confirmation
 msgid ""
-"<small class=\"o_wevent_participating text-bg-success\">\n"
-"                                            <i class=\"fa fa-check me-2\"/>\n"
-"                                            Registered\n"
-"                                        </small>"
+"<i class=\"fa fa-check me-2\"/>\n"
+"                                            Registered"
+msgstr ""
+
+#. module: website_event_sale
+#: model_terms:ir.ui.view,arch_db:website_event_sale.registration_attendee_details
+msgid ""
+"<span>Sign In</span>\n"
+"                <span class=\"fa fa-sign-in\"/>"
 msgstr ""
 
 #. module: website_event_sale
@@ -59,6 +64,16 @@ msgstr ""
 "tətbiq edilməyəcək."
 
 #. module: website_event_sale
+#: model_terms:ir.ui.view,arch_db:website_event_sale.registration_attendee_details
+msgid "Confirm Registration"
+msgstr "Qeydiyyatı təsdiq edin"
+
+#. module: website_event_sale
+#: model_terms:ir.ui.view,arch_db:website_event_sale.event_confirmation
+msgid "Download Tickets <i class=\"ms-1 fa fa-download\"/>"
+msgstr ""
+
+#. module: website_event_sale
 #: model:ir.model,name:website_event_sale.model_event_sale_report
 msgid "Event Sales Report"
 msgstr ""
@@ -69,18 +84,23 @@ msgid "Event Tickets"
 msgstr "Tədbir Biletləri"
 
 #. module: website_event_sale
-#: model_terms:ir.ui.view,arch_db:website_event_sale.registration_template
+#: model_terms:ir.ui.view,arch_db:website_event_sale.modal_ticket_registration
 msgid "Free"
 msgstr "Azad"
 
 #. module: website_event_sale
-#: model_terms:ir.ui.view,arch_db:website_event_sale.registration_template
+#: model_terms:ir.ui.view,arch_db:website_event_sale.modal_ticket_registration
 msgid "From"
 msgstr "Başlama Tarixi"
 
 #. module: website_event_sale
 #: model_terms:ir.ui.view,arch_db:website_event_sale.event_confirmation
 msgid "Go to Event"
+msgstr ""
+
+#. module: website_event_sale
+#: model_terms:ir.ui.view,arch_db:website_event_sale.registration_attendee_details
+msgid "Go to Payment"
 msgstr ""
 
 #. module: website_event_sale
@@ -126,8 +146,8 @@ msgstr "Bağışlayın, %(event)s hadisəsi üzrə %(ticket)s biletlər tükənd
 #: code:addons/website_event_sale/models/sale_order.py:0
 #, python-format
 msgid ""
-"Sorry, only %(remaining_seats)d seats are still available for the %(ticket)s"
-" ticket for the %(event)s event."
+"Sorry, only %(remaining_seats)d seats are still available for the %(ticket)s "
+"ticket for the %(event)s event."
 msgstr ""
 "Bağışlayın, %(event)s hadisəsi üzrə %(ticket)s biletinin yalnız "
 "%(remaining_seats)d oturacaqları hələ də mövcuddur."
@@ -181,6 +201,6 @@ msgid "events"
 msgstr ""
 
 #. module: website_event_sale
-#: model_terms:ir.ui.view,arch_db:website_event_sale.registration_template
+#: model_terms:ir.ui.view,arch_db:website_event_sale.modal_ticket_registration
 msgid "to"
-msgstr "etmək"
+msgstr "Bitmə Tarixi"

@@ -49,7 +49,8 @@ class TestStockLot(TestStockCommon):
         picking_in = self.PickingObj.create({
             'picking_type_id': self.picking_type_in,
             'location_id': self.supplier_location,
-            'location_dest_id': self.stock_location
+            'location_dest_id': self.stock_location,
+            'state': 'draft',
         })
 
         move_a = self.MoveObj.create({
@@ -68,10 +69,11 @@ class TestStockLot(TestStockCommon):
 
         # Replace pack operation of incoming shipments.
         picking_in.action_assign()
-        move_a.move_line_ids.qty_done = 33
+        move_a.move_line_ids.quantity = 33
         move_a.move_line_ids.lot_id = self.lot1_productAAA.id
 
         # Transfer Incoming Shipment.
+        move_a.picked = True
         picking_in._action_done()
 
         # run scheduled tasks
@@ -145,6 +147,7 @@ class TestStockLot(TestStockCommon):
         picking_in = self.PickingObj.create({
             'picking_type_id': self.picking_type_in,
             'location_id': self.supplier_location,
+            'state': 'draft',
             'location_dest_id': self.stock_location})
 
         move_b = self.MoveObj.create({
@@ -162,7 +165,7 @@ class TestStockLot(TestStockCommon):
 
         # Replace pack operation of incoming shipments.
         picking_in.action_assign()
-        move_b.move_line_ids.qty_done = 44
+        move_b.move_line_ids.quantity = 44
         move_b.move_line_ids.lot_id = self.lot1_productBBB.id
 
         # Transfer Incoming Shipment.
@@ -192,6 +195,7 @@ class TestStockLot(TestStockCommon):
         picking_in = self.PickingObj.create({
             'picking_type_id': self.picking_type_in,
             'location_id': self.supplier_location,
+            'state': 'draft',
             'location_dest_id': self.stock_location})
 
         move_c = self.MoveObj.create({
@@ -209,7 +213,7 @@ class TestStockLot(TestStockCommon):
 
         # Replace pack operation of incoming shipments.
         picking_in.action_assign()
-        move_c.move_line_ids.qty_done = 55
+        move_c.move_line_ids.quantity = 55
         move_c.move_line_ids.lot_id = self.lot1_productCCC.id
 
         # Transfer Incoming Shipment.
@@ -307,12 +311,12 @@ class TestStockLot(TestStockCommon):
 
         # Defines a date during the receipt.
         move_form = Form(receipt.move_ids_without_package, view="stock.view_stock_move_operations")
-        with move_form.move_line_ids.new() as line:
+        with move_form.move_line_ids.edit(0) as line:
             line.lot_name = 'Apple Box #2'
             line.expiration_date = expiration_date
-            line.qty_done = 4
         move = move_form.save()
 
+        move.picked = True
         receipt._action_done()
         # Get back the lot created when the picking was done...
         apple_lot = self.env['stock.lot'].search(
@@ -349,9 +353,9 @@ class TestStockLot(TestStockCommon):
         picking_form.picking_type_id = self.env.ref('stock.picking_type_in')
         with picking_form.move_ids_without_package.new() as move:
             move.product_id = self.apple_product
-            move.product_uom_qty = 4
+            move.quantity = 4
+            move.picked = True
         receipt = picking_form.save()
-        receipt.action_confirm()
 
         # Defines a date during the receipt.
         move = receipt.move_ids_without_package[0]
@@ -359,7 +363,6 @@ class TestStockLot(TestStockCommon):
         self.assertEqual(move.use_expiration_date, True)
         line.lot_name = 'Apple Box #3'
         line.expiration_date = expiration_date
-        line.qty_done = 4
 
         receipt._action_done()
         # Get back the lot created when the picking was done...
@@ -420,8 +423,9 @@ class TestStockLot(TestStockCommon):
             'lot_id': good_lot.id,
             'product_id': self.apple_product.id,
             'product_uom_id': self.apple_product.uom_id.id,
-            'qty_done': 4,
+            'quantity': 4,
         })]
+        delivery_1.move_ids.picked = True
         res = delivery_1.button_validate()
         # Validate a delivery for good products must not raise anything.
         self.assertEqual(res, True)
@@ -445,7 +449,7 @@ class TestStockLot(TestStockCommon):
             'lot_id': good_lot.id,
             'product_id': self.apple_product.id,
             'product_uom_id': self.apple_product.uom_id.id,
-            'qty_done': 4,
+            'quantity': 4,
         }), (0, 0, {
             'company_id': self.env.company.id,
             'location_id': delivery_2.move_ids.location_id.id,
@@ -453,8 +457,9 @@ class TestStockLot(TestStockCommon):
             'lot_id': expired_lot_1.id,
             'product_id': self.apple_product.id,
             'product_uom_id': self.apple_product.uom_id.id,
-            'qty_done': 4,
+            'quantity': 4,
         })]
+        delivery_2.move_ids.picked = True
         res = delivery_2.button_validate()
         # Validate a delivery containing expired products must raise a confirmation wizard.
         self.assertNotEqual(res, True)
@@ -478,8 +483,9 @@ class TestStockLot(TestStockCommon):
             'lot_id': expired_lot_1.id,
             'product_id': self.apple_product.id,
             'product_uom_id': self.apple_product.uom_id.id,
-            'qty_done': 4,
+            'quantity': 4,
         })]
+        delivery_3.move_ids.picked = True
         res = delivery_3.button_validate()
         # Validate a delivery containing expired products must raise a confirmation wizard.
         self.assertNotEqual(res, True)
@@ -519,6 +525,7 @@ class TestStockLot(TestStockCommon):
         the latter should be applied on the SML
         """
         exp_date = fields.Datetime.today() + relativedelta(days=15)
+        sml_exp_date = fields.Datetime.today() + relativedelta(days=10)
 
         lot = self.env['stock.lot'].create({
             'name': 'Lot 1',
@@ -527,57 +534,27 @@ class TestStockLot(TestStockCommon):
             'company_id': self.env.company.id,
         })
 
+        move = self.env['stock.move'].create({
+            'name': 'move_test',
+            'location_id': self.supplier_location,
+            'location_dest_id': self.stock_location,
+            'product_id': self.apple_product.id,
+            'product_uom': self.apple_product.uom_id.id,
+        })
         sml = self.env['stock.move.line'].create({
             'location_id': self.supplier_location,
             'location_dest_id': self.stock_location,
             'product_id': self.apple_product.id,
-            'qty_done': 3,
+            'quantity': 3,
             'product_uom_id': self.apple_product.uom_id.id,
-            'lot_id': lot.id,
+            'expiration_date': fields.Datetime.to_string(sml_exp_date),
             'company_id': self.env.company.id,
+            'move_id': move.id,
         })
+        self.assertEqual(sml.expiration_date, sml_exp_date)
 
+        sml.lot_id = lot
         self.assertEqual(sml.expiration_date, exp_date)
-
-        exp_date = exp_date + relativedelta(days=10)
-        lot.expiration_date = exp_date
-        self.assertEqual(sml.expiration_date, exp_date)
-
-    def test_apply_lot_without_date_on_sml(self):
-        """
-        When assigning a lot to a SML, if the lot has no expiration date,
-        dates on lot and SML should be correctly set
-        """
-        #create lot without expiration date
-        lot = self.env['stock.lot'].create({
-            'name': 'Lot 1',
-            'product_id': self.apple_product.id,
-            'company_id': self.env.company.id,
-        })
-
-        sml = self.env['stock.move.line'].create({
-            'location_id': self.supplier_location,
-            'location_dest_id': self.stock_location,
-            'product_id': self.apple_product.id,
-            'qty_done': 3,
-            'product_uom_id': self.apple_product.uom_id.id,
-            'lot_id': lot.id,
-            'company_id': self.env.company.id,
-        })
-        today_date = datetime.today()
-        time_gap = timedelta(seconds=10)
-        exp_date = today_date + timedelta(days=self.apple_product.expiration_time)
-
-        self.assertAlmostEqual(sml.expiration_date, exp_date, delta=time_gap)
-
-        self.assertAlmostEqual(
-            lot.expiration_date, exp_date, delta=time_gap)
-        self.assertAlmostEqual(
-            lot.use_date, exp_date - timedelta(days=self.apple_product.use_time), delta=time_gap)
-        self.assertAlmostEqual(
-            lot.removal_date, exp_date - timedelta(days=self.apple_product.removal_time), delta=time_gap)
-        self.assertAlmostEqual(
-            lot.alert_date, exp_date - timedelta(days=self.apple_product.alert_time), delta=time_gap)
 
     def test_apply_same_date_on_expiry_fields(self):
         expiration_time = 10
@@ -601,6 +578,91 @@ class TestStockLot(TestStockCommon):
         self.assertAlmostEqual(lot.removal_date, expiration_date, delta=delta, msg=err_msg)
         self.assertAlmostEqual(lot.alert_date, expiration_date, delta=delta, msg=err_msg)
 
+    def test_no_expiration_date(self):
+        """
+        When use_expiration_date is set to True on the Product, but the lot have an expiration_date set to False,
+        the picking should be able to reserve on it because it is considered as 'non-perishable'
+        """
+        lot_form = Form(self.LotObj)
+        lot_form.name = 'LOT001'
+        lot_form.product_id = self.apple_product
+        lot_form.company_id = self.env.company
+        apple_lot = lot_form.save()
+
+        lot_form = Form(apple_lot)
+        lot_form.expiration_date = False
+        lot_form.use_date = False
+        lot_form.removal_date = False
+        lot_form.alert_date = False
+        apple_lot = lot_form.save()
+
+        self.StockQuantObj.with_context(inventory_mode=True).create({
+            'product_id': self.apple_product.id,
+            'location_id': self.stock_location,
+            'quantity': 100,
+            'lot_id': apple_lot.id,
+        })
+
+        self.assertEqual(self.apple_product.qty_available, 100, 'Wrong quantity.')
+
+        picking_out = self.PickingObj.create({
+            'picking_type_id': self.picking_type_out,
+            'location_id': self.stock_location,
+            'location_dest_id': self.customer_location,
+            'state': 'draft',
+        })
+
+        self.MoveObj.create({
+            'name': self.apple_product.name,
+            'product_id': self.apple_product.id,
+            'product_uom_qty': 10,
+            'product_uom': self.apple_product.uom_id.id,
+            'picking_id': picking_out.id,
+            'location_id': self.stock_location,
+            'location_dest_id': self.customer_location
+        })
+
+        self.assertEqual(picking_out.move_ids.state, 'draft', 'Wrong state of move line.')
+        picking_out.action_confirm()
+        picking_out.action_assign()
+        self.assertEqual(picking_out.move_ids.state, 'assigned', 'Wrong state of move line.')
+
+    def test_no_lot(self):
+        """
+        Try to reserve a move that for an expirable product that has both quants with and without lot attached.
+        """
+        # Set the removal strategy to 'First Expiry First Out'
+        fefo_strategy = self.env['product.removal'].search(
+            [('method', '=', 'fefo')])
+        self.apple_product.categ_id.removal_strategy_id = fefo_strategy.id
+
+        apple_lot = self.LotObj.create({
+            'name': 'LOT001',
+            'product_id': self.apple_product.id,
+            'company_id': self.env.company.id,
+        })
+
+        self.StockQuantObj.with_context(inventory_mode=True).create([{
+            'product_id': self.apple_product.id,
+            'location_id': self.stock_location,
+            'quantity': 100,
+        }, {
+            'product_id': self.apple_product.id,
+            'location_id': self.stock_location,
+            'quantity': 100,
+            'lot_id': apple_lot.id,
+        }])
+
+        with Form(self.PickingObj) as picking_form:
+            picking_form.picking_type_id = self.env.ref('stock.picking_type_out')
+            with picking_form.move_ids_without_package.new() as move:
+                move.product_id = self.apple_product
+                move.product_uom_qty = 10
+            picking_out = picking_form.save()
+
+        picking_out.action_assign()
+        self.assertEqual(picking_out.move_line_ids.lot_id, apple_lot)
+
     def test_compute_expiration_date_from_scheduled_date(self):
         partner = self.env['res.partner'].create({
             'name': 'Apple\'s Joe',
@@ -618,7 +680,83 @@ class TestStockLot(TestStockCommon):
 
         with picking_form.move_ids_without_package.new() as move:
             move.product_id = self.apple_product
+            move.product_uom_qty = 4
         delivery = picking_form.save()
         delivery.action_confirm()
 
         self.assertAlmostEqual(delivery.move_line_ids[0].expiration_date, expiration_date, delta=delta)
+
+    def test_assign_lot_expiry_alert_to_default_user(self):
+        """ Test lot expiry alert is assigned to the default user of the activity type """
+
+        # User A will be the Default User on the activity type
+        default_user, responsible_user = self.env['res.users'].create([
+            {
+                'name': 'User A (Default)',
+                'login': 'user_a_test',
+            },
+            {
+                'name': 'User B (Responsible)',
+                'login': 'user_b_test',
+            }
+        ])
+
+        activity_type = self.env.ref('product_expiry.mail_activity_type_alert_date_reached')
+        activity_type.default_user_id = default_user.id
+
+        product = self.ProductObj.create({
+            'name': 'Product AAA',
+            'type': 'product',
+            'tracking': 'lot',
+            'company_id': self.env.company.id,
+            'responsible_id': responsible_user.id,
+        })
+
+        # create a new lot with with alert date in the past
+        lot = self.LotObj.create({
+            'name': 'Lot 1 ProductAAA',
+            'product_id': product.id,
+            'alert_date': fields.Date.to_string(datetime.today() - relativedelta(days=15)),
+            'company_id': self.env.company.id,
+        })
+
+        picking_in = self.PickingObj.create({
+            'picking_type_id': self.picking_type_in,
+            'location_id': self.supplier_location,
+            'location_dest_id': self.stock_location,
+            'state': 'draft',
+        })
+
+        qty = 33
+
+        move = self.MoveObj.create({
+            'name': product.name,
+            'product_id': product.id,
+            'product_uom_qty': qty,
+            'product_uom': product.uom_id.id,
+            'picking_id': picking_in.id,
+            'location_id': self.supplier_location,
+            'location_dest_id': self.stock_location,
+        })
+
+        picking_in.action_confirm()
+        # Replace pack operation of incoming shipments.
+        picking_in.action_assign()
+        move.move_line_ids.quantity = qty
+        move.move_line_ids.lot_id = lot.id
+
+        # Transfer Incoming Shipment.
+        move.picked = True
+        picking_in._action_done()
+
+        # run scheduled tasks
+        self.env['stock.lot']._alert_date_exceeded()
+
+        # check a new activity has been created for correct user
+        mail_activity = self.env['mail.activity'].search([
+            ('activity_type_id', '=', activity_type.id),
+            ('res_model_id', '=', self.env.ref('stock.model_stock_lot').id),
+            ('res_id', '=', lot.id)
+        ])
+        self.assertEqual(len(mail_activity), 1, 'No activity created or more than one activity created when there should be one')
+        self.assertEqual(mail_activity.user_id, default_user, "Activity was not assigned to the Default User.")

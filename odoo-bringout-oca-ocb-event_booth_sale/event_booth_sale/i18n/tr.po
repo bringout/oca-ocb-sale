@@ -1,46 +1,55 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* event_booth_sale
-# 
+# * event_booth_sale
+#
 # Translators:
-# Ozlem Cikrikci <ozlemc@eskayazilim.com.tr>, 2022
-# Metin Akın <aknmetin@gmail.com>, 2022
-# Ertuğrul Güreş <ertugrulg@projetgrup.com>, 2022
-# Ramiz Deniz Öner <deniz@denizoner.com>, 2022
-# gezgin biri <gezginbiri@hotmail.com>, 2022
-# Nadir Gazioglu <nadirgazioglu@gmail.com>, 2022
-# Murat Kaplan <muratk@projetgrup.com>, 2022
-# Levent Karakaş <levent@mektup.at>, 2022
-# Martin Trigaux, 2022
-# Ediz Duman <neps1192@gmail.com>, 2022
-# Tugay Hatıl <tugayh@projetgrup.com>, 2022
-# Murat Durmuş <muratd@projetgrup.com>, 2023
-# 
+# Ozlem Cikrikci <ozlemc@eskayazilim.com.tr>, 2023
+# Ertuğrul Güreş <ertugrulg@projetgrup.com>, 2023
+# Metin Akın <aknmetin@gmail.com>, 2023
+# gezgin biri <gezginbiri@hotmail.com>, 2023
+# Levent Karakaş <levent@mektup.at>, 2023
+# İlknur Gözütok, 2023
+# Ramiz Deniz Öner <deniz@denizoner.com>, 2023
+# Ediz Duman <neps1192@gmail.com>, 2023
+# Murat Kaplan <muratk@projetgrup.com>, 2023
+# Martin Trigaux, 2023
+# Tugay Hatıl <tugayh@projetgrup.com>, 2023
+# sinem cil, 2024
+# Weblate <noreply-mt-weblate@weblate.org>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-14 05:52+0000\n"
-"PO-Revision-Date: 2022-09-22 05:45+0000\n"
-"Last-Translator: Murat Durmuş <muratd@projetgrup.com>, 2023\n"
-"Language-Team: Turkish (https://app.transifex.com/odoo/teams/41243/tr/)\n"
+"POT-Creation-Date: 2025-12-29 18:37+0000\n"
+"PO-Revision-Date: 2025-11-22 21:20+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Turkish <https://translate.odoo.com/projects/odoo-17/"
+"event_booth_sale/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: tr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Weblate 5.12.2\n"
+
+#. module: event_booth_sale
+#: model_terms:ir.ui.view,arch_db:event_booth_sale.event_booth_view_form_from_event
+msgid "<span class=\"o_stat_text\">Sale Order</span>"
+msgstr "<span class=\"o_stat_text\">Satış Siparişi</span>"
 
 #. module: event_booth_sale
 #: model:ir.model.fields,help:event_booth_sale.field_product_product__detailed_type
 #: model:ir.model.fields,help:event_booth_sale.field_product_template__detailed_type
 msgid ""
-"A storable product is a product for which you manage stock. The Inventory app has to be installed.\n"
+"A storable product is a product for which you manage stock. The Inventory "
+"app has to be installed.\n"
 "A consumable product is a product for which stock is not managed.\n"
 "A service is a non-material product you provide."
 msgstr ""
 "Depolanabilir ürün, stokunu yönettiğiniz bir üründür. Envanter uygulaması "
-"yüklenmiş olmalıdır.Sarf malzemesi, stoku yönetilmeyen bir üründür.Hizmet, "
-"sağladığınız maddi olmayan bir üründür."
+"yüklenmiş olmalıdır.\n"
+"Sarf malzemesi, stoku yönetilmeyen bir üründür.\n"
+"Hizmet, sağladığınız maddi olmayan bir üründür."
 
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_configurator__event_booth_ids
@@ -111,11 +120,6 @@ msgid "Contact Email"
 msgstr "İletişim E-postası"
 
 #. module: event_booth_sale
-#: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_registration__contact_mobile
-msgid "Contact Mobile"
-msgstr "Mobil İletişim"
-
-#. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_registration__contact_name
 msgid "Contact Name"
 msgstr "Kontak Adı"
@@ -123,7 +127,7 @@ msgstr "Kontak Adı"
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_registration__contact_phone
 msgid "Contact Phone"
-msgstr "Mobil Telefon"
+msgstr "Kontak Telefonu"
 
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_configurator__create_uid
@@ -221,18 +225,12 @@ msgstr "Etkinlik Standı"
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth__is_paid
 msgid "Is Paid"
-msgstr "Is Paid"
+msgstr "Ödendi"
 
 #. module: event_booth_sale
 #: model:ir.model,name:event_booth_sale.model_account_move
 msgid "Journal Entry"
 msgstr "Yevmiye Kaydı"
-
-#. module: event_booth_sale
-#: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_configurator____last_update
-#: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_registration____last_update
-msgid "Last Modified on"
-msgstr "Son Düzenleme"
 
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_configurator__write_uid
@@ -267,6 +265,17 @@ msgid "Pending Booths"
 msgstr "Bekleyen Standlar"
 
 #. module: event_booth_sale
+#. odoo-python
+#: code:addons/event_booth_sale/models/sale_order.py:0
+#, python-format
+msgid ""
+"Please make sure all your event-booth related lines are configured before "
+"confirming this order:%s"
+msgstr ""
+"Lütfen bu siparişi onaylamadan önce etkinlik standıyla ilgili tüm "
+"hatlarınızın yapılandırıldığından emin olun:%s"
+
+#. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth__price
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_category__price
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_type_booth__price
@@ -284,13 +293,16 @@ msgid "Price Reduce Tax inc"
 msgstr "Fiyatı Vergi Dahil Düşür"
 
 #. module: event_booth_sale
+#: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_category__price_incl
+msgid "Price incl"
+msgstr "Fiyata dhl"
+
+#. module: event_booth_sale
 #: model:ir.model,name:event_booth_sale.model_product_template
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth__product_id
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_category__product_id
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_configurator__product_id
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_type_booth__product_id
-#: model:ir.model.fields,field_description:event_booth_sale.field_sale_order_template_line__product_id
-#: model:ir.model.fields,field_description:event_booth_sale.field_sale_order_template_option__product_id
 msgid "Product"
 msgstr "Ürün"
 
@@ -304,16 +316,6 @@ msgstr "Ürün Türü"
 #: model:ir.model,name:event_booth_sale.model_product_product
 msgid "Product Variant"
 msgstr "Ürün Varyantı"
-
-#. module: event_booth_sale
-#: model:ir.model,name:event_booth_sale.model_sale_order_template_line
-msgid "Quotation Template Line"
-msgstr "Teklif Şablon Satırı"
-
-#. module: event_booth_sale
-#: model:ir.model,name:event_booth_sale.model_sale_order_template_option
-msgid "Quotation Template Option"
-msgstr "Teklif Şablonu Seçeneği"
 
 #. module: event_booth_sale
 #: model_terms:ir.ui.view,arch_db:event_booth_sale.event_booth_view_form_from_event
@@ -332,11 +334,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth__sale_order_line_registration_ids
 msgid "SO Lines with reservations"
 msgstr "Rezervasyonlu SO Satırları"
-
-#. module: event_booth_sale
-#: model_terms:ir.ui.view,arch_db:event_booth_sale.event_booth_view_form_from_event
-msgid "Sale Order"
-msgstr "Satış Siparişi"
 
 #. module: event_booth_sale
 #: model:ir.model.fields,field_description:event_booth_sale.field_event_booth_configurator__sale_order_line_id
@@ -367,8 +364,8 @@ msgid ""
 "The following booths are unavailable, please remove them to continue : "
 "%(booth_names)s"
 msgstr ""
-"Aşağıdaki kabinler kullanılamıyor, lütfen devam etmek için bunları kaldırın "
-": %(booth_names)s"
+"Aşağıdaki kabinler kullanılamıyor, lütfen devam etmek için bunları "
+"kaldırın : %(booth_names)s"
 
 #. module: event_booth_sale
 #: model:ir.model.constraint,message:event_booth_sale.constraint_event_booth_registration_unique_registration
@@ -410,6 +407,5 @@ msgstr "En az bir stand seçmelisiniz."
 #: code:addons/event_booth_sale/models/event_booth_registration.py:0
 #, python-format
 msgid ""
-"Your order has been cancelled because the following booths have been "
-"reserved"
+"Your order has been cancelled because the following booths have been reserved"
 msgstr "Aşağıdaki stantlar rezerve edildiğinden siparişiniz iptal edilmiştir."

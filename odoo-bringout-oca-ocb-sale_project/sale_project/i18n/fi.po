@@ -1,35 +1,41 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* sale_project
-# 
+# * sale_project
+#
 # Translators:
-# Anni Saarelainen, 2022
-# Svante Suominen <svante.suominen@web-veistamo.fi>, 2022
-# Kari Lindgren <kari.lindgren@emsystems.fi>, 2022
-# Janne Rättyä <janne.rattya@web-veistamo.fi>, 2022
-# Simo Suurla <simo@suurla.fi>, 2022
-# Veikko Väätäjä <veikko.vaataja@gmail.com>, 2022
-# Martin Trigaux, 2022
-# Atte Isopuro <atte.isopuro@web-veistamo.fi>, 2022
-# Tuomo Aura <tuomo.aura@web-veistamo.fi>, 2022
-# Ossi Mantylahti <ossi.mantylahti@obs-solutions.fi>, 2023
+# Jukka Paulin <jukka.paulin@gmail.com>, 2023
+# Anni Saarelainen, 2023
+# Svante Suominen <svante.suominen@web-veistamo.fi>, 2023
+# Tuomas Lyyra <tuomas.lyyra@legenda.fi>, 2023
+# Kari Lindgren <kari.lindgren@emsystems.fi>, 2023
+# Janne Rättyä <janne.rattya@web-veistamo.fi>, 2023
 # Jarmo Kortetjärvi <jarmo.kortetjarvi@gmail.com>, 2023
-# Tuomas Lyyra <tuomas.lyyra@legenda.fi>, 2024
+# Simo Suurla <simo@suurla.fi>, 2023
+# Veikko Väätäjä <veikko.vaataja@gmail.com>, 2023
+# Martin Trigaux, 2023
+# Atte Isopuro <atte.isopuro@web-veistamo.fi>, 2023
+# Tuomo Aura <tuomo.aura@web-veistamo.fi>, 2023
+# Ossi Mantylahti <ossi.mantylahti@obs-solutions.fi>, 2024
+# Wil Odoo, 2025
 # Jessica Jakara, 2025
-# 
+# "Jessica Tuulia Sade Jäkärä (jtsj)" <jtsj@odoo.com>, 2025.
+# Weblate <noreply-mt-weblate@weblate.org>, 2026.
+# Saara Hakanen <sahak@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-22 18:36+0000\n"
-"PO-Revision-Date: 2022-09-22 05:55+0000\n"
-"Last-Translator: Jessica Jakara, 2025\n"
-"Language-Team: Finnish (https://app.transifex.com/odoo/teams/41243/fi/)\n"
+"POT-Creation-Date: 2026-02-20 18:37+0000\n"
+"PO-Revision-Date: 2026-03-23 09:01+0000\n"
+"Last-Translator: Saara Hakanen <sahak@odoo.com>\n"
+"Language-Team: Finnish <https://translate.odoo.com/projects/odoo-17/"
+"sale_project/fi/>\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: fi\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.16.2\n"
 
 #. module: sale_project
 #. odoo-python
@@ -40,7 +46,8 @@ msgid ""
 "                <p class=\"o_view_nocontent_smiling_face\">\n"
 "                    No milestones found. Let's create one!\n"
 "                </p><p>\n"
-"                    Track major progress points that must be reached to achieve success.\n"
+"                    Track major progress points that must be reached to "
+"achieve success.\n"
 "                </p>\n"
 "            "
 msgstr ""
@@ -48,7 +55,8 @@ msgstr ""
 "                <p class=\"o_view_nocontent_smiling_face\">\n"
 "                    Virstanpylväitä ei löytynyt. Luodaan sellainen!\n"
 "                </p><p>\n"
-"                    Seuraa tärkeimpiä edistymiskohtia, jotka on saavutettava menestyksen saavuttamiseksi.\n"
+"                    Seuraa tärkeimpiä edistymiskohtia, jotka on saavutettava "
+"menestyksen saavuttamiseksi.\n"
 "                </p>\n"
 "            "
 
@@ -56,30 +64,77 @@ msgstr ""
 #. odoo-python
 #: code:addons/sale_project/models/project.py:0
 #, python-format
-msgid "%(name)s's Sales Order"
-msgstr "%(name)s:n myyntitilaus"
+msgid "%(name)s's Sales Order Items"
+msgstr "%(name)s:n myyntitilauksen kohteet"
+
+#. module: sale_project
+#. odoo-python
+#: code:addons/sale_project/models/project.py:0
+#, python-format
+msgid "%(name)s's Sales Orders"
+msgstr "%(name)s:n myyntitilaukset"
+
+#. module: sale_project
+#: model_terms:ir.ui.view,arch_db:sale_project.view_edit_project_inherit_form
+msgid ""
+"<span class=\"o_stat_text\">\n"
+"                            <span class=\"o_stat_value\">0</span> Sales "
+"Order\n"
+"                        </span>\n"
+"                        <span class=\"o_stat_text\">\n"
+"                            Make Billable\n"
+"                        </span>"
+msgstr ""
+"<span class=\"o_stat_text\">\n"
+"                           <span class=\"o_stat_value\">0</span> "
+"Myyntitilaus\n"
+"                        </span>\n"
+"                        <span class=\"o_stat_text\">\n"
+"                            Tee tästä laskutettava\n"
+"                        </span>"
+
+#. module: sale_project
+#: model_terms:ir.ui.view,arch_db:sale_project.view_edit_project_inherit_form
+msgid ""
+"<span class=\"o_stat_text\">\n"
+"                            Sales Orders\n"
+"                        </span>"
+msgstr ""
+"<span class=\"o_stat_text\">\n"
+"                            Myyntitilaukset\n"
+"                        </span>"
+
+#. module: sale_project
+#: model_terms:ir.ui.view,arch_db:sale_project.project_milestone_view_form
+#: model_terms:ir.ui.view,arch_db:sale_project.project_sharing_inherit_project_task_view_form
+#: model_terms:ir.ui.view,arch_db:sale_project.view_sale_project_inherit_form
+msgid "<span class=\"o_stat_text\">Sales Order</span>"
+msgstr "<span class=\"o_stat_text\">Myyntitilaus</span>"
+
+#. module: sale_project
+#: model_terms:ir.ui.view,arch_db:sale_project.project_milestone_view_form
+msgid "<span>)</span>"
+msgstr "<span>)</span>"
 
 #. module: sale_project
 #: model:ir.model.fields,help:sale_project.field_sale_order_line__qty_delivered_method
 msgid ""
-"According to product configuration, the delivered quantity can be automatically computed by mechanism :\n"
+"According to product configuration, the delivered quantity can be "
+"automatically computed by mechanism:\n"
 "  - Manual: the quantity is set manually on the line\n"
-"  - Analytic From expenses: the quantity is the quantity sum from posted expenses\n"
-"  - Timesheet: the quantity is the sum of hours recorded on tasks linked to this sale line\n"
+"  - Analytic From expenses: the quantity is the quantity sum from posted "
+"expenses\n"
+"  - Timesheet: the quantity is the sum of hours recorded on tasks linked to "
+"this sale line\n"
 "  - Stock Moves: the quantity comes from confirmed pickings\n"
 msgstr ""
-"Tuotteen kokoonpanon mukaan toimitettu määrä voidaan laskea automaattisesti mekanismilla:\n"
-"   - Manuaalinen: määrä asetetaan manuaalisesti riville\n"
-"   - Analytic Kustannuksista: määrä on lähetettyjen kulujen määrä\n"
-"   - Aikataulu: määrä on tämän myyntilinjan tehtäviin kirjattujen tuntien summa\n"
-"   - Varastoliikkeet: määrä tulee vahvistetuista keräyksistä\n"
-
-#. module: sale_project
-#. odoo-javascript
-#: code:addons/sale_project/static/src/components/project_right_side_panel/project_right_side_panel.xml:0
-#, python-format
-msgid "All items have been loaded"
-msgstr "Kaikki kohteet on ladattu"
+"Tuotekonfiguraation mukaan toimitettu määrä voidaan laskea automaattisesti "
+"mekanismin avulla:\n"
+"  - Manuaalinen: määrä asetetaan manuaalisesti linjalla\n"
+"  - Analyyttinen kuluista: määrä on kirjattujen kulujen summa\n"
+"  - Työaikakirjaukset: määrä on tähän myyntiriviin liittyviin tehtäviin "
+"kirjattujen tuntien summa\n"
+"  - Varastosiirrot: määrä tulee vahvistetuista poiminnoista\n"
 
 #. module: sale_project
 #. odoo-python
@@ -98,8 +153,16 @@ msgstr "Virstanpylväiden perusteella"
 #. module: sale_project
 #: model:ir.model.fields,field_description:sale_project.field_project_milestone__allow_billable
 #: model:ir.model.fields,field_description:sale_project.field_project_project__allow_billable
+#: model:ir.model.fields,field_description:sale_project.field_project_task__allow_billable
 msgid "Billable"
 msgstr "Laskutettava"
+
+#. module: sale_project
+#. odoo-python
+#: code:addons/sale_project/models/sale_order_line.py:0
+#, python-format
+msgid "Canceled"
+msgstr "Peruttu"
 
 #. module: sale_project
 #: model:ir.model,name:sale_project.model_res_config_settings
@@ -107,9 +170,23 @@ msgid "Config Settings"
 msgstr "Asetukset"
 
 #. module: sale_project
-#: model_terms:ir.ui.view,arch_db:sale_project.view_edit_project_inherit_form
-msgid "Create Invoice"
-msgstr "Luo lasku"
+#. odoo-python
+#: code:addons/sale_project/models/project.py:0
+#, python-format
+msgid "Cost of Goods Sold"
+msgstr "Myytyjen tavaroiden kustannukset"
+
+#. module: sale_project
+#. odoo-python
+#: code:addons/sale_project/models/project.py:0
+#, python-format
+msgid "Cost of Goods Sold Items"
+msgstr "Myytyjen tuotteiden kustannukset"
+
+#. module: sale_project
+#: model_terms:ir.ui.view,arch_db:sale_project.view_order_form_inherit_sale_project
+msgid "Create Project"
+msgstr "Luo projekti"
 
 #. module: sale_project
 #: model:ir.model.fields,field_description:sale_project.field_product_product__service_tracking
@@ -119,8 +196,16 @@ msgstr "Luo tilauksesta"
 
 #. module: sale_project
 #: model:ir.model.fields,field_description:sale_project.field_project_milestone__project_partner_id
+#: model:ir.model.fields,field_description:sale_project.field_project_project__partner_id
 msgid "Customer"
 msgstr "Asiakas"
+
+#. module: sale_project
+#. odoo-python
+#: code:addons/sale_project/models/project.py:0
+#, python-format
+msgid "Customer Invoices"
+msgstr "Asiakaslaskut"
 
 #. module: sale_project
 #. odoo-javascript
@@ -130,19 +215,33 @@ msgid "Delivered"
 msgstr "Toimitettu"
 
 #. module: sale_project
-#: model:ir.model.fields,field_description:sale_project.field_project_milestone__sale_line_name
-msgid "Description"
-msgstr "Kuvaus"
-
-#. module: sale_project
 #: model:ir.model.fields,field_description:sale_project.field_project_task__display_sale_order_button
 msgid "Display Sales Order"
 msgstr "Näytä myyntitilaus"
 
 #. module: sale_project
+#: model:ir.model.fields,field_description:sale_project.field_project_project__display_sales_stat_buttons
+msgid "Display Sales Stat Buttons"
+msgstr "Näytä myyntitilastojen painikkeet"
+
+#. module: sale_project
 #: model:ir.model.fields,field_description:sale_project.field_sale_order__visible_project
 msgid "Display project"
 msgstr "Näytä projekti"
+
+#. module: sale_project
+#. odoo-python
+#: code:addons/sale_project/models/sale_order_line.py:0
+#, python-format
+msgid "Done"
+msgstr "Valmis"
+
+#. module: sale_project
+#. odoo-python
+#: code:addons/sale_project/models/project.py:0
+#, python-format
+msgid "Down Payments"
+msgstr "Ennakkomaksut"
 
 #. module: sale_project
 #: model:ir.model.fields,field_description:sale_project.field_sale_order_line__project_id
@@ -165,6 +264,13 @@ msgid "Has a SO with an invoice status of No"
 msgstr "Kohteella on myyntitilaus ja laskun status N:ro"
 
 #. module: sale_project
+#. odoo-python
+#: code:addons/sale_project/models/sale_order_line.py:0
+#, python-format
+msgid "In Progress"
+msgstr "Käynnissä"
+
+#. module: sale_project
 #: model:ir.model.fields,field_description:sale_project.field_project_project__invoice_count
 msgid "Invoice Count"
 msgstr "Laskujen lukumäärä"
@@ -181,21 +287,20 @@ msgstr "Laskuta tilatut määrät heti, kun palvelu on myyty."
 #: code:addons/sale_project/models/product.py:0
 #, python-format
 msgid ""
-"Invoice ordered quantities as soon as this service is sold. Create a project"
-" for the order with a task for each sales order line to track the time "
-"spent."
+"Invoice ordered quantities as soon as this service is sold. Create a project "
+"for the order with a task for each sales order line to track the time spent."
 msgstr ""
 "Laskuta tilatut määrät heti, kun palvelu on myyty. Luo tilausta varten "
-"projekti, jossa jokaiselle myyntitilausriville on oma tehtävänsä, jotta voit"
-" seurata käytettyä aikaa."
+"projekti, jossa jokaiselle myyntitilausriville on oma tehtävänsä, jotta voit "
+"seurata käytettyä aikaa."
 
 #. module: sale_project
 #. odoo-python
 #: code:addons/sale_project/models/product.py:0
 #, python-format
 msgid ""
-"Invoice ordered quantities as soon as this service is sold. Create a task in"
-" an existing project to track the time spent."
+"Invoice ordered quantities as soon as this service is sold. Create a task in "
+"an existing project to track the time spent."
 msgstr ""
 "Laskuta tilatut määrät heti, kun palvelu on myyty. Luo tehtävä olemassa "
 "olevaan projektiin kuluneen ajan seuraamiseksi."
@@ -220,7 +325,7 @@ msgid ""
 "sales order lines). "
 msgstr ""
 "Laskuta tämä palvelu, kun se toimitetaan (määritä määrä käsin "
-"myyntitilausrivillä)."
+"myyntitilausrivillä). "
 
 #. module: sale_project
 #. odoo-python
@@ -276,8 +381,8 @@ msgid ""
 "Invoice your milestones when they are reached. Create a project for the "
 "order with a task for each sales order line to track the time spent."
 msgstr ""
-"Laskuta virstanpylväitä, kun ne on saavutettu. Luo tilausta varten projekti,"
-" jossa on tehtävä jokaiselle myyntitilausriville, jotta voit seurata "
+"Laskuta virstanpylväitä, kun ne on saavutettu. Luo tilausta varten projekti, "
+"jossa on tehtävä jokaiselle myyntitilausriville, jotta voit seurata "
 "käytettyä aikaa."
 
 #. module: sale_project
@@ -303,6 +408,7 @@ msgstr ""
 "projekti, jotta voit seurata käytettyä aikaa."
 
 #. module: sale_project
+#: model_terms:ir.ui.view,arch_db:sale_project.project_project_view_form_simplified_inherit
 #: model_terms:ir.ui.view,arch_db:sale_project.view_edit_project_inherit_form
 msgid "Invoice your time and material to customers"
 msgstr ""
@@ -319,7 +425,6 @@ msgstr "Laskutettu"
 #. module: sale_project
 #. odoo-python
 #: code:addons/sale_project/models/project.py:0
-#: code:addons/sale_project/models/project.py:0
 #, python-format
 msgid "Invoices"
 msgstr "Laskut"
@@ -335,14 +440,9 @@ msgid "Is Product Milestone"
 msgstr "Onko tuote virstanpylväs"
 
 #. module: sale_project
-#: model:ir.model.fields,field_description:sale_project.field_sale_order_line__is_service
-msgid "Is a Service"
-msgstr "On palvelu"
-
-#. module: sale_project
 #: model:ir.model,name:sale_project.model_account_move_line
 msgid "Journal Item"
-msgstr "Päiväkirjatapahtuma"
+msgstr "Kirjausrivi"
 
 #. module: sale_project
 #. odoo-javascript
@@ -355,13 +455,19 @@ msgstr "Näytä lisää"
 #: model:ir.model.fields,help:sale_project.field_product_product__service_type
 #: model:ir.model.fields,help:sale_project.field_product_template__service_type
 msgid ""
-"Manually set quantities on order: Invoice based on the manually entered quantity, without creating an analytic account.\n"
-"Timesheets on contract: Invoice based on the tracked hours on the related timesheet.\n"
-"Create a task and track hours: Create a task on the sales order validation and track the work hours."
+"Manually set quantities on order: Invoice based on the manually entered "
+"quantity, without creating an analytic account.\n"
+"Timesheets on contract: Invoice based on the tracked hours on the related "
+"timesheet.\n"
+"Create a task and track hours: Create a task on the sales order validation "
+"and track the work hours."
 msgstr ""
-"Aseta määrät manuaalisesti tilauksesta: Lasku perustuu manuaalisesti syötettyyn määrään luomatta analyyttistä tiliä.\n"
-"Sopimuksen aikataulut: Lasku perustuu siihen liittyvän aikataulun seurattuihin tunteihin.\n"
-"Luo tehtävä ja seuraa tunteja: Luo tehtävä myyntitilauksen vahvistukseen ja seuraa työtuntia. "
+"Aseta määrät manuaalisesti tilauksesta: Lasku perustuu manuaalisesti "
+"syötettyyn määrään luomatta analyyttistä tiliä.\n"
+"Sopimuksen aikataulut: Lasku perustuu siihen liittyvän aikataulun "
+"seurattuihin tunteihin.\n"
+"Luo tehtävä ja seuraa tunteja: Luo tehtävä myyntitilauksen vahvistukseen ja "
+"seuraa työtuntia."
 
 #. module: sale_project
 #. odoo-python
@@ -393,8 +499,8 @@ msgstr "Virstanpylväät"
 #. odoo-python
 #: code:addons/sale_project/models/sale_order_line.py:0
 #, python-format
-msgid "New"
-msgstr "Uusi"
+msgid "New Sales Order Item"
+msgstr "Uusi myyntitilauksen kohde"
 
 #. module: sale_project
 #: model_terms:ir.ui.view,arch_db:sale_project.portal_tasks_list_inherit
@@ -402,15 +508,16 @@ msgid "No Sales Order"
 msgstr "Ei myyntitilaus"
 
 #. module: sale_project
-#: model_terms:ir.ui.view,arch_db:sale_project.portal_tasks_list_inherit
-msgid "No Sales Order Item"
-msgstr "Ei myyntitilausriviä"
-
-#. module: sale_project
 #: model_terms:ir.ui.view,arch_db:sale_project.project_milestone_view_form
 #: model_terms:ir.ui.view,arch_db:sale_project.project_milestone_view_tree
+#: model_terms:ir.ui.view,arch_db:sale_project.view_sale_project_inherit_form
 msgid "Non-billable"
 msgstr "Ei-laskutettava"
+
+#. module: sale_project
+#: model_terms:ir.ui.view,arch_db:sale_project.portal_tasks_list_inherit
+msgid "Not Billed"
+msgstr "Ei laskutettu"
 
 #. module: sale_project
 #: model:ir.model.fields.selection,name:sale_project.selection__product_template__service_tracking__no
@@ -426,25 +533,17 @@ msgstr "Projektien lukumäärä"
 #: model:ir.model.fields,help:sale_project.field_product_product__service_tracking
 #: model:ir.model.fields,help:sale_project.field_product_template__service_tracking
 msgid ""
-"On Sales order confirmation, this product can generate a project and/or task.         From those, you can track the service you are selling.\n"
-"         'In sale order's project': Will use the sale order's configured project if defined or fallback to         creating a new project based on the selected template."
+"On Sales order confirmation, this product can generate a project and/or "
+"task.         From those, you can track the service you are selling.\n"
+"         'In sale order's project': Will use the sale order's configured "
+"project if defined or fallback to         creating a new project based on "
+"the selected template."
 msgstr ""
-"Myyntitilauksen vahvistuksen yhteydessä tämä tuote voi luoda projektin ja/tai tehtävän.         Niistä voit seurata myytävää palvelua.\n"
-"         'Myyntitilauksen projektissa': Käyttää myyntitilauksen määritettyä projektia, jos sellainen on määritetty, tai luo uuden projektin valitun mallin perusteella."
-
-#. module: sale_project
-#. odoo-python
-#: code:addons/sale_project/models/sale_order.py:0
-#, python-format
-msgid "Operation not supported"
-msgstr "Toiminto ei ole tuettu"
-
-#. module: sale_project
-#. odoo-python
-#: code:addons/sale_project/models/project.py:0
-#, python-format
-msgid "Other Revenues"
-msgstr "Muut tulot"
+"Myyntitilauksen vahvistuksen yhteydessä tämä tuote voi luoda projektin ja/"
+"tai tehtävän.         Niistä voit seurata myytävää palvelua.\n"
+"         'Myyntitilauksen projektissa': Käyttää myyntitilauksen määritettyä "
+"projektia, jos sellainen on määritetty, tai luo uuden projektin valitun "
+"mallin perusteella."
 
 #. module: sale_project
 #. odoo-python
@@ -456,8 +555,8 @@ msgstr "Muut palvelut"
 #. module: sale_project
 #: model:ir.model.fields,help:sale_project.field_project_milestone__quantity_percentage
 msgid ""
-"Percentage of the ordered quantity that will automatically be delivered once"
-" the milestone is reached."
+"Percentage of the ordered quantity that will automatically be delivered once "
+"the milestone is reached."
 msgstr ""
 "Prosenttiosuus tilatusta määrästä, joka toimitetaan automaattisesti, kun "
 "virstanpylväs on saavutettu."
@@ -493,7 +592,7 @@ msgstr "Tuotevariaatio"
 #: model:ir.model.fields,field_description:sale_project.field_sale_order__project_id
 #: model:ir.model.fields.selection,name:sale_project.selection__product_template__service_tracking__project_only
 msgid "Project"
-msgstr "Projektit"
+msgstr "Projekti"
 
 #. module: sale_project
 #: model:ir.model.fields.selection,name:sale_project.selection__product_template__service_tracking__task_in_project
@@ -536,9 +635,15 @@ msgid "Projects used in this sales order."
 msgstr "Projekti jota käytetään tässä myyntitilauksessa."
 
 #. module: sale_project
-#: model:ir.model.fields,field_description:sale_project.field_project_milestone__quantity_percentage
+#: model:ir.model.fields,field_description:sale_project.field_project_milestone__product_uom_qty
 msgid "Quantity"
 msgstr "Määrä"
+
+#. module: sale_project
+#: model:ir.model.fields,field_description:sale_project.field_project_milestone__quantity_percentage
+#: model_terms:ir.ui.view,arch_db:sale_project.project_milestone_view_tree
+msgid "Quantity (%)"
+msgstr "Määrä (%)"
 
 #. module: sale_project
 #: model:ir.model,name:sale_project.model_sale_order_template_line
@@ -551,15 +656,19 @@ msgid "Reached Milestones"
 msgstr "Saavutetut virstanpylväät"
 
 #. module: sale_project
-#: model_terms:ir.ui.view,arch_db:sale_project.project_sharing_inherit_project_task_view_search
-#: model_terms:ir.ui.view,arch_db:sale_project.project_task_view_search
-msgid "Sale Order"
-msgstr "Myyntitilaus"
+#: model:ir.model.fields,field_description:sale_project.field_project_milestone__sale_line_display_name
+msgid "Sale Line Display Name"
+msgstr "Myyntirivin näyttönimi"
 
 #. module: sale_project
 #: model:ir.model.fields,field_description:sale_project.field_project_project__sale_order_count
 msgid "Sale Order Count"
 msgstr "Myyntitilausten lukumäärä"
+
+#. module: sale_project
+#: model:ir.model.fields,field_description:sale_project.field_project_project__sale_order_line_count
+msgid "Sale Order Line Count"
+msgstr "Myyntitilauksen rivien lukumäärä"
 
 #. module: sale_project
 #. odoo-javascript
@@ -577,21 +686,14 @@ msgstr "Myynti ja laskutus"
 #. odoo-python
 #: code:addons/sale_project/controllers/portal.py:0
 #: code:addons/sale_project/models/project.py:0
+#: code:addons/sale_project/models/project_milestone.py:0
 #: model:ir.model,name:sale_project.model_sale_order
 #: model:ir.model.fields,field_description:sale_project.field_project_project__sale_order_id
 #: model:ir.model.fields,field_description:sale_project.field_project_task__sale_order_id
 #: model:ir.model.fields,field_description:sale_project.field_report_project_task_user__sale_order_id
-#: model_terms:ir.ui.view,arch_db:sale_project.project_sharing_inherit_project_task_view_form
-#: model_terms:ir.ui.view,arch_db:sale_project.project_sharing_inherit_project_task_view_search
-#: model_terms:ir.ui.view,arch_db:sale_project.view_sale_project_inherit_form
 #, python-format
 msgid "Sales Order"
 msgstr "Myyntitilaus"
-
-#. module: sale_project
-#: model_terms:ir.ui.view,arch_db:sale_project.project_sharing_inherit_project_task_view_search
-msgid "Sales Order Id"
-msgstr "Myyntitilauksen tunnus"
 
 #. module: sale_project
 #. odoo-python
@@ -601,9 +703,7 @@ msgstr "Myyntitilauksen tunnus"
 #: model:ir.model.fields,field_description:sale_project.field_project_task__sale_line_id
 #: model:ir.model.fields,field_description:sale_project.field_report_project_task_user__sale_line_id
 #: model_terms:ir.ui.view,arch_db:sale_project.project_sharing_inherit_project_task_view_form
-#: model_terms:ir.ui.view,arch_db:sale_project.project_task_view_search
 #: model_terms:ir.ui.view,arch_db:sale_project.view_sale_project_inherit_form
-#: model_terms:ir.ui.view,arch_db:sale_project.view_task_project_user_search_inherited
 #, python-format
 msgid "Sales Order Item"
 msgstr "Myyntitilausrivi"
@@ -616,13 +716,23 @@ msgstr "Myyntitilauserä, joka päivitetään, kun virstanpylväs on saavutettu.
 #. module: sale_project
 #: model:ir.model.fields,help:sale_project.field_project_task__sale_line_id
 msgid ""
-"Sales Order Item to which the time spent on this task will be added in order to be invoiced to your customer.\n"
-"By default the sales order item set on the project will be selected. In the absence of one, the last prepaid sales order item that has time remaining will be used.\n"
-"Remove the sales order item in order to make this task non billable. You can also change or remove the sales order item of each timesheet entry individually."
+"Sales Order Item to which the time spent on this task will be added in order "
+"to be invoiced to your customer.\n"
+"By default the sales order item set on the project will be selected. In the "
+"absence of one, the last prepaid sales order item that has time remaining "
+"will be used.\n"
+"Remove the sales order item in order to make this task non billable. You can "
+"also change or remove the sales order item of each timesheet entry "
+"individually."
 msgstr ""
-"Myyntitilauksen kohde, johon tähän tehtävään käytetty aika lisätään, jotta se voidaan laskuttaa asiakkaalta.\n"
-"Oletusarvoisesti valitaan projektille asetettu myyntitilauserä. Jos sellaista ei ole, käytetään viimeisintä ennakkoon maksettua myyntitilauserää, jolla on aikaa jäljellä.\n"
-"Poista myyntitilauserä, jotta tämä tehtävä ei ole laskutettava. Voit myös muuttaa tai poistaa myyntitilauserän kustakin työaikakirjanpidon merkinnästä erikseen."
+"Myyntitilauksen kohde, johon tähän tehtävään käytetty aika lisätään, jotta "
+"se voidaan laskuttaa asiakkaalta.\n"
+"Oletusarvoisesti valitaan projektille asetettu myyntitilauserä. Jos "
+"sellaista ei ole, käytetään viimeisintä ennakkoon maksettua "
+"myyntitilauserää, jolla on aikaa jäljellä.\n"
+"Poista myyntitilauserä, jotta tämä tehtävä ei ole laskutettava. Voit myös "
+"muuttaa tai poistaa myyntitilauserän kustakin työaikakirjanpidon merkinnästä "
+"erikseen."
 
 #. module: sale_project
 #. odoo-javascript
@@ -648,11 +758,17 @@ msgstr "Myyntitilaukset"
 #. module: sale_project
 #: model:ir.model.fields,help:sale_project.field_project_project__sale_line_id
 msgid ""
-"Sales order item that will be selected by default on the tasks and timesheets of this project, except if the employee set on the timesheets is explicitely linked to another sales order item on the project.\n"
-"It can be modified on each task and timesheet entry individually if necessary."
+"Sales order item that will be selected by default on the tasks and "
+"timesheets of this project, except if the employee set on the timesheets is "
+"explicitely linked to another sales order item on the project.\n"
+"It can be modified on each task and timesheet entry individually if "
+"necessary."
 msgstr ""
-"Myyntitilauserä, joka valitaan oletusarvoisesti tämän projektin tehtäviin ja työaikatauluihin, paitsi jos työaikataulujen työntekijä on nimenomaisesti linkitetty toiseen projektin myyntitilauserään.\n"
-"Sitä voidaan tarvittaessa muuttaa jokaisessa tehtävässä ja työaikataulussa erikseen."
+"Myyntitilauserä, joka valitaan oletusarvoisesti tämän projektin tehtäviin ja "
+"työaikatauluihin, paitsi jos työaikataulujen työntekijä on nimenomaisesti "
+"linkitetty toiseen projektin myyntitilauserään.\n"
+"Sitä voidaan tarvittaessa muuttaa jokaisessa tehtävässä ja työaikataulussa "
+"erikseen."
 
 #. module: sale_project
 #: model:ir.model.fields,help:sale_project.field_project_project__sale_order_id
@@ -685,10 +801,30 @@ msgid "Select a non billable project on which tasks can be created."
 msgstr "Valitse ei-laskutettava projekti, johon voidaan luoda tehtäviä."
 
 #. module: sale_project
+#: model_terms:ir.ui.view,arch_db:sale_project.project_project_view_form_simplified_inherit
+msgid "Select who to bill..."
+msgstr "Valitse laskutettava taho..."
+
+#. module: sale_project
 #: model:ir.model.fields,field_description:sale_project.field_product_product__service_policy
 #: model:ir.model.fields,field_description:sale_project.field_product_template__service_policy
 msgid "Service Invoicing Policy"
 msgstr "Palvelun laskutustapa"
+
+#. module: sale_project
+#: model:ir.model.fields,field_description:sale_project.field_sale_order__show_create_project_button
+msgid "Show Create Project Button"
+msgstr "Näytä Luo projekti -painike"
+
+#. module: sale_project
+#: model:ir.model.fields,field_description:sale_project.field_sale_order__show_project_button
+msgid "Show Project Button"
+msgstr "Näytä projekti-painike"
+
+#. module: sale_project
+#: model:ir.model.fields,field_description:sale_project.field_sale_order__show_task_button
+msgid "Show Task Button"
+msgstr "Näytä tehtäväpainike"
 
 #. module: sale_project
 #. odoo-javascript
@@ -749,8 +885,8 @@ msgid ""
 "The product %s should not have a project nor a project template since it "
 "will not generate project."
 msgstr ""
-"Tuotteella %s ei pitäisi olla projektia eikä projektimallia, koska se ei luo"
-" projektia."
+"Tuotteella %s ei pitäisi olla projektia eikä projektimallia, koska se ei luo "
+"projektia."
 
 #. module: sale_project
 #. odoo-python
@@ -765,10 +901,26 @@ msgstr ""
 
 #. module: sale_project
 #. odoo-python
+#: code:addons/sale_project/models/sale_order.py:0
+#, python-format
+msgid "This Sales Order must contain at least one product of type \"Service\"."
+msgstr ""
+"Tämän myyntitilauksen on sisällettävä vähintään yksi tuote, jonka tyyppi on "
+"\"palvelu\"."
+
+#. module: sale_project
+#. odoo-python
 #: code:addons/sale_project/models/sale_order_line.py:0
 #, python-format
 msgid "This task has been created from: %s (%s)"
 msgstr "Tämä tehtävä on luotu: %s (%s)"
+
+#. module: sale_project
+#. odoo-python
+#: code:addons/sale_project/models/sale_order_line.py:0
+#, python-format
+msgid "To Do"
+msgstr "Tehtävät"
 
 #. module: sale_project
 #: model:ir.model.fields,field_description:sale_project.field_project_task__task_to_invoice
@@ -782,6 +934,23 @@ msgid "Track Service"
 msgstr "Palvelun seuranta"
 
 #. module: sale_project
+#. odoo-javascript
+#: code:addons/sale_project/static/src/components/project_right_side_panel/project_right_side_panel.xml:0
+#, python-format
+msgid "Track what you sold, delivered, and invoiced."
+msgstr "Seuraa, mitä olet myynyt, toimittanut ja laskuttanut."
+
+#. module: sale_project
+#: model:ir.model.fields,field_description:sale_project.field_project_milestone__product_uom
+msgid "Unit of Measure"
+msgstr "Mittayksikkö"
+
+#. module: sale_project
+#: model_terms:ir.ui.view,arch_db:sale_project.product_template_form_view_invoice_policy_inherit_sale_project
+msgid "Values set here are company-specific."
+msgstr "Tässä asetetut arvot ovat yrityskohtaisia."
+
+#. module: sale_project
 #: model:ir.model.fields,field_description:sale_project.field_project_project__vendor_bill_count
 msgid "Vendor Bill Count"
 msgstr "Myyjän laskujen määrä"
@@ -789,10 +958,14 @@ msgstr "Myyjän laskujen määrä"
 #. module: sale_project
 #. odoo-python
 #: code:addons/sale_project/models/project.py:0
-#: code:addons/sale_project/models/project.py:0
 #, python-format
 msgid "Vendor Bills"
 msgstr "Ostolaskut"
+
+#. module: sale_project
+#: model_terms:ir.ui.view,arch_db:sale_project.project_milestone_view_tree
+msgid "View Sales Order"
+msgstr "Näytä myyntitilaus"
 
 #. module: sale_project
 #. odoo-python
@@ -804,3 +977,10 @@ msgid ""
 msgstr ""
 "Et voi yhdistää tilauserää %(order_id)s - %(product_id)s tähän tehtävään, "
 "koska se on asiakkaalta laskutettava kulu."
+
+#~ msgid ""
+#~ "<span class=\"fa fa-lg fa-building-o fa-fw\" title=\"Values set here are "
+#~ "company-specific.\" groups=\"base.group_multi_company\"/>"
+#~ msgstr ""
+#~ "<span class=\"fa fa-lg fa-building-o fa-fw\" title=\"Nämä arvot ovat "
+#~ "yrityskohtaisia.\" groups=\"base.group_multi_company\"/>"

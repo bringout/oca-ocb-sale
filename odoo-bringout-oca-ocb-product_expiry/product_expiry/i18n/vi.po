@@ -1,34 +1,44 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* product_expiry
-# 
+#
 # Translators:
-# Martin Trigaux, 2022
-# Nancy Momoland <thanh.np2502@gmail.com>, 2023
+# Wil Odoo, 2023
 # Thi Huong Nguyen, 2025
-# 
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-06 13:32+0000\n"
-"PO-Revision-Date: 2022-09-22 05:54+0000\n"
+"POT-Creation-Date: 2025-12-29 18:38+0000\n"
+"PO-Revision-Date: 2023-10-26 23:09+0000\n"
 "Last-Translator: Thi Huong Nguyen, 2025\n"
 "Language-Team: Vietnamese (https://app.transifex.com/odoo/teams/41243/vi/)\n"
+"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: vi\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #. module: product_expiry
 #: model_terms:ir.ui.view,arch_db:product_expiry.view_move_form_expiry
 msgid ""
-"<span class=\"badge text-bg-danger\" attrs=\"{'invisible': "
-"[('product_expiry_alert', '=', False)]}\">Expiration Alert</span>"
+"<span class=\"badge text-bg-danger\" invisible=\"not "
+"product_expiry_alert\">Expiration Alert</span>"
 msgstr ""
-"<span class=\"badge text-bg-danger\" attrs=\"{'invisible': "
-"[('product_expiry_alert', '=', False)]}\">Cảnh báo hạn sử dụng</span>"
+"<span class=\"badge text-bg-danger\" invisible=\"not "
+"product_expiry_alert\">Cảnh báo hạn sử dụng</span>"
+
+#. module: product_expiry
+#: model_terms:ir.ui.view,arch_db:product_expiry.view_production_lot_view_kanban
+msgid ""
+"<span title=\"Alert\" class=\"fa fa-exclamation-triangle text-danger ms-2\" "
+"invisible=\"product_qty &lt;= 0 or not product_expiry_alert or not "
+"expiration_date\"/>"
+msgstr ""
+"<span title=\"Cảnh báo\" class=\"fa fa-exclamation-triangle text-danger "
+"ms-2\" invisible=\"product_qty <= 0 or not product_expiry_alert or not "
+"expiration_date\"/>"
 
 #. module: product_expiry
 #: model_terms:ir.ui.view,arch_db:product_expiry.view_product_form_expiry
@@ -106,7 +116,8 @@ msgstr "Được tạo vào"
 msgid ""
 "Date to determine the expired lots and serial numbers using the filter "
 "\"Expiration Alerts\"."
-msgstr "Ngày để xác định lô và sê-ri đã hết hạn bằng bộ lọc \"Cảnh báo hết hạn\"."
+msgstr ""
+"Ngày để xác định lô và sê-ri đã hết hạn bằng bộ lọc \"Cảnh báo hết hạn\"."
 
 #. module: product_expiry
 #: model_terms:ir.ui.view,arch_db:product_expiry.view_move_form_expiry
@@ -150,6 +161,7 @@ msgstr "Cảnh báo hết hạn"
 #: model:ir.model.fields,field_description:product_expiry.field_product_template__expiration_time
 #: model:ir.model.fields,field_description:product_expiry.field_stock_lot__expiration_date
 #: model:ir.model.fields,field_description:product_expiry.field_stock_move_line__expiration_date
+#: model:ir.model.fields,field_description:product_expiry.field_stock_quant__expiration_date
 #: model_terms:ir.ui.view,arch_db:product_expiry.stock_report_delivery_document_inherit_product_expiry
 #: model_terms:ir.ui.view,arch_db:product_expiry.view_product_form_expiry
 msgid "Expiration Date"
@@ -159,6 +171,11 @@ msgstr "Ngày hết hạn"
 #: model_terms:ir.ui.view,arch_db:product_expiry.res_config_settings_view_form_stock
 msgid "Expiration dates will appear on the delivery slip"
 msgstr "Ngày hết hạn sẽ xuất hiện trên phiếu giao hàng"
+
+#. module: product_expiry
+#: model_terms:ir.ui.view,arch_db:product_expiry.view_production_lot_view_kanban
+msgid "Expiration:"
+msgstr "Ngày hết hạn:"
 
 #. module: product_expiry
 #: model_terms:ir.ui.view,arch_db:product_expiry.confirm_expiry_view
@@ -171,6 +188,11 @@ msgid "Expiry has been reminded"
 msgstr "Ngày hết hạn đã được nhắc nhở"
 
 #. module: product_expiry
+#: model:product.removal,name:product_expiry.removal_fefo
+msgid "First Expiry First Out (FEFO)"
+msgstr "Hết hạn trước xuất trước (FEFO)"
+
+#. module: product_expiry
 #: model:ir.model.fields,field_description:product_expiry.field_expiry_picking_confirmation__id
 msgid "ID"
 msgstr "ID"
@@ -179,11 +201,6 @@ msgstr "ID"
 #: model:res.groups,name:product_expiry.group_expiry_date_on_delivery_slip
 msgid "Include expiration dates on delivery slip"
 msgstr "Thêm ngày hết hạn trên phiếu giao hàng"
-
-#. module: product_expiry
-#: model:ir.model.fields,field_description:product_expiry.field_expiry_picking_confirmation____last_update
-msgid "Last Modified on"
-msgstr "Chỉnh sửa lần cuối vào"
 
 #. module: product_expiry
 #: model:ir.model.fields,field_description:product_expiry.field_expiry_picking_confirmation__write_uid
@@ -243,8 +260,8 @@ msgstr ""
 #: model:ir.model.fields,help:product_expiry.field_product_template__use_time
 msgid ""
 "Number of days before the Expiration Date after which the goods starts "
-"deteriorating, without being dangerous yet. It will be computed on the "
-"lot/serial number."
+"deteriorating, without being dangerous yet. It will be computed on the lot/"
+"serial number."
 msgstr ""
 "Số ngày trước Ngày hết hạn mà sau đó hàng hóa bắt đầu hư hỏng nhưng chưa "
 "nguy hiểm. Số ngày này sẽ được xác định theo số lô/số sê-ri."
@@ -278,7 +295,7 @@ msgstr "Cảnh báo hạn sử dụng sản phẩm"
 #. module: product_expiry
 #: model:ir.model,name:product_expiry.model_stock_move_line
 msgid "Product Moves (Stock Move Line)"
-msgstr "Dịch chuyển sản phẩm (Dòng dịch chuyển tồn kho)"
+msgstr "Điều chuyển sản phẩm (Dòng điều chuyển tồn kho)"
 
 #. module: product_expiry
 #: model:ir.model,name:product_expiry.model_product_product
@@ -299,6 +316,11 @@ msgid "Removal Date"
 msgstr "Ngày loại bỏ"
 
 #. module: product_expiry
+#: model_terms:ir.ui.view,arch_db:product_expiry.view_production_lot_view_kanban
+msgid "Removal:"
+msgstr "Xuất kho:"
+
+#. module: product_expiry
 #: model:ir.model.fields,field_description:product_expiry.field_expiry_picking_confirmation__show_lots
 msgid "Show Lots"
 msgstr "Hiển thị lô"
@@ -306,7 +328,7 @@ msgstr "Hiển thị lô"
 #. module: product_expiry
 #: model:ir.model,name:product_expiry.model_stock_move
 msgid "Stock Move"
-msgstr "Dịch chuyển tồn kho"
+msgstr "Điều chuyển tồn kho"
 
 #. module: product_expiry
 #: model:ir.model.fields,help:product_expiry.field_stock_lot__product_expiry_alert
@@ -324,6 +346,7 @@ msgstr "Đã đến ngày cảnh báo cho lô/số sê-ri này"
 #. module: product_expiry
 #: model:ir.model.fields,help:product_expiry.field_stock_lot__expiration_date
 #: model:ir.model.fields,help:product_expiry.field_stock_move_line__expiration_date
+#: model:ir.model.fields,help:product_expiry.field_stock_quant__expiration_date
 msgid ""
 "This is the date on which the goods with this Serial Number may become "
 "dangerous and must not be consumed."
@@ -338,8 +361,8 @@ msgid ""
 "This is the date on which the goods with this Serial Number should be "
 "removed from the stock. This date will be used in FEFO removal strategy."
 msgstr ""
-"Đây là ngày mà hàng hóa có số sê-ri này phải được loại khỏi kho. Ngày này sẽ"
-" được sử dụng trong chiến lược lấy hàng FEFO."
+"Đây là ngày mà hàng hóa có số sê-ri này phải được loại khỏi kho. Ngày này sẽ "
+"được sử dụng trong chiến lược lấy hàng FEFO."
 
 #. module: product_expiry
 #: model:ir.model.fields,help:product_expiry.field_stock_lot__use_date
@@ -349,18 +372,6 @@ msgid ""
 msgstr ""
 "Đây là ngày mà hàng hoá có số sê-ri này bắt đầu hư hỏng nhưng chưa trở nên "
 "nguy hiểm."
-
-#. module: product_expiry
-#: model_terms:ir.ui.view,arch_db:product_expiry.view_stock_move_line_detailed_operation_tree_expiry
-#: model_terms:ir.ui.view,arch_db:product_expiry.view_stock_move_line_operation_tree_expiry
-msgid "This lot is expired"
-msgstr "Lô này đã hết hạn"
-
-#. module: product_expiry
-#: model_terms:ir.ui.view,arch_db:product_expiry.view_stock_move_line_detailed_operation_tree_expiry
-#: model_terms:ir.ui.view,arch_db:product_expiry.view_stock_move_line_operation_tree_expiry
-msgid "This lot is expired."
-msgstr "Lô này đã hết hạn."
 
 #. module: product_expiry
 #: model:ir.model,name:product_expiry.model_stock_picking
@@ -385,12 +396,12 @@ msgstr "Sử dụng ngày hết hạn"
 #: model:ir.model.fields,help:product_expiry.field_stock_move_line__use_expiration_date
 #: model:ir.model.fields,help:product_expiry.field_stock_quant__use_expiration_date
 msgid ""
-"When this box is ticked, you have the possibility to specify dates to manage"
-" product expiration, on the product and on the corresponding lot/serial "
+"When this box is ticked, you have the possibility to specify dates to manage "
+"product expiration, on the product and on the corresponding lot/serial "
 "numbers"
 msgstr ""
-"Khi ô này được chọn, bạn có thể xác định ngày để quản lý hạn sử dụng của sản"
-" phẩm trên sản phẩm và trên số lô/sê-ri tương ứng"
+"Khi ô này được chọn, bạn có thể xác định ngày để quản lý hạn sử dụng của sản "
+"phẩm trên sản phẩm và trên số lô/sê-ri tương ứng"
 
 #. module: product_expiry
 #. odoo-python
@@ -398,7 +409,7 @@ msgstr ""
 #, python-format
 msgid ""
 "You are going to deliver some product expired lots.\n"
-"Do you confirm you want to proceed ?"
+"Do you confirm you want to proceed?"
 msgstr ""
 "Bạn sắp giao một số lô sản phẩm đã hết hạn sử dụng.\n"
 "Bạn có xác nhận muốn tiếp tục không?"
@@ -408,10 +419,12 @@ msgstr ""
 #: code:addons/product_expiry/wizard/confirm_expiry.py:0
 #, python-format
 msgid ""
-"You are going to deliver the product %(product_name)s, %(lot_name)s which is expired.\n"
-"Do you confirm you want to proceed ?"
+"You are going to deliver the product %(product_name)s, %(lot_name)s which is "
+"expired.\n"
+"Do you confirm you want to proceed?"
 msgstr ""
-"Bạn sắp giao các sản phẩm %(product_name)s, %(lot_name)s đã hết hạn.\n"
+"Bạn sắp giao các sản phẩm %(product_name)s, %(lot_name)s đã hết hạn sử "
+"dụng.\n"
 "Bạn có xác nhận muốn tiếp tục không?"
 
 #. module: product_expiry
@@ -516,3 +529,8 @@ msgid ""
 msgstr ""
 "^FS\n"
 "^FO100,250^BY3"
+
+#. module: product_expiry
+#: model:product.removal,method:product_expiry.removal_fefo
+msgid "fefo"
+msgstr "fefo"

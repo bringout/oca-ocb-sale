@@ -1,26 +1,23 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* product_images
-# 
-# Translators:
-# Martin Trigaux, 2023
-# Jaisal Shah <jaisal13shah@gmail.com>, 2025
-# Manav Shah, 2025
-# Ujjawal Pathak, 2025
-# 
+# * product_images
+#
+# Weblate <noreply-mt-weblate@weblate.org>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-06 13:32+0000\n"
-"PO-Revision-Date: 2022-09-22 05:54+0000\n"
-"Last-Translator: Ujjawal Pathak, 2025\n"
-"Language-Team: Hindi (https://app.transifex.com/odoo/teams/41243/hi/)\n"
+"POT-Creation-Date: 2025-12-29 18:38+0000\n"
+"PO-Revision-Date: 2025-11-20 14:45+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Hindi <https://translate.odoo.com/projects/odoo-17/"
+"product_images/hi/>\n"
+"Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: hi\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.12.2\n"
 
 #. module: product_images
 #. odoo-python
@@ -34,8 +31,9 @@ msgstr ""
 #. module: product_images
 #: model_terms:ir.ui.view,arch_db:product_images.product_fetch_image_wizard_view_form
 msgid ""
-"<span attrs=\"{'invisible': [('nb_products_selected', '&lt;=', 10000)]}\">\n"
-"                            As only 10,000 products can be processed per day, the remaining will be\n"
+"<span invisible=\"nb_products_selected &lt;= 10000\">\n"
+"                            As only 10,000 products can be processed per "
+"day, the remaining will be\n"
 "                            done tomorrow.\n"
 "                        </span>"
 msgstr ""
@@ -52,7 +50,7 @@ msgstr ""
 #. module: product_images
 #: model_terms:ir.ui.view,arch_db:product_images.res_config_settings_view_form
 msgid "API Key"
-msgstr ""
+msgstr "एपीआई कुंजी"
 
 #. module: product_images
 #: model_terms:ir.ui.view,arch_db:product_images.product_fetch_image_wizard_view_form
@@ -67,7 +65,7 @@ msgstr "कॉन्फ़िगरेशन सेटिंग"
 #. module: product_images
 #: model:ir.model.fields,field_description:product_images.field_product_fetch_image_wizard__create_uid
 msgid "Created by"
-msgstr "द्वारा निर्मित"
+msgstr "इन्होंने बनाया"
 
 #. module: product_images
 #: model:ir.model.fields,field_description:product_images.field_product_fetch_image_wizard__create_date
@@ -77,7 +75,7 @@ msgstr "इस तारीख को बनाया गया"
 #. module: product_images
 #: model:ir.model.fields,field_description:product_images.field_product_fetch_image_wizard__display_name
 msgid "Display Name"
-msgstr "डिस्प्ले नाम"
+msgstr "डिस्प्ले का नाम"
 
 #. module: product_images
 #: model:ir.model,name:product_images.model_product_fetch_image_wizard
@@ -110,11 +108,6 @@ msgstr "आईडी"
 #. module: product_images
 #: model:ir.model.fields,field_description:product_images.field_product_product__image_fetch_pending
 msgid "Image Fetch Pending"
-msgstr ""
-
-#. module: product_images
-#: model:ir.model.fields,field_description:product_images.field_product_fetch_image_wizard____last_update
-msgid "Last Modified on"
 msgstr ""
 
 #. module: product_images
@@ -151,7 +144,6 @@ msgstr ""
 
 #. module: product_images
 #: model:ir.actions.server,name:product_images.ir_cron_fetch_image_ir_actions_server
-#: model:ir.cron,cron_name:product_images.ir_cron_fetch_image
 msgid "Product Images: Get product images from Google"
 msgstr ""
 
@@ -218,7 +210,6 @@ msgstr ""
 #. module: product_images
 #. odoo-python
 #: code:addons/product_images/wizard/product_fetch_image_wizard.py:0
-#: code:addons/product_images/wizard/product_fetch_image_wizard.py:0
 #, python-format
 msgid ""
 "The scheduled action \"Product Images: Get product images from Google\" has "
@@ -236,7 +227,7 @@ msgstr ""
 #. module: product_images
 #: model:ir.model,name:product_images.model_ir_cron_trigger
 msgid "Triggered actions"
-msgstr ""
+msgstr "ट्रिगर किए गए ऐक्शन"
 
 #. module: product_images
 #: model:ir.model.fields,help:product_images.field_product_product__image_fetch_pending
@@ -264,7 +255,8 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:product_images.product_fetch_image_wizard_view_form
 msgid ""
 "products will not be\n"
-"                            processed because they either already have an image or their barcode\n"
+"                            processed because they either already have an "
+"image or their barcode\n"
 "                            number is not set."
 msgstr ""
 

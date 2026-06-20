@@ -1,44 +1,31 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* sale_loyalty
-# 
+# * sale_loyalty
+#
 # Translators:
-# Damian Brencic <brencicdamian12313@gmail.com>, 2022
-# karolína schusterová <karolina.schusterova@vdp.sk>, 2022
-# Michal Veselý <michal@veselyberanek.net>, 2022
-# Jan Horzinka <jan.horzinka@centrum.cz>, 2022
-# Jakub Lohnisky <jakub@lepremier.cz>, 2022
-# Martin Trigaux, 2022
-# Jiří Podhorecký <jirka.p@volny.cz>, 2022
+# Ivana Bartonkova, 2023
 # Jakub Smolka, 2023
+# Jiří Podhorecký <jirka.p@volny.cz>, 2023
 # Tereza Mokrá, 2024
 # Aleš Fiala <f.ales1@seznam.cz>, 2024
 # Wil Odoo, 2025
-# 
+# "Marta (wacm)" <wacm@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-02 10:34+0000\n"
-"PO-Revision-Date: 2022-09-22 05:54+0000\n"
-"Last-Translator: Wil Odoo, 2025\n"
-"Language-Team: Czech (https://app.transifex.com/odoo/teams/41243/cs/)\n"
+"POT-Creation-Date: 2025-12-29 18:38+0000\n"
+"PO-Revision-Date: 2026-02-25 15:11+0000\n"
+"Last-Translator: \"Marta (wacm)\" <wacm@odoo.com>\n"
+"Language-Team: Czech <https://translate.odoo.com/projects/odoo-17/"
+"sale_loyalty/cs/>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: cs\n"
-"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
-
-#. module: sale_loyalty
-#: model:ir.model.fields,help:sale_loyalty.field_sale_order_line__reward_identifier_code
-msgid ""
-"\n"
-"        Technical field used to link multiple reward lines from the same reward together.\n"
-"    "
-msgstr ""
-"\n"
-"        Technické pole používané k propojení více položek odměn ze stejné odměny dohromady.\n"
-"    "
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : "
+"(n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+"X-Generator: Weblate 5.14.3\n"
 
 #. module: sale_loyalty
 #. odoo-python
@@ -127,14 +114,14 @@ msgstr "Kupóny a věrnostní programy"
 #: model:ir.model.fields,field_description:sale_loyalty.field_sale_loyalty_reward_wizard__create_uid
 #: model:ir.model.fields,field_description:sale_loyalty.field_sale_order_coupon_points__create_uid
 msgid "Created by"
-msgstr "Vytvořeno od"
+msgstr "Vytvořeno uživatelem"
 
 #. module: sale_loyalty
 #: model:ir.model.fields,field_description:sale_loyalty.field_sale_loyalty_coupon_wizard__create_date
 #: model:ir.model.fields,field_description:sale_loyalty.field_sale_loyalty_reward_wizard__create_date
 #: model:ir.model.fields,field_description:sale_loyalty.field_sale_order_coupon_points__create_date
 msgid "Created on"
-msgstr "Vytvořeno"
+msgstr "Vytvořeno dne"
 
 #. module: sale_loyalty
 #: model_terms:ir.ui.view,arch_db:sale_loyalty.sale_loyalty_coupon_wizard_view_form
@@ -159,7 +146,7 @@ msgstr "Sleva: %(desc)s%(tax_str)s"
 #: model:ir.model.fields,field_description:sale_loyalty.field_sale_loyalty_reward_wizard__display_name
 #: model:ir.model.fields,field_description:sale_loyalty.field_sale_order_coupon_points__display_name
 msgid "Display Name"
-msgstr "Zobrazované jméno"
+msgstr "Zobrazovaný název"
 
 #. module: sale_loyalty
 #: model:ir.actions.act_window,name:sale_loyalty.sale_loyalty_coupon_wizard_action
@@ -170,13 +157,6 @@ msgstr "Zadejte propagační nebo kupónový kód"
 #: model_terms:ir.ui.view,arch_db:sale_loyalty.used_gift_card
 msgid "Expired Date:"
 msgstr "Datum vypršení platnosti:"
-
-#. module: sale_loyalty
-#. odoo-python
-#: code:addons/sale_loyalty/models/sale_order.py:0
-#, python-format
-msgid "Free Product - %(product)s"
-msgstr "Produkt zdarma- %(product)s"
 
 #. module: sale_loyalty
 #: model_terms:ir.ui.view,arch_db:sale_loyalty.sale_purchased_gift_card
@@ -195,7 +175,7 @@ msgstr "Poukazy a digitální peněženky"
 
 #. module: sale_loyalty
 #: model:ir.model.fields,help:sale_loyalty.field_sale_order_line__points_cost
-msgid "How much point this reward cost on the loyalty card."
+msgid "How much point this reward costs on the loyalty card."
 msgstr ""
 
 #. module: sale_loyalty
@@ -225,25 +205,18 @@ msgid "Is a program reward line"
 msgstr "Jde o programovou odměnu"
 
 #. module: sale_loyalty
-#: model:ir.model.fields,field_description:sale_loyalty.field_sale_loyalty_coupon_wizard____last_update
-#: model:ir.model.fields,field_description:sale_loyalty.field_sale_loyalty_reward_wizard____last_update
-#: model:ir.model.fields,field_description:sale_loyalty.field_sale_order_coupon_points____last_update
-msgid "Last Modified on"
-msgstr "Naposled změněno"
-
-#. module: sale_loyalty
 #: model:ir.model.fields,field_description:sale_loyalty.field_sale_loyalty_coupon_wizard__write_uid
 #: model:ir.model.fields,field_description:sale_loyalty.field_sale_loyalty_reward_wizard__write_uid
 #: model:ir.model.fields,field_description:sale_loyalty.field_sale_order_coupon_points__write_uid
 msgid "Last Updated by"
-msgstr "Naposledy upraveno od"
+msgstr "Naposledy upraveno uživatelem"
 
 #. module: sale_loyalty
 #: model:ir.model.fields,field_description:sale_loyalty.field_sale_loyalty_coupon_wizard__write_date
 #: model:ir.model.fields,field_description:sale_loyalty.field_sale_loyalty_reward_wizard__write_date
 #: model:ir.model.fields,field_description:sale_loyalty.field_sale_order_coupon_points__write_date
 msgid "Last Updated on"
-msgstr "Naposled upraveno"
+msgstr "Naposledy upraveno dne"
 
 #. module: sale_loyalty
 #: model:ir.model,name:sale_loyalty.model_loyalty_card
@@ -258,7 +231,7 @@ msgstr "Věrnostní program"
 #. module: sale_loyalty
 #: model:ir.model,name:sale_loyalty.model_loyalty_reward
 msgid "Loyalty Reward"
-msgstr "Odměna věrnostního programu"
+msgstr "Věrnostní odměna"
 
 #. module: sale_loyalty
 #: model:ir.model.fields,field_description:sale_loyalty.field_sale_order__applied_coupon_ids
@@ -280,8 +253,8 @@ msgstr "Multiprodukt"
 #: code:addons/sale_loyalty/models/sale_order.py:0
 #, python-format
 msgid ""
-"No card found for this loyalty program and no points will be given with this"
-" order."
+"No card found for this loyalty program and no points will be given with this "
+"order."
 msgstr ""
 
 #. module: sale_loyalty
@@ -385,7 +358,7 @@ msgstr "Prodejní objednávka"
 #. module: sale_loyalty
 #: model:ir.model,name:sale_loyalty.model_sale_order_line
 msgid "Sales Order Line"
-msgstr "Řádek zakázky"
+msgstr "Položka prodejní objednávky"
 
 #. module: sale_loyalty
 #: model:ir.model.fields,field_description:sale_loyalty.field_sale_loyalty_reward_wizard__selected_product_id
@@ -402,6 +375,13 @@ msgstr ""
 #: code:addons/sale_loyalty/models/sale_order.py:0
 #, python-format
 msgid "TEMPORARY DISCOUNT LINE"
+msgstr ""
+
+#. module: sale_loyalty
+#: model:ir.model.fields,help:sale_loyalty.field_sale_order_line__reward_identifier_code
+msgid ""
+"Technical field used to link multiple reward lines from the same reward "
+"together."
 msgstr ""
 
 #. module: sale_loyalty
@@ -456,7 +436,6 @@ msgstr ""
 
 #. module: sale_loyalty
 #. odoo-python
-#: code:addons/sale_loyalty/models/sale_order.py:0
 #: code:addons/sale_loyalty/models/sale_order.py:0
 #, python-format
 msgid "This code is invalid (%s)."
@@ -524,3 +503,7 @@ msgid ""
 msgstr ""
 "Níže najdete kód dárkových karet. Byl vám zaslán e-mail s tímto kódem. "
 "Můžete jej použít od této chvíle."
+
+#, python-format
+#~ msgid "Free Product - %(product)s"
+#~ msgstr "Produkt zdarma- %(product)s"

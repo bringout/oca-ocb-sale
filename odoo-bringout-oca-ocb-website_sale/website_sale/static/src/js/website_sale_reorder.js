@@ -1,62 +1,11 @@
 /** @odoo-module **/
 
+import { _t } from "@web/core/l10n/translation";
 import { debounce as debounceFn } from "@web/core/utils/timing";
-import publicWidget from "web.public.widget";
-import { localization as l10n } from "@web/core/l10n/localization";
-import { ComponentWrapper } from "web.OwlCompatibility";
-import { intersperse, nbsp } from "@web/core/utils/strings";
+import { redirect } from '@web/core/utils/urls';
+import publicWidget from "@web/legacy/js/public/public_widget";
 import { ConfirmationDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
-
-/**
- * Inserts "thousands" separators in the provided number.
- *
- * @private
- * @param {string} string representing integer number
- * @param {string} [thousandsSep=","] the separator to insert
- * @param {number[]} [grouping=[]]
- *   array of relative offsets at which to insert `thousandsSep`.
- *   See `strings.intersperse` method.
- * @returns {string}
- */
-function insertThousandsSep(number, thousandsSep = ",", grouping = []) {
-    const negative = number[0] === "-";
-    number = negative ? number.slice(1) : number;
-    return (negative ? "-" : "") + intersperse(number, grouping, thousandsSep);
-}
-
-export function formatFloat(value, digits = 2) {
-    if (value === false) {
-        return "";
-    }
-    const grouping = l10n.grouping;
-    const thousandsSep = l10n.thousandsSep;
-    const decimalPoint = l10n.decimalPoint;
-    let precision = digits;
-    const formatted = (value || 0).toFixed(precision).split(".");
-    formatted[0] = insertThousandsSep(formatted[0], thousandsSep, grouping);
-    return formatted[1] ? formatted.join(decimalPoint) : formatted[0];
-}
-
-export function formatMonetary(value, currency) {
-    // Monetary fields want to display nothing when the value is unset.
-    // You wouldn't want a value of 0 euro if nothing has been provided.
-    if (value === false) {
-        return "";
-    }
-
-    const digits = (currency && currency.decimal_places) || 2;
-
-    let formattedValue = formatFloat(value, digits);
-
-    if (!currency) {
-        return formattedValue;
-    }
-    const formatted = [currency.symbol, formattedValue];
-    if (currency.position === "after") {
-        formatted.reverse();
-    }
-    return formatted.join(nbsp);
-}
+import { formatCurrency } from "@web/core/currency";
 
 // Widget responsible for openingn the modal (giving out the sale order id)
 
@@ -73,45 +22,20 @@ publicWidget.registry.SaleOrderPortalReorderWidget = publicWidget.Widget.extend(
             return;
         }
         // Open the modal
-        const dialogWrapper = new ComponentWrapper(this, ReorderDialogWrapper, {
+        this.call("dialog", "add", ReorderDialog, {
             orderId: orderId,
             accessToken: urlSearchParams.get("access_token"),
         });
-        dialogWrapper.mount(document.body);
     },
 });
 
 import { useService } from "@web/core/utils/hooks";
 import { Dialog } from "@web/core/dialog/dialog";
-
-const { Component, onRendered, onWillStart, xml } = owl;
+import { Component, onWillStart } from "@odoo/owl";
 
 // Reorder Dialog
 
-export class ReorderDialogWrapper extends Component {
-    setup() {
-        this.dialogService = useService("dialog");
-
-        onRendered(() => {
-            this.dialogService.add(ReorderDialog, this.props);
-        });
-    }
-}
-ReorderDialogWrapper.template = xml``;
-
-export class ReorderConfirmationDialog extends ConfirmationDialog {
-    /**
-     * @override
-     * 
-     * In ConfirmationDialog class cancel button and close button's behavior is the same
-     * so we need to override the default behavior of close button. Because on cancel
-     * we add products to cart without clearing the cart.
-     * */
-    setup() {
-        super.setup();
-        this.env.dialogData.close = () => this.props.close();
-    }
-}
+export class ReorderConfirmationDialog extends ConfirmationDialog {}
 ReorderConfirmationDialog.template = "website_sale.ReorderConfirmationDialog";
 
 export class ReorderDialog extends Component {
@@ -119,7 +43,7 @@ export class ReorderDialog extends Component {
         this.rpc = useService("rpc");
         this.orm = useService("orm");
         this.dialogService = useService("dialog");
-        this.formatMonetary = formatMonetary;
+        this.formatCurrency = formatCurrency;
 
         onWillStart(this.onWillStartHandler.bind(this));
     }
@@ -157,12 +81,11 @@ export class ReorderDialog extends Component {
     }
 
     async loadProductCombinationInfo(product) {
-        product.combinationInfo = await this.rpc("/sale/get_combination_info_website", {
+        product.combinationInfo = await this.rpc("/website_sale/get_combination_info", {
             product_template_id: product.product_template_id,
             product_id: product.product_id,
             combination: product.combination,
             add_qty: product.qty,
-            pricelist_id: false,
             context: {
                 website_sale_no_images: true,
             },
@@ -171,7 +94,7 @@ export class ReorderDialog extends Component {
 
     getWarningForProduct(product) {
         if (!product.add_to_cart_allowed) {
-            return this.env._t("This product is not available for purchase.");
+            return _t("This product is not available for purchase.");
         }
         return false;
     }
@@ -199,17 +122,18 @@ export class ReorderDialog extends Component {
         this.confirmed = true;
         const onConfirm = async () => {
             await this.addProductsToCart();
-            window.location = "/shop/cart";
+            redirect('/shop/cart');
         };
         if (this.cartQty) {
             // Open confirmation modal
             this.dialogService.add(ReorderConfirmationDialog, {
-                body: this.env._t("Do you wish to clear your cart before adding products to it?"),
+                body: _t("Do you wish to clear your cart before adding products to it?"),
                 confirm: async () => {
                     await this.rpc("/shop/cart/clear");
                     await onConfirm();
                 },
                 cancel: onConfirm,
+                dismiss: () => {}, // Prevents fallback of 'cancel' from Confirmation Dialog
             });
         } else {
             await onConfirm();
@@ -226,6 +150,7 @@ export class ReorderDialog extends Component {
                 add_qty: product.qty,
                 no_variant_attribute_values: JSON.stringify(product.no_variant_attribute_values),
                 product_custom_attribute_values: JSON.stringify(product.product_custom_attribute_values),
+                display: false,
             });
         }
     }

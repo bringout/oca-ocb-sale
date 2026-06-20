@@ -1,24 +1,24 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* spreadsheet_dashboard_sale_timesheet
-# 
+#
 # Translators:
-# e2f <projects@e2f.com>, 2022
-# Martin Trigaux, 2022
-# Raymond Yu <cl_yu@hotmail.com>, 2022
-# 
+# Wil Odoo, 2023
+# Jeffery CHEN <jeffery9@gmail.com>, 2023
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-06 13:32+0000\n"
-"PO-Revision-Date: 2022-09-29 09:44+0000\n"
-"Last-Translator: Raymond Yu <cl_yu@hotmail.com>, 2022\n"
-"Language-Team: Chinese (China) (https://app.transifex.com/odoo/teams/41243/zh_CN/)\n"
+"POT-Creation-Date: 2025-12-29 18:38+0000\n"
+"PO-Revision-Date: 2023-10-26 23:09+0000\n"
+"Last-Translator: Jeffery CHEN <jeffery9@gmail.com>, 2023\n"
+"Language-Team: Chinese (China) (https://app.transifex.com/odoo/teams/41243/"
+"zh_CN/)\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #. module: spreadsheet_dashboard_sale_timesheet
@@ -44,10 +44,6 @@ msgstr "应计费小时数"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #, python-format
 msgid "Billable rate"
@@ -77,7 +73,6 @@ msgstr "计费工时表"
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #, python-format
 msgid "Current"
 msgstr "当前"
@@ -85,14 +80,12 @@ msgstr "当前"
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #, python-format
 msgid "Department"
 msgstr "部门"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #, python-format
 msgid "Employee"
@@ -108,18 +101,12 @@ msgstr "总计"
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #, python-format
 msgid "Hours billed"
 msgstr "计费小时数"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #, python-format
 msgid "Hours spent"
@@ -156,14 +143,12 @@ msgstr "期间"
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #, python-format
 msgid "Previous"
-msgstr "上一页"
+msgstr "前一"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #, python-format
 msgid "Project"
@@ -171,7 +156,6 @@ msgstr "项目"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #, python-format
 msgid "Task"
@@ -183,6 +167,11 @@ msgstr "任务"
 #, python-format
 msgid "Time Billed by Week"
 msgstr "按周计费的时间"
+
+#. module: spreadsheet_dashboard_sale_timesheet
+#: model:spreadsheet.dashboard,name:spreadsheet_dashboard_sale_timesheet.spreadsheet_dashboard_timesheet
+msgid "Timesheets"
+msgstr "工时单"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
@@ -217,7 +206,7 @@ msgstr "任务工时表分析"
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #, python-format
 msgid "Top Departments"
-msgstr "最佳部门"
+msgstr "顶级部门"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
@@ -249,7 +238,6 @@ msgstr "上期"
 
 #. module: spreadsheet_dashboard_sale_timesheet
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #: code:addons/spreadsheet_dashboard_sale_timesheet/data/files/timesheet_dashboard.json:0
 #, python-format
 msgid "since last period"
