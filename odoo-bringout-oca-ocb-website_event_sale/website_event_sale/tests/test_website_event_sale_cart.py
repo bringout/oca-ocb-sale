@@ -1,5 +1,7 @@
+from datetime import datetime, timedelta
+
 from odoo import Command
-from odoo.tests import tagged
+from odoo.tests import tagged, Form
 
 from odoo.addons.website_event_sale.tests.common import TestWebsiteEventSaleCommon
 from odoo.addons.website_sale.tests.test_website_sale_cart_abandoned import (
@@ -9,13 +11,27 @@ from odoo.addons.website_sale.tests.test_website_sale_cart_abandoned import (
 
 @tagged('post_install', '-at_install')
 class TestWebsiteEventSaleCart(TestWebsiteEventSaleCommon, TestWebsiteSaleCartAbandonedCommon):
+
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+
+        cls.website = cls.env.ref('website.default_website')
+        cls.website.write({
+            'send_abandoned_cart_email': True,
+            'cart_abandoned_delay': 1.0,  # 1 hour
+        })
+
+        cls.partner_admin = cls.env.ref('base.partner_admin')
+
     def test_sold_out_event_cart_reminder(self):
         """Check that abandoned cart emails aren't sent for sold out tickets."""
-        cart1, cart2 = carts = self.so1before + self.so2before
-        carts.order_line.unlink()
-        carts.website_id.send_abandoned_cart_email = True
+        cart1, cart2 = self.env['sale.order'].create([{
+            'partner_id': partner.id,
+            'website_id': self.website.id,
+            'date_order': datetime.now() - timedelta(hours=2),
+        } for partner in (self.partner_admin, self.partner_portal)])
 
-        self.event.auto_confirm = True
         self.ticket.write({
             'seats_limited': True,
             'seats_max': 1,
@@ -35,7 +51,8 @@ class TestWebsiteEventSaleCart(TestWebsiteEventSaleCommon, TestWebsiteSaleCartAb
 
         # Create registrations & confirm first order
         editor = self.env['registration.editor'].new()
-        editor.with_context(default_sale_order_id=cart1.id).action_make_registration()
+        editor = Form(self.env['registration.editor'].with_context(default_sale_order_id=cart1.id))
+        editor.save().action_make_registration()
         cart1.action_confirm()
         self.assertEqual(self.ticket.seats_available, 0)
         self.assertFalse(

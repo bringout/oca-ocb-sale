@@ -3,16 +3,19 @@
 
 from odoo import api, fields, models
 
-class SaleOrderLine(models.Model):
-    _inherit = "sale.order.line"
 
-    is_reward_line = fields.Boolean('Is a program reward line', compute='_compute_is_reward_line')
-    reward_id = fields.Many2one('loyalty.reward', ondelete='restrict', readonly=True)
-    coupon_id = fields.Many2one('loyalty.card', ondelete='restrict', readonly=True)
-    reward_identifier_code = fields.Char(help="""
-        Technical field used to link multiple reward lines from the same reward together.
-    """)
-    points_cost = fields.Float(help='How much point this reward cost on the loyalty card.')
+class SaleOrderLine(models.Model):
+    _inherit = 'sale.order.line'
+
+    is_reward_line = fields.Boolean(
+        string="Is a program reward line", compute='_compute_is_reward_line')
+    reward_id = fields.Many2one(
+        comodel_name='loyalty.reward', ondelete='restrict', readonly=True)
+    coupon_id = fields.Many2one(
+        comodel_name='loyalty.card', ondelete='restrict', readonly=True)
+    reward_identifier_code = fields.Char(
+        help="Technical field used to link multiple reward lines from the same reward together.")
+    points_cost = fields.Float(help="How much point this reward costs on the loyalty card.")
 
     def _compute_name(self):
         # Avoid computing the name for reward lines
@@ -44,8 +47,14 @@ class SaleOrderLine(models.Model):
             return self.price_unit
         return super()._get_display_price()
 
+    def _can_be_invoiced_alone(self):
+        return super()._can_be_invoiced_alone() and not self.is_reward_line
+
     def _is_not_sellable_line(self):
         return self.is_reward_line or super()._is_not_sellable_line()
+
+    def _is_discount_line(self):
+        return super()._is_discount_line() or self.reward_id.reward_type == 'discount'
 
     def _reset_loyalty(self, complete=False):
         """
@@ -72,20 +81,24 @@ class SaleOrderLine(models.Model):
         res = super().create(vals_list)
         # Update our coupon points if the order is in a confirmed state
         for line in res:
-            if line.coupon_id and line.points_cost and line.order_id.state in ('sale', 'done'):
+            if line.coupon_id and line.points_cost and line.state == 'sale':
                 line.coupon_id.points -= line.points_cost
+                line.order_id._update_loyalty_history(line.coupon_id, line.points_cost)
         return res
 
     def write(self, vals):
         cost_in_vals = 'points_cost' in vals
         if cost_in_vals:
-            previous_cost = {l: l.points_cost for l in self}
+            previous_vals = {line: (line.points_cost, line.coupon_id) for line in self}
         res = super().write(vals)
         if cost_in_vals:
             # Update our coupon points if the order is in a confirmed state
-            for line in self:
-                if previous_cost[line] != line.points_cost and line.order_id.state in ('sale', 'done'):
-                    line.coupon_id.points += (previous_cost[line] - line.points_cost)
+            for line, (previous_cost, previous_coupon) in previous_vals.items():
+                if line.state != 'sale':
+                    continue
+                if line.points_cost != previous_cost or line.coupon_id != previous_coupon:
+                    previous_coupon.points += previous_cost
+                    line.coupon_id.points -= line.points_cost
         return res
 
     def unlink(self):
@@ -109,7 +122,7 @@ class SaleOrderLine(models.Model):
                     line.order_id.code_enabled_rule_ids = line.order_id.code_enabled_rule_ids.filtered(lambda r: r.program_id != line.coupon_id.program_id)
         # Give back the points if the order is confirmed, points are given back if the order is cancelled but in this case we need to do it directly
         for line in related_lines:
-            if line.order_id.state in ('sale', 'done'):
+            if line.state == 'sale':
                 line.coupon_id.points += line.points_cost
         res = super(SaleOrderLine, self | related_lines).unlink()
         coupons_to_unlink.sudo().unlink()

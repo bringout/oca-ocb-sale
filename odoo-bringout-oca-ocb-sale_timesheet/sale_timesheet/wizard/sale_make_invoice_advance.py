@@ -13,7 +13,7 @@ class SaleAdvancePaymentInv(models.TransientModel):
     date_end_invoice_timesheet = fields.Date(
         string="End Date",
         help="Only timesheets not yet invoiced (and validated, if applicable) from this period will be invoiced. If the period is not indicated, all timesheets not yet invoiced (and validated, if applicable) will be invoiced without distinction.")
-    invoicing_timesheet_enabled = fields.Boolean(compute='_compute_invoicing_timesheet_enabled', store=True)
+    invoicing_timesheet_enabled = fields.Boolean(compute='_compute_invoicing_timesheet_enabled', store=True, export_string_translation=False)
 
     #=== COMPUTE METHODS ===#
 
@@ -39,13 +39,12 @@ class SaleAdvancePaymentInv(models.TransientModel):
             before creating the invoice.
         """
         if self.advance_payment_method == 'delivered' and self.invoicing_timesheet_enabled:
-            if self.date_start_invoice_timesheet or self.date_end_invoice_timesheet:
-                sale_orders.order_line._recompute_qty_to_invoice(
-                    self.date_start_invoice_timesheet, self.date_end_invoice_timesheet)
+            sale_orders.order_line._recompute_qty_to_invoice(
+                self.date_start_invoice_timesheet, self.date_end_invoice_timesheet)
 
             return sale_orders.with_context(
                 timesheet_start_date=self.date_start_invoice_timesheet,
                 timesheet_end_date=self.date_end_invoice_timesheet
-            )._create_invoices(final=self.deduct_down_payments)
+            )._create_invoices(final=self.deduct_down_payments, grouped=not self.consolidated_billing)
 
         return super()._create_invoices(sale_orders)

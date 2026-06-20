@@ -1,44 +1,37 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* sales_team
-# 
+#
 # Translators:
-# Hongu Cosmin <cosmin513@gmail.com>, 2022
-# Foldi Robert <foldirobert@nexterp.ro>, 2022
-# Martin Trigaux, 2022
-# Cozmin Candea <office@terrabit.ro>, 2023
-# Dorin Hongu <dhongu@gmail.com>, 2024
+# Lyall Kindmurr, 2024
 # Corina Calin, 2024
-# 
+# Wil Odoo, 2024
+# Larisa_nexterp, 2025
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0beta\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-04 09:25+0000\n"
-"PO-Revision-Date: 2022-09-22 05:55+0000\n"
-"Last-Translator: Corina Calin, 2024\n"
+"POT-Creation-Date: 2025-12-29 18:38+0000\n"
+"PO-Revision-Date: 2024-09-25 09:41+0000\n"
+"Last-Translator: Larisa_nexterp, 2025\n"
 "Language-Team: Romanian (https://app.transifex.com/odoo/teams/41243/ro/)\n"
+"Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: ro\n"
-"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
-
-#. module: sales_team
-#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_kanban_dashboard
-msgid "<i class=\"fa fa-ellipsis-v\" role=\"img\" aria-label=\"Manage\" title=\"Manage\"/>"
-msgstr "<i class=\"fa fa-ellipsis-v\" role=\"img\" aria-label=\"Manage\" title=\"Manage\"/>"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?"
+"2:1));\n"
 
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_kanban
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_form
-msgid "<i class=\"fa fa-envelope me-1\" role=\"img\" aria-label=\"Email\" title=\"Email\"/>"
-msgstr "<i class=\"fa fa-envelope me-1\" role=\"img\" aria-label=\"Email\" title=\"Email\"/>"
-
-#. module: sales_team
-#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_kanban
-msgid "<span class=\"bg-odoo\">Archived</span>"
+msgid ""
+"<i class=\"fa fa-envelope me-1\" role=\"img\" aria-label=\"Email\" "
+"title=\"Email\"/>"
 msgstr ""
+"<i class=\"fa fa-envelope me-1\" role=\"img\" aria-label=\"Email\" "
+"title=\"Email\"/>"
 
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_kanban_dashboard
@@ -53,13 +46,13 @@ msgstr "<span>Raportare</span>"
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_kanban_dashboard
 msgid "<span>View</span>"
-msgstr "<span>Vizualizează</span>"
+msgstr "<span>Vizualizare</span>"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__message_needaction
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__message_needaction
 msgid "Action Needed"
-msgstr "Intervenție necesară"
+msgstr "Acțiune necesară"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__active
@@ -79,41 +72,30 @@ msgstr "Adăugați un membru al echipei"
 
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team__crm_team_member_ids
-msgid ""
-"Add members to automatically assign their documents to this sales team."
+msgid "Add members to automatically assign their documents to this sales team."
 msgstr ""
 "Adăugați membri pentru a atribui automat documentele lor acestei echipe de "
 "vânzări."
 
 #. module: sales_team
-#: code:addons/sales_team/models/crm_team.py:0
-#, python-format
-msgid ""
-"Adding %(user_name)s in this team would remove him/her from its current team"
-" %(team_name)s."
-msgstr ""
-"Adăugarea %(user_name)s în această echipă ar elimina persoana respectivă din"
-" echipa sa actuală %(team_name)s."
-
-#. module: sales_team
+#. odoo-python
 #: code:addons/sales_team/models/crm_team_member.py:0
-#, python-format
 msgid ""
-"Adding %(user_name)s in this team would remove him/her from its current "
-"teams %(team_names)s."
+"Adding %(user_name)s in this team will remove them from %(team_names)s. "
+"Working in multiple teams? Activate the option under Configuration>Settings."
 msgstr ""
-"Adăugarea %(user_name)s în această echipă l-ar elimina din echipele sale "
-"actuale %(team_names)s."
+"Adăugarea lui %(user_name)s în această echipă îl va elimina din %"
+"(team_names)s. Lucrați în mai multe echipe? Activați opțiunea din "
+"Configurare>Setări."
 
 #. module: sales_team
+#. odoo-python
 #: code:addons/sales_team/models/crm_team.py:0
-#, python-format
 msgid ""
-"Adding %(user_names)s in this team would remove them from their current "
-"teams (%(team_names)s)."
+"Adding %(user_names)s in this team will remove them from %(team_names)s."
 msgstr ""
-"Adăugarea %(user_names)s în această echipă ar elimina persoana respectivă "
-"din echipele sale actuale (%(team_names)s)."
+"Adăugarea lui %(user_names)s în această echipă îi va elimina din %"
+"(team_names)s."
 
 #. module: sales_team
 #: model:res.groups,name:sales_team.group_sale_manager
@@ -122,6 +104,7 @@ msgstr "Administrator"
 
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_kanban
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_search
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_form
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_search
@@ -138,11 +121,11 @@ msgstr "Număr atașamente"
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_kanban
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_form
 msgid "Avatar"
-msgstr "Avatar"
+msgstr "Imagine profil"
 
 #. module: sales_team
+#. odoo-python
 #: code:addons/sales_team/models/crm_team.py:0
-#, python-format
 msgid "Big Pretty Button :)"
 msgstr "Buton mare și drăguț :)"
 
@@ -152,15 +135,15 @@ msgid "CRM Tag"
 msgstr "Etichetă CRM"
 
 #. module: sales_team
+#. odoo-python
 #: code:addons/sales_team/models/crm_team.py:0
-#, python-format
 msgid "Cannot delete default team \"%s\""
 msgstr "Nu puteți șterge echipa implicită \"%s\""
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_tag__color
 msgid "Color"
-msgstr "Color"
+msgstr "Culoare"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__color
@@ -170,11 +153,11 @@ msgstr "Index Culori"
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__company_id
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__company_id
+#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_search
 msgid "Company"
 msgstr "Companie"
 
 #. module: sales_team
-#: model:ir.ui.menu,name:sales_team.menu_sale_config
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_kanban_dashboard
 msgid "Configuration"
 msgstr "Configurare"
@@ -182,12 +165,7 @@ msgstr "Configurare"
 #. module: sales_team
 #: model:crm.tag,name:sales_team.categ_oppor7
 msgid "Consulting"
-msgstr "Consultanta"
-
-#. module: sales_team
-#: model:ir.model,name:sales_team.model_res_partner
-msgid "Contact"
-msgstr "Contact"
+msgstr "Consultanță"
 
 #. module: sales_team
 #: model_terms:ir.actions.act_window,help:sales_team.sales_team_crm_tag_action
@@ -216,12 +194,12 @@ msgstr "Creat de"
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__create_date
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__create_date
 msgid "Created on"
-msgstr "Creat în"
+msgstr "Creat pe"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__currency_id
 msgid "Currency"
-msgstr "Moneda"
+msgstr "Monedă"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__dashboard_button_name
@@ -231,7 +209,7 @@ msgstr "Buton de bord"
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__dashboard_graph_data
 msgid "Dashboard Graph Data"
-msgstr "Date grafice din tabloul de bord"
+msgstr "Date grafice din panoul de bord"
 
 #. module: sales_team
 #: model_terms:ir.actions.act_window,help:sales_team.crm_team_action_pipeline
@@ -254,7 +232,7 @@ msgstr "Nume afișat"
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__email
 msgid "Email"
-msgstr "Email"
+msgstr "E-mail"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__favorite_user_ids
@@ -263,26 +241,16 @@ msgstr "Membrii preferați"
 
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team__is_favorite
-msgid ""
-"Favorite teams to display them in the dashboard and access them easily."
+msgid "Favorite teams to display them in the dashboard and access them easily."
 msgstr ""
 "Echipele preferate pentru a le afișa în tabloul de bord pentru a le accesa "
 "ușor."
 
 #. module: sales_team
-#: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_form
-msgid ""
-"Follow this salesteam to automatically track the events associated to users "
-"of this team."
-msgstr ""
-"Urmariti aceasta echipa de vânzări pentru a tine evidenta automat "
-"evenimentelor asociate utilizatorilor acestei echipe."
-
-#. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__message_follower_ids
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__message_follower_ids
 msgid "Followers"
-msgstr "Persoane interesate"
+msgstr "Urmăritori"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__message_partner_ids
@@ -328,23 +296,13 @@ msgstr ""
 #: model:ir.model.fields,help:sales_team.field_crm_team__message_needaction
 #: model:ir.model.fields,help:sales_team.field_crm_team_member__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr "Dacă este selectat, mesajele noi necesită atenția dumneavoastră."
+msgstr "Dacă este bifat, mesaje noi necesită atenția dumneavoastră."
 
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team__message_has_error
 #: model:ir.model.fields,help:sales_team.field_crm_team_member__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr "Dacă este bifată, unele mesaje au o eroare de livrare."
-
-#. module: sales_team
-#: model:ir.model.fields,help:sales_team.field_res_partner__team_id
-#: model:ir.model.fields,help:sales_team.field_res_users__team_id
-msgid ""
-"If set, this Sales Team will be used for sales and assignments related to "
-"this partner"
-msgstr ""
-"Daca este stabilit, această echipă de vânzări va fi folosită pentru vânzări "
-"și pentru misiuni legate de acest partener"
+msgstr "Dacă este bifată, există mesaje cu eroare de livrare."
 
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team__active
@@ -377,13 +335,6 @@ msgid "Is Follower"
 msgstr "Este urmăritor"
 
 #. module: sales_team
-#: model:ir.model.fields,field_description:sales_team.field_crm_tag____last_update
-#: model:ir.model.fields,field_description:sales_team.field_crm_team____last_update
-#: model:ir.model.fields,field_description:sales_team.field_crm_team_member____last_update
-msgid "Last Modified on"
-msgstr "Ultima modificare la"
-
-#. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_tag__write_uid
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__write_uid
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__write_uid
@@ -398,12 +349,6 @@ msgid "Last Updated on"
 msgstr "Ultima actualizare pe"
 
 #. module: sales_team
-#: model:ir.model.fields,field_description:sales_team.field_crm_team__message_main_attachment_id
-#: model:ir.model.fields,field_description:sales_team.field_crm_team_member__message_main_attachment_id
-msgid "Main Attachment"
-msgstr "Atașament principal"
-
-#. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_res_users__sale_team_id
 msgid ""
 "Main user sales team. Used notably for pipeline, or to set sales team in "
@@ -415,7 +360,7 @@ msgstr ""
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__member_company_ids
 msgid "Member Company"
-msgstr "Companie membru"
+msgstr "Companie membră"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__member_warning
@@ -430,13 +375,13 @@ msgstr "Membri"
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__member_warning
 msgid "Membership Issue Warning"
-msgstr "Avertisment privind numărul de membru"
+msgstr "Avertisment privind problema membrului"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__message_has_error
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__message_has_error
 msgid "Message Delivery error"
-msgstr "Eroare livrare mesaj"
+msgstr "Eroare de livrare a mesajului"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__message_ids
@@ -453,7 +398,7 @@ msgstr "Mobil"
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__is_membership_multi
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__is_membership_multi
 msgid "Multiple Memberships Allowed"
-msgstr "Sunt permise mai multe abonamente"
+msgstr "Sunt permise mai multe apartenențe"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__name
@@ -470,7 +415,7 @@ msgstr "Număr de acțiuni"
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__message_has_error_counter
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__message_has_error_counter
 msgid "Number of errors"
-msgstr "Numărul de erori"
+msgstr "Număr de erori"
 
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team__message_needaction_counter
@@ -487,7 +432,7 @@ msgstr "Numărul de mesaje cu eroare de livrare"
 #. module: sales_team
 #: model:crm.tag,name:sales_team.categ_oppor8
 msgid "Other"
-msgstr "Altul"
+msgstr "Altele"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__phone
@@ -510,6 +455,12 @@ msgid "Product"
 msgstr "Produs"
 
 #. module: sales_team
+#: model:ir.model.fields,field_description:sales_team.field_crm_team__rating_ids
+#: model:ir.model.fields,field_description:sales_team.field_crm_team_member__rating_ids
+msgid "Ratings"
+msgstr "Evaluări"
+
+#. module: sales_team
 #: model:crm.team,name:sales_team.team_sales_department
 msgid "Sales"
 msgstr "Vânzări"
@@ -518,24 +469,22 @@ msgstr "Vânzări"
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_form
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_tree
 msgid "Sales Men"
-msgstr "Agent Vânzări"
+msgstr "Agenți de vânzări"
 
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_search
 msgid "Sales Person"
-msgstr "Agent vânzări"
+msgstr "Agent de vânzări"
 
 #. module: sales_team
 #: model:ir.model,name:sales_team.model_crm_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__name
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__crm_team_id
-#: model:ir.model.fields,field_description:sales_team.field_res_partner__team_id
-#: model:ir.model.fields,field_description:sales_team.field_res_users__team_id
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_member_view_search
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_form
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_tree
 msgid "Sales Team"
-msgstr "Echipa de vânzări"
+msgstr "Echipă de vânzări"
 
 #. module: sales_team
 #: model:ir.model,name:sales_team.model_crm_team_member
@@ -551,7 +500,7 @@ msgstr "Membrii echipei de vânzări"
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__crm_team_member_all_ids
 msgid "Sales Team Members (incl. inactive)"
-msgstr "Membrii echipei de vânzări (inclusiv inactiv)"
+msgstr "Membrii echipei de vânzări (inclusiv inactivi)"
 
 #. module: sales_team
 #: model:ir.actions.act_window,name:sales_team.crm_team_action_config
@@ -568,7 +517,7 @@ msgstr "Agent de vânzări"
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__member_ids
 msgid "Salespersons"
-msgstr "Agenți vânzări"
+msgstr "Agenți de vânzări"
 
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_search
@@ -576,10 +525,10 @@ msgid "Salesteams Search"
 msgstr "Căutare echipe de vânzări"
 
 #. module: sales_team
+#. odoo-python
 #: code:addons/sales_team/models/crm_team.py:0
-#, python-format
 msgid "Sample data"
-msgstr "Eșantion de date"
+msgstr "Date de probă"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__sequence
@@ -594,7 +543,7 @@ msgstr "Servicii"
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__is_favorite
 msgid "Show on dashboard"
-msgstr "Arată pe tabloul de bord"
+msgstr "Afișează pe tabloul de bord"
 
 #. module: sales_team
 #: model:crm.tag,name:sales_team.categ_oppor2
@@ -604,12 +553,12 @@ msgstr "Software"
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_tag__name
 msgid "Tag Name"
-msgstr "Nume eticheta"
+msgstr "Nume etichetă"
 
 #. module: sales_team
 #: model:ir.model.constraint,message:sales_team.constraint_crm_tag_name_uniq
-msgid "Tag name already exists !"
-msgstr "Numele ales exista deja"
+msgid "Tag name already exists!"
+msgstr "Numele etichetei există deja!"
 
 #. module: sales_team
 #: model:ir.actions.act_window,name:sales_team.sales_team_crm_tag_action
@@ -621,7 +570,7 @@ msgstr "Etichete"
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_form
 msgid "Team Details"
-msgstr "Detalii despre echipă"
+msgstr "Detalii echipă"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team__user_id
@@ -637,7 +586,7 @@ msgstr "Membrii echipei"
 #. module: sales_team
 #: model_terms:ir.actions.act_window,help:sales_team.crm_team_member_action
 msgid "Team Members are salespersons assigned to specific teams."
-msgstr "Membrii echipei sunt agenți de vânzări repartizați în anumite echipe."
+msgstr "Membrii echipei sunt agenți de vânzări alocați unor echipe specifice."
 
 #. module: sales_team
 #: model:ir.actions.act_window,name:sales_team.crm_team_action_pipeline
@@ -655,57 +604,53 @@ msgid "The default company for this user."
 msgstr "Compania implicită pentru acest utilizator."
 
 #. module: sales_team
+#. odoo-python
+#: code:addons/sales_team/models/crm_team.py:0
+msgid ""
+"The following team members are not allowed in company '%(company)s' of the "
+"Sales Team '%(team)s': %(users)s"
+msgstr ""
+
+#. module: sales_team
 #: model_terms:ir.actions.act_window,help:sales_team.mail_activity_type_action_config_sales
 msgid ""
 "Those represent the different categories of things you have to do (e.g. "
 "\"Call\" or \"Prepare meeting\")."
 msgstr ""
-"Acestea reprezintă diferitele categorii de lucruri pe care trebuie să le "
-"faceți (de exemplu, \"Apel\" sau \"Pregătire întâlnire\")."
-
-#. module: sales_team
-#: code:addons/sales_team/models/crm_team.py:0
-#, python-format
-msgid ""
-"To add a Salesperson into multiple Teams, activate the Multi-Team option in "
-"settings."
-msgstr ""
-"Pentru a adăuga un agent de vânzări în mai multe echipe, activați opțiunea "
-"Multi-Team din setări."
+"Acestea reprezintă diferite categorii de lucruri pe care trebuie să le faci "
+"(de exemplu, \"Apel\" sau \"Pregătire întâlnire\")."
 
 #. module: sales_team
 #: model:crm.tag,name:sales_team.categ_oppor6
 msgid "Training"
-msgstr "Instructaj"
+msgstr "Instruire"
 
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team_member__user_in_teams_ids
 msgid ""
 "UX: Give users not to add in the currently chosen team to avoid duplicates"
 msgstr ""
-"UX: oferiți utilizatorilor să nu adauge în echipa aleasă în prezent pentru a"
-" evita duplicatele"
+"UX: Nu permiteți utilizatorilor să adauge în echipa selectată pentru a evita "
+"duplicatele"
 
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team__member_company_ids
 #: model:ir.model.fields,help:sales_team.field_crm_team_member__user_company_ids
 msgid "UX: Limit to team company or all if no company"
-msgstr "UX: Limitați la compania echipei sau la toate dacă nu există companie"
+msgstr "UX: Limitează la compania echipei sau la toate dacă nu există companie"
 
 #. module: sales_team
+#. odoo-python
 #: code:addons/sales_team/models/crm_team.py:0
-#: code:addons/sales_team/models/crm_team.py:0
-#, python-format
 msgid "Undefined graph model for Sales Team: %s"
 msgstr "Model grafic nedefinit pentru echipa de vânzări: %s"
 
 #. module: sales_team
 #: model_terms:ir.actions.act_window,help:sales_team.crm_team_action_config
-msgid ""
-"Use Sales Teams to organize your sales departments and draw up reports."
+msgid "Use Sales Teams to organize your sales departments and draw up reports."
 msgstr ""
-"Utilizați echipele de vânzări pentru a vă organiza departamentele de vânzări"
-" și pentru a întocmi rapoarte."
+"Folosiți echipele de vânzări pentru a vă organiza departamentele de vânzări "
+"și pentru a întocmi rapoarte."
 
 #. module: sales_team
 #: model_terms:ir.actions.act_window,help:sales_team.crm_team_action_pipeline
@@ -714,7 +659,8 @@ msgid ""
 "Use Sales Teams to organize your sales departments.\n"
 "                Each team will work with a separate pipeline."
 msgstr ""
-"Folosiți echipele de vânzări pentru a vă organiza departamentele de vânzări.\n"
+"Folosiți echipele de vânzări pentru a vă organiza departamentele de "
+"vânzări.\n"
 "                Fiecare echipă va lucra cu o conductă separată."
 
 #. module: sales_team
@@ -723,13 +669,21 @@ msgid ""
 "Use Tags to manage and track your Opportunities (product structure, sales "
 "type, ...)"
 msgstr ""
-"Utilizați etichete pentru a vă gestiona și urmări oportunitățile (structura "
+"Utilizați etichete pentru a gestiona și urmări oportunitățile (structura "
 "produsului, tipul vânzărilor, ...)"
 
 #. module: sales_team
 #: model:ir.model,name:sales_team.model_res_users
 msgid "User"
-msgstr "Operator"
+msgstr "Utilizator"
+
+#. module: sales_team
+#. odoo-python
+#: code:addons/sales_team/models/crm_team_member.py:0
+msgid ""
+"User '%(user)s' is not allowed in the company '%(company)s' of the Sales "
+"Team '%(team)s'."
+msgstr ""
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member__user_company_ids
@@ -744,7 +698,7 @@ msgstr "Utilizator în echipe"
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_res_users__sale_team_id
 msgid "User Sales Team"
-msgstr "Echipa de vânzări a utilizatorilor"
+msgstr "Echipa de vânzări a utilizatorului"
 
 #. module: sales_team
 #: model:res.groups,name:sales_team.group_sale_salesman_all_leads
@@ -754,42 +708,44 @@ msgstr "Utilizator: Toate documentele"
 #. module: sales_team
 #: model:res.groups,name:sales_team.group_sale_salesman
 msgid "User: Own Documents Only"
-msgstr "Utilizator: Numai documente proprii"
+msgstr "Utilizator: Doar documente proprii"
 
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team__member_ids
 msgid "Users assigned to this team."
-msgstr "Utilizatorii desemnați acestei echipe."
+msgstr "Utilizatori alocați acestei echipe."
 
 #. module: sales_team
 #: model:crm.team,name:sales_team.salesteam_website_sales
 msgid "Website"
-msgstr "Pagină web"
+msgstr "Site web"
 
 #. module: sales_team
-#: code:addons/sales_team/models/crm_team_member.py:0
-#, python-format
+#. odoo-python
+#: code:addons/sales_team/models/crm_team.py:0
 msgid ""
-"You are trying to create duplicate membership(s). We found that "
-"%(duplicates)s already exist(s)."
+"Working in multiple teams? Activate the option under Configuration>Settings."
+msgstr "Lucrați în mai multe echipe? Activați opțiunea din Configurare>Setări."
+
+#. module: sales_team
+#. odoo-python
+#: code:addons/sales_team/models/crm_team_member.py:0
+msgid ""
+"You are trying to create duplicate membership(s). We found that %"
+"(duplicates)s already exist(s)."
 msgstr ""
-"Încercați să creați membru(i) duplicat(i). S-a detectat că %(duplicates)s "
-"există deja."
+"Încercați să creați apartenențe duplicate. Am găsit că %(duplicates)s există "
+"deja."
 
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.crm_team_view_form
 msgid "e.g. North America"
-msgstr "de exemplu. America de Nord"
+msgstr "ex: America de Nord"
 
 #. module: sales_team
 #: model_terms:ir.ui.view,arch_db:sales_team.sales_team_crm_tag_view_form
 msgid "e.g. Services"
-msgstr "de exemplu. Servicii"
-
-#. module: sales_team
-#: model:crm.team,name:sales_team.ebay_sales_team
-msgid "eBay"
-msgstr "eBay"
+msgstr "ex: Servicii"
 
 #. module: sales_team
 #: model:res.groups,comment:sales_team.group_sale_salesman_all_leads
@@ -797,20 +753,19 @@ msgid ""
 "the user will have access to all records of everyone in the sales "
 "application."
 msgstr ""
-"utilizatorul va avea acces la toate înregistrările tuturor celor din "
-"aplicația de vânzări."
+"utilizatorul va avea acces la toate înregistrările tuturor din aplicația de "
+"vânzări."
 
 #. module: sales_team
 #: model:res.groups,comment:sales_team.group_sale_salesman
 msgid "the user will have access to his own data in the sales application."
-msgstr ""
-"utilizatorul va avea acces la propriile date din aplicația de vânzări."
+msgstr "utilizatorul va avea acces la propriile date din aplicația de vânzări."
 
 #. module: sales_team
 #: model:res.groups,comment:sales_team.group_sale_manager
 msgid ""
-"the user will have an access to the sales configuration as well as statistic"
-" reports."
+"the user will have an access to the sales configuration as well as statistic "
+"reports."
 msgstr ""
-"utilizatorul va avea acces atât la configurarea vânzărilor, cât și la "
+"utilizatorul va avea acces la configurarea vânzărilor precum și la "
 "rapoartele statistice."

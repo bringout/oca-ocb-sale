@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from itertools import chain
@@ -19,6 +18,7 @@ class TestSaleOrder(SaleManagementCommon):
         # some variables to ease asserts in tests
         cls.pub_product_price = 100.0
         cls.pl_product_price = 80.0
+        cls._enable_discounts()
         cls.tpl_discount = 10.0
         cls.pl_discount = (cls.pub_product_price - cls.pl_product_price) * 100 / cls.pub_product_price
         cls.merged_discount = 100.0 - (100.0 - cls.pl_discount) * (100.0 - cls.tpl_discount) / 100.0
@@ -34,6 +34,7 @@ class TestSaleOrder(SaleManagementCommon):
             {
                 'name': 'Product 1',
                 'lst_price': cls.pub_product_price,
+                'description_sale': "This is a product description"
             }, {
                 'name': 'Optional product',
                 'lst_price': cls.pub_option_price,
@@ -72,6 +73,22 @@ class TestSaleOrder(SaleManagementCommon):
                 'fixed_price': cls.pl_option_price,
             }),
         ]
+        percentage_pricelist_rule_values = [
+            Command.create({
+                'name': 'Product 1 premium price',
+                'applied_on': '1_product',
+                'product_tmpl_id': cls.product_1.product_tmpl_id.id,
+                'compute_price': 'percentage',
+                'percent_price': cls.pl_discount,
+            }),
+            Command.create({
+                'name': 'Optional product premium price',
+                'applied_on': '1_product',
+                'product_tmpl_id': cls.optional_product.product_tmpl_id.id,
+                'compute_price': 'percentage',
+                'percent_price': cls.pl_option_discount,
+            }),
+        ]
 
         (
             cls.discount_included_price_list,
@@ -79,12 +96,10 @@ class TestSaleOrder(SaleManagementCommon):
         ) = cls.env['product.pricelist'].create([
             {
                 'name': 'Discount included Pricelist',
-                'discount_policy': 'with_discount',
                 'item_ids': pricelist_rule_values,
             }, {
                 'name': 'Discount excluded Pricelist',
-                'discount_policy': 'without_discount',
-                'item_ids': pricelist_rule_values,
+                'item_ids': percentage_pricelist_rule_values,
             }
         ])
 
@@ -354,6 +369,8 @@ class TestSaleOrder(SaleManagementCommon):
                 'display_type': 'line_note',
             }),
         ]
+        # Remove product description to ease comparing before/after translations
+        self.product_1.description_sale = None
 
         # Commence activation of Dutch vernacular
         self.env['res.lang']._activate_lang('nl_NL')
@@ -363,8 +380,12 @@ class TestSaleOrder(SaleManagementCommon):
         trans_dict = dict(zip(names_EN, names_NL))
         for record in chain(
             self.quotation_template_no_discount.sale_order_template_line_ids,
+            self.quotation_template_no_discount.sale_order_template_line_ids.product_id,
             self.quotation_template_no_discount.sale_order_template_option_ids,
+            self.quotation_template_no_discount.sale_order_template_option_ids.product_id,
         ):
+            if not record.name:
+                continue
             record.with_context(lang='nl_NL').name = trans_dict[record.name]
 
         # Create sale order form (and a way to retrieve line names)
@@ -431,3 +452,132 @@ class TestSaleOrder(SaleManagementCommon):
             names_NL,
             "Lines shouldn't change once saved",
         )
+
+    def test_product_description_no_template_description(self):
+        """
+        Test case for when the product has a description, but the quotation template line does not.
+        The final sale order line should use the product's description.
+        """
+        quotation_template_no_description = self.empty_order_template
+        quotation_template_no_description.sale_order_template_line_ids = [
+            Command.create({
+                'product_id': self.product_1.id,
+                'name': False,
+            }),
+        ]
+        sale_order = self.empty_order
+        sale_order.sale_order_template_id = quotation_template_no_description
+        sale_order._onchange_sale_order_template_id()
+        self.assertEqual(
+            sale_order.order_line[0].name,
+            f"{self.product_1.name}\n{self.product_1.description_sale}",
+            "Sale order line should use product's description when no quotation template \
+            description is set."
+        )
+
+    def test_product_description_with_template_description(self):
+        """
+        Test case for when both the product and the quotation template line have descriptions.
+        The final sale order line should use the template's description.
+        """
+        quotation_template_with_description = self.empty_order_template
+        quotation_template_with_description.sale_order_template_line_ids = [
+            Command.create({
+                'product_id': self.product_1.id,
+                'name': "This is a template description",
+            }),
+        ]
+        sale_order = self.empty_order
+        sale_order.sale_order_template_id = quotation_template_with_description
+        sale_order._onchange_sale_order_template_id()
+        self.assertEqual(
+            sale_order.order_line[0].name,
+            quotation_template_with_description.sale_order_template_line_ids[0].name,
+            "The sale order line should use the quotation template's description when both \
+            product and the quotation template descriptions are set."
+        )
+
+    def test_warning_quotation(self):
+        """
+        ensure "warning for the change of your quotation's company" isn't triggered
+        during the creation of a quotation when a quotation template is set as default
+        """
+        quotation_template = self.empty_order_template
+        quotation_template.sale_order_template_line_ids = [
+            Command.create({'product_id': self.product.id})
+        ]
+        self.env['ir.default'].set('sale.order', 'sale_order_template_id', quotation_template.id)
+        try:
+            with self.assertLogs('odoo.tests.form.onchange') as log_catcher:
+                Form(self.env['sale.order'])
+        except AssertionError:
+            pass
+        self.assertEqual(len(log_catcher.output), 0, "Form creation shouldn't trigger a warning")
+
+    def test_updating_price_upon_changing_pricelist(self):
+        optional_product = self.env['product.product'].create({'name': 'Optional Product'})
+        pricelist_1 = self.env['product.pricelist'].create({
+            'name': 'pricelist 1',
+            'currency_id': self.env.ref('base.USD').id,
+            'item_ids': [Command.create({
+                'name': 'Item 1',
+                'compute_price': 'fixed',
+                'base': 'list_price',
+                'fixed_price': 10,
+                'applied_on': '1_product',
+                'product_tmpl_id': optional_product.product_tmpl_id.id,
+            })],
+        })
+
+        pricelist_2 = self.env['product.pricelist'].create({
+            'name': 'pricelist 2',
+            'currency_id': self.env.ref('base.USD').id,
+            'item_ids': [Command.create({
+                'name': 'Item 1',
+                'compute_price': 'fixed',
+                'base': 'list_price',
+                'fixed_price': 20,
+                'applied_on': '1_product',
+                'product_tmpl_id': optional_product.product_tmpl_id.id,
+            })],
+        })
+
+        product = self.env['product.product'].create({'name': 'Product'})
+        sale_order = self.env['sale.order'].create({
+            'partner_id': self.partner.id,
+            'pricelist_id': pricelist_1.id,
+            'order_line': [Command.create({
+                'product_id': product.id,
+                'product_uom_qty': 1,
+            })],
+            'sale_order_option_ids': [Command.create({
+                'product_id': optional_product.id,
+            })],
+        })
+
+        sale_order.sale_order_option_ids.add_option_to_order()
+        sale_order.write({
+            'pricelist_id': pricelist_2.id,
+        })
+        sale_order.action_update_prices()
+
+        self.assertEqual(sale_order.order_line[1].price_unit, pricelist_2.item_ids.fixed_price)
+
+    def test_show_update_pricelist_false_on_sale_order_open(self):
+        """Ensure the update pricelist button is disabled when opening a sale order
+        with a default quotation template applied.
+        """
+        quotation_template = self.env['sale.order.template'].create({
+            'name': 'Test Quotation Template',
+            'sale_order_template_line_ids': [
+                Command.create({
+                    'product_id': self.product.id,
+                }),
+            ],
+        })
+        self.env['ir.default'].set('sale.order', 'sale_order_template_id', quotation_template.id)
+        with Form(self.env['sale.order']) as sale_order_form:
+            self.assertTrue(sale_order_form.sale_order_template_id)
+            self.assertTrue(sale_order_form.order_line)
+            self.assertFalse(sale_order_form.show_update_pricelist)
+            sale_order_form.partner_id = self.partner

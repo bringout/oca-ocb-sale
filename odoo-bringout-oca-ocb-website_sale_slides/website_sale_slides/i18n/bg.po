@@ -1,31 +1,31 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* website_sale_slides
-# 
+#
 # Translators:
-# KeyVillage, 2023
-# Martin Trigaux, 2023
-# Igor Sheludko <igor.sheludko@gmail.com>, 2023
-# Maria Boyadjieva <marabo2000@gmail.com>, 2023
-# Camille Dantinne <cmd@odoo.com>, 2023
+# Camille Dantinne <cmd@odoo.com>, 2024
+# KeyVillage, 2024
+# Petko Karamotchev, 2024
+# Martin Trigaux, 2024
+# Igor Sheludko <igor.sheludko@gmail.com>, 2024
+# Maria Boyadjieva <marabo2000@gmail.com>, 2024
 # Rumena Georgieva <rumena.georgieva@gmail.com>, 2024
 # Elena Varbanova, 2024
-# Petko Karamotchev, 2024
 # Veselina Slavkova, 2025
 # Martin Dinovski, 2025
-# 
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-06 13:32+0000\n"
-"PO-Revision-Date: 2022-09-22 05:57+0000\n"
+"POT-Creation-Date: 2025-12-29 18:38+0000\n"
+"PO-Revision-Date: 2024-09-25 09:42+0000\n"
 "Last-Translator: Martin Dinovski, 2025\n"
 "Language-Team: Bulgarian (https://app.transifex.com/odoo/teams/41243/bg/)\n"
+"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: website_sale_slides
@@ -39,23 +39,15 @@ msgid "<i class=\"fa fa-shopping-cart\"/> Add to Cart"
 msgstr "<i class=\"fa fa-shopping-cart\"/> Добави в количката"
 
 #. module: website_sale_slides
-#: model:ir.model.fields,help:website_sale_slides.field_product_product__detailed_type
-#: model:ir.model.fields,help:website_sale_slides.field_product_template__detailed_type
-msgid ""
-"A storable product is a product for which you manage stock. The Inventory app has to be installed.\n"
-"A consumable product is a product for which stock is not managed.\n"
-"A service is a non-material product you provide."
-msgstr ""
-"Продуктът, който може да се съхранява, е продукт, за който управлявате наличност. Приложението Inventory (Склад) трябва да бъде инсталирано.\n"
-"Консумативив е продукт, за който запасите не се управляват.\n"
-"Услуга е нематериален продукт, който предоставяте."
-
-#. module: website_sale_slides
 #. odoo-python
 #: code:addons/website_sale_slides/models/product_product.py:0
-#, python-format
-msgid "Access to:%s%s"
-msgstr ""
+msgid "Access to: %(new_line)s%(channel_list)s"
+msgstr "Достъп до: %(new_line)s%(channel_list)s"
+
+#. module: website_sale_slides
+#: model:product.template,name:website_sale_slides.product_course_channel_5_product_template
+msgid "Basics of Furniture Creation"
+msgstr "Основи на създаването на мебели"
 
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.snippet_options
@@ -65,14 +57,12 @@ msgstr "Бутон купи сега"
 #. module: website_sale_slides
 #. odoo-javascript
 #: code:addons/website_sale_slides/static/src/xml/website_sale_slides_quiz.xml:0
-#, python-format
 msgid "Buy the course to validate your answers!"
 msgstr "Купете курсът за да валидирате вашите отговори!"
 
 #. module: website_sale_slides
 #. odoo-javascript
 #: code:addons/website_sale_slides/static/src/xml/slide_course_join.xml:0
-#, python-format
 msgid "Buy this Course"
 msgstr "Купи този курс"
 
@@ -85,11 +75,11 @@ msgstr ""
 
 #. module: website_sale_slides
 #: model:ir.model,name:website_sale_slides.model_slide_channel
-#: model:ir.model.fields.selection,name:website_sale_slides.selection__product_template__detailed_type__course
 msgid "Course"
 msgstr "Курс"
 
 #. module: website_sale_slides
+#: model:ir.model.fields.selection,name:website_sale_slides.selection__product_template__service_tracking__course
 #: model:product.template,name:website_sale_slides.default_product_course_product_template
 msgid "Course Access"
 msgstr "Достъп до Курсът"
@@ -108,6 +98,12 @@ msgstr "Курсът не е наличен"
 #: model:ir.model.fields,field_description:website_sale_slides.field_product_product__channel_ids
 msgid "Courses"
 msgstr "Курсове"
+
+#. module: website_sale_slides
+#: model:ir.model.fields,field_description:website_sale_slides.field_product_product__service_tracking
+#: model:ir.model.fields,field_description:website_sale_slides.field_product_template__service_tracking
+msgid "Create on Order"
+msgstr "Създаване при поръчка"
 
 #. module: website_sale_slides
 #: model:ir.model.fields,field_description:website_sale_slides.field_slide_channel__currency_id
@@ -136,6 +132,14 @@ msgid "Free Preview"
 msgstr "Безплатен преглед "
 
 #. module: website_sale_slides
+#. odoo-python
+#: code:addons/website_sale_slides/models/product_template.py:0
+msgid "Grant access to the eLearning course linked to this product."
+msgstr ""
+"Предоставяне на достъп до курса за електронно обучение, свързан с този "
+"продукт."
+
+#. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_buy_course_link
 msgid "Join this Course"
 msgstr "Присъедини се към този курс"
@@ -143,13 +147,17 @@ msgstr "Присъедини се към този курс"
 #. module: website_sale_slides
 #. odoo-javascript
 #: code:addons/website_sale_slides/static/src/xml/website_slides_unsubscribe.xml:0
-#, python-format
 msgid ""
 "Leaving the course and re-enrolling afterwards means that you'll be charged "
 "again."
 msgstr ""
-"Напускането на курса и повторното записване след това означава, че ще бъдете"
-" таксувани отново."
+"Напускането на курса и повторното записване след това означава, че ще бъдете "
+"таксувани отново."
+
+#. module: website_sale_slides
+#: model_terms:ir.ui.view,arch_db:website_sale_slides.course_buy_course_button
+msgid "Log in"
+msgstr "Влезте в системата"
 
 #. module: website_sale_slides
 #: model_terms:ir.actions.act_window,help:website_sale_slides.sale_report_action_slides
@@ -167,6 +175,11 @@ msgid "Once your order is paid &amp; confirmed, you will gain access to:"
 msgstr ""
 
 #. module: website_sale_slides
+#: model_terms:ir.ui.view,arch_db:website_sale_slides.course_buy_course_button
+msgid "Prerequisite:"
+msgstr ""
+
+#. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_slides_list_slide
 msgid "Preview"
 msgstr "Преглед"
@@ -176,12 +189,6 @@ msgstr "Преглед"
 #: model:ir.model.fields,field_description:website_sale_slides.field_slide_channel__product_id
 msgid "Product"
 msgstr "Продукт"
-
-#. module: website_sale_slides
-#: model:ir.model.fields,field_description:website_sale_slides.field_product_product__detailed_type
-#: model:ir.model.fields,field_description:website_sale_slides.field_product_template__detailed_type
-msgid "Product Type"
-msgstr "Вид продукт"
 
 #. module: website_sale_slides
 #: model:ir.model,name:website_sale_slides.model_product_product
@@ -212,16 +219,19 @@ msgstr "Поръчка"
 #. module: website_sale_slides
 #. odoo-javascript
 #: code:addons/website_sale_slides/static/src/xml/slide_course_join.xml:0
-#, python-format
 msgid "Sign in"
 msgstr "Вход"
 
 #. module: website_sale_slides
 #. odoo-javascript
 #: code:addons/website_sale_slides/static/src/xml/website_sale_slides_quiz.xml:0
-#, python-format
 msgid "Sign in and buy the course to take the quiz"
 msgstr ""
+
+#. module: website_sale_slides
+#: model_terms:ir.ui.view,arch_db:website_sale_slides.course_buy_course_button
+msgid "Sign up"
+msgstr "Регистрирайте се"
 
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_purchased_confirmation_message
@@ -234,6 +244,11 @@ msgid "Taking care of Trees Course"
 msgstr ""
 
 #. module: website_sale_slides
+#: model_terms:ir.ui.view,arch_db:website_sale_slides.course_buy_course_button
+msgid "There are some"
+msgstr "Има няколко."
+
+#. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_main
 msgid "This course cannot be bought because its linked product"
 msgstr "ози курс не може да бъде закупен, защото свързаният му продукт"
@@ -241,7 +256,6 @@ msgstr "ози курс не може да бъде закупен, защото
 #. module: website_sale_slides
 #. odoo-javascript
 #: code:addons/website_sale_slides/static/src/xml/website_slides_unsubscribe.xml:0
-#, python-format
 msgid "This course is paid."
 msgstr "Този курс е платен."
 
@@ -256,14 +270,16 @@ msgid "Total revenues"
 msgstr "Общи приходи"
 
 #. module: website_sale_slides
-#: model:ir.model,name:website_sale_slides.model_website
-msgid "Website"
-msgstr "Уебсайт"
+#. odoo-python
+#: code:addons/website_sale_slides/models/slide_channel.py:0
+msgid ""
+"You are not allowed to add members to this course. Please contact the course "
+"responsible or an administrator."
+msgstr ""
 
 #. module: website_sale_slides
 #. odoo-python
 #: code:addons/website_sale_slides/models/sale_order.py:0
-#, python-format
 msgid "You can only add a course once in your cart."
 msgstr ""
 
@@ -286,6 +302,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_main
 msgid "is not published."
 msgstr "не е публикувано."
+
+#. module: website_sale_slides
+#: model_terms:ir.ui.view,arch_db:website_sale_slides.course_buy_course_button
+msgid "prerequisite courses."
+msgstr ""
 
 #. module: website_sale_slides
 #: model_terms:ir.ui.view,arch_db:website_sale_slides.course_purchased_confirmation_message

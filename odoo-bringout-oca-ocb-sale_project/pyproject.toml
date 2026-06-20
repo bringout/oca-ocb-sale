@@ -1,13 +1,16 @@
 [project]
 name = "odoo-bringout-oca-ocb-sale_project"
 version = "16.0.0"
-description = "Sales - Project - Task Generation from Sales Orders"
+description = "Sales - Project - 
+        Task Generation from Sales Orders
+        "
 authors = [
     { name = "Ernad Husremovic", email = "hernad@bring.out.ba" }
 ]
 dependencies = [
-    "odoo-bringout-oca-ocb-sale_management>=16.0.0",
-    "odoo-bringout-oca-ocb-project>=16.0.0",
+    "odoo-bringout-oca-ocb-sale_management>=18.0.0",
+    "TODO_MAP-sale_service>=18.0.0",
+    "TODO_MAP-project_account>=18.0.0",
     "requests>=2.25.1"
 ]
 readme = "README.md"
@@ -17,14 +20,14 @@ classifiers = [
     "Intended Audience :: Developers",
     "License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.11", 
+    "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Topic :: Office/Business",
 ]
 
 [project.urls]
-homepage = "https://github.com/bringout/0"
-repository = "https://github.com/bringout/0"
+homepage = "https://git.hodi.ba/bringout/project-0"
+repository = "https://git.hodi.ba/bringout/project-0"
 
 [build-system]
 requires = ["hatchling"]

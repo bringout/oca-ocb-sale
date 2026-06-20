@@ -13,9 +13,10 @@ class CrmTeamMember(models.Model):
     _check_company_auto = True
 
     crm_team_id = fields.Many2one(
-        'crm.team', string='Sales Team', group_expand='_read_group_crm_team_id',
+        'crm.team', string='Sales Team',
+        group_expand='_read_group_expand_full',  # Always display all the teams
         default=False,  # TDE: temporary fix to activate depending computed fields
-        check_company=True, index=True, ondelete="cascade", required=True)
+        check_company=False, index=True, ondelete="cascade", required=True)
     user_id = fields.Many2one(
         'res.users', string='Salesperson',  # TDE FIXME check responsible field
         check_company=True, index=True, ondelete='cascade', required=True,
@@ -76,6 +77,16 @@ class CrmTeamMember(models.Model):
                   duplicates=", ".join("%s (%s)" % (m.user_id.name, m.crm_team_id.name) for m in duplicates)
                  ))
 
+    @api.constrains('crm_team_id', 'user_id')
+    def _constrains_company_membership(self):
+        for membership in self.filtered(lambda m: m.crm_team_id.company_id):
+            if membership.crm_team_id.company_id not in membership.user_id.company_ids:
+                raise exceptions.UserError(_("User '%(user)s' is not allowed in the company '%(company)s' of the Sales Team '%(team)s'.",
+                    user=membership.user_id.name,
+                    company=membership.crm_team_id.company_id.display_name,
+                    team=membership.crm_team_id.name
+                ))
+
     @api.depends('crm_team_id', 'is_membership_multi', 'user_id')
     @api.depends_context('default_crm_team_id')
     def _compute_user_in_teams_ids(self):
@@ -130,7 +141,8 @@ class CrmTeamMember(models.Model):
                 teams = user_mapping.get(member.user_id, self.env['crm.team'])
                 remaining = teams - (member.crm_team_id | member._origin.crm_team_id)
                 if remaining:
-                    member.member_warning = _("Adding %(user_name)s in this team would remove him/her from its current teams %(team_names)s.",
+                    member.member_warning = _("Adding %(user_name)s in this team will remove them from %(team_names)s. "
+                                              "Working in multiple teams? Activate the option under Configuration>Settings.",
                                               user_name=member.user_id.name,
                                               team_names=", ".join(remaining.mapped('name'))
                                              )
@@ -178,13 +190,6 @@ class CrmTeamMember(models.Model):
                 for membership in self
             ])
         return super(CrmTeamMember, self).write(values)
-
-    @api.model
-    def _read_group_crm_team_id(self, teams, domain, order):
-        """Read group customization in order to display all the teams in
-        Kanban view, even if they are empty.
-        """
-        return self.env['crm.team'].search([], order=order)
 
     def _synchronize_memberships(self, user_team_ids):
         """ Synchronize memberships: archive other memberships.

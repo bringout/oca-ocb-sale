@@ -1,25 +1,27 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* product_margin
-# 
+#
 # Translators:
-# Dorin Hongu <dhongu@gmail.com>, 2022
-# Martin Trigaux, 2022
+# Lyall Kindmurr, 2024
+# Dorin Hongu <dhongu@gmail.com>, 2024
+# Wil Odoo, 2024
 # Larisa_nexterp, 2025
-# 
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-22 18:35+0000\n"
-"PO-Revision-Date: 2022-09-22 05:54+0000\n"
+"POT-Creation-Date: 2025-12-29 18:37+0000\n"
+"PO-Revision-Date: 2024-09-25 09:41+0000\n"
 "Last-Translator: Larisa_nexterp, 2025\n"
 "Language-Team: Romanian (https://app.transifex.com/odoo/teams/41243/ro/)\n"
+"Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: ro\n"
-"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?"
+"2:1));\n"
 
 #. module: product_margin
 #: model:ir.model.fields,field_description:product_margin.field_product_product__purchase_num_invoiced
@@ -35,13 +37,6 @@ msgstr "# Facturat în vânzare"
 #: model_terms:ir.ui.view,arch_db:product_margin.view_product_margin_tree
 msgid "# Purchased"
 msgstr "# Achiziții"
-
-#. module: product_margin
-#. odoo-python
-#: code:addons/product_margin/models/product_product.py:0
-#, python-format
-msgid "Aggregate functions other than ':sum' are not allowed."
-msgstr ""
 
 #. module: product_margin
 #: model_terms:ir.ui.view,arch_db:product_margin.view_product_margin_form
@@ -91,7 +86,7 @@ msgstr "Creat de"
 #. module: product_margin
 #: model:ir.model.fields,field_description:product_margin.field_product_margin__create_date
 msgid "Created on"
-msgstr "Creat în"
+msgstr "Creat pe"
 
 #. module: product_margin
 #: model:ir.model.fields,field_description:product_margin.field_product_margin__display_name
@@ -117,7 +112,7 @@ msgstr "Marjă estimată (%)"
 #. module: product_margin
 #: model:ir.model.fields,field_description:product_margin.field_product_product__sale_expected
 msgid "Expected Sale"
-msgstr "Vânzare estimate"
+msgstr "Vânzare estimată"
 
 #. module: product_margin
 #: model:ir.model.fields,help:product_margin.field_product_product__expected_margin
@@ -154,11 +149,6 @@ msgstr "ID"
 #: model:ir.model.fields,field_description:product_margin.field_product_product__invoice_state
 msgid "Invoice State"
 msgstr "Stare factură"
-
-#. module: product_margin
-#: model:ir.model.fields,field_description:product_margin.field_product_margin____last_update
-msgid "Last Modified on"
-msgstr "Ultima modificare la"
 
 #. module: product_margin
 #: model:ir.model.fields,field_description:product_margin.field_product_margin__write_uid
@@ -215,7 +205,7 @@ msgstr "Plătit"
 #. module: product_margin
 #: model:ir.model,name:product_margin.model_product_margin
 msgid "Product Margin"
-msgstr "Marja produs"
+msgstr "Marja produsului"
 
 #. module: product_margin
 #. odoo-python
@@ -225,14 +215,13 @@ msgstr "Marja produs"
 #: model_terms:ir.ui.view,arch_db:product_margin.view_product_margin_form
 #: model_terms:ir.ui.view,arch_db:product_margin.view_product_margin_graph
 #: model_terms:ir.ui.view,arch_db:product_margin.view_product_margin_tree
-#, python-format
 msgid "Product Margins"
-msgstr "Marje Produs"
+msgstr "Marje produs"
 
 #. module: product_margin
 #: model:ir.model,name:product_margin.model_product_product
 msgid "Product Variant"
-msgstr "Variantă produs"
+msgstr "Variantă de produs"
 
 #. module: product_margin
 #: model_terms:ir.ui.view,arch_db:product_margin.product_margin_form_view
@@ -242,7 +231,7 @@ msgstr "Categorii proprietăți"
 #. module: product_margin
 #: model:ir.model.fields,field_description:product_margin.field_product_product__purchase_gap
 msgid "Purchase Gap"
-msgstr "Deficit achizitii"
+msgstr "Deficit achiziții"
 
 #. module: product_margin
 #: model_terms:ir.ui.view,arch_db:product_margin.view_product_margin_form
@@ -263,7 +252,7 @@ msgstr "Deficit vânzări"
 #. module: product_margin
 #: model_terms:ir.ui.view,arch_db:product_margin.view_product_margin_form
 msgid "Standard Price"
-msgstr "Preț standard"
+msgstr "Prețul standard"
 
 #. module: product_margin
 #: model:ir.model.fields,help:product_margin.field_product_product__normal_cost
@@ -276,8 +265,7 @@ msgstr ""
 msgid ""
 "Sum of Multiplication of Invoice price and quantity of Customer Invoices"
 msgstr ""
-"Suma de Multiplicare a Pretului facturii si cantitatea de Facturi ale "
-"Clientului"
+"Suma înmulțirii prețului facturii și a cantității din facturile clientului"
 
 #. module: product_margin
 #: model:ir.model.fields,help:product_margin.field_product_product__total_cost
@@ -288,16 +276,15 @@ msgstr ""
 #. module: product_margin
 #: model:ir.model.fields,help:product_margin.field_product_product__sale_expected
 msgid ""
-"Sum of Multiplication of Sale Catalog price and quantity of Customer "
-"Invoices"
+"Sum of Multiplication of Sale Catalog price and quantity of Customer Invoices"
 msgstr ""
-"Suma de Multiplicare a Pretului de vanzare din catalog si cantitatea "
-"Facturilor Clientilor"
+"Suma înmulțirii prețului de vânzare din catalog și a cantității din "
+"facturile clienților"
 
 #. module: product_margin
 #: model:ir.model.fields,help:product_margin.field_product_product__sale_num_invoiced
 msgid "Sum of Quantity in Customer Invoices"
-msgstr "Suma Cantitatii in Facturile Clientului"
+msgstr "Suma cantității din facturile clientului"
 
 #. module: product_margin
 #: model:ir.model.fields,help:product_margin.field_product_product__purchase_num_invoiced
@@ -307,7 +294,7 @@ msgstr "Suma cantității din facturile furnizorilor"
 #. module: product_margin
 #: model:ir.model.fields,field_description:product_margin.field_product_margin__to_date
 msgid "To"
-msgstr "Către"
+msgstr "Până la"
 
 #. module: product_margin
 #: model:ir.model.fields,field_description:product_margin.field_product_product__total_cost
@@ -324,12 +311,12 @@ msgstr "Marja totală"
 #. module: product_margin
 #: model:ir.model.fields,field_description:product_margin.field_product_product__total_margin_rate
 msgid "Total Margin Rate(%)"
-msgstr "Rata Marjei Totale(%)"
+msgstr "Rata marjei totale (%)"
 
 #. module: product_margin
 #: model:ir.model.fields,help:product_margin.field_product_product__total_margin_rate
 msgid "Total margin * 100 / Turnover"
-msgstr "Marja totala * 100 / Cifra de afaceri"
+msgstr "Marja totală * 100 / Cifra de afaceri"
 
 #. module: product_margin
 #: model:ir.model.fields,field_description:product_margin.field_product_product__turnover

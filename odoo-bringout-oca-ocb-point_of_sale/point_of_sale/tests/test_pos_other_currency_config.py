@@ -4,7 +4,6 @@
 import odoo
 
 from odoo import tools
-from odoo.tests.common import Form
 from odoo.addons.point_of_sale.tests.common import TestPoSCommon
 
 @odoo.tests.tagged('post_install', '-at_install')
@@ -91,9 +90,9 @@ class TestPoSOtherCurrencyConfig(TestPoSCommon):
         self._run_test({
             'payment_methods': self.cash_pm2 | self.bank_pm2,
             'orders': [
-                {'pos_order_lines_ui_args': [(self.product1, 10), (self.product2, 10), (self.product3, 10)], 'uid': '00100-010-0001'},
-                {'pos_order_lines_ui_args': [(self.product1, 5), (self.product2, 5)], 'uid': '00100-010-0002'},
-                {'pos_order_lines_ui_args': [(self.product2, 5), (self.product3, 5)], 'payments': [(self.bank_pm2, 139.95)], 'uid': '00100-010-0003'},
+                {'pos_order_lines_ui_args': [(self.product1, 10), (self.product2, 10), (self.product3, 10)], 'uuid': '00100-010-0001'},
+                {'pos_order_lines_ui_args': [(self.product1, 5), (self.product2, 5)], 'uuid': '00100-010-0002'},
+                {'pos_order_lines_ui_args': [(self.product2, 5), (self.product3, 5)], 'payments': [(self.bank_pm2, 139.95)], 'uuid': '00100-010-0003'},
             ],
             'before_closing_cb': _before_closing_cb,
             'journal_entries_before_closing': {},
@@ -167,9 +166,9 @@ class TestPoSOtherCurrencyConfig(TestPoSCommon):
         self._run_test({
             'payment_methods': self.cash_pm2 | self.bank_pm2,
             'orders': [
-                {'pos_order_lines_ui_args': [(self.product1, 10), (self.product2, 10), (self.product3, 10)], 'uid': '00100-010-0001'},
-                {'pos_order_lines_ui_args': [(self.product1, 5), (self.product2, 5)], 'is_invoiced': True, 'customer': self.customer, 'uid': '00100-010-0002'},
-                {'pos_order_lines_ui_args': [(self.product2, 5), (self.product3, 5)], 'payments': [(self.bank_pm2, 139.95)], 'is_invoiced': True, 'customer': self.customer, 'uid': '00100-010-0003'},
+                {'pos_order_lines_ui_args': [(self.product1, 10), (self.product2, 10), (self.product3, 10)], 'uuid': '00100-010-0001'},
+                {'pos_order_lines_ui_args': [(self.product1, 5), (self.product2, 5)], 'is_invoiced': True, 'customer': self.customer, 'uuid': '00100-010-0002'},
+                {'pos_order_lines_ui_args': [(self.product2, 5), (self.product3, 5)], 'payments': [(self.bank_pm2, 139.95)], 'is_invoiced': True, 'customer': self.customer, 'uuid': '00100-010-0003'},
             ],
             'before_closing_cb': _before_closing_cb,
             'journal_entries_before_closing': {
@@ -263,10 +262,10 @@ class TestPoSOtherCurrencyConfig(TestPoSCommon):
         self._run_test({
             'payment_methods': self.cash_pm2,
             'orders': [
-                {'pos_order_lines_ui_args': [(self.product4, 7), (self.product5, 7)], 'uid': '00100-010-0001'},
-                {'pos_order_lines_ui_args': [(self.product5, 6), (self.product4, 6), (self.product6, 49)], 'uid': '00100-010-0002'},
-                {'pos_order_lines_ui_args': [(self.product5, 2), (self.product6, 13)], 'uid': '00100-010-0003'},
-                {'pos_order_lines_ui_args': [(self.product6, 1)], 'uid': '00100-010-0004'},
+                {'pos_order_lines_ui_args': [(self.product4, 7), (self.product5, 7)], 'uuid': '00100-010-0001'},
+                {'pos_order_lines_ui_args': [(self.product5, 6), (self.product4, 6), (self.product6, 49)], 'uuid': '00100-010-0002'},
+                {'pos_order_lines_ui_args': [(self.product5, 2), (self.product6, 13)], 'uuid': '00100-010-0003'},
+                {'pos_order_lines_ui_args': [(self.product6, 1)], 'uuid': '00100-010-0004'},
             ],
             'journal_entries_before_closing': {},
             'journal_entries_after_closing': {
@@ -294,7 +293,7 @@ class TestPoSOtherCurrencyConfig(TestPoSCommon):
         self._run_test({
             'payment_methods': self.cash_pm2,
             'orders': [
-                {'pos_order_lines_ui_args': [(self.product7, 7)], 'uid': '00100-010-0001'},
+                {'pos_order_lines_ui_args': [(self.product7, 7)], 'uuid': '00100-010-0001'},
             ],
             'journal_entries_before_closing': {},
             'journal_entries_after_closing': {
@@ -363,3 +362,9 @@ class TestPoSOtherCurrencyConfig(TestPoSCommon):
                 debit += line.debit
                 credit += line.credit
             self.assertEqual(tools.float_compare(debit, credit, precision_rounding=self.other_currency_config.currency_id.rounding), 0)  # debit and credit should be equal
+
+    def test_pos_data_standard_price_converted(self):
+        self.other_currency_config.open_ui()
+        res = self.other_currency_config.current_session_id.load_data({})
+        product1_data = next(filter(lambda product: product['display_name'] == "Product 1", res['product.product']['data']))
+        self.assertEqual(product1_data['standard_price'], 2.5)  # standard price should be converted

@@ -7,7 +7,10 @@ from odoo import fields, models
 class LoyaltyCard(models.Model):
     _inherit = 'loyalty.card'
 
-    order_id = fields.Many2one('sale.order', 'Order Reference', readonly=True,
+    order_id = fields.Many2one(
+        comodel_name='sale.order',
+        string="Order Reference",
+        readonly=True,
         help="The sales order from which coupon is generated")
 
     def _get_default_template(self):
@@ -20,7 +23,7 @@ class LoyaltyCard(models.Model):
         return super()._get_mail_partner() or self.order_id.partner_id
 
     def _get_mail_author(self):
-        """Default author is the order's salesperson if available, else the order's company."""
+        # Default author is the order's salesperson if available, else the order's company.
         if not self.order_id or self.order_id.sudo().company_id not in self.env.companies:
             return super()._get_mail_author()
         self.ensure_one()
@@ -32,10 +35,17 @@ class LoyaltyCard(models.Model):
     def _compute_use_count(self):
         super()._compute_use_count()
         read_group_res = self.env['sale.order.line']._read_group(
-            [('coupon_id', 'in', self.ids)], ['id'], ['coupon_id'])
-        count_per_coupon = {r['coupon_id'][0]: r['coupon_id_count'] for r in read_group_res}
+            [('coupon_id', 'in', self.ids)], ['coupon_id'], ['__count'])
+        count_per_coupon = {coupon.id: count for coupon, count in read_group_res}
         for card in self:
             card.use_count += count_per_coupon.get(card.id, 0)
 
     def _has_source_order(self):
         return super()._has_source_order() or bool(self.order_id)
+
+    def action_archive(self):
+        self.env['sale.order.coupon.points'].search([
+            ('coupon_id', 'in', self.ids),
+            ('order_id.state', '=', 'draft'),
+        ]).unlink()
+        return super().action_archive()

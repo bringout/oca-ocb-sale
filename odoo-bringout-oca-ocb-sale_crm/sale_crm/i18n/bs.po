@@ -1,45 +1,48 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* sale_crm
+# * sale_crm
 #
+# Translators:
+# Martin Trigaux, 2018
+# Boško Stojaković <bluesoft83@gmail.com>, 2018
+# Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-10 08:27+0000\n"
-"PO-Revision-Date: 2025-02-10 08:27+0000\n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2025-12-29 18:37+0000\n"
+"PO-Revision-Date: 2026-05-16 09:03+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Bosnian <https://translate.odoo.com/projects/odoo-18/sale_crm/"
+"bs/>\n"
+"Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.17\n"
 
-# taken from hr.po
 #. module: sale_crm
 #: model_terms:ir.ui.view,arch_db:sale_crm.crm_case_form_view_oppor
 msgid "<span class=\"o_stat_text\"> Orders</span>"
 msgstr "<span class=\"o_stat_text\"> Narudžbe</span>"
 
-# taken from hr.po
 #. module: sale_crm
 #: model:ir.model.fields,field_description:sale_crm.field_crm_quotation_partner__lead_id
 msgid "Associated Lead"
-msgstr "Pridružen potencijal"
+msgstr "Povezani potencijalni kupac"
 
-# taken from hr.po
 #. module: sale_crm
 #: model_terms:ir.ui.view,arch_db:sale_crm.crm_quotation_partner_view_form
 msgid "Cancel"
-msgstr "Odustani"
+msgstr "Otkaži"
 
-# taken from hr.po
 #. module: sale_crm
 #: model_terms:ir.ui.view,arch_db:sale_crm.crm_quotation_partner_view_form
 msgid "Confirm"
-msgstr "Potvrdi"
+msgstr "Portvrdi"
 
-# taken from hr.po
 #. module: sale_crm
 #: model:ir.model.fields.selection,name:sale_crm.selection__crm_quotation_partner__action__create
 msgid "Create a new customer"
@@ -48,103 +51,86 @@ msgstr "Kreiraj novog partnera"
 #. module: sale_crm
 #: model:ir.model,name:sale_crm.model_crm_quotation_partner
 msgid "Create new or use existing Customer on new Quotation"
-msgstr "Create new or use existing Kupac on new Ponuda"
+msgstr ""
 
-# taken from hr.po
 #. module: sale_crm
 #: model_terms:ir.ui.view,arch_db:sale_crm.crm_case_form_view_oppor
 msgid "Create new quotation"
-msgstr "Napravite novu ponudu"
+msgstr ""
 
-# taken from hr.po
 #. module: sale_crm
 #: model:ir.model.fields,field_description:sale_crm.field_crm_quotation_partner__create_uid
 msgid "Created by"
 msgstr "Kreirao"
 
-# taken from hr.po
 #. module: sale_crm
 #: model:ir.model.fields,field_description:sale_crm.field_crm_quotation_partner__create_date
 msgid "Created on"
 msgstr "Kreirano"
 
-# taken from hr.po
 #. module: sale_crm
 #: model:ir.model.fields,field_description:sale_crm.field_crm_quotation_partner__partner_id
 msgid "Customer"
 msgstr "Kupac"
 
-# taken from hr.po
 #. module: sale_crm
-#: model:ir.model.fields,field_description:sale_crm.field_crm_lead__display_name
+#: model:ir.model.fields,field_description:sale_crm.field_crm_quotation_partner__display_name
 msgid "Display Name"
-msgstr "Naziv prikaza"
+msgstr "Prikazani naziv"
 
-# taken from hr.po
 #. module: sale_crm
 #: model:ir.model.fields.selection,name:sale_crm.selection__crm_quotation_partner__action__nothing
 msgid "Do not link to a customer"
-msgstr "Bez poveznice s partnerom"
+msgstr "Ne spajaj s kupcem"
 
 #. module: sale_crm
-#: model:ir.model.fields,field_description:sale_crm.field_crm_lead__id
+#. odoo-python
+#: code:addons/sale_crm/models/crm_lead.py:0
+msgid "Expected revenue has been updated based on the linked Sales Orders."
+msgstr ""
+
+#. module: sale_crm
+#: model:ir.model.fields,field_description:sale_crm.field_crm_quotation_partner__id
 msgid "ID"
 msgstr "ID"
 
 #. module: sale_crm
 #: model:ir.model.fields,field_description:sale_crm.field_res_users__target_sales_invoiced
 msgid "Invoiced in Sales Orders Target"
-msgstr "Fakturad in Prodajas Nalogs Target"
+msgstr ""
 
-# taken from hr.po
-#. module: sale_crm
-#: model:ir.model.fields,field_description:sale_crm.field_crm_quotation_partner____last_update
-msgid "Last Modified on"
-msgstr "Zadnji put izmijenjeno"
-
-# taken from hr.po
 #. module: sale_crm
 #: model:ir.model.fields,field_description:sale_crm.field_crm_quotation_partner__write_uid
 msgid "Last Updated by"
-msgstr "Zadnji put ažurirao"
+msgstr "Zadnji ažurirao"
 
-# taken from hr.po
 #. module: sale_crm
 #: model:ir.model.fields,field_description:sale_crm.field_crm_quotation_partner__write_date
 msgid "Last Updated on"
-msgstr "Zadnji put ažurirano"
+msgstr "Zadnje ažurirano"
 
-# taken from hr.po
 #. module: sale_crm
 #: model:ir.model,name:sale_crm.model_crm_lead
 msgid "Lead/Opportunity"
 msgstr "Potencijal/Prilika"
 
-# taken from hr.po
 #. module: sale_crm
 #: model:ir.model.fields.selection,name:sale_crm.selection__crm_quotation_partner__action__exist
 msgid "Link to an existing customer"
 msgstr "Veza na postojećeg partnera"
 
-# taken from hr.po
-#. module: sale_crm
-#: model_terms:ir.ui.view,arch_db:sale_crm.sale_view_inherit123
-msgid "Log in the chatter from which opportunity the order originates"
-msgstr "Zabilježi u prozor chat-a iz koje prilike nalog dolazi"
-
-# taken from hr.po
 #. module: sale_crm
 #: model:ir.ui.menu,name:sale_crm.sale_order_menu_quotations_crm
 msgid "My Quotations"
 msgstr "Moje ponude"
 
-# taken from hr.po
 #. module: sale_crm
 #: model:ir.actions.act_window,name:sale_crm.crm_quotation_partner_action
+#: model_terms:ir.ui.view,arch_db:sale_crm.crm_case_form_view_oppor
+#: model_terms:ir.ui.view,arch_db:sale_crm.crm_quotation_partner_view_form
 msgid "New Quotation"
 msgstr "Novi predračun"
 
-# taken from hr.po
 #. module: sale_crm
 #: model:ir.model.fields,field_description:sale_crm.field_crm_lead__quotation_count
 msgid "Number of Quotations"
@@ -153,21 +139,18 @@ msgstr "Broj predračuna"
 #. module: sale_crm
 #: model:ir.model.fields,field_description:sale_crm.field_crm_lead__sale_order_count
 msgid "Number of Sale Orders"
-msgstr "Number of Prodaja Nalogs"
+msgstr ""
 
-# taken from hr.po
 #. module: sale_crm
 #: model:ir.model.fields,field_description:sale_crm.field_sale_order__opportunity_id
 msgid "Opportunity"
 msgstr "Prilika"
 
-# taken from hr.po
 #. module: sale_crm
 #: model:ir.model.fields,field_description:sale_crm.field_crm_lead__order_ids
 msgid "Orders"
 msgstr "Narudžbe"
 
-# taken from hr.po
 #. module: sale_crm
 #: model:ir.actions.act_window,name:sale_crm.sale_action_quotations_new
 msgid "Quotation"
@@ -176,61 +159,50 @@ msgstr "Predračun"
 #. module: sale_crm
 #: model:ir.model.fields,field_description:sale_crm.field_crm_quotation_partner__action
 msgid "Quotation Customer"
-msgstr "Ponuda Kupac"
+msgstr ""
 
-# taken from hr.po
 #. module: sale_crm
 #: model_terms:ir.ui.view,arch_db:sale_crm.crm_case_form_view_oppor
 msgid "Quotations"
 msgstr "Predračuni"
 
-# taken from hr.po
 #. module: sale_crm
 #: model_terms:ir.ui.view,arch_db:sale_crm.crm_lead_merge_summary_inherit_sale_crm
 msgid "Sale Orders"
-msgstr "<span class=\"o_stat_text\"> Ponuda(e) </span>"
+msgstr "Prodajni nalozi"
 
-# taken from hr.po
 #. module: sale_crm
 #. odoo-python
 #: code:addons/sale_crm/models/crm_team.py:0
-#, python-format
 msgid "Sales Analysis"
 msgstr "Analiza prodaje"
 
-# taken from hr.po
 #. module: sale_crm
 #: model:ir.model,name:sale_crm.model_sale_order
 msgid "Sales Order"
-msgstr "Narudžba"
+msgstr "Prodajna narudžba"
 
-# taken from hr.po
 #. module: sale_crm
 #: model:ir.model,name:sale_crm.model_crm_team
 msgid "Sales Team"
 msgstr "Prodajni tim"
 
-# taken from hr.po
 #. module: sale_crm
 #. odoo-python
 #: code:addons/sale_crm/models/crm_team.py:0
-#, python-format
 msgid "Sales: Untaxed Total"
-msgstr "Prodaja: Ukupno bez poreza"
+msgstr "Prodaja: ukupno bez PDVa"
 
-# taken from hr.po
 #. module: sale_crm
 #: model:ir.model.fields,field_description:sale_crm.field_crm_lead__sale_amount_total
 msgid "Sum of Orders"
 msgstr "Suma narudžbi"
 
-# taken from hr.po
 #. module: sale_crm
 #: model:ir.model.fields,help:sale_crm.field_crm_lead__sale_amount_total
 msgid "Untaxed Total of Confirmed Orders"
-msgstr "Ukupno prodajni nalozi bez poreza"
+msgstr ""
 
-# taken from hr.po
 #. module: sale_crm
 #: model:ir.model,name:sale_crm.model_res_users
 msgid "User"
@@ -239,36 +211,8 @@ msgstr "Korisnik"
 #. module: sale_crm
 #. odoo-python
 #: code:addons/sale_crm/wizard/crm_opportunity_to_quotation.py:0
-#, python-format
 msgid "You can only apply this action from a lead."
 msgstr ""
 
-#. module: sale_crm
-#: model:ir.model,website_form_label:sale_crm.model_crm_lead
-msgid "Create an Opportunity"
-msgstr "Kreiraj priliku"
-
-#. module: sale_crm
-#: code:addons/sale_crm/models/crm_lead.py:0
-msgid "Expected revenue has been updated based on the linked Sales Orders."
-msgstr "Očekivani prihod je ažuriran na osnovu povezanih prodajnih narudžbi."
-
-#. module: sale_crm
-#: model:ir.model,name:sale_crm.model_crm_lead
-msgid "Lead"
-msgstr "Lead"
-
-#. module: sale_crm
-#: model_terms:ir.ui.view,arch_db:sale_crm.crm_quotation_partner_view_form
-msgid "Go to Quotation"
-msgstr ""
-
-#. module: sale_crm
-#: model_terms:ir.ui.view,arch_db:sale_crm.crm_quotation_partner_view_form
-msgid "Select a Customer"
-msgstr ""
-
-#. module: sale_crm
-#: model:ir.actions.act_window,name:sale_crm.crm_quotation_partner_action
-msgid "Who should be linked to this new Quotation?"
-msgstr ""
+#~ msgid "Last Modified on"
+#~ msgstr "Zadnje mijenjano"

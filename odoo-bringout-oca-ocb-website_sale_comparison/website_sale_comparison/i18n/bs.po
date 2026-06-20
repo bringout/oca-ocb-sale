@@ -1,29 +1,38 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* website_sale_comparison
+# * website_sale_comparison
 #
+# Translators:
+# Martin Trigaux, 2018
+# Boško Stojaković <bluesoft83@gmail.com>, 2018
+# Bole <bole@dajmi5.com>, 2018
+# Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0+e\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-15 12:45+0000\n"
-"PO-Revision-Date: 2022-12-15 12:45+0000\n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2025-12-29 18:38+0000\n"
+"PO-Revision-Date: 2026-04-24 07:53+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Bosnian <https://translate.odoo.com/projects/odoo-18/"
+"website_sale_comparison/bs/>\n"
+"Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.17\n"
 
 #. module: website_sale_comparison
 #: model:product.attribute.value,name:website_sale_comparison.product_attribute_value_8
 msgid "134.7 x 200 x 7.2 mm"
-msgstr "134.7 x 200 x 7.2 mm"
+msgstr ""
 
 #. module: website_sale_comparison
 #: model:product.attribute.value,name:website_sale_comparison.product_attribute_value_7
 msgid "308 g"
-msgstr "308 g"
+msgstr ""
 
 #. module: website_sale_comparison
 #: model_terms:ir.ui.view,arch_db:website_sale_comparison.product_compare
@@ -31,35 +40,44 @@ msgid ""
 "<i class=\"fa fa-chevron-circle-down o_product_comparison_collpase\" "
 "role=\"img\" aria-label=\"Collapse\" title=\"Collapse\"/>"
 msgstr ""
-"<i class=\"fa fa-chevron-circle-down o_product_comparison_collpase\" "
-"role=\"img\" aria-label=\"Sklopi\" title=\"Sklopi\"/>"
 
-# taken from hr.po
+#. module: website_sale_comparison
+#: model_terms:ir.ui.view,arch_db:website_sale_comparison.product_compare
+msgid ""
+"<i class=\"fa fa-chevron-circle-down o_product_comparison_collpase\" "
+"role=\"img\" aria-label=\"Collapse\" title=\"Collapse\"/><span>Tags</span>"
+msgstr ""
+
 #. module: website_sale_comparison
 #: model_terms:ir.ui.view,arch_db:website_sale_comparison.product_compare
 msgid "<i class=\"fa fa-shopping-cart me-2\"/>Add to Cart"
-msgstr "<i class=\"fa fa-shopping-cart me-2\"/>Dodaj u košaricu"
+msgstr ""
 
 #. module: website_sale_comparison
 #: model_terms:ir.ui.view,arch_db:website_sale_comparison.product_product
 msgid "<i class=\"fa fa-trash\" role=\"img\" aria-label=\"Remove\"/>"
-msgstr "<i class=\"fa fa-trash\" role=\"img\" aria-label=\"Ukloni\"/>"
+msgstr ""
 
 #. module: website_sale_comparison
 #: model_terms:ir.ui.view,arch_db:website_sale_comparison.product_add_to_compare
 msgid "<span class=\"fa fa-exchange me-2\"/>Compare"
-msgstr "<span class=\"fa fa-exchange me-2\"/>Uporedi"
+msgstr ""
 
-# taken from hr.po
+#. module: website_sale_comparison
+#: model_terms:ir.ui.view,arch_db:website_sale_comparison.product_attributes_body
+#: model_terms:ir.ui.view,arch_db:website_sale_comparison.product_compare
+msgid "<span>Tags</span>"
+msgstr ""
+
 #. module: website_sale_comparison
 #: model_terms:ir.ui.view,arch_db:website_sale_comparison.product_compare
 msgid "<strong>Price:</strong>"
-msgstr "<strong>Cijena</strong>"
+msgstr ""
 
 #. module: website_sale_comparison
 #: model_terms:ir.ui.view,arch_db:website_sale_comparison.product_compare
 msgid "<strong>x</strong>"
-msgstr "<i class=\"fa fa-exchange\"/> Poredi"
+msgstr ""
 
 #. module: website_sale_comparison
 #: model:product.attribute.value,name:website_sale_comparison.product_attribute_value_1
@@ -68,21 +86,15 @@ msgstr "Apple"
 
 #. module: website_sale_comparison
 #: model:ir.actions.act_window,name:website_sale_comparison.product_attribute_category_action
+#: model:ir.ui.menu,name:website_sale_comparison.menu_attribute_category_action
 msgid "Attribute Categories"
-msgstr "Kategorije atributa"
+msgstr ""
 
 #. module: website_sale_comparison
-#: code:addons/website_sale_comparison/static/src/website_builder/product_page_option.xml:0
+#: model_terms:ir.ui.view,arch_db:website_sale_comparison.snippet_options
 msgid "Bottom of Page"
-msgstr "Dno stranice"
+msgstr ""
 
-# taken from hr.po
-#. module: website_sale_comparison
-#: model:ir.model.fields,field_description:website_sale_comparison.field_product_attribute__category_id
-msgid "Category"
-msgstr "Kategorija"
-
-# taken from hr.po
 #. module: website_sale_comparison
 #: model:ir.model.fields,field_description:website_sale_comparison.field_product_attribute_category__name
 msgid "Category Name"
@@ -90,19 +102,20 @@ msgstr "Naziv kategorije"
 
 #. module: website_sale_comparison
 #. odoo-javascript
-#: code:addons/website_sale_comparison/static/src/js/product_comparison_bottom_bar/product_comparison_bottom_bar.xml:0
-#, python-format
+#: code:addons/website_sale_comparison/static/src/xml/comparison.xml:0
+#: model_terms:ir.ui.view,arch_db:website_sale_comparison.add_to_compare
+#: model_terms:ir.ui.view,arch_db:website_sale_comparison.product_add_to_compare
+#: model_terms:ir.ui.view,arch_db:website_sale_comparison.snippet_options
 msgid "Compare"
-msgstr "<i class=\"fa fa-shopping-cart\"/>&amp;nbsp;Dodaj u korpu"
+msgstr ""
 
 #. module: website_sale_comparison
 #. odoo-javascript
+#: code:addons/website_sale_comparison/static/src/js/website_sale_comparison.js:0
 #: model_terms:ir.ui.view,arch_db:website_sale_comparison.product_compare
-#, python-format
 msgid "Compare Products"
-msgstr "Uporedi proizvode"
+msgstr ""
 
-# taken from hr.po
 #. module: website_sale_comparison
 #: model_terms:ir.ui.view,arch_db:website_sale_comparison.product_compare
 msgid "Contact Us"
@@ -111,32 +124,29 @@ msgstr "Kontaktirajte nas"
 #. module: website_sale_comparison
 #: model_terms:ir.actions.act_window,help:website_sale_comparison.product_attribute_category_action
 msgid "Create a new attribute category"
-msgstr "<span class=\"h3\">Predložene alternative: </span>"
+msgstr ""
 
-# taken from hr.po
 #. module: website_sale_comparison
 #: model:ir.model.fields,field_description:website_sale_comparison.field_product_attribute_category__create_uid
 msgid "Created by"
 msgstr "Kreirao"
 
-# taken from hr.po
 #. module: website_sale_comparison
 #: model:ir.model.fields,field_description:website_sale_comparison.field_product_attribute_category__create_date
 msgid "Created on"
 msgstr "Kreirano"
 
 #. module: website_sale_comparison
-#: model:product.attribute.category,name:website_sale_comparison.product_attribute_category_dimensions
+#: model:product.attribute,name:website_sale_comparison.product_attribute_8
+#: model:product.attribute.category,name:website_sale_comparison.product_attribute_category_2
 msgid "Dimensions"
 msgstr "Dimenzije"
 
-# taken from hr.po
 #. module: website_sale_comparison
-#: model:ir.model.fields,field_description:website_sale_comparison.field_product_attribute__display_name
+#: model:ir.model.fields,field_description:website_sale_comparison.field_product_attribute_category__display_name
 msgid "Display Name"
-msgstr "Naziv prikaza"
+msgstr "Prikazani naziv"
 
-# taken from hr.po
 #. module: website_sale_comparison
 #: model:product.attribute.category,name:website_sale_comparison.product_attribute_category_duration
 msgid "Duration"
@@ -145,7 +155,7 @@ msgstr "Trajanje"
 #. module: website_sale_comparison
 #: model:product.attribute.category,name:website_sale_comparison.product_attribute_category_general_features
 msgid "General Features"
-msgstr "Opće karakteristike"
+msgstr ""
 
 #. module: website_sale_comparison
 #: model_terms:ir.actions.act_window,help:website_sale_comparison.product_attribute_category_action
@@ -153,47 +163,44 @@ msgid ""
 "Group attributes by category that will appear in the specification\n"
 "                part of a product page."
 msgstr ""
-"Grupiraj atribute po kategoriji koja će se pojaviti u dijelu specifikacije\n"
-"                stranice proizvoda."
 
 #. module: website_sale_comparison
-#: model:ir.model.fields,field_description:website_sale_comparison.field_product_attribute__id
+#: model:ir.model.fields,field_description:website_sale_comparison.field_product_attribute_category__id
 msgid "ID"
 msgstr "ID"
 
-# taken from hr.po
 #. module: website_sale_comparison
-#: model:ir.model.fields,field_description:website_sale_comparison.field_product_attribute_category____last_update
-msgid "Last Modified on"
-msgstr "Zadnji put izmijenjeno"
+#: model_terms:ir.ui.view,arch_db:website_sale_comparison.snippet_options
+msgid "In accordion"
+msgstr ""
 
-# taken from hr.po
 #. module: website_sale_comparison
 #: model:ir.model.fields,field_description:website_sale_comparison.field_product_attribute_category__write_uid
 msgid "Last Updated by"
-msgstr "Zadnji put ažurirao"
+msgstr "Zadnji ažurirao"
 
-# taken from hr.po
 #. module: website_sale_comparison
 #: model:ir.model.fields,field_description:website_sale_comparison.field_product_attribute_category__write_date
 msgid "Last Updated on"
-msgstr "Zadnji put ažurirano"
+msgstr "Zadnje ažurirano"
 
-# taken from hr.po
 #. module: website_sale_comparison
-#: code:addons/website_sale_comparison/static/src/website_builder/product_page_option.xml:0
+#: model_terms:ir.ui.view,arch_db:website_sale_comparison.snippet_options
 msgid "None"
 msgstr "Ništa"
 
-# taken from hr.po
+#. module: website_sale_comparison
+#: model_terms:ir.ui.view,arch_db:website_sale_comparison.accordion_specs_item
+#: model_terms:ir.ui.view,arch_db:website_sale_comparison.specifications_table
+msgid "Others"
+msgstr ""
+
 #. module: website_sale_comparison
 #. odoo-javascript
 #: code:addons/website_sale_comparison/static/src/xml/comparison.xml:0
-#, python-format
 msgid "Product"
 msgstr "Proizvod"
 
-# taken from hr.po
 #. module: website_sale_comparison
 #: model:ir.model,name:website_sale_comparison.model_product_attribute
 msgid "Product Attribute"
@@ -201,85 +208,75 @@ msgstr "Atribut proizvoda"
 
 #. module: website_sale_comparison
 #: model:ir.model,name:website_sale_comparison.model_product_attribute_category
+#: model_terms:ir.ui.view,arch_db:website_sale_comparison.product_attribute_category_tree_view
 msgid "Product Attribute Category"
-msgstr "Kategorija atributa proizvoda"
+msgstr ""
 
 #. module: website_sale_comparison
 #: model:ir.model,name:website_sale_comparison.model_product_template_attribute_line
 msgid "Product Template Attribute Line"
-msgstr "Predloška artikla stavka atributa"
+msgstr "Linija atributa predloška proizvoda"
 
-# taken from hr.po
 #. module: website_sale_comparison
 #: model:ir.model,name:website_sale_comparison.model_product_product
 msgid "Product Variant"
-msgstr "Specifikacije za"
+msgstr "Varijante proizvoda"
 
-# taken from hr.po
 #. module: website_sale_comparison
 #: model_terms:ir.ui.view,arch_db:website_sale_comparison.product_compare
+#: model_terms:ir.ui.view,arch_db:website_sale_comparison.product_product
 msgid "Product image"
-msgstr "Slika proizvoda"
+msgstr ""
 
 #. module: website_sale_comparison
 #: model:ir.model.fields,field_description:website_sale_comparison.field_product_attribute_category__attribute_ids
 msgid "Related Attributes"
-msgstr "Povezani atributi"
+msgstr ""
 
-# taken from hr.po
 #. module: website_sale_comparison
 #: model_terms:ir.ui.view,arch_db:website_sale_comparison.product_product
 msgid "Remove"
 msgstr "Ukloni"
 
-# taken from hr.po
 #. module: website_sale_comparison
 #: model:ir.model.fields,field_description:website_sale_comparison.field_product_attribute_category__sequence
 msgid "Sequence"
-msgstr "Redoslijed"
+msgstr "Sekvenca"
 
 #. module: website_sale_comparison
 #: model:ir.model.fields,help:website_sale_comparison.field_product_attribute__category_id
 msgid ""
 "Set a category to regroup similar attributes under the same section in the "
-"Comparison page of eCommerce"
+"Comparison page of eCommerce."
 msgstr ""
-"Postavite kategoriju da pregrupirate slične atribute pod istom sekcijom na "
-"stranici uporedbe eCommerce-a"
 
 #. module: website_sale_comparison
 #: model_terms:ir.ui.view,arch_db:website_sale_comparison.product_compare
 msgid "Shop Comparator"
-msgstr "Uporednik trgovine"
+msgstr ""
 
-# taken from hr.po
 #. module: website_sale_comparison
-#: code:addons/website_sale_comparison/static/src/website_builder/product_page_option.xml:0
+#: model_terms:ir.ui.view,arch_db:website_sale_comparison.snippet_options
 msgid "Specification"
-msgstr "Specifikacija"
+msgstr ""
 
-# taken from hr.po
 #. module: website_sale_comparison
 #: model_terms:ir.ui.view,arch_db:website_sale_comparison.accordion_specs_item
+#: model_terms:ir.ui.view,arch_db:website_sale_comparison.product_attributes_body
 msgid "Specifications"
 msgstr "Specifikacije"
 
-# taken from hr.po
 #. module: website_sale_comparison
 #: model_terms:ir.ui.view,arch_db:website_sale_comparison.product_compare
-#, python-format
 msgid "Uncategorized"
 msgstr "Nekategorisano"
 
-# taken from hr.po
 #. module: website_sale_comparison
 #. odoo-javascript
 #: code:addons/website_sale_comparison/static/src/xml/comparison.xml:0
-#, python-format
 msgid "Warning"
 msgstr "Upozorenje"
 
-# taken from hr.po
 #. module: website_sale_comparison
 #: model:product.attribute,name:website_sale_comparison.product_attribute_7
 msgid "Weight"
@@ -288,130 +285,13 @@ msgstr "Težina"
 #. module: website_sale_comparison
 #. odoo-javascript
 #: code:addons/website_sale_comparison/static/src/xml/comparison.xml:0
-#, python-format
 msgid "You can compare max 4 products."
-msgstr "Možete uporediti maksimalno 4 proizvoda."
-
-# taken from hr.po
-#. module: website_sale_comparison
-#: model_terms:ir.ui.view,arch_db:website_sale_comparison.product_attributes_body
-msgid "or"
-msgstr "ili"
-
-#. module: website_sale_comparison
-#: model_terms:ir.ui.view,arch_db:website_sale_comparison.product_compare
-msgid "<i class=\"fa fa-shopping-cart me-2\" aria-hidden=\"true\"/>Add to Cart"
-msgstr "<i class=\"fa fa-shopping-cart me-2\" aria-hidden=\"true\"/>Dodaj u korpu"
-
-#. module: website_sale_comparison
-#: model_terms:ir.ui.view,arch_db:website_sale_comparison.product_compare
-msgid "<i class=\"oi oi-chevron-left me-1\"/> Back to shop"
-msgstr "<i class=\"oi oi-chevron-left me-1\"/> Nazad u prodavnicu"
-
-#. module: website_sale_comparison
-#: model_terms:ir.ui.view,arch_db:website_sale_comparison.add_to_compare
-msgid ""
-"<span class=\"fa fa-exchange fa-fw o_not-animable\"/>\n"
-"                    <span class=\"o_label small ms-2\">Compare</span>"
 msgstr ""
-"<span class=\"fa fa-exchange fa-fw o_not-animable\"/>\n"
-"                    <span class=\"o_label small ms-2\">Uporedi</span>"
-
-#. module: website_sale_comparison
-#: model_terms:ir.ui.view,arch_db:website_sale_comparison.product_add_to_compare
-msgid "Add to compare"
-msgstr "Dodaj za poređenje"
-
-#. module: website_sale_comparison
-#: code:addons/website_sale_comparison/static/src/js/product_comparison_bottom_bar/product_comparison_bottom_bar.xml:0
-msgid "Compare products"
-msgstr "Uporedi proizvode"
-
-#. module: website_sale_comparison
-#: model_terms:ir.ui.view,arch_db:website_sale_comparison.product_compare
-msgid "Continue shopping"
-msgstr "Nastavi sa kupovinom"
-
-#. module: website_sale_comparison
-#: model:product.attribute.category,name:website_sale_comparison.product_attribute_category_design
-msgid "Design"
-msgstr "Dizajn"
-
-#. module: website_sale_comparison
-#: code:addons/website_sale_comparison/static/src/website_builder/product_page_option.xml:0
-msgid "In accordion"
-msgstr "U akordeonu"
-
-#. module: website_sale_comparison
-#: model:product.attribute.category,name:website_sale_comparison.product_attribute_category_options
-msgid "Options"
-msgstr "Opcije"
-
-#. module: website_sale_comparison
-#: model_terms:ir.ui.view,arch_db:website_sale_comparison.accordion_specs_item
-msgid "Others"
-msgstr "Ostali"
-
-#. module: website_sale_comparison
-#: code:addons/website_sale_comparison/static/src/js/product_row/product_row.xml:0
-msgid "Product Image"
-msgstr "Slika proizvoda"
-
-#. module: website_sale_comparison
-#: code:addons/website_sale_comparison/static/src/js/product_comparison_bottom_bar/product_comparison_bottom_bar.xml:0
-msgid "Remove All"
-msgstr "Ukloni sve"
-
-#. module: website_sale_comparison
-#: model_terms:ir.ui.view,arch_db:website_sale_comparison.product_compare
-msgid "Remove all"
-msgstr "Ukloni sve"
-
-#. module: website_sale_comparison
-#: code:addons/website_sale_comparison/static/src/js/product_comparison_bottom_bar/product_comparison_bottom_bar.xml:0
-msgid "Remove all products from comparison"
-msgstr "Ukloni sve proizvode iz poređenja"
-
-#. module: website_sale_comparison
-#: code:addons/website_sale_comparison/static/src/js/product_row/product_row.xml:0
-msgid "Remove product from comparison"
-msgstr "Ukloni proizvod iz poređenja"
-
-#. module: website_sale_comparison
-#: model:ir.model.fields,help:website_sale_comparison.field_product_attribute__category_id
-msgid ""
-"Set a category to regroup similar attributes under the same section in the "
-"Comparison page of eCommerce."
-msgstr ""
-"Postavite kategoriju za grupisanje sličnih atributa pod istu sekciju na "
-"stranici poređenja eCommerce-a."
-
-#. module: website_sale_comparison
-#: code:addons/website_sale_comparison/static/src/js/product_comparison_bottom_bar/product_comparison_bottom_bar.xml:0
-msgid "Show products added to comparison"
-msgstr "Prikaži proizvode dodane u poređenje"
-
-#. module: website_sale_comparison
-#: model_terms:ir.ui.view,arch_db:website_sale_comparison.product_compare
-msgid "Tags"
-msgstr "Oznake"
-
-#. module: website_sale_comparison
-#: code:addons/website_sale_comparison/static/src/interactions/product_comparison.js:0
-msgid "This product has already been added to the comparison."
-msgstr "Ovaj proizvod je već dodat u poređenje."
-
-#. module: website_sale_comparison
-#: code:addons/website_sale_comparison/static/src/interactions/product_comparison.js:0
-msgid "Too many products to compare"
-msgstr "Previše proizvoda za poređenje"
-
-#. module: website_sale_comparison
-#: code:addons/website_sale_comparison/static/src/interactions/product_comparison.js:0
-msgid "You can compare up to 4 products at a time."
-msgstr "Možete uporediti najviše 4 proizvoda istovremeno."
 
 #. module: website_sale_comparison
 #: model:ir.model.fields,field_description:website_sale_comparison.field_product_attribute__category_id
 msgid "eCommerce Category"
-msgstr "eCommerce kategorija"
+msgstr "Kategorija e-trgovine"
+
+#~ msgid "or"
+#~ msgstr "ili"

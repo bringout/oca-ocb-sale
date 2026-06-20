@@ -23,7 +23,7 @@ class TestStockNotificationProduct(HttpCase):
         cls.product = cls.env['product.product'].create({
             'name': 'Macbook Pro',
             'website_published': True,
-            'type': 'product',
+            'is_storable': True,
             'allow_out_of_stock_order': False,
 
         })
@@ -54,7 +54,11 @@ class TestStockNotificationProduct(HttpCase):
         })
         quants.action_apply_inventory()
 
+        website = self.env['website'].get_current_website()
+        website.company_id.partner_id.email = "test@test.com"
+
         ProductProduct._send_availability_email()
         emails = self.env['mail.mail'].search([('email_to', '=', partner.email_formatted)])
         self.assertEqual(emails[0].subject, "The product 'Macbook Pro' is now available")
+        self.assertEqual(emails[0].email_from, website.company_id.partner_id.email_formatted)
         self.assertFalse(product._has_stock_notification(partner))

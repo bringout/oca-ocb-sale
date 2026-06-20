@@ -1,519 +1,305 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* spreadsheet_dashboard_sale
+# * spreadsheet_dashboard_sale
 #
+# Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-25 10:43+0000\n"
-"PO-Revision-Date: 2024-01-25 10:43+0000\n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2025-12-29 18:38+0000\n"
+"PO-Revision-Date: 2026-04-24 07:52+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Bosnian <https://translate.odoo.com/projects/odoo-18/"
+"spreadsheet_dashboard_sale/bs/>\n"
+"Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
-
-# taken from hr.po
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
-msgid "Average Order"
-msgstr "Prosječna narudžba"
-
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
-msgid "Average order amount"
-msgstr "Prosječni iznos narudžbe"
-
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
-#, python-format
-msgid "Best Category"
-msgstr "Najbolja kategorija"
-
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
-#, python-format
-msgid "Best Seller"
-msgstr "Najprodavaniji"
-
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
-#, python-format
-msgid "Best Sellers by Revenue"
-msgstr "Najprodavaniji po prihodu"
-
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
-#, python-format
-msgid "Best Sellers by Units Sold"
-msgstr "Najprodavaniji po prodatim jedinicama"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.17\n"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
-#, python-format
+msgid "AeroMax Travel Pillow"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
+msgid "AeroTrack Fitness Watch"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
+msgid "Average Order"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
+msgid "Average order amount"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
+msgid "Best Category"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
+msgid "Best Seller"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
+msgid "Best Sellers by Revenue"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
+msgid "Best Sellers by Units Sold"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
 msgid "Best Selling Categories"
-msgstr "Najprodavanije kategorije"
+msgstr ""
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
-#, python-format
+#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
 msgid "Best Selling Products"
-msgstr "Najprodavaniji proizvodi"
+msgstr ""
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
-#, python-format
+#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
 msgid "Best selling category"
-msgstr "najbolja prodajna kategorija"
+msgstr ""
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
-#, python-format
+#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
 msgid "Best selling product"
-msgstr "najprodavaniji proizvod"
+msgstr ""
 
-# taken from hr.po
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
+msgid "BreezePure Air Filter"
+msgstr ""
+
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
-#, python-format
+#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
 msgid "Category"
 msgstr "Kategorija"
 
-# taken from hr.po
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
 msgid "Country"
 msgstr "Država"
 
-# taken from hr.po
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
-msgid "Current"
-msgstr "Trenutno"
+#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
+msgid "CrystalWave Smart Mirror"
+msgstr ""
 
-# taken from hr.po
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
+msgid "Current"
+msgstr "Tekući"
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
 msgid "Customer"
 msgstr "Kupac"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
 msgid "Draft quotations"
-msgstr "Nacrt ponuda"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
+msgid "EcoBlade Kitchen Knife"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
+msgid "FlexiDesk Standing Desk"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
+msgid "FlexiGrip Yoga Mat"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
+msgid "GlideSync Wireless Mouse"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
+msgid "HydroLux Water Bottle"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
+msgid "HyperChill Mini Fridge"
+msgstr ""
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
-#, python-format
+#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
 msgid "KPI"
-msgstr "KPI"
+msgstr ""
 
-# taken from hr.po
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
 msgid "Medium"
-msgstr "Medij"
+msgstr "Medijum"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
 msgid "Monthly Sales"
-msgstr "Mjesečne prodaje"
+msgstr ""
 
-# taken from hr.po
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
-#, python-format
+#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
 msgid "Name"
-msgstr "Naziv"
+msgstr "Naziv:"
 
-# taken from hr.po
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
+msgid "NovaTech Power Bank"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
+msgid "OmniClean Robot Vacuum"
+msgstr ""
+
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
-msgid "Order"
-msgstr "Nalog"
-
-# taken from hr.po
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
 msgid "Orders"
 msgstr "Narudžbe"
 
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
-#, python-format
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
 msgid "Period"
-msgstr ""
+msgstr "Period"
 
-# taken from hr.po
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
 msgid "Previous"
-msgstr "Prethodni"
+msgstr "Prethodno"
 
-# taken from hr.po
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
-#, python-format
+#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
+#: model:spreadsheet.dashboard,name:spreadsheet_dashboard_sale.spreadsheet_dashboard_product
 msgid "Product"
 msgstr "Proizvod"
 
-# taken from hr.po
 #. module: spreadsheet_dashboard_sale
 #. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
-msgid "Quotation"
-msgstr "Ponuda"
-
-# taken from hr.po
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
-msgid "Quotations"
-msgstr "Ponude"
-
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
-msgid "Quotations by Untaxed Amount"
-msgstr "Ponude po neoporezovanom iznosu"
-
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
-msgid "Quotations sent"
-msgstr "Poslane ponude"
-
-# taken from hr.po
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
-#, python-format
-msgid "Revenue"
-msgstr "Prihod"
-
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
-msgid "Sales Analysis by Customer"
-msgstr "Analiza prodaje po kupcu"
-
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
-msgid "Sales Analysis by Customer Country"
-msgstr "Analiza prodaje po zemlji kupca"
-
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
-msgid "Sales Analysis by Medium"
-msgstr "Analiza prodaje po mediju"
-
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
-#, python-format
-msgid "Sales Analysis by Product Category"
-msgstr "Analiza prodaje po kategoriji proizvoda"
-
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
-#, python-format
-msgid "Sales Analysis by Product Variant"
-msgstr "Analiza prodaje po varijanti proizvoda"
-
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
-msgid "Sales Analysis by Sales Team"
-msgstr "Analiza prodaje po prodajnom timu"
-
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
-msgid "Sales Analysis by Salesperson"
-msgstr "Analiza prodaje po prodavcu"
-
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
-msgid "Sales Analysis by Source"
-msgstr "Analiza prodaje po izvoru"
-
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
-msgid "Sales Orders by Untaxed Amount"
-msgstr "Prodajne narudžbe po neoporezovanom iznosu"
-
-# taken from hr.po
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
-msgid "Sales Team"
-msgstr "Prodajni tim"
-
-# taken from hr.po
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
-msgid "Salesperson"
-msgstr "Prodavač"
-
-# taken from hr.po
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
-msgid "Source"
-msgstr "Izvor"
-
-# taken from hr.po
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
-#, python-format
-msgid "Top Categories"
-msgstr "Top kategorije"
-
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
-#, python-format
-msgid "Top Countries"
-msgstr "Najbolje zemlje"
-
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
-msgid "Top Customers"
-msgstr "Najvažniji kupci"
-
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
-msgid "Top Mediums"
-msgstr "Najbolji mediji"
-
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
-msgid "Top Products"
-msgstr "Glavni proizvodi"
-
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
-msgid "Top Quotations"
-msgstr "Najbolje ponude"
-
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
-msgid "Top Sales Orders"
-msgstr "Najbolje prodajne narudžbe"
-
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
-msgid "Top Sales Teams"
-msgstr "Najbolji prodajni timovi"
-
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
-msgid "Top Salespeople"
-msgstr "Najbolji prodavci"
-
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
-msgid "Top Sources"
-msgstr "Najbolji izvori"
-
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
-msgid "Total orders"
-msgstr "Ukupne narudžbe"
-
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
-msgid "Total quotations"
-msgstr "Ukupne ponude"
-
-# taken from hr.po
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
-#, python-format
-msgid "Units"
-msgstr "Jedinice"
-
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
-msgid "since last period"
-msgstr "od prošlog perioda"
-
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
-msgid "so stats - current"
-msgstr "statistike prodajnih narudžbi - trenutne"
-
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
-#, python-format
-msgid "so stats - previous"
-msgstr "statistike prodajnih narudžbi - prethodne"
-
-#. module: spreadsheet_dashboard_sale
-#. odoo-javascript
-#: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
-#, python-format
-msgid "sold"
-msgstr "prodato"
-
-#. module: spreadsheet_dashboard_sale
-#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
-msgid "AeroMax Travel Pillow"
-msgstr "AeroMax Travel Pillow"
-
-#. module: spreadsheet_dashboard_sale
-#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
-msgid "AeroTrack Fitness Watch"
-msgstr "AeroTrack Fitness Watch"
-
-#. module: spreadsheet_dashboard_sale
-#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
-msgid "BreezePure Air Filter"
-msgstr "BreezePure Air Filter"
-
-#. module: spreadsheet_dashboard_sale
-#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
-msgid "CrystalWave Smart Mirror"
-msgstr "CrystalWave Smart Mirror"
-
-#. module: spreadsheet_dashboard_sale
-#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
-msgid "EcoBlade Kitchen Knife"
-msgstr "EcoBlade Kitchen Knife"
-
-#. module: spreadsheet_dashboard_sale
-#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
-msgid "FlexiDesk Standing Desk"
-msgstr "FlexiDesk Standing Desk"
-
-#. module: spreadsheet_dashboard_sale
-#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
-msgid "FlexiGrip Yoga Mat"
-msgstr "FlexiGrip Yoga Mat"
-
-#. module: spreadsheet_dashboard_sale
-#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
-msgid "GlideSync Wireless Mouse"
-msgstr "GlideSync Wireless Mouse"
-
-#. module: spreadsheet_dashboard_sale
-#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
-msgid "HydroLux Water Bottle"
-msgstr "HydroLux Water Bottle"
-
-#. module: spreadsheet_dashboard_sale
-#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
-msgid "HyperChill Mini Fridge"
-msgstr "HyperChill Mini Fridge"
-
-#. module: spreadsheet_dashboard_sale
-#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
-msgid "NovaTech Power Bank"
-msgstr "NovaTech Power Bank"
-
-#. module: spreadsheet_dashboard_sale
-#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
-msgid "OmniClean Robot Vacuum"
-msgstr "OmniClean Robot Vacuum"
-
-#. module: spreadsheet_dashboard_sale
 #: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
 msgid "PulseFit Smartband"
-msgstr "PulseFit Smartband"
+msgstr ""
 
 #. module: spreadsheet_dashboard_sale
+#. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
 msgid "PureSonic Bluetooth Speaker"
-msgstr "PureSonic Bluetooth Speaker"
+msgstr ""
 
 #. module: spreadsheet_dashboard_sale
+#. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
 msgid "QuantumSound Earbuds"
-msgstr "QuantumSound Earbuds"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
+msgid "Quotations"
+msgstr "Predračuni"
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
+msgid "Quotations sent"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
+msgid "Revenue"
+msgstr "Prihod"
 
 #. module: spreadsheet_dashboard_sale
 #: model:spreadsheet.dashboard,name:spreadsheet_dashboard_sale.spreadsheet_dashboard_sales
@@ -521,31 +307,157 @@ msgid "Sales"
 msgstr "Prodaja"
 
 #. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
+msgid "Sales Team"
+msgstr "Prodajni tim"
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
+msgid "Salesperson"
+msgstr "Prodavač(ica)"
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
 msgid "SnapGrip Camera Mount"
-msgstr "SnapGrip Camera Mount"
+msgstr ""
 
 #. module: spreadsheet_dashboard_sale
+#. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
 msgid "SolarSwift Charger"
-msgstr "SolarSwift Charger"
+msgstr ""
 
 #. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
+msgid "Source"
+msgstr "Izvor"
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
 msgid "TitanForge Gaming Chair"
-msgstr "TitanForge Gaming Chair"
+msgstr ""
 
 #. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
+msgid "Top Categories"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
+msgid "Top Countries"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
+msgid "Top Customers"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
+msgid "Top Mediums"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
+msgid "Top Products"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
+msgid "Top Quotations"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
+msgid "Top Sales Orders"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
+msgid "Top Sales Teams"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
+msgid "Top Salespeople"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
+msgid "Top Sources"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
+msgid "Total orders"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
+msgid "Total quotations"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
 msgid "UltraBeam Projector"
-msgstr "UltraBeam Projector"
+msgstr ""
 
 #. module: spreadsheet_dashboard_sale
+#. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
-msgid "Unit sold"
-msgstr "Jedinica prodano"
+#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
+msgid "Units"
+msgstr "Jedinice"
 
 #. module: spreadsheet_dashboard_sale
+#. odoo-javascript
 #: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
 msgid "VeloCharge Electric Bike"
-msgstr "VeloCharge Electric Bike"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/sales_sample_dashboard.json:0
+msgid "since last period"
+msgstr ""
+
+#. module: spreadsheet_dashboard_sale
+#. odoo-javascript
+#: code:addons/spreadsheet_dashboard_sale/data/files/product_dashboard.json:0
+#: code:addons/spreadsheet_dashboard_sale/data/files/product_sample_dashboard.json:0
+msgid "sold"
+msgstr ""

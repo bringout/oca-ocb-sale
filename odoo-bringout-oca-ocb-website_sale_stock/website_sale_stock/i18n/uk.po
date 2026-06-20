@@ -1,33 +1,45 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* website_sale_stock
-# 
+# * website_sale_stock
+#
 # Translators:
-# Martin Trigaux, 2022
 # Alina Lisnenko <alina.lisnenko@erp.co.ua>, 2024
-# 
+# Wil Odoo, 2025
+# Yana Bystrytska <yana.bystrytska@erp.co.ua>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-06 13:32+0000\n"
-"PO-Revision-Date: 2022-09-22 05:57+0000\n"
-"Last-Translator: Alina Lisnenko <alina.lisnenko@erp.co.ua>, 2024\n"
-"Language-Team: Ukrainian (https://app.transifex.com/odoo/teams/41243/uk/)\n"
+"POT-Creation-Date: 2025-12-29 18:38+0000\n"
+"PO-Revision-Date: 2026-03-29 12:14+0000\n"
+"Last-Translator: Yana Bystrytska <yana.bystrytska@erp.co.ua>\n"
+"Language-Team: Ukrainian <https://translate.odoo.com/projects/odoo-18/"
+"website_sale_stock/uk/>\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: uk\n"
-"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 "
+"? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > "
+"14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % "
+"100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+"X-Generator: Weblate 5.16.2\n"
 
 #. module: website_sale_stock
 #: model_terms:ir.ui.view,arch_db:website_sale_stock.res_config_settings_view_form
-msgid ""
-"<span attrs=\"{'invisible': [('show_availability', '=', "
-"False)]}\">Units</span>"
-msgstr ""
-"<span attrs=\"{'invisible': [('show_availability', '=', "
-"False)]}\">Одиниць</span>"
+msgid "<span invisible=\"not show_availability\">Units</span>"
+msgstr "<span invisible=\"not show_availability\">Одиниці</span>"
+
+#. module: website_sale_stock
+#. odoo-javascript
+#: code:addons/website_sale_stock/static/src/js/product_card/product_card.js:0
+msgid "All available quantity selected"
+msgstr "Обрано всю доступну кількість"
+
+#. module: website_sale_stock
+#: model_terms:ir.ui.view,arch_db:website_sale_stock.res_config_settings_view_form
+msgid "All warehouses"
+msgstr "Всі склади"
 
 #. module: website_sale_stock
 #: model:ir.model.fields,field_description:website_sale_stock.field_product_product__stock_notification_partner_ids
@@ -63,8 +75,8 @@ msgid ""
 "Default availability mode set on newly created storable products. This can "
 "be changed at the product level."
 msgstr ""
-"Режим доступності за замовчуванням встановлено на щойно створені товари, які"
-" можна зберігати. Це можна змінити на рівні товару."
+"Режим доступності за замовчуванням встановлено на щойно створені товари, які "
+"можна зберігати. Це можна змінити на рівні товару."
 
 #. module: website_sale_stock
 #: model_terms:ir.ui.view,arch_db:website_sale_stock.res_config_settings_view_form
@@ -74,7 +86,6 @@ msgstr "Видимість за замовчуванням для користу
 #. module: website_sale_stock
 #. odoo-javascript
 #: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:0
-#, python-format
 msgid "Get notified when back in stock"
 msgstr "Отрмати сповіщення, коли знову буде на складі"
 
@@ -87,14 +98,12 @@ msgstr ""
 #. module: website_sale_stock
 #. odoo-python
 #: code:addons/website_sale_stock/controllers/main.py:0
-#, python-format
 msgid "Invalid Email"
 msgstr "Недійсний Email"
 
 #. module: website_sale_stock
 #. odoo-javascript
 #: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:0
-#, python-format
 msgid "Invalid email"
 msgstr "Недійсний email"
 
@@ -106,7 +115,6 @@ msgstr "Типовий склад"
 #. module: website_sale_stock
 #. odoo-javascript
 #: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:0
-#, python-format
 msgid "Only"
 msgstr "Тільки"
 
@@ -118,8 +126,13 @@ msgstr "Замовити зараз"
 #. module: website_sale_stock
 #. odoo-javascript
 #: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:0
-#, python-format
 msgid "Out of Stock"
+msgstr "Немає на складі"
+
+#. module: website_sale_stock
+#. odoo-javascript
+#: code:addons/website_sale_stock/static/src/js/product/product.xml:0
+msgid "Out of stock"
 msgstr "Немає на складі"
 
 #. module: website_sale_stock
@@ -138,9 +151,13 @@ msgstr "Повідомлення Немає на складі"
 #. odoo-python
 #: code:addons/website_sale_stock/models/product_product.py:0
 #: model:ir.model,name:website_sale_stock.model_product_template
-#, python-format
 msgid "Product"
 msgstr "Товар"
+
+#. module: website_sale_stock
+#: model:ir.model,name:website_sale_stock.model_product_combo
+msgid "Product Combo"
+msgstr ""
 
 #. module: website_sale_stock
 #: model:ir.model,name:website_sale_stock.model_product_product
@@ -149,7 +166,6 @@ msgstr "Варіант товару"
 
 #. module: website_sale_stock
 #: model:ir.actions.server,name:website_sale_stock.ir_cron_send_availability_email_ir_actions_server
-#: model:ir.cron,cron_name:website_sale_stock.ir_cron_send_availability_email
 msgid "Product: send email regarding products availability"
 msgstr "Товар: надішліть електронний лист щодо наявності товарів"
 
@@ -157,6 +173,12 @@ msgstr "Товар: надішліть електронний лист щодо 
 #: model_terms:ir.ui.view,arch_db:website_sale_stock.availability_email_body
 msgid "Regards,"
 msgstr "З повагою,"
+
+#. module: website_sale_stock
+#. odoo-javascript
+#: code:addons/website_sale_stock/static/src/js/product_card/product_card.xml:0
+msgid "Requested quantity not available"
+msgstr ""
 
 #. module: website_sale_stock
 #: model:ir.model,name:website_sale_stock.model_sale_order
@@ -191,10 +213,9 @@ msgstr "Показати кількість в наявності"
 #. module: website_sale_stock
 #. odoo-python
 #: code:addons/website_sale_stock/models/sale_order.py:0
-#, python-format
 msgid ""
-"Some products became unavailable and your cart has been updated. We're sorry"
-" for the inconvenience."
+"Some products became unavailable and your cart has been updated. We're sorry "
+"for the inconvenience."
 msgstr ""
 "Деякі товари стали недоступними, а ваш кошик був оновлений. Вибачте за "
 "незручності."
@@ -206,15 +227,19 @@ msgstr "Наступний товару знову в наявності."
 
 #. module: website_sale_stock
 #. odoo-python
+#: code:addons/website_sale_stock/models/sale_order.py:0
+msgid "The item has not been added to your cart since it is not available."
+msgstr "Товар не додано до кошика, оскільки він недоступний."
+
+#. module: website_sale_stock
+#. odoo-python
 #: code:addons/website_sale_stock/models/product_product.py:0
-#, python-format
 msgid "The product '%(product_name)s' is now available"
 msgstr "Товар '%(product_name)s' тепер в наявності"
 
 #. module: website_sale_stock
 #. odoo-javascript
 #: code:addons/website_sale_stock/static/src/js/website_sale_reorder.js:0
-#, python-format
 msgid "This product is out of stock."
 msgstr "Цього товару немає на складі."
 
@@ -238,7 +263,6 @@ msgstr "Склад"
 #. module: website_sale_stock
 #. odoo-javascript
 #: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:0
-#, python-format
 msgid "We'll notify you once the product is back in stock."
 msgstr "Ми повідомимо вас, коли товар знову буде на складі."
 
@@ -258,28 +282,24 @@ msgstr ""
 #. module: website_sale_stock
 #. odoo-javascript
 #: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:0
-#, python-format
 msgid "You already added"
 msgstr "Ви вже додали"
 
 #. module: website_sale_stock
 #. odoo-javascript
 #: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:0
-#, python-format
 msgid "You already added all the available product in your cart."
 msgstr "Ви вже додали всі наявні товари до вашого кошика."
 
 #. module: website_sale_stock
 #. odoo-javascript
 #: code:addons/website_sale_stock/static/src/js/website_sale_reorder.js:0
-#, python-format
 msgid "You already have %s Units in your cart."
 msgstr "У вас вже є %s одиниць у вашому кошику."
 
 #. module: website_sale_stock
 #. odoo-python
 #: code:addons/website_sale_stock/models/sale_order_line.py:0
-#, python-format
 msgid ""
 "You ask for %(desired_qty)s %(product_name)s but only %(new_qty)s is "
 "available"
@@ -289,7 +309,6 @@ msgstr ""
 #. module: website_sale_stock
 #. odoo-python
 #: code:addons/website_sale_stock/models/sale_order.py:0
-#, python-format
 msgid "You ask for %(desired_qty)s products but only %(new_qty)s is available"
 msgstr ""
 "Ви запитували про %(desired_qty)s товарів але в нявності є лише %(new_qty)s "
@@ -297,22 +316,19 @@ msgstr ""
 #. module: website_sale_stock
 #. odoo-javascript
 #: code:addons/website_sale_stock/static/src/js/website_sale_reorder.js:0
-#: code:addons/website_sale_stock/static/src/js/website_sale_reorder.js:0
-#, python-format
-msgid "You ask for %s Units but only %s are available."
-msgstr "Ви запитували %s одиниць але в наявності є лише %s."
+msgid "You ask for %(quantity1)s Units but only %(quantity2)s are available."
+msgstr ""
+"Ви запитували %(quantity1)s одиниць але в наявності є лише %(quantity2)s."
 
 #. module: website_sale_stock
 #. odoo-javascript
 #: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:0
-#, python-format
 msgid "in your cart."
 msgstr "у вашому кошику."
 
 #. module: website_sale_stock
 #. odoo-javascript
 #: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:0
-#, python-format
 msgid "left in stock."
 msgstr "залишені на складі."
 
@@ -325,6 +341,5 @@ msgstr "тільки якщо нижче"
 #. module: website_sale_stock
 #. odoo-javascript
 #: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:0
-#, python-format
 msgid "youremail@gmail.com"
 msgstr "youremail@gmail.com"

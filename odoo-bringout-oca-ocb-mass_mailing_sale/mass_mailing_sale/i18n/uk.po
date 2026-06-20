@@ -1,28 +1,33 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* mass_mailing_sale
-# 
+# * mass_mailing_sale
+#
 # Translators:
-# Martin Trigaux, 2022
-# Alina Lisnenko <alina.lisnenko@erp.co.ua>, 2023
-# 
+# Wil Odoo, 2024
+#
+# Alina Lisnenko <alina.lisnenko@erp.co.ua>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server saas~15.1\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-07 10:47+0000\n"
-"PO-Revision-Date: 2022-09-22 05:53+0000\n"
-"Last-Translator: Alina Lisnenko <alina.lisnenko@erp.co.ua>, 2023\n"
-"Language-Team: Ukrainian (https://app.transifex.com/odoo/teams/41243/uk/)\n"
+"POT-Creation-Date: 2025-12-29 18:37+0000\n"
+"PO-Revision-Date: 2026-04-11 09:06+0000\n"
+"Last-Translator: Alina Lisnenko <alina.lisnenko@erp.co.ua>\n"
+"Language-Team: Ukrainian <https://translate.odoo.com/projects/odoo-18/"
+"mass_mailing_sale/uk/>\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: uk\n"
-"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 "
+"? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > "
+"14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % "
+"100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+"X-Generator: Weblate 5.16.2\n"
 
 #. module: mass_mailing_sale
+#. odoo-python
 #: code:addons/mass_mailing_sale/models/mailing_mailing.py:0
-#, python-format
 msgid "INVOICED"
 msgstr "ВИСТАВЛЕНО У РАХУНКУ"
 
@@ -37,8 +42,8 @@ msgid "Invoiced Amount"
 msgstr "Сума виставленого рахунку"
 
 #. module: mass_mailing_sale
+#. odoo-python
 #: code:addons/mass_mailing_sale/models/mailing_mailing.py:0
-#, python-format
 msgid "Invoices Analysis"
 msgstr "Аналіз рахунків"
 
@@ -48,20 +53,20 @@ msgid "Mass Mailing"
 msgstr "Масова розсилка"
 
 #. module: mass_mailing_sale
+#. odoo-python
 #: code:addons/mass_mailing_sale/models/mailing_mailing.py:0
-#, python-format
 msgid "No Quotations yet!"
 msgstr "Ще немає комерційних пропозицій!"
 
 #. module: mass_mailing_sale
+#. odoo-python
 #: code:addons/mass_mailing_sale/models/mailing_mailing.py:0
-#, python-format
 msgid "No Revenues yet!"
 msgstr "Ще немає доходу!"
 
 #. module: mass_mailing_sale
+#. odoo-python
 #: code:addons/mass_mailing_sale/models/mailing_mailing.py:0
-#, python-format
 msgid "QUOTATIONS"
 msgstr "ПРОПОЗИЦІЇ"
 
@@ -77,8 +82,8 @@ msgid "Quotations"
 msgstr "Комерційні пропозиції"
 
 #. module: mass_mailing_sale
+#. odoo-python
 #: code:addons/mass_mailing_sale/models/mailing_mailing.py:0
-#, python-format
 msgid ""
 "Quotations will appear here once your customers add products to their Carts "
 "or when your sales reps assign this mailing."
@@ -92,15 +97,15 @@ msgid "Revenues"
 msgstr "Доходи"
 
 #. module: mass_mailing_sale
+#. odoo-python
 #: code:addons/mass_mailing_sale/models/mailing_mailing.py:0
-#, python-format
 msgid "Revenues will appear here once orders are turned into invoices."
 msgstr ""
 "Доходи з’являться тут, коли замовлення будуть перетворені в рахунки-фактури."
 
 #. module: mass_mailing_sale
+#. odoo-python
 #: code:addons/mass_mailing_sale/models/mailing_mailing.py:0
-#, python-format
 msgid "Sales Analysis"
 msgstr "Аналіз продажу"
 

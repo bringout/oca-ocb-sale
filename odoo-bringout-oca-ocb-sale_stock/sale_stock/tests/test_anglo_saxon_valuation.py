@@ -1,6 +1,6 @@
-# -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
+from odoo import Command, fields
 from odoo.tests import Form, tagged
 from odoo.addons.stock_account.tests.test_anglo_saxon_valuation_reconciliation_common import ValuationReconciliationTestCommon
 from odoo.exceptions import UserError
@@ -10,14 +10,14 @@ from odoo.exceptions import UserError
 class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
 
     @classmethod
-    def setUpClass(cls, chart_template_ref=None):
-        super().setUpClass(chart_template_ref=chart_template_ref)
+    def setUpClass(cls):
+        super().setUpClass()
 
         cls.env.user.company_id.anglo_saxon_accounting = True
 
         cls.product = cls.env['product.product'].create({
             'name': 'product',
-            'type': 'product',
+            'is_storable': True,
             'categ_id': cls.stock_account_product_categ.id,
         })
 
@@ -41,6 +41,7 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
                     'tax_id': False,  # no love taxes amls
                 })],
         })
+        sale_order.flush_recordset()
         sale_order.action_confirm()
         return sale_order
 
@@ -56,7 +57,7 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
             'price_unit': 8,
         })
         in_move_1._action_confirm()
-        in_move_1.quantity_done = 1
+        in_move_1.write({'quantity': 1, 'picked': True})
         in_move_1._action_done()
         in_move_2 = self.env['stock.move'].create({
             'name': 'a',
@@ -68,7 +69,7 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
             'price_unit': 10,
         })
         in_move_2._action_confirm()
-        in_move_2.quantity_done = 1
+        in_move_2.write({'quantity': 1, 'picked': True})
         in_move_2._action_done()
 
     # -------------------------------------------------------------------------
@@ -126,10 +127,8 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
         sale_order = self._so_and_confirm_two_units()
 
         # Deliver one.
-        sale_order.picking_ids.move_ids.quantity_done = 1
-        wiz = sale_order.picking_ids.button_validate()
-        wiz = Form(self.env[wiz['res_model']].with_context(wiz['context'])).save()
-        wiz.process()
+        sale_order.picking_ids.move_ids.write({'quantity': 1, 'picked': True})
+        Form.from_action(self.env, sale_order.picking_ids.button_validate()).save().process()
 
         # Invoice 1
         invoice = sale_order._create_invoices()
@@ -159,7 +158,7 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
         self.product.standard_price = 14.0
 
         # deliver the backorder
-        sale_order.picking_ids[0].move_ids.quantity_done = 1
+        sale_order.picking_ids[0].move_ids.write({'quantity': 1, 'picked': True})
         sale_order.picking_ids[0].button_validate()
 
         # change the standard price to 16
@@ -198,16 +197,14 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
         sale_order = self._so_and_confirm_two_units()
 
         # Deliver one.
-        sale_order.picking_ids.move_ids.quantity_done = 1
-        wiz = sale_order.picking_ids.button_validate()
-        wiz = Form(self.env[wiz['res_model']].with_context(wiz['context'])).save()
-        wiz.process()
+        sale_order.picking_ids.move_ids.write({'quantity': 1, 'picked': True})
+        Form.from_action(self.env, sale_order.picking_ids.button_validate()).save().process()
 
         # change the standard price to 14
         self.product.standard_price = 14.0
 
         # deliver the backorder
-        sale_order.picking_ids.filtered('backorder_id').move_ids.quantity_done = 1
+        sale_order.picking_ids.filtered('backorder_id').move_ids.write({'quantity': 1, 'picked': True})
         sale_order.picking_ids.filtered('backorder_id').button_validate()
 
         # Invoice the sale order.
@@ -265,10 +262,8 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
         sale_order = self._so_and_confirm_two_units()
 
         # Deliver one.
-        sale_order.picking_ids.move_ids.quantity_done = 1
-        wiz = sale_order.picking_ids.button_validate()
-        wiz = Form(self.env[wiz['res_model']].with_context(wiz['context'])).save()
-        wiz.process()
+        sale_order.picking_ids.move_ids.write({'quantity': 1, 'picked': True})
+        Form.from_action(self.env, sale_order.picking_ids.button_validate()).save().process()
 
         # Invoice 1
         invoice = sale_order._create_invoices()
@@ -298,7 +293,7 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
         self.product.standard_price = 14.0
 
         # deliver the backorder
-        sale_order.picking_ids[0].move_ids.quantity_done = 1
+        sale_order.picking_ids[0].move_ids.write({'quantity': 1, 'picked': True})
         sale_order.picking_ids[0].button_validate()
 
         # change the standard price to 16
@@ -337,16 +332,14 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
         sale_order = self._so_and_confirm_two_units()
 
         # Deliver one.
-        sale_order.picking_ids.move_ids.quantity_done = 1
-        wiz = sale_order.picking_ids.button_validate()
-        wiz = Form(self.env[wiz['res_model']].with_context(wiz['context'])).save()
-        wiz.process()
+        sale_order.picking_ids.move_ids.write({'quantity': 1, 'picked': True})
+        Form.from_action(self.env, sale_order.picking_ids.button_validate()).save().process()
 
         # change the standard price to 14
         self.product.standard_price = 14.0
 
         # deliver the backorder
-        sale_order.picking_ids.filtered('backorder_id').move_ids.quantity_done = 1
+        sale_order.picking_ids.filtered('backorder_id').move_ids.write({'quantity': 1, 'picked': True})
         sale_order.picking_ids.filtered('backorder_id').button_validate()
 
         # Invoice the sale order.
@@ -417,10 +410,8 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
         sale_order = self._so_and_confirm_two_units()
 
         # Deliver one.
-        sale_order.picking_ids.move_ids.quantity_done = 1
-        wiz = sale_order.picking_ids.button_validate()
-        wiz = Form(self.env[wiz['res_model']].with_context(wiz['context'])).save()
-        wiz.process()
+        sale_order.picking_ids.move_ids.write({'quantity': 1, 'picked': True})
+        Form.from_action(self.env, sale_order.picking_ids.button_validate()).save().process()
 
         # Invoice the sale order.
         invoice = sale_order._create_invoices()
@@ -455,7 +446,7 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
         sale_order = self._so_and_confirm_two_units()
 
         # Deliver one.
-        sale_order.picking_ids.move_ids.quantity_done = 2
+        sale_order.picking_ids.move_ids.write({'quantity': 2, 'picked': True})
         sale_order.picking_ids.button_validate()
 
         # Invoice the sale order.
@@ -482,7 +473,7 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
         """ Sell and deliver some products before the user encodes the products receipt """
         product = self.product
         product.invoice_policy = 'order'
-        product.type = 'product'
+        product.is_storable = True
         product.categ_id.property_cost_method = 'average'
         product.categ_id.property_valuation = 'real_time'
         product.list_price = 100
@@ -502,7 +493,7 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
         so.action_confirm()
 
         pick = so.picking_ids
-        pick.move_ids.write({'quantity_done': 5})
+        pick.move_ids.write({'quantity': 5, 'picked': True})
         pick.button_validate()
 
         product.standard_price = 40
@@ -512,10 +503,10 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
         return_wiz = stock_return_picking_form.save()
         return_wiz.product_return_moves.quantity = 1
         return_wiz.product_return_moves.to_refund = False
-        res = return_wiz.create_returns()
+        res = return_wiz.action_create_returns()
 
         return_pick = self.env['stock.picking'].browse(res['res_id'])
-        return_pick.move_ids.write({'quantity_done': 1})
+        return_pick.move_ids.write({'quantity': 1, 'picked': True})
         return_pick.button_validate()
 
         picking = self.env['stock.picking'].create({
@@ -531,7 +522,8 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
             'picking_id': picking.id,
             'product_id': product.id,
             'product_uom': product.uom_id.id,
-            'quantity_done': 1,
+            'quantity': 1,
+            'picked': True,
         })
         picking.button_validate()
 
@@ -572,10 +564,8 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
         sale_order = self._so_and_confirm_two_units()
 
         # Deliver one.
-        sale_order.picking_ids.move_ids.quantity_done = 1
-        wiz = sale_order.picking_ids.button_validate()
-        wiz = Form(self.env[wiz['res_model']].with_context(wiz['context'])).save()
-        wiz.process()
+        sale_order.picking_ids.move_ids.write({'quantity': 1, 'picked': True})
+        Form.from_action(self.env, sale_order.picking_ids.button_validate()).save().process()
 
         # Invoice the sale order.
         invoice = sale_order._create_invoices()
@@ -609,7 +599,7 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
         # Create and confirm a sale order for 2@12
         sale_order = self._so_and_confirm_two_units()
         # Deliver one.
-        sale_order.picking_ids.move_ids.quantity_done = 2
+        sale_order.picking_ids.move_ids.write({'quantity': 2, 'picked': True})
         sale_order.picking_ids.button_validate()
 
         # Invoice the sale order.
@@ -647,7 +637,7 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
         # Create and confirm a sale order for 2@12
         sale_order = self._so_and_confirm_two_units()
         # Deliver both products (there should be two SML)
-        sale_order.picking_ids.move_line_ids.qty_done = 1
+        sale_order.picking_ids.move_line_ids.write({'quantity': 1, 'picked': True})
         sale_order.picking_ids.button_validate()
 
         # Invoice one by one
@@ -686,7 +676,7 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
         self.env['stock.quant']._update_available_quantity(self.product, self.company_data['default_warehouse'].lot_stock_id, 2, owner_id=self.partner_b)
 
         sale_order = self._so_and_confirm_two_units()
-        sale_order.picking_ids.move_line_ids.qty_done = 2
+        sale_order.picking_ids.move_line_ids.write({'quantity': 2, 'picked': True})
         sale_order.picking_ids.button_validate()
 
         invoice = sale_order._create_invoices()
@@ -723,9 +713,9 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
         self.assertEqual(len(amls), 4)
         stock_out_aml = amls.filtered(lambda aml: aml.account_id == self.company_data['default_account_stock_out'])
         self.assertEqual(stock_out_aml.debit, 0)
-        self.assertAlmostEqual(stock_out_aml.credit, 16)
+        self.assertAlmostEqual(stock_out_aml.credit, 18)
         cogs_aml = amls.filtered(lambda aml: aml.account_id == self.company_data['default_account_expense'])
-        self.assertAlmostEqual(cogs_aml.debit, 16)
+        self.assertAlmostEqual(cogs_aml.debit, 18)
         self.assertEqual(cogs_aml.credit, 0)
         receivable_aml = amls.filtered(lambda aml: aml.account_id == self.company_data['default_account_receivable'])
         self.assertEqual(receivable_aml.debit, 24)
@@ -746,10 +736,8 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
         sale_order = self._so_and_confirm_two_units()
 
         # Deliver one.
-        sale_order.picking_ids.move_ids.quantity_done = 1
-        wiz = sale_order.picking_ids.button_validate()
-        wiz = Form(self.env[wiz['res_model']].with_context(wiz['context'])).save()
-        wiz.process()
+        sale_order.picking_ids.move_ids.write({'quantity': 1, 'picked': True})
+        Form.from_action(self.env, sale_order.picking_ids.button_validate()).save().process()
 
         # upate the standard price to 12
         self.product.standard_price = 12
@@ -789,7 +777,7 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
         sale_order = self._so_and_confirm_two_units()
 
         # Deliver one.
-        sale_order.picking_ids.move_ids.quantity_done = 2
+        sale_order.picking_ids.move_ids.write({'quantity': 2, 'picked': True})
         sale_order.picking_ids.button_validate()
 
         # Invoice the sale order.
@@ -842,10 +830,8 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
         sale_order = self._so_and_confirm_two_units()
 
         # Deliver one.
-        sale_order.picking_ids.move_ids.quantity_done = 1
-        wiz = sale_order.picking_ids.button_validate()
-        wiz = Form(self.env[wiz['res_model']].with_context(wiz['context'])).save()
-        wiz.process()
+        sale_order.picking_ids.move_ids.write({'quantity': 1, 'picked': True})
+        Form.from_action(self.env, sale_order.picking_ids.button_validate()).save().process()
 
         # upate the standard price to 12
         self.product.standard_price = 12
@@ -886,7 +872,7 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
         sale_order = self._so_and_confirm_two_units()
 
         # Deliver one.
-        sale_order.picking_ids.move_ids.quantity_done = 2
+        sale_order.picking_ids.move_ids.write({'quantity': 2, 'picked': True})
         sale_order.picking_ids.button_validate()
 
         # Invoice the sale order.
@@ -926,7 +912,7 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
             'price_unit': 10,
         })
         in_move_1._action_confirm()
-        in_move_1.quantity_done = 8
+        in_move_1.write({'quantity': 8, 'picked': True})
         in_move_1._action_done()
 
         # Create and confirm a sale order for 2@12
@@ -945,7 +931,7 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
         sale_order.action_confirm()
 
         # Deliver 10
-        sale_order.picking_ids.move_ids.quantity_done = 10
+        sale_order.picking_ids.move_ids.write({'quantity': 10, 'picked': True})
         sale_order.picking_ids.button_validate()
 
         # Make the second receipt
@@ -959,7 +945,7 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
             'price_unit': 12,
         })
         in_move_2._action_confirm()
-        in_move_2.quantity_done = 2
+        in_move_2.write({'quantity': 2, 'picked': True})
         in_move_2._action_done()
         self.assertEqual(self.product.stock_valuation_layer_ids[-1].value, -4)  # we sent two at 10 but they should have been sent at 12
         self.assertEqual(self.product.stock_valuation_layer_ids[-1].quantity, 0)
@@ -1002,7 +988,7 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
             'price_unit': 8,
         })
         in_move_1._action_confirm()
-        in_move_1.quantity_done = 5
+        in_move_1.write({'quantity': 5, 'picked': True})
         in_move_1._action_done()
 
         # +8@12
@@ -1016,7 +1002,7 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
             'price_unit': 12,
         })
         in_move_2._action_confirm()
-        in_move_2.quantity_done = 8
+        in_move_2.write({'quantity': 8, 'picked': True})
         in_move_2._action_done()
 
         # sale 1@20, deliver, invoice
@@ -1033,7 +1019,7 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
                 })],
         })
         sale_order.action_confirm()
-        sale_order.picking_ids.move_ids.quantity_done = 1
+        sale_order.picking_ids.move_ids.write({'quantity': 1, 'picked': True})
         sale_order.picking_ids.button_validate()
         invoice = sale_order._create_invoices()
         invoice.action_post()
@@ -1052,7 +1038,7 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
                 })],
         })
         sale_order.action_confirm()
-        sale_order.picking_ids.move_ids.quantity_done = 6
+        sale_order.picking_ids.move_ids.write({'quantity': 6, 'picked': True})
         sale_order.picking_ids.button_validate()
         invoice = sale_order._create_invoices()
         invoice.action_post()
@@ -1080,7 +1066,7 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
             'price_unit': 10,
         })
         in_move_1._action_confirm()
-        in_move_1.quantity_done = 8
+        in_move_1.write({'quantity': 8, 'picked': True})
         in_move_1._action_done()
 
         # Create and confirm a sale order for 10@12
@@ -1099,7 +1085,7 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
         sale_order.action_confirm()
 
         # Deliver 10
-        sale_order.picking_ids.move_ids.quantity_done = 10
+        sale_order.picking_ids.move_ids.write({'quantity': 10, 'picked': True})
         sale_order.picking_ids.button_validate()
 
         # Invoice the sale order.
@@ -1117,7 +1103,7 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
             'price_unit': 12,
         })
         in_move_2._action_confirm()
-        in_move_2.quantity_done = 2
+        in_move_2.write({'quantity': 2, 'picked': True})
         in_move_2._action_done()
 
         # check the last anglo saxon move line
@@ -1142,12 +1128,12 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
             'price_unit': 10,
         })
         in_move_1._action_confirm()
-        in_move_1.quantity_done = 2
+        in_move_1.write({'quantity': 2, 'picked': True})
         in_move_1._action_done()
 
         # Create, confirm and deliver a sale order for 2@12 (SO1)
         so_1 = self._so_and_confirm_two_units()
-        so_1.picking_ids.move_ids.quantity_done = 2
+        so_1.picking_ids.move_ids.write({'quantity': 2, 'picked': True})
         so_1.picking_ids.button_validate()
 
         # Return 1 from SO1
@@ -1157,10 +1143,10 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
         )
         stock_return_picking = stock_return_picking_form.save()
         stock_return_picking.product_return_moves.quantity = 1.0
-        stock_return_picking_action = stock_return_picking.create_returns()
+        stock_return_picking_action = stock_return_picking.action_create_returns()
         return_pick = self.env['stock.picking'].browse(stock_return_picking_action['res_id'])
         return_pick.action_assign()
-        return_pick.move_ids.quantity_done = 1
+        return_pick.move_ids.write({'quantity': 1, 'picked': True})
         return_pick._action_done()
 
         # Create, confirm and deliver a sale order for 1@12 (SO2)
@@ -1177,7 +1163,7 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
                 })],
         })
         so_2.action_confirm()
-        so_2.picking_ids.move_ids.quantity_done = 1
+        so_2.picking_ids.move_ids.write({'quantity': 1, 'picked': True})
         so_2.picking_ids.button_validate()
 
         # Receive 1@20
@@ -1191,7 +1177,7 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
             'price_unit': 20,
         })
         in_move_2._action_confirm()
-        in_move_2.quantity_done = 1
+        in_move_2.write({'quantity': 1, 'picked': True})
         in_move_2._action_done()
 
         # Re-deliver returned 1 from SO1
@@ -1201,10 +1187,10 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
         )
         stock_redeliver_picking = stock_redeliver_picking_form.save()
         stock_redeliver_picking.product_return_moves.quantity = 1.0
-        stock_redeliver_picking_action = stock_redeliver_picking.create_returns()
+        stock_redeliver_picking_action = stock_redeliver_picking.action_create_returns()
         redeliver_pick = self.env['stock.picking'].browse(stock_redeliver_picking_action['res_id'])
         redeliver_pick.action_assign()
-        redeliver_pick.move_ids.quantity_done = 1
+        redeliver_pick.move_ids.write({'quantity': 1, 'picked': True})
         redeliver_pick._action_done()
 
         # Invoice the sale orders
@@ -1273,7 +1259,7 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
                 })],
         })
         so_1.action_confirm()
-        so_1.picking_ids.move_ids.quantity_done = 12
+        so_1.picking_ids.move_ids.write({'quantity': 12, 'picked': True})
         so_1.picking_ids.button_validate()
 
         # Invoice the sale order.
@@ -1316,7 +1302,7 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
             'price_unit': 1.0,
         })
         in_move_1._action_confirm()
-        in_move_1.quantity_done = quantity
+        in_move_1.write({'quantity': quantity, 'picked': True})
         in_move_1._action_done()
 
         # Create, confirm and deliver a sale order for 12@1.5 with reception (50 * 1.0, 50 * 0.0)(SO2)
@@ -1333,7 +1319,7 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
                 })],
         })
         so_2.action_confirm()
-        so_2.picking_ids.move_ids.quantity_done = 12
+        so_2.picking_ids.move_ids.write({'quantity': 12, 'picked': True})
         so_2.picking_ids.button_validate()
 
         # Invoice the sale order.
@@ -1383,7 +1369,7 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
             'price_unit': p,
         } for p in [10, 20, 60]])
         in_moves._action_confirm()
-        in_moves.quantity_done = 1
+        in_moves.write({'quantity': 1, 'picked': True})
         in_moves._action_done()
 
         # Sell 3 units
@@ -1406,11 +1392,10 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
         picking = so.picking_ids
         while picking:
             pickings.append(picking)
-            picking.move_ids.quantity_done = 1
+            picking.move_ids.write({'quantity': 1, 'picked': True})
             action = picking.button_validate()
             if isinstance(action, dict):
-                wizard = Form(self.env[action['res_model']].with_context(action['context'])).save()
-                wizard.process()
+                Form.from_action(self.env, action).save().process()
             picking = picking.backorder_ids
 
         invoice = so._create_invoices()
@@ -1427,24 +1412,23 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
             'price_unit': 100,
         })
         in_moves._action_confirm()
-        in_moves.quantity_done = 1
+        in_moves.write({'quantity': 1, 'picked': True})
         in_moves._action_done()
 
         # Return the second picking (i.e. 1@20)
         ctx = {'active_id': pickings[1].id, 'active_model': 'stock.picking'}
         return_wizard = Form(self.env['stock.return.picking'].with_context(ctx)).save()
-        return_picking_id, dummy = return_wizard._create_returns()
-        return_picking = self.env['stock.picking'].browse(return_picking_id)
-        return_picking.move_ids.quantity_done = 1
+        return_wizard.product_return_moves.quantity = 1
+        return_picking = return_wizard._create_return()
+        return_picking.move_ids.write({'quantity': 1, 'picked': True})
         return_picking.button_validate()
 
         # Add a credit note for the returned product
         ctx = {'active_model': 'account.move', 'active_ids': invoice.ids}
         refund_wizard = self.env['account.move.reversal'].with_context(ctx).create({
-            'refund_method': 'refund',
             'journal_id': invoice.journal_id.id,
         })
-        action = refund_wizard.reverse_moves()
+        action = refund_wizard.refund_moves()
         reverse_invoice = self.env['account.move'].browse(action['res_id'])
         with Form(reverse_invoice) as reverse_invoice_form:
             with reverse_invoice_form.invoice_line_ids.edit(0) as line:
@@ -1478,7 +1462,7 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
             'price_unit': p,
         } for p in [10, 20, 60]])
         in_moves._action_confirm()
-        in_moves.quantity_done = 1
+        in_moves.write({'quantity': 1, 'picked': True})
         in_moves._action_done()
 
         # Sell 3 units
@@ -1501,11 +1485,10 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
         picking = so.picking_ids
         while picking:
             pickings.append(picking)
-            picking.move_ids.quantity_done = 1
+            picking.move_ids.write({'quantity': 1, 'picked': True})
             action = picking.button_validate()
             if isinstance(action, dict):
-                wizard = Form(self.env[action['res_model']].with_context(action['context'])).save()
-                wizard.process()
+                Form.from_action(self.env, action).save().process()
             picking = picking.backorder_ids
 
         invoice = so._create_invoices()
@@ -1522,15 +1505,15 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
             'price_unit': 100,
         })
         in_moves._action_confirm()
-        in_moves.quantity_done = 1
+        in_moves.write({'quantity': 1, 'picked': True})
         in_moves._action_done()
 
         # Return the second picking (i.e. 1@20)
         ctx = {'active_id': pickings[1].id, 'active_model': 'stock.picking'}
         return_wizard = Form(self.env['stock.return.picking'].with_context(ctx)).save()
-        return_picking_id, dummy = return_wizard._create_returns()
-        return_picking = self.env['stock.picking'].browse(return_picking_id)
-        return_picking.move_ids.quantity_done = 1
+        return_wizard.product_return_moves.quantity = 1
+        return_picking = return_wizard._create_return()
+        return_picking.move_ids.write({'quantity': 1, 'picked': True})
         return_picking.button_validate()
 
         # Create a new invoice for the returned product
@@ -1567,7 +1550,7 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
             'price_unit': p,
         } for p in svl_values])
         in_moves._action_confirm()
-        in_moves.quantity_done = 1
+        in_moves.write({'quantity': 1, 'picked': True})
         in_moves._action_done()
 
         so = self.env['sale.order'].create({
@@ -1589,11 +1572,10 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
         invoices = self.env['account.move']
         picking = so.picking_ids
         while picking:
-            picking.move_ids.quantity_done = 1
+            picking.move_ids.write({'quantity': 1, 'picked': True})
             action = picking.button_validate()
             if isinstance(action, dict):
-                wizard = Form(self.env[action['res_model']].with_context(action['context'])).save()
-                wizard.process()
+                Form.from_action(self.env, action).save().process()
             picking = picking.backorder_ids
 
             invoice = so._create_invoices()
@@ -1657,7 +1639,7 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
             'price_unit': p,
         } for p in [10, 50]])
         in_moves._action_confirm()
-        in_moves.quantity_done = 1
+        in_moves.write({'quantity': 1, 'picked': True})
         in_moves._action_done()
 
         so = self.env['sale.order'].create({
@@ -1675,7 +1657,7 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
         so.action_confirm()
 
         picking = so.picking_ids
-        picking.move_ids.quantity_done = 1.0
+        picking.move_ids.write({'quantity': 1.0, 'picked': True})
         picking.button_validate()
 
         invoice01 = so._create_invoices()
@@ -1685,10 +1667,9 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
         invoice01.with_user(accountman.id).action_post()
 
         move_reversal = self.env['account.move.reversal'].with_context(active_model="account.move", active_ids=invoice01.ids).create({
-            'refund_method': 'modify',
             'journal_id': invoice01.journal_id.id,
         })
-        reversal = move_reversal.reverse_moves()
+        reversal = move_reversal.modify_moves()
         invoice02 = self.env['account.move'].browse(reversal['res_id'])
         invoice02.action_post()
 
@@ -1715,13 +1696,10 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
         self.assertEqual(sale_order.order_line.product_uom_qty, 2.0)
 
         # Deliver one.
-        sale_order.picking_ids.move_ids.quantity_done = 2
+        sale_order.picking_ids.move_ids.write({'quantity': 2, 'picked': True})
         sale_order.picking_ids.button_validate()
         svl_am = sale_order.order_line.move_ids.stock_valuation_layer_ids.account_move_id
         svl_am.button_draft()
-        svl_line = svl_am.line_ids.filtered(lambda aml: aml.account_id == self.company_data['default_account_stock_out'])
-
-        svl_line.write({'analytic_distribution': {sale_order.analytic_account_id.id: 100}})
         svl_am.action_post()
 
         # Check no reinvoice line addded to the sale order
@@ -1768,10 +1746,9 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
         down_payment_invoices.action_post()
 
         # Deliver a part of it with a backorder
-        so.picking_ids.move_ids.quantity_done = 4
-        backorder_wizard_dict = so.picking_ids.button_validate()
-        backorder_wizard = Form(self.env[backorder_wizard_dict['res_model']].with_context(backorder_wizard_dict['context'])).save()
-        backorder_wizard.process()
+        so.picking_ids.move_ids.quantity = 4
+        so.picking_ids.move_ids.picked = True
+        Form.from_action(self.env, so.picking_ids.button_validate()).save().process()
 
         invoice_wizard = self.env['sale.advance.payment.inv'].with_context(active_ids=so.ids, open_invoices=True).create({})
         invoice_wizard.create_invoices()
@@ -1783,7 +1760,8 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
         credit_note.action_post()
         # Deliver the remaining part and invoice itµ
         backorder = so.picking_ids.filtered(lambda p: p.state != 'done')
-        backorder.move_ids.quantity_done = 6
+        backorder.move_ids.quantity = 6
+        backorder.move_ids.picked = True
         backorder.button_validate()
 
         invoice_wizard = self.env['sale.advance.payment.inv'].with_context(active_ids=so.ids, open_invoices=True).create({})
@@ -1805,3 +1783,177 @@ class TestAngloSaxonValuation(ValuationReconciliationTestCommon):
             {'debit': 0, 'credit': 60, 'account_id': account_stock_out.id, 'reconciled': True},
             {'debit': 60, 'credit': 0, 'account_id': account_expense.id, 'reconciled': False},
         ])
+
+    def test_anglo_saxon_cogs_partial_down_payment_credit_note(self):
+        """Create a SO with a product invoiced on ordered quantity.
+        Do a partial down payment, invoice the rest.
+        Create a credit note. The credit note should reverse the cogs"""
+        self.product.standard_price = 4
+        self.env['stock.quant'].with_context(inventory_mode=True).create({
+            'product_id': self.product.id,
+            'inventory_quantity': 20,
+            'location_id': self.company_data['default_warehouse'].lot_stock_id.id,
+        }).action_apply_inventory()
+
+        # Create the SO
+        so = self.env['sale.order'].create({
+            'partner_id': self.partner_a.id,
+            'order_line': [
+                Command.create({
+                    'name': self.product.name,
+                    'product_id': self.product.id,
+                    'product_uom_qty': 10.0,
+                    'product_uom': self.product.uom_id.id,
+                    'price_unit': 10,
+                    'tax_id': False,
+                })],
+        })
+        so.action_confirm()
+
+        # Do a 25% down payment
+        down_payment = self.env['sale.advance.payment.inv'].create({
+            'advance_payment_method': 'percentage',
+            'amount': 25,
+            'sale_order_ids': so.ids,
+        })
+        down_payment.create_invoices()
+        # Invoice the the down payment
+        down_payment_invoices = so.invoice_ids
+        down_payment_invoices.action_post()
+
+        # Invoice the rest
+        invoice_wizard = self.env['sale.advance.payment.inv'].with_context(
+            active_ids=so.ids
+        ).create({})
+        action = invoice_wizard.create_invoices()
+        invoice = self.env['account.move'].browse(action['res_id'])
+        invoice.action_post()
+
+        move_reversal = self.env['account.move.reversal'].with_context(active_model="account.move", active_ids=invoice.ids).create({
+            'journal_id': invoice.journal_id.id,
+        })
+        reversal = move_reversal.refund_moves()
+        credit_note = self.env['account.move'].browse(reversal['res_id'])
+        credit_note.action_post()
+
+        # Check the resulting accounting entries
+        account_stock_out = self.company_data['default_account_stock_out']
+        account_expense = self.company_data['default_account_expense']
+        invoice_cogs = invoice.line_ids.filtered(lambda l: l.display_type == 'cogs').sorted('debit')
+        credit_note_cogs = credit_note.line_ids.filtered(lambda l: l.display_type == 'cogs').sorted('debit')
+        self.assertRecordValues(invoice_cogs, [
+            {'debit': 0, 'credit': 40, 'account_id': account_stock_out.id},
+            {'debit': 40, 'credit': 0, 'account_id': account_expense.id},
+        ])
+        self.assertRecordValues(credit_note_cogs, [
+            {'debit': 0, 'credit': 40, 'account_id': account_expense.id},
+            {'debit': 40, 'credit': 0, 'account_id': account_stock_out.id},
+        ])
+
+    def test_anglo_saxon_cogs_validate_invoice(self):
+        """ Having some FIFO + real-time valued product with an established price i.e., from an in
+        move: generating a delivery via sale, processing that delivery in multiple parts, and
+        invoicing the sale in multiple parts should not cause the valuation mechanism to "run out"
+        of product quantity during consumption of the stock valuation layers which were generated
+        by the out moves.
+
+        In that scenario, if there have been any manual changes to a product's `standard_price`,
+        there will be inaccurate product expense account (COGs) lines on the affected invoice.
+        """
+        product = self.product
+        in_move = self.env['stock.move'].create({
+            'name': 'in 12 units @ $100',
+            'product_id': product.id,
+            'price_unit': 100,
+            'product_uom_qty': 12,
+            'location_id': self.env.ref('stock.stock_location_suppliers').id,
+            'location_dest_id': self.env.user._get_default_warehouse_id().lot_stock_id.id,
+        })
+        in_move._action_confirm()
+        in_move._action_assign()
+        in_move.move_line_ids.quantity = 12
+        in_move.picked = True
+        in_move._action_done()
+
+        sale_order = self.env['sale.order'].create({
+            'partner_id': self.partner_a.id,
+            'order_line': [Command.create({
+                'product_id': product.id,
+                'product_uom_qty': 10,
+                'price_unit': 100,
+            }), Command.create({
+                'product_id': product.id,
+                'product_uom_qty': 2,
+                'price_unit': 100,
+            })],
+        })
+        sale_order.action_confirm()
+        delivery = sale_order.picking_ids
+        delivery.move_ids.filtered(lambda m: m.product_uom_qty == 2).quantity = 0
+        r = delivery.button_validate()
+        Form(self.env[r['res_model']].with_context(r['context'])).save().process()
+        backorder_delivery = sale_order.picking_ids.filtered(lambda p: p.state != 'done')
+        backorder_delivery.move_ids.quantity = 2
+        backorder_delivery.button_validate()
+        invoice_wizard = self.env['sale.advance.payment.inv'].with_context(
+            active_ids=sale_order.ids, open_invoices=True
+        ).create({})
+        invoice_wizard.create_invoices()
+
+        invoice = sale_order.invoice_ids
+        qty_ten_invoice_line = invoice.invoice_line_ids.filtered(lambda l: l.quantity == 10)
+        qty_ten_invoice_line.quantity = 5
+        invoice.invoice_date = fields.Date.today()
+        invoice.action_post()
+        product.standard_price = 50
+        invoice_wizard = self.env['sale.advance.payment.inv'].with_context(
+            active_ids=sale_order.ids, open_invoices=True
+        ).create({})
+        invoice_wizard.create_invoices()
+        invoice2 = sale_order.invoice_ids.filtered(lambda i: i.state != 'posted')
+        invoice2.invoice_date = fields.Date.today()
+        invoice2.action_post()
+        invoice2_cogs_lines = invoice2.line_ids.filtered(lambda l: l.display_type == 'cogs')
+        self.assertRecordValues(
+            invoice2_cogs_lines,
+            [
+                {'credit': 500, 'debit': 0},
+                {'credit': 0, 'debit': 500},
+            ]
+        )
+
+    def test_svl_account_move_analytic_account_model_change_from_SO(self):
+        """ Tests whether, when an analytic account rule is set, and user changes manually the analytic account on
+        the SO, it is the same that is mentioned in the account move created by the svl.
+        """
+        # Required for `analytic.group_analytic_accounting` to be visible in the view
+        self.env.user.groups_id += self.env.ref('analytic.group_analytic_accounting')
+        analytic_plan = self.env['account.analytic.plan'].create({'name': 'Plan Test'})
+        analytic_account_default = self.env['account.analytic.account'].create({'name': 'default', 'plan_id': analytic_plan.id})
+        analytic_account_manual = self.env['account.analytic.account'].create({'name': 'manual', 'plan_id': analytic_plan.id})
+        self.product.categ_id.property_cost_method = 'standard'
+        self.product.standard_price = 10
+        self.env['stock.quant']._update_available_quantity(self.product, self.company_data['default_warehouse'].lot_stock_id, 1)
+
+        self.env['account.analytic.distribution.model'].create({
+            'analytic_distribution': {analytic_account_default.id: 100},
+            'product_id': self.product.id,
+        })
+        analytic_distribution_manual = {str(analytic_account_manual.id): 100}
+
+        so_form = Form(self.env['sale.order'].with_context(tracking_disable=True))
+        so_form.partner_id = self.partner_a
+        with so_form.order_line.new() as so_line_form:
+            so_line_form.name = self.product.name
+            so_line_form.product_id = self.product
+            so_line_form.product_uom_qty = 1.0
+            so_line_form.price_unit = 10
+            so_line_form.analytic_distribution = analytic_distribution_manual
+
+        sale_order = so_form.save()
+        sale_order.action_confirm()
+        sale_order.picking_ids.button_validate()
+
+        amls = sale_order.picking_ids.move_ids.stock_valuation_layer_ids.account_move_id.line_ids
+        self.assertEqual(amls[0].analytic_distribution, analytic_distribution_manual)
+        self.assertEqual(amls[1].analytic_distribution, analytic_distribution_manual)

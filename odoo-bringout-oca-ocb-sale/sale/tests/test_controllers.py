@@ -75,11 +75,11 @@ class TestSalesControllers(BaseUsersCommon, HttpCase, SaleCommon):
 
         req = self.url_open(portal_so.get_portal_url(report_type='pdf'), allow_redirects=False)
         self.assertEqual(req.status_code, 200)
-        self.assertEqual(req.headers['content-disposition'], f"inline; filename*=UTF-8''Quotation-{portal_so.name}.pdf")
+        self.assertEqual(req.headers['content-disposition'], f"inline; filename*=UTF-8''Quotation_{portal_so.name}.pdf")
 
         req = self.url_open(portal_so.get_portal_url(report_type='pdf', download=True), allow_redirects=False)
         self.assertEqual(req.status_code, 200)
-        self.assertEqual(req.headers['content-disposition'], f"attachment; filename*=UTF-8''Quotation-{portal_so.name}.pdf")
+        self.assertEqual(req.headers['content-disposition'], f"attachment; filename*=UTF-8''Quotation_{portal_so.name}.pdf")
 
 
 @tagged('post_install', '-at_install')
@@ -104,7 +104,9 @@ class TestSaleSignature(HttpCaseWithUserPortal):
         # must be sent to the user so he can see it
         email_act = sales_order.action_quotation_send()
         email_ctx = email_act.get('context', {})
-        sales_order.with_context(**email_ctx).message_post_with_template(
-            email_ctx.get('default_template_id'))
+        sales_order.with_context(**email_ctx).message_post_with_source(
+            self.env['mail.template'].browse(email_ctx.get('default_template_id')),
+            subtype_xmlid='mail.mt_comment',
+        )
 
         self.start_tour("/", 'sale_signature', login="portal")

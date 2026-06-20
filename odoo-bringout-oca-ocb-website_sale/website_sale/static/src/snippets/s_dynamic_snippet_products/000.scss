@@ -6,6 +6,10 @@
         overflow: visible;
         margin-top: 6rem;
         padding-top: 6rem;
+
+        img {
+            height: 12rem;
+        }
     }
 
     .o_carousel_product_img_link {
@@ -85,6 +89,17 @@ img.o_img_product_square {
             > div:last-child .o_carousel_product_card {
                 @include border-bottom-end-radius($border-radius-lg !important);
             }
+        }
+    }
+}
+.s_dynamic_snippet_products .container-fluid .s_dynamic_snippet_content {
+    @include media-breakpoint-up(md) {
+        // Prevented horizontal overflow of control buttons.
+        .carousel-control-prev {
+            transform: translateX(50%); 
+        }
+        .carousel-control-next {
+            transform: translateX(-50%); 
         }
     }
 }
