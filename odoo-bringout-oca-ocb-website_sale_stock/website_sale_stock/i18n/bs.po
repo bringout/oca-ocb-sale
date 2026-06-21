@@ -1,666 +1,225 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* website_sale_stock
-#
+# * website_sale_stock
+# 
+# Translators:
+# Martin Trigaux, 2018
+# Boško Stojaković <bluesoft83@gmail.com>, 2018
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-06 13:32+0000\n"
-"PO-Revision-Date: 2024-02-06 13:32+0000\n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2018-09-21 13:18+0000\n"
+"PO-Revision-Date: 2018-09-21 13:18+0000\n"
+"Last-Translator: Boško Stojaković <bluesoft83@gmail.com>, 2018\n"
+"Language-Team: Bosnian (https://www.transifex.com/odoo/teams/41243/bs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Language: bs\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-# taken from hr.po
 #. module: website_sale_stock
-#: model_terms:ir.ui.view,arch_db:website_sale_stock.res_config_settings_view_form
-msgid ""
-"<span attrs=\"{'invisible': [('show_availability', '=', "
-"False)]}\">Units</span>"
+#: model_terms:ir.ui.view,arch_db:website_sale_stock.website_sale_stock_cart_lines
+#: model_terms:ir.ui.view,arch_db:website_sale_stock.website_sale_stock_payment
+msgid "<strong>Warning!</strong>"
 msgstr ""
-"<span attrs=\"{'invisible': [('show_availability', '=', "
-"False)]}\">Komada</span>"
 
-# taken from hr.po
 #. module: website_sale_stock
-#: model:ir.model.fields,field_description:website_sale_stock.field_product_product__stock_notification_partner_ids
-msgid "Back in stock Notifications"
-msgstr "Obavijest: Ponovno na zalihama"
+#: model:ir.model.fields,help:website_sale_stock.field_product_product__inventory_availability
+#: model:ir.model.fields,help:website_sale_stock.field_product_template__inventory_availability
+msgid "Adds an inventory availability status on the web product page."
+msgstr ""
 
-# taken from hr.po
+#. module: website_sale_stock
+#: model_terms:ir.ui.view,arch_db:website_sale_stock.product_template_form_view_inherit_website_sale_stock
+msgid "Availability"
+msgstr "Raspoloživost"
+
+#. module: website_sale_stock
+#: model:ir.model.fields,field_description:website_sale_stock.field_product_product__available_threshold
+#: model:ir.model.fields,field_description:website_sale_stock.field_product_template__available_threshold
+#: model:ir.model.fields,field_description:website_sale_stock.field_res_config_settings__available_threshold
+msgid "Availability Threshold"
+msgstr ""
+
+#. module: website_sale_stock
+#: model:ir.model.fields,field_description:website_sale_stock.field_product_product__cart_qty
+msgid "Cart Qty"
+msgstr ""
+
 #. module: website_sale_stock
 #: model:ir.model,name:website_sale_stock.model_res_config_settings
 msgid "Config Settings"
-msgstr "Postavke konfiguracije"
+msgstr ""
 
-# taken from hr.po
+#. module: website_sale_stock
+#: model:ir.model.fields,field_description:website_sale_stock.field_product_product__custom_message
+#: model:ir.model.fields,field_description:website_sale_stock.field_product_template__custom_message
+msgid "Custom Message"
+msgstr ""
+
 #. module: website_sale_stock
 #: model_terms:ir.ui.view,arch_db:website_sale_stock.res_config_settings_view_form
-msgid "Continue Selling"
-msgstr "Nastavi prodaju"
+msgid "Default Mode"
+msgstr ""
 
-# taken from hr.po
-#. module: website_sale_stock
-#: model:ir.model.fields,field_description:website_sale_stock.field_res_config_settings__default_allow_out_of_stock_order
-msgid "Continue selling when out-of-stock"
-msgstr "Nastavite s prodajom kada nema na zalihi"
-
-# taken from hr.po
-#. module: website_sale_stock
-#: model_terms:ir.ui.view,arch_db:website_sale_stock.availability_email_body
-msgid "Dear Customer,"
-msgstr "Poštovani kupac,"
-
-# taken from hr.po
 #. module: website_sale_stock
 #: model_terms:ir.ui.view,arch_db:website_sale_stock.res_config_settings_view_form
 msgid ""
 "Default availability mode set on newly created storable products. This can "
 "be changed at the product level."
 msgstr ""
-"Postavi zadani način dostupnosti na sve novokreirane proizvode. Ovo može "
-"biti promijenjeno kasnije na proizvodu."
 
-# taken from hr.po
 #. module: website_sale_stock
 #: model_terms:ir.ui.view,arch_db:website_sale_stock.res_config_settings_view_form
-msgid "Default visibility for custom messages."
-msgstr "Zadana vidljivost za prilagođene poruke."
+msgid "Default threshold"
+msgstr ""
 
-# taken from hr.po
 #. module: website_sale_stock
-#. odoo-javascript
-#: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:0
+#. openerp-web
+#: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:16
 #, python-format
-msgid "Get notified when back in stock"
-msgstr "Primite obavijest kada ponovo bude na zalihama"
+msgid "In stock"
+msgstr ""
 
-# taken from hr.po
 #. module: website_sale_stock
 #: model_terms:ir.ui.view,arch_db:website_sale_stock.res_config_settings_view_form
-msgid "How to display products having low quantities (on hand - reserved)"
-msgstr "Kako prikazati proizvode s malim količinama (Zaliha - Dostupno)"
+msgid "Inventory"
+msgstr "Skladište"
 
-# taken from hr.po
 #. module: website_sale_stock
-#. odoo-python
-#: code:addons/website_sale_stock/controllers/main.py:0
-#, python-format
-msgid "Invalid Email"
-msgstr "Neispravan email"
+#: model:ir.model.fields,field_description:website_sale_stock.field_product_product__inventory_availability
+#: model:ir.model.fields,field_description:website_sale_stock.field_product_template__inventory_availability
+#: model:ir.model.fields,field_description:website_sale_stock.field_res_config_settings__inventory_availability
+msgid "Inventory Availability"
+msgstr ""
 
-# taken from hr.po
-#. module: website_sale_stock
-#. odoo-javascript
-#: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:0
-#, python-format
-msgid "Invalid email"
-msgstr "Osnovni mod"
-
-# taken from hr.po
 #. module: website_sale_stock
 #: model_terms:ir.ui.view,arch_db:website_sale_stock.res_config_settings_view_form
-msgid "Inventory Defaults"
-msgstr "Zadane postavke skladišta"
+msgid ""
+"Manage the inventory of your products and display their availability status "
+"on the website."
+msgstr ""
 
-# taken from hr.po
 #. module: website_sale_stock
-#. odoo-javascript
-#: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:0
-#, python-format
-msgid "Only"
-msgstr "Samo"
-
-# taken from hr.po
-#. module: website_sale_stock
-#: model_terms:ir.ui.view,arch_db:website_sale_stock.availability_email_body
-msgid "Order Now"
-msgstr "Naruči sada"
-
-# taken from hr.po
-#. module: website_sale_stock
-#. odoo-javascript
-#: code:addons/website_sale_stock/static/src/js/product_card/product_card.xml:0
-#, python-format
-msgid "Out of Stock"
-msgstr "Nema na zalihi"
-
-# taken from hr.po
-#. module: website_sale_stock
-#: model_terms:ir.ui.view,arch_db:website_sale_stock.res_config_settings_view_form
-msgid "Out-of-Stock"
-msgstr "Na stanju"
-
-# taken from hr.po
-#. module: website_sale_stock
-#: model:ir.model.fields,field_description:website_sale_stock.field_product_product__out_of_stock_message
-msgid "Out-of-Stock Message"
-msgstr "Poruka Nema na zalihi"
-
-# taken from hr.po
-#. module: website_sale_stock
-#. odoo-python
-#: code:addons/website_sale_stock/models/product_product.py:0
-#, python-format
+#: model:ir.model,name:website_sale_stock.model_product_product
 msgid "Product"
 msgstr "Proizvod"
 
-# taken from hr.po
 #. module: website_sale_stock
-#: model:ir.model,name:website_sale_stock.model_product_product
-msgid "Product Variant"
-msgstr "Varijanta proizvoda"
+#: model:ir.model,name:website_sale_stock.model_product_template
+msgid "Product Template"
+msgstr "Predlog proizvoda"
 
-# taken from hr.po
-#. module: website_sale_stock
-#: model:ir.actions.server,name:website_sale_stock.ir_cron_send_availability_email_ir_actions_server
-msgid "Product: send email regarding products availability"
-msgstr "Proizvod: pošaljite e-poštu o dostupnosti proizvoda"
-
-# taken from hr.po
-#. module: website_sale_stock
-#: model_terms:ir.ui.view,arch_db:website_sale_stock.availability_email_body
-msgid "Regards,"
-msgstr "Pozdrav,"
-
-# taken from hr.po
 #. module: website_sale_stock
 #: model:ir.model,name:website_sale_stock.model_sale_order
-msgid "Sales Order"
-msgstr "Narudžba"
+msgid "Sale Order"
+msgstr "Prodajni nalog"
 
-# taken from hr.po
 #. module: website_sale_stock
 #: model:ir.model,name:website_sale_stock.model_sale_order_line
 msgid "Sales Order Line"
-msgstr "Stavka narudžbe"
+msgstr "Stavka prodajne narudžbe"
 
-# taken from hr.po
 #. module: website_sale_stock
-#: model_terms:ir.ui.view,arch_db:website_sale_stock.product_template_form_view_inherit_website_sale_stock
-msgid "Show Available Qty"
-msgstr "Prikaži dostupnu količinu"
+#: selection:product.template,inventory_availability:0
+#: selection:res.config.settings,inventory_availability:0
+msgid "Sell regardless of inventory"
+msgstr ""
 
-# taken from hr.po
 #. module: website_sale_stock
-#: model:ir.model.fields,field_description:website_sale_stock.field_product_product__available_threshold
-msgid "Show Threshold"
-msgstr "Prikaži prag"
+#: selection:product.template,inventory_availability:0
+#: selection:res.config.settings,inventory_availability:0
+msgid "Show inventory below a threshold and prevent sales if not enough stock"
+msgstr ""
 
-# taken from hr.po
 #. module: website_sale_stock
-#: model:ir.model.fields,field_description:website_sale_stock.field_product_product__show_availability
-msgid "Show availability Qty"
-msgstr "Prikaži dostupnost Kol"
+#: selection:product.template,inventory_availability:0
+#: selection:res.config.settings,inventory_availability:0
+msgid "Show inventory on website and prevent sales if not enough stock"
+msgstr ""
 
-# taken from hr.po
 #. module: website_sale_stock
-#. odoo-python
-#: code:addons/website_sale_stock/models/sale_order.py:0
+#: selection:product.template,inventory_availability:0
+#: selection:res.config.settings,inventory_availability:0
+msgid "Show product-specific notifications"
+msgstr ""
+
+#. module: website_sale_stock
+#: code:addons/website_sale_stock/models/sale_order.py:30
 #, python-format
 msgid ""
 "Some products became unavailable and your cart has been updated. We're sorry"
 " for the inconvenience."
 msgstr ""
-"Neki proizvodi su postali nedostupni i vaša je košarica ažurirana. "
-"Ispričavamo se zbog neugodnosti."
 
-# taken from hr.po
 #. module: website_sale_stock
-#: model_terms:ir.ui.view,arch_db:website_sale_stock.availability_email_body
-msgid "The following product is now available."
-msgstr "Sada je dostupan sljedeći proizvod."
-
-# taken from hr.po
-#. module: website_sale_stock
-#. odoo-python
-#: code:addons/website_sale_stock/models/product_product.py:0
+#. openerp-web
+#: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:22
 #, python-format
-msgid "The product '%(product_name)s' is now available"
+msgid "Temporarily out of stock"
 msgstr ""
 
-# taken from hr.po
-#. module: website_sale_stock
-#. odoo-javascript
-#: code:addons/website_sale_stock/static/src/js/website_sale_reorder.js:0
-#, python-format
-msgid "This product is out of stock."
-msgstr "Ovaj proizvod nije dostupan."
-
-# taken from hr.po
 #. module: website_sale_stock
 #: model:ir.model,name:website_sale_stock.model_stock_picking
 msgid "Transfer"
 msgstr "Prenos"
 
-# taken from hr.po
 #. module: website_sale_stock
-#: model_terms:ir.ui.view,arch_db:website_sale_stock.product_template_form_view_inherit_website_sale_stock
-msgid "Units"
-msgstr ""
-"Prikaži inventar ispod praga i spriječi prodaju ako nema dovoljno na stanju"
-
-# taken from hr.po
-#. module: website_sale_stock
-#: model:ir.model.fields,field_description:website_sale_stock.field_res_config_settings__website_warehouse_id
-msgid "Warehouse"
-msgstr "Prag dostupnosti"
-
-# taken from hr.po
-#. module: website_sale_stock
-#. odoo-javascript
-#: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:0
+#. openerp-web
+#: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:13
+#: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:22
+#: model:ir.model.fields,field_description:website_sale_stock.field_sale_order__warning_stock
+#: model:ir.model.fields,field_description:website_sale_stock.field_sale_order_line__warning_stock
+#: model_terms:ir.ui.view,arch_db:website_sale_stock.website_sale_stock_cart_lines
+#: model_terms:ir.ui.view,arch_db:website_sale_stock.website_sale_stock_payment
 #, python-format
-msgid "We'll notify you once the product is back in stock."
-msgstr ""
-"Prikaži inventar na web stranici i spriječi prodaju ako nema dovoljno na "
-"stanju"
+msgid "Warning"
+msgstr "Upozorenje"
 
-# taken from hr.po
 #. module: website_sale_stock
 #: model:ir.model,name:website_sale_stock.model_website
+#: model:ir.model.fields,field_description:website_sale_stock.field_stock_picking__website_id
 msgid "Website"
 msgstr "Web stranica"
 
-# taken from hr.po
 #. module: website_sale_stock
 #: model:ir.model.fields,help:website_sale_stock.field_stock_picking__website_id
-msgid "Website where this order has been placed, for eCommerce orders."
+msgid "Website this picking belongs to."
 msgstr ""
-"Web-mjesto na kojem je postavljena ova narudžba, za narudžbe putem "
-"e-trgovine."
 
-# taken from hr.po
 #. module: website_sale_stock
-#. odoo-javascript
-#: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:0
+#. openerp-web
+#: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:19
 #, python-format
 msgid "You already added"
-msgstr "Prikaži obavještenja specifična za proizvod"
-
-# taken from hr.po
-#. module: website_sale_stock
-#. odoo-javascript
-#: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:0
-#, python-format
-msgid "You already added all the available product in your cart."
-msgstr "Već ste dodali sve dostupne proizvode u svoju košaricu."
-
-# taken from hr.po
-#. module: website_sale_stock
-#. odoo-javascript
-#: code:addons/website_sale_stock/static/src/js/website_sale_reorder.js:0
-#, python-format
-msgid "You already have %s Units in your cart."
-msgstr "Već imate %s jedinice u košarici."
-
-# taken from hr.po
-#. module: website_sale_stock
-#. odoo-python
-#: code:addons/website_sale_stock/models/sale_order_line.py:0
-#, python-format
-msgid ""
-"You ask for %(desired_qty)s %(product_name)s but only %(new_qty)s is "
-"available"
 msgstr ""
-"Tražili ste %(desired_qty)s %(product_name)s međutim samo%(new_qty)s je "
-"dostupan"
 
-# taken from hr.po
 #. module: website_sale_stock
-#. odoo-python
-#: code:addons/website_sale_stock/models/sale_order.py:0
+#: code:addons/website_sale_stock/models/sale_order.py:27
 #, python-format
-msgid "You ask for %(desired_qty)s products but only %(new_qty)s is available"
-msgstr "Tražite %(desired_qty)s proizvoda, ali samo %(new_qty)s je dostupno."
+msgid "You ask for %s products but only %s is available"
+msgstr ""
 
-# taken from hr.po
 #. module: website_sale_stock
-#. odoo-javascript
-#: code:addons/website_sale_stock/static/src/js/website_sale_reorder.js:0
+#. openerp-web
+#: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:20
 #, python-format
-msgid "You ask for %s Units but only %s are available."
-msgstr "Tražite %s jedinice, ali samo %s su dostupne."
+msgid "all"
+msgstr "sve"
 
-# taken from hr.po
 #. module: website_sale_stock
-#. odoo-javascript
-#: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:0
+#. openerp-web
+#: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:9
+#: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:14
+#, python-format
+msgid "available"
+msgstr ""
+
+#. module: website_sale_stock
+#. openerp-web
+#: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:20
 #, python-format
 msgid "in your cart."
-msgstr "u vašoj košarici."
-
-# taken from hr.po
-#. module: website_sale_stock
-#. odoo-javascript
-#: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:0
-#, python-format
-msgid "left in stock."
-msgstr "ostalo na zalihi."
-
-# taken from hr.po
-#. module: website_sale_stock
-#: model_terms:ir.ui.view,arch_db:website_sale_stock.res_config_settings_view_form
-msgid "only if below"
-msgstr "samo ako je ispod"
-
-# taken from hr.po
-#. module: website_sale_stock
-#. odoo-javascript
-#: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:0
-#, python-format
-msgid "youremail@gmail.com"
-msgstr "vasemail@gmail.com"
-
-#. module: website_sale_stock
-#: code:addons/website_sale_stock/models/sale_order.py:0
-msgid ""
-"%(product_name)s has not been added to your cart since it is not available."
-msgstr "%(product_name)s nije dodan u vašu korpu jer nije dostupan."
-
-#. module: website_sale_stock
-#: model_terms:ir.ui.view,arch_db:website_sale_stock.res_config_settings_view_form
-msgid "<span invisible=\"not default_show_availability\">units</span>"
-msgstr "<span invisible=\"not default_show_availability\">jedinica</span>"
-
-#. module: website_sale_stock
-#: code:addons/website_sale_stock/static/src/js/product_card/product_card.js:0
-msgid "All available quantity selected"
-msgstr "Odabrana sva dostupna količina"
-
-#. module: website_sale_stock
-#: model_terms:ir.ui.view,arch_db:website_sale_stock.res_config_settings_view_form
-msgid "All warehouses"
-msgstr "Sva skladišta"
-
-#. module: website_sale_stock
-#: model:ir.model.fields,field_description:website_sale_stock.field_product_ribbon__assign
-msgid "Assign"
-msgstr "Dodijeli"
-
-#. module: website_sale_stock
-#: model_terms:ir.ui.view,arch_db:website_sale_stock.product_template_form_view_inherit_website_sale_stock
-msgid "Below"
-msgstr "Ispod"
-
-#. module: website_sale_stock
-#: model:ir.model.fields,help:website_sale_stock.field_product_ribbon__assign
-msgid ""
-"Defines how this ribbon is assigned to products:\n"
-"- Manually: You assign the ribbon manually to products.\n"
-"- Sale: Applied when the product is visibly on sale.\n"
-"- New: Applied based on the New period you will define.\n"
-"- Out Of Stock: Applied when the product is out of stock."
-msgstr ""
-"Definiše kako se ova traka dodjeljuje proizvodima:\n"
-"- Ručno: Traku dodjeljujete proizvodima ručno.\n"
-"- Sniženje: Primijenjeno kada je proizvod vidljivo na sniženju.\n"
-"- Novo: Primijenjeno na osnovu Novog perioda koji ćete definisati.\n"
-"- Nema na zalihi: Primijenjeno kada proizvod nije na zalihi."
-
-#. module: website_sale_stock
-#: model:ir.model.fields,field_description:website_sale_stock.field_product_combo__display_name
-msgid "Display Name"
-msgstr "Naziv za prikaz"
-
-#. module: website_sale_stock
-#: model:ir.model.fields,field_description:website_sale_stock.field_product_combo__id
-msgid "ID"
-msgstr "ID"
-
-#. module: website_sale_stock
-#: code:addons/website_sale_stock/static/src/js/product/product.xml:0
-msgid "Out of stock"
-msgstr "Nije na zalihi"
-
-#. module: website_sale_stock
-#: model:ir.model,name:website_sale_stock.model_product_combo
-msgid "Product Combo"
-msgstr "Kombo proizvoda"
-
-#. module: website_sale_stock
-#: model:ir.model,name:website_sale_stock.model_product_feed
-msgid "Product Feed"
-msgstr "Feed proizvoda"
-
-#. module: website_sale_stock
-#: model:ir.model,name:website_sale_stock.model_product_ribbon
-msgid "Product ribbon"
-msgstr "Traka proizvoda"
-
-#. module: website_sale_stock
-#: model:ir.model.fields,field_description:website_sale_stock.field_product_product__allow_out_of_stock_order
-msgid "Sell when Out-of-Stock"
-msgstr "Prodaj kada nema na zalihi"
-
-#. module: website_sale_stock
-#: model_terms:ir.ui.view,arch_db:website_sale_stock.res_config_settings_view_form
-msgid "Show Available Quantity"
-msgstr "Prikaži dostupnu količinu"
-
-#. module: website_sale_stock
-#: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:0
-msgid "We'll notify you once the product is back in stock"
-msgstr "Obavijestit ćemo vas kada proizvod ponovo bude na zalihi"
-
-#. module: website_sale_stock
-#: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:0
-msgid "You already added all the available product in your cart"
-msgstr "Već ste dodali sve dostupne proizvode u svoju korpu"
-
-#. module: website_sale_stock
-#: code:addons/website_sale_stock/models/sale_order.py:0
-msgid ""
-"You ask for %(desired_qty)s products but only %(available_qty)s is "
-"available."
-msgstr ""
-"Tražite %(desired_qty)s proizvoda, ali samo %(available_qty)s je dostupno."
-
-#. module: website_sale_stock
-#: model_terms:ir.ui.view,arch_db:website_sale_stock.product_template_form_view_inherit_website_sale_stock
-msgid "e.g. 'Will be back soon'"
-msgstr "npr. 'Uskoro dolazi'"
-
-#. module: website_sale_stock
-#: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:0
-msgid "in stock"
-msgstr "na zalihi"
-
-#. module: website_sale_stock
-#: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:0
-msgid "in your cart)"
-msgstr "u vašoj korpi)"
-
-#. module: website_sale_stock
-#: model:ir.model.fields.selection,name:website_sale_stock.selection__product_ribbon__assign__out_of_stock
-msgid "when out of stock"
-msgstr "kada nema na zalihi"
-
-#. module: website_sale_stock
-#: model:ir.model.fields,field_description:website_sale_stock.field_delivery_carrier__publish_on
-msgid "Auto publish on"
-msgstr ""
-
-#. module: website_sale_stock
-#: model:ir.model.fields,help:website_sale_stock.field_delivery_carrier__publish_on
-msgid "Automatically publish the page on the chosen date and time."
-msgstr ""
-
-#. module: website_sale_stock
-#: model:ir.model.fields,field_description:website_sale_stock.field_delivery_carrier__can_publish
-msgid "Can Publish"
-msgstr ""
-
-#. module: website_sale_stock
-#: model_terms:ir.ui.view,arch_db:website_sale_stock.pickup_delivery_method
-msgid "Change location"
-msgstr ""
-
-#. module: website_sale_stock
-#: code:addons/website_sale_stock/static/src/js/location_selector/location_selector_dialog/location_selector_dialog.js:0
-msgid "Choose a pick-up point"
-msgstr ""
-
-#. module: website_sale_stock
-#: code:addons/website_sale_stock/static/src/js/location_selector/location_selector_dialog/location_selector_dialog.xml:0
-msgid "Choose this location"
-msgstr ""
-
-#. module: website_sale_stock
-#: code:addons/website_sale_stock/static/src/js/location_selector/location_schedule/location_schedule.js:0
-msgid "Closed"
-msgstr ""
-
-#. module: website_sale_stock
-#: model:ir.model,name:website_sale_stock.model_res_partner
-msgid "Contact"
-msgstr "Kontakt"
-
-#. module: website_sale_stock
-#: model:ir.model,website_form_label:website_sale_stock.model_res_partner
-msgid "Create a Customer"
-msgstr "Kreirajte kupca"
-
-#. module: website_sale_stock
-#: model:ir.model,name:website_sale_stock.model_delivery_carrier
-msgid "Delivery Method"
-msgstr ""
-
-#. module: website_sale_stock
-#: model:ir.model,name:website_sale_stock.model_choose_delivery_carrier
-msgid "Delivery Method Selection Wizard"
-msgstr ""
-
-#. module: website_sale_stock
-#: model:ir.model.fields,field_description:website_sale_stock.field_delivery_carrier__is_published
-msgid "Is Published"
-msgstr ""
-
-#. module: website_sale_stock
-#: code:addons/website_sale_stock/static/src/js/location_selector/location_selector_dialog/location_selector_dialog.xml:0
-msgid "List view"
-msgstr ""
-
-#. module: website_sale_stock
-#: code:addons/website_sale_stock/static/src/js/location_selector/location_selector_dialog/location_selector_dialog.xml:0
-msgid "Loading..."
-msgstr ""
-
-#. module: website_sale_stock
-#: code:addons/website_sale_stock/static/src/js/location_selector/location_selector_dialog/location_selector_dialog.xml:0
-msgid "Map view"
-msgstr ""
-
-#. module: website_sale_stock
-#: code:addons/website_sale_stock/models/delivery_carrier.py:0
-msgid "No pick-up points are available for this delivery address."
-msgstr ""
-
-#. module: website_sale_stock
-#: code:addons/website_sale_stock/static/src/js/location_selector/location_selector_dialog/location_selector_dialog.xml:0
-msgid "No result"
-msgstr ""
-
-#. module: website_sale_stock
-#: code:addons/website_sale_stock/static/src/js/location_selector/location/location.js:0
-msgid "Opening hours"
-msgstr ""
-
-#. module: website_sale_stock
-#: model:ir.model.fields,field_description:website_sale_stock.field_res_partner__pickup_delivery_method_id
-msgid "Pickup Delivery Method"
-msgstr ""
-
-#. module: website_sale_stock
-#: code:addons/website_sale_stock/static/src/js/location_selector/location_selector_dialog/location_selector_dialog.js:0
-msgid "Pickup Location"
-msgstr ""
-
-#. module: website_sale_stock
-#: model:ir.model.fields,field_description:website_sale_stock.field_choose_delivery_carrier__partner_shipping_id
-msgid "Pickup Point"
-msgstr ""
-
-#. module: website_sale_stock
-#: model_terms:ir.ui.view,arch_db:website_sale_stock.pickup_address_on_checkout
-msgid "Pickup point"
-msgstr ""
-
-#. module: website_sale_stock
-#: code:addons/website_sale_stock/wizard/choose_delivery_carrier.py:0
-msgid "Please select a pickup point before adding a delivery method"
-msgstr ""
-
-#. module: website_sale_stock
-#: model:ir.model.fields,field_description:website_sale_stock.field_delivery_carrier__published_date
-msgid "Published date"
-msgstr ""
-
-#. module: website_sale_stock
-#: model:ir.model.fields,help:website_sale_stock.field_delivery_carrier__website_id
-msgid "Restrict to a specific website."
-msgstr ""
-
-#. module: website_sale_stock
-#: code:addons/website_sale_stock/static/src/js/location_selector/location_selector_dialog/location_selector_dialog.xml:0
-msgid "Search"
-msgstr "Pretraži"
-
-#. module: website_sale_stock
-#: model_terms:ir.ui.view,arch_db:website_sale_stock.pickup_delivery_method
-msgid "Select a location"
-msgstr ""
-
-#. module: website_sale_stock
-#: model:ir.model.fields,field_description:website_sale_stock.field_choose_delivery_carrier__is_pickup_required
-msgid "Support Pickup Locations"
-msgstr ""
-
-#. module: website_sale_stock
-#: model:ir.model.fields,help:website_sale_stock.field_res_partner__pickup_delivery_method_id
-msgid "The delivery method that generated this pickup point."
-msgstr ""
-
-#. module: website_sale_stock
-#: model:ir.model.fields,help:website_sale_stock.field_delivery_carrier__website_absolute_url
-msgid "The full absolute URL to access the document through the website."
-msgstr ""
-
-#. module: website_sale_stock
-#: model:ir.model.fields,help:website_sale_stock.field_delivery_carrier__website_url
-msgid "The full relative URL to access the document through the website."
-msgstr ""
-
-#. module: website_sale_stock
-#: code:addons/website_sale_stock/static/src/js/location_selector/map_container/map_container.js:0
-msgid "There was an error loading the map"
-msgstr ""
-
-#. module: website_sale_stock
-#: model:ir.model.fields,field_description:website_sale_stock.field_delivery_carrier__website_published
-msgid "Visible on current website"
-msgstr ""
-
-#. module: website_sale_stock
-#: model:ir.model.fields,field_description:website_sale_stock.field_delivery_carrier__website_absolute_url
-msgid "Website Absolute URL"
-msgstr ""
-
-#. module: website_sale_stock
-#: model:ir.model.fields,field_description:website_sale_stock.field_delivery_carrier__website_url
-msgid "Website URL"
-msgstr ""
-
-#. module: website_sale_stock
-#: code:addons/website_sale_stock/models/stock_picking.py:0
-msgid "You must select a pickup address with this delivery method."
-msgstr ""
-
-#. module: website_sale_stock
-#: code:addons/website_sale_stock/static/src/js/location_selector/location_selector_dialog/location_selector_dialog.xml:0
-msgid "Your postal code"
 msgstr ""
